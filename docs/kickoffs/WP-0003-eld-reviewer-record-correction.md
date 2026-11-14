@@ -1,0 +1,22 @@
+# WP-0003 / 004: Correct and reconcile the independent review record
+
+Status: RELEASED after this binding and coordinator /003 are published. Supply their exact release revision to a fresh Carbon/high conversation after the preceding review turn has ended. This is bounded correction of the same non-author review, not application implementation.
+
+- Stable ID: eld-reviewer. Selected model: agy.exe gemini-4-carbon-high / high. Disclose fresh session identity and prior reviewer session c620ad03-d6f7-41d8-9040-d0641014ad46; neither authored application code.
+- Repository: https://github.com/jackgumpe/eledgercare, PRIVATE.
+- Owned branch/worktree: review/wp-0003-durable-intake; C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-reviewer-f1.
+- Full clean execution base and previous review publication: 561675ed3de030c616b2d836bf0ebd30e811a543.
+- Prior review deliverable: 9cfb43b0aceeb2695fb4b126a1b698fffbeb65b0. Both prior evidence files and the /002 report are immutable.
+- Frozen application: e3117ec2aa11a78359a754cfe52ef3ece6c1733f; author evidence 6691aaab848263e2f8326a491a9647d239119865; author report 418804b54e691d91851143191d2c95847036abef.
+- Accepted design: bce84931fef5cf2a8fa3652095dbea2973a19aef; independent design closure 6722ff0eb8fdfa3b4fd17a9d0024c90c7bc98449.
+- Canonical reservation: INDEX.md WP-0003 / 004 at the supplied coordinator release, superseding stale base routing without merging coordinator files.
+- Exact report: docs/agent-reports/eld-reviewer/WP-0003/004_2026-11-14_review_eld-reviewer.md.
+- Next owner: eld-coordinator /005 final disposition and integration, or bounded responsible-author correction if a real code defect emerges.
+
+Read AGENTS/reporting rules, the exact current reservation, docs/coordination/WP-0003-review-receipt.md and coordinator /003 at the supplied release. Inspect the original accepted contract/closure, actual frozen source, the prior review and actual local executed evidence. Resolve all RR-01..03 and audit the entire review for factual errors, not only the examples. Produce a replacement complete evidence summary/matrix in the new correction directory, explicitly superseding erroneous portions while preserving original publications. Validate every source reference and exact criterion ID. Derive environment/dependency versions and test counts from actual observations/locks; do not reuse stale summary values. Reassess PDF-guard behavior and claims against actual source. A passing suite does not excuse a fictional source map.
+
+The preceding independent review actually ran 52 .NET tests, six frozen browser checks, SQL/provenance/fixture checks, restart smoke and reported two extra reviewer browser checks. Its .scratch/reviewer-f1/ and .scratch/extra-browser/ artifacts, if present, are prior reviewer evidence and may be read with attribution. Inspect actual paths; do not assume a location exists. The prior dispatch JSONL contains tool metadata/results: step 125 records actual tool versions. Extract only relevant tool execution evidence; do not publish private raw conversation content. Reuse sound results on the unchanged candidate rather than rerunning complete suites for documentation changes. If a new unresolved concern requires focused execution, use the original kickoff's owned-resource limits: PG 55433, API 5180, UI 4200, checked free before use; all credentials/packages/output remain worktree-local and ignored. Prior cluster was stopped and ports released. Do not start unrelated services or terminate another owner's process.
+
+Allowed tracked additions only: docs/reviews/WP-0003/eld-reviewer/record-correction/** and the exact /004 report. Do not edit old reviews/reports, application/setup/fixture/package/design source, INDEX/CURRENT, R&D or another worktree. No additional agents, global changes, model/GPU work, customer data or deployment. Keep the application source identical to the frozen candidate. Publish compact reproducible support for changed factual claims, plus actual verification of new file/symbol references and criterion mapping. Distinguish reused execution from fresh checks and preserve all known limitations.
+
+Commit corrected review deliverables before the canonical /004 report, push only review/wp-0003-durable-intake normally and verify origin. Return RR-01..03 disposition, accepted or changes-requested on exact F1, full deliverable/report SHAs, complete inventory, checks/effects and remaining limits. Coordinator acceptance is pending this accurate record; do not implement production fixes as reviewer.
