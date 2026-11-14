@@ -1,20 +1,21 @@
 # WP-0003 / 001: Opus reproducible scaffold and durable intake
 
-Status: FULLY PREPARED, **HELD / NOT STARTED**. Do not execute implementation or dependency setup from this assignment until eld-coordinator records Carbon's acceptance/disposition of the exact WP-0002 design. If the reviewed design changes, the coordinator must refresh this full base and kickoff before release.
+Status: RELEASED by eld-coordinator after independent Carbon acceptance of exact corrected design bce84931fef5cf2a8fa3652095dbea2973a19aef in WP-0002 / 004, publication 6722ff0eb8fdfa3b4fd17a9d0024c90c7bc98449. All SB-01..03 are closed; BIC-01..06 and DI-01..08 remain execution obligations. Coordinator WP-0002 / 005 records disposition; its separately delivered release revision binds this kickoff and supersedes stale held routing at the worker base. A release is not a claim that implementation already ran.
 
 - Stable ID: eld-implementer.
-- Requested model: Opus via the existing Claude CLI if available. Record actual model/effort/session/provider from exposed execution metadata; a CLI alias does not prove backend identity.
+- Selected launcher/model/effort: existing Antigravity agy.exe, claude-opus-5-5-high, high, in a NEW application-implementation conversation. Record actual model/effort/session/provider from exposed execution metadata; a CLI alias does not prove backend identity. Do not resume either Carbon conversation.
 - Repository: https://github.com/jackgumpe/eledgercare, PRIVATE.
 - Owned branch: feature/wp-0003-durable-intake.
 - Owned worktree: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-implementer.
-- Full prepared base/design candidate: e90c71817bc793dfbfc7576006be3cbf0b4310bf.
+- Full execution base/accepted design candidate: bce84931fef5cf2a8fa3652095dbea2973a19aef. The unused clean worktree is fast-forwarded from e90c71817bc793dfbfc7576006be3cbf0b4310bf before dispatch; verify this exact base. Accepted design blob: 18476f0c0f1fa7b0f1db99d4404a6ac30085c572.
+- Independent review evidence/report: 04b08ed3a04daa17f32624878bd5051153b3b801 / 6722ff0eb8fdfa3b4fd17a9d0024c90c7bc98449, docs/agent-reports/eld-reviewer/WP-0002/004_2026-11-14_review_eld-reviewer.md. Read that exact report and carry every bounded implementation check forward.
 - Canonical reservation: coordinator INDEX.md, WP-0003 / 001; this externally delivered kickoff supersedes stale routing at the base.
 - Exact report: docs/agent-reports/eld-implementer/WP-0003/001_2026-11-14_implementation_eld-implementer.md.
 - Next reviewer: eld-reviewer / Carbon, WP-0003 / 002, in a different worktree/cluster on a subsequently frozen product candidate.
 
 Read AGENTS.md, START_HERE.md, the coordinator's release disposition, docs/design/F1-durable-intake.md, its dependency metadata, kit 01/02 and the report template. Do not begin from an old product checkout or read another team's unrelated sources.
 
-Objective after release: build the one production .NET solution, Angular shell, explicit PostgreSQL setup/migrations and the reviewed F1 behavior. First freeze reproducible dependency/setup choices, then implement durable intake. Fulfil DI-01 through DI-08 author-side evidence; DI-08 independent acceptance belongs to Carbon, never to you.
+Objective: build the one production .NET solution, Angular shell, explicit PostgreSQL setup/migrations and the reviewed F1 behavior. First freeze reproducible dependency/setup choices, then implement durable intake. Fulfil DI-01 through DI-08 author-side evidence; DI-08 independent acceptance belongs to Carbon, never to you. Complete the implementation and publish the evidence/report in this assignment; do not stop at scaffold or a plan. Push meaningful milestones early, as Jack requested, while keeping final acceptance tied to a frozen actual code candidate.
 
 Allowed product paths: ELedgerCare.slnx, global.json, Directory.Build.props, Directory.Packages.props, NuGet.Config, .editorconfig, .config/dotnet-tools.json, source dependency locks, src/**, web/**, tests/**, deploy/**, contracts/**, workers/ocr/README.md, evaluation/product-smoke/**, docs/product/**, docs/evidence/WP-0003/eld-implementer/**, your exact report, README.md setup guidance and narrowly needed .gitignore entries. No AGENTS.md/START_HERE.md/INDEX.md/CURRENT.md changes, reviewed-design rewrites, research/** edits, R&D evaluation/corpus edits or other authors' reports. Notify the coordinator when scope or a substantive design/pin correction is needed.
 
