@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "generation_mode": "declarative_literal_v1",
+  "seed": null,
+  "family_id": "F02",
+  "fixture_prefix": "SYN-WO-02",
+  "doc_kind": "work_order",
+  "split": "dev",
+  "page_count": 1,
+  "signed_skew_degrees": -3.0,
+  "hybrid_control": {
+    "fixture_id": "SYN-WO-02-v3-hybrid-note",
+    "target_page": 1,
+    "box_pt": [40, 62, 340, 108],
+    "raster_dpi": 300,
+    "field_id": "hybrid_field_addendum",
+    "label": "RASTER FIELD ADDENDUM",
+    "printed_text": "FIELD ADDENDUM: RISER VALVE VLV-02B TAGGED CLOSED",
+    "normalized_value": "FIELD ADDENDUM: RISER VALVE VLV-02B TAGGED CLOSED",
+    "purpose": "Counterexample proving <15% page-area embedded raster XObjects (~2.8% page area) can carry critical maintenance state absent from PDF BT..ET text streams."
+  },
+  "banner": {
+    "organization": "MAPLE RIDGE COMMONS ASSET OPERATIONS",
+    "document_title": "UNIT TURNOVER & PLUMBING TICKET",
+    "subtitle": "Boxed Grid Field Ticket - Vacant Unit Make-Ready",
+    "contact_line": "815 Maple Ridge Dr, Downers Grove, IL 60515 | Maint Desk: 555-0152 | ops@mapleridge.example"
+  },
+  "header_columns": [
+    {
+      "group_title": "TICKET & ASSET IDENTIFICATION",
+      "fields": [
+        {"field_id": "work_order_id", "label": "Ticket Number", "value_type": "identifier", "printed_text": "WO-004815", "normalized_value": "WO-004815", "is_absent": false},
+        {"field_id": "property_unit", "label": "Property / Unit", "value_type": "identifier", "printed_text": "Maple Ridge Commons - Unit 12B", "normalized_value": "Maple Ridge Commons - Unit 12B", "is_absent": false},
+        {"field_id": "equipment_asset_tag", "label": "Water Heater Asset Tag", "value_type": "identifier", "printed_text": "WH-40G-8821", "normalized_value": "WH-40G-8821", "is_absent": false},
+        {"field_id": "lockbox_key_code", "label": "Lockbox / Key Code", "value_type": "identifier", "printed_text": "LBX-0942", "normalized_value": "LBX-0942", "is_absent": false}
+      ]
+    },
+    {
+      "group_title": "SLA TIMESTAMPS & ESCALATION",
+      "fields": [
+        {"field_id": "reported_at", "label": "Reported UTC", "value_type": "text", "printed_text": "2026-10-19 07:30", "normalized_value": "2026-10-19 07:30", "is_absent": false},
+        {"field_id": "dispatched_at", "label": "Dispatched UTC", "value_type": "text", "printed_text": "2026-10-19 08:05", "normalized_value": "2026-10-19 08:05", "is_absent": false},
+        {"field_id": "completed_at", "label": "Completed UTC", "value_type": "text", "printed_text": "2026-10-19 11:20", "normalized_value": "2026-10-19 11:20", "is_absent": false},
+        {"field_id": "secondary_vendor_po", "label": "Secondary Vendor PO", "value_type": "identifier", "printed_text": "", "normalized_value": null, "is_absent": true}
+      ]
+    }
+  ],
+  "checkbox_strip": [
+    {"field_id": "unit_vacant", "label": "Occupancy: Vacant", "printed_text": "[X]", "normalized_value": "true"},
+    {"field_id": "water_isolated", "label": "Branch Isolation Tested", "printed_text": "[X]", "normalized_value": "true"},
+    {"field_id": "drywall_damage", "label": "Subfloor / Drywall Wet", "printed_text": "[ ]", "normalized_value": "false"}
+  ],
+  "prose_blocks": [
+    {
+      "field_id": "root_cause_findings",
+      "label": "ROOT CAUSE DIAGNOSTIC NOTES",
+      "page_number": 1,
+      "printed_text": "During vacant turnover walkthrough in Unit 12B, observed slow drip (approx. 1 drop/10 sec) at cold-water dielectric union above 40-gallon tank WH-40G-8821 and seized quarter-turn angle stop beneath kitchen sink. Catch pan contained 0.4 L standing water; utility closet vinyl floor dry.",
+      "normalized_value": "During vacant turnover walkthrough in Unit 12B, observed slow drip (approx. 1 drop/10 sec) at cold-water dielectric union above 40-gallon tank WH-40G-8821 and seized quarter-turn angle stop beneath kitchen sink. Catch pan contained 0.4 L standing water; utility closet vinyl floor dry."
+    },
+    {
+      "field_id": "corrective_resolution",
+      "label": "CORRECTIVE WORK PERFORMED",
+      "page_number": 1,
+      "printed_text": "Depressurized domestic branch line, replaced corroded 3/4 in dielectric union washer and braided stainless supply flex on WH-40G-8821, installed new 1/2x3/8 compression quarter-turn stop under kitchen sink, and hydrostatic-tested at 68 PSI for 30 minutes with zero seepage.",
+      "normalized_value": "Depressurized domestic branch line, replaced corroded 3/4 in dielectric union washer and braided stainless supply flex on WH-40G-8821, installed new 1/2x3/8 compression quarter-turn stop under kitchen sink, and hydrostatic-tested at 68 PSI for 30 minutes with zero seepage."
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "turnover_tasks",
+      "title": "PLUMBING TURNOVER TASK VERIFICATION GRID",
+      "page_numbers": [1],
+      "columns": [
+        {"col_id": "task_code", "header": "Task Code", "width_pt": 85, "align": "left", "value_type": "identifier"},
+        {"col_id": "fixture_area", "header": "Fixture / Area", "width_pt": 135, "align": "left", "value_type": "text"},
+        {"col_id": "action_taken", "header": "Action Performed", "width_pt": 222, "align": "left", "value_type": "text"},
+        {"col_id": "pressure_psi", "header": "Test PSI", "width_pt": 90, "align": "right", "value_type": "text"}
+      ],
+      "rows": [
+        {
+          "row_id": "TK01",
+          "page_number": 1,
+          "cells": {
+            "task_code": {"printed_text": "PLM-0104", "normalized_value": "PLM-0104"},
+            "fixture_area": {"printed_text": "Utility Closet WH", "normalized_value": "Utility Closet WH"},
+            "action_taken": {"printed_text": "Replaced 3/4 in dielectric union & flex", "normalized_value": "Replaced 3/4 in dielectric union & flex"},
+            "pressure_psi": {"printed_text": "68.0 PSI", "normalized_value": "68.0 PSI"}
+          }
+        },
+        {
+          "row_id": "TK02",
+          "page_number": 1,
+          "cells": {
+            "task_code": {"printed_text": "PLM-0209", "normalized_value": "PLM-0209"},
+            "fixture_area": {"printed_text": "Kitchen Base Sink", "normalized_value": "Kitchen Base Sink"},
+            "action_taken": {"printed_text": "Replaced cold angle stop & supply riser", "normalized_value": "Replaced cold angle stop & supply riser"},
+            "pressure_psi": {"printed_text": "68.0 PSI", "normalized_value": "68.0 PSI"}
+          }
+        },
+        {
+          "row_id": "TK03",
+          "page_number": 1,
+          "cells": {
+            "task_code": {"printed_text": "PLM-0311", "normalized_value": "PLM-0311"},
+            "fixture_area": {"printed_text": "Hall Bath Tub/Lav", "normalized_value": "Hall Bath Tub/Lav"},
+            "action_taken": {"printed_text": "Cleared aerator & verified drain trap seal", "normalized_value": "Cleared aerator & verified drain trap seal"},
+            "pressure_psi": {"printed_text": "67.5 PSI", "normalized_value": "67.5 PSI"}
+          }
+        }
+      ]
+    }
+  ],
+  "signoff_fields": [
+    {"field_id": "technician_name", "label": "Lead Plumber", "value_type": "text", "printed_text": "Tomasz Kowalski (#0043)", "normalized_value": "Tomasz Kowalski (#0043)", "is_absent": false},
+    {"field_id": "supervisor_name", "label": "Turnover Supervisor", "value_type": "text", "printed_text": "R. Henderson", "normalized_value": "R. Henderson", "is_absent": false},
+    {"field_id": "ticket_disposition", "label": "Disposition", "value_type": "text", "printed_text": "READY FOR MAKE-READY PAINT", "normalized_value": "READY FOR MAKE-READY PAINT", "is_absent": false}
+  ]
+}

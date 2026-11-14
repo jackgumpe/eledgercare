@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "generation_mode": "declarative_literal_v1",
+  "seed": null,
+  "family_id": "F04",
+  "fixture_prefix": "SYN-INV-01",
+  "doc_kind": "invoice",
+  "split": "dev",
+  "page_count": 1,
+  "signed_skew_degrees": -3.0,
+  "hybrid_control": null,
+  "banner": {
+    "vendor_name": "SUMMIT DRAIN & PIPE SERVICES LLC",
+    "document_title": "COMMERCIAL MAINTENANCE INVOICE",
+    "vendor_contact": "1920 Industrial Way, Unit D, Lombard, IL 60148 | Tel: 555-0133 | billing@summitdrain.example"
+  },
+  "address_blocks": [
+    {
+      "block_id": "bill_to",
+      "title": "BILL TO",
+      "lines": [
+        "Cedar Hollow Property Management LLC",
+        "Accounts Payable - Suite 110",
+        "2400 Cedar Hollow Pkwy, Oakbrook, IL 60523"
+      ]
+    },
+    {
+      "block_id": "service_location",
+      "title": "SERVICE LOCATION",
+      "lines": [
+        "Cedar Hollow Apartments",
+        "Bldg B - Main Stack & Unit 104 Cleanout",
+        "2412 Cedar Hollow Pkwy, Oakbrook, IL 60523"
+      ]
+    }
+  ],
+  "header_fields": [
+    {"field_id": "invoice_number", "label": "Invoice No", "value_type": "identifier", "printed_text": "INV-002641", "normalized_value": "INV-002641", "is_absent": false},
+    {"field_id": "work_order_ref", "label": "Work Order Ref", "value_type": "identifier", "printed_text": "WO-004118", "normalized_value": "WO-004118", "is_absent": false},
+    {"field_id": "invoice_date", "label": "Invoice Date", "value_type": "date_iso", "printed_text": "2026-10-18", "normalized_value": "2026-10-18", "is_absent": false},
+    {"field_id": "due_date", "label": "Due Date", "value_type": "date_iso", "printed_text": "2026-11-17", "normalized_value": "2026-11-17", "is_absent": false},
+    {"field_id": "payment_terms", "label": "Terms", "value_type": "text", "printed_text": "Net 30", "normalized_value": "Net 30", "is_absent": false},
+    {"field_id": "customer_po_code", "label": "Customer PO / CapEx Code", "value_type": "identifier", "printed_text": "", "normalized_value": null, "is_absent": true}
+  ],
+  "accounting_spec": {
+    "convention": "eledgercare_synthetic_decimal_round_half_up_v1",
+    "currency": "USD",
+    "printed_rule_notice": "Basis: Line Gross = round_half_up(Qty * Unit Price, 0.01); Net Line = Gross - round_half_up(Gross * Disc%, 0.01); Sales Tax (6.25%) applies ONLY to net rows marked Tax=T; Labor rows (Tax=N) are exempt.",
+    "tax_rate": "0.0625",
+    "tax_rate_printed": "6.25%",
+    "previous_balance": "0.00",
+    "payments_credits_applied": "0.00",
+    "fees": [],
+    "line_items": [
+      {
+        "row_id": "L01",
+        "page_number": 1,
+        "sku": "LAB-DRN-AUG",
+        "description": "Emergency Main Drain Auger & Camera Clearing Labor",
+        "quantity": "1.50",
+        "unit": "HR",
+        "unit_price": "95.00",
+        "discount_rate": "0.0000",
+        "is_taxable": false
+      },
+      {
+        "row_id": "L02",
+        "page_number": 1,
+        "sku": "LAB-DRN-TST",
+        "description": "Secondary Trap Hydro-Flush & Standing Column Leak Test",
+        "quantity": "1.00",
+        "unit": "HR",
+        "unit_price": "65.00",
+        "discount_rate": "0.0000",
+        "is_taxable": false
+      },
+      {
+        "row_id": "L03",
+        "page_number": 1,
+        "sku": "0034-PVC-2IN",
+        "description": "Schedule 40 PVC Cleanout Tee Assembly w/ Threaded Plug",
+        "quantity": "2.00",
+        "unit": "EA",
+        "unit_price": "18.40",
+        "discount_rate": "0.0000",
+        "is_taxable": true
+      },
+      {
+        "row_id": "L04",
+        "page_number": 1,
+        "sku": "0091-WAX-HD",
+        "description": "Reinforced Closet Flange Ring & Solid Brass Bolt Kit",
+        "quantity": "1.00",
+        "unit": "KT",
+        "unit_price": "42.75",
+        "discount_rate": "0.0000",
+        "is_taxable": true
+      }
+    ]
+  },
+  "remittance_note": "Remit ACH or check referencing Invoice INV-002641 to Summit Drain & Pipe Services LLC."
+}

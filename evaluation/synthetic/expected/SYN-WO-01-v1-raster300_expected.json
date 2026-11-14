@@ -1,0 +1,325 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "SYN-WO-01-v1-raster300",
+  "family_id": "F01",
+  "doc_kind": "work_order",
+  "split": "dev",
+  "split_disclosure": "fixed_test_partition_not_blind_to_corpus_author",
+  "variant_kind": "v1_raster300",
+  "parent_fixture_id": "SYN-WO-01-v0-clean",
+  "page_count": 1,
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": [],
+  "expected_routing_for_e3": "must_route_to_ocr",
+  "transform_params": {
+    "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+    "dpi": 300,
+    "pixel_size_per_page": [
+      2550,
+      3301
+    ],
+    "text_layer": false,
+    "rotation_deg": 0.0
+  },
+  "expected_fields": [
+    {
+      "field_id": "work_order_id",
+      "label_printed": "Work Order ID",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "WO-004192",
+      "normalized_value": "WO-004192",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "property_name",
+      "label_printed": "Property",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Cedar Hollow Apartments",
+      "normalized_value": "Cedar Hollow Apartments",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "building_unit",
+      "label_printed": "Building / Unit",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "Bldg B - Unit 204",
+      "normalized_value": "Bldg B - Unit 204",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "requested_date",
+      "label_printed": "Requested Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-10-16",
+      "normalized_value": "2026-10-16",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "trade_category",
+      "label_printed": "Trade Category",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "HVAC - Cooling / Heat Pump",
+      "normalized_value": "HVAC - Cooling / Heat Pump",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "assigned_tech",
+      "label_printed": "Assigned Technician",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Marcus Vance (Tech #0087)",
+      "normalized_value": "Marcus Vance (Tech #0087)",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "resident_contact",
+      "label_printed": "Resident Contact",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Elena Rostova (555-0184)",
+      "normalized_value": "Elena Rostova (555-0184)",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "priority_urgent",
+      "label_printed": "Priority: Urgent",
+      "page_number": 1,
+      "value_type": "boolean_mark",
+      "printed_text": "[X]",
+      "normalized_value": "true",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "permission_to_enter",
+      "label_printed": "Permission to Enter: Yes",
+      "page_number": 1,
+      "value_type": "boolean_mark",
+      "printed_text": "[X]",
+      "normalized_value": "true",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "pets_on_premises",
+      "label_printed": "Pets on Premises: No",
+      "page_number": 1,
+      "value_type": "boolean_mark",
+      "printed_text": "[ ]",
+      "normalized_value": "false",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "utility_shutoff_req",
+      "label_printed": "Main Utility Shutoff",
+      "page_number": 1,
+      "value_type": "boolean_mark",
+      "printed_text": "[ ]",
+      "normalized_value": "false",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "reported_issue_and_resolution",
+      "label_printed": "REPORTED SYMPTOM & TECHNICIAN RESOLUTION SUMMARY",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+      "normalized_value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "completion_status",
+      "label_printed": "Work Order Status",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "COMPLETED - VERIFIED",
+      "normalized_value": "COMPLETED - VERIFIED",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "completed_timestamp",
+      "label_printed": "Completed Timestamp",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "2026-10-16 10:45",
+      "normalized_value": "2026-10-16 10:45",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "supervisor_signoff",
+      "label_printed": "Supervisor Review",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "D. Callahan",
+      "normalized_value": "D. Callahan",
+      "bbox_pt": null
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "tenant_callback_notes",
+      "label_printed": "Tenant Callback Notes",
+      "page_number": 1,
+      "expected_state": "absent_blank"
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "labor_log",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "log_id",
+        "tech_id",
+        "work_date",
+        "time_in",
+        "time_out",
+        "hours",
+        "activity"
+      ],
+      "rows": [
+        {
+          "row_id": "T01",
+          "page_number": 1,
+          "cells": {
+            "log_id": {
+              "printed_text": "LB-01",
+              "normalized_value": "LB-01",
+              "value_type": "identifier"
+            },
+            "tech_id": {
+              "printed_text": "TECH-0087",
+              "normalized_value": "TECH-0087",
+              "value_type": "identifier"
+            },
+            "work_date": {
+              "printed_text": "2026-10-16",
+              "normalized_value": "2026-10-16",
+              "value_type": "date_iso"
+            },
+            "time_in": {
+              "printed_text": "09:15",
+              "normalized_value": "09:15",
+              "value_type": "text"
+            },
+            "time_out": {
+              "printed_text": "10:45",
+              "normalized_value": "10:45",
+              "value_type": "text"
+            },
+            "hours": {
+              "printed_text": "1.50",
+              "normalized_value": "1.50",
+              "value_type": "decimal_2"
+            },
+            "activity": {
+              "printed_text": "HVAC-DIAG-RPR",
+              "normalized_value": "HVAC-DIAG-RPR",
+              "value_type": "identifier"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "table_id": "stock_parts",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "rows": [
+        {
+          "row_id": "P01",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "CAP-45-5MFD-440V",
+              "normalized_value": "CAP-45-5MFD-440V",
+              "value_type": "identifier"
+            },
+            "part_desc": {
+              "printed_text": "Oval Dual Run Capacitor 45/5 uF 440VAC",
+              "normalized_value": "Oval Dual Run Capacitor 45/5 uF 440VAC",
+              "value_type": "text"
+            },
+            "bin_loc": {
+              "printed_text": "VAN-03-B2",
+              "normalized_value": "VAN-03-B2",
+              "value_type": "identifier"
+            },
+            "qty_used": {
+              "printed_text": "1.00",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            }
+          }
+        },
+        {
+          "row_id": "P02",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "CONT-24V-2P30A",
+              "normalized_value": "CONT-24V-2P30A",
+              "value_type": "identifier"
+            },
+            "part_desc": {
+              "printed_text": "24V Coil Definite Purpose Contactor 2P 30A",
+              "normalized_value": "24V Coil Definite Purpose Contactor 2P 30A",
+              "value_type": "text"
+            },
+            "bin_loc": {
+              "printed_text": "VAN-03-C4",
+              "normalized_value": "VAN-03-C4",
+              "value_type": "identifier"
+            },
+            "qty_used": {
+              "printed_text": "1.00",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            }
+          }
+        },
+        {
+          "row_id": "P03",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "0018-TERM-QC",
+              "normalized_value": "0018-TERM-QC",
+              "value_type": "identifier"
+            },
+            "part_desc": {
+              "printed_text": "High-Temp Flag Quick-Disconnect Terminal Pack",
+              "normalized_value": "High-Temp Flag Quick-Disconnect Terminal Pack",
+              "value_type": "text"
+            },
+            "bin_loc": {
+              "printed_text": "VAN-03-A1",
+              "normalized_value": "VAN-03-A1",
+              "value_type": "identifier"
+            },
+            "qty_used": {
+              "printed_text": "4.00",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "invoice_accounting": null
+}

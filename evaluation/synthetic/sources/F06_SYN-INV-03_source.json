@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "generation_mode": "declarative_literal_v1",
+  "seed": null,
+  "family_id": "F06",
+  "fixture_prefix": "SYN-INV-03",
+  "doc_kind": "invoice",
+  "split": "eval_holdout",
+  "page_count": 1,
+  "signed_skew_degrees": -3.0,
+  "hybrid_control": null,
+  "dense_table_mode": true,
+  "banner": {
+    "vendor_name": "KEYSTONE PROPERTY TURNOVER SERVICES LLC",
+    "document_title": "MULTI-TRADE UNIT TURNOVER INVOICE",
+    "vendor_contact": "550 Keystone Trade Ctr, Evanston, IL 60201 | Tel: 555-0190 | billing@keystoneturn.example"
+  },
+  "address_blocks": [
+    {
+      "block_id": "bill_to",
+      "title": "BILL TO",
+      "lines": [
+        "Birchwood Terrace Apartments LLC",
+        "Property Accounting Office",
+        "1180 Birchwood Ave, Evanston, IL 60202"
+      ]
+    },
+    {
+      "block_id": "service_location",
+      "title": "SERVICE LOCATION",
+      "lines": [
+        "Birchwood Terrace - Unit 301 (Vacant Turn)",
+        "Turnover Job Ref: TURN-00301",
+        "1184 Birchwood Ave, Evanston, IL 60202"
+      ]
+    }
+  ],
+  "header_fields": [
+    {"field_id": "invoice_number", "label": "Invoice No", "value_type": "identifier", "printed_text": "INV-007403", "normalized_value": "INV-007403", "is_absent": false},
+    {"field_id": "turnover_job_ref", "label": "Turnover Job Ref", "value_type": "identifier", "printed_text": "TURN-00301", "normalized_value": "TURN-00301", "is_absent": false},
+    {"field_id": "invoice_date", "label": "Invoice Date", "value_type": "date_iso", "printed_text": "2026-10-24", "normalized_value": "2026-10-24", "is_absent": false},
+    {"field_id": "due_date", "label": "Due Date", "value_type": "date_iso", "printed_text": "2026-11-08", "normalized_value": "2026-11-08", "is_absent": false},
+    {"field_id": "payment_terms", "label": "Terms", "value_type": "text", "printed_text": "Net 15", "normalized_value": "Net 15", "is_absent": false},
+    {"field_id": "resident_chargeback_code", "label": "Resident Chargeback Code", "value_type": "identifier", "printed_text": "", "normalized_value": null, "is_absent": true}
+  ],
+  "accounting_spec": {
+    "convention": "eledgercare_synthetic_decimal_round_half_up_v1",
+    "currency": "USD",
+    "printed_rule_notice": "Basis: Signed credit row (L10, Tax=N) reduces Subtotal ($851.68) but NOT Taxable Subtotal ($435.68). Tax (7.00% = $30.50) applies to Tax=T rows; Non-Taxable Disposal Fee ($18.50) is added after tax.",
+    "tax_rate": "0.0700",
+    "tax_rate_printed": "7.00%",
+    "previous_balance": "0.00",
+    "payments_credits_applied": "0.00",
+    "fees": [
+      {
+        "fee_id": "FEE-ENV-01",
+        "label": "Non-Taxable Appliance & Paint Disposal Fee",
+        "amount": "18.50",
+        "is_taxable": false
+      }
+    ],
+    "line_items": [
+      {"row_id": "L01", "page_number": 1, "sku": "0019-GFCI", "description": "20A Tamper-Resistant GFCI Receptacle Ivory", "quantity": "4.00", "unit": "EA", "unit_price": "14.37", "discount_rate": "0.0000", "is_taxable": true},
+      {"row_id": "L02", "page_number": 1, "sku": "0084-TRAP", "description": "1-1/2 in Polypropylene P-Trap Slip-Joint Kit", "quantity": "6.00", "unit": "EA", "unit_price": "8.95", "discount_rate": "0.0000", "is_taxable": true},
+      {"row_id": "L03", "page_number": 1, "sku": "0107-LED", "description": "14W Flush-Mount Damp-Rated LED Ceiling Fixture", "quantity": "3.00", "unit": "EA", "unit_price": "23.65", "discount_rate": "0.0000", "is_taxable": true},
+      {"row_id": "L04", "page_number": 1, "sku": "0215-PRM", "description": "Low-VOC Stain-Blocking Interior Primer (1 Gal)", "quantity": "2.00", "unit": "GL", "unit_price": "31.45", "discount_rate": "0.0000", "is_taxable": true},
+      {"row_id": "L05", "page_number": 1, "sku": "0309-BLD", "description": "Cordless Vinyl Mini-Blind Hold-Down Bracket Set", "quantity": "5.00", "unit": "ST", "unit_price": "6.49", "discount_rate": "0.0000", "is_taxable": true},
+      {"row_id": "L06", "page_number": 1, "sku": "0412-DRL", "description": "Brushed Nickel Passage Door Lever Latch Set", "quantity": "2.00", "unit": "EA", "unit_price": "19.85", "discount_rate": "0.0000", "is_taxable": true},
+      {"row_id": "L07", "page_number": 1, "sku": "LAB-TURN-PNT", "description": "Unit 301 Drywall Patch, Prime & Trim Paint Labor", "quantity": "3.50", "unit": "HR", "unit_price": "78.00", "discount_rate": "0.0000", "is_taxable": false},
+      {"row_id": "L08", "page_number": 1, "sku": "LAB-TURN-ELP", "description": "Unit 301 Electrical & Plumbing Trim-Out Labor", "quantity": "2.00", "unit": "HR", "unit_price": "84.00", "discount_rate": "0.0000", "is_taxable": false},
+      {"row_id": "L09", "page_number": 1, "sku": "0550-DSP", "description": "1/2 HP Continuous-Feed Sound-Shield Disposer", "quantity": "1.00", "unit": "EA", "unit_price": "118.50", "discount_rate": "0.0000", "is_taxable": true},
+      {"row_id": "L10", "page_number": 1, "sku": "CRD-0550-CORE", "description": "Core Return Credit - Salvaged Disposer Housing", "quantity": "1.00", "unit": "EA", "unit_price": "-25.00", "discount_rate": "0.0000", "is_taxable": false}
+    ]
+  },
+  "remittance_note": "Payable to Keystone Property Turnover Services LLC; cite INV-007403 and TURN-00301."
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "packet": "WP-0004 / 004",
+  "recorded_by": "eld-rd-carbon",
+  "status_summary": "Both Microsoft Form Recognizer developer sample PDFs remain candidate_unadmitted. Zero public PDF bytes are copied into this repository, and neither candidate is included in WP-0004 synthetic eight-family denominators.",
+  "candidates": [
+    {
+      "candidate_id": "PUB-AZ-01",
+      "classification": "public_candidate",
+      "admission_status": "candidate_unadmitted",
+      "included_in_repo_bytes": false,
+      "origin_repository": "https://github.com/Azure-Samples/cognitive-services-REST-api-samples",
+      "origin_revision": "4a3c5ca76318feb3f7cfb109e1f79c542eb14d01",
+      "origin_path": "curl/form-recognizer/sample-invoice.pdf",
+      "git_blob_oid": "1e7c93c6f70ccd74697b7a74cbb6a19fa6d5d6d8",
+      "size_bytes": 104430,
+      "carbon_observed_sha256": "c2ce1edcbb91cf8f6685f4749a5eedcb752795e5e8f0a126f13953a0f3974f69",
+      "carbon_observed_page_count": 1,
+      "repository_license_ref": {
+        "path": "LICENSE.md",
+        "git_blob_oid": "b5f17c02bce61a15a953244b8587cb468b273644",
+        "carbon_observed_sha256": "7bfe2b013928fed5a817a3e797f01f6fca2ec6b2dcc31bbefc1b48e5c78da3ee",
+        "summary": "MIT License (Copyright Microsoft Corporation) covering repository software and documentation, with a Third Party Programs informational clause."
+      },
+      "internal_notice_observations": {
+        "observer": "eld-rd-carbon (WP-0004 / 002 read-only inspection; not replayed by eld-rd-astra in /003 or verified by non-author Opus yet)",
+        "pdf_info": "/Author (Anatoly Ponomarev), /Creator and /Producer (Microsoft Word for Microsoft 365), /CreationDate (D:20200929094453-07'00')",
+        "embedded_font_notices": "Contains subsetted Microsoft Calibri/Calibri-Bold TrueType font programs carrying standard Microsoft font EULA notices (display/print permitted; standalone font extraction/redistribution restricted) plus MIT notice for Biblical Hebrew OpenType layout logic."
+      },
+      "adjacent_json_disqualification": {
+        "adjacent_path": "curl/form-recognizer/sample-invoice-output.json",
+        "adjacent_git_blob_oid": "253706b7af3b0926f2bd6801e4c9161782302281",
+        "observable_discrepancies": [
+          "Adjacent JSON asserts ServiceStartDate=2019-10-14 (text '10/14/2019') and ServiceEndDate=2019-11-14 (text '11/14/2019'), neither of which appears in the decompressed BT..ET content stream or rendered page of blob 1e7c93c6f70ccd74697b7a74cbb6a19fa6d5d6d8.",
+          "Adjacent JSON documentResults[0].fields omits structured Items.",
+          "The PDF table row itself literally prints QUANTITY=1, UNIT PRICE=1, TOTAL=$100.00 (1 * 1 != 100.00), so literal OCR transcription truth and reconciled arithmetic diverge."
+        ],
+        "preserved_epistemic_limits": "Authoring history behind the JSON/PDF mismatch is not asserted as established fact, and legal clearance for every downstream redistribution mode is not claimed."
+      },
+      "conditions_for_any_future_admission": [
+        "Separate coordinator authorization and non-author visible-page + internal-notice verification by eld-rd-reviewer (Opus).",
+        "Retain Microsoft MIT copyright/permission notice and keep PDF intact without font extraction.",
+        "Keep in a separate external-probe stratum (never pooled into the 8-family synthetic denominator) with literal printed strings ('1', '$100.00') separated from expected arithmetic-mismatch flags."
+      ]
+    },
+    {
+      "candidate_id": "PUB-AZ-02",
+      "classification": "public_candidate",
+      "admission_status": "candidate_unadmitted",
+      "included_in_repo_bytes": false,
+      "origin_repository": "https://github.com/Azure-Samples/cognitive-services-REST-api-samples",
+      "origin_revision": "4a3c5ca76318feb3f7cfb109e1f79c542eb14d01",
+      "origin_path": "curl/form-recognizer/Invoice-6.pdf",
+      "git_blob_oid": "1c24566e64aa6cdab8bb229c3b1ac64e750fa235",
+      "size_bytes": 167063,
+      "carbon_observed_sha256": "aaaffcf69aa5485f64adf6ddec35249b0319cc8bc9e4e27bb6257d970fa97c03",
+      "carbon_observed_page_count": 1,
+      "repository_license_ref": {
+        "path": "LICENSE.md",
+        "git_blob_oid": "b5f17c02bce61a15a953244b8587cb468b273644",
+        "carbon_observed_sha256": "7bfe2b013928fed5a817a3e797f01f6fca2ec6b2dcc31bbefc1b48e5c78da3ee",
+        "summary": "MIT License (Copyright Microsoft Corporation) covering repository software and documentation, with a Third Party Programs informational clause."
+      },
+      "internal_notice_observations": {
+        "observer": "eld-rd-carbon (WP-0004 / 002 read-only inspection; not replayed by eld-rd-astra in /003 or verified by non-author Opus yet)",
+        "pdf_info": "/Author (anroth), /Producer (Microsoft: Print To PDF), /Title (Microsoft Word - Sales Receipt.docx), /CreationDate (D:20200820112834-07'00')",
+        "embedded_font_notices": "Contains subsetted CID font programs (Century Gothic, Segoe UI Symbol, Arial Bold, Haettenschweiler) with Monotype and Microsoft font EULA notices."
+      },
+      "adjacent_json_disqualification": {
+        "adjacent_path": "curl/form-recognizer/analyze-result-invoice-6.pdf.json",
+        "adjacent_git_blob_oid": "2dfff4e1af1c0b9839c734733da40b705d930674",
+        "observable_discrepancies": [
+          "Adjacent JSON uses docType 'custom:custom-form-demo' with only 6 custom fields and omits VendorName ('Contoso, Ltd.'), InvoiceDate ('9/10/2020'), CustomerAddress ('554 Magnolia Way, Walnut, WY, 98432'), SubTotal ('$10,375'), printed tax rate ('3%'), Total ('$10,686.25'), and structured line items.",
+          "Depicts corporate training delivery rather than property maintenance."
+        ],
+        "preserved_epistemic_limits": "Not verified by an uninvolved reviewer in this repository; legal clearance for every downstream redistribution mode is not claimed."
+      },
+      "conditions_for_any_future_admission": [
+        "Separate coordinator authorization and non-author visible-page + internal-notice verification by eld-rd-reviewer (Opus).",
+        "Author ground truth directly from visible PDF page inspection rather than analyze-result-invoice-6.pdf.json.",
+        "Keep in a separate out-of-domain external-probe stratum without inflating the 8-family maintenance denominator."
+      ]
+    }
+  ]
+}

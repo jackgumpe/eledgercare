@@ -1,0 +1,1035 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "SYN-INV-03-v0-clean",
+  "family_id": "F06",
+  "doc_kind": "invoice",
+  "split": "eval_holdout",
+  "split_disclosure": "fixed_test_partition_not_blind_to_corpus_author",
+  "variant_kind": "v0_clean",
+  "parent_fixture_id": null,
+  "page_count": 1,
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": [],
+  "expected_routing_for_e3": "eligible_digital_text_layer",
+  "transform_params": {
+    "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+    "dpi": null,
+    "rotation_deg": 0.0
+  },
+  "expected_fields": [
+    {
+      "field_id": "address_bill_to",
+      "label_printed": "BILL TO",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Birchwood Terrace Apartments LLC, Property Accounting Office, 1180 Birchwood Ave, Evanston, IL 60202",
+      "normalized_value": "Birchwood Terrace Apartments LLC, Property Accounting Office, 1180 Birchwood Ave, Evanston, IL 60202",
+      "bbox_pt": [
+        40.0,
+        656.0,
+        303.0,
+        710.0
+      ]
+    },
+    {
+      "field_id": "address_service_location",
+      "label_printed": "SERVICE LOCATION",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Birchwood Terrace - Unit 301 (Vacant Turn), Turnover Job Ref: TURN-00301, 1184 Birchwood Ave, Evanston, IL 60202",
+      "normalized_value": "Birchwood Terrace - Unit 301 (Vacant Turn), Turnover Job Ref: TURN-00301, 1184 Birchwood Ave, Evanston, IL 60202",
+      "bbox_pt": [
+        309.0,
+        656.0,
+        572.0,
+        710.0
+      ]
+    },
+    {
+      "field_id": "invoice_number",
+      "label_printed": "Invoice No",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "INV-007403",
+      "normalized_value": "INV-007403",
+      "bbox_pt": [
+        45.0,
+        631.5,
+        87.74,
+        639.3
+      ]
+    },
+    {
+      "field_id": "turnover_job_ref",
+      "label_printed": "Turnover Job Ref",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "TURN-00301",
+      "normalized_value": "TURN-00301",
+      "bbox_pt": [
+        222.33,
+        631.5,
+        267.73,
+        639.3
+      ]
+    },
+    {
+      "field_id": "invoice_date",
+      "label_printed": "Invoice Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-10-24",
+      "normalized_value": "2026-10-24",
+      "bbox_pt": [
+        399.67,
+        631.5,
+        438.2,
+        639.3
+      ]
+    },
+    {
+      "field_id": "due_date",
+      "label_printed": "Due Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-11-08",
+      "normalized_value": "2026-11-08",
+      "bbox_pt": [
+        45.0,
+        608.5,
+        81.5,
+        616.3
+      ]
+    },
+    {
+      "field_id": "payment_terms",
+      "label_printed": "Terms",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Net 15",
+      "normalized_value": "Net 15",
+      "bbox_pt": [
+        222.33,
+        608.5,
+        244.49,
+        616.3
+      ]
+    },
+    {
+      "field_id": "subtotal",
+      "label_printed": "Line Net Subtotal",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$851.68",
+      "normalized_value": "851.68",
+      "bbox_pt": [
+        539.64,
+        380.0,
+        566.0,
+        387.8
+      ]
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "label_printed": "Taxable Subtotal (Tax=T Rows)",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$435.68",
+      "normalized_value": "435.68",
+      "bbox_pt": [
+        537.61,
+        365.5,
+        566.0,
+        373.3
+      ]
+    },
+    {
+      "field_id": "tax_amount",
+      "label_printed": "Sales Tax (7.00% on Taxable Subtotal)",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$30.50",
+      "normalized_value": "30.50",
+      "bbox_pt": [
+        541.98,
+        351.0,
+        566.0,
+        358.8
+      ]
+    },
+    {
+      "field_id": "fee_fee_env_01",
+      "label_printed": "Non-Taxable Appliance & Paint Disposal Fee",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$18.50",
+      "normalized_value": "18.50",
+      "bbox_pt": [
+        544.0,
+        336.5,
+        566.0,
+        344.3
+      ]
+    },
+    {
+      "field_id": "invoice_total",
+      "label_printed": "CURRENT INVOICE TOTAL",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$900.68",
+      "normalized_value": "900.68",
+      "bbox_pt": [
+        535.9,
+        322.0,
+        566.0,
+        329.8
+      ]
+    },
+    {
+      "field_id": "previous_balance",
+      "label_printed": "Prior Unpaid Balance",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$0.00",
+      "normalized_value": "0.00",
+      "bbox_pt": [
+        546.34,
+        307.5,
+        566.0,
+        315.3
+      ]
+    },
+    {
+      "field_id": "payments_credits_applied",
+      "label_printed": "Payments / Credits Applied",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$0.00",
+      "normalized_value": "0.00",
+      "bbox_pt": [
+        546.34,
+        293.0,
+        566.0,
+        300.8
+      ]
+    },
+    {
+      "field_id": "amount_due",
+      "label_printed": "TOTAL AMOUNT DUE",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$900.68",
+      "normalized_value": "900.68",
+      "bbox_pt": [
+        535.9,
+        278.5,
+        566.0,
+        286.3
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "resident_chargeback_code",
+      "label_printed": "Resident Chargeback Code",
+      "page_number": 1,
+      "expected_state": "absent_blank"
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "line_items",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "rows": [
+        {
+          "row_id": "L01",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L01",
+              "normalized_value": "L01",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0019-GFCI",
+              "normalized_value": "0019-GFCI",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "20A Tamper-Resistant GFCI Receptacle Ivory",
+              "normalized_value": "20A Tamper-Resistant GFCI Receptacle Ivory",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "4.00 EA",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$14.37",
+              "normalized_value": "14.37",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$57.48",
+              "normalized_value": "57.48",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L02",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L02",
+              "normalized_value": "L02",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0084-TRAP",
+              "normalized_value": "0084-TRAP",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "1-1/2 in Polypropylene P-Trap Slip-Joint Kit",
+              "normalized_value": "1-1/2 in Polypropylene P-Trap Slip-Joint Kit",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "6.00 EA",
+              "normalized_value": "6.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$8.95",
+              "normalized_value": "8.95",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$53.70",
+              "normalized_value": "53.70",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L03",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L03",
+              "normalized_value": "L03",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0107-LED",
+              "normalized_value": "0107-LED",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "14W Flush-Mount Damp-Rated LED Ceiling Fixture",
+              "normalized_value": "14W Flush-Mount Damp-Rated LED Ceiling Fixture",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "3.00 EA",
+              "normalized_value": "3.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$23.65",
+              "normalized_value": "23.65",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$70.95",
+              "normalized_value": "70.95",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L04",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L04",
+              "normalized_value": "L04",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0215-PRM",
+              "normalized_value": "0215-PRM",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Low-VOC Stain-Blocking Interior Primer (1 Gal)",
+              "normalized_value": "Low-VOC Stain-Blocking Interior Primer (1 Gal)",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 GL",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$31.45",
+              "normalized_value": "31.45",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$62.90",
+              "normalized_value": "62.90",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L05",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L05",
+              "normalized_value": "L05",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0309-BLD",
+              "normalized_value": "0309-BLD",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Cordless Vinyl Mini-Blind Hold-Down Bracket Set",
+              "normalized_value": "Cordless Vinyl Mini-Blind Hold-Down Bracket Set",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "5.00 ST",
+              "normalized_value": "5.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$6.49",
+              "normalized_value": "6.49",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$32.45",
+              "normalized_value": "32.45",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L06",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L06",
+              "normalized_value": "L06",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0412-DRL",
+              "normalized_value": "0412-DRL",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Brushed Nickel Passage Door Lever Latch Set",
+              "normalized_value": "Brushed Nickel Passage Door Lever Latch Set",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 EA",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$19.85",
+              "normalized_value": "19.85",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$39.70",
+              "normalized_value": "39.70",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L07",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L07",
+              "normalized_value": "L07",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-TURN-PNT",
+              "normalized_value": "LAB-TURN-PNT",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 301 Drywall Patch, Prime & Trim Paint Labor",
+              "normalized_value": "Unit 301 Drywall Patch, Prime & Trim Paint Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "3.50 HR",
+              "normalized_value": "3.50",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$78.00",
+              "normalized_value": "78.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$273.00",
+              "normalized_value": "273.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L08",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L08",
+              "normalized_value": "L08",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-TURN-ELP",
+              "normalized_value": "LAB-TURN-ELP",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 301 Electrical & Plumbing Trim-Out Labor",
+              "normalized_value": "Unit 301 Electrical & Plumbing Trim-Out Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 HR",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$84.00",
+              "normalized_value": "84.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$168.00",
+              "normalized_value": "168.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L09",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L09",
+              "normalized_value": "L09",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0550-DSP",
+              "normalized_value": "0550-DSP",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "1/2 HP Continuous-Feed Sound-Shield Disposer",
+              "normalized_value": "1/2 HP Continuous-Feed Sound-Shield Disposer",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 EA",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$118.50",
+              "normalized_value": "118.50",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$118.50",
+              "normalized_value": "118.50",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L10",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L10",
+              "normalized_value": "L10",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "CRD-0550-CORE",
+              "normalized_value": "CRD-0550-CORE",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Core Return Credit - Salvaged Disposer Housing",
+              "normalized_value": "Core Return Credit - Salvaged Disposer Housing",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 EA",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "-$25.00",
+              "normalized_value": "-25.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "-$25.00",
+              "normalized_value": "-25.00",
+              "value_type": "currency_usd"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "invoice_accounting": {
+    "convention": "eledgercare_synthetic_decimal_round_half_up_v1",
+    "currency": "USD",
+    "printed_rule_notice": "Basis: Signed credit row (L10, Tax=N) reduces Subtotal ($851.68) but NOT Taxable Subtotal ($435.68). Tax (7.00% = $30.50) applies to Tax=T rows; Non-Taxable Disposal Fee ($18.50) is added after tax.",
+    "rows": [
+      {
+        "row_id": "L01",
+        "page_number": 1,
+        "sku": "0019-GFCI",
+        "description": "20A Tamper-Resistant GFCI Receptacle Ivory",
+        "quantity_norm": "4.00",
+        "unit": "EA",
+        "qty_unit_printed": "4.00 EA",
+        "unit_price_norm": "14.37",
+        "unit_price_printed": "$14.37",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "57.48",
+        "gross_line_printed": "$57.48",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "57.48",
+        "net_line_printed": "$57.48"
+      },
+      {
+        "row_id": "L02",
+        "page_number": 1,
+        "sku": "0084-TRAP",
+        "description": "1-1/2 in Polypropylene P-Trap Slip-Joint Kit",
+        "quantity_norm": "6.00",
+        "unit": "EA",
+        "qty_unit_printed": "6.00 EA",
+        "unit_price_norm": "8.95",
+        "unit_price_printed": "$8.95",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "53.70",
+        "gross_line_printed": "$53.70",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "53.70",
+        "net_line_printed": "$53.70"
+      },
+      {
+        "row_id": "L03",
+        "page_number": 1,
+        "sku": "0107-LED",
+        "description": "14W Flush-Mount Damp-Rated LED Ceiling Fixture",
+        "quantity_norm": "3.00",
+        "unit": "EA",
+        "qty_unit_printed": "3.00 EA",
+        "unit_price_norm": "23.65",
+        "unit_price_printed": "$23.65",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "70.95",
+        "gross_line_printed": "$70.95",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "70.95",
+        "net_line_printed": "$70.95"
+      },
+      {
+        "row_id": "L04",
+        "page_number": 1,
+        "sku": "0215-PRM",
+        "description": "Low-VOC Stain-Blocking Interior Primer (1 Gal)",
+        "quantity_norm": "2.00",
+        "unit": "GL",
+        "qty_unit_printed": "2.00 GL",
+        "unit_price_norm": "31.45",
+        "unit_price_printed": "$31.45",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "62.90",
+        "gross_line_printed": "$62.90",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "62.90",
+        "net_line_printed": "$62.90"
+      },
+      {
+        "row_id": "L05",
+        "page_number": 1,
+        "sku": "0309-BLD",
+        "description": "Cordless Vinyl Mini-Blind Hold-Down Bracket Set",
+        "quantity_norm": "5.00",
+        "unit": "ST",
+        "qty_unit_printed": "5.00 ST",
+        "unit_price_norm": "6.49",
+        "unit_price_printed": "$6.49",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "32.45",
+        "gross_line_printed": "$32.45",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "32.45",
+        "net_line_printed": "$32.45"
+      },
+      {
+        "row_id": "L06",
+        "page_number": 1,
+        "sku": "0412-DRL",
+        "description": "Brushed Nickel Passage Door Lever Latch Set",
+        "quantity_norm": "2.00",
+        "unit": "EA",
+        "qty_unit_printed": "2.00 EA",
+        "unit_price_norm": "19.85",
+        "unit_price_printed": "$19.85",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "39.70",
+        "gross_line_printed": "$39.70",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "39.70",
+        "net_line_printed": "$39.70"
+      },
+      {
+        "row_id": "L07",
+        "page_number": 1,
+        "sku": "LAB-TURN-PNT",
+        "description": "Unit 301 Drywall Patch, Prime & Trim Paint Labor",
+        "quantity_norm": "3.50",
+        "unit": "HR",
+        "qty_unit_printed": "3.50 HR",
+        "unit_price_norm": "78.00",
+        "unit_price_printed": "$78.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "273.00",
+        "gross_line_printed": "$273.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "273.00",
+        "net_line_printed": "$273.00"
+      },
+      {
+        "row_id": "L08",
+        "page_number": 1,
+        "sku": "LAB-TURN-ELP",
+        "description": "Unit 301 Electrical & Plumbing Trim-Out Labor",
+        "quantity_norm": "2.00",
+        "unit": "HR",
+        "qty_unit_printed": "2.00 HR",
+        "unit_price_norm": "84.00",
+        "unit_price_printed": "$84.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "168.00",
+        "gross_line_printed": "$168.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "168.00",
+        "net_line_printed": "$168.00"
+      },
+      {
+        "row_id": "L09",
+        "page_number": 1,
+        "sku": "0550-DSP",
+        "description": "1/2 HP Continuous-Feed Sound-Shield Disposer",
+        "quantity_norm": "1.00",
+        "unit": "EA",
+        "qty_unit_printed": "1.00 EA",
+        "unit_price_norm": "118.50",
+        "unit_price_printed": "$118.50",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "118.50",
+        "gross_line_printed": "$118.50",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "118.50",
+        "net_line_printed": "$118.50"
+      },
+      {
+        "row_id": "L10",
+        "page_number": 1,
+        "sku": "CRD-0550-CORE",
+        "description": "Core Return Credit - Salvaged Disposer Housing",
+        "quantity_norm": "1.00",
+        "unit": "EA",
+        "qty_unit_printed": "1.00 EA",
+        "unit_price_norm": "-25.00",
+        "unit_price_printed": "-$25.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "-25.00",
+        "gross_line_printed": "-$25.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "-25.00",
+        "net_line_printed": "-$25.00"
+      }
+    ],
+    "fees": [
+      {
+        "fee_id": "FEE-ENV-01",
+        "label": "Non-Taxable Appliance & Paint Disposal Fee",
+        "amount_norm": "18.50",
+        "amount_printed": "$18.50"
+      }
+    ],
+    "summary": {
+      "subtotal": {
+        "normalized_value": "851.68",
+        "printed_text": "$851.68"
+      },
+      "taxable_subtotal": {
+        "normalized_value": "435.68",
+        "printed_text": "$435.68"
+      },
+      "tax_rate": {
+        "normalized_value": "0.0700",
+        "printed_text": "7.00%"
+      },
+      "tax_amount": {
+        "normalized_value": "30.50",
+        "printed_text": "$30.50"
+      },
+      "non_taxable_fees": {
+        "normalized_value": "18.50",
+        "printed_text": "$18.50"
+      },
+      "invoice_total": {
+        "normalized_value": "900.68",
+        "printed_text": "$900.68"
+      },
+      "previous_balance": {
+        "normalized_value": "0.00",
+        "printed_text": "$0.00"
+      },
+      "payments_credits_applied": {
+        "normalized_value": "0.00",
+        "printed_text": "$0.00"
+      },
+      "amount_due": {
+        "normalized_value": "900.68",
+        "printed_text": "$900.68"
+      }
+    }
+  }
+}
