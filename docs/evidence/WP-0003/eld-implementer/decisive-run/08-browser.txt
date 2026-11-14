@@ -1,0 +1,49 @@
+Build started...
+Build succeeded.
+Failed executing DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM eledgercare.__ef_migrations_history
+ORDER BY "MigrationId";
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Applying migration '20261114182147_InitialDurableIntake'.
+Done.
+Runtime privilege matrix for eledgercare_app on eledgercare_e2e (table: select insert update delete truncate):
+__ef_migrations_history: false false false false false
+documents: true true false false false
+original_artifacts: true true false false false
+processing_jobs: true true false false false
+schema create for app: false
+migrations: 20261114182147_InitialDurableIntake
+[WebServer] (node:15796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm warn allow-scripts .npmrc allow-scripts setting is being ignored because --allow-scripts was passed on the command line
+[WebServer] (node:9520) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ❯ Building...
+[WebServer] (node:9520) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ✔ Building...
+[WebServer] Initial chunk files | Names         | Raw size
+[WebServer] main.js             | main          | 35.18 kB | 
+[WebServer] styles.css          | styles        |  1.01 kB | 
+[WebServer] 
+[WebServer]                     | Initial total | 36.19 kB
+[WebServer] 
+[WebServer] Application bundle generation complete. [1.383 seconds] - 2026-11-14T19:08:39.776Z
+[WebServer] 
+[WebServer] Watch mode enabled. Watching for file changes...
+[WebServer] NOTE: Raw file sizes do not reflect development server per-request transformations.
+[WebServer]   ➜  Local:   http://127.0.0.1:4200/
+
+Running 6 tests using 1 worker
+
+(node:8472) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e\intake.spec.ts:35:1 › DI-01/02/03/04: receipt shows committed reference, honest status, exact download, reopen after API restart (5.0s)
+  ✓  2 e2e\intake.spec.ts:99:1 › DI-06: a 5xx after a real commit shows outcome unknown, keeps the key across reload, and reconciles (1.7s)
+  ✓  3 e2e\intake.spec.ts:132:1 › DI-06: a 429 keeps the pending key and the same-key retry succeeds (696ms)
+  ✓  4 e2e\intake.spec.ts:162:1 › DI-06: an earlier uncertain outcome is not resolved by a later 429 (850ms)
+  ✓  5 e2e\intake.spec.ts:198:1 › double click cannot mint a second key and a new submission is explicit (704ms)
+  ✓  6 e2e\intake.spec.ts:220:1 › invalid file is rejected definitively without a fabricated receipt (608ms)
+
+  6 passed (16.1s)

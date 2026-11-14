@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ELedgerCare.Infrastructure\ELedgerCare.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\SyntheticPdf.cs" Link="Shared\SyntheticPdf.cs" />
+  </ItemGroup>
+</Project>

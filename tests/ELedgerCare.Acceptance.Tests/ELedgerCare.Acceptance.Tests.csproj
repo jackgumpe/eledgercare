@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Real PostgreSQL + real API process acceptance checks. These tests fail (never skip)
+       when the owned local cluster settings are absent, so missing infrastructure is visible. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ELedgerCare.Infrastructure\ELedgerCare.Infrastructure.csproj" />
+    <!-- Build-order only: the harness launches the built API as a separate OS process. -->
+    <ProjectReference Include="..\..\src\ELedgerCare.Api\ELedgerCare.Api.csproj" ReferenceOutputAssembly="false" Private="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\SyntheticPdf.cs" Link="Shared\SyntheticPdf.cs" />
+  </ItemGroup>
+</Project>
