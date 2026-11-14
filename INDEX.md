@@ -87,3 +87,6 @@ WP-0003 /005 publication receipt: deliverable e8421c4502d6d63dea39c7c086c6ba2f40
 
 
 WP-0004 /004 completed local publication pins: frozen corpus/backlog fca8f16e51359d6895dca27a05fe76af82f58ff4; evidence 1ef33dcddf324a6a48285a6e302af5d1528b3c34; report fabddf72a80337a98ddb777c901edac11f9163fe. The one evidence addition and one report addition are scope-verified; prior candidate changed 41 checkpoint paths (72 from original author base). Remote verification and launcher completion are still required before starting /007. Independent Opus /005 remains held for corrected publication.
+
+
+WP-0004 /004 remote receipt and /007 actual dispatch: origin matched fabddf72a80337a98ddb777c901edac11f9163fe, with clean owned branch and unchanged frozen candidate/evidence. /004 ended after successful publication (wrapper exit 0; final envelope retained a network ERROR). Only afterward, coordinator release 5837877874993df691b51e31dab52195c66aa195 dispatched /007 in author conversation 993d4f08-72d0-479c-9e6c-047280cedf95; observed tool execution reads the bound assignment and manifest. /005 remains held for the corrected publication; no independent R&D acceptance yet.
