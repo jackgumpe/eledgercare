@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "packet": "WP-0004 / 007",
+  "recorded_at_utc": "2026-11-14T21:43:13Z",
+  "author_id": "eld-rd-carbon",
+  "session_id": "993d4f08-72d0-479c-9e6c-047280cedf95",
+  "prior_stalled_session_id": "74513d00-ee88-4e85-a554-120908615b21",
+  "independence_status": "author_verification_only_ready_for_review (not independent acceptance; uninvolved Opus eld-rd-reviewer /005 follows)",
+  "revisions": {
+    "coordinator_release_sha": "5837877874993df691b51e31dab52195c66aa195",
+    "base_and_prior_004_report_sha": "fabddf72a80337a98ddb777c901edac11f9163fe",
+    "prior_004_frozen_candidate_sha": "fca8f16e51359d6895dca27a05fe76af82f58ff4",
+    "prior_004_evidence_sha": "1ef33dcddf324a6a48285a6e302af5d1528b3c34",
+    "original_checkpoint_sha": "8fb7e3ca537b1710fe231dad0cf5d177c6e5d733",
+    "corrected_007_candidate_sha": "29b2000265ae6068d9c86818622c81a40cadd961",
+    "owned_branch": "research/wp-0004-carbon-recovery"
+  },
+  "corrected_manifest_artifact": {
+    "path": "evaluation/manifests/tooling-provenance.json",
+    "size_bytes": 5518,
+    "sha256": "5c8bf64d381a76f5a34f51cc5f4da1d211a58bbc49207984342d57ce1767aa46",
+    "git_blob_oid": "4b521673baf0ee223b340f665763b8d1ced17677",
+    "git_diff_numstat_vs_base": "1\t1\tevaluation/manifests/tooling-provenance.json"
+  },
+  "wheel_rehash_verifications": [
+    {
+      "package": "pypdfium2",
+      "version": "5.15.2",
+      "wheel_filename": "pypdfium2-5.15.2-py3-none-win_amd64.whl",
+      "measured_size_bytes": 4187589,
+      "prior_recorded_sha256_at_fabddf7": "74d1bace34fb01c660d0b64344d5a4b7c6623c88ab59ea21c5acfbd",
+      "prior_recorded_length": 55,
+      "corrected_manifest_sha256": "74d1bace34fb01c660d0b64344d5a4b7d276942b7c6623c88ab59ea21c5acfbd",
+      "measured_wheel_sha256": "74d1bace34fb01c660d0b64344d5a4b7d276942b7c6623c88ab59ea21c5acfbd",
+      "matches_measured_bytes": true,
+      "matches_original_checkpoint_8fb7e3c": true
+    },
+    {
+      "package": "Pillow",
+      "version": "13.0.0",
+      "wheel_filename": "pillow-13.0.0-cp312-cp312-win_amd64.whl",
+      "measured_size_bytes": 7272166,
+      "prior_recorded_sha256_at_fabddf7": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b",
+      "prior_recorded_length": 64,
+      "corrected_manifest_sha256": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b",
+      "measured_wheel_sha256": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b",
+      "matches_measured_bytes": true,
+      "matches_original_checkpoint_8fb7e3c": true
+    },
+    {
+      "package": "pypdf",
+      "version": "7.1.0",
+      "wheel_filename": "pypdf-7.1.0-py3-none-any.whl",
+      "measured_size_bytes": 418698,
+      "prior_recorded_sha256_at_fabddf7": "47cca6b24bdcf4c4d65b5f7b8b972535c61710a061261e737688777cfd9a7bfb",
+      "prior_recorded_length": 64,
+      "corrected_manifest_sha256": "47cca6b24bdcf4c4d65b5f7b8b972535c61710a061261e737688777cfd9a7bfb",
+      "measured_wheel_sha256": "47cca6b24bdcf4c4d65b5f7b8b972535c61710a061261e737688777cfd9a7bfb",
+      "matches_measured_bytes": true,
+      "matches_original_checkpoint_8fb7e3c": true
+    }
+  ],
+  "git_tree_invariance_checks": {
+    "total_tracked_files_at_candidate": 98,
+    "unchanged_tracked_files_from_fabddf7": 97,
+    "corpus_pdfs_unchanged": 26,
+    "corpus_sources_unchanged": 8,
+    "corpus_expected_unchanged": 26,
+    "generation_scripts_unchanged": 4,
+    "reconciliation_backlog_docs_unchanged": 3,
+    "corpus_and_public_manifests_unchanged": 1,
+    "prior_004_evidence_blob_unchanged": "75ffb6a2320c56daf52135951be0a17c1c64572e",
+    "prior_004_report_blob_unchanged": "4a34724929d74745bb5d2a93b2a02617538df82a",
+    "prior_002_report_blob_unchanged": "b424ea69729f0fcc1ec428612bcb2141f5b9416e"
+  },
+  "attributed_unchanged_prior_checks": {
+    "note": "No corpus regeneration or 40-page visual rerender was executed in WP-0004 / 007 because all 26 PDFs, 8 sources, 26 expected JSONs, 4 Python scripts, corpus-manifest.json, and backlog docs have identical Git blob OIDs to fca8f16e51359d6895dca27a05fe76af82f58ff4.",
+    "prior_evidence_commit": "1ef33dcddf324a6a48285a6e302af5d1528b3c34",
+    "prior_evidence_path": "evaluation/manifests/recovery-verification/frozen-candidate-verification.json"
+  }
+}
