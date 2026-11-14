@@ -54,6 +54,7 @@ Worktree paths shown as relative names are under C:\Users\jackg\Asp.net Projects
 | WP-0002 / 003 coordinator correction | bce84931fef5cf2a8fa3652095dbea2973a19aef | dfb2fad6a357324d02303d48fbf73139b943afdb | published; Carbon /004 independently reviewing this exact corrected design |
 | WP-0002 / 004 Carbon closure | 04b08ed3a04daa17f32624878bd5051153b3b801 | 6722ff0eb8fdfa3b4fd17a9d0024c90c7bc98449 | ACCEPTED corrected design bce84931fef5cf2a8fa3652095dbea2973a19aef; exact remote verified; review artifacts integrated unchanged into coordination branch; no application acceptance yet |
 | WP-0004 / 003 Astra exchange | e0b0228428cc77409f41a55ac11fb71fb9323ba4 | c3215f75fc311c2e3c61a8ecc5da7d950f933157 | published; three-file scope and matching remote verified; ready for Carbon's single reconciliation |
+| WP-0003 / 001 work in progress | c5103788da33303f522e10a484cec5aaee5325ae | pending; no implementation report published yet | first 74-file application milestone pushed and remote verified; not frozen for acceptance, not reviewed/accepted/merged |
 
 ### Updated external-session evidence
 
