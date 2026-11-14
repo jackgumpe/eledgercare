@@ -75,3 +75,9 @@ Astra's [initial cross-branch report](https://github.com/jackgumpe/eledgercare/b
 The completed correction review used docs/kickoffs/WP-0002-eld-reviewer-reconciliation.md at dfb2fad6a357324d02303d48fbf73139b943afdb. The released implementation kickoff docs/kickoffs/WP-0003-eld-implementer.md and coordinator /005 are pinned at b1e4402f488fcd8838d9ebfa12fbbf306b8c7264. Carbon R&D's current release is docs/kickoffs/WP-0004-eld-rd-carbon-reconciliation.md at d2a2396ff3abd4612c653aa1547d7db931f38b5b. Later reviewer reservations with placeholder bases remain unexecutable until actual candidates are bound.
 
 Private connector access was verified by reading README.md at e90c71817bc793dfbfc7576006be3cbf0b4310bf; a separate cloud session may still need its own access. The design, source assessment and kickoffs are publication artifacts, not independent acceptance or merged product work.
+
+### WP-0003 acceptance and integration receipt
+
+Corrected Carbon review /004: deliverable 3cd33f066ddd93e72a7b6fe26d6443ea9c3bcb90; report b1d6514a5a6d1cf086be9193123e115a11654c93; exact origin verified. Fresh correction conversation 8f7e4ff3-3364-416d-bdd3-35c2eb23102b completed successfully. Coordinator /005 closes RR-01..03 through the corrected independent assessment plus explicit raw-evidence errata at docs/coordination/WP-0003-final/README.md. Historical records above remain unchanged.
+
+F1 candidate e3117ec2aa11a78359a754cfe52ef3ece6c1733f is ACCEPTED for local synthetic scope and merged at cbd059d350ddc3684eb53878cede17cafa3b56e0. All 94 changed candidate paths, 90 application inputs and 28 author/reviewer evidence additions are identical to accepted Git objects. Independent execution: 52 .NET tests, six frozen and two extra browser checks passed, with matching restart evidence. Coordinator report /005 publication follows the integration evidence commit. No new product feature is released; independent R&D review remains outstanding.
