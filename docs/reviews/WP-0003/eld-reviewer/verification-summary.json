@@ -1,0 +1,169 @@
+{
+  "packet": "WP-0003",
+  "sequence": "002",
+  "reviewer": "eld-reviewer",
+  "model": "Gemini 4 Carbon (High)",
+  "effort": "High",
+  "backendCheckpoint": "not exposed",
+  "sessionId": "c620ad03-d6f7-41d8-9040-d0641014ad46",
+  "verdict": "accepted",
+  "revisions": {
+    "coordinatorRelease": "8ea2fe001c3482d273f8db8301ff165eeeffd4ae",
+    "executionBaseAndAuthorReport": "418804b54e691d91851143191d2c95847036abef",
+    "frozenApplicationCandidate": "e3117ec2aa11a78359a754cfe52ef3ece6c1733f",
+    "authorEvidence": "6691aaab848263e2f8326a491a9647d239119865",
+    "acceptedDesign": "bce84931fef5cf2a8fa3652095dbea2973a19aef",
+    "candidateEquivalentAtReviewBase": true,
+    "candidateDiffFileCount": 94
+  },
+  "toolchain": {
+    "dotnetSdk": "10.0.201",
+    "aspNetCoreRuntime": "10.0.14",
+    "dotnetEf": "10.0.15",
+    "node": "v24.13.0",
+    "npm": "11.8.0",
+    "python": "3.13.9",
+    "pwsh": "7.7.0",
+    "msedge": "157.0.4341.46",
+    "postgresql": "18.7"
+  },
+  "postgresqlProvenance": {
+    "localSubsetFiles": 1597,
+    "localSubsetBytes": 151078582,
+    "subsetManifestSha256": "47c3deb9c917f79c353b3683b2c2611ee975285ea06226c8f72444c96ce9051f",
+    "manifestExactMatch": true,
+    "authenticodeExeDllTotal": 161,
+    "authenticodeValidCount": 161,
+    "authenticodeSigner": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+    "authenticodeThumbprint": "7BEDD1269FCCF7A5D95F18274750B79893C06C70",
+    "liveUpstreamArchive": {
+      "url": "https://get.enterprisedb.com/postgresql/postgresql-18.7-1-windows-x64-binaries.zip",
+      "contentLength": 389515503,
+      "etag": "\"8f6c6a2cecbbcb81f373cccf044af2ea-47\"",
+      "lastModified": "Thu, 12 Nov 2026 11:20:46 GMT",
+      "centralDirectoryOffset": 386879447,
+      "centralDirectorySize": 2636034,
+      "centralDirectoryEntries": 22284,
+      "centralDirectorySha256": "3132ca63b424f7ec371eabe50753ad7cd036278d942a6ea465547b17bf90a149",
+      "pgAdminCompressedBytes": 318396799,
+      "pgAdminCompressedPercent": 81.74,
+      "selectedSubsetMismatches": 0,
+      "liveRangeSpotVerified": [
+        "bin/pg_ctl.exe",
+        "bin/initdb.exe"
+      ]
+    },
+    "disposition": "sufficient_for_scoped_local_setup_with_stated_limits"
+  },
+  "dependencyAndBuildChecks": {
+    "nugetFeedArchiveCount": 65,
+    "dotnetRestoreReviewerFeedExitCode": 0,
+    "dotnetRestoreDefaultConfigExitCode": 0,
+    "dotnetBuildReleaseExitCode": 0,
+    "dotnetBuildWarnings": 0,
+    "dotnetBuildErrors": 0,
+    "publishFileCount": 26,
+    "shippingReferencesResearchOrTests": false,
+    "vstestPackagesPresent": false,
+    "pdfPigNuspecCommit": "a7bb35662bbbf405efddad50aedc9bcdcf515afc",
+    "npmOfflineCiExitCode": 0,
+    "angularBuildExitCode": 0,
+    "npmDesignPinsMatched": 12
+  },
+  "dotnetTestExecution": {
+    "runner": "Microsoft.Testing.Platform v2 (1.9.1 / xunit.v3.mtp-v2 3.2.2)",
+    "postgresPort": 55433,
+    "totalDiscovered": 52,
+    "totalPassed": 52,
+    "totalFailed": 0,
+    "totalSkipped": 0,
+    "suites": {
+      "ELedgerCare.Domain.Tests": {
+        "discovered": 7,
+        "passed": 7,
+        "failed": 0,
+        "skipped": 0
+      },
+      "ELedgerCare.Infrastructure.Tests": {
+        "discovered": 30,
+        "discoveredPdfAdmission": 22,
+        "passed": 30,
+        "failed": 0,
+        "skipped": 0
+      },
+      "ELedgerCare.Acceptance.Tests": {
+        "discovered": 15,
+        "passed": 15,
+        "failed": 0,
+        "skipped": 0
+      }
+    }
+  },
+  "sqlStatementAndPrivilegeVerification": {
+    "migrationApplied": "20261114182147_InitialDurableIntake",
+    "appRole": "eledgercare_app",
+    "appSelectInsertOnly": true,
+    "appUpdateDeleteTruncateAllowed": false,
+    "appMigrationsHistoryAccessible": false,
+    "loggedBeginReadCommitted": true,
+    "loggedSetLocalSynchronousCommitOn": true,
+    "loggedCommit": true,
+    "metadataAndConflictSelectBytesCount": 0
+  },
+  "pdfAdmissionProbes": {
+    "fixtureF1Swo001": {
+      "bytes": 887,
+      "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+      "header": "%PDF-1.4",
+      "exactOffsetsVerified": true
+    },
+    "pdf15XrefStreamAdmitted": true,
+    "pdf14IncrementalUpdateAdmitted": true,
+    "trailingPdfWhitespaceAdmitted": true,
+    "startXrefZeroRejected": "InvalidCrossReference",
+    "startXrefNonXrefObjHeaderRecoverable": true,
+    "startXrefDisposition": "accepted_low_false_rejection_risk",
+    "xrefRecoveryLimitationDisposition": "accepted_honestly_documented_within_design_scope"
+  },
+  "browserAndSmokeChecks": {
+    "frozenPlaywrightSuite": {
+      "browser": "msedge 157.0.4341.46 headless",
+      "discovered": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "extraReviewerPlaywrightSuite": {
+      "browser": "msedge 157.0.4341.46 headless",
+      "discovered": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "scenarios": [
+        "60s RxJS client timeout after server 201 commit -> outcome-unknown -> reload -> status reconciliation",
+        "network-uncertain commit -> 409 conflicting PDF retains key -> 200 identical PDF replay"
+      ]
+    },
+    "demoRestartSmoke": {
+      "database": "eledgercare_product_dev",
+      "documentId": "01a1dbac-0328-76b7-bfda-593a3c540cb2",
+      "apiPids": [
+        12444,
+        29336,
+        19920
+      ],
+      "restartedPostgresPostmasterPid": 18860,
+      "allMatch": true
+    }
+  },
+  "cleanup": {
+    "ownedPostgresClusterStopped": true,
+    "postmasterPidExists": false,
+    "tempDatabasesDropped": [
+      "eledgercare_reviewer_f1_check",
+      "eledgercare_e2e"
+    ],
+    "listenersRemainingOn55433_5180_4200": 0,
+    "candidateSourceUnchanged": true
+  }
+}
