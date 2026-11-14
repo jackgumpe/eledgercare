@@ -1,0 +1,274 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "bounded-review-record-correction",
+  "packet": "WP-0003",
+  "reportSequence": "004",
+  "supersedesSummaryPath": "docs/reviews/WP-0003/eld-reviewer/verification-summary.json",
+  "supersedesReportPath": "docs/agent-reports/eld-reviewer/WP-0003/002_2026-11-14_review_eld-reviewer.md",
+  "preservedPriorArtifacts": {
+    "docs/agent-reports/eld-reviewer/WP-0003/002_2026-11-14_review_eld-reviewer.md": {
+      "gitBlobSha1": "08ca3f8566b879b6838cda87523e8873952b9f9d",
+      "sha256": "00c2df34729e48dabc4508d1e922f4fe20b4137059ce438425006b831e88d7aa"
+    },
+    "docs/reviews/WP-0003/eld-reviewer/README.md": {
+      "gitBlobSha1": "6b0bbd693dbd76b3be741e12dc4f0bf7e6a89c2b",
+      "sha256": "12f0d7d347e61a892c076ff276bd691d907a2a2491e42fea4fdb8df7d1fb562b"
+    },
+    "docs/reviews/WP-0003/eld-reviewer/verification-summary.json": {
+      "gitBlobSha1": "a69a556757b67b5c25ec72fb50071b18090149bf",
+      "sha256": "caaf6898121e8eef3e7572e78c54035d3e4e9e3b517bdc7fb993b1ee7fb01929"
+    }
+  },
+  "reviewAttribution": {
+    "agentId": "eld-reviewer",
+    "freshContinuationSession": {
+      "sessionId": "8f7e4ff3-3364-416d-bdd3-35c2eb23102b",
+      "model": "Gemini 4 Carbon (High)",
+      "effort": "High",
+      "backendCheckpointExposed": false,
+      "role": "Full source/contract/evidence re-audit, toolchain & lockfile verification, focused PdfPigAdmission edge-case probes, RR-01..03 resolution, and /004 publication"
+    },
+    "priorExecutionSession": {
+      "sessionId": "c620ad03-d6f7-41d8-9040-d0641014ad46",
+      "model": "Gemini 4 Carbon (High)",
+      "effort": "High",
+      "role": "Executed isolated PostgreSQL 18.7 cluster setup/migrations, 52 .NET tests, 6 frozen + 2 extra Playwright browser checks, SQL statement trace, demo smoke, and initial /002 publication"
+    },
+    "reviewedApplicationAuthor": {
+      "agentId": "eld-implementer",
+      "sessionId": "5ac4336a-24ed-4139-871a-18ef583b7691",
+      "authoredByEitherReviewerSession": false
+    }
+  },
+  "revisionPins": {
+    "executionBaseSha": "561675ed3de030c616b2d836bf0ebd30e811a543",
+    "priorReviewDeliverableSha": "9cfb43b0aceeb2695fb4b126a1b698fffbeb65b0",
+    "authoritativeCoordinatorReleaseSha": "aea80445c60bd4d9a3040076f6dcebe9aec23016",
+    "authoritativeCoordinatorDeliverableSha": "29d21d1d644b45090863f5de9d124d23f27247bb",
+    "frozenCandidateSha": "e3117ec2aa11a78359a754cfe52ef3ece6c1733f",
+    "implementationMergeBaseSha": "bce84931fef5cf2a8fa3652095dbea2973a19aef",
+    "candidateFileCount": 94,
+    "authorEvidenceSha": "6691aaab848263e2f8326a491a9647d239119865",
+    "authorReportSha": "418804b54e691d91851143191d2c95847036abef",
+    "acceptedDesignSha": "bce84931fef5cf2a8fa3652095dbea2973a19aef",
+    "acceptedDesignBlobSha": "18476f0c0f1fa7b0f1db99d4404a6ac30085c572",
+    "independentDesignClosureSha": "6722ff0eb8fdfa3b4fd17a9d0024c90c7bc98449",
+    "independentDesignClosureEvidenceSha": "04b08ed3a04daa17f32624878bd5051153b3b801",
+    "coordinatorDesignReleaseSha": "b1e4402f488fcd8838d9ebfa12fbbf306b8c7264",
+    "originalReviewKickoffSha": "8ea2fe001c3482d273f8db8301ff165eeeffd4ae"
+  },
+  "verdict": {
+    "candidateDisposition": "accepted",
+    "codeDefectsFound": 0,
+    "blockingFindings": 0,
+    "receiptIssuesResolved": [
+      "RR-01",
+      "RR-02",
+      "RR-03"
+    ]
+  },
+  "observedEnvironment": {
+    "verifiedInPriorDispatchStep125": true,
+    "verifiedFreshInContinuation": true,
+    "os": "Windows x64 (Windows NT 10.0.26100)",
+    "dotnetSdk": "10.0.403",
+    "globalJsonRollForward": "disable",
+    "dotnetTestRunner": "Microsoft.Testing.Platform",
+    "dotnetRuntimes": [
+      "Microsoft.AspNetCore.App 10.0.9",
+      "Microsoft.AspNetCore.App 10.0.14",
+      "Microsoft.NETCore.App 10.0.9",
+      "Microsoft.NETCore.App 10.0.14",
+      "Microsoft.WindowsDesktop.App 10.0.9",
+      "Microsoft.WindowsDesktop.App 10.0.14"
+    ],
+    "dotnetLocalTools": {
+      "dotnet-ef": "10.0.15"
+    },
+    "pwsh": "7.7.0",
+    "windowsPowershell": "5.1.26100.9818",
+    "nodejs": "v24.18.0",
+    "npm": "11.16.0",
+    "python": "3.12.10",
+    "git": "2.55.0.windows.1",
+    "msedge": "157.0.4341.46",
+    "postgresql": "18.7"
+  },
+  "verifiedDependencyLocks": {
+    "centralPackagePins": {
+      "Microsoft.EntityFrameworkCore": "10.0.15",
+      "Microsoft.EntityFrameworkCore.Relational": "10.0.15",
+      "Microsoft.EntityFrameworkCore.Design": "10.0.15",
+      "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
+      "PdfPig": "0.1.16",
+      "xunit.v3": "4.0.3"
+    },
+    "keyResolvedNuGetPackages": {
+      "Microsoft.EntityFrameworkCore": "10.0.15",
+      "Microsoft.EntityFrameworkCore.Relational": "10.0.15",
+      "Microsoft.EntityFrameworkCore.Design": "10.0.15",
+      "Npgsql": "10.0.3",
+      "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
+      "PdfPig": "0.1.16",
+      "PdfPigNuspecCommit": "a7bb35662bbbf405efddad50aedc9bcdcf515afc",
+      "xunit.v3": "4.0.3",
+      "xunit.v3.mtp-v2": "4.0.3",
+      "xunit.v3.core.mtp-v2": "4.0.3",
+      "Microsoft.Testing.Platform": "2.5.2",
+      "Microsoft.Testing.Platform.MSBuild": "2.5.2"
+    },
+    "nugetLockFiles": 7,
+    "nugetLockEntriesVerified": 126,
+    "uniqueCachedNuGetPackages": 53,
+    "nugetContentHashMismatches": 0,
+    "vstestPackagesPresent": 0,
+    "efDesignInPublishedApiOutput": false,
+    "npmPackageLockEntries": 364,
+    "npmDirectAndDevPackages": {
+      "@angular/common": "22.2.6",
+      "@angular/compiler": "22.2.6",
+      "@angular/core": "22.2.6",
+      "@angular/platform-browser": "22.2.6",
+      "@angular/router": "22.2.6",
+      "rxjs": "7.8.2",
+      "tslib": "2.8.1",
+      "@angular/build": "22.2.7",
+      "@angular/cli": "22.2.7",
+      "@angular/compiler-cli": "22.2.6",
+      "@playwright/test": "1.65.1",
+      "typescript": "6.0.3"
+    },
+    "designMetadataUnusedNpmCandidatesOmitted": [
+      "@angular/forms@22.2.6",
+      "vitest@4.0.18"
+    ]
+  },
+  "postgresBinaryAndClusterVerification": {
+    "archiveUrl": "https://get.enterprisedb.com/postgresql/postgresql-18.7-1-windows-x64-binaries.zip",
+    "contentLengthBytes": 389515503,
+    "centralDirectoryEntries": 22284,
+    "centralDirectorySha256": "3132ca63b424f7ec371eabe50753ad7cd036278d942a6ea465547b17bf90a149",
+    "extractedSubsetFileCount": 1597,
+    "extractedSubsetBytes": 151078582,
+    "subsetManifestSha256": "47c3deb9c917f79c353b3683b2c2611ee975285ea06226c8f72444c96ce9051f",
+    "subsetSha256Mismatches": 0,
+    "subsetCrc32Mismatches": 0,
+    "subsetSizeMismatches": 0,
+    "authenticodeValidPeBinaries": "161/161",
+    "authenticodeSigner": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+    "wholeArchiveSha256Computed": false,
+    "wholeArchiveSha256Disposition": "accepted-documented-limitation",
+    "isolatedReviewerCluster": {
+      "host": "127.0.0.1",
+      "port": 55433,
+      "authMethod": "scram-sha-256",
+      "fsync": "on",
+      "fullPageWrites": "on",
+      "synchronousCommit": "on",
+      "walLevel": "replica",
+      "stoppedAfterReview": true
+    }
+  },
+  "executedSuitesAndProbes": {
+    "reusedFromPriorReviewerSession_c620ad03": {
+      "dotnetTests": {
+        "totalDiscovered": 52,
+        "totalPassed": 52,
+        "totalFailed": 0,
+        "totalSkipped": 0,
+        "byAssembly": {
+          "ELedgerCare.Domain.Tests": {
+            "discovered": 7,
+            "passed": 7,
+            "breakdown": "DocumentSubmissionTests: 5 [Fact] + 1 [Theory]x2 = 7"
+          },
+          "ELedgerCare.Infrastructure.Tests": {
+            "discovered": 30,
+            "passed": 30,
+            "breakdown": "PdfPigAdmissionTests: 19 [Fact] + 3 [Theory] (2+3+2=7) = 26; PersistenceMappingTests: 3 [Fact]; SyntheticFixtureTests: 1 [Fact]"
+          },
+          "ELedgerCare.Acceptance.Tests": {
+            "discovered": 15,
+            "passed": 15,
+            "breakdown": "DurableIntakeTests: 15 [Fact] against owned PostgreSQL 18.7 on 127.0.0.1:55433 and real child ELedgerCare.Api processes"
+          }
+        }
+      },
+      "frozenPlaywrightSuite": {
+        "specFile": "web/e2e/intake.spec.ts",
+        "browserChannel": "msedge (157.0.4341.46)",
+        "discovered": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "ipv4DnsFallbackNeeded": false
+      },
+      "extraReviewerPlaywrightProbes": {
+        "specFile": ".scratch/reviewer-f1/e2e/reviewer-extra.spec.ts",
+        "discovered": 2,
+        "passed": 2,
+        "failed": 0
+      },
+      "sqlStatementTraceProbe": {
+        "script": ".scratch/reviewer-f1/verify-sql-statements.ps1",
+        "verifiedSetLocalSynchronousCommitOn": true,
+        "verifiedReadCommittedTransaction": true,
+        "verifiedMetadataAndConflictAvoidBytesColumn": true
+      },
+      "demoSmoke": {
+        "script": "evaluation/product-smoke/run-demo-smoke.ps1",
+        "passed": true
+      },
+      "priorPdfProbes": {
+        "script": ".scratch/reviewer-f1/ReviewerProbes/Program.cs",
+        "casesExecuted": 5
+      }
+    },
+    "executedFreshInContinuationSession_8f7e4ff3": {
+      "toolchainAndPortCapture": {
+        "script": ".scratch/reviewer-f1/record-correction/capture-env.ps1",
+        "output": ".scratch/reviewer-f1/record-correction/fresh-env-and-ports.json",
+        "ports55433_5180_4200Free": true
+      },
+      "manifestNugetNpmAndImmutabilityAudit": {
+        "script": ".scratch/reviewer-f1/record-correction/verify_local_artifacts_and_candidate.py",
+        "output": ".scratch/reviewer-f1/record-correction/local-artifact-and-lock-audit.json",
+        "correctedPriorHelperBugs": [
+          "Prior .scratch/reviewer-f1/verify_pg_and_deps.py split postgresql-18.7-1-server-subset.sha256 on 2 columns without skipping the header comment instead of 4 columns (# sha256 crc32 bytes path); corrected parser verifies 1,597/1,597 files with 0 SHA-256, CRC-32, or byte-length mismatches.",
+          "Prior .scratch/reviewer-f1/verify_pg_and_deps.py hashed raw signed .nupkg archives instead of NuGet V3 .nupkg.metadata contentHash values; corrected verifier checks all 126 entries across 7 packages.lock.json files against .local/nuget/packages/**/.nupkg.metadata with 0 mismatches."
+        ]
+      },
+      "focusedPdfGuardAuditProbes": {
+        "project": ".scratch/reviewer-f1/record-correction/PdfGuardAuditProbes/PdfGuardAuditProbes.csproj",
+        "output": ".scratch/reviewer-f1/record-correction/pdf-guard-focused-audit.json",
+        "casesExecuted": 11,
+        "verifiedNo2KiBScanWindow": true,
+        "verifiedCompactObjWithoutTrailingDelimiterAdmitted": true,
+        "verifiedTenDigitTryReadIntegerBoundary": true,
+        "verifiedPdfCommentsInsideStartxrefRejected": true,
+        "verifiedFinalIncrementalStartxrefChecked": true,
+        "documentedResidualHeuristicCases": [
+          "startxref addressing an ordinary body 'N G obj' header passes StartXrefAddressesCrossReference and is brute-force repaired by PdfPig",
+          "classic 'xref' mutated to 'xreffoo' passes StartsWith(\"xref\"u8) and is brute-force repaired by PdfPig",
+          "extra tokens between <offset> and %%EOF (without a later 'startxref' substring) are ignored after TryReadInteger"
+        ]
+      }
+    }
+  },
+  "criteriaDisposition": {
+    "DI-01": "PASS",
+    "DI-02": "PASS",
+    "DI-03": "PASS",
+    "DI-04": "PASS",
+    "DI-05": "PASS",
+    "DI-06": "PASS",
+    "DI-07": "PASS",
+    "DI-08": "PASS",
+    "BIC-01": "PASS",
+    "BIC-02": "PASS",
+    "BIC-03": "PASS",
+    "BIC-04": "PASS",
+    "BIC-05": "PASS",
+    "BIC-06": "PASS"
+  }
+}
