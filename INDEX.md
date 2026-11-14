@@ -93,3 +93,6 @@ WP-0004 /004 remote receipt and /007 actual dispatch: origin matched fabddf72a80
 
 
 WP-0004 /007 published and remote verified: candidate 29b2000265ae6068d9c86818622c81a40cadd961, evidence 85ab359ba3348e6323b531c5f8c2677d6775687e, report 068f3f83bb532160b56e00f071f8badd8d3f51b0. Coordinator verified exactly three changed paths, including the single manifest-field correction, and clean author worktree. WP-0004 /005 is now fully bound in its kickoff and a new clean review/wp-0004-rd worktree at the /007 report; dispatch follows published binding. No independent R&D acceptance yet.
+
+
+WP-0004 /005 actual dispatch receipt: release 2242223e59925ce9e52205d5af9be2ea0c140fac was pushed and matched origin before a new claude-opus-5-5-high/high conversation 2777c262-ec6c-4b3e-9d77-2e7f3d9dcd82 started in clean review/wp-0004-rd at 068f3f83bb532160b56e00f071f8badd8d3f51b0. Observed tools inspect branch/base and read the exact kickoff/reservation. This is actual independent review execution, not acceptance. Carbon /007 has completed its verified publication and exited; its final envelope retained the same historical network error string despite wrapper exit 0, with no missing artifacts.
