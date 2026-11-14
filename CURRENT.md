@@ -16,8 +16,8 @@ Repository: https://github.com/jackgumpe/eledgercare, PRIVATE, default branch co
 
 - Astra initial deliverable/report: 1eb6f4af643edc7ccffcd5732a4659da44e7a077 / 189d4cb444c5afde059e6e1d2bee37c8294509d0.
 - Carbon independent deliverable/report: 39f475c1ce5b51c5b03b024fb39a74632e1a5eba / fef02d64aca2594e146930e4a0cb3ec18e355ed5. Separate Antigravity conversation 74513d00-ee88-4e85-a554-120908615b21, reported Gemini 4 Carbon/high. Both initial report tips were verified on origin, and their independence disclosures were preserved.
-- Astra /003: ACTUALLY STARTED as /root/rd_astra, gpt-6-astra/high, own base 189d4cb444c5afde059e6e1d2bee37c8294509d0. Exact kickoff docs/kickoffs/WP-0004-eld-rd-astra-exchange.md at bce84931fef5cf2a8fa3652095dbea2973a19aef binds both initial proposals for the one exchange.
-- Carbon /004: reserved for the single evidence reconciliation, eight-family synthetic corpus and at-most-three ranked backlog; held until Astra's exchange is pinned.
+- Astra /003: PUBLISHED as /root/rd_astra, gpt-6-astra/high. Deliverable e0b0228428cc77409f41a55ac11fb71fb9323ba4; report c3215f75fc311c2e3c61a8ecc5da7d950f933157. Coordinator verified the three-file inventory, clean owned branch and matching remote tip. The proposed ranking/split/controls remain for Carbon's single reconciliation, not accepted findings.
+- Carbon /004: RELEASED, pending actual dispatch, for the single evidence reconciliation, eight-family synthetic corpus and at-most-three ranked backlog. Exact kickoff docs/kickoffs/WP-0004-eld-rd-carbon-reconciliation.md binds own base fef02d64aca2594e146930e4a0cb3ec18e355ed5 and Astra's published exchange. Resume separate conversation 74513d00-ee88-4e85-a554-120908615b21 on gemini-4-carbon-high/high. Scoped CPU fixture tooling is authorized; no model/GPU execution.
 - Uninvolved Opus /005: held until a real joint backlog/corpus candidate is frozen. No R&D output is independently accepted or promoted; no GPU/weight download/training is released.
 
 ## Dispatch and resource boundaries
