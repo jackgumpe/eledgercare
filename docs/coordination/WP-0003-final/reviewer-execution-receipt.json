@@ -1,0 +1,283 @@
+{
+  "candidate": "e3117ec2aa11a78359a754cfe52ef3ece6c1733f",
+  "collectedUtc": "2026-11-14T21:16:52.9401276Z",
+  "collectedBy": "eld-coordinator",
+  "runtimeExecutionBy": "eld-reviewer, session c620ad03-d6f7-41d8-9040-d0641014ad46",
+  "focusedProbesBy": "eld-reviewer, correction session 8f7e4ff3-3364-416d-bdd3-35c2eb23102b",
+  "coordinatorReranRuntimeSuites": false,
+  "sourceFiles": [
+    {
+      "path": ".scratch/reviewer-f1/dotnet-test.txt",
+      "sha256": "81d2065c0929e45ca8ffff859d0e8d498f8925b927538cf7e594d691aee62ff4",
+      "bytes": 3690
+    },
+    {
+      "path": ".scratch/reviewer-f1/playwright-results.json",
+      "sha256": "59854e15f0d6cfc2091c76dfc4a7cf213f9db32705973445ed07995c3b4acefe",
+      "bytes": 13933
+    },
+    {
+      "path": ".scratch/reviewer-f1/playwright-extra/results.json",
+      "sha256": "485a3f076d4caccc0820c9d84b4bb797c6e11d06c4259297e4f6112b9ac76312",
+      "bytes": 7390
+    },
+    {
+      "path": ".scratch/reviewer-f1/acceptance-evidence.jsonl",
+      "sha256": "14874e8d74ae24a7b971cf1872e9e2411370b4168ff757039039f454bb2c1e70",
+      "bytes": 11392
+    },
+    {
+      "path": ".scratch/reviewer-f1/demo-receipt.json",
+      "sha256": "0c9260950b7e5c9ef03bf04ca4440379335fed15c84b6134d77f61140301babd",
+      "bytes": 1476
+    },
+    {
+      "path": ".scratch/reviewer-f1/record-correction/pdf-guard-focused-audit.json",
+      "sha256": "5807d1912f6ae1f2b86b7f126b50fc9610a1f7e6a79d17b9b61a5afa69087a47",
+      "bytes": 4145
+    }
+  ],
+  "dotnetSummary": [
+    "Running tests from C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Domain.Tests\\bin\\Release\\net10.0\\ELedgerCare.Domain.Tests.dll (net10.0|x64)",
+    "Running tests from C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Infrastructure.Tests\\bin\\Release\\net10.0\\ELedgerCare.Infrastructure.Tests.dll (net10.0|x64)",
+    "Running tests from C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Acceptance.Tests\\bin\\Release\\net10.0\\ELedgerCare.Acceptance.Tests.dll (net10.0|x64)",
+    "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Domain.Tests\\bin\\Release\\net10.0\\ELedgerCare.Domain.Tests.dll (net10.0|x64) passed (530ms)",
+    "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Infrastructure.Tests\\bin\\Release\\net10.0\\ELedgerCare.Infrastructure.Tests.dll (net10.0|x64) passed (2s 385ms)",
+    "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Acceptance.Tests\\bin\\Release\\net10.0\\ELedgerCare.Acceptance.Tests.dll (net10.0|x64) passed (1m 45s 518ms)",
+    "",
+    "Test run summary: Passed!",
+    "  C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Acceptance.Tests\\bin\\Release\\net10.0\\ELedgerCare.Acceptance.Tests.dll (net10.0|x64) passed (1m 45s 518ms)",
+    "  C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Infrastructure.Tests\\bin\\Release\\net10.0\\ELedgerCare.Infrastructure.Tests.dll (net10.0|x64) passed (2s 385ms)",
+    "  C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-reviewer-f1\\tests\\ELedgerCare.Domain.Tests\\bin\\Release\\net10.0\\ELedgerCare.Domain.Tests.dll (net10.0|x64) passed (530ms)",
+    "",
+    "  total: 52",
+    "  failed: 0",
+    "  succeeded: 52",
+    "  skipped: 0",
+    "  duration: 1m 46s 410ms"
+  ],
+  "frozenBrowserStats": {
+    "startTime": "2026-11-14T20:02:01.635Z",
+    "duration": 16344.741000000002,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "extraBrowserStats": {
+    "startTime": "2026-11-14T20:12:09.674Z",
+    "duration": 26366.644,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "interruptedTransaction": {
+    "utc": "2026-11-14T19:58:47.3399061Z",
+    "killedApi": {
+      "pid": 12232,
+      "startUtc": "2026-11-14T19:58:42.8694656Z",
+      "termination": "TerminateProcess on verified PID/start time"
+    },
+    "observedBackend": {
+      "Pid": 19388,
+      "State": "active",
+      "WaitEventType": "Lock",
+      "WaitEvent": "relation",
+      "BackendXid": "809",
+      "Query": "INSERT INTO eledgercare.processing_jobs (job_id, document_id, requested_at, status)\r\nVALUES ($1, $2, $3, $4)",
+      "Locks": [
+        {
+          "LockType": "relation",
+          "Relation": "documents",
+          "Mode": "RowShareLock",
+          "Granted": true
+        },
+        {
+          "LockType": "relation",
+          "Relation": "documents",
+          "Mode": "RowExclusiveLock",
+          "Granted": true
+        },
+        {
+          "LockType": "relation",
+          "Relation": "original_artifacts",
+          "Mode": "RowExclusiveLock",
+          "Granted": true
+        },
+        {
+          "LockType": "relation",
+          "Relation": "pk_documents",
+          "Mode": "RowShareLock",
+          "Granted": true
+        },
+        {
+          "LockType": "relation",
+          "Relation": "ux_documents_idempotency_key",
+          "Mode": "RowShareLock",
+          "Granted": true
+        },
+        {
+          "LockType": "transactionid",
+          "Relation": "",
+          "Mode": "ExclusiveLock",
+          "Granted": true
+        },
+        {
+          "LockType": "transactionid",
+          "Relation": "",
+          "Mode": "ExclusiveLock",
+          "Granted": true
+        },
+        {
+          "LockType": "relation",
+          "Relation": "processing_jobs",
+          "Mode": "RowExclusiveLock",
+          "Granted": false
+        }
+      ]
+    },
+    "rowsAfterKillAndRelease": [
+      0,
+      0,
+      0
+    ],
+    "backendTerminated": true,
+    "keyLookupAfterRestart": 404,
+    "sameKeyRetry": 201,
+    "interpretation": "Owned API killed while its transaction was uncommitted and blocked on the processing_jobs INSERT; no timing/lock-mode-only claim of earlier completed inserts."
+  },
+  "restartReceipt": {
+    "fixtureId": "F1-SWO-001",
+    "fixtureSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "fixtureBytes": 887,
+    "database": "eledgercare_product_dev",
+    "submit": {
+      "status": 201,
+      "documentId": "01a1dbac-0328-76b7-bfda-593a3c540cb2",
+      "jobId": "01a1dbac-0328-732a-bf36-399d4422f30b",
+      "receiptStatus": "awaiting_extraction",
+      "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "apiProcesses": [
+      {
+        "pid": 12444,
+        "startUtc": "2026-11-14T20:07:23.8168374Z",
+        "role": "submit, then terminated"
+      },
+      {
+        "pid": 29336,
+        "startUtc": "2026-11-14T20:07:26.1399563Z",
+        "role": "after API restart"
+      },
+      {
+        "pid": 19920,
+        "startUtc": "2026-11-14T20:07:28.7070855Z",
+        "role": "after PostgreSQL fast restart"
+      }
+    ],
+    "afterApiRestart": {
+      "documentId": "01a1dbac-0328-76b7-bfda-593a3c540cb2",
+      "status": "awaiting_extraction",
+      "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "afterPostgresRestart": {
+      "postmasterPid": 18860,
+      "documentId": "01a1dbac-0328-76b7-bfda-593a3c540cb2",
+      "status": "awaiting_extraction",
+      "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "allMatch": true,
+    "limits": "Application and database-service restarts only; not a power-loss, OS-crash or backup test."
+  },
+  "pdfGuardProbes": [
+    {
+      "name": "large_pdf_startxref_at_6k_plus_3k_trailing_ws",
+      "byteLength": 9832,
+      "hypothesis": "Proves there is NO 2 KiB trailing scan window: startxref sits >6 KiB from byte 0 AND >3 KiB before end-of-file, yet LastIndexOf('startxref') finds and admits it.",
+      "isAdmitted": true,
+      "pageCount": 1,
+      "rejection": null
+    },
+    {
+      "name": "compact_xref_stream_4_0_obj_no_ws_before_dict",
+      "byteLength": 348,
+      "hypothesis": "Proves StartsWith('obj') without trailing whitespace delimiter admits valid compact PDF 1.5 syntax '4 0 obj<< /Type /XRef ... >>'.",
+      "isAdmitted": true,
+      "pageCount": 1,
+      "rejection": null
+    },
+    {
+      "name": "startxref_10_digit_zero_padded_valid_offset",
+      "byteLength": 894,
+      "hypothesis": "TryReadInteger reads up to 10 ASCII digits ('0000000628' -> 628), so 10-digit zero-padded valid offset is admitted.",
+      "isAdmitted": true,
+      "pageCount": 1,
+      "rejection": null
+    },
+    {
+      "name": "startxref_11_digit_zero_padded_valid_offset",
+      "byteLength": 895,
+      "hypothesis": "TryReadInteger stops at 10 digits ('00000000628' -> first 10 digits are '0000000062' = 62, not 628), demonstrating exact 10-digit parser boundary -> rejected InvalidCrossReference.",
+      "isAdmitted": false,
+      "pageCount": null,
+      "rejection": "InvalidCrossReference"
+    },
+    {
+      "name": "startxref_with_pdf_comment_before_offset",
+      "byteLength": 896,
+      "hypothesis": "SkipWhitespace only skips 0x00/0x09/0x0A/0x0C/0x0D/0x20 and not '%...' comments -> rejected InvalidCrossReference.",
+      "isAdmitted": false,
+      "pageCount": null,
+      "rejection": "InvalidCrossReference"
+    },
+    {
+      "name": "incremental_update_valid_first_broken_final_startxref",
+      "byteLength": 911,
+      "hypothesis": "LastIndexOf('startxref') inspects ONLY the final startxref marker, so a broken final incremental startxref (999999) is rejected even when an earlier valid startxref exists.",
+      "isAdmitted": false,
+      "pageCount": null,
+      "rejection": "InvalidCrossReference"
+    },
+    {
+      "name": "trailing_post_eof_bytes_rejected_at_eof_check",
+      "byteLength": 904,
+      "hypothesis": "EndsWithEofMarker runs before StartXrefAddressesCrossReference (lines 27-38), so any non-whitespace bytes after %%EOF are rejected as MissingEofMarker.",
+      "isAdmitted": false,
+      "pageCount": null,
+      "rejection": "MissingEofMarker"
+    },
+    {
+      "name": "startxref_extra_tokens_between_offset_and_eof",
+      "byteLength": 901,
+      "hypothesis": "TryReadInteger stops after reading '628' and StartXrefAddressesCrossReference does not inspect tokens between <offset> and %%EOF -> admitted because offset 628 still addresses 'xref' and PdfPig parses the PDF.",
+      "isAdmitted": true,
+      "pageCount": 1,
+      "rejection": null
+    },
+    {
+      "name": "comment_containing_startxref_between_offset_and_eof",
+      "byteLength": 909,
+      "hypothesis": "LastIndexOf('startxref') finds the later 'startxref' inside the trailer comment before %%EOF, sees no integer offset after it, and rejects as InvalidCrossReference.",
+      "isAdmitted": false,
+      "pageCount": null,
+      "rejection": "InvalidCrossReference"
+    },
+    {
+      "name": "startxref_pointing_to_body_1_0_obj",
+      "byteLength": 886,
+      "hypothesis": "Known bounded heuristic limit: startxref pointing to body '1 0 obj' (offset 15) satisfies '<int> <gen> obj' prefix check and PdfPig brute-force repairs xref -> admitted.",
+      "isAdmitted": true,
+      "pageCount": 1,
+      "rejection": null
+    },
+    {
+      "name": "classic_xref_mutated_to_xreffoo",
+      "byteLength": 890,
+      "hypothesis": "Known bounded heuristic limit: StartsWith('xref') does not check delimiter after 'xref', and PdfPig brute-force repairs 'xreffoo' -> admitted.",
+      "isAdmitted": true,
+      "pageCount": 1,
+      "rejection": null
+    }
+  ]
+}

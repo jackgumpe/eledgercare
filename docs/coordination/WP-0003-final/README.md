@@ -1,0 +1,33 @@
+# F1 acceptance and evidence reconciliation
+
+Owner: eld-coordinator, WP-0003 / 005. Execution base ede918ef9ccdffcd7c3898e90be1bf3034d26cb0; assignment binding 5487b8b2dd2989a999559d7d0dd58d4a2626d295. This is the coordinator's disposition of actual non-author execution, not a claim that the coordinator reran the application suites.
+
+## Disposition
+
+**Accept the local synthetic-document F1 milestone at e3117ec2aa11a78359a754cfe52ef3ece6c1733f.** Carbon's corrected independent review is published at b1d6514a5a6d1cf086be9193123e115a11654c93, deliverable 3cd33f066ddd93e72a7b6fe26d6443ea9c3bcb90. The matching origin branch was verified before integration. Its three added files leave the application, author evidence and original review unchanged.
+
+The corrected source map, authoritative DI-01..08/BIC-01..06 mapping, actual dependency versions and attributed executions support acceptance. Root independently checked 141 Markdown file links and line bounds across the corrected evidence/report: no missing targets or out-of-range links. Link validity does not establish the truth of every sentence. The remaining factual errata below are explicitly reconciled with raw artifacts and take precedence for this disposition. Historical reports remain immutable.
+
+## Verified execution and remaining review errata
+
+[reviewer-execution-receipt.json](reviewer-execution-receipt.json) preserves compact observed results and SHA-256/size provenance for six raw reviewer artifacts. Original execution belongs to Carbon session c620ad03-d6f7-41d8-9040-d0641014ad46; the eleven fresh PDF probes belong to correction session 8f7e4ff3-3364-416d-bdd3-35c2eb23102b. The coordinator read these actual files rather than relying solely on either report.
+
+- The raw .NET result is 52 passed, zero failed/skipped. Frozen browser results record six expected, zero unexpected/skipped/flaky; the separate reviewer browser result records two expected, zero unexpected/skipped/flaky. The latter covers timeout after a real commit and uncertainty through a conflict followed by exact replay.
+- **Correct BIC-03 identifiers:** the interrupted transaction event at 2026-11-14T19:58:47.3399061Z records database backend **19388**, XID **809**, and killed owned API **12232**. The corrected review's backend 19792/XID 767 are inaccurate. Its claimed waiting `AccessShareLock` is also inaccurate: the observed `processing_jobs` lock is **RowExclusiveLock, granted=false**. `documents` and `original_artifacts` have granted RowExclusiveLock entries; the active SQL is an INSERT into processing_jobs. `LockObserver.ReadAsync` filters the owned database/runtime role and lock wait, then collects locks; it does not itself filter for that INSERT or AccessShareLock. The acceptance test checks the returned evidence. These observations establish an interrupted uncommitted transaction, followed by zero rows in all three tables, a 404 lookup and a successful 201 same-key retry. We do not infer completed earlier inserts solely from timing, XID or lock modes.
+- The restart receipt records API PIDs 12444, 29336 and 19920 and a PostgreSQL fast restart. Document/job identity, awaiting_extraction and the 887-byte original digest remain consistent; `allMatch=true`. This is application/database-service restart evidence, not power-loss or backup qualification.
+- **Correct PDF probe dimensions:** the large synthetic probe is **9,832 bytes**, approximately 9.60 KiB. It appends **3,000 whitespace bytes after the %%EOF marker**. The review's greater-than-9.8-KiB and greater-than-3-KiB descriptions are inaccurate. Actual source independently shows whole-buffer LastIndexOf, with no 2-KiB window. The marker and physical file end must not be conflated.
+- The report's assertion that zero security/code/contract defects *exist* is broader than any executed review can prove. This disposition means no remaining blocking defect was established for the specified local F1 criteria. The Windows PowerShell component build is not independent proof of the OS build; SDK/runtime/Node/npm/Python/package versions are supported by the actual captured observations and locks.
+
+RR-01..03 are closed for milestone acceptance by the corrected independent assessment **together with this explicit evidence reconciliation**, not by adopting every sentence of /004. No application fix or criterion reassignment is introduced by this receipt.
+
+## Accepted limits
+
+The PDF guard is a heuristic within the already restricted synthetic-fixture profile. Fresh probes show that a body object target, an xreffoo prefix and extra trailer tokens can pass the guard and be repaired by PdfPig. Eleven-digit zero-padded offset 00000000628 is rejected even though its numeric value is 628; this is a compatibility limitation, not a consequence of the 10-MiB file cap. The PDF numeric grammar permits one or more decimal digits; the fixed ten-digit xref-table entry representation must not be confused with a universal startxref integer limit. See ISO 32000-1:2008 sections 7.3.3 and 7.5.5 in [Adobe's PDF reference](https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf). The independent reviewer explicitly assessed these boundaries as non-blocking for F1; the coordinator concurs for the admitted local synthetic scope. Wider PDF compatibility and hostile-input resource/security qualification remain unperformed.
+
+BIC-06's acquisition variance is accepted with its actual evidence: 1,597 extracted PostgreSQL files, per-file SHA-256/CRC/size checks, a pinned central directory and 161 valid EDB signatures. The whole 389,515,503-byte archive SHA-256 was not computed. This limitation is preserved, not described as a successful whole-archive check.
+
+No OCR, customer exposure, deployment, GPU run or broad production-readiness claim follows from this acceptance. Product projects must remain independent of R&D/evaluation tools.
+
+## Integration verification
+
+The coordinator merges the exact published review tip (which contains the author implementation/evidence/report), then runs `verify-integration.py` against the accepted design, candidate, review and actual merge commit. The check compares Git modes/blobs for all 94 candidate-changed paths, every identified application/build/test/setup input, and all author/reviewer evidence additions. `audit-review-links.py` checks exact Git objects and line bounds; its output is [review-link-audit.json](review-link-audit.json). The final integration output and complete base-to-deliverable inventory accompany the coordinator report. Unchanged runtime suites are reused with their true author/reviewer attribution; no merge-time application execution is claimed.
