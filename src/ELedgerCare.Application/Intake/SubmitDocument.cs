@@ -39,7 +39,8 @@ public sealed class SubmitDocument(IIntakeStore store, IPdfAdmission admission, 
 
         // Step 5: one atomic unit. The transaction is not bound to the request-abort token, so a client
         // that disconnects after the full body was received does not turn a commit into an uncertain cancel.
-        var now = clock.GetUtcNow();
+        // PostgreSQL timestamptz stores microseconds: truncate first so the 201 receipt equals what is committed.
+        var now = TruncateToMicroseconds(clock.GetUtcNow());
         var document = Document.Submit(
             Guid.CreateVersion7(now),
             Guid.CreateVersion7(now),
@@ -66,6 +67,9 @@ public sealed class SubmitDocument(IIntakeStore store, IPdfAdmission admission, 
             ?? throw new InvalidOperationException("Idempotency key conflict reported but no committed submission is visible.");
         return await CompareWithCommittedAsync(winner, body, digest, CancellationToken.None);
     }
+
+    private static DateTimeOffset TruncateToMicroseconds(DateTimeOffset value) =>
+        new(value.UtcTicks - (value.UtcTicks % 10), TimeSpan.Zero);
 
     private async Task<SubmissionOutcome> CompareWithCommittedAsync(
         CommittedSubmission committed, byte[] body, byte[] digest, CancellationToken cancellationToken)

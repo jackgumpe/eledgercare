@@ -58,7 +58,7 @@ public sealed class IntakeStore(IDbContextFactory<ELedgerCareDbContext> contextF
         return InsertResult.Committed;
     }
 
-    private static IQueryable<CommittedSubmission> ProjectMetadata(IQueryable<Document> documents) =>
+    internal static IQueryable<CommittedSubmission> ProjectMetadata(IQueryable<Document> documents) =>
         documents.AsNoTracking().Select(d => new CommittedSubmission(
             d.DocumentId,
             d.IdempotencyKey,
