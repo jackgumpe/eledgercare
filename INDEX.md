@@ -60,6 +60,7 @@ Worktree paths shown as relative names are under C:\Users\jackg\Asp.net Projects
 | WP-0003 / 001 frozen application candidate | e3117ec2aa11a78359a754cfe52ef3ece6c1733f | 418804b54e691d91851143191d2c95847036abef; evidence 6691aaab848263e2f8326a491a9647d239119865 | clean owned branch and matching origin verified; candidate-to-evidence 21 evidence-only additions, then one canonical report; 52 .NET and 6 browser author passes; ready for independent review, not accepted/merged |
 | WP-0004 / 004 interrupted-draft checkpoint | 8fb7e3ca537b1710fe231dad0cf5d177c6e5d733 | pending; this is not the final author report | 71 unchanged Carbon-authored draft files copied with per-file SHA-256 verification and published by the coordinator on research/wp-0004-carbon-recovery; exact remote verified; no independent acceptance |
 | WP-0003 / 002 product review | 9cfb43b0aceeb2695fb4b126a1b698fffbeb65b0 | 561675ed3de030c616b2d836bf0ebd30e811a543 | published, clean branch and exact remote verified; reviewer verdict accepted, but coordinator found erroneous source references/behavior, versions and criterion mappings; acceptance/integration held for RR-01..03 correction /004 |
+| WP-0003 / 003 coordinator review receipt | 29d21d1d644b45090863f5de9d124d23f27247bb | aea80445c60bd4d9a3040076f6dcebe9aec23016 | exact remote verified; RR-01..03 correction released; fresh Carbon/high conversation 8f7e4ff3-3364-416d-bdd3-35c2eb23102b actually executing /004 on unchanged application |
 
 ### Updated external-session evidence
 
