@@ -1,0 +1,67 @@
+Provenance note: The following receipt was supplied by Jack from the local intake session. It has not been independently replayed by the cloud adviser. Its historical database-choice uncertainty is superseded by Jack's subsequent PostgreSQL decision, recorded in 00 and 01; the receipt itself is retained.
+
+---
+
+eLedgerCare environment intake — 2026-11-14
+
+Status: partial. All five areas were observed; some management and optional inventory queries were inaccessible. Observation window: 05:47:17–05:49:45 UTC.
+
+Execution used native Windows processes in C:\Users\jackg\Asp.net Projects, under this session’s restricted sandbox. No WSL, container, SSH, or remote PowerShell markers were observed. This appears to be Jack’s local workstation; intended-host identity was not independently confirmed.
+
+Observer: Codex. Selected model/effort, backend checkpoint, and session identifiers were not exposed. This is an unnumbered preflight receipt, not product acceptance.
+
+| Host / GPU / storage | Observation |
+|---|---|
+| OS | Windows x64, Home/Core edition, release 25H2, build 26200.9974. Registry product label says “Windows 10 Home.” |
+| Shell | PowerShell 7.7.0, running from C:\Program Files\WindowsApps\Microsoft.PowerShell_7.7.0.0_x64__8wekyb3d8bbwe\pwsh.exe |
+| CPU | AMD Ryzen 5 3600 6-Core Processor |
+| Physical RAM | 32 GiB, reported by Windows physical-memory API |
+| GPU | NVIDIA GeForce RTX 5070 Ti, WDDM |
+| Driver / VRAM | Driver 621.01; 16,303 MiB total, 1,155 MiB used |
+| CUDA driver compatibility | NVIDIA reports 13.5; this does not establish an installed toolkit or working OCR runtime |
+| Proposed repository volume | Local fixed NTFS C:; 65.70 GiB available / 457.61 GiB total |
+| Model/data volume | Not specified; other volumes were not inventoried |
+
+| Tool | Executable / entry point | Observed version and availability |
+|---|---|---|
+| Git | C:\Program Files\Git\cmd\git.exe | 2.55.0.windows.1; available |
+| .NET | C:\Program Files\dotnet\dotnet.exe | SDKs 10.0.301, 10.0.403; selected 10.0.403 |
+| Node | C:\Program Files\nodejs\node.exe | 24.18.0; available |
+| npm | C:\Program Files\nodejs\npm.cmd | 11.16.0; queried through its installed CLI using Node |
+| Python | C:\Users\jackg\AppData\Local\Programs\Python\Python312\python.exe | 3.12.10; real interpreter, available |
+| Docker client | C:\Program Files\Docker\Docker\resources\bin\docker.exe | 29.7.2; daemon availability untested |
+| SQL Server client | C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\SQLCMD.EXE | Found; file version 15.0.1300.359. Help invocation inaccessible |
+| Visual Studio | C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\devenv.exe | Found; file version 18.11.12328.437. Workload inventory unavailable |
+| NVIDIA utility | C:\WINDOWS\system32\nvidia-smi.exe | Available; driver observations above |
+
+.NET runtimes: Microsoft.AspNetCore.App, Microsoft.NETCore.App, and Microsoft.WindowsDesktop.App, each at 10.0.9 and 10.0.14, under C:\Program Files\dotnet\shared.
+
+ng, psql, mysql, mariadb, sqlite3, and nvcc were not found on the checked PATH. Python Store aliases were also detected and were not executed. No ancestor global.json or applicable AGENTS.md was found between the working directory and C:\.
+
+Proposed fresh destination: C:\Users\jackg\Asp.net Projects\eledgercare
+
+- The leaf does not exist; its parent exists and is outside a Git worktree.
+- The parent and checked ancestors have no observed reparse targets. The path is outside detected OneDrive roots; other synchronization is unknown.
+- The parent ACL grants inherited FullControl to the current user/token group. Effective writability remains untested; no write probe was performed.
+
+Shared resources: TCP ports 4200, 5000, 5001, 5432, 1433, and 8000 had no observed listeners at the check time. This grants no ownership or guarantee of later binding.
+
+The GPU was in use. Observed application users included devenv (18392), chrome (11612, 16904), msedgewebview2 (6396, 14056), msedge (17112), ProtonDrive (12400), copilotapp (12752), steamwebhelper (12852), steam (21508), and WindowsTerminal (23284), alongside Windows desktop/shell processes. Per-process VRAM was unavailable under WDDM.
+
+| Unknown / affected next activity | Evidence and recommended resolution |
+|---|---|
+| Product stack compatibility | Installed versions were observed only. Qualify and pin the intended .NET/Angular/Node/Python combination during bootstrap. |
+| Database setup | Database choice remains undecided; client presence and free ports do not establish server availability or suitability. Choose the database before configuring persistence. |
+| GPU execution and data placement | Shared GPU use was observed; no model/data destination or OCR runtime was qualified. Establish scheduling and storage, then qualify the selected runtime. |
+| Optional inventory / write access | CIM and installer inventory were restricted; no write test occurred. Recheck only what the authorized bootstrap requires. |
+
+Command/evidence appendix: Successful observations used Get-Command, explicit version commands, .NET --list-sdks/--list-runtimes, registry reads, GetPhysicallyInstalledSystemMemory, nvidia-smi, DriveInfo, ACL inspection, and filtered local netstat output. Git reported the proposed parent was not a repository. Relevant failures were shell-launch access denials, CIM access denials, and named-pipe denials affecting redirected subprocesses, SQLCMD help, and vswhere. Direct version calls and read-only alternatives recovered the core observations; a CPU registry warning still returned the processor name.
+
+Deliberate changes: none. No setup, repository creation, software changes, service changes, or agent delegation occurred. OCR accuracy, offline operation, GPU capacity for a workload, customer readiness, and database suitability remain unvalidated.
+
+Smallest next actions, not performed:
+
+- Product bootstrap: agree the repository contract, directory/environment separation and database choice; qualify versions, then initialize the fresh repository with one production .NET solution.
+- Before GPU execution only: agree resource scheduling and model/data storage, then qualify the chosen OCR runtime.
+- Source-based R&D: source review and hypothesis work can begin alongside contract work without a GPU lease.
+

@@ -1,0 +1,32 @@
+# Build products and project-scoped environments
+**/bin/
+**/obj/
+**/node_modules/
+**/.angular/
+**/dist/
+**/TestResults/
+**/__pycache__/
+**/.venv/
+**/venv/
+.vs/
+.idea/
+
+# Local secrets, operational data, transient evidence and model artifacts
+.env
+.env.*
+!.env.example
+**/appsettings.Local.json
+.local/
+.scratch/
+artifacts/
+uploads/
+database-data/
+model-weights/
+*.safetensors
+*.gguf
+*.ckpt
+*.pt
+
+# Agent/IDE user state is not a product artifact
+.claude/settings.local.json
+.codex/
