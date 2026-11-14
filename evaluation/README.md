@@ -1,8 +1,8 @@
 # eLedgerCare Synthetic Evaluation Corpus (`WP-0004 / 004` Candidate)
 
-- **Prepared By:** `eld-rd-carbon` (`research/wp-0004-carbon`)
+- **Prepared By:** `eld-rd-carbon` (`research/wp-0004-carbon-recovery`, continued from preserved draft checkpoint `8fb7e3ca537b1710fe231dad0cf5d177c6e5d733` atop original base `fef02d64aca2594e146930e4a0cb3ec18e355ed5`)
 - **Current Admission Status:** `author_prepared_candidate_pending_opus_wp0004_005_review` (**NOT** independently accepted; non-author verification by `eld-rd-reviewer` / uninvolved Opus in `WP-0004 / 005` is required before shared promotion).
-- **Corpus Bounds:** `8` fictional property-maintenance families (`F01`–`F08`), **`26` deterministic PDFs / `40` total pages**, `0` admitted public PDFs (`evaluation/manifests/public-candidates.json` retains both Microsoft Form Recognizer candidates as `candidate_unadmitted` without copying their bytes).
+- **Corpus Bounds:** `8` fictional property-maintenance families (`F01`–`F08`), **`26` deterministic PDFs / `40` total pages** ([corpus-manifest.json](manifests/corpus-manifest.json)), `0` admitted public PDFs ([public-candidates.json](manifests/public-candidates.json) retains both Microsoft Form Recognizer candidates as `candidate_unadmitted` without copying their bytes).
 
 ---
 

@@ -2,11 +2,16 @@
   "schema_version": "1.0.0",
   "packet": "WP-0004 / 004",
   "recorded_by": "eld-rd-carbon",
-  "environment_scope": "Worktree-local ignored virtual environment (.venv) at C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-rd-carbon\\.venv. Zero global installations, zero model weights, zero CUDA/GPU packages.",
+  "session_provenance": {
+    "prior_author_draft_session": "74513d00-ee88-4e85-a554-120908615b21",
+    "recovery_continuation_session": "993d4f08-72d0-479c-9e6c-047280cedf95",
+    "note": "Both sessions represent eld-rd-carbon authorship; fresh session execution is author verification, not non-author acceptance."
+  },
+  "environment_scope": "Fresh worktree-local ignored virtual environment (.venv) at C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-rd-carbon-recovery\\.venv. Offline wheel installation from 3 SHA-256/size-verified archives copied read-only from eld-rd-carbon\\.scratch\\wheels into eld-rd-carbon-recovery\\.scratch\\wheels. Zero global installations, zero model weights, zero CUDA/GPU packages.",
   "python_runtime": {
     "version": "3.12.10",
-    "platform": "win_amd64 (Windows 10/11 x64 build 26200.9974)",
-    "installer": "pip 25.0.1 (--no-index --no-deps --find-links from SHA-256 verified wheels in ignored .scratch/wheels)"
+    "platform": "win_amd64 (Windows-11-10.0.26200-SP0)",
+    "installer": "pip 25.0.1 (--no-index --no-deps --find-links .scratch/wheels)"
   },
   "vector_pdf_generator_and_fonts": {
     "generator_module": "evaluation/generation/pdf_writer.py",
@@ -14,6 +19,36 @@
     "font_strategy": "Standard PDF Base-14 Type1 fonts referenced by name (/Helvetica, /Helvetica-Bold, /Courier, /Courier-Bold) with /WinAnsiEncoding; zero proprietary third-party font binaries embedded inside generated PDFs.",
     "raster_hybrid_stamp_font": "Pillow 13.0.0 bundled scalable default font (ImageFont.load_default(size=...)), deterministic across hosts without reading OS system font directories."
   },
+  "generation_and_verification_scripts": [
+    {
+      "path": "evaluation/generation/generate_corpus.py",
+      "eol": "lf (*.py text eol=lf in .gitattributes)",
+      "size_bytes": 51675,
+      "sha256": "7ae2bc77faca1409dc97ac0632eff2fe8dac85c15e7315d8f159b7f6b49a7629",
+      "git_blob_oid": "484a77b1641d82efbcb0e30c172b6d220ec7394e"
+    },
+    {
+      "path": "evaluation/generation/pdf_writer.py",
+      "eol": "lf (*.py text eol=lf in .gitattributes)",
+      "size_bytes": 11711,
+      "sha256": "e75929f4d9567921d4e64093f6c655021dd82c28b161280066191fb7808087c6",
+      "git_blob_oid": "3c50e6dff4bb47b4e20cf7119d957ebad474f184"
+    },
+    {
+      "path": "evaluation/generation/verify_arithmetic_independent.py",
+      "eol": "lf (*.py text eol=lf in .gitattributes)",
+      "size_bytes": 7908,
+      "sha256": "8b5c7d70c958e1b26266284565c6390e4ee48b94d899d460c0cf10c99dcb1b84",
+      "git_blob_oid": "9ca2593318040ada6033993af3df215cd2128c85"
+    },
+    {
+      "path": "evaluation/generation/verify_corpus_integrity.py",
+      "eol": "lf (*.py text eol=lf in .gitattributes)",
+      "size_bytes": 11641,
+      "sha256": "ebbb31278afa3d88a2aa2c964e0e75fac4442bb844776db2c0f358f40a7898b2",
+      "git_blob_oid": "2fb634c390f266f1e7d6f68da5a29aa438a1fc38"
+    }
+  ],
   "installed_wheels": [
     {
       "package": "pypdfium2",
@@ -21,7 +56,7 @@
       "bundled_native_build": "PDFium 159.0.8149.0@sourcebuild-toolchained",
       "wheel_filename": "pypdfium2-5.15.2-py3-none-win_amd64.whl",
       "size_bytes": 4187589,
-      "sha256": "74d1bace34fb01c660d0b64344d5a4b7d276942b7c6623c88ab59ea21c5acfbd",
+      "sha256": "74d1bace34fb01c660d0b64344d5a4b7c6623c88ab59ea21c5acfbd",
       "declared_license": "BSD-3-Clause, Apache-2.0, dependency licenses",
       "bundled_license_files_inspected": [
         "pypdfium2-5.15.2.dist-info/licenses/LICENSES/Apache-2.0.txt",
