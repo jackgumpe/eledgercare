@@ -9,6 +9,7 @@ WP-0001 is the coordination/authority seed. Its first deliverable commit is a ro
 | Packet | Sequence | Owner | Branch / worktree | Base | Exact report path | Status / next owner |
 | --- | --- | --- | --- | --- | --- | --- |
 | WP-0001 | 001 | eld-coordinator | coordination/bootstrap; C:\Users\jackg\Asp.net Projects\eledgercare | none: new root commit | docs/agent-reports/eld-coordinator/WP-0001/001_2026-11-14_verification_eld-coordinator.md | reserved before seed; next eld-reviewer for the combined startup review |
+| WP-0001 | 002 | eld-coordinator | coordination/bootstrap; C:\Users\jackg\Asp.net Projects\eledgercare | 9b49c0f330ea5a71263432cbc3f785b51767b304 | docs/agent-reports/eld-coordinator/WP-0001/002_2026-11-14_verification_eld-coordinator.md | reserved first coordination receipt and final binding verification; next Jack to supply/open Carbon sessions |
 
 ## Planned packets, not yet execution releases
 
@@ -44,7 +45,7 @@ Worktree paths shown as relative names are under C:\Users\jackg\Asp.net Projects
 | Record | Deliverable | Report publication | State |
 | --- | --- | --- | --- |
 | WP-0001 / 001 seed | 35f6090a9b2e16c7645b56f34b104eb3126d5c90, no parent | 287183ceec005195d03e83649a3f91c41ae4fcd1 | published and author-verified; included in combined startup review |
-| WP-0002 / 001 design | e90c71817bc793dfbfc7576006be3cbf0b4310bf | report metadata follows this candidate | published; unreviewed/unaccepted |
+| WP-0002 / 001 design | e90c71817bc793dfbfc7576006be3cbf0b4310bf | 9b49c0f330ea5a71263432cbc3f785b51767b304 | report and exact assignments published; unreviewed/unaccepted |
 | WP-0004 / 001 Astra | 1eb6f4af643edc7ccffcd5732a4659da44e7a077 | 189d4cb444c5afde059e6e1d2bee37c8294509d0 | completed/published; receipt verified, not accepted or merged |
 
 Astra's [exact cross-branch report](https://github.com/jackgumpe/eledgercare/blob/189d4cb444c5afde059e6e1d2bee37c8294509d0/docs/agent-reports/eld-rd-astra/WP-0004/001_2026-11-14_research_eld-rd-astra.md) remains on research/wp-0004-astra. Coordinator inspected its actual 22-file inventory/report and confirmed the matching remote ref. Actual task /root/rd_astra used gpt-6-astra/high dispatch; backend checkpoint remains unknown. No other worker session has started.
