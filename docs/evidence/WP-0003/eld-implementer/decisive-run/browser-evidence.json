@@ -1,0 +1,60 @@
+{
+  "fixtureSha": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+  "apiProcesses": [
+    {
+      "pid": 16684,
+      "startedUtc": "2026-11-14T19:08:41.428Z",
+      "stoppedUtc": "2026-11-14T19:08:44.603Z"
+    },
+    {
+      "pid": 26640,
+      "startedUtc": "2026-11-14T19:08:44.842Z",
+      "stoppedUtc": "2026-11-14T19:08:51.398Z"
+    }
+  ],
+  "checks": [
+    {
+      "check": "DI-01/02/03/04 browser",
+      "postStatus": 201,
+      "documentId": "01a1db76-455b-7fa3-aecd-81f5beab91f3",
+      "status": "Awaiting extraction",
+      "downloadedSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+      "downloadName": "document-01a1db76-455b-7fa3-aecd-81f5beab91f3.pdf",
+      "apiPidBeforeRestart": 16684,
+      "apiPidAfterRestart": 26640,
+      "reopenedAfterRestartSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    {
+      "check": "DI-06 browser 5xx",
+      "serverCommitStatus": 201,
+      "shownToUser": 500,
+      "keyRetainedAcrossReload": true,
+      "reconciledBy": "GET /api/submissions/{key}",
+      "key": "59999668-f4ac-4485-b5ed-ce4f64a18ae6"
+    },
+    {
+      "check": "DI-06 browser 429",
+      "keys": [
+        "4f489f67-a6cb-4d1d-a343-f95e9ed4133b",
+        "4f489f67-a6cb-4d1d-a343-f95e9ed4133b"
+      ],
+      "sameKeyRetried": true
+    },
+    {
+      "check": "DI-06 browser uncertainty then 429",
+      "attempts": 3,
+      "singleKey": true
+    },
+    {
+      "check": "double click / explicit new submission",
+      "keys": [
+        "c9457e4f-5ca4-4560-97a5-e8a225ed6753",
+        "d5677651-238f-4e6b-8eba-7baff721e119"
+      ]
+    },
+    {
+      "check": "browser 422 rejection",
+      "receiptShown": false
+    }
+  ]
+}

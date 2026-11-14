@@ -1,0 +1,46 @@
+waiting for server to shut down.... done
+server stopped
+Owned cluster started: postmaster PID 25552, started 2026-11-14T19:08:58.9183509Z, data C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-implementer\.local\postgres-data
+{
+  "fixtureId": "F1-SWO-001",
+  "fixtureSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+  "fixtureBytes": 887,
+  "database": "eledgercare_product_dev",
+  "submit": {
+    "status": 201,
+    "documentId": "01a1db76-71f3-78be-8d2c-a2de35473b5d",
+    "jobId": "01a1db76-71f3-72e5-a709-707901d2d35e",
+    "receiptStatus": "awaiting_extraction",
+    "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "apiProcesses": [
+    {
+      "pid": 29432,
+      "startUtc": "2026-11-14T19:08:53.0051922Z",
+      "role": "submit, then terminated"
+    },
+    {
+      "pid": 23680,
+      "startUtc": "2026-11-14T19:08:55.6340856Z",
+      "role": "after API restart"
+    },
+    {
+      "pid": 16216,
+      "startUtc": "2026-11-14T19:08:59.3233839Z",
+      "role": "after PostgreSQL fast restart"
+    }
+  ],
+  "afterApiRestart": {
+    "documentId": "01a1db76-71f3-78be-8d2c-a2de35473b5d",
+    "status": "awaiting_extraction",
+    "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "afterPostgresRestart": {
+    "postmasterPid": 25552,
+    "documentId": "01a1db76-71f3-78be-8d2c-a2de35473b5d",
+    "status": "awaiting_extraction",
+    "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "allMatch": true,
+  "limits": "Application and database-service restarts only; not a power-loss, OS-crash or backup test."
+}

@@ -1,0 +1,431 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\playwright.config.ts",
+    "rootDir": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/eld-implementer/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/eld-implementer/.scratch/playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/eld-implementer/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\.scratch\\playwright\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e",
+        "snapshotDir": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4200",
+          "channel": "msedge",
+          "headless": true,
+          "acceptDownloads": true,
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\.scratch\\playwright\\results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npx ng serve --host 127.0.0.1 --port 4200",
+      "url": "http://127.0.0.1:4200",
+      "reuseExistingServer": false,
+      "timeout": 180000,
+      "stdout": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "intake.spec.ts",
+      "file": "intake.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "DI-01/02/03/04: receipt shows committed reference, honest status, exact download, reopen after API restart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5022,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T19:08:41.179Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8890cd086eb41d7ea601-b8ac9428ead0e975464c",
+          "file": "intake.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "DI-06: a 5xx after a real commit shows outcome unknown, keeps the key across reload, and reconciles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1747,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T19:08:46.693Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8890cd086eb41d7ea601-ea1dd75e70a938a94859",
+          "file": "intake.spec.ts",
+          "line": 99,
+          "column": 1
+        },
+        {
+          "title": "DI-06: a 429 keeps the pending key and the same-key retry succeeds",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 696,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T19:08:48.459Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8890cd086eb41d7ea601-45f8d67eb6aa50d23390",
+          "file": "intake.spec.ts",
+          "line": 132,
+          "column": 1
+        },
+        {
+          "title": "DI-06: an earlier uncertain outcome is not resolved by a later 429",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 850,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T19:08:49.170Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8890cd086eb41d7ea601-8c70e0322ece44ab7f5e",
+          "file": "intake.spec.ts",
+          "line": 162,
+          "column": 1
+        },
+        {
+          "title": "double click cannot mint a second key and a new submission is explicit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 704,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T19:08:50.031Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8890cd086eb41d7ea601-6da64f514d77b510a6bb",
+          "file": "intake.spec.ts",
+          "line": 198,
+          "column": 1
+        },
+        {
+          "title": "invalid file is rejected definitively without a fabricated receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 608,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T19:08:50.748Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-implementer\\web\\e2e\\intake.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8890cd086eb41d7ea601-68332dd4b3a3c46b303c",
+          "file": "intake.spec.ts",
+          "line": 220,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-14T19:08:35.811Z",
+    "duration": 16070.627,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
