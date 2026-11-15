@@ -1,0 +1,495 @@
+{
+ "tool": "docs/reviews/WP-0004/eld-rd-reviewer/closure/closure_check.py",
+ "pins": {
+  "author_base": "068f3f83bb532160b56e00f071f8badd8d3f51b0",
+  "corpus": "29b2000265ae6068d9c86818622c81a40cadd961",
+  "candidate": "54c7f6fe062720cbdf92e6bcd7476b697fc4afe1",
+  "evidence": "fb2d8e616ad375ac7ccfa5f9000ba3340476c148",
+  "author_report": "f69c9e4fdec2e12f481e6131965b5e4e184e013f",
+  "review_base": "8f9a3281fa223d25447677b8ed8b873bf9e5cd01"
+ },
+ "A_git": {
+  "merge_head": "dfcf4b52a7d697af0cf0f38c98464aee8d4929ed",
+  "merge_parents": [
+   "8f9a3281fa223d25447677b8ed8b873bf9e5cd01",
+   "f69c9e4fdec2e12f481e6131965b5e4e184e013f"
+  ],
+  "author_base_to_candidate": {
+   "added": [
+    "research/carbon/reconciliation/03-review-response.md",
+    "research/carbon/reconciliation/verify_review_corrections.py"
+   ],
+   "deleted": [],
+   "modified": [
+    "evaluation/README.md",
+    "research/carbon/reconciliation/02-ranked-experiment-backlog.md"
+   ]
+  },
+  "candidate_to_author_report": {
+   "added": [
+    "docs/agent-reports/eld-rd-carbon/WP-0004/008_2026-11-15_research_eld-rd-carbon.md",
+    "evaluation/manifests/review-correction-verification.json"
+   ],
+   "deleted": [],
+   "modified": []
+  },
+  "review_base_to_merge": {
+   "added": [
+    "docs/agent-reports/eld-rd-carbon/WP-0004/008_2026-11-15_research_eld-rd-carbon.md",
+    "evaluation/manifests/review-correction-verification.json",
+    "research/carbon/reconciliation/03-review-response.md",
+    "research/carbon/reconciliation/verify_review_corrections.py"
+   ],
+   "deleted": [],
+   "modified": [
+    "evaluation/README.md",
+    "research/carbon/reconciliation/02-ranked-experiment-backlog.md"
+   ]
+  },
+  "author_report_to_merge": {
+   "added": [
+    "docs/agent-reports/eld-rd-reviewer/WP-0004/005_2026-11-14_review_eld-rd-reviewer.md",
+    "docs/reviews/WP-0004/eld-rd-reviewer/README.md",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/arithmetic.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/display-faithfulness.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/e2-diagnostic.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/glyph-geometry.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/inventory.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/pdf-structure.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/regeneration-compare.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/render-index.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/report-claims.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/verify-summary.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/evidence/visual-coverage.json",
+    "docs/reviews/WP-0004/eld-rd-reviewer/helpers/e2_sign_diagnostic.py",
+    "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_display_faithfulness.py",
+    "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_mutation_control.py",
+    "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_regen_compare.py",
+    "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_render_pages.py",
+    "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_report_claims.py",
+    "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_verify.py"
+   ],
+   "deleted": [],
+   "modified": []
+  },
+  "protected_objects_checked_vs_29b2000": 77,
+  "protected_changed": [],
+  "protected_groups": {
+   "pdfs": 26,
+   "expected": 26,
+   "sources": 8,
+   "generation": 4
+  },
+  "review_005_objects_preserved": 20
+ },
+ "B_renderer_sizing": {
+  "wheel_sha256": "74d1bace34fb01c660d0b64344d5a4b7d276942b7c6623c88ab59ea21c5acfbd",
+  "installed_equals_wheel_member": {
+   "pypdfium2/_helpers/page.py": true,
+   "pypdfium2_raw/bindings.py": true
+  },
+  "source_lines": {
+   "page.py:58": "return pdfium_c.FPDF_GetPageWidthF(self)",
+   "page.py:65": "return pdfium_c.FPDF_GetPageHeightF(self)",
+   "page.py:458": "src_width  = math.ceil(self.get_width()  * scale)",
+   "page.py:459": "src_height = math.ceil(self.get_height() * scale)",
+   "bindings.py:647": "FPDF_GetPageWidthF.restype = c_float",
+   "bindings.py:657": "FPDF_GetPageHeightF.restype = c_float"
+  },
+  "scale_repr": "4.166666666666667",
+  "sizing": {
+   "612.0": {
+    "c_float": "612.0",
+    "times_scale": "2550.0",
+    "ceil_px": 2550
+   },
+   "792.0": {
+    "c_float": "792.0",
+    "times_scale": "3300.0000000000005",
+    "ceil_px": 3301
+   },
+   "792.24": {
+    "c_float": "792.239990234375",
+    "times_scale": "3300.999959309896",
+    "ceil_px": 3301
+   },
+   "652.8": {
+    "c_float": "652.7999877929688",
+    "times_scale": "2719.99994913737",
+    "ceil_px": 2720
+   },
+   "823.44": {
+    "c_float": "823.4400024414062",
+    "times_scale": "3431.0000101725263",
+    "ceil_px": 3432
+   },
+   "666.24": {
+    "c_float": "666.239990234375",
+    "times_scale": "2775.999959309896",
+    "ceil_px": 2776
+   },
+   "833.04": {
+    "c_float": "833.0399780273438",
+    "times_scale": "3470.999908447266",
+    "ceil_px": 3471
+   }
+  }
+ },
+ "C_input_contract_dev_controls": [
+  {
+   "fixture_page": "SYN-WO-01-v1-raster300#p1",
+   "variant": "v1_raster300",
+   "stored_xobject_px": [
+    2550,
+    3301
+   ],
+   "rendered_px": [
+    2550,
+    3301
+   ],
+   "rendered_rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+   "stored_rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+   "rendered_equals_stored": true,
+   "otsu": 153,
+   "theta_hat": 0.0,
+   "V_ratio": 1.0,
+   "triggered": false,
+   "phi_applied": 0.0,
+   "true_ccw_deg_post_hoc": 0.0,
+   "analytic_residual_deg": 0.0,
+   "output_is_input_object": true,
+   "output_bytes_identical": true,
+   "outcome": "byte-identical pass-through"
+  },
+  {
+   "fixture_page": "SYN-WO-01-v2-skew-pos4deg#p1",
+   "variant": "v2_skew",
+   "stored_xobject_px": [
+    2776,
+    3471
+   ],
+   "rendered_px": [
+    2776,
+    3471
+   ],
+   "rendered_rgb_sha256": "c48579045f284b255271474b852609c7de76a6c6477617f74adf68eb0a42187e",
+   "stored_rgb_sha256": "06e4dea68e786bde3c558246a5b088caefca3e66883cd0e7ceca6414353296df",
+   "rendered_equals_stored": false,
+   "otsu": 163,
+   "theta_hat": 4.0,
+   "V_ratio": 6.575,
+   "triggered": true,
+   "phi_applied": -4.0,
+   "true_ccw_deg_post_hoc": 4.0,
+   "analytic_residual_deg": 0.0,
+   "output_px": [
+    3012,
+    3657
+   ],
+   "empirical_residual_deg": 0.0,
+   "outcome": "corrected"
+  },
+  {
+   "fixture_page": "SYN-WO-02-v1-raster300#p1",
+   "variant": "v1_raster300",
+   "stored_xobject_px": [
+    2550,
+    3301
+   ],
+   "rendered_px": [
+    2550,
+    3301
+   ],
+   "rendered_rgb_sha256": "85048ebc66233fb07d344d80f3da53a65eb585caf383830557e09f26dd42fc30",
+   "stored_rgb_sha256": "85048ebc66233fb07d344d80f3da53a65eb585caf383830557e09f26dd42fc30",
+   "rendered_equals_stored": true,
+   "otsu": 155,
+   "theta_hat": 0.0,
+   "V_ratio": 1.0,
+   "triggered": false,
+   "phi_applied": 0.0,
+   "true_ccw_deg_post_hoc": 0.0,
+   "analytic_residual_deg": 0.0,
+   "output_is_input_object": true,
+   "output_bytes_identical": true,
+   "outcome": "byte-identical pass-through"
+  },
+  {
+   "fixture_page": "SYN-WO-02-v2-skew-neg3deg#p1",
+   "variant": "v2_skew",
+   "stored_xobject_px": [
+    2720,
+    3431
+   ],
+   "rendered_px": [
+    2720,
+    3432
+   ],
+   "rendered_rgb_sha256": "eb26d3eabe1b6ad56f1853312c7385977f080c963f4c0a020380a8c435eb1c92",
+   "stored_rgb_sha256": "bb2e78574353fd171c89202ccac7ba98341266f32202b88e1763900152af37f3",
+   "rendered_equals_stored": false,
+   "otsu": 164,
+   "theta_hat": -3.0,
+   "V_ratio": 6.7632,
+   "triggered": true,
+   "phi_applied": 3.0,
+   "true_ccw_deg_post_hoc": -3.0,
+   "analytic_residual_deg": 0.0,
+   "output_px": [
+    2896,
+    3570
+   ],
+   "empirical_residual_deg": 0.0,
+   "outcome": "corrected"
+  },
+  {
+   "fixture_page": "SYN-INV-01-v1-raster300#p1",
+   "variant": "v1_raster300",
+   "stored_xobject_px": [
+    2550,
+    3301
+   ],
+   "rendered_px": [
+    2550,
+    3301
+   ],
+   "rendered_rgb_sha256": "cec81db2dd8126a3cb1d59bd9fad9982bc38ba6962a6d5fab0dabd00da2c66f0",
+   "stored_rgb_sha256": "cec81db2dd8126a3cb1d59bd9fad9982bc38ba6962a6d5fab0dabd00da2c66f0",
+   "rendered_equals_stored": true,
+   "otsu": 156,
+   "theta_hat": 0.0,
+   "V_ratio": 1.0,
+   "triggered": false,
+   "phi_applied": 0.0,
+   "true_ccw_deg_post_hoc": 0.0,
+   "analytic_residual_deg": 0.0,
+   "output_is_input_object": true,
+   "output_bytes_identical": true,
+   "outcome": "byte-identical pass-through"
+  },
+  {
+   "fixture_page": "SYN-INV-01-v2-skew-neg3deg#p1",
+   "variant": "v2_skew",
+   "stored_xobject_px": [
+    2720,
+    3431
+   ],
+   "rendered_px": [
+    2720,
+    3432
+   ],
+   "rendered_rgb_sha256": "cfca64638a53527e5ee6dc06ab1147ed46e6bbd2aad4d0f689ad8b3fa8c68c00",
+   "stored_rgb_sha256": "6d4921e0ccd90345020c431d302da0566c57617f8783894b81fd49510fd92904",
+   "rendered_equals_stored": false,
+   "otsu": 166,
+   "theta_hat": -3.0,
+   "V_ratio": 6.5802,
+   "triggered": true,
+   "phi_applied": 3.0,
+   "true_ccw_deg_post_hoc": -3.0,
+   "analytic_residual_deg": 0.0,
+   "output_px": [
+    2896,
+    3570
+   ],
+   "empirical_residual_deg": 0.0,
+   "outcome": "corrected"
+  },
+  {
+   "fixture_page": "SYN-MP-01-v1-raster300#p1",
+   "variant": "v1_raster300",
+   "stored_xobject_px": [
+    2550,
+    3301
+   ],
+   "rendered_px": [
+    2550,
+    3301
+   ],
+   "rendered_rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+   "stored_rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+   "rendered_equals_stored": true,
+   "otsu": 158,
+   "theta_hat": 0.0,
+   "V_ratio": 1.0,
+   "triggered": false,
+   "phi_applied": 0.0,
+   "true_ccw_deg_post_hoc": 0.0,
+   "analytic_residual_deg": 0.0,
+   "output_is_input_object": true,
+   "output_bytes_identical": true,
+   "outcome": "byte-identical pass-through"
+  },
+  {
+   "fixture_page": "SYN-MP-01-v2-skew-pos4deg#p1",
+   "variant": "v2_skew",
+   "stored_xobject_px": [
+    2776,
+    3471
+   ],
+   "rendered_px": [
+    2776,
+    3471
+   ],
+   "rendered_rgb_sha256": "026ffb72db8bed5cc6c3f0f4420d99371a0dc9cdaed7c45d8f2d272dd7ae001b",
+   "stored_rgb_sha256": "5f7ecb3ba3d48fe08096b5c1d96da004a2092b06e9b44dd428629a8300808575",
+   "rendered_equals_stored": false,
+   "otsu": 168,
+   "theta_hat": 4.0,
+   "V_ratio": 6.7206,
+   "triggered": true,
+   "phi_applied": -4.0,
+   "true_ccw_deg_post_hoc": 4.0,
+   "analytic_residual_deg": 0.0,
+   "output_px": [
+    3012,
+    3657
+   ],
+   "empirical_residual_deg": 0.0,
+   "outcome": "corrected"
+  }
+ ],
+ "C_author_evidence_comparison": [
+  {
+   "fixture_page": "SYN-WO-01-v1-raster300#p1",
+   "rendered_sha256_in_author_evidence": true,
+   "rendered_size_in_author_evidence": true
+  },
+  {
+   "fixture_page": "SYN-WO-01-v2-skew-pos4deg#p1",
+   "rendered_sha256_in_author_evidence": true,
+   "rendered_size_in_author_evidence": true
+  },
+  {
+   "fixture_page": "SYN-WO-02-v1-raster300#p1",
+   "rendered_sha256_in_author_evidence": true,
+   "rendered_size_in_author_evidence": true
+  },
+  {
+   "fixture_page": "SYN-WO-02-v2-skew-neg3deg#p1",
+   "rendered_sha256_in_author_evidence": true,
+   "rendered_size_in_author_evidence": true
+  },
+  {
+   "fixture_page": "SYN-INV-01-v1-raster300#p1",
+   "rendered_sha256_in_author_evidence": true,
+   "rendered_size_in_author_evidence": true
+  },
+  {
+   "fixture_page": "SYN-INV-01-v2-skew-neg3deg#p1",
+   "rendered_sha256_in_author_evidence": true,
+   "rendered_size_in_author_evidence": true
+  },
+  {
+   "fixture_page": "SYN-MP-01-v1-raster300#p1",
+   "rendered_sha256_in_author_evidence": true,
+   "rendered_size_in_author_evidence": true
+  },
+  {
+   "fixture_page": "SYN-MP-01-v2-skew-pos4deg#p1",
+   "rendered_sha256_in_author_evidence": true,
+   "rendered_size_in_author_evidence": true
+  }
+ ],
+ "C_author_diagnostic_summary": {
+  "input_contract": "pypdfium2==5.15.2 (PDFium 159.0.8149.0) page.render(scale=300.0/72.0).to_pil().convert('RGB')",
+  "dev_pages_tested": 8,
+  "eval_holdout_pages_read": 0,
+  "clean_v1_byte_identical_noops": 4,
+  "skew_v2_exact_zero_residuals": 4,
+  "markdown_relative_links_verified": 13
+ },
+ "E_rv04": {
+  "ast": {
+   "claimed_actual_present": {
+    "evaluation/generation/pdf_writer.py": [],
+    "evaluation/generation/generate_corpus.py": [],
+    "evaluation/generation/verify_arithmetic_independent.py": [],
+    "evaluation/generation/verify_corpus_integrity.py": []
+   },
+   "claimed_absent_actually_absent": []
+  },
+  "json": {
+   "corpus_manifest_keys": [
+    "corpus_status",
+    "counts",
+    "disclaimer",
+    "fixtures",
+    "generator_and_tooling",
+    "packet",
+    "schema_version",
+    "source_records"
+   ],
+   "expected_keys": [
+    "cross_page_links",
+    "doc_kind",
+    "expected_absences",
+    "expected_adjacent_page_pairs",
+    "expected_fields",
+    "expected_routing_for_e3",
+    "expected_tables",
+    "family_id",
+    "fixture_id",
+    "invoice_accounting",
+    "page_count",
+    "page_sentinels",
+    "parent_fixture_id",
+    "schema_version",
+    "split",
+    "split_disclosure",
+    "transform_params",
+    "variant_kind"
+   ],
+   "labor_entries_in_any_source": false,
+   "line_items_in_work_order_sources": [],
+   "fees_by_family": {
+    "F01": [],
+    "F02": [],
+    "F03": [],
+    "F04": [],
+    "F05": [],
+    "F06": [
+     "FEE-ENV-01"
+    ],
+    "F07": [
+     "FEE-MANIFEST-01"
+    ],
+    "F08": []
+   },
+   "credit_rows": {
+    "F01": [],
+    "F02": [],
+    "F03": [],
+    "F04": [],
+    "F05": [],
+    "F06": [
+     "L10"
+    ],
+    "F07": [
+     "L20"
+    ],
+    "F08": []
+   }
+  },
+  "triage_of_005_absences": {
+   "total": 50,
+   "notation": 7,
+   "inaccurate_headings": 6,
+   "nonexistent_symbols_or_keys": 37,
+   "author_triage_7_6_37_in_response": true
+  }
+ },
+ "E_rv03_docs": {
+  "readme_2550x3301": true,
+  "readme_still_2550x3300": false,
+  "readme_2720x3432": true,
+  "readme_2720x3431": true,
+  "readme_areas": true,
+  "backlog_areas": true,
+  "backlog_still_lt8pct": false,
+  "readme_still_lt8pct": false,
+  "backlog_ceil_rule": true
+ },
+ "failures": [],
+ "all_pass": true
+}
