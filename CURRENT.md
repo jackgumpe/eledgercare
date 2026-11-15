@@ -2,7 +2,7 @@
 
 Sole writer: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba. Actual coordinator model/effort: not exposed. Repository https://github.com/jackgumpe/eledgercare is PRIVATE; default/integration branch coordination/bootstrap. Normal scoped commits and pushes are active. INDEX.md and immutable reports retain historical reservations, receipts and corrected findings.
 
-## WP-0005: independently accepted and integrated; final publication underway
+## WP-0005: accepted, integrated and published
 
 **The unmodified Q0 trial and independent reproduction are ACCEPTED.** Both returned QUALIFIED_RUNTIME_OBSERVATION: all six checks passed in each run, and all twelve calls stopped normally with expected page counts. All four measured outputs match within and across sessions in token IDs and raw text bytes. The [final disposition](docs/coordination/WP-0005/final-disposition/README.md) records exact revisions, evidence corrections and limits.
 
@@ -12,7 +12,7 @@ Author run **20261115T202627Z-eb5bf7da** lasted 1235.281s; reviewer run **202611
 
 **Both GPU leases are RETURNED, both delegated sessions finished successfully, and no Q0 worker or active lease remains.** External task environment and both raw runs remain retained. Carbon completed the authorized continuation in separate author/reviewer conversations after the Claude route remained blocked; no account or billing settings changed.
 
-Coordinator preservation evidence, canonical /006 and final publication receipt are the only remaining administrative steps. This qualification does not score OCR accuracy or establish production readiness. E1-E3 and production extension remain unreleased.
+Final coordinator [canonical /006 report](docs/agent-reports/eld-coordinator/WP-0005/006_2026-11-15_verification_eld-coordinator.md) is published at **8d9334147040e994ca007536bf61974f7de07a61**, with exact origin confirmation. Coordinator deliverable **c5610e306a9af64e75c5501e6cf7a6f7ec4835bb** has a verified 542-path inventory; preservation evidence **c881352e543949e83747b8cf4c9ea6403ce3ad45** confirms all 322 protected base files and all 42 accepted harness core files retain exact identity. INDEX.md records the final publication chain. **WP-0005 is complete; no execution, review or acceptance work remains.** This qualification does not score OCR accuracy or establish production readiness. E1-E3 and production extension remain unreleased.
 
 ## Accepted prior milestones
 

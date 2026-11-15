@@ -350,3 +350,20 @@ Independent /005 runtime evidence frozen locally at **acf2ce43ccb3c22883e9961f2c
 Independent canonical /005 **848fe70bd6d6fce9c958f11b76102d2fdfad77d4**, evidence **acf2ce43ccb3c22883e9961f2c763a2ece11b54f**, is **ACCEPTED**. Its report-only addition and exact origin ref were verified; prior 96-blob/72-original/21-scratch audit is retained. Normal coordinator merge **8bb643ce79f3728fcf90b1ad4e08e9ab87e76982** includes exact author /004 **72fffbcbfa47f3c93425d9de5f338e511df7da3e** without changing accepted core, raw evidence or immutable reports. Both trials passed, all six corresponding calls match across sessions, both leases returned, and both agent CLIs completed SUCCESS/exit 0.
 
 Final disposition is `docs/coordination/WP-0005/final-disposition/README.md`, including three factual /005 prose reconciliations (36 coordinate tuples, correct metadata-acceptance publication e0ee634f6a92624c8c305c1c8730f79e95b93647, and no causal/zero-effect inference about desktop confounders). Reserved coordinator /006 remains the same owner/path; preservation evidence and report publication follow the frozen deliverable. No further model trial, agent task, permission gate or production release is pending.
+
+### WP-0005 final coordinator publication receipt
+
+WP-0005 is **ACCEPTED, MERGED and PUBLISHED**. This receipt closes the historical pending states above, preserving their chronology and every immutable report. Both independently executed trials qualified; all six corresponding native calls match across sessions, including the two excluded warm-ups. The measured baseline is accepted only for the frozen runtime qualification.
+
+| Role | Full revision |
+| --- | --- |
+| Coordinator integration | `8bb643ce79f3728fcf90b1ad4e08e9ab87e76982` |
+| Frozen coordinator deliverable | `c5610e306a9af64e75c5501e6cf7a6f7ec4835bb` |
+| Preservation verification evidence | `c881352e543949e83747b8cf4c9ea6403ce3ad45` |
+| Canonical coordinator /006 publication | `8d9334147040e994ca007536bf61974f7de07a61` |
+| Independent accepted /005 publication | `848fe70bd6d6fce9c958f11b76102d2fdfad77d4` |
+| Reviewed author /004 publication | `72fffbcbfa47f3c93425d9de5f338e511df7da3e` |
+
+Canonical report: [docs/agent-reports/eld-coordinator/WP-0005/006_2026-11-15_verification_eld-coordinator.md](docs/agent-reports/eld-coordinator/WP-0005/006_2026-11-15_verification_eld-coordinator.md). Its publication commit adds only that report after the evidence commit. Normal push and exact `origin/coordination/bootstrap` ref **8d9334147040e994ca007536bf61974f7de07a61** were confirmed before writing this receipt; the final receipt follows as routing-only metadata. The 542-path base-to-deliverable inventory matched the committed diff. The frozen preservation check passed all 322 protected application/corpus/base files and 42 accepted harness core files, with no unexpected additions or duplicate packet sequences. Nineteen local links in the report/current/disposition documents resolved before report publication.
+
+Post-deliverable additions are only `docs/coordination/WP-0005/final-disposition/preservation.json` and the canonical /006 report; final receipt modifications are only `INDEX.md` and `CURRENT.md`. No source, fixture, dependency, model, raw evidence or prior report changed during final publication. All original model objects/notice were verified after both actual trials. Both GPU leases are returned, both Carbon CLI sessions completed SUCCESS/exit 0, and the external task environment and raw runs remain retained. No unfinished agent task remains within WP-0005. Jack owns any subsequent milestone decision; F2/production OCR, E1-E3 treatments, training, customer data, deployment and migration remain unreleased.
