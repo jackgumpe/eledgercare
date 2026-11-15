@@ -1,0 +1,105 @@
+{
+  "author_candidate_head": "24a5866b505532fd03e7db62a4e57875e4c5a170",
+  "author_evidence_commands_verified": 12,
+  "commands": [
+    {
+      "bytes": 10274,
+      "exit_code": 0,
+      "name": "01-unittest",
+      "sha256": "e6d0160d475bf136ee293cf2d937f52899ba7e9456274c831a2273ddea8c33b5"
+    },
+    {
+      "bytes": 7100,
+      "exit_code": 0,
+      "name": "02-verify-snapshots",
+      "sha256": "ab0d1999b41619f51cb0a3204c96864275663ae6184f128bfa3842804ada3d6b"
+    },
+    {
+      "bytes": 911,
+      "exit_code": 0,
+      "name": "03-derive-rasters-check",
+      "sha256": "3830bbd14720b6c09320d263ccfe3ac9888040e09865e4d0eca4df3198d94500"
+    },
+    {
+      "bytes": 190,
+      "exit_code": 0,
+      "name": "04-model-manifest-check",
+      "sha256": "b9503dd1b8a99dfa601eea1f999e8cfae513219b042d1ce255d38266546a1c47"
+    },
+    {
+      "bytes": 198,
+      "exit_code": 0,
+      "name": "05-check-protocol",
+      "sha256": "3698b7f74d5aa896221dc05930aaa6421f0b4b19c36ca600cf1f9d329bd5379e"
+    },
+    {
+      "bytes": 3708,
+      "exit_code": 0,
+      "name": "06-lock-check",
+      "sha256": "e1769d403a348e107d262ed12140eb8b6907233348a9b000a40aad590c51ca93"
+    },
+    {
+      "bytes": 703,
+      "exit_code": 0,
+      "name": "07-status",
+      "sha256": "ed4bb346ec5afdb0f8aba79d603dbdf1e9b65555b307db4a5f2640dd5acc0af5"
+    },
+    {
+      "bytes": 5530,
+      "exit_code": 0,
+      "name": "08-host-precheck-initial",
+      "sha256": "e06e9aeef6101b4422961c67855f03e96b9dd12c75bc7427340c51e0f3591318"
+    },
+    {
+      "bytes": 566,
+      "exit_code": 2,
+      "name": "09-execute-refused",
+      "sha256": "f6c35002dab1e3f784df0c918653c6a6d1a88af2f7f159e318690e598e727050"
+    },
+    {
+      "bytes": 566,
+      "exit_code": 2,
+      "name": "10-write-requirements-refused",
+      "sha256": "7237b13dba7996e3ed2969de44da309a02033d31ef0c77b668ec7b6f5d2deeb4"
+    },
+    {
+      "bytes": 566,
+      "exit_code": 2,
+      "name": "11-verify-wheelhouse-refused",
+      "sha256": "7237b13dba7996e3ed2969de44da309a02033d31ef0c77b668ec7b6f5d2deeb4"
+    },
+    {
+      "bytes": 6498,
+      "exit_code": 0,
+      "name": "12-isolated-git-subprocess-check",
+      "sha256": "ce5dc2aacb4c261417e764f27b3100dbf9a8e0b4df7d8e7a2be9db6e823f43f2"
+    }
+  ],
+  "coordinator_diag_on_24a5866b": {
+    "install_stage_rc": 0,
+    "runtime_child_rc": 0,
+    "sha256": "cb4bd7584d6c7914de27276996cd026998111e0a531f8c5e6a09acbe97c925b9"
+  },
+  "reconciled_008_report_narrative_errata": {
+    "fixture_verified_bytes_actual": {
+      "SYN-MP-01-v0-clean": 8422,
+      "SYN-WO-01-v0-clean": 3482
+    },
+    "heartbeat_retry_actual": {
+      "max_attempts": 5,
+      "sleeps_ms": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "total_max_sleep_ms": 100
+    },
+    "report_008_line_118_stated": {
+      "F01": 1490,
+      "F07": 4060
+    },
+    "report_008_lines_32_67_103_stated": "10..50 ms"
+  },
+  "status": "pass"
+}

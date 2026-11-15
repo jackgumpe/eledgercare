@@ -1,0 +1,228 @@
+{
+  "cli_invocations": 20,
+  "external_root_exists_after": false,
+  "never_requirements_created": false,
+  "parent_stage_a0_host_precheck": {
+    "free_bytes": 68425506816,
+    "git_runtime": {
+      "executable": "C:\\Program Files\\Git\\cmd\\git.exe",
+      "present": true
+    },
+    "gpu_observer_returncodes": [
+      0,
+      0
+    ],
+    "returncode": 0,
+    "status": "pass"
+  },
+  "results": [
+    {
+      "command": "status",
+      "env": "stage_offline",
+      "returncode": 0,
+      "summary": {
+        "harness_clean": true,
+        "head": "a996543ed533393dc9857eb16f255880c8e08f56",
+        "installable": true,
+        "storage_root_exists": false
+      }
+    },
+    {
+      "command": "lock-check",
+      "env": "stage_offline",
+      "returncode": 0,
+      "summary": {
+        "artifacts": 32,
+        "counts": {
+          "local-sha256-TOFU": 1,
+          "missing": 0,
+          "publisher-declared": 31
+        }
+      }
+    },
+    {
+      "command": "check-protocol",
+      "env": "stage_offline",
+      "returncode": 0,
+      "summary": {
+        "fixtures": {
+          "SYN-MP-01-v0-clean": 8422,
+          "SYN-WO-01-v0-clean": 3482
+        },
+        "protocol_sha256": "dd8a7dc38c2a0c46103f6667f522656a2dddf5882727c18bf7b6b5426c5e2309"
+      }
+    },
+    {
+      "command": "verify-snapshots",
+      "env": "stage_offline",
+      "returncode": 0,
+      "summary": {
+        "snapshots_verified": 10
+      }
+    },
+    {
+      "command": "derive-rasters-check",
+      "env": "stage_offline",
+      "returncode": 0,
+      "summary": {
+        "identical_to_protocol": {
+          "SYN-MP-01-v0-clean": true,
+          "SYN-WO-01-v0-clean": true
+        }
+      }
+    },
+    {
+      "command": "build-model-manifest-check",
+      "env": "stage_offline",
+      "returncode": 0,
+      "summary": {
+        "identical_to_derivation": true
+      }
+    },
+    {
+      "command": "write-requirements-unreleased",
+      "env": "stage_offline",
+      "returncode": 2,
+      "summary": {
+        "failure_class": "EXECUTION_NOT_RELEASED",
+        "status": "BLOCKED"
+      }
+    },
+    {
+      "command": "verify-wheelhouse-unreleased",
+      "env": "stage_offline",
+      "returncode": 2,
+      "summary": {
+        "failure_class": "EXECUTION_NOT_RELEASED",
+        "status": "BLOCKED"
+      }
+    },
+    {
+      "command": "execute-author-unreleased",
+      "env": "stage_offline",
+      "returncode": 2,
+      "summary": {
+        "failure_class": "EXECUTION_NOT_RELEASED",
+        "status": "BLOCKED"
+      }
+    },
+    {
+      "command": "execute-reviewer-unreleased",
+      "env": "stage_offline",
+      "returncode": 2,
+      "summary": {
+        "failure_class": "EXECUTION_NOT_RELEASED",
+        "status": "BLOCKED"
+      }
+    },
+    {
+      "command": "status",
+      "env": "child_reviewer",
+      "returncode": 0,
+      "summary": {
+        "harness_clean": true,
+        "head": "a996543ed533393dc9857eb16f255880c8e08f56",
+        "installable": true,
+        "storage_root_exists": false
+      }
+    },
+    {
+      "command": "lock-check",
+      "env": "child_reviewer",
+      "returncode": 0,
+      "summary": {
+        "artifacts": 32,
+        "counts": {
+          "local-sha256-TOFU": 1,
+          "missing": 0,
+          "publisher-declared": 31
+        }
+      }
+    },
+    {
+      "command": "check-protocol",
+      "env": "child_reviewer",
+      "returncode": 0,
+      "summary": {
+        "fixtures": {
+          "SYN-MP-01-v0-clean": 8422,
+          "SYN-WO-01-v0-clean": 3482
+        },
+        "protocol_sha256": "dd8a7dc38c2a0c46103f6667f522656a2dddf5882727c18bf7b6b5426c5e2309"
+      }
+    },
+    {
+      "command": "verify-snapshots",
+      "env": "child_reviewer",
+      "returncode": 0,
+      "summary": {
+        "snapshots_verified": 10
+      }
+    },
+    {
+      "command": "derive-rasters-check",
+      "env": "child_reviewer",
+      "returncode": 0,
+      "summary": {
+        "identical_to_protocol": {
+          "SYN-MP-01-v0-clean": true,
+          "SYN-WO-01-v0-clean": true
+        }
+      }
+    },
+    {
+      "command": "build-model-manifest-check",
+      "env": "child_reviewer",
+      "returncode": 0,
+      "summary": {
+        "identical_to_derivation": true
+      }
+    },
+    {
+      "command": "write-requirements-unreleased",
+      "env": "child_reviewer",
+      "returncode": 2,
+      "summary": {
+        "failure_class": "EXECUTION_NOT_RELEASED",
+        "status": "BLOCKED"
+      }
+    },
+    {
+      "command": "verify-wheelhouse-unreleased",
+      "env": "child_reviewer",
+      "returncode": 2,
+      "summary": {
+        "failure_class": "EXECUTION_NOT_RELEASED",
+        "status": "BLOCKED"
+      }
+    },
+    {
+      "command": "execute-author-unreleased",
+      "env": "child_reviewer",
+      "returncode": 2,
+      "summary": {
+        "failure_class": "EXECUTION_NOT_RELEASED",
+        "status": "BLOCKED"
+      }
+    },
+    {
+      "command": "execute-reviewer-unreleased",
+      "env": "child_reviewer",
+      "returncode": 2,
+      "summary": {
+        "failure_class": "EXECUTION_NOT_RELEASED",
+        "status": "BLOCKED"
+      }
+    }
+  ],
+  "stage_offline_host_precheck_boundary_note": {
+    "git_runtime_present": true,
+    "gpu_observer_returncodes_without_ProgramFiles": [
+      255,
+      255
+    ],
+    "note": "Stage A0 host-precheck and Stage E supervisor.run_observers execute in the operator/parent process where ProgramFiles is set (rc=0); stripped stage_env omits ProgramFiles, which Windows System32\\nvidia-smi.exe reads during NVML init.",
+    "returncode": 4
+  },
+  "status": "pass"
+}

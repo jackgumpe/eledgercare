@@ -1,0 +1,19 @@
+{
+  "dependency_lock": {
+    "description": "Exact dependency lock is not final (awaiting WP-0005 /001 and review).",
+    "detail": "dependency lock status is 'PENDING_ASTRA_001', not 'final'",
+    "evidence": [
+      "exact Python version for the venv (host observation: only Python 3.12.10 at C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312)",
+      "torch / torchvision CUDA wheel filenames, index URL, SHA-256, torch.version.cuda, sm_120 in arch list",
+      "triton_policy: absent (native import fallback to dense SDPA) or a locked Windows triton wheel",
+      "tokenizers, huggingface-hub, safetensors, numpy, pillow, einops, addict, easydict, requests, tqdm and every transitive dependency with SHA-256",
+      "imports of configuration_deepseek_v2.py, conversation.py, packing_patch.py (not in the committed snapshots; checked statically after acquisition)",
+      "allowed_unlocked_tooling (default: pip only)"
+    ],
+    "failure_class": "DEPENDENCY_LOCK_PENDING"
+  },
+  "execution_release": "none supplied (WP-0005 /004 not released)",
+  "lock_sha256": "62f11ac9cd0e78bb0a22bb34bbfd041cefe242e500b9cc1272a64e435f390eee",
+  "protocol_sha256": "d94b3d43185360343f01e814340925d61315fe733d192a5bec9b7468102e3881",
+  "storage_root_exists": false
+}

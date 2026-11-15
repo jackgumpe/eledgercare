@@ -1,0 +1,320 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/cf30153c4c131c8164ee7798e5022d810682e2cb/RELEASE.md",
+    "revision": "cf30153c4c131c8164ee7798e5022d810682e2cb",
+    "retrieved_utc": "2026-11-15T05:11:54.135121+00:00",
+    "size": 34135,
+    "sha256": "6f4df73421fbee943624527e4fcf9a6a805b975072045091ee4e51ed64860b08",
+    "git_blob": "feef468ca17ca1ec3deaf0f4e0aaa25b6e569a61",
+    "selected_source_excerpts": [
+      {
+        "pattern": "architectures supported for Linux x86 and Windows",
+        "matches": [
+          {
+            "line": 74,
+            "excerpt": "\n| CUDA | architectures supported for Linux x86 and Windows builds | notes |\n| --- | --- | --- |\n| 12.6.3 | Maxwell(5.0), Pascal(6.0), Volta(7.0), Turing(7.5), Ampere(8.0, 8.6), Hopper(9.0) | |\n| 13.0.2 | Turing(7.5), Ampere(8.0, 8.6), Hopper(9.0), Blackwell(10.0, 12.0+PTX) | +PTX available on linux builds only |\n| 13.2.1 | Turing(7.5), Ampere(8.0, 8.6), Hopper(9.0), Blackwell(10.0, 12.0+PTX) | +PTX available on linux builds only |\n\n| CUDA | architectures supported for Linux aarch64 builds |\n| --- | --- |"
+          }
+        ]
+      },
+      {
+        "pattern": "13.0.2",
+        "matches": [
+          {
+            "line": 77,
+            "excerpt": "| 12.6.3 | Maxwell(5.0), Pascal(6.0), Volta(7.0), Turing(7.5), Ampere(8.0, 8.6), Hopper(9.0) | |\n| 13.0.2 | Turing(7.5), Ampere(8.0, 8.6), Hopper(9.0), Blackwell(10.0, 12.0+PTX) | +PTX available on linux builds only |\n| 13.2.1 | Turing(7.5), Ampere(8.0, 8.6), Hopper(9.0), Blackwell(10.0, 12.0+PTX) | +PTX available on linux builds only |\n\n| CUDA | architectures supported for Linux aarch64 builds |\n| --- | --- |\n| 12.6.3 | Ampere(8.0), Hopper(9.0) |\n| 13.0.2 | Ampere(8.0), Hopper(9.0), Blackwell(10.0, 11.0, 12.0+PTX) |\n| 13.2.1 | Ampere(8.0), Hopper(9.0), Blackwell(10.0, 11.0, 12.0+PTX) |"
+          },
+          {
+            "line": 83,
+            "excerpt": "| 12.6.3 | Ampere(8.0), Hopper(9.0) |\n| 13.0.2 | Ampere(8.0), Hopper(9.0), Blackwell(10.0, 11.0, 12.0+PTX) |\n| 13.2.1 | Ampere(8.0), Hopper(9.0), Blackwell(10.0, 11.0, 12.0+PTX) |\n\n## Release Cadence\n\nFollowing is the release cadence. All future dates below are tentative. For latest updates on the release schedule, please follow [dev discuss](https://dev-discuss.pytorch.org/c/release-announcements/27). Please note: Patch Releases are optional.\n\n| Minor Version | Release branch cut | Release date | First patch release date | Second patch release date|"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/945727948c1143a10ac6f7d811aa58bb0d126b5b/src/transformers/dynamic_module_utils.py",
+    "revision": "945727948c1143a10ac6f7d811aa58bb0d126b5b",
+    "retrieved_utc": "2026-11-15T05:11:54.543720+00:00",
+    "size": 33911,
+    "sha256": "6243e8ce58f6d4bcf067a97f4068db54c7472c6f466e49d6edb7e16569d93045",
+    "git_blob": "eec01749b65368dbbf35f3382801b2a3e2c1e3dc",
+    "selected_source_excerpts": [
+      {
+        "pattern": "if isinstance(node, ast.Try)",
+        "matches": [
+          {
+            "line": 160,
+            "excerpt": "    def recursive_look_for_imports(node):\n        if isinstance(node, ast.Try):\n            return  # Don't recurse into Try blocks and ignore imports in them\n        elif isinstance(node, ast.If):\n            test = node.test\n            for condition_node in ast.walk(test):\n                if isinstance(condition_node, ast.Call):\n                    check_function = getattr(condition_node.func, \"id\", \"\")\n                    if ("
+          }
+        ]
+      },
+      {
+        "pattern": "modules_needed = check_imports",
+        "matches": [
+          {
+            "line": 393,
+            "excerpt": "    # Check we have all the requirements in our environment\n    modules_needed = check_imports(resolved_module_file)\n\n    # Now we move the module inside our cached dynamic modules.\n    full_submodule = TRANSFORMERS_DYNAMIC_MODULE_NAME + os.path.sep + submodule\n    create_dynamic_module(full_submodule)\n    submodule_path = Path(HF_MODULES_CACHE) / full_submodule\n    if submodule == os.path.basename(pretrained_model_name_or_path):\n        # We copy local files to avoid putting too many folders in sys.path. This copy is done when the file is new or"
+          }
+        ]
+      },
+      {
+        "pattern": "if submodule == os.path.basename",
+        "matches": [
+          {
+            "line": 399,
+            "excerpt": "    submodule_path = Path(HF_MODULES_CACHE) / full_submodule\n    if submodule == os.path.basename(pretrained_model_name_or_path):\n        # We copy local files to avoid putting too many folders in sys.path. This copy is done when the file is new or\n        # has changed since last copy.\n        if not (submodule_path / module_file).exists() or not filecmp.cmp(\n            resolved_module_file, str(submodule_path / module_file)\n        ):\n            shutil.copy(resolved_module_file, submodule_path / module_file)\n            importlib.invalidate_caches()"
+          }
+        ]
+      },
+      {
+        "pattern": "get_cached_module_file(",
+        "matches": [
+          {
+            "line": 282,
+            "excerpt": "\ndef get_cached_module_file(\n    pretrained_model_name_or_path: Union[str, os.PathLike],\n    module_file: str,\n    cache_dir: Optional[Union[str, os.PathLike]] = None,\n    force_download: bool = False,\n    resume_download: Optional[bool] = None,\n    proxies: Optional[dict[str, str]] = None,\n    token: Optional[Union[bool, str]] = None,"
+          },
+          {
+            "line": 432,
+            "excerpt": "            if not (submodule_path / f\"{module_needed}.py\").exists():\n                get_cached_module_file(\n                    pretrained_model_name_or_path,\n                    f\"{module_needed}.py\",\n                    cache_dir=cache_dir,\n                    force_download=force_download,\n                    resume_download=resume_download,\n                    proxies=proxies,\n                    token=token,"
+          },
+          {
+            "line": 569,
+            "excerpt": "    # And lastly we get the class inside our newly created module\n    final_module = get_cached_module_file(\n        repo_id,\n        module_file + \".py\",\n        cache_dir=cache_dir,\n        force_download=force_download,\n        resume_download=resume_download,\n        proxies=proxies,\n        token=token,"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/945727948c1143a10ac6f7d811aa58bb0d126b5b/src/transformers/modeling_attn_mask_utils.py",
+    "revision": "945727948c1143a10ac6f7d811aa58bb0d126b5b",
+    "retrieved_utc": "2026-11-15T05:11:54.828627+00:00",
+    "size": 21221,
+    "sha256": "75189bb86ad79bb0337b008eb564ea43e29682a886e3730b9605bfe1ae0d61c2",
+    "git_blob": "dfdd976f0156139024c6f7788870a71e4a41754d",
+    "selected_source_excerpts": [
+      {
+        "pattern": "def _prepare_4d_causal_attention_mask",
+        "matches": [
+          {
+            "line": 302,
+            "excerpt": "\ndef _prepare_4d_causal_attention_mask(\n    attention_mask: Optional[torch.Tensor],\n    input_shape: Union[torch.Size, tuple, list],\n    inputs_embeds: torch.Tensor,\n    past_key_values_length: int,\n    sliding_window: Optional[int] = None,\n):\n    \"\"\""
+          },
+          {
+            "line": 355,
+            "excerpt": "# Adapted from _prepare_4d_causal_attention_mask\ndef _prepare_4d_causal_attention_mask_for_sdpa(\n    attention_mask: Optional[torch.Tensor],\n    input_shape: Union[torch.Size, tuple, list],\n    inputs_embeds: torch.Tensor,\n    past_key_values_length: int,\n    sliding_window: Optional[int] = None,\n):\n    \"\"\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/945727948c1143a10ac6f7d811aa58bb0d126b5b/src/transformers/pytorch_utils.py",
+    "revision": "945727948c1143a10ac6f7d811aa58bb0d126b5b",
+    "retrieved_utc": "2026-11-15T05:11:55.103083+00:00",
+    "size": 14943,
+    "sha256": "51e3244c63eebd5f345c8e5eda57026221acabf978707144fb961522f6182509",
+    "git_blob": "ca60a05a2655b76593c65ef2aa3c6f06a56a10f2",
+    "selected_source_excerpts": [
+      {
+        "pattern": "ALL_LAYERNORM_LAYERS",
+        "matches": [
+          {
+            "line": 27,
+            "excerpt": "\nALL_LAYERNORM_LAYERS = [nn.LayerNorm]\n\nlogger = logging.get_logger(__name__)\n\nis_torch_greater_or_equal_than_2_6 = is_torch_greater_or_equal(\"2.6\", accept_dev=True)\nis_torch_greater_or_equal_than_2_4 = is_torch_greater_or_equal(\"2.4\", accept_dev=True)\nis_torch_greater_or_equal_than_2_3 = is_torch_greater_or_equal(\"2.3\", accept_dev=True)\nis_torch_greater_or_equal_than_2_2 = is_torch_greater_or_equal(\"2.2\", accept_dev=True)"
+          }
+        ]
+      },
+      {
+        "pattern": "is_torch_greater_or_equal_than_1_13",
+        "matches": [
+          {
+            "line": 39,
+            "excerpt": "is_torch_greater_or_equal_than_2_0 = is_torch_greater_or_equal(\"2.0\", accept_dev=True)\nis_torch_greater_or_equal_than_1_13 = is_torch_greater_or_equal(\"1.13\", accept_dev=True)\nis_torch_greater_or_equal_than_1_12 = is_torch_greater_or_equal(\"1.12\", accept_dev=True)\n\n# Cache this result has it's a C FFI call which can be pretty time-consuming\n_torch_distributed_available = torch.distributed.is_available()\n\nif is_torch_greater_or_equal(\"2.5\") and _torch_distributed_available:\n    pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/945727948c1143a10ac6f7d811aa58bb0d126b5b/src/transformers/models/llama/modeling_llama.py",
+    "revision": "945727948c1143a10ac6f7d811aa58bb0d126b5b",
+    "retrieved_utc": "2026-11-15T05:11:55.485599+00:00",
+    "size": 40484,
+    "sha256": "237ce257801c4448010b79f250d1e0fb7209a37cb064d210e7544e0121bfb6c5",
+    "git_blob": "a25f05ea7c365653a6d798473913b589e77a52a6",
+    "selected_source_excerpts": [
+      {
+        "pattern": "def apply_rotary_pos_emb",
+        "matches": [
+          {
+            "line": 123,
+            "excerpt": "\ndef apply_rotary_pos_emb(q, k, cos, sin, position_ids=None, unsqueeze_dim=1):\n    \"\"\"Applies Rotary Position Embedding to the query and key tensors.\n\n    Args:\n        q (`torch.Tensor`): The query tensor.\n        k (`torch.Tensor`): The key tensor.\n        cos (`torch.Tensor`): The cosine part of the rotary embedding.\n        sin (`torch.Tensor`): The sine part of the rotary embedding."
+          }
+        ]
+      },
+      {
+        "pattern": "def repeat_kv",
+        "matches": [
+          {
+            "line": 166,
+            "excerpt": "\ndef repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:\n    \"\"\"\n    This is the equivalent of torch.repeat_interleave(x, dim=1, repeats=n_rep). The hidden states go from (batch,\n    num_key_value_heads, seqlen, head_dim) to (batch, num_attention_heads, seqlen, head_dim)\n    \"\"\"\n    batch, num_key_value_heads, slen, head_dim = hidden_states.shape\n    if n_rep == 1:\n        return hidden_states"
+          }
+        ]
+      },
+      {
+        "pattern": "class LlamaAttention",
+        "matches": [
+          {
+            "line": 204,
+            "excerpt": "\nclass LlamaAttention(nn.Module):\n    \"\"\"Multi-headed attention from 'Attention Is All You Need' paper\"\"\"\n\n    def __init__(self, config: LlamaConfig, layer_idx: int):\n        super().__init__()\n        self.config = config\n        self.layer_idx = layer_idx\n        self.head_dim = getattr(config, \"head_dim\", config.hidden_size // config.num_attention_heads)"
+          }
+        ]
+      },
+      {
+        "pattern": "class LlamaRotaryEmbedding",
+        "matches": [
+          {
+            "line": 82,
+            "excerpt": "\nclass LlamaRotaryEmbedding(nn.Module):\n    def __init__(self, config: LlamaConfig, device=None):\n        super().__init__()\n        # BC: \"rope_type\" was originally \"type\"\n        if hasattr(config, \"rope_scaling\") and config.rope_scaling is not None:\n            self.rope_type = config.rope_scaling.get(\"rope_type\", config.rope_scaling.get(\"type\"))\n        else:\n            self.rope_type = \"default\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/945727948c1143a10ac6f7d811aa58bb0d126b5b/src/transformers/cache_utils.py",
+    "revision": "945727948c1143a10ac6f7d811aa58bb0d126b5b",
+    "retrieved_utc": "2026-11-15T05:11:56.266401+00:00",
+    "size": 119524,
+    "sha256": "948b63ada8229fa46cc0d6eb28bf9a4f2e0a4721c1eb1b1d19b967019d96e4ac",
+    "git_blob": "d24edd390c26cdb2c0df57075e15875bb2153d61",
+    "selected_source_excerpts": [
+      {
+        "pattern": "class Cache",
+        "matches": [
+          {
+            "line": 122,
+            "excerpt": "\nclass Cache:\n    \"\"\"\n    Base, abstract class for all caches. The actual data structure is specific to each subclass.\n    \"\"\"\n\n    is_compileable = False\n\n    def __init__(self):"
+          },
+          {
+            "line": 201,
+            "excerpt": "@dataclass\nclass CacheConfig:\n    \"\"\"\n    Base class for cache configs\n    \"\"\"\n\n    cache_implementation: None\n\n    @classmethod"
+          }
+        ]
+      },
+      {
+        "pattern": "class DynamicCache",
+        "matches": [
+          {
+            "line": 436,
+            "excerpt": "\nclass DynamicCache(Cache):\n    \"\"\"\n    A cache that grows dynamically as more tokens are generated. This is the default for generative models.\n\n    It stores the Key and Value states as a list of tensors, one for each layer. The expected shape for each tensor is\n    `[batch_size, num_heads, seq_len, head_dim]`.\n\n    Example:"
+          }
+        ]
+      },
+      {
+        "pattern": "def update",
+        "matches": [
+          {
+            "line": 132,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        \"\"\""
+          },
+          {
+            "line": 274,
+            "excerpt": "    # Copied from transformers.utils.quantization_config.QuantizationConfigMixin.update\n    def update(self, **kwargs):\n        \"\"\"\n        Updates attributes of this class instance with attributes from `kwargs` if they match existing attributes,\n        returning all the unused kwargs.\n\n        Args:\n            kwargs (`Dict[str, Any]`):\n                Dictionary of attributes to tentatively update this class."
+          },
+          {
+            "line": 503,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        \"\"\""
+          },
+          {
+            "line": 785,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        \"\"\""
+          },
+          {
+            "line": 861,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        # Update the number of seen tokens"
+          },
+          {
+            "line": 1153,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        \"\"\""
+          },
+          {
+            "line": 1338,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        \"\"\""
+          },
+          {
+            "line": 1477,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        if cache_kwargs is None:"
+          },
+          {
+            "line": 1786,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        if cache_kwargs is None:"
+          },
+          {
+            "line": 1985,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        if cache_kwargs is None:"
+          },
+          {
+            "line": 2228,
+            "excerpt": "\n    def update_conv_state(\n        self, layer_idx: int, new_conv_state: torch.Tensor, cache_position: torch.LongTensor\n    ) -> torch.Tensor:\n        # This `if` blocks is only reached in multigpu and if `layer_device_map` is not passed. It is used\n        # when the cache is initialized in the forward pass (e.g. Mamba)\n        if self.conv_states[layer_idx].device != new_conv_state.device:\n            self.conv_states[layer_idx] = self.conv_states[layer_idx].to(new_conv_state.device)\n"
+          },
+          {
+            "line": 2245,
+            "excerpt": "\n    def update_ssm_state(self, layer_idx: int, new_ssm_state: torch.Tensor):\n        self.ssm_states[layer_idx] = new_ssm_state.to(self.ssm_states[layer_idx].device)\n        return self.ssm_states[layer_idx]\n\n    def reset(self):\n        for layer_idx in range(len(self.conv_states)):\n            # In-place ops prevent breaking the static address\n            self.conv_states[layer_idx].zero_()"
+          },
+          {
+            "line": 2367,
+            "excerpt": "\n    def update(\n        self,\n        key_states: torch.Tensor,\n        value_states: torch.Tensor,\n        layer_idx: int,\n        cache_kwargs: Optional[Dict[str, Any]] = None,\n    ) -> Tuple[torch.Tensor, torch.Tensor]:\n        \"\"\""
+          }
+        ]
+      },
+      {
+        "pattern": "def get_usable_length",
+        "matches": [
+          {
+            "line": 167,
+            "excerpt": "\n    def get_usable_length(self, new_seq_length: int, layer_idx: Optional[int] = 0) -> int:\n        \"\"\"Given the sequence length of the new inputs, returns the usable length of the cache.\"\"\"\n        # Cache without size limit -> all cache is usable\n        # Cache with size limit -> if the length cache plus the length of the new inputs is larger the maximum cache\n        #   length, we will need to evict part of the cache (and thus not all cache is usable)\n        max_length = self.get_max_cache_shape()\n        previous_seq_length = self.get_seq_length(layer_idx)\n        if max_length is not None and previous_seq_length + new_seq_length > max_length:"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/945727948c1143a10ac6f7d811aa58bb0d126b5b/src/transformers/utils/import_utils.py",
+    "revision": "945727948c1143a10ac6f7d811aa58bb0d126b5b",
+    "retrieved_utc": "2026-11-15T05:11:56.927539+00:00",
+    "size": 96241,
+    "sha256": "ec82e0d1971cddf1611a91655bdd7249a97b0476c49966fb33d0b51bf0ce2e12",
+    "git_blob": "0b3f7e69c8c9a53378c9118f6c6775f4b343a2dd",
+    "selected_source_excerpts": [
+      {
+        "pattern": "def is_torch_fx_available",
+        "matches": [
+          {
+            "line": 636,
+            "excerpt": "\ndef is_torch_fx_available():\n    return is_torch_available()\n\n\ndef is_peft_available():\n    return _peft_available\n\n"
+          }
+        ]
+      },
+      {
+        "pattern": "def is_flash_attn_2_available",
+        "matches": [
+          {
+            "line": 1022,
+            "excerpt": "\ndef is_flash_attn_2_available():\n    if not is_torch_available():\n        return False\n\n    if not _is_package_available(\"flash_attn\"):\n        return False\n\n    # Let's add an extra check to see if cuda is available"
+          }
+        ]
+      },
+      {
+        "pattern": "def is_flash_attn_greater_or_equal_2_10",
+        "matches": [
+          {
+            "line": 1047,
+            "excerpt": "@lru_cache()\ndef is_flash_attn_greater_or_equal_2_10():\n    if not _is_package_available(\"flash_attn\"):\n        return False\n\n    return version.parse(importlib.metadata.version(\"flash_attn\")) >= version.parse(\"2.1.0\")\n\n\n@lru_cache()"
+          }
+        ]
+      }
+    ]
+  }
+]

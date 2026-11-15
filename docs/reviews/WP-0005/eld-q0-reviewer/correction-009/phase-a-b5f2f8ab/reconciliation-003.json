@@ -1,0 +1,46 @@
+{
+  "immutable_003_preserved": true,
+  "protocol_unchanged_sha256": "dd8a7dc38c2a0c46103f6667f522656a2dddf5882727c18bf7b6b5426c5e2309",
+  "reconciliations": [
+    {
+      "id": "R-003-01",
+      "topic": "F07 (SYN-MP-01-v0-clean) page count",
+      "erroneous_003_wording": "6 pages / 6-page F07 (003 report L62, L88)",
+      "actual_verified_fact": {
+        "fixture_id": "SYN-MP-01-v0-clean",
+        "family_id": "F07",
+        "page_count": 3,
+        "raster_page_entries": 3,
+        "max_new_tokens": 24000,
+        "timeout_guard_key": "call_pages_3 (3600s)"
+      }
+    },
+    {
+      "id": "R-003-02",
+      "topic": "Protocol ngram_window rule and per-fixture values",
+      "erroneous_003_wording": "ngram_window=max(2048,512*N) (003 report L62)",
+      "actual_verified_fact": {
+        "rule": "1024 if page_count > 1 else 128 (upstream README evaluation setup), no whitelist",
+        "F01_1_page_ngram_window": 128,
+        "F07_3_page_ngram_window": 1024
+      }
+    },
+    {
+      "id": "R-003-03",
+      "topic": "PEP 658 METADATA digest provenance vs cryptographic signature",
+      "erroneous_003_wording": "publisher-signed PEP 658 METADATA SHA-256 f8e91ee9... (003 report L86)",
+      "actual_verified_fact": {
+        "metadata_published_sha256": "f8e91ee987603053e2166e2e4063ddcfb533f266c88bae82b7f79119aadceb59",
+        "wheel_local_sha256_tofu": "5ae0ff50fcb43a189250a5fdb36a7dc780ea5caff469653cab1e3f32ed5d385c",
+        "cryptographic_signature_present_or_verified": false,
+        "actual_provenance": "Published PEP 658 data-dist-info-metadata SHA-256 attribute retrieved over HTTPS/TLS from the official PyTorch cu130 index, matching the wheel's torchvision-0.28.0+cu130.dist-info/METADATA bytes; no PGP/Sigstore/cryptographic publisher signature was published or verified, and wheel body hash 5ae0ff50... remains trust-on-first-use (local-sha256-TOFU) over TLS.",
+        "receipt_recorded_limits": [
+          "Publisher wheel SHA-256 unavailable from both official indexes; local hash is trust-on-first-use over TLS from official origin",
+          "PEP 658 METADATA match authenticates only the metadata member, not the remaining wheel body",
+          "Multipart ETag is not a content digest",
+          "No extraction, installation, import or execution performed"
+        ]
+      }
+    }
+  ]
+}

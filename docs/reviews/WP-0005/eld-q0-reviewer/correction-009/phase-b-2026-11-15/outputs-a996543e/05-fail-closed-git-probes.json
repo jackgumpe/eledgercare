@@ -1,0 +1,199 @@
+{
+  "audit_rejections": [
+    {
+      "case": "stage_mutable_root_git",
+      "detail": "Q0_GIT_EXECUTABLE must not lie inside the mutable task root",
+      "failure_class": "SAFETY_VIOLATION"
+    },
+    {
+      "case": "child_mutable_root_git",
+      "detail": "Q0_GIT_EXECUTABLE must not lie inside the mutable task root",
+      "failure_class": "SAFETY_VIOLATION"
+    },
+    {
+      "case": "stage_nosystem_off",
+      "detail": "GIT_CONFIG_NOSYSTEM must be '1' in isolated environment",
+      "failure_class": "SAFETY_VIOLATION"
+    },
+    {
+      "case": "child_global_config_leak",
+      "detail": "GIT_CONFIG_GLOBAL must be 'NUL' in isolated environment",
+      "failure_class": "SAFETY_VIOLATION"
+    },
+    {
+      "case": "child_prompt_enabled",
+      "detail": "GIT_TERMINAL_PROMPT must be '0' in isolated environment",
+      "failure_class": "SAFETY_VIOLATION"
+    }
+  ],
+  "cmd_child_direct_probes": [
+    {
+      "case": "toctou_parent_child_mismatch",
+      "failure_class": "EXECUTION_NOT_RELEASED",
+      "lock_readiness_verified_in_child": false,
+      "outcome_status": "BLOCKED",
+      "recorded_code_identity": {
+        "dirty": [
+          "parent/child code_identity mismatch"
+        ],
+        "harness_clean": false,
+        "head": "a996543ed533393dc9857eb16f255880c8e08f56"
+      },
+      "returncode": 0
+    },
+    {
+      "case": "missing_git_in_cmd_child",
+      "failure_class": "EXECUTION_NOT_RELEASED",
+      "lock_readiness_verified_in_child": false,
+      "outcome_status": "BLOCKED",
+      "recorded_code_identity": {
+        "dirty": [
+          "HOST_PRECHECK_FAILED: Git invocation failed (['rev-parse']): [WinError 216] This version of %1 is not compatible with the version of Windows you're running. Check your computer's system information and then contact the software publisher"
+        ],
+        "harness_clean": false,
+        "head": null
+      },
+      "returncode": 0
+    },
+    {
+      "case": "matching_live_code_and_lock_blobs_then_scratch_run_dir_guard",
+      "failure_class": "STORAGE_NOT_OWNED",
+      "lock_readiness_verified_in_child": true,
+      "outcome_status": "BLOCKED",
+      "recorded_code_identity": {
+        "dirty": [],
+        "harness_clean": true,
+        "head": "a996543ed533393dc9857eb16f255880c8e08f56"
+      },
+      "returncode": 0
+    }
+  ],
+  "external_root_exists_after": false,
+  "status": "pass",
+  "subprocess_negative_cases": [
+    {
+      "blob_error": {
+        "detail": "Git unavailable while reading pinned object ec8c650ed5fbeb0a754e4daee53aad53753a57a3: Git executable unavailable (Q0_GIT_EXECUTABLE unset and git not on PATH)",
+        "failure_class": "DEPENDENCY_LOCK_PENDING",
+        "type": "Q0Failure"
+      },
+      "case": "stage_stripped_git_var",
+      "cli_fail_closed": {
+        "execute": {
+          "failure_class": "HOST_PRECHECK_FAILED",
+          "returncode": 2
+        },
+        "lock-check": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        },
+        "status": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        },
+        "write-requirements": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        }
+      },
+      "code_error": {
+        "detail": "Git executable unavailable (Q0_GIT_EXECUTABLE unset and git not on PATH)",
+        "failure_class": "HOST_PRECHECK_FAILED",
+        "type": "Q0Failure"
+      }
+    },
+    {
+      "blob_error": {
+        "detail": "Git unavailable while reading pinned object ec8c650ed5fbeb0a754e4daee53aad53753a57a3: Git executable unavailable (Q0_GIT_EXECUTABLE unset and git not on PATH)",
+        "failure_class": "DEPENDENCY_LOCK_PENDING",
+        "type": "Q0Failure"
+      },
+      "case": "child_stripped_git_var",
+      "cli_fail_closed": {
+        "execute": {
+          "failure_class": "HOST_PRECHECK_FAILED",
+          "returncode": 2
+        },
+        "lock-check": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        },
+        "status": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        },
+        "write-requirements": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        }
+      },
+      "code_error": {
+        "detail": "Git executable unavailable (Q0_GIT_EXECUTABLE unset and git not on PATH)",
+        "failure_class": "HOST_PRECHECK_FAILED",
+        "type": "Q0Failure"
+      }
+    },
+    {
+      "blob_error": {
+        "detail": "Git unavailable while reading pinned object ec8c650ed5fbeb0a754e4daee53aad53753a57a3: Git executable is missing or not a git binary: C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\.scratch\\phase-b-check-ozbwbtq0\\does-not-exist\\git.exe",
+        "failure_class": "DEPENDENCY_LOCK_PENDING",
+        "type": "Q0Failure"
+      },
+      "case": "stage_missing_git_path",
+      "cli_fail_closed": {
+        "execute": {
+          "failure_class": "HOST_PRECHECK_FAILED",
+          "returncode": 2
+        },
+        "lock-check": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        },
+        "status": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        },
+        "write-requirements": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        }
+      },
+      "code_error": {
+        "detail": "Git executable is missing or not a git binary: C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\.scratch\\phase-b-check-ozbwbtq0\\does-not-exist\\git.exe",
+        "failure_class": "HOST_PRECHECK_FAILED",
+        "type": "Q0Failure"
+      }
+    },
+    {
+      "blob_error": {
+        "detail": "Git unavailable while reading pinned object ec8c650ed5fbeb0a754e4daee53aad53753a57a3: Git invocation failed (['cat-file']): [WinError 216] This version of %1 is not compatible with the version of Windows you're running. Check your computer's system information and then contact the software publisher",
+        "failure_class": "DEPENDENCY_LOCK_PENDING",
+        "type": "Q0Failure"
+      },
+      "case": "child_corrupt_git_binary",
+      "cli_fail_closed": {
+        "execute": {
+          "failure_class": "HOST_PRECHECK_FAILED",
+          "returncode": 2
+        },
+        "lock-check": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        },
+        "status": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        },
+        "write-requirements": {
+          "failure_class": "DEPENDENCY_LOCK_PENDING",
+          "returncode": 2
+        }
+      },
+      "code_error": {
+        "detail": "Git invocation failed (['rev-parse']): [WinError 216] This version of %1 is not compatible with the version of Windows you're running. Check your computer's system information and then contact the software publisher",
+        "failure_class": "HOST_PRECHECK_FAILED",
+        "type": "Q0Failure"
+      }
+    }
+  ]
+}
