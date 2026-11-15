@@ -1,0 +1,404 @@
+{
+  "schema_version": "1.0.0",
+  "packet": "WP-0004 / 008",
+  "recorded_at_utc": "2026-11-15T00:16:52Z",
+  "author_id": "eld-rd-carbon",
+  "session_id": "993d4f08-72d0-479c-9e6c-047280cedf95",
+  "prior_stalled_session_id": "74513d00-ee88-4e85-a554-120908615b21",
+  "independence_status": "author_correction_only_ready_for_review (not self-acceptance; uninvolved Opus eld-rd-reviewer /009 closure follows)",
+  "revisions": {
+    "coordinator_initial_release_sha": "d216bdcd9aa65632ed1556899fda191c56cc2800",
+    "coordinator_amended_release_sha": "7a21fdbb154f735656bbfc7602ad84e8d05b17ab",
+    "execution_base_and_007_report_sha": "068f3f83bb532160b56e00f071f8badd8d3f51b0",
+    "unchanged_corpus_candidate_sha": "29b2000265ae6068d9c86818622c81a40cadd961",
+    "addressed_opus_005_deliverable_sha": "1787e942412f7a6981c7a6d730c44a83034ad0ef",
+    "addressed_opus_005_report_sha": "8f9a3281fa223d25447677b8ed8b873bf9e5cd01",
+    "frozen_008_candidate_sha": "54c7f6fe062720cbdf92e6bcd7476b697fc4afe1",
+    "owned_branch": "research/wp-0004-carbon-recovery"
+  },
+  "software_versions": {
+    "python": "3.12.10",
+    "pypdfium2": "5.15.2",
+    "pdfium_native": "159.0.8149.0@sourcebuild-toolchained",
+    "pillow": "13.0.0",
+    "pypdf": "7.1.0"
+  },
+  "candidate_changed_files": [
+    {
+      "status": "M",
+      "path": "evaluation/README.md",
+      "size_bytes": 8034,
+      "sha256": "25ea822a0c4258864030e3031e49d771b6547aeba5051328d3b763ed9c143ac5",
+      "git_blob_oid": "98ba33a1dcd1769a46214e11ee233455a1f6df9e"
+    },
+    {
+      "status": "M",
+      "path": "research/carbon/reconciliation/02-ranked-experiment-backlog.md",
+      "size_bytes": 25676,
+      "sha256": "9199735a676c3b82ee021429916996952bf8f2bf553a34ea8177994de1b91178",
+      "git_blob_oid": "28f7e3e8ae4d6dc9cfaacd8758c60e6a187ddd81"
+    },
+    {
+      "status": "A",
+      "path": "research/carbon/reconciliation/03-review-response.md",
+      "size_bytes": 14387,
+      "sha256": "c0140af687d51fa202c80099c67b61ed5d1dd8315555966a1e2e2cd50eab9d72",
+      "git_blob_oid": "96a2ba5973acc44856298b799bdd5410fa42cdaa"
+    },
+    {
+      "status": "A",
+      "path": "research/carbon/reconciliation/verify_review_corrections.py",
+      "size_bytes": 22870,
+      "sha256": "c4932ec301f0c4ee1ad50c6642b10daa72aed5664f8a723980855e9f71920aa4",
+      "git_blob_oid": "4be3d46316befbc0a8c0dbb4ba3e0d0f09fa317b"
+    }
+  ],
+  "git_object_invariance_checks": {
+    "base_tracked_files_total": 100,
+    "candidate_tracked_files_total": 102,
+    "unchanged_base_files_verified_identical_mode_and_blob": 98,
+    "corpus_pdfs_identical_to_29b2000": 26,
+    "corpus_sources_identical_to_29b2000": 8,
+    "corpus_expected_identical_to_29b2000": 26,
+    "generation_scripts_identical_to_29b2000": 4,
+    "existing_manifests_and_prior_evidence_identical_to_068f3f8": 5,
+    "historical_carbon_reports_identical_to_068f3f8": 3
+  },
+  "attributed_unchanged_opus_005_corpus_checks": {
+    "note": "40/40 page visual inspection, 3,756+ independent arithmetic assertions, and two-run 53/53 deterministic regeneration were independently verified by eld-rd-reviewer in WP-0004 / 005 on 29b2000265ae6068d9c86818622c81a40cadd961 and were not repeated because all corpus/source/expected/generator blobs are 100% unchanged.",
+    "reviewer_evidence_sha": "1787e942412f7a6981c7a6d730c44a83034ad0ef",
+    "reviewer_report_sha": "8f9a3281fa223d25447677b8ed8b873bf9e5cd01"
+  },
+  "executed_dev_diagnostic": {
+    "input_contract": "pypdfium2==5.15.2 (PDFium 159.0.8149.0) page.render(scale=300.0/72.0).to_pil().convert('RGB')",
+    "dev_pages_tested": 8,
+    "eval_holdout_pages_read": 0,
+    "clean_v1_byte_identical_noops": 4,
+    "skew_v2_exact_zero_residuals": 4,
+    "pypdfium2_ceil_sizing_verification": {
+      "v0_clean_792pt": {
+        "get_height_c_float_repr": "792.0",
+        "product_with_binary64_scale_repr": "3300.0000000000005",
+        "math_ceil_height_px": 3301
+      },
+      "v1_raster_792_24pt": {
+        "get_height_c_float_repr": "792.239990234375",
+        "product_with_binary64_scale_repr": "3300.999959309896",
+        "math_ceil_height_px": 3301
+      },
+      "v2_pos4_833_04pt": {
+        "get_height_c_float_repr": "833.0399780273438",
+        "product_with_binary64_scale_repr": "3470.999908447266",
+        "math_ceil_height_px": 3471
+      },
+      "v2_neg3_823_44pt": {
+        "get_height_c_float_repr": "823.4400024414062",
+        "product_with_binary64_scale_repr": "3431.0000101725263",
+        "math_ceil_height_px": 3432
+      }
+    },
+    "hybrid_stamp_page_area_pct": {
+      "SYN-WO-02-v3-hybrid-note_F02_p1": 2.847,
+      "SYN-MP-02-v3-hybrid-stamp_F08_p3": 2.989
+    },
+    "markdown_relative_links_verified": 13,
+    "dev_e2_diagnostic_results": [
+      {
+        "family_id": "F01",
+        "fixture_page": "SYN-WO-01-v1-raster300.pdf#p1",
+        "variant_kind": "v1_raster300",
+        "mediabox_pt": [
+          0.0,
+          0.0,
+          612.0,
+          792.24
+        ],
+        "stored_xobject_px": [
+          2550,
+          3301
+        ],
+        "stored_xobject_rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+        "rendered_pdfium_300dpi_px": [
+          2550,
+          3301
+        ],
+        "rendered_input_rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+        "rendered_vs_stored_xobject_pixel_exact": true,
+        "known_test_ccw_skew_deg_checked_after_estimation": 0.0,
+        "otsu_threshold": 153,
+        "theta_hat_ccw_deg": 0.0,
+        "v_theta_hat_over_v_zero": 1.0,
+        "triggered": false,
+        "applied_ccw_deg": 0.0,
+        "output_px": [
+          2550,
+          3301
+        ],
+        "output_rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+        "byte_identical_noop": true,
+        "estimation_abs_error_deg": 0.0,
+        "analytic_residual_ccw_deg": 0.0,
+        "empirical_residual_ccw_deg": 0.0
+      },
+      {
+        "family_id": "F01",
+        "fixture_page": "SYN-WO-01-v2-skew-pos4deg.pdf#p1",
+        "variant_kind": "v2_skew",
+        "mediabox_pt": [
+          0.0,
+          0.0,
+          666.24,
+          833.04
+        ],
+        "stored_xobject_px": [
+          2776,
+          3471
+        ],
+        "stored_xobject_rgb_sha256": "06e4dea68e786bde3c558246a5b088caefca3e66883cd0e7ceca6414353296df",
+        "rendered_pdfium_300dpi_px": [
+          2776,
+          3471
+        ],
+        "rendered_input_rgb_sha256": "c48579045f284b255271474b852609c7de76a6c6477617f74adf68eb0a42187e",
+        "rendered_vs_stored_xobject_pixel_exact": false,
+        "known_test_ccw_skew_deg_checked_after_estimation": 4.0,
+        "otsu_threshold": 163,
+        "theta_hat_ccw_deg": 4.0,
+        "v_theta_hat_over_v_zero": 6.575,
+        "triggered": true,
+        "applied_ccw_deg": -4.0,
+        "output_px": [
+          3012,
+          3657
+        ],
+        "output_rgb_sha256": "195cb6909326f6d8f4a1d68526b0b8710b3d0503e7fba6b0551bcd63681e51d1",
+        "byte_identical_noop": false,
+        "estimation_abs_error_deg": 0.0,
+        "analytic_residual_ccw_deg": 0.0,
+        "empirical_residual_ccw_deg": 0.0
+      },
+      {
+        "family_id": "F02",
+        "fixture_page": "SYN-WO-02-v1-raster300.pdf#p1",
+        "variant_kind": "v1_raster300",
+        "mediabox_pt": [
+          0.0,
+          0.0,
+          612.0,
+          792.24
+        ],
+        "stored_xobject_px": [
+          2550,
+          3301
+        ],
+        "stored_xobject_rgb_sha256": "85048ebc66233fb07d344d80f3da53a65eb585caf383830557e09f26dd42fc30",
+        "rendered_pdfium_300dpi_px": [
+          2550,
+          3301
+        ],
+        "rendered_input_rgb_sha256": "85048ebc66233fb07d344d80f3da53a65eb585caf383830557e09f26dd42fc30",
+        "rendered_vs_stored_xobject_pixel_exact": true,
+        "known_test_ccw_skew_deg_checked_after_estimation": 0.0,
+        "otsu_threshold": 155,
+        "theta_hat_ccw_deg": 0.0,
+        "v_theta_hat_over_v_zero": 1.0,
+        "triggered": false,
+        "applied_ccw_deg": 0.0,
+        "output_px": [
+          2550,
+          3301
+        ],
+        "output_rgb_sha256": "85048ebc66233fb07d344d80f3da53a65eb585caf383830557e09f26dd42fc30",
+        "byte_identical_noop": true,
+        "estimation_abs_error_deg": 0.0,
+        "analytic_residual_ccw_deg": 0.0,
+        "empirical_residual_ccw_deg": 0.0
+      },
+      {
+        "family_id": "F02",
+        "fixture_page": "SYN-WO-02-v2-skew-neg3deg.pdf#p1",
+        "variant_kind": "v2_skew",
+        "mediabox_pt": [
+          0.0,
+          0.0,
+          652.8,
+          823.44
+        ],
+        "stored_xobject_px": [
+          2720,
+          3431
+        ],
+        "stored_xobject_rgb_sha256": "bb2e78574353fd171c89202ccac7ba98341266f32202b88e1763900152af37f3",
+        "rendered_pdfium_300dpi_px": [
+          2720,
+          3432
+        ],
+        "rendered_input_rgb_sha256": "eb26d3eabe1b6ad56f1853312c7385977f080c963f4c0a020380a8c435eb1c92",
+        "rendered_vs_stored_xobject_pixel_exact": false,
+        "known_test_ccw_skew_deg_checked_after_estimation": -3.0,
+        "otsu_threshold": 164,
+        "theta_hat_ccw_deg": -3.0,
+        "v_theta_hat_over_v_zero": 6.7632,
+        "triggered": true,
+        "applied_ccw_deg": 3.0,
+        "output_px": [
+          2896,
+          3570
+        ],
+        "output_rgb_sha256": "f49321dd39b1475177149f6ced6cde2a010760a1de5aee3b36e02dab51eef6f7",
+        "byte_identical_noop": false,
+        "estimation_abs_error_deg": 0.0,
+        "analytic_residual_ccw_deg": 0.0,
+        "empirical_residual_ccw_deg": 0.0
+      },
+      {
+        "family_id": "F04",
+        "fixture_page": "SYN-INV-01-v1-raster300.pdf#p1",
+        "variant_kind": "v1_raster300",
+        "mediabox_pt": [
+          0.0,
+          0.0,
+          612.0,
+          792.24
+        ],
+        "stored_xobject_px": [
+          2550,
+          3301
+        ],
+        "stored_xobject_rgb_sha256": "cec81db2dd8126a3cb1d59bd9fad9982bc38ba6962a6d5fab0dabd00da2c66f0",
+        "rendered_pdfium_300dpi_px": [
+          2550,
+          3301
+        ],
+        "rendered_input_rgb_sha256": "cec81db2dd8126a3cb1d59bd9fad9982bc38ba6962a6d5fab0dabd00da2c66f0",
+        "rendered_vs_stored_xobject_pixel_exact": true,
+        "known_test_ccw_skew_deg_checked_after_estimation": 0.0,
+        "otsu_threshold": 156,
+        "theta_hat_ccw_deg": 0.0,
+        "v_theta_hat_over_v_zero": 1.0,
+        "triggered": false,
+        "applied_ccw_deg": 0.0,
+        "output_px": [
+          2550,
+          3301
+        ],
+        "output_rgb_sha256": "cec81db2dd8126a3cb1d59bd9fad9982bc38ba6962a6d5fab0dabd00da2c66f0",
+        "byte_identical_noop": true,
+        "estimation_abs_error_deg": 0.0,
+        "analytic_residual_ccw_deg": 0.0,
+        "empirical_residual_ccw_deg": 0.0
+      },
+      {
+        "family_id": "F04",
+        "fixture_page": "SYN-INV-01-v2-skew-neg3deg.pdf#p1",
+        "variant_kind": "v2_skew",
+        "mediabox_pt": [
+          0.0,
+          0.0,
+          652.8,
+          823.44
+        ],
+        "stored_xobject_px": [
+          2720,
+          3431
+        ],
+        "stored_xobject_rgb_sha256": "6d4921e0ccd90345020c431d302da0566c57617f8783894b81fd49510fd92904",
+        "rendered_pdfium_300dpi_px": [
+          2720,
+          3432
+        ],
+        "rendered_input_rgb_sha256": "cfca64638a53527e5ee6dc06ab1147ed46e6bbd2aad4d0f689ad8b3fa8c68c00",
+        "rendered_vs_stored_xobject_pixel_exact": false,
+        "known_test_ccw_skew_deg_checked_after_estimation": -3.0,
+        "otsu_threshold": 166,
+        "theta_hat_ccw_deg": -3.0,
+        "v_theta_hat_over_v_zero": 6.5802,
+        "triggered": true,
+        "applied_ccw_deg": 3.0,
+        "output_px": [
+          2896,
+          3570
+        ],
+        "output_rgb_sha256": "7a5d23e3c3ce740f3fdf1581bf5dbdfaf160c0272d6f8eda9a9e9d15ee516622",
+        "byte_identical_noop": false,
+        "estimation_abs_error_deg": 0.0,
+        "analytic_residual_ccw_deg": 0.0,
+        "empirical_residual_ccw_deg": 0.0
+      },
+      {
+        "family_id": "F07",
+        "fixture_page": "SYN-MP-01-v1-raster300.pdf#p1",
+        "variant_kind": "v1_raster300",
+        "mediabox_pt": [
+          0.0,
+          0.0,
+          612.0,
+          792.24
+        ],
+        "stored_xobject_px": [
+          2550,
+          3301
+        ],
+        "stored_xobject_rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+        "rendered_pdfium_300dpi_px": [
+          2550,
+          3301
+        ],
+        "rendered_input_rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+        "rendered_vs_stored_xobject_pixel_exact": true,
+        "known_test_ccw_skew_deg_checked_after_estimation": 0.0,
+        "otsu_threshold": 158,
+        "theta_hat_ccw_deg": 0.0,
+        "v_theta_hat_over_v_zero": 1.0,
+        "triggered": false,
+        "applied_ccw_deg": 0.0,
+        "output_px": [
+          2550,
+          3301
+        ],
+        "output_rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+        "byte_identical_noop": true,
+        "estimation_abs_error_deg": 0.0,
+        "analytic_residual_ccw_deg": 0.0,
+        "empirical_residual_ccw_deg": 0.0
+      },
+      {
+        "family_id": "F07",
+        "fixture_page": "SYN-MP-01-v2-skew-pos4deg.pdf#p1",
+        "variant_kind": "v2_skew",
+        "mediabox_pt": [
+          0.0,
+          0.0,
+          666.24,
+          833.04
+        ],
+        "stored_xobject_px": [
+          2776,
+          3471
+        ],
+        "stored_xobject_rgb_sha256": "5f7ecb3ba3d48fe08096b5c1d96da004a2092b06e9b44dd428629a8300808575",
+        "rendered_pdfium_300dpi_px": [
+          2776,
+          3471
+        ],
+        "rendered_input_rgb_sha256": "026ffb72db8bed5cc6c3f0f4420d99371a0dc9cdaed7c45d8f2d272dd7ae001b",
+        "rendered_vs_stored_xobject_pixel_exact": false,
+        "known_test_ccw_skew_deg_checked_after_estimation": 4.0,
+        "otsu_threshold": 168,
+        "theta_hat_ccw_deg": 4.0,
+        "v_theta_hat_over_v_zero": 6.7206,
+        "triggered": true,
+        "applied_ccw_deg": -4.0,
+        "output_px": [
+          3012,
+          3657
+        ],
+        "output_rgb_sha256": "891f94aca1603bb591d55c0924b2841cb61d8136d18fa4882146585309b8ad58",
+        "byte_identical_noop": false,
+        "estimation_abs_error_deg": 0.0,
+        "analytic_residual_ccw_deg": 0.0,
+        "empirical_residual_ccw_deg": 0.0
+      }
+    ]
+  }
+}
