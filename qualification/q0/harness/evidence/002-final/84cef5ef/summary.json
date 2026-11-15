@@ -1,0 +1,211 @@
+{
+  "head": "84cef5ef30685ffee46281fefc5fd1356dbc1876",
+  "branch": "qualification/wp-0005-harness",
+  "status_before": [
+    "?? qualification/q0/harness/evidence/002-final/.gitattributes",
+    "?? qualification/q0/harness/evidence/002-final/run_checks.py"
+  ],
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "external_storage_parent_exists_before": false,
+  "started_utc": "2026-11-15T16:18:12.404294Z",
+  "commands": [
+    {
+      "name": "01-unittest",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "qualification/q0/harness/tests",
+        "-t",
+        "qualification/q0/harness/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T16:18:12.404294Z",
+      "seconds": 30.469,
+      "output": "01-unittest.txt",
+      "output_sha256": "f1476b71fbc59b7ddee80a19487de176a61beed80275c51e7fbfa7298a91afca",
+      "output_bytes": 9386
+    },
+    {
+      "name": "02-verify-snapshots",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "verify-snapshots"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T16:18:42.871182Z",
+      "seconds": 0.375,
+      "output": "02-verify-snapshots.txt",
+      "output_sha256": "ab0d1999b41619f51cb0a3204c96864275663ae6184f128bfa3842804ada3d6b",
+      "output_bytes": 7100
+    },
+    {
+      "name": "03-derive-rasters-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "derive-rasters",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T16:18:43.245384Z",
+      "seconds": 0.437,
+      "output": "03-derive-rasters-check.txt",
+      "output_sha256": "3830bbd14720b6c09320d263ccfe3ac9888040e09865e4d0eca4df3198d94500",
+      "output_bytes": 911
+    },
+    {
+      "name": "04-model-manifest-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "build-model-manifest",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T16:18:43.689535Z",
+      "seconds": 0.141,
+      "output": "04-model-manifest-check.txt",
+      "output_sha256": "b9503dd1b8a99dfa601eea1f999e8cfae513219b042d1ce255d38266546a1c47",
+      "output_bytes": 190
+    },
+    {
+      "name": "05-check-protocol",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "check-protocol"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T16:18:43.822861Z",
+      "seconds": 0.141,
+      "output": "05-check-protocol.txt",
+      "output_sha256": "3698b7f74d5aa896221dc05930aaa6421f0b4b19c36ca600cf1f9d329bd5379e",
+      "output_bytes": 198
+    },
+    {
+      "name": "06-lock-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "lock-check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T16:18:43.967614Z",
+      "seconds": 0.234,
+      "output": "06-lock-check.txt",
+      "output_sha256": "e1769d403a348e107d262ed12140eb8b6907233348a9b000a40aad590c51ca93",
+      "output_bytes": 3708
+    },
+    {
+      "name": "07-status",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "status"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T16:18:44.199340Z",
+      "seconds": 0.312,
+      "output": "07-status.txt",
+      "output_sha256": "a72b9f7e0b8b49fa849828fa44ba98e991a10901a008d2ab0a00f44a30f98aae",
+      "output_bytes": 703
+    },
+    {
+      "name": "08-host-precheck-initial",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "host-precheck",
+        "--stage",
+        "initial"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T16:18:44.515027Z",
+      "seconds": 0.25,
+      "output": "08-host-precheck-initial.txt",
+      "output_sha256": "780f8dae17fa9ab837a13d61280f4388587e013fd2e13cc57ef80d1c8f265a9d",
+      "output_bytes": 5341
+    },
+    {
+      "name": "09-execute-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "execute",
+        "--owner",
+        "author"
+      ],
+      "exit_code": 2,
+      "started_utc": "2026-11-15T16:18:44.768700Z",
+      "seconds": 0.313,
+      "output": "09-execute-refused.txt",
+      "output_sha256": "f6c35002dab1e3f784df0c918653c6a6d1a88af2f7f159e318690e598e727050",
+      "output_bytes": 566
+    },
+    {
+      "name": "10-write-requirements-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "write-requirements",
+        ".scratch/never-written.txt"
+      ],
+      "exit_code": 2,
+      "started_utc": "2026-11-15T16:18:45.084313Z",
+      "seconds": 0.266,
+      "output": "10-write-requirements-refused.txt",
+      "output_sha256": "7237b13dba7996e3ed2969de44da309a02033d31ef0c77b668ec7b6f5d2deeb4",
+      "output_bytes": 566
+    },
+    {
+      "name": "11-verify-wheelhouse-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "verify-wheelhouse",
+        ".scratch"
+      ],
+      "exit_code": 2,
+      "started_utc": "2026-11-15T16:18:45.343504Z",
+      "seconds": 0.25,
+      "output": "11-verify-wheelhouse-refused.txt",
+      "output_sha256": "7237b13dba7996e3ed2969de44da309a02033d31ef0c77b668ec7b6f5d2deeb4",
+      "output_bytes": 566
+    }
+  ],
+  "finished_utc": "2026-11-15T16:18:45.590321Z",
+  "external_storage_parent_exists_after": false,
+  "head_after": "84cef5ef30685ffee46281fefc5fd1356dbc1876",
+  "tracked_diff_after": [],
+  "never_written_exists": false,
+  "scratch_test_dirs_left": []
+}
