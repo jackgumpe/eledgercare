@@ -312,3 +312,6 @@ NEW author-execute.json is pure-validated against actual clean9e73ef86600b5e16f7
 
 
 Actual author /004 GPU dispatch after exact-origin verified **41c75178525a9f4367accb830847aa205be0dc38**: SAME author **bd92ddc3-af60-4096-b683-65386d81b718**, actual **gemini-4-carbon-high/high**, correct owned harness cwd, PID **21048**, RUNNING trial assignment. Sole lease **WP-0005-author-004-20261115T202152Z**. Requested accept-edits, inherited always-proceed reported; no bypass/global change. Reviewer remains IDLE; no trial success inferred.
+
+
+Author actual GPU run **20261115T202627Z-eb5bf7da** completed **QUALIFIED_RUNTIME_OBSERVATION**, six checks pass, zero failures, six native calls stop normally, exact measured repeats for both fixtures. Supervisor1235.281s, CHILD_COMPLETED/exit0. Coordinator directly observed both launcher31816 and actual worker30992 absent, no task Q0 child, at20:47:38Z; sole author lease **WP-0005-author-004-20261115T202152Z RETURNED**. Fresh host pass retained under docs/coordination/WP-0005/gpu-reviewer-release. No active GPU lease. /004 safe evidence/report publication underway; independent /005 remains IDLE pending exact published handoff and its own release. No final model acceptance yet.
