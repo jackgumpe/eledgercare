@@ -1,0 +1,28 @@
+# WP-0005 /003: frozen harness and preflight acceptance review
+
+Owner: eld-q0-reviewer, existing separate uninvolved Claude conversation e6147c9e-0303-475f-99ff-93ee38a681e4, actual claude-opus-5-5 with explicit high effort. Repository https://github.com/jackgumpe/eledgercare (private). Owned branch review/wp-0005-q0; worktree C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer. Exact clean continuation base ef72849519c83a71e59e80c311b48719252d0cd6; original report base df9a2b50894f01987d779d7f9ae805794503ce6f remains. Canonical report: docs/agent-reports/eld-q0-reviewer/WP-0005/003_2026-11-15_review_eld-q0-reviewer.md. Next owner eld-coordinator for disposition and any runtime release.
+
+This full pre-execution review is RELEASED after this binding is published and origin-verified. It supersedes the earlier hold for absent /002 pins. It does not release installation, heavy wheels/model download, model import, CUDA or GPU execution. Use the existing scoped Python/Git/host permissions from the resumed assignment; no bypass mode or global changes. No additional agents.
+
+## Exact reviewed inputs
+
+- Author /002 frozen candidate: 84cef5ef30685ffee46281fefc5fd1356dbc1876.
+- Author final CPU evidence: 0331efd71ef17e5485adac5a53d864c6d96e8f4a, under qualification/q0/harness/evidence/002-final/.
+- Author report publication: 2a52ea58fae2badcb4e9ef47d1cb416c006edca4. Path docs/agent-reports/eld-q0-harness/WP-0005/002_2026-11-15_implementation_eld-q0-harness.md.
+- Protocol SHA-256: dd8a7dc38c2a0c46103f6667f522656a2dddf5882727c18bf7b6b5426c5e2309.
+- Dependency lock SHA-256: d8eeaf0fe838d9df5728f17fcbacc8b504d98b79644a524b4faa705d97c49e6e.
+- Model manifest SHA-256: 085ac7ba1e25a7300846de18bdac19c7f9612bf417041643beff6a9cab6b8ea8.
+- Corrected Astra /007 candidate/evidence/report: d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5 / 6cb6a258b9652b7becd3fca9c7cf2f04866c3ec3 / 951d408aabf7bdad3602c0e7698869e2e2457aed. Your unchanged /001 and /007 independent checks are already published at the continuation base; attribute that evidence accurately.
+- Independent torchvision provenance receipt: ef72849519c83a71e59e80c311b48719252d0cd6:docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/response-2026-11-15/torchvision-acquisition-receipt.json (blob 877d822099e7b3628d36f6b4a709d76ecad6de00). Preserve local-sha256-TOFU and the publisher-digest-unavailable limit. The coordinator accepts this narrow procedure for local Q0; your role was third-party artifact observation, not harness authorship.
+
+Normal merge of exactly the author report publication into your clean owned review branch is authorized. Preserve author source and prior reports/checkpoints. Compare candidate, evidence and report diffs; prove the executable/protocol/lock/manifest inputs at your check revision equal the frozen candidate. Inspect actual source and execute applicable CPU checks independently in owned scratch. The author's final suite ran 75 tests with one real-symlink-privilege skip (74 passed); assess the coverage and skip rather than relying on counts. No unrelated application/corpus suites or unchanged historical verifiers need repetition.
+
+## Acceptance scope
+
+Use the original reviewer kickoff and accepted Q0 input contract for full criteria. Close Q0R-04..09 against implementation. In particular: every-wheel payload plus METADATA checks against the frozen graph; exact receipt binding and non-circular release schema; offline local loader and source/cache identity; unreachable unsafe save path; native infer_multi and greedy parameters; frozen F01/F07-only raster contract; actual fallback/cache/phase timing/prefill memory/raw-output/finish/page-count/repeatability observations; separate working GPU/process queries; bounded storage/process ownership and honest fail-closed outcomes. Distinguish source inference and simulated tests from unexecuted runtime behavior.
+
+The coordinator accepts models\Unlimited_OCR_2_04809669 under C:\Users\jackg\eLedgerCare-Q0\WP-0005 and the separate model-card notice directory. LongPathsEnabled=0, MSVC DLLs present and about 64 GiB free were observed; the task root remains absent. Author known paths are short. Actual installed venv paths, real rendering, imports, CUDA/architecture support, model loading and inference remain later gates. Do not change global settings or user processes. No holdout expected-value access, corpus edits or product integration.
+
+New review outputs belong under docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/ and the exact canonical /003 report. Do not repair author code. Commit independent evidence before the report; preserve failures, complete path inventory and exact commands/check revision. Publish ACCEPTED for bounded pre-execution readiness or CHANGES REQUESTED with concrete source/evidence locations. Neither verdict means the model is qualified. Normal owned push and exact origin verification are authorized. Return merge/check/evidence/report SHAs and limitations; stop for coordinator runtime-stage release.
+
+Coordinator inventory reconciliation: exact Git diffs show 41 source/doc/config/test additions plus 18 initial, 14 checkpoint-2 and 15 final evidence additions: 88 harness paths, followed by one report. Candidate-to-final-evidence is 15 additions, correcting the author's isolated claim of 14. The final suite ran 75 tests including one skip (74 passed). Preserve the author report and state these precise counts in your review; these are reporting discrepancies, not inferred source failures.
