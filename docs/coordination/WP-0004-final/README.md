@@ -1,6 +1,6 @@
 # WP-0004 final coordinator disposition
 
-Status: PREPARATION ONLY. Independent /009 closure is still executing. Final acceptance, admission and integration remain held; this record will be completed from the published verdict and actual integration checks.
+Status: ACCEPTED for the bounded synthetic corpus/backlog milestone on the published independent /009 verdict. Final integration verification is in progress. This acceptance releases only normal integration and final reporting, followed by the bootstrap stop boundary.
 
 Owner: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba; actual model/effort not exposed. Execution base: 299d60480dd69d3632fdcc709ea3f4b6cb6abdd9. Binding: [coordinator kickoff](../../kickoffs/WP-0004-eld-coordinator-disposition.md) and INDEX WP-0004 /006. All author and reviewer publications remain immutable.
 
@@ -15,10 +15,10 @@ Owner: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba; actu
 | Independent /005 evidence / report | 1787e942412f7a6981c7a6d730c44a83034ad0ef / 8f9a3281fa223d25447677b8ed8b873bf9e5cd01 |
 | Final Carbon definition/documentation candidate /008 | 54c7f6fe062720cbdf92e6bcd7476b697fc4afe1 |
 | Author /008 evidence / report | fb2d8e616ad375ac7ccfa5f9000ba3340476c148 / f69c9e4fdec2e12f481e6131965b5e4e184e013f |
-| Independent /009 closure | Pending publication |
+| Independent /009 evidence / accepted report | a79fb29f3d89fde938ebfe92d7455a441bd5f4a6 / da58038960eb5c4cc83be76e26d917ee378b2f07 |
 | Actual coordinator integration | Not performed |
 
-The /009 evidence is now published at a79fb29f3d89fde938ebfe92d7455a441bd5f4a6; the canonical final verdict/report is still pending. The coordinator executed [audit-closure-inputs.py](audit-closure-inputs.py) against that publication and author evidence fb2d8e616ad375ac7ccfa5f9000ba3340476c148. [All eight exact fixture mappings passed](closure-input-binding.json): rendered RGB SHA-256, dimensions, estimated/applied angles and trigger decisions agree. This is a comparison of published evidence, not a second CPU experiment.
+The /009 evidence and canonical accepted report are published with exact origin verified. The coordinator executed [audit-closure-inputs.py](audit-closure-inputs.py) against evidence a79fb29f3d89fde938ebfe92d7455a441bd5f4a6 and author evidence fb2d8e616ad375ac7ccfa5f9000ba3340476c148. [All eight exact fixture mappings passed](closure-input-binding.json): rendered RGB SHA-256, dimensions, estimated/applied angles and trigger decisions agree. This is a comparison of published evidence, not a second CPU experiment.
 
 [Publication-byte reconciliation](closure-publication-bytes.json) confirms that the executed reviewer helper is byte-identical to its Git publication (SHA-256 775e278d86d7799d0ff3c4749c75b91508c9fd53db1327dd0103ee192c28e0ab). The closure README's JSON checksum c364c4ed7101ebab3b0b17702e43b8afb60575bf3d7b38efba64a5b87470d616 describes the executed Windows file with 495 CRLF line endings. Git normalizes those to LF, yielding published SHA-256 74f76f434298c4694353aa66153b22f19689468a45fcb6c3b654ef6874976358; no other byte or JSON value differs. The reviewer also observed the normalized Git hash at step 299. No rerun of an unchanged algorithm is warranted for that normalization.
 
@@ -34,11 +34,15 @@ All 28 image-bearing pages passed the reviewer's structural display-faithfulness
 
 ## Findings and record reconciliation
 
-RV-01..04 closure disposition: PENDING independent /009 publication. The author /008 response defines estimated CCW skew, mask leveling by its negative, a single BILINEAR RGB correction and consistent metrics; freezes the PDFium rendering input; corrects pixel dimensions and hybrid stamp areas; and supplies source-grounded errata for /004. Its eight dev checks passed against frozen candidate 54c7f6fe062720cbdf92e6bcd7476b697fc4afe1. These remain attributed author results until independently assessed.
+RV-01..04 are CLOSED by uninvolved Opus /009 at da58038960eb5c4cc83be76e26d917ee378b2f07. The author /008 response defines estimated CCW skew, mask leveling by its negative, a single BILINEAR RGB correction and consistent metrics; freezes the PDFium rendering input; corrects pixel dimensions and hybrid stamp areas; and supplies source-grounded errata for /004. Opus's separate implementation from the card passed all eight dev controls on review merge dfcf4b52a7d697af0cf0f38c98464aee8d4929ed: four clean byte-identical no-ops and four correctly signed skew corrections with zero analytic and measured residuals. It verified the renderer source against the pinned wheel, 77 protected source/corpus objects and 20 preserved /005 review objects, the exact author delta and the corrected AST/JSON/path references. Its initial import-path failure was corrected before the successful run; an authentication interruption occurred afterward, and a continuation published the preserved results without rerunning unchanged checks. The coordinator accepts the corpus and proposals within the explicit limits below.
+
+Precise scope of /009: only the eight dev PDF pages were rendered and deskewed. RV-04 inspection also read original source JSONs across all eight families and corpus metadata, including held-out-family source records; the closure README's phrase "no holdout file opened" must be read as no holdout PDF diagnostic, not absence of all held-out-family metadata inspection. No holdout tuning or OCR occurred. The exact package sizing operations are ceil(get_width() * scale) and ceil(get_height() * scale), separately, as preserved in closure-check.json B_renderer_sizing. /009 explicitly corrects the approximate /005 label count to seven valid notation labels, six inaccurate headings and 37 nonexistent symbols/keys; that correction governs.
 
 The immutable /004 report is not a reliable source map for the claims identified by RV-04. Canonical source governs; the new [author correction record](../../../research/carbon/reconciliation/03-review-response.md) and final independent closure govern their corrected interpretation. Preserve the original report rather than silently rewriting history. /007 repaired the truncated wheel checksum; the independent /005 review verified all three complete hashes and sizes.
 
 The /005 header says 2026-11-14T23:50:00Z, while its actual Git report commit was 2026-11-14T23:47:17Z and observed publication occurred before the header time. This receipt uses the observed/Git chronology and preserves the report unchanged. The coordinator's earlier note that full regeneration was still pending was incorrect: step 89 had already completed both 53-artifact runs. The published correction at ac4fabe538db8803063dc72342abea3472bbb975 records that tracking error. Neither discrepancy changes the executed evidence.
+
+Likewise, /009 labels its 2026-11-15T01:40:00Z header as approximate; the actual Git report commit was 2026-11-15T01:39:08Z, with push output observed by 01:39:15Z. Root independently verified origin at da58038960eb5c4cc83be76e26d917ee378b2f07. The initial PowerShell publication command reported exit 1 despite successful push output; actual remote verification establishes publication. Preserve the report and use observed/Git times for chronology.
 
 ## Verification and disposition to complete
 
