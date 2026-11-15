@@ -1,0 +1,149 @@
+{
+  "schema": "eldq0-nvml-environment-observation/1",
+  "started_utc": "2026-11-15T18:34:16.971011+00:00",
+  "harness_head": "460e1d81de14c6f77ea4a026bc4b3ab36407bdf7",
+  "source_candidate": "24a5866b505532fd03e7db62a4e57875e4c5a170",
+  "protocol_sha256": "dd8a7dc38c2a0c46103f6667f522656a2dddf5882727c18bf7b6b5426c5e2309",
+  "program_files_value": "C:\\Program Files",
+  "observations": [
+    {
+      "environment": "host_parent",
+      "queries": [
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "2026/11/15 13:34:17.007, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, 12.0, 16303, 1612, 14386, 1, P0\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-compute-apps=pid,process_name,used_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n1384, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n25840, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n8100, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n27952, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "environment": "stage_as_built",
+      "queries": [
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 255,
+          "stdout": "Failed to initialize NVML: Unknown Error\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-compute-apps=pid,process_name,used_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 255,
+          "stdout": "Failed to initialize NVML: Unknown Error\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "environment": "child_as_built",
+      "queries": [
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 255,
+          "stdout": "Failed to initialize NVML: Unknown Error\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-compute-apps=pid,process_name,used_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 255,
+          "stdout": "Failed to initialize NVML: Unknown Error\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "environment": "stage_plus_ProgramFiles",
+      "queries": [
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "2026/11/15 13:34:17.157, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, 12.0, 16303, 1612, 14386, 1, P0\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-compute-apps=pid,process_name,used_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n1384, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n25840, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n8100, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n27952, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "environment": "child_plus_ProgramFiles",
+      "queries": [
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "2026/11/15 13:34:17.255, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, 12.0, 16303, 1612, 14386, 1, P0\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "nvidia-smi",
+            "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "--query-compute-apps=pid,process_name,used_memory",
+            "--format=csv,noheader,nounits"
+          ],
+          "returncode": 0,
+          "stdout": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n1384, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n25840, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n8100, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26208, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n27952, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "external_runtime_root_exists_after": false,
+  "torch_or_transformers_imported": false,
+  "finished_utc": "2026-11-15T18:34:17.317250+00:00",
+  "scope": "Read-only nvidia-smi subprocesses; no model execution, CUDA allocation, or acceptance inference."
+}
