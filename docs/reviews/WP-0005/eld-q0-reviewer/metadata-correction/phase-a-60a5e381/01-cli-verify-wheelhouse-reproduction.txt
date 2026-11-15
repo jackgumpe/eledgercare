@@ -1,0 +1,31 @@
+{
+  "accuracy_score": null,
+  "checks": {},
+  "context": {},
+  "failures": [
+    {
+      "description": "A fixture, model, tokenizer, custom-code, module-cache or raster digest differs from its pin.",
+      "detail": "fsspec-2025.10.0-py3-none-any.whl: METADATA differs from the frozen dependency graph",
+      "evidence": {
+        "graph_requires": 101,
+        "metadata_sha256": "33de743cbf8933868fff5cc246279b43e94e694ab2f7fe24adad3e76a03cb422",
+        "ok": false,
+        "only_in_graph": [
+          "zstandard[];python_version<\"3.14\"andextra==\"test-full\""
+        ],
+        "only_in_wheel": [
+          "zstandard[];(python_version<\"3.14\")andextra==\"test-full\""
+        ],
+        "published_metadata_sha256_match": null,
+        "requires_dist": 101,
+        "requires_match": false,
+        "wheel": "fsspec-2025.10.0-py3-none-any.whl"
+      },
+      "failure_class": "HASH_MISMATCH"
+    }
+  ],
+  "observations": [],
+  "q0_scope_note": "Q0 is runtime qualification only; no OCR quality value is computed, and a failed run is a blocker, not 0%.",
+  "schema": "eldq0/1",
+  "status": "BLOCKED"
+}
