@@ -18,6 +18,10 @@ Owner: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba; actu
 | Independent /009 closure | Pending publication |
 | Actual coordinator integration | Not performed |
 
+The /009 evidence is now published at a79fb29f3d89fde938ebfe92d7455a441bd5f4a6; the canonical final verdict/report is still pending. The coordinator executed [audit-closure-inputs.py](audit-closure-inputs.py) against that publication and author evidence fb2d8e616ad375ac7ccfa5f9000ba3340476c148. [All eight exact fixture mappings passed](closure-input-binding.json): rendered RGB SHA-256, dimensions, estimated/applied angles and trigger decisions agree. This is a comparison of published evidence, not a second CPU experiment.
+
+[Publication-byte reconciliation](closure-publication-bytes.json) confirms that the executed reviewer helper is byte-identical to its Git publication (SHA-256 775e278d86d7799d0ff3c4749c75b91508c9fd53db1327dd0103ee192c28e0ab). The closure README's JSON checksum c364c4ed7101ebab3b0b17702e43b8afb60575bf3d7b38efba64a5b87470d616 describes the executed Windows file with 495 CRLF line endings. Git normalizes those to LF, yielding published SHA-256 74f76f434298c4694353aa66153b22f19689468a45fcb6c3b654ef6874976358; no other byte or JSON value differs. The reviewer also observed the normalized Git hash at step 299. No rerun of an unchanged algorithm is warranted for that normalization.
+
 ## Prior independent evidence, with attribution
 
 The uninvolved Opus reviewer executed the original full corpus review in conversation 2777c262-ec6c-4b3e-9d77-2e7f3d9dcd82, selected claude-opus-5-5-high/high. Its /005 report recommends scoped corpus admission and requests RV-01..03 corrections to the backlog/documentation; RV-04 identifies inaccurate historical author-report descriptions. A published author correction does not close those findings independently.
