@@ -1,5 +1,7 @@
 # WP-0005 /003: independent pre-execution qualification review
 
+Latest authority: [2026-11-15 resumed preparation and checks](WP-0005-resume-2026-11-15.md) supersedes the historical source-only/permission hold below for its exact bounded scope. Same uninvolved reviewer/session/branch; final harness acceptance and GPU execution stay held.
+
 Stable reviewer: eld-q0-reviewer, a NEW uninvolved conversation e6147c9e-0303-475f-99ff-93ee38a681e4. Requested Opus 5.5/high; actual model unconfirmed until successful dispatch. Do not reuse the harness-author conversation or claim a renamed author is independent. Repository: https://github.com/jackgumpe/eledgercare (private). Owned branch: review/wp-0005-q0. Owned worktree: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer. Full base: df9a2b50894f01987d779d7f9ae805794503ce6f. Exact report: docs/agent-reports/eld-q0-reviewer/WP-0005/003_2026-11-15_review_eld-q0-reviewer.md. Next owner: coordinator for recorded disposition and runtime-stage release.
 
 Status: phase A RELEASED for the frozen Astra preflight only; exact pins and limits follow. Harness review and canonical /003 publication remain HELD until exact /002 candidate/evidence/report pins are supplied. Initial inherited-API-key probe returned HTTP 401; a subsequent tool-disabled child process using the existing Claude Pro login successfully confirmed actual claude-opus-5-5/high without stored credential changes. A reserved worktree/report does not start a reviewer.
