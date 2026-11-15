@@ -1,5 +1,7 @@
 # WP-0005 /001 — native Windows Q0 preflight
 
+> Current author correction: [WP-0005 /007 response](response/README.md) supersedes the provenance attribution, incomplete metadata/source closure and containment details below. Original /001 report and evidence remain immutable; independent acceptance is still pending.
+
 **Recommendation: proceed to the Opus CPU harness/protocol author and independent review; do not install/download/run yet.** A defensible native Windows proposal exists. There is no source-level reason yet to change model architecture or use SGLang. Local import, CUDA, memory fit and OCR behavior remain unqualified. The dependency closure and one published wheel digest remain incomplete, as specified below.
 
 Owner: eld-rd-astra, resumed `/root/rd_astra`, coordinator-dispatched gpt-6-astra/high; backend checkpoint and backend session UUID unknown. Base `df9a2b50894f01987d779d7f9ae805794503ce6f`; branch `research/wp-0005-runtime-preflight`. Release `0029b02dab23a87661acd419cadc5f4266cdeeea`; actual-start receipt `8cd9b8ff0d81a6ccb427de4db0caaec90295a30d`. This author participated in the accepted upstream Q0 protocol and cannot independently accept this proposal/harness.
