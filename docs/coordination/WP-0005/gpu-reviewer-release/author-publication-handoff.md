@@ -1,0 +1,16 @@
+# Exact author /004 publication and final /005 handoff
+
+Author canonical report **docs/agent-reports/eld-q0-harness/WP-0005/004_2026-11-15_verification_eld-q0-harness.md** is published at **72fffbcbfa47f3c93425d9de5f338e511df7da3e**, exact origin/qualification/wp-0005-harness verified. Evidence **6e5f87fe4d0e19338a387bb5870efd083b2b491c** adds exactly47 evidence paths; report publication adds exactly its one canonical path. Coordinator verified all43 packaged record Git blobs and actual packaging-script bytes, including40 declared original-file copies, against byte counts/SHA-256/Git SHA-1 and preserved originals. Accepted core41d6204648e4115ab197507d1a22f6d5c7f3e784 and evaluation inputs are unchanged. See author-publication-audit.json. Earlier coordinator-frozen72-file snapshot remains byte-identical and includes the complete observer series.
+
+**Final /005 publication dependency is now satisfied.** Same independent reviewer continues its existing released verification/trial on unchanged clean c8daa97c5be6bc67931b215652a7a0f6ced621ef and its sole existing lease. Do not merge or change HEAD until runtime finishes and every owned worker exits with explicit lease return. Then inspect the actual author004 report/evidence by exact Git blobs, normal-merge **72fffbcbfa47f3c93425d9de5f338e511df7da3e**, and publish independent005 evidence/report with exact source/run/publication pins. No repeated GPU run, source fix or fresh permission is required by this publication update.
+
+## Report-only reconciliation for independent inspection
+
+Preserve the author's published report bytes. These prose corrections do not change source, raw observations or qualification criteria; independent005 and coordinator006 should cite the actual evidence:
+
+- The summary says "without ... fallbacks", but all six actual calls used the required **native Triton-import-failed dense fallback**. No CPU/device fallback or optional acceleration backend was introduced. The native fallback is the baseline under test.
+- The change-inventory grouping is **13 top-level/metadata files plus34 run-copy files =47**, not11 plus36. The total47 is correct; exact Git paths and manifest govern.
+- Excluded F01 warm-up differs from F01 warm1 at19 token positions. Removing only native bracketed bounding-box coordinate tuples makes the raw text identical; the largest paired coordinate-value delta is **10**, not a demonstrated1pixel. Do not label native coordinate units as raster pixels. Both measured F01 repeats remain token-identical; F07 warm-up and measured repeats also match.
+- The actual20:25:10Z pre-trial host command used host python **-I -B** with q0.py host-precheck --stage during; the report table's **-s -P** is a transcription error for that particular precheck. The actual model-trial command used **-s -P** and the supervisor's isolated child command is recorded in the fixed harness. The host observation/exit0 and native runtime are unaffected.
+
+Actual author result remains **QUALIFIED_RUNTIME_OBSERVATION**, six checks pass, no failures. Independent reproduction and disposition remain required. Original Opus implementation and Carbon continuation/reviewer identities remain preserved. No accuracy score or treatment/production release follows from this result.
