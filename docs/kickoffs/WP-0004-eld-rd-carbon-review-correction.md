@@ -11,7 +11,7 @@ Status: RELEASED after this binding is published and its exact origin tip verifi
 - Independent review deliverable: 1787e942412f7a6981c7a6d730c44a83034ad0ef.
 - Independent /005 report: 8f9a3281fa223d25447677b8ed8b873bf9e5cd01, docs/agent-reports/eld-rd-reviewer/WP-0004/005_2026-11-14_review_eld-rd-reviewer.md. Exact origin verified. Read this report and its relevant evidence with git show; do not merge coordinator or reviewer branches into your author branch.
 - Canonical reservation: INDEX.md WP-0004 /008 at this supplied release.
-- Exact report: docs/agent-reports/eld-rd-carbon/WP-0004/008_2026-11-14_research_eld-rd-carbon.md.
+- Exact report: docs/agent-reports/eld-rd-carbon/WP-0004/008_2026-11-15_research_eld-rd-carbon.md.
 - Next reviewer: the same uninvolved Opus eld-rd-reviewer, planned /009 closure to be bound after this publication. Coordinator /006 then disposes and integrates the accepted milestone.
 
 Read AGENTS/reporting rules and the exact release reservation. Resolve RV-01, RV-02 and RV-03 together without changing the experiment count, thresholds, data, source pins or Q0 release boundary:
@@ -39,3 +39,5 @@ Use the existing author-owned CPU environment and its three already verified pin
 Commit the bounded candidate first, then run the relevant diagnostic against that exact revision and verify the remaining Git objects (including every corpus asset and historical report) are identical to the base. Do not repeat the unchanged 40-page visual review or two 53-artifact regenerations; attribute those /005 results and prove unchanged assets. If helper/source changes after freezing, freeze again before its decisive check. Commit new focused evidence, then a concise canonical report with complete exact file inventory and actual commands/results. Normal push only the owned branch, no force; verify exact origin and return candidate/evidence/report pins and next action. Do not include the report's own publication SHA in itself.
 
 Check actual UTC date before writing AND before committing the canonical report. If the date has rolled to 2026-11-15, fetch/read the coordinator branch's latest INDEX /008 reservation and this kickoff, then follow its reconciled exact report path. The coordinator will preserve owner/sequence/category and update the date before publication. If it is not yet reconciled, finish/publish the candidate/evidence and return the precise pending date-binding handoff; do not publish an unbound report date or edit INDEX. No human approval is needed for that routine coordinator reconciliation.
+
+UTC date amendment (2026-11-15T00:00Z): the canonical /008 filename above is reconciled to November 15 before report publication. Original execution base, candidate, owner, sequence, category and allowed functional paths remain unchanged. This amendment supersedes only the report date in the original release d216bdcd9aa65632ed1556899fda191c56cc2800.
