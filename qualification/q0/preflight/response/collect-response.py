@@ -52,7 +52,7 @@ def sources():
         if name.endswith('.json'):
             obj=json.loads(data); record['class_keys']={key:obj.get(key) for key in ['tokenizer_class','auto_map','tokenizer_file','vocab_file','merges_file']}
         out.append(record)
-    for name in ['models/auto/tokenization_auto.py','tokenization_utils_fast.py','models/llama/tokenization_llama_fast.py']:
+    for name in ['models/auto/tokenization_auto.py','tokenization_utils_fast.py','models/llama/tokenization_llama_fast.py','convert_slow_tokenizer.py','tokenization_utils_base.py','integrations/ggml.py']:
         data,receipt=fetch(f'https://raw.githubusercontent.com/huggingface/transformers/{TF}/src/transformers/{name}')
         target='sources/transformers-'+pathlib.Path(name).name
         (ROOT/target).write_bytes(data); ast.parse(data.decode())
