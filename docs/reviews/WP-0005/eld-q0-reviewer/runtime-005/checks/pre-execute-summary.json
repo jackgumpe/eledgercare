@@ -1,0 +1,195 @@
+{
+  "code_identity": {
+    "dirty": [],
+    "harness_clean": true,
+    "head": "c8daa97c5be6bc67931b215652a7a0f6ced621ef"
+  },
+  "pre_gpu_baseline": {
+    "active_q0_worker_processes": [],
+    "nvidia_smi_compute_apps": [
+      "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]",
+      "6640, C:\\Windows\\explorer.exe, [N/A]",
+      "9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]",
+      "9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]",
+      "6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]",
+      "12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]",
+      "14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]",
+      "16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]",
+      "20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]",
+      "18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]",
+      "11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]",
+      "12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]",
+      "21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]",
+      "10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]",
+      "23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]",
+      "23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]",
+      "17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]",
+      "25840, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]",
+      "8100, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]",
+      "29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]",
+      "11108, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]",
+      "27728, C:\\Windows\\System32\\ShellHost.exe, [N/A]"
+    ],
+    "nvidia_smi_gpu": "2026/11/15 16:03:15.780, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, 12.0, 16303, 1665, 14333, 0, P8",
+    "observed_utc": "2026-11-15T21:03:15.838069+00:00",
+    "observer_python_pid": 18532,
+    "prior_author_pids_checked": [
+      30992,
+      31816
+    ],
+    "prior_author_pids_present": []
+  },
+  "schema": "eld-q0-reviewer-005-pre-execute/1",
+  "steps": [
+    {
+      "argv": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\qualification\\q0\\harness\\q0.py",
+        "host-precheck",
+        "--stage",
+        "during"
+      ],
+      "cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\.scratch\\005-runtime\\cwd",
+      "exit_code": 0,
+      "finished_utc": "2026-11-15T21:02:56.123435+00:00",
+      "output_bytes": 5446,
+      "output_file": "01-host-precheck-during.json",
+      "output_sha256": "4e9a7477950d32529f359567a7f1f58f583f74e003632519039879e6ef67435a",
+      "seconds": 0.243,
+      "started_utc": "2026-11-15T21:02:55.880166+00:00",
+      "stderr_bytes": 0,
+      "step": "01-host-precheck-during"
+    },
+    {
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "-P",
+        "-X",
+        "utf8",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\qualification\\q0\\harness\\q0.py",
+        "verify-wheelhouse",
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\wheelhouse",
+        "--release",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0005\\releases\\reviewer-install.json"
+      ],
+      "cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\.scratch\\005-runtime\\cwd",
+      "exit_code": 0,
+      "finished_utc": "2026-11-15T21:02:58.261605+00:00",
+      "output_bytes": 18893,
+      "output_file": "02-verify-wheelhouse.json",
+      "output_sha256": "9738901be246bab920191056c7738b98f36a550a75d09bb24be2c6a491b6e0e8",
+      "seconds": 2.135,
+      "started_utc": "2026-11-15T21:02:56.126448+00:00",
+      "stderr_bytes": 0,
+      "step": "02-verify-wheelhouse"
+    },
+    {
+      "exit_code": 0,
+      "output_bytes": 2815,
+      "output_file": "03-pip-check-and-venv-inventory.json",
+      "output_sha256": "503dd28fb10a6a10aef87a3480b237c3bb76800a34a9e5083b1b25a9ab2c14ab",
+      "step": "03-pip-check-and-venv-inventory"
+    },
+    {
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "-P",
+        "-X",
+        "utf8",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\qualification\\q0\\harness\\q0.py",
+        "verify-model",
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669",
+        "--notices",
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\notices\\Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a"
+      ],
+      "cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\.scratch\\005-runtime\\cwd",
+      "exit_code": 0,
+      "finished_utc": "2026-11-15T21:03:08.522267+00:00",
+      "output_bytes": 8629,
+      "output_file": "04-verify-model-before.json",
+      "output_sha256": "cca23b62fb8b22599caf77d08b9482fc467a189abf7babcc0ba1fc49fd270dac",
+      "seconds": 6.029,
+      "started_utc": "2026-11-15T21:03:02.492863+00:00",
+      "stderr_bytes": 0,
+      "step": "04-verify-model-before"
+    },
+    {
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "-P",
+        "-X",
+        "utf8",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\qualification\\q0\\harness\\q0.py",
+        "preflight-cpu",
+        "--release",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0005\\releases\\reviewer-install.json",
+        "--model-dir",
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669",
+        "--notices",
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\notices\\Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a"
+      ],
+      "cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon\\.scratch\\005-runtime\\cwd",
+      "exit_code": 0,
+      "finished_utc": "2026-11-15T21:03:15.339699+00:00",
+      "output_bytes": 3692,
+      "output_file": "05-preflight-cpu.json",
+      "output_sha256": "c00bf20be0176b2dc711575dfca9c2196040d5bf9b765989cde767200f1a80c9",
+      "seconds": 6.817,
+      "started_utc": "2026-11-15T21:03:08.522267+00:00",
+      "stderr_bytes": 0,
+      "step": "05-preflight-cpu"
+    },
+    {
+      "exit_code": 0,
+      "output_bytes": 2524,
+      "output_file": "06-pre-gpu-process-and-vram.json",
+      "output_sha256": "18b8f6cfe6f283782fe40af31872329b904202c69d1a85a4920d71e0b0d8a4bb",
+      "step": "06-pre-gpu-process-and-vram"
+    }
+  ],
+  "validated_execute_release": {
+    "accepted_provenance_exceptions": [
+      "torchvision-local-sha256-TOFU"
+    ],
+    "accepted_review": {
+      "evidence_commit": "37836f6ce816218954a61c7137241790ce8055a2",
+      "report_commit": "c8daa97c5be6bc67931b215652a7a0f6ced621ef",
+      "reviewer": "eld-q0-reviewer"
+    },
+    "harness_commit": "c8daa97c5be6bc67931b215652a7a0f6ced621ef",
+    "lease_id": "WP-0005-reviewer-005-20261115T205527Z",
+    "release_commit": "3a2906b1eb7f1873ae9129119d465ea0813d31f3",
+    "sequence": "005",
+    "stage": "execute"
+  },
+  "validated_install_release": {
+    "accepted_provenance_exceptions": [
+      "torchvision-local-sha256-TOFU"
+    ],
+    "accepted_review": {
+      "evidence_commit": "37836f6ce816218954a61c7137241790ce8055a2",
+      "report_commit": "c8daa97c5be6bc67931b215652a7a0f6ced621ef",
+      "reviewer": "eld-q0-reviewer"
+    },
+    "harness_commit": "c8daa97c5be6bc67931b215652a7a0f6ced621ef",
+    "lease_id": null,
+    "release_commit": "3a2906b1eb7f1873ae9129119d465ea0813d31f3",
+    "sequence": "005",
+    "stage": "install"
+  },
+  "venv_summary": {
+    "file_count": 27682,
+    "installed_count": 33,
+    "max_path_len": 234,
+    "reparse_points": 0,
+    "total_bytes": 3256389308
+  }
+}
