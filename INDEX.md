@@ -264,3 +264,12 @@ Actual storage creation: **2026-11-15T18:50:59Z**, exact approved root created e
 
 
 Actual /004 acquisition dispatch after exact-origin verified **4fb0ac86e4ca2f9e9b089bf9ae5647d3f7f53677**: same author **bd92ddc3-af60-4096-b683-65386d81b718** initialized as **gemini-4-carbon-high/high**, owned harness cwd, PID **18688**. RUNNING stages A-D only; no success inferred and no GPU lease. Requested accept-edits, init reports inherited always-proceed; no bypass flag/global change. Original Opus authorship and separate Carbon reviewer are preserved.
+
+### Actual wheel acquisition stop and bounded metadata correction
+
+At 2026-11-15T19:06:37Z, original accepted 24a5866b verifier stopped /004 stage B before installation: fsspec's inactive zstandard marker has redundant parentheses around python_version < "3.14" compared with the frozen graph. All 32 wheels are present, 1,974,477,651 bytes; author staging evidence publication is in progress. COORD-Q0-02 is a harness representation comparison issue pending independent confirmation, not model failure. No lock/version/model/protocol changes or bypass of metadata verification are released.
+
+| Packet / sequence | Owner / model / session | Branch / worktree | Full continuation base | Canonical report | Release / next owner |
+| --- | --- | --- | --- | --- | --- |
+| WP-0005 /010 | eld-q0-harness, gemini-4-carbon-high/high, same bd92ddc3-af60-4096-b683-65386d81b718 | qualification/wp-0005-harness; eld-q0-harness | Bind the actual /004 staging checkpoint after publication; prior base 460e1d81de14c6f77ea4a026bc4b3ab36407bdf7 preserved | docs/agent-reports/eld-q0-harness/WP-0005/010_2026-11-15_implementation_eld-q0-harness.md | RESERVED narrow metadata-normalization correction; concrete kickoff/dispatch follows stage checkpoint. Next independent /011 |
+| WP-0005 /011 | eld-q0-reviewer, gemini-4-carbon-high/high, same independent 0815536f-045a-4112-8a89-ebf0e0cc782f | review/wp-0005-q0-carbon; eld-q0-reviewer-carbon | af81c9c67ddb4fb233cc93525481c4219d244f53 | docs/agent-reports/eld-q0-reviewer/WP-0005/011_2026-11-15_review_eld-q0-reviewer.md | Phase A read-only actual all-wheel diagnosis RELEASED by metadata-correction kickoff; final review held for /010 pins. Next coordinator then resumed /004 |
