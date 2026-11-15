@@ -1,0 +1,521 @@
+{
+  "accuracy_score": null,
+  "child_outcome_status": "QUALIFIED_RUNTIME_OBSERVATION",
+  "child_pid": 31816,
+  "child_returncode": 0,
+  "elapsed_s": 1235.2810000000172,
+  "failure": null,
+  "free_space": {
+    "after": 58507464704,
+    "before": 58548043776,
+    "floor_bytes": 21474836480,
+    "min_observed": 58481721344,
+    "provenance": "direct",
+    "samples": 1230,
+    "volume": "C:\\"
+  },
+  "last_phase": "finished",
+  "last_progress": 11046,
+  "log_markers": {
+    "stderr": {
+      "bytes": 377,
+      "lines": 3,
+      "markers": [
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[DASH] Triton block-sparse path active",
+          "meaning": "DASH Triton kernel returned output",
+          "source": "dash_attention.py L1224"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[DASH] differentiable DASH attention active",
+          "meaning": "DASH router constructed",
+          "source": "modeling_deepseekv2.py L86"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[DASH] Stage-0 summarization",
+          "meaning": "DASH training-path forward ran (not expected under _INFER)",
+          "source": "dash_attention.py L1293"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[SparseAttn] triton gather path failed",
+          "meaning": "base sparse path Triton failure -> block-mask fallback",
+          "source": "_sparse_base_impl.py L1761"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "using fused triton gather kernel",
+          "meaning": "base sparse path Triton gather used",
+          "source": "_sparse_base_impl.py L1767"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[CodeStamp]",
+          "meaning": "_sparse_base_impl import-time code stamp",
+          "source": "_sparse_base_impl.py L73"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[PageRope][WARN]",
+          "meaning": "router scoring fell back to 1D RoPE",
+          "source": "modeling_deepseekv2.py L137"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[debug ForCausalLM]",
+          "meaning": "one-shot ForCausalLM.forward diagnostic",
+          "source": "modeling_unlimitedocr.py L922"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "Traceback (most recent call last)",
+          "meaning": "Python traceback text",
+          "source": "-"
+        }
+      ],
+      "note": "Absence of a marker is not evidence of a path; DASH fallback is silent.",
+      "provenance": "log"
+    },
+    "stdout": {
+      "bytes": 38238,
+      "lines": 233,
+      "markers": [
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[DASH] Triton block-sparse path active",
+          "meaning": "DASH Triton kernel returned output",
+          "source": "dash_attention.py L1224"
+        },
+        {
+          "count": 1,
+          "first_line": "[DASH] differentiable DASH attention active (entmax router, block_size=32, local_window=128, index_dim=128, main_rope=page2d, idx_rope=page2d, page_bucket=True); first dash layer_idx=0",
+          "marker": "[DASH] differentiable DASH attention active",
+          "meaning": "DASH router constructed",
+          "source": "modeling_deepseekv2.py L86"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[DASH] Stage-0 summarization",
+          "meaning": "DASH training-path forward ran (not expected under _INFER)",
+          "source": "dash_attention.py L1293"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[SparseAttn] triton gather path failed",
+          "meaning": "base sparse path Triton failure -> block-mask fallback",
+          "source": "_sparse_base_impl.py L1761"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "using fused triton gather kernel",
+          "meaning": "base sparse path Triton gather used",
+          "source": "_sparse_base_impl.py L1767"
+        },
+        {
+          "count": 1,
+          "first_line": "[CodeStamp] warmup-window-page-switches-v4 sha256=86da9c563870 mtime=2026-11-15 15:26:44 switches=local_window:1,page_prefill:0 file=C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py",
+          "marker": "[CodeStamp]",
+          "meaning": "_sparse_base_impl import-time code stamp",
+          "source": "_sparse_base_impl.py L73"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[PageRope][WARN]",
+          "meaning": "router scoring fell back to 1D RoPE",
+          "source": "modeling_deepseekv2.py L137"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "[debug ForCausalLM]",
+          "meaning": "one-shot ForCausalLM.forward diagnostic",
+          "source": "modeling_unlimitedocr.py L922"
+        },
+        {
+          "count": 0,
+          "first_line": null,
+          "marker": "Traceback (most recent call last)",
+          "meaning": "Python traceback text",
+          "source": "-"
+        }
+      ],
+      "note": "Absence of a marker is not evidence of a path; DASH fallback is silent.",
+      "provenance": "log"
+    }
+  },
+  "observers": [
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-pre-0.txt",
+      "returncode": 0,
+      "t": 1794774387.4812756,
+      "tag": "pre"
+    },
+    {
+      "bytes": 1875,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-pre-1.txt",
+      "returncode": 0,
+      "t": 1794774387.5365355,
+      "tag": "pre"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-60-0.txt",
+      "returncode": 0,
+      "t": 1794774447.7319412,
+      "tag": "during-60"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-60-1.txt",
+      "returncode": 0,
+      "t": 1794774447.827323,
+      "tag": "during-60"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-120-0.txt",
+      "returncode": 0,
+      "t": 1794774508.1822581,
+      "tag": "during-120"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-120-1.txt",
+      "returncode": 0,
+      "t": 1794774508.2823987,
+      "tag": "during-120"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-181-0.txt",
+      "returncode": 0,
+      "t": 1794774568.6550107,
+      "tag": "during-181"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-181-1.txt",
+      "returncode": 0,
+      "t": 1794774568.7672782,
+      "tag": "during-181"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-241-0.txt",
+      "returncode": 0,
+      "t": 1794774629.1200342,
+      "tag": "during-241"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-241-1.txt",
+      "returncode": 0,
+      "t": 1794774629.1881213,
+      "tag": "during-241"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-301-0.txt",
+      "returncode": 0,
+      "t": 1794774689.5306685,
+      "tag": "during-301"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-301-1.txt",
+      "returncode": 0,
+      "t": 1794774689.6126158,
+      "tag": "during-301"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-362-0.txt",
+      "returncode": 0,
+      "t": 1794774749.8728878,
+      "tag": "during-362"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-362-1.txt",
+      "returncode": 0,
+      "t": 1794774749.9761748,
+      "tag": "during-362"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-422-0.txt",
+      "returncode": 0,
+      "t": 1794774810.253189,
+      "tag": "during-422"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-422-1.txt",
+      "returncode": 0,
+      "t": 1794774810.327948,
+      "tag": "during-422"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-483-0.txt",
+      "returncode": 0,
+      "t": 1794774870.608653,
+      "tag": "during-483"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-483-1.txt",
+      "returncode": 0,
+      "t": 1794774870.7241983,
+      "tag": "during-483"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-543-0.txt",
+      "returncode": 0,
+      "t": 1794774931.0365472,
+      "tag": "during-543"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-543-1.txt",
+      "returncode": 0,
+      "t": 1794774931.111352,
+      "tag": "during-543"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-603-0.txt",
+      "returncode": 0,
+      "t": 1794774991.465681,
+      "tag": "during-603"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-603-1.txt",
+      "returncode": 0,
+      "t": 1794774991.5673168,
+      "tag": "during-603"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-664-0.txt",
+      "returncode": 0,
+      "t": 1794775051.797634,
+      "tag": "during-664"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-664-1.txt",
+      "returncode": 0,
+      "t": 1794775051.8745294,
+      "tag": "during-664"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-724-0.txt",
+      "returncode": 0,
+      "t": 1794775112.1397636,
+      "tag": "during-724"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-724-1.txt",
+      "returncode": 0,
+      "t": 1794775112.2271647,
+      "tag": "during-724"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-784-0.txt",
+      "returncode": 0,
+      "t": 1794775172.4303093,
+      "tag": "during-784"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-784-1.txt",
+      "returncode": 0,
+      "t": 1794775172.4858317,
+      "tag": "during-784"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-845-0.txt",
+      "returncode": 0,
+      "t": 1794775232.7177956,
+      "tag": "during-845"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-845-1.txt",
+      "returncode": 0,
+      "t": 1794775232.7753165,
+      "tag": "during-845"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-905-0.txt",
+      "returncode": 0,
+      "t": 1794775292.9951062,
+      "tag": "during-905"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-905-1.txt",
+      "returncode": 0,
+      "t": 1794775293.1015534,
+      "tag": "during-905"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-965-0.txt",
+      "returncode": 0,
+      "t": 1794775353.3190413,
+      "tag": "during-965"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-965-1.txt",
+      "returncode": 0,
+      "t": 1794775353.373568,
+      "tag": "during-965"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-1026-0.txt",
+      "returncode": 0,
+      "t": 1794775413.6140172,
+      "tag": "during-1026"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-1026-1.txt",
+      "returncode": 0,
+      "t": 1794775413.702135,
+      "tag": "during-1026"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-1086-0.txt",
+      "returncode": 0,
+      "t": 1794775473.9732194,
+      "tag": "during-1086"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-1086-1.txt",
+      "returncode": 0,
+      "t": 1794775474.0268352,
+      "tag": "during-1086"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-1146-0.txt",
+      "returncode": 0,
+      "t": 1794775534.272822,
+      "tag": "during-1146"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-1146-1.txt",
+      "returncode": 0,
+      "t": 1794775534.3449428,
+      "tag": "during-1146"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-1207-0.txt",
+      "returncode": 0,
+      "t": 1794775594.5944984,
+      "tag": "during-1207"
+    },
+    {
+      "bytes": 1956,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-during-1207-1.txt",
+      "returncode": 0,
+      "t": 1794775594.674207,
+      "tag": "during-1207"
+    },
+    {
+      "bytes": 136,
+      "index": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-post-0.txt",
+      "returncode": 0,
+      "t": 1794775622.8686638,
+      "tag": "post"
+    },
+    {
+      "bytes": 1875,
+      "index": 1,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\observer-post-1.txt",
+      "returncode": 0,
+      "t": 1794775622.9177907,
+      "tag": "post"
+    }
+  ],
+  "schema": "eldq0-supervisor/2",
+  "stderr": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\child.stderr.txt",
+  "stdout": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da\\child.stdout.txt",
+  "verdict": "CHILD_COMPLETED"
+}

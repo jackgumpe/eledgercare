@@ -1,0 +1,2385 @@
+{
+  "accuracy_score": null,
+  "checks": {
+    "1_storage_isolation": {
+      "floor_bytes": 21474836480,
+      "free_bytes": 58265661440,
+      "hf_modules_cache": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\reviewer\\20261115T210422Z-565e2de9\\hf-modules",
+      "limit": "pagefile/driver allocations outside the root are not bounded",
+      "provenance": "direct",
+      "root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+      "status": "pass",
+      "total_bytes": 491350462464
+    },
+    "2_artifact_dependency_lock": {
+      "installed": {
+        "distributions": 33,
+        "forbidden_absent_find_spec_none": [
+          "flash_attn",
+          "xformers",
+          "triton"
+        ],
+        "triton_policy": "absent"
+      },
+      "lock_counts": {
+        "local-sha256-TOFU": 1,
+        "missing": 0,
+        "publisher-declared": 31
+      },
+      "model_runtime_objects_verified": 18,
+      "notices": [
+        {
+          "git_blob_sha1": "c79e1e3362c8fd2f9193d79c1db80fbf7f041c45",
+          "ok": true,
+          "path": "README.md",
+          "sha256": "2944554a0649f4a2c0c99dac1cd1b129609042d1f1c9f17fdf9781215c7b9a6c",
+          "size": 14107
+        }
+      ],
+      "provenance": "direct",
+      "rendered_pages": {
+        "SYN-MP-01-v0-clean": [
+          {
+            "height": 3301,
+            "page": 1,
+            "rgb_bytes": 25252650,
+            "rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+            "width": 2550
+          },
+          {
+            "height": 3301,
+            "page": 2,
+            "rgb_bytes": 25252650,
+            "rgb_sha256": "df8a12ad0ccf3b6aa1b9724c469d00a00600f192334a05d6d1073cd2cedc70f7",
+            "width": 2550
+          },
+          {
+            "height": 3301,
+            "page": 3,
+            "rgb_bytes": 25252650,
+            "rgb_sha256": "6b17c074e893f5152852c8119798a5f3edc1d6e1a40f36c0347e69be14f24ac8",
+            "width": 2550
+          }
+        ],
+        "SYN-WO-01-v0-clean": [
+          {
+            "height": 3301,
+            "page": 1,
+            "rgb_bytes": 25252650,
+            "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+            "width": 2550
+          }
+        ]
+      },
+      "renderer": {
+        "PDFIUM_INFO": "159.0.8149.0@sourcebuild-toolchained",
+        "PYPDFIUM_INFO": "5.15.2",
+        "api_version_attr": null,
+        "distribution_version": "5.15.2"
+      },
+      "status": "pass",
+      "triton_find_spec_none": true
+    },
+    "3_save_results_invariant": {
+      "frozen_kwargs": {
+        "output_path": "",
+        "save_results": false
+      },
+      "provenance": "direct+source",
+      "status": "pass",
+      "tripwire_entries": 0
+    },
+    "4_kernel_cache_telemetry": {
+      "base_sparse_path_calls": 0,
+      "baseline_label": "unmodified model on non-Triton fallback path",
+      "dynamic_cache_growth_observed": true,
+      "kernel_path_labels": [
+        "triton_import_failed_dense_fallback"
+      ],
+      "provenance": "direct",
+      "raw_logs": "child stdout/stderr preserved by the supervisor; log markers are supplementary",
+      "status": "pass",
+      "triton_find_spec_none": true
+    },
+    "5_smoke_execution": {
+      "observations": 6,
+      "provenance": "direct+native",
+      "repeatability": {
+        "SYN-MP-01-v0-clean": {
+          "provenance": "direct",
+          "warm_repeats_identical": true,
+          "warmup_identical_to_warm1": true
+        },
+        "SYN-WO-01-v0-clean": {
+          "provenance": "direct",
+          "warm_repeats_identical": true,
+          "warmup_identical_to_warm1": false
+        }
+      },
+      "status": "pass",
+      "warm_observations": 4
+    },
+    "6_honest_failure_accounting": {
+      "accuracy_score": null,
+      "failure_classes": [],
+      "status": "pass"
+    }
+  },
+  "context": {
+    "baseline_label": "unmodified model on non-Triton fallback path",
+    "code_identity": {
+      "dirty": [],
+      "harness_clean": true,
+      "head": "c8daa97c5be6bc67931b215652a7a0f6ced621ef"
+    },
+    "cold_load": {
+      "cuda_memory": {
+        "allocated": 6786129920,
+        "device_free": 8947499008,
+        "device_total": 17066360832,
+        "max_allocated": 6786129920,
+        "max_reserved": 6822035456,
+        "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+        "provenance": "direct",
+        "reserved": 6822035456
+      },
+      "host_memory": {
+        "end": {
+          "page_faults": 3699233,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 8797749248,
+          "working_set": 1001164800
+        },
+        "interval_s": 0.25,
+        "page_fault_delta": 1761758,
+        "provenance": "direct_sampled",
+        "samples": 45,
+        "start": {
+          "page_faults": 1937475,
+          "peak_working_set_lifetime": 785256448,
+          "private_bytes": 1455804416,
+          "working_set": 692871168
+        },
+        "time": 1794776684.1412942,
+        "window_peak_private_bytes_lower_bound": 14641561600,
+        "window_peak_working_set_lower_bound": 6844321792
+      },
+      "package": "transformers_modules.Unlimited_OCR_2_04809669",
+      "provenance": "direct",
+      "timings_s": {
+        "from_pretrained_cpu_s": 6.466086200030986,
+        "import_torch_transformers_s": 1.8018661999958567,
+        "to_cuda_synchronized_s": 3.769513699982781,
+        "tokenizer_s": 0.3762224999954924
+      }
+    },
+    "events_log": {
+      "bytes": 618,
+      "dropped_events": 0,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\reviewer\\20261115T210422Z-565e2de9\\evidence\\events.jsonl"
+    },
+    "evidence_index": [
+      {
+        "bytes_written": 5628,
+        "full_bytes": 5628,
+        "full_sha256": "2b07bbfc3e7a28067624a53f64be139b25f0f9f591c7d5c4c73b2f4356ca326c",
+        "name": "model-files.json",
+        "sha256_written": "2b07bbfc3e7a28067624a53f64be139b25f0f9f591c7d5c4c73b2f4356ca326c",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 1782,
+        "full_bytes": 1782,
+        "full_sha256": "7015b98cc7e1d6f6ec54bd42b2e6bb4188b864fbc0231d5e89e63ab7a3d4a0f3",
+        "name": "static-safety.json",
+        "sha256_written": "7015b98cc7e1d6f6ec54bd42b2e6bb4188b864fbc0231d5e89e63ab7a3d4a0f3",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 2837,
+        "full_bytes": 2837,
+        "full_sha256": "1126cf0f3859b20fecf371e8280185c8459e7256221c0598849d1902c2780917",
+        "name": "module-cache.json",
+        "sha256_written": "1126cf0f3859b20fecf371e8280185c8459e7256221c0598849d1902c2780917",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 3236,
+        "full_bytes": 3236,
+        "full_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "name": "F01.warmup.raw.txt",
+        "sha256_written": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      {
+        "bytes_written": 8802,
+        "full_bytes": 8802,
+        "full_sha256": "923eff30d3d7ecd6f694134992a0e71244d45ed7d5a1de1460da3f89f2ba268f",
+        "name": "F01.warmup.token_ids.json",
+        "sha256_written": "923eff30d3d7ecd6f694134992a0e71244d45ed7d5a1de1460da3f89f2ba268f",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 10604,
+        "full_bytes": 10604,
+        "full_sha256": "7966c2c8af6ab93594b79f055fcff2f957ed9e20f72f444972d879de81a7417c",
+        "name": "F01.warmup.observation.json",
+        "sha256_written": "7966c2c8af6ab93594b79f055fcff2f957ed9e20f72f444972d879de81a7417c",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 7617,
+        "full_bytes": 7617,
+        "full_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "name": "F07.warmup.raw.txt",
+        "sha256_written": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      {
+        "bytes_written": 20504,
+        "full_bytes": 20504,
+        "full_sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "name": "F07.warmup.token_ids.json",
+        "sha256_written": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 9479,
+        "full_bytes": 9479,
+        "full_sha256": "258e39e08404144f200a25eebc59ba47fe36ec7335828ad43a834452acf9946d",
+        "name": "F07.warmup.observation.json",
+        "sha256_written": "258e39e08404144f200a25eebc59ba47fe36ec7335828ad43a834452acf9946d",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 3236,
+        "full_bytes": 3236,
+        "full_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "name": "F01.warm1.raw.txt",
+        "sha256_written": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      {
+        "bytes_written": 8802,
+        "full_bytes": 8802,
+        "full_sha256": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+        "name": "F01.warm1.token_ids.json",
+        "sha256_written": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 8778,
+        "full_bytes": 8778,
+        "full_sha256": "8837a8f5437c6f465dfa3507f5ce8cb47d0fa1dc6651953874d950493fd98357",
+        "name": "F01.warm1.observation.json",
+        "sha256_written": "8837a8f5437c6f465dfa3507f5ce8cb47d0fa1dc6651953874d950493fd98357",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 7617,
+        "full_bytes": 7617,
+        "full_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "name": "F07.warm1.raw.txt",
+        "sha256_written": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      {
+        "bytes_written": 20504,
+        "full_bytes": 20504,
+        "full_sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "name": "F07.warm1.token_ids.json",
+        "sha256_written": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 8837,
+        "full_bytes": 8837,
+        "full_sha256": "c43e1655dcb1e2f9f13cad9e063f6ca211bf09406dcb3887a52e4522547f590e",
+        "name": "F07.warm1.observation.json",
+        "sha256_written": "c43e1655dcb1e2f9f13cad9e063f6ca211bf09406dcb3887a52e4522547f590e",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 3236,
+        "full_bytes": 3236,
+        "full_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "name": "F01.warm2.raw.txt",
+        "sha256_written": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      {
+        "bytes_written": 8802,
+        "full_bytes": 8802,
+        "full_sha256": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+        "name": "F01.warm2.token_ids.json",
+        "sha256_written": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 8778,
+        "full_bytes": 8778,
+        "full_sha256": "8dc645e6e06e009d3dcd5cf3430df636422a94a12e4751a735af9591b8331da3",
+        "name": "F01.warm2.observation.json",
+        "sha256_written": "8dc645e6e06e009d3dcd5cf3430df636422a94a12e4751a735af9591b8331da3",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 7617,
+        "full_bytes": 7617,
+        "full_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "name": "F07.warm2.raw.txt",
+        "sha256_written": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      {
+        "bytes_written": 20504,
+        "full_bytes": 20504,
+        "full_sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "name": "F07.warm2.token_ids.json",
+        "sha256_written": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "truncated_by_writer": false
+      },
+      {
+        "bytes_written": 8835,
+        "full_bytes": 8835,
+        "full_sha256": "9bb68f6a5e42b8c8ef25fc4a2d039abbe03619d26bb28e7c41642995bf32b978",
+        "name": "F07.warm2.observation.json",
+        "sha256_written": "9bb68f6a5e42b8c8ef25fc4a2d039abbe03619d26bb28e7c41642995bf32b978",
+        "truncated_by_writer": false
+      }
+    ],
+    "harness": "eld-q0-harness/WP-0005-002",
+    "lock_readiness": {
+      "counts": {
+        "local-sha256-TOFU": 1,
+        "missing": 0,
+        "publisher-declared": 31
+      },
+      "installable": true,
+      "missing_wheel_sha256": [],
+      "required_exceptions": [
+        "torchvision-local-sha256-TOFU"
+      ]
+    },
+    "lock_sha256": "d8eeaf0fe838d9df5728f17fcbacc8b504d98b79644a524b4faa705d97c49e6e",
+    "owner": "reviewer",
+    "platform": {
+      "arch_list": [
+        "sm_75",
+        "sm_80",
+        "sm_86",
+        "sm_90",
+        "sm_100",
+        "sm_120"
+      ],
+      "cuda_available": true,
+      "cudnn": 92000,
+      "device_capability": [
+        12,
+        0
+      ],
+      "device_count": 1,
+      "device_name": "NVIDIA GeForce RTX 5070 Ti",
+      "device_total_memory": 17066360832,
+      "device_uuid": "9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+      "machine": "AMD64",
+      "os": "Windows",
+      "python": "3.12.10",
+      "torch": "2.13.0+cu130",
+      "torch_cuda_version": "13.0"
+    },
+    "protocol_sha256": "dd8a7dc38c2a0c46103f6667f522656a2dddf5882727c18bf7b6b5426c5e2309",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "release": {
+      "accepted_provenance_exceptions": [
+        "torchvision-local-sha256-TOFU"
+      ],
+      "accepted_review": {
+        "evidence_commit": "37836f6ce816218954a61c7137241790ce8055a2",
+        "report_commit": "c8daa97c5be6bc67931b215652a7a0f6ced621ef",
+        "reviewer": "eld-q0-reviewer"
+      },
+      "harness_commit": "c8daa97c5be6bc67931b215652a7a0f6ced621ef",
+      "lease_id": "WP-0005-reviewer-005-20261115T205527Z",
+      "release_commit": "3a2906b1eb7f1873ae9129119d465ea0813d31f3",
+      "sequence": "005",
+      "stage": "execute"
+    }
+  },
+  "failures": [],
+  "observations": [
+    {
+      "cache": {
+        "cache_types": [
+          "DynamicCache"
+        ],
+        "dash_idx_bytes_final": 8607744,
+        "decode_steps_observed": 1122,
+        "final_seq_len": 1401,
+        "forward_returns": 1123,
+        "grows_by_one_each_decode_step": true,
+        "kv_bytes_after_prefill": 17141760,
+        "kv_bytes_final": 86077440,
+        "kv_bytes_max": 86077440,
+        "kv_bytes_per_token_derived": 61440.0,
+        "observed": true,
+        "prefill_seq_len": 279,
+        "provenance": "direct",
+        "ring_buffer_marker_seen": false,
+        "seq_len_samples_head": [
+          279,
+          280,
+          281,
+          282
+        ],
+        "seq_len_samples_tail": [
+          1398,
+          1399,
+          1400,
+          1401
+        ]
+      },
+      "call_kwargs": {
+        "base_size": 1024,
+        "crop_mode": false,
+        "dash_topm": 16,
+        "eval_mode": false,
+        "image_size": 640,
+        "max_crops": 16,
+        "max_length": 131072,
+        "max_new_tokens": 8000,
+        "max_page_tokens": 20000,
+        "ngram_whitelist_token_ids": null,
+        "ngram_window": 128,
+        "no_repeat_ngram_size": 35,
+        "output_path": "",
+        "page_count_guard": true,
+        "save_results": false,
+        "temperature": 0.0,
+        "test_compress": false,
+        "tps_interval": 0
+      },
+      "cuda_memory": {
+        "allocated": 6819691008,
+        "device_free": 8211398656,
+        "device_total": 17066360832,
+        "max_allocated": 7293321728,
+        "max_reserved": 7480541184,
+        "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+        "provenance": "direct",
+        "reserved": 7480541184
+      },
+      "excluded_from_warm_statistics": true,
+      "family_id": "F01",
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "flags": [],
+      "host_memory": {
+        "end": {
+          "page_faults": 6176200,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10840428544,
+          "working_set": 2369404928
+        },
+        "interval_s": 0.1,
+        "page_fault_delta": 2458410,
+        "provenance": "direct_sampled",
+        "samples": 1285,
+        "start": {
+          "page_faults": 3717790,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 8797716480,
+          "working_set": 1001218048
+        },
+        "time": 1794776825.0321574,
+        "window_peak_private_bytes_lower_bound": 10899091456,
+        "window_peak_working_set_lower_bound": 2426810368
+      },
+      "kernel_path": {
+        "decode_attend_fp32_calls": 13464,
+        "decode_forward_calls": 13464,
+        "dense_sdpa_calls": 12,
+        "label": "triton_import_failed_dense_fallback",
+        "non_dash_attention_calls": 0,
+        "prefill_attend_calls": 12,
+        "provenance": "direct",
+        "triton_attempts": 12,
+        "triton_import_exception_types": [
+          "builtins.ModuleNotFoundError"
+        ],
+        "triton_kernel_entries": null,
+        "triton_non_null_returns": 0,
+        "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+      },
+      "kind": "warmup",
+      "label": "F01.warmup",
+      "native": {
+        "expected_pages": 1,
+        "finish_reason": "stop",
+        "num_pages_out": 1,
+        "output_tokens": 1122,
+        "prefill_time_s": 18.44969129562378,
+        "prompt": "<PAGE><image>Multi page parsing.",
+        "prompt_len": 279,
+        "provenance": "native",
+        "text_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "time_s": 140.80222272872925,
+        "token_ids_sha256": "0bf3f24db5965aa3b192a0ed05a6cd544b5d1dedb8d4c42cba69eec02b034617"
+      },
+      "observer_overhead": {
+        "callback_ns": 322643400,
+        "events": 56194,
+        "note": "Self-timed callback cost only; interpreter dispatch and global exception-event filtering overhead are not included (lower bound).",
+        "provenance": "direct"
+      },
+      "page_count_in": 1,
+      "page_markers": {
+        "expected": 1,
+        "marker_token_positions": [
+          0
+        ],
+        "out": 1,
+        "provenance": "direct"
+      },
+      "prefill_memory": {
+        "note": "allocator peak since reset, read at the first model-forward return; None when no probe or no forward occurred",
+        "provenance": "direct",
+        "value": {
+          "max_allocated": 7293321728,
+          "max_reserved": 7480541184
+        }
+      },
+      "raw_output": {
+        "bytes_written": 3236,
+        "full_bytes": 3236,
+        "full_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "name": "F01.warmup.raw.txt",
+        "sha256_written": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      "repeat": 0,
+      "targets": {
+        "dash_attention:DashAttention._forward_dense": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "dense_sdpa_fallback",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "dash_attention:DashAttention._forward_triton": {
+          "exceptions": [
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            }
+          ],
+          "handled_exceptions": 12,
+          "returns": 12,
+          "returns_none": 12,
+          "role": "triton_attempt",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_dash_decode_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 13464,
+          "returns_none": 0,
+          "role": "decode_forward",
+          "starts": 13464,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_decode_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 13464,
+          "returns_none": 0,
+          "role": "decode_attend_fp32",
+          "starts": 13464,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_infer_prefill_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "prefill_attend",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_orig_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "non_dash_attention_forward",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:configure_dash_inference": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2,
+          "returns_none": 1,
+          "role": "dash_infer_switch",
+          "starts": 2,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_generate": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_generate",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_save_results": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM.infer": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_infer",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRModel.forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1123,
+          "returns_none": 0,
+          "role": "model_forward",
+          "starts": 1123,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:draw_bounding_boxes": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:extract_coordinates_and_label": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_eval_site",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:process_image_with_refs": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        }
+      },
+      "timing": {
+        "decode_s": {
+          "provenance": "derived",
+          "value": 122.35253143310547
+        },
+        "external_synchronized_wall_s": {
+          "provenance": "direct",
+          "value": 140.8863687
+        },
+        "native_generate_total_s": {
+          "provenance": "native",
+          "value": 140.80222272872925
+        },
+        "native_prefill_to_first_token_s": {
+          "note": "t_first - t0 in _uocr_generate; host-synchronized by int(argmax)",
+          "provenance": "native",
+          "value": 18.44969129562378
+        },
+        "outside_generate_s": {
+          "note": "prompt build, _uocr_build_inputs preprocessing, observer overhead, final sync",
+          "provenance": "derived",
+          "value": 0.0841459712707433
+        }
+      },
+      "token_ids_file": {
+        "bytes_written": 8802,
+        "full_bytes": 8802,
+        "full_sha256": "923eff30d3d7ecd6f694134992a0e71244d45ed7d5a1de1460da3f89f2ba268f",
+        "name": "F01.warmup.token_ids.json",
+        "sha256_written": "923eff30d3d7ecd6f694134992a0e71244d45ed7d5a1de1460da3f89f2ba268f",
+        "truncated_by_writer": false
+      },
+      "unresolved_optional_targets": [
+        "sparse_gather_e2e_triton:triton_gather_attention_e2e"
+      ]
+    },
+    {
+      "cache": {
+        "cache_types": [
+          "DynamicCache"
+        ],
+        "dash_idx_bytes_final": 20797440,
+        "decode_steps_observed": 2558,
+        "final_seq_len": 3385,
+        "forward_returns": 2559,
+        "grows_by_one_each_decode_step": true,
+        "kv_bytes_after_prefill": 50810880,
+        "kv_bytes_final": 207974400,
+        "kv_bytes_max": 207974400,
+        "kv_bytes_per_token_derived": 61440.0,
+        "observed": true,
+        "prefill_seq_len": 827,
+        "provenance": "direct",
+        "ring_buffer_marker_seen": false,
+        "seq_len_samples_head": [
+          827,
+          828,
+          829,
+          830
+        ],
+        "seq_len_samples_tail": [
+          3382,
+          3383,
+          3384,
+          3385
+        ]
+      },
+      "call_kwargs": {
+        "base_size": 1024,
+        "crop_mode": false,
+        "dash_topm": 16,
+        "eval_mode": false,
+        "image_size": 640,
+        "max_crops": 16,
+        "max_length": 131072,
+        "max_new_tokens": 24000,
+        "max_page_tokens": 20000,
+        "ngram_whitelist_token_ids": null,
+        "ngram_window": 1024,
+        "no_repeat_ngram_size": 35,
+        "output_path": "",
+        "page_count_guard": true,
+        "save_results": false,
+        "temperature": 0.0,
+        "test_compress": false,
+        "tps_interval": 0
+      },
+      "cuda_memory": {
+        "allocated": 6819699200,
+        "device_free": 8211398656,
+        "device_total": 17066360832,
+        "max_allocated": 7310478336,
+        "max_reserved": 7480541184,
+        "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+        "provenance": "direct",
+        "reserved": 7480541184
+      },
+      "excluded_from_warm_statistics": true,
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "flags": [],
+      "host_memory": {
+        "end": {
+          "page_faults": 6254026,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10893176832,
+          "working_set": 2408173568
+        },
+        "interval_s": 0.1,
+        "page_fault_delta": 77825,
+        "provenance": "direct_sampled",
+        "samples": 2598,
+        "start": {
+          "page_faults": 6176201,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10840395776,
+          "working_set": 2369392640
+        },
+        "time": 1794777109.8032856,
+        "window_peak_private_bytes_lower_bound": 11018608640,
+        "window_peak_working_set_lower_bound": 2530521088
+      },
+      "kernel_path": {
+        "decode_attend_fp32_calls": 30696,
+        "decode_forward_calls": 30696,
+        "dense_sdpa_calls": 12,
+        "label": "triton_import_failed_dense_fallback",
+        "non_dash_attention_calls": 0,
+        "prefill_attend_calls": 12,
+        "provenance": "direct",
+        "triton_attempts": 12,
+        "triton_import_exception_types": [
+          "builtins.ModuleNotFoundError"
+        ],
+        "triton_kernel_entries": null,
+        "triton_non_null_returns": 0,
+        "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+      },
+      "kind": "warmup",
+      "label": "F07.warmup",
+      "native": {
+        "expected_pages": 3,
+        "finish_reason": "stop",
+        "num_pages_out": 3,
+        "output_tokens": 2558,
+        "prefill_time_s": 0.46642303466796875,
+        "prompt": "<PAGE><image><PAGE><image><PAGE><image>Multi page parsing.",
+        "prompt_len": 827,
+        "provenance": "native",
+        "text_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "time_s": 284.5034821033478,
+        "token_ids_sha256": "e8a89b0c086a405be010b37eb2edeff723fb89aad54b7260f13afb716f96d635"
+      },
+      "observer_overhead": {
+        "callback_ns": 713209700,
+        "events": 127994,
+        "note": "Self-timed callback cost only; interpreter dispatch and global exception-event filtering overhead are not included (lower bound).",
+        "provenance": "direct"
+      },
+      "page_count_in": 3,
+      "page_markers": {
+        "expected": 3,
+        "marker_token_positions": [
+          0,
+          1145,
+          1896
+        ],
+        "out": 3,
+        "provenance": "direct"
+      },
+      "prefill_memory": {
+        "note": "allocator peak since reset, read at the first model-forward return; None when no probe or no forward occurred",
+        "provenance": "direct",
+        "value": {
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        }
+      },
+      "raw_output": {
+        "bytes_written": 7617,
+        "full_bytes": 7617,
+        "full_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "name": "F07.warmup.raw.txt",
+        "sha256_written": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      "repeat": 0,
+      "targets": {
+        "dash_attention:DashAttention._forward_dense": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "dense_sdpa_fallback",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "dash_attention:DashAttention._forward_triton": {
+          "exceptions": [
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            },
+            {
+              "kind": "handled",
+              "message": "No module named 'triton'",
+              "type": "builtins.ModuleNotFoundError"
+            }
+          ],
+          "handled_exceptions": 12,
+          "returns": 12,
+          "returns_none": 12,
+          "role": "triton_attempt",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_dash_decode_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 30696,
+          "returns_none": 0,
+          "role": "decode_forward",
+          "starts": 30696,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_decode_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 30696,
+          "returns_none": 0,
+          "role": "decode_attend_fp32",
+          "starts": 30696,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_infer_prefill_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "prefill_attend",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_orig_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "non_dash_attention_forward",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:configure_dash_inference": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2,
+          "returns_none": 1,
+          "role": "dash_infer_switch",
+          "starts": 2,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_generate": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_generate",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_save_results": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM.infer": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_infer",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRModel.forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2559,
+          "returns_none": 0,
+          "role": "model_forward",
+          "starts": 2559,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:draw_bounding_boxes": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:extract_coordinates_and_label": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_eval_site",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:process_image_with_refs": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        }
+      },
+      "timing": {
+        "decode_s": {
+          "provenance": "derived",
+          "value": 284.0370590686798
+        },
+        "external_synchronized_wall_s": {
+          "provenance": "direct",
+          "value": 284.7601235
+        },
+        "native_generate_total_s": {
+          "provenance": "native",
+          "value": 284.5034821033478
+        },
+        "native_prefill_to_first_token_s": {
+          "note": "t_first - t0 in _uocr_generate; host-synchronized by int(argmax)",
+          "provenance": "native",
+          "value": 0.46642303466796875
+        },
+        "outside_generate_s": {
+          "note": "prompt build, _uocr_build_inputs preprocessing, observer overhead, final sync",
+          "provenance": "derived",
+          "value": 0.25664139665224184
+        }
+      },
+      "token_ids_file": {
+        "bytes_written": 20504,
+        "full_bytes": 20504,
+        "full_sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "name": "F07.warmup.token_ids.json",
+        "sha256_written": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "truncated_by_writer": false
+      },
+      "unresolved_optional_targets": [
+        "sparse_gather_e2e_triton:triton_gather_attention_e2e"
+      ]
+    },
+    {
+      "cache": {
+        "cache_types": [
+          "DynamicCache"
+        ],
+        "dash_idx_bytes_final": 8607744,
+        "decode_steps_observed": 1122,
+        "final_seq_len": 1401,
+        "forward_returns": 1123,
+        "grows_by_one_each_decode_step": true,
+        "kv_bytes_after_prefill": 17141760,
+        "kv_bytes_final": 86077440,
+        "kv_bytes_max": 86077440,
+        "kv_bytes_per_token_derived": 61440.0,
+        "observed": true,
+        "prefill_seq_len": 279,
+        "provenance": "direct",
+        "ring_buffer_marker_seen": false,
+        "seq_len_samples_head": [
+          279,
+          280,
+          281,
+          282
+        ],
+        "seq_len_samples_tail": [
+          1398,
+          1399,
+          1400,
+          1401
+        ]
+      },
+      "call_kwargs": {
+        "base_size": 1024,
+        "crop_mode": false,
+        "dash_topm": 16,
+        "eval_mode": false,
+        "image_size": 640,
+        "max_crops": 16,
+        "max_length": 131072,
+        "max_new_tokens": 8000,
+        "max_page_tokens": 20000,
+        "ngram_whitelist_token_ids": null,
+        "ngram_window": 128,
+        "no_repeat_ngram_size": 35,
+        "output_path": "",
+        "page_count_guard": true,
+        "save_results": false,
+        "temperature": 0.0,
+        "test_compress": false,
+        "tps_interval": 0
+      },
+      "cuda_memory": {
+        "allocated": 6819691008,
+        "device_free": 8211398656,
+        "device_total": 17066360832,
+        "max_allocated": 7293335040,
+        "max_reserved": 7480541184,
+        "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+        "provenance": "direct",
+        "reserved": 7480541184
+      },
+      "excluded_from_warm_statistics": false,
+      "family_id": "F01",
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "flags": [],
+      "host_memory": {
+        "end": {
+          "page_faults": 6278111,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10869059584,
+          "working_set": 2398867456
+        },
+        "interval_s": 0.1,
+        "page_fault_delta": 24079,
+        "provenance": "direct_sampled",
+        "samples": 1131,
+        "start": {
+          "page_faults": 6254032,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10893139968,
+          "working_set": 2408177664
+        },
+        "time": 1794777233.6479354,
+        "window_peak_private_bytes_lower_bound": 10990592000,
+        "window_peak_working_set_lower_bound": 2482331648
+      },
+      "kernel_path": {
+        "decode_attend_fp32_calls": 13464,
+        "decode_forward_calls": 13464,
+        "dense_sdpa_calls": 12,
+        "label": "triton_import_failed_dense_fallback",
+        "non_dash_attention_calls": 0,
+        "prefill_attend_calls": 12,
+        "provenance": "direct",
+        "triton_attempts": 12,
+        "triton_import_exception_types": [],
+        "triton_kernel_entries": null,
+        "triton_non_null_returns": 0,
+        "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+      },
+      "kind": "warm",
+      "label": "F01.warm1",
+      "native": {
+        "expected_pages": 1,
+        "finish_reason": "stop",
+        "num_pages_out": 1,
+        "output_tokens": 1122,
+        "prefill_time_s": 0.5164761543273926,
+        "prompt": "<PAGE><image>Multi page parsing.",
+        "prompt_len": 279,
+        "provenance": "native",
+        "text_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "time_s": 123.74913620948792,
+        "token_ids_sha256": "a99dea6c8bed8e94b62306a2fb23f92c5c3dda4117efe3a2aafe37038bba0f1d"
+      },
+      "observer_overhead": {
+        "callback_ns": 324661300,
+        "events": 56194,
+        "note": "Self-timed callback cost only; interpreter dispatch and global exception-event filtering overhead are not included (lower bound).",
+        "provenance": "direct"
+      },
+      "page_count_in": 1,
+      "page_markers": {
+        "expected": 1,
+        "marker_token_positions": [
+          0
+        ],
+        "out": 1,
+        "provenance": "direct"
+      },
+      "prefill_memory": {
+        "note": "allocator peak since reset, read at the first model-forward return; None when no probe or no forward occurred",
+        "provenance": "direct",
+        "value": {
+          "max_allocated": 7293335040,
+          "max_reserved": 7480541184
+        }
+      },
+      "raw_output": {
+        "bytes_written": 3236,
+        "full_bytes": 3236,
+        "full_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "name": "F01.warm1.raw.txt",
+        "sha256_written": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      "repeat": 1,
+      "targets": {
+        "dash_attention:DashAttention._forward_dense": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "dense_sdpa_fallback",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "dash_attention:DashAttention._forward_triton": {
+          "exceptions": [],
+          "handled_exceptions": 12,
+          "returns": 12,
+          "returns_none": 12,
+          "role": "triton_attempt",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_dash_decode_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 13464,
+          "returns_none": 0,
+          "role": "decode_forward",
+          "starts": 13464,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_decode_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 13464,
+          "returns_none": 0,
+          "role": "decode_attend_fp32",
+          "starts": 13464,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_infer_prefill_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "prefill_attend",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_orig_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "non_dash_attention_forward",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:configure_dash_inference": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2,
+          "returns_none": 1,
+          "role": "dash_infer_switch",
+          "starts": 2,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_generate": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_generate",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_save_results": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM.infer": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_infer",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRModel.forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1123,
+          "returns_none": 0,
+          "role": "model_forward",
+          "starts": 1123,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:draw_bounding_boxes": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:extract_coordinates_and_label": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_eval_site",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:process_image_with_refs": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        }
+      },
+      "timing": {
+        "decode_s": {
+          "provenance": "derived",
+          "value": 123.23266005516052
+        },
+        "external_synchronized_wall_s": {
+          "provenance": "direct",
+          "value": 123.8318405
+        },
+        "native_generate_total_s": {
+          "provenance": "native",
+          "value": 123.74913620948792
+        },
+        "native_prefill_to_first_token_s": {
+          "note": "t_first - t0 in _uocr_generate; host-synchronized by int(argmax)",
+          "provenance": "native",
+          "value": 0.5164761543273926
+        },
+        "outside_generate_s": {
+          "note": "prompt build, _uocr_build_inputs preprocessing, observer overhead, final sync",
+          "provenance": "derived",
+          "value": 0.08270429051208339
+        }
+      },
+      "token_ids_file": {
+        "bytes_written": 8802,
+        "full_bytes": 8802,
+        "full_sha256": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+        "name": "F01.warm1.token_ids.json",
+        "sha256_written": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+        "truncated_by_writer": false
+      },
+      "unresolved_optional_targets": [
+        "sparse_gather_e2e_triton:triton_gather_attention_e2e"
+      ]
+    },
+    {
+      "cache": {
+        "cache_types": [
+          "DynamicCache"
+        ],
+        "dash_idx_bytes_final": 20797440,
+        "decode_steps_observed": 2558,
+        "final_seq_len": 3385,
+        "forward_returns": 2559,
+        "grows_by_one_each_decode_step": true,
+        "kv_bytes_after_prefill": 50810880,
+        "kv_bytes_final": 207974400,
+        "kv_bytes_max": 207974400,
+        "kv_bytes_per_token_derived": 61440.0,
+        "observed": true,
+        "prefill_seq_len": 827,
+        "provenance": "direct",
+        "ring_buffer_marker_seen": false,
+        "seq_len_samples_head": [
+          827,
+          828,
+          829,
+          830
+        ],
+        "seq_len_samples_tail": [
+          3382,
+          3383,
+          3384,
+          3385
+        ]
+      },
+      "call_kwargs": {
+        "base_size": 1024,
+        "crop_mode": false,
+        "dash_topm": 16,
+        "eval_mode": false,
+        "image_size": 640,
+        "max_crops": 16,
+        "max_length": 131072,
+        "max_new_tokens": 24000,
+        "max_page_tokens": 20000,
+        "ngram_whitelist_token_ids": null,
+        "ngram_window": 1024,
+        "no_repeat_ngram_size": 35,
+        "output_path": "",
+        "page_count_guard": true,
+        "save_results": false,
+        "temperature": 0.0,
+        "test_compress": false,
+        "tps_interval": 0
+      },
+      "cuda_memory": {
+        "allocated": 6819699200,
+        "device_free": 8211398656,
+        "device_total": 17066360832,
+        "max_allocated": 7310478336,
+        "max_reserved": 7480541184,
+        "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+        "provenance": "direct",
+        "reserved": 7480541184
+      },
+      "excluded_from_warm_statistics": false,
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "flags": [],
+      "host_memory": {
+        "end": {
+          "page_faults": 6340312,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10898006016,
+          "working_set": 2413002752
+        },
+        "interval_s": 0.1,
+        "page_fault_delta": 62201,
+        "provenance": "direct_sampled",
+        "samples": 2614,
+        "start": {
+          "page_faults": 6278111,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10869022720,
+          "working_set": 2398846976
+        },
+        "time": 1794777519.9696884,
+        "window_peak_private_bytes_lower_bound": 11063607296,
+        "window_peak_working_set_lower_bound": 2548363264
+      },
+      "kernel_path": {
+        "decode_attend_fp32_calls": 30696,
+        "decode_forward_calls": 30696,
+        "dense_sdpa_calls": 12,
+        "label": "triton_import_failed_dense_fallback",
+        "non_dash_attention_calls": 0,
+        "prefill_attend_calls": 12,
+        "provenance": "direct",
+        "triton_attempts": 12,
+        "triton_import_exception_types": [],
+        "triton_kernel_entries": null,
+        "triton_non_null_returns": 0,
+        "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+      },
+      "kind": "warm",
+      "label": "F07.warm1",
+      "native": {
+        "expected_pages": 3,
+        "finish_reason": "stop",
+        "num_pages_out": 3,
+        "output_tokens": 2558,
+        "prefill_time_s": 0.48782801628112793,
+        "prompt": "<PAGE><image><PAGE><image><PAGE><image>Multi page parsing.",
+        "prompt_len": 827,
+        "provenance": "native",
+        "text_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "time_s": 286.04893159866333,
+        "token_ids_sha256": "e8a89b0c086a405be010b37eb2edeff723fb89aad54b7260f13afb716f96d635"
+      },
+      "observer_overhead": {
+        "callback_ns": 718398300,
+        "events": 127994,
+        "note": "Self-timed callback cost only; interpreter dispatch and global exception-event filtering overhead are not included (lower bound).",
+        "provenance": "direct"
+      },
+      "page_count_in": 3,
+      "page_markers": {
+        "expected": 3,
+        "marker_token_positions": [
+          0,
+          1145,
+          1896
+        ],
+        "out": 3,
+        "provenance": "direct"
+      },
+      "prefill_memory": {
+        "note": "allocator peak since reset, read at the first model-forward return; None when no probe or no forward occurred",
+        "provenance": "direct",
+        "value": {
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        }
+      },
+      "raw_output": {
+        "bytes_written": 7617,
+        "full_bytes": 7617,
+        "full_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "name": "F07.warm1.raw.txt",
+        "sha256_written": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      "repeat": 1,
+      "targets": {
+        "dash_attention:DashAttention._forward_dense": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "dense_sdpa_fallback",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "dash_attention:DashAttention._forward_triton": {
+          "exceptions": [],
+          "handled_exceptions": 12,
+          "returns": 12,
+          "returns_none": 12,
+          "role": "triton_attempt",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_dash_decode_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 30696,
+          "returns_none": 0,
+          "role": "decode_forward",
+          "starts": 30696,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_decode_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 30696,
+          "returns_none": 0,
+          "role": "decode_attend_fp32",
+          "starts": 30696,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_infer_prefill_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "prefill_attend",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_orig_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "non_dash_attention_forward",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:configure_dash_inference": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2,
+          "returns_none": 1,
+          "role": "dash_infer_switch",
+          "starts": 2,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_generate": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_generate",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_save_results": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM.infer": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_infer",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRModel.forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2559,
+          "returns_none": 0,
+          "role": "model_forward",
+          "starts": 2559,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:draw_bounding_boxes": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:extract_coordinates_and_label": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_eval_site",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:process_image_with_refs": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        }
+      },
+      "timing": {
+        "decode_s": {
+          "provenance": "derived",
+          "value": 285.5611035823822
+        },
+        "external_synchronized_wall_s": {
+          "provenance": "direct",
+          "value": 286.3156545
+        },
+        "native_generate_total_s": {
+          "provenance": "native",
+          "value": 286.04893159866333
+        },
+        "native_prefill_to_first_token_s": {
+          "note": "t_first - t0 in _uocr_generate; host-synchronized by int(argmax)",
+          "provenance": "native",
+          "value": 0.48782801628112793
+        },
+        "outside_generate_s": {
+          "note": "prompt build, _uocr_build_inputs preprocessing, observer overhead, final sync",
+          "provenance": "derived",
+          "value": 0.26672290133666365
+        }
+      },
+      "token_ids_file": {
+        "bytes_written": 20504,
+        "full_bytes": 20504,
+        "full_sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "name": "F07.warm1.token_ids.json",
+        "sha256_written": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "truncated_by_writer": false
+      },
+      "unresolved_optional_targets": [
+        "sparse_gather_e2e_triton:triton_gather_attention_e2e"
+      ]
+    },
+    {
+      "cache": {
+        "cache_types": [
+          "DynamicCache"
+        ],
+        "dash_idx_bytes_final": 8607744,
+        "decode_steps_observed": 1122,
+        "final_seq_len": 1401,
+        "forward_returns": 1123,
+        "grows_by_one_each_decode_step": true,
+        "kv_bytes_after_prefill": 17141760,
+        "kv_bytes_final": 86077440,
+        "kv_bytes_max": 86077440,
+        "kv_bytes_per_token_derived": 61440.0,
+        "observed": true,
+        "prefill_seq_len": 279,
+        "provenance": "direct",
+        "ring_buffer_marker_seen": false,
+        "seq_len_samples_head": [
+          279,
+          280,
+          281,
+          282
+        ],
+        "seq_len_samples_tail": [
+          1398,
+          1399,
+          1400,
+          1401
+        ]
+      },
+      "call_kwargs": {
+        "base_size": 1024,
+        "crop_mode": false,
+        "dash_topm": 16,
+        "eval_mode": false,
+        "image_size": 640,
+        "max_crops": 16,
+        "max_length": 131072,
+        "max_new_tokens": 8000,
+        "max_page_tokens": 20000,
+        "ngram_whitelist_token_ids": null,
+        "ngram_window": 128,
+        "no_repeat_ngram_size": 35,
+        "output_path": "",
+        "page_count_guard": true,
+        "save_results": false,
+        "temperature": 0.0,
+        "test_compress": false,
+        "tps_interval": 0
+      },
+      "cuda_memory": {
+        "allocated": 6819691008,
+        "device_free": 8211398656,
+        "device_total": 17066360832,
+        "max_allocated": 7293335040,
+        "max_reserved": 7480541184,
+        "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+        "provenance": "direct",
+        "reserved": 7480541184
+      },
+      "excluded_from_warm_statistics": false,
+      "family_id": "F01",
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "flags": [],
+      "host_memory": {
+        "end": {
+          "page_faults": 6363729,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10871148544,
+          "working_set": 2401009664
+        },
+        "interval_s": 0.1,
+        "page_fault_delta": 23417,
+        "provenance": "direct_sampled",
+        "samples": 1141,
+        "start": {
+          "page_faults": 6340312,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10897969152,
+          "working_set": 2412982272
+        },
+        "time": 1794777644.9320223,
+        "window_peak_private_bytes_lower_bound": 10992680960,
+        "window_peak_working_set_lower_bound": 2484473856
+      },
+      "kernel_path": {
+        "decode_attend_fp32_calls": 13464,
+        "decode_forward_calls": 13464,
+        "dense_sdpa_calls": 12,
+        "label": "triton_import_failed_dense_fallback",
+        "non_dash_attention_calls": 0,
+        "prefill_attend_calls": 12,
+        "provenance": "direct",
+        "triton_attempts": 12,
+        "triton_import_exception_types": [],
+        "triton_kernel_entries": null,
+        "triton_non_null_returns": 0,
+        "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+      },
+      "kind": "warm",
+      "label": "F01.warm2",
+      "native": {
+        "expected_pages": 1,
+        "finish_reason": "stop",
+        "num_pages_out": 1,
+        "output_tokens": 1122,
+        "prefill_time_s": 0.3777201175689697,
+        "prompt": "<PAGE><image>Multi page parsing.",
+        "prompt_len": 279,
+        "provenance": "native",
+        "text_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "time_s": 124.87327241897583,
+        "token_ids_sha256": "a99dea6c8bed8e94b62306a2fb23f92c5c3dda4117efe3a2aafe37038bba0f1d"
+      },
+      "observer_overhead": {
+        "callback_ns": 327931400,
+        "events": 56194,
+        "note": "Self-timed callback cost only; interpreter dispatch and global exception-event filtering overhead are not included (lower bound).",
+        "provenance": "direct"
+      },
+      "page_count_in": 1,
+      "page_markers": {
+        "expected": 1,
+        "marker_token_positions": [
+          0
+        ],
+        "out": 1,
+        "provenance": "direct"
+      },
+      "prefill_memory": {
+        "note": "allocator peak since reset, read at the first model-forward return; None when no probe or no forward occurred",
+        "provenance": "direct",
+        "value": {
+          "max_allocated": 7293335040,
+          "max_reserved": 7480541184
+        }
+      },
+      "raw_output": {
+        "bytes_written": 3236,
+        "full_bytes": 3236,
+        "full_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "name": "F01.warm2.raw.txt",
+        "sha256_written": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      "repeat": 2,
+      "targets": {
+        "dash_attention:DashAttention._forward_dense": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "dense_sdpa_fallback",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "dash_attention:DashAttention._forward_triton": {
+          "exceptions": [],
+          "handled_exceptions": 12,
+          "returns": 12,
+          "returns_none": 12,
+          "role": "triton_attempt",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_dash_decode_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 13464,
+          "returns_none": 0,
+          "role": "decode_forward",
+          "starts": 13464,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_decode_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 13464,
+          "returns_none": 0,
+          "role": "decode_attend_fp32",
+          "starts": 13464,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_infer_prefill_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "prefill_attend",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_orig_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "non_dash_attention_forward",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:configure_dash_inference": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2,
+          "returns_none": 1,
+          "role": "dash_infer_switch",
+          "starts": 2,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_generate": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_generate",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_save_results": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM.infer": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_infer",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRModel.forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1123,
+          "returns_none": 0,
+          "role": "model_forward",
+          "starts": 1123,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:draw_bounding_boxes": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:extract_coordinates_and_label": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_eval_site",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:process_image_with_refs": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        }
+      },
+      "timing": {
+        "decode_s": {
+          "provenance": "derived",
+          "value": 124.49555230140686
+        },
+        "external_synchronized_wall_s": {
+          "provenance": "direct",
+          "value": 124.9473863
+        },
+        "native_generate_total_s": {
+          "provenance": "native",
+          "value": 124.87327241897583
+        },
+        "native_prefill_to_first_token_s": {
+          "note": "t_first - t0 in _uocr_generate; host-synchronized by int(argmax)",
+          "provenance": "native",
+          "value": 0.3777201175689697
+        },
+        "outside_generate_s": {
+          "note": "prompt build, _uocr_build_inputs preprocessing, observer overhead, final sync",
+          "provenance": "derived",
+          "value": 0.07411388102417504
+        }
+      },
+      "token_ids_file": {
+        "bytes_written": 8802,
+        "full_bytes": 8802,
+        "full_sha256": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+        "name": "F01.warm2.token_ids.json",
+        "sha256_written": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+        "truncated_by_writer": false
+      },
+      "unresolved_optional_targets": [
+        "sparse_gather_e2e_triton:triton_gather_attention_e2e"
+      ]
+    },
+    {
+      "cache": {
+        "cache_types": [
+          "DynamicCache"
+        ],
+        "dash_idx_bytes_final": 20797440,
+        "decode_steps_observed": 2558,
+        "final_seq_len": 3385,
+        "forward_returns": 2559,
+        "grows_by_one_each_decode_step": true,
+        "kv_bytes_after_prefill": 50810880,
+        "kv_bytes_final": 207974400,
+        "kv_bytes_max": 207974400,
+        "kv_bytes_per_token_derived": 61440.0,
+        "observed": true,
+        "prefill_seq_len": 827,
+        "provenance": "direct",
+        "ring_buffer_marker_seen": false,
+        "seq_len_samples_head": [
+          827,
+          828,
+          829,
+          830
+        ],
+        "seq_len_samples_tail": [
+          3382,
+          3383,
+          3384,
+          3385
+        ]
+      },
+      "call_kwargs": {
+        "base_size": 1024,
+        "crop_mode": false,
+        "dash_topm": 16,
+        "eval_mode": false,
+        "image_size": 640,
+        "max_crops": 16,
+        "max_length": 131072,
+        "max_new_tokens": 24000,
+        "max_page_tokens": 20000,
+        "ngram_whitelist_token_ids": null,
+        "ngram_window": 1024,
+        "no_repeat_ngram_size": 35,
+        "output_path": "",
+        "page_count_guard": true,
+        "save_results": false,
+        "temperature": 0.0,
+        "test_compress": false,
+        "tps_interval": 0
+      },
+      "cuda_memory": {
+        "allocated": 6819699200,
+        "device_free": 8211398656,
+        "device_total": 17066360832,
+        "max_allocated": 7310478336,
+        "max_reserved": 7480541184,
+        "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+        "provenance": "direct",
+        "reserved": 7480541184
+      },
+      "excluded_from_warm_statistics": false,
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "flags": [],
+      "host_memory": {
+        "end": {
+          "page_faults": 6425461,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10898214912,
+          "working_set": 2413264896
+        },
+        "interval_s": 0.1,
+        "page_fault_delta": 61732,
+        "provenance": "direct_sampled",
+        "samples": 2581,
+        "start": {
+          "page_faults": 6363729,
+          "peak_working_set_lifetime": 7358152704,
+          "private_bytes": 10871115776,
+          "working_set": 2400993280
+        },
+        "time": 1794777927.7432864,
+        "window_peak_private_bytes_lower_bound": 11063783424,
+        "window_peak_working_set_lower_bound": 2548613120
+      },
+      "kernel_path": {
+        "decode_attend_fp32_calls": 30696,
+        "decode_forward_calls": 30696,
+        "dense_sdpa_calls": 12,
+        "label": "triton_import_failed_dense_fallback",
+        "non_dash_attention_calls": 0,
+        "prefill_attend_calls": 12,
+        "provenance": "direct",
+        "triton_attempts": 12,
+        "triton_import_exception_types": [],
+        "triton_kernel_entries": null,
+        "triton_non_null_returns": 0,
+        "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+      },
+      "kind": "warm",
+      "label": "F07.warm2",
+      "native": {
+        "expected_pages": 3,
+        "finish_reason": "stop",
+        "num_pages_out": 3,
+        "output_tokens": 2558,
+        "prefill_time_s": 0.4629654884338379,
+        "prompt": "<PAGE><image><PAGE><image><PAGE><image>Multi page parsing.",
+        "prompt_len": 827,
+        "provenance": "native",
+        "text_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "time_s": 282.56487679481506,
+        "token_ids_sha256": "e8a89b0c086a405be010b37eb2edeff723fb89aad54b7260f13afb716f96d635"
+      },
+      "observer_overhead": {
+        "callback_ns": 712836300,
+        "events": 127994,
+        "note": "Self-timed callback cost only; interpreter dispatch and global exception-event filtering overhead are not included (lower bound).",
+        "provenance": "direct"
+      },
+      "page_count_in": 3,
+      "page_markers": {
+        "expected": 3,
+        "marker_token_positions": [
+          0,
+          1145,
+          1896
+        ],
+        "out": 3,
+        "provenance": "direct"
+      },
+      "prefill_memory": {
+        "note": "allocator peak since reset, read at the first model-forward return; None when no probe or no forward occurred",
+        "provenance": "direct",
+        "value": {
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        }
+      },
+      "raw_output": {
+        "bytes_written": 7617,
+        "full_bytes": 7617,
+        "full_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "name": "F07.warm2.raw.txt",
+        "sha256_written": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "truncated_by_writer": false,
+        "utf8_lossless": true
+      },
+      "repeat": 2,
+      "targets": {
+        "dash_attention:DashAttention._forward_dense": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "dense_sdpa_fallback",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "dash_attention:DashAttention._forward_triton": {
+          "exceptions": [],
+          "handled_exceptions": 12,
+          "returns": 12,
+          "returns_none": 12,
+          "role": "triton_attempt",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_dash_decode_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 30696,
+          "returns_none": 0,
+          "role": "decode_forward",
+          "starts": 30696,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_decode_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 30696,
+          "returns_none": 0,
+          "role": "decode_attend_fp32",
+          "starts": 30696,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_infer_prefill_attend": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 12,
+          "returns_none": 0,
+          "role": "prefill_attend",
+          "starts": 12,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:_orig_forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "non_dash_attention_forward",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_deepseekv2:configure_dash_inference": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2,
+          "returns_none": 1,
+          "role": "dash_infer_switch",
+          "starts": 2,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_generate": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_generate",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_save_results": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRForCausalLM.infer": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 1,
+          "returns_none": 0,
+          "role": "native_infer",
+          "starts": 1,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:UnlimitedOCRModel.forward": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 2559,
+          "returns_none": 0,
+          "role": "model_forward",
+          "starts": 2559,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:draw_bounding_boxes": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:extract_coordinates_and_label": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_eval_site",
+          "starts": 0,
+          "unwinds": 0
+        },
+        "modeling_unlimitedocr:process_image_with_refs": {
+          "exceptions": [],
+          "handled_exceptions": 0,
+          "returns": 0,
+          "returns_none": 0,
+          "role": "forbidden_save_path",
+          "starts": 0,
+          "unwinds": 0
+        }
+      },
+      "timing": {
+        "decode_s": {
+          "provenance": "derived",
+          "value": 282.1019113063812
+        },
+        "external_synchronized_wall_s": {
+          "provenance": "direct",
+          "value": 282.8025594
+        },
+        "native_generate_total_s": {
+          "provenance": "native",
+          "value": 282.56487679481506
+        },
+        "native_prefill_to_first_token_s": {
+          "note": "t_first - t0 in _uocr_generate; host-synchronized by int(argmax)",
+          "provenance": "native",
+          "value": 0.4629654884338379
+        },
+        "outside_generate_s": {
+          "note": "prompt build, _uocr_build_inputs preprocessing, observer overhead, final sync",
+          "provenance": "derived",
+          "value": 0.23768260518494344
+        }
+      },
+      "token_ids_file": {
+        "bytes_written": 20504,
+        "full_bytes": 20504,
+        "full_sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "name": "F07.warm2.token_ids.json",
+        "sha256_written": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "truncated_by_writer": false
+      },
+      "unresolved_optional_targets": [
+        "sparse_gather_e2e_triton:triton_gather_attention_e2e"
+      ]
+    }
+  ],
+  "q0_scope_note": "Q0 is runtime qualification only; no OCR quality value is computed, and a failed run is a blocker, not 0%.",
+  "schema": "eldq0/1",
+  "status": "QUALIFIED_RUNTIME_OBSERVATION"
+}
