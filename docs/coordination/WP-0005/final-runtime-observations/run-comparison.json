@@ -1,0 +1,272 @@
+{
+  "observed_utc": "2026-11-15T21:26:26.262953+00:00",
+  "scope": "Actual fixed Q0 runtime observations, no OCR accuracy scoring",
+  "runs": {
+    "author": {
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\author\\20261115T202627Z-eb5bf7da",
+      "outcome_sha256": "63a4e7db1779a4f633ee98b06bf3675111d23841153a377e4125675394dd3625",
+      "supervisor_sha256": "00a3b410b1093e8a9dcdec3e0bce8fdd2da637e9f2cf3b2230384ba27b9e1efc",
+      "code_identity": {
+        "dirty": [],
+        "harness_clean": true,
+        "head": "9e73ef86600b5e16f74b056676a6d3a4f1474058"
+      },
+      "status": "QUALIFIED_RUNTIME_OBSERVATION",
+      "checks": {
+        "1_storage_isolation": "pass",
+        "2_artifact_dependency_lock": "pass",
+        "3_save_results_invariant": "pass",
+        "4_kernel_cache_telemetry": "pass",
+        "5_smoke_execution": "pass",
+        "6_honest_failure_accounting": "pass"
+      },
+      "elapsed_s": 1235.2810000000172,
+      "child_pid": 31816,
+      "calls": [
+        {
+          "label": "F01.warmup",
+          "seconds": 140.3216702,
+          "output_tokens": 1122,
+          "finish": "stop",
+          "input_pages": 1,
+          "output_pages": 1,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7293321728,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F07.warmup",
+          "seconds": 275.5882855,
+          "output_tokens": 2558,
+          "finish": "stop",
+          "input_pages": 3,
+          "output_pages": 3,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F01.warm1",
+          "seconds": 120.23052,
+          "output_tokens": 1122,
+          "finish": "stop",
+          "input_pages": 1,
+          "output_pages": 1,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7293335040,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F07.warm1",
+          "seconds": 273.4319594,
+          "output_tokens": 2558,
+          "finish": "stop",
+          "input_pages": 3,
+          "output_pages": 3,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F01.warm2",
+          "seconds": 119.5075439,
+          "output_tokens": 1122,
+          "finish": "stop",
+          "input_pages": 1,
+          "output_pages": 1,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7293335040,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F07.warm2",
+          "seconds": 278.528,
+          "output_tokens": 2558,
+          "finish": "stop",
+          "input_pages": 3,
+          "output_pages": 3,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        }
+      ],
+      "repeatability": {
+        "SYN-MP-01-v0-clean": {
+          "provenance": "direct",
+          "warm_repeats_identical": true,
+          "warmup_identical_to_warm1": true
+        },
+        "SYN-WO-01-v0-clean": {
+          "provenance": "direct",
+          "warm_repeats_identical": true,
+          "warmup_identical_to_warm1": false
+        }
+      },
+      "free_space": {
+        "after": 58507464704,
+        "before": 58548043776,
+        "floor_bytes": 21474836480,
+        "min_observed": 58481721344,
+        "provenance": "direct",
+        "samples": 1230,
+        "volume": "C:\\"
+      },
+      "cold_load": {
+        "from_pretrained_cpu_s": 7.067810100037605,
+        "import_torch_transformers_s": 2.058046000020113,
+        "to_cuda_synchronized_s": 4.111872300039977,
+        "tokenizer_s": 0.36295940005220473
+      }
+    },
+    "reviewer": {
+      "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\runs\\reviewer\\20261115T210422Z-565e2de9",
+      "outcome_sha256": "49f4dec73c849558c9708e083b7585590c0e476a7ebbb7346b9c60d02bb07833",
+      "supervisor_sha256": "67e9438e03f6656296695eed2f5e57d84033647d58d2bda9d1f92650b1c65f25",
+      "code_identity": {
+        "dirty": [],
+        "harness_clean": true,
+        "head": "c8daa97c5be6bc67931b215652a7a0f6ced621ef"
+      },
+      "status": "QUALIFIED_RUNTIME_OBSERVATION",
+      "checks": {
+        "1_storage_isolation": "pass",
+        "2_artifact_dependency_lock": "pass",
+        "3_save_results_invariant": "pass",
+        "4_kernel_cache_telemetry": "pass",
+        "5_smoke_execution": "pass",
+        "6_honest_failure_accounting": "pass"
+      },
+      "elapsed_s": 1266.1869999999763,
+      "child_pid": 30436,
+      "calls": [
+        {
+          "label": "F01.warmup",
+          "seconds": 140.8863687,
+          "output_tokens": 1122,
+          "finish": "stop",
+          "input_pages": 1,
+          "output_pages": 1,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7293321728,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F07.warmup",
+          "seconds": 284.7601235,
+          "output_tokens": 2558,
+          "finish": "stop",
+          "input_pages": 3,
+          "output_pages": 3,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F01.warm1",
+          "seconds": 123.8318405,
+          "output_tokens": 1122,
+          "finish": "stop",
+          "input_pages": 1,
+          "output_pages": 1,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7293335040,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F07.warm1",
+          "seconds": 286.3156545,
+          "output_tokens": 2558,
+          "finish": "stop",
+          "input_pages": 3,
+          "output_pages": 3,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F01.warm2",
+          "seconds": 124.9473863,
+          "output_tokens": 1122,
+          "finish": "stop",
+          "input_pages": 1,
+          "output_pages": 1,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7293335040,
+          "max_reserved": 7480541184
+        },
+        {
+          "label": "F07.warm2",
+          "seconds": 282.8025594,
+          "output_tokens": 2558,
+          "finish": "stop",
+          "input_pages": 3,
+          "output_pages": 3,
+          "kernel_path": "triton_import_failed_dense_fallback",
+          "cache_growth": true,
+          "max_allocated": 7310478336,
+          "max_reserved": 7480541184
+        }
+      ],
+      "repeatability": {
+        "SYN-MP-01-v0-clean": {
+          "provenance": "direct",
+          "warm_repeats_identical": true,
+          "warmup_identical_to_warm1": true
+        },
+        "SYN-WO-01-v0-clean": {
+          "provenance": "direct",
+          "warm_repeats_identical": true,
+          "warmup_identical_to_warm1": false
+        }
+      },
+      "free_space": {
+        "after": 58212638720,
+        "before": 58265661440,
+        "floor_bytes": 21474836480,
+        "min_observed": 58186735616,
+        "provenance": "direct",
+        "samples": 1261,
+        "volume": "C:\\"
+      },
+      "cold_load": {
+        "from_pretrained_cpu_s": 6.466086200030986,
+        "import_torch_transformers_s": 1.8018661999958567,
+        "to_cuda_synchronized_s": 3.769513699982781,
+        "tokenizer_s": 0.3762224999954924
+      }
+    }
+  },
+  "measured_output_comparisons": [
+    {
+      "call": "F01.warm1",
+      "token_ids_equal": true,
+      "raw_text_bytes_equal": true
+    },
+    {
+      "call": "F01.warm2",
+      "token_ids_equal": true,
+      "raw_text_bytes_equal": true
+    },
+    {
+      "call": "F07.warm1",
+      "token_ids_equal": true,
+      "raw_text_bytes_equal": true
+    },
+    {
+      "call": "F07.warm2",
+      "token_ids_equal": true,
+      "raw_text_bytes_equal": true
+    }
+  ]
+}
