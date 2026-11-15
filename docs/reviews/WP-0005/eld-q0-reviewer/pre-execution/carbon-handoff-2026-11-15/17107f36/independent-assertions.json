@@ -1,0 +1,145 @@
+{
+  "all_10_model_py_verified": true,
+  "ast_eval_exec_compile_sites": [
+    {
+      "builtin": "eval",
+      "file": "modeling_unlimitedocr.py",
+      "line": 120
+    }
+  ],
+  "child_and_stage_env_allowlist_verified": true,
+  "entry_static_facts": {
+    "decode_disables_ring_window": true,
+    "eval_sites": [
+      {
+        "builtin": "eval",
+        "file": "modeling_unlimitedocr.py",
+        "line": 120
+      }
+    ],
+    "infer_multi_crop_default": [
+      false
+    ],
+    "infer_multi_forwards": [
+      "image_file",
+      "image_size",
+      "max_length",
+      "ngram_window",
+      "no_repeat_ngram_size",
+      "output_path",
+      "prompt",
+      "return_dict",
+      "save_results",
+      "temperature",
+      "tps_interval"
+    ],
+    "infer_parameters": [
+      "base_size",
+      "crop_mode",
+      "dash_topm",
+      "eval_mode",
+      "image_file",
+      "image_size",
+      "max_crops",
+      "max_length",
+      "max_new_tokens",
+      "max_page_tokens",
+      "ngram_whitelist_token_ids",
+      "ngram_window",
+      "no_repeat_ngram_size",
+      "output_path",
+      "page_count_guard",
+      "prompt",
+      "return_dict",
+      "save_results",
+      "self",
+      "temperature",
+      "test_compress",
+      "tokenizer",
+      "tps_interval"
+    ],
+    "native_return_keys": [
+      "expected_pages",
+      "finish_reason",
+      "num_pages_out",
+      "prefill_time",
+      "prompt_token_ids",
+      "text",
+      "time",
+      "token_ids"
+    ],
+    "save_guard_lines": [
+      1103
+    ],
+    "save_path_callers": {
+      "_uocr_save_results": [
+        "infer"
+      ],
+      "draw_bounding_boxes": [
+        "process_image_with_refs"
+      ],
+      "extract_coordinates_and_label": [
+        "draw_bounding_boxes"
+      ],
+      "process_image_with_refs": [
+        "_uocr_save_results"
+      ]
+    },
+    "uses_dynamic_cache": true
+  },
+  "holdout_and_expected_paths_refused": {
+    "evaluation/synthetic/expected/F01/SYN-WO-01.json": "HOLDOUT_ACCESS_REFUSED",
+    "evaluation/synthetic/pdfs/F03/SYN-F03-v0-clean.pdf": "HOLDOUT_ACCESS_REFUSED",
+    "evaluation/synthetic/pdfs/F05/SYN-F05-v0-clean.pdf": "HOLDOUT_ACCESS_REFUSED",
+    "evaluation/synthetic/pdfs/F06/SYN-F06-v0-clean.pdf": "HOLDOUT_ACCESS_REFUSED",
+    "evaluation/synthetic/pdfs/F08/SYN-F08-v0-clean.pdf": "HOLDOUT_ACCESS_REFUSED",
+    "evaluation/synthetic/sources/F01/SYN-WO-01.tex": "HOLDOUT_ACCESS_REFUSED"
+  },
+  "lock_non_circular_and_cookie_free": true,
+  "model_dir_identifier_and_trailing_sep_enforced": true,
+  "notice_readme_separated_and_verified": true,
+  "tofu_exception_gate_enforced": true,
+  "verified_model_py_blobs": {
+    "_sparse_base_impl.py": {
+      "git_blob_sha1": "3291637638c1366b7b6cd20fd53b6efafcea8a65",
+      "size": 221755
+    },
+    "configuration_deepseek_v2.py": {
+      "git_blob_sha1": "1c28cf39e8b821ec2623d3762f08ffd77050e8f8",
+      "size": 10720
+    },
+    "conversation.py": {
+      "git_blob_sha1": "65c295e81cd804080ec238b31d1922f33e1f9405",
+      "size": 9253
+    },
+    "dash_attention.py": {
+      "git_blob_sha1": "891d2ff7b5f9dc282cf702f34d7d2cfd69528011",
+      "size": 71465
+    },
+    "deepencoder.py": {
+      "git_blob_sha1": "6b10ea1b896cffb8e6cfb4d799d4b11479d519b8",
+      "size": 37939
+    },
+    "modeling_deepseekv2.py": {
+      "git_blob_sha1": "6cf69a31cbfb09f8d9d54fba51af21ebffc695dc",
+      "size": 25572
+    },
+    "modeling_unlimitedocr.py": {
+      "git_blob_sha1": "2a717b55c0509995978d0a1e78802a997c26660e",
+      "size": 55724
+    },
+    "packing_patch.py": {
+      "git_blob_sha1": "f01b4bd31cffe43135a8b86d5436f04d3a69146b",
+      "size": 8110
+    },
+    "sparse_gather_e2e_triton.py": {
+      "git_blob_sha1": "021575ce952bbded01bbfa99eb95641d271cad7d",
+      "size": 18058
+    },
+    "sparse_gather_triton.py": {
+      "git_blob_sha1": "6621872e78cd318e4bb55aa70c1c8813973c78e7",
+      "size": 23860
+    }
+  },
+  "verified_model_py_count": 10
+}

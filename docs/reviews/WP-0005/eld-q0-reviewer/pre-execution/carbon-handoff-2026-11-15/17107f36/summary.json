@@ -1,0 +1,295 @@
+{
+  "schema": "eldq0-carbon-review-checks/1",
+  "role": "eld-q0-reviewer",
+  "reviewer_model": "Gemini 4 Carbon (High)",
+  "reviewer_session_id": "0815536f-045a-4112-8a89-ebf0e0cc782f",
+  "predecessor_opus_session_id": "e6147c9e-0303-475f-99ff-93ee38a681e4",
+  "started_utc": "2026-11-15T17:36:04.277693Z",
+  "finished_utc": "2026-11-15T17:36:38.120199Z",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon",
+  "external_storage_parent_exists_before": false,
+  "external_storage_parent_exists_after": false,
+  "opus_scratch_present_in_carbon_worktree": false,
+  "git_and_author_evidence": {
+    "branch": "review/wp-0005-q0-carbon",
+    "head_at_check": "17107f369a96d0f40d99c83f21ca72d902d3f035",
+    "status_before": [],
+    "resolved_commits": {
+      "original_packet_base": "df9a2b50894f01987d779d7f9ae805794503ce6f",
+      "astra_001_deliverable": "b8112ca27b8f7d5bcba7171ab0f1bd5907fae1f6",
+      "astra_001_report": "2c32dde602b274251043bb216752f5d7fe9593be",
+      "astra_007_deliverable": "d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5",
+      "astra_007_evidence": "6cb6a258b9652b7becd3fca9c7cf2f04866c3ec3",
+      "astra_007_report": "951d408aabf7bdad3602c0e7698869e2e2457aed",
+      "opus_checkpoint_1": "b75011da408fed5d2cc4f9025416ead6c5632ceb",
+      "opus_checkpoint_2": "ef72849519c83a71e59e80c311b48719252d0cd6",
+      "harness_candidate_parent": "912f4f4f991977cca83bb40928cff45ac525efaa",
+      "harness_candidate": "84cef5ef30685ffee46281fefc5fd1356dbc1876",
+      "author_final_evidence": "0331efd71ef17e5485adac5a53d864c6d96e8f4a",
+      "author_002_report": "2a52ea58fae2badcb4e9ef47d1cb416c006edca4",
+      "carbon_handoff_base": "2e41d3a91b8f08b53d643b20a1fb038b5aec1500"
+    },
+    "candidate_harness_tree": "b7afcd512d508e43b874cf7b9857b7493359a879",
+    "handoff_merge_parents": [
+      "ef72849519c83a71e59e80c311b48719252d0cd6",
+      "2a52ea58fae2badcb4e9ef47d1cb416c006edca4"
+    ],
+    "harness_source_unchanged_from_candidate": true,
+    "diff_counts_reconciliation": {
+      "base_to_author_final_evidence_harness_files": 88,
+      "base_to_candidate_harness_files": 73,
+      "candidate_to_author_final_evidence_files": 15,
+      "author_final_evidence_to_002_report_files": 1,
+      "note_002_report_errata": "/002 report L91 states 14 evidence-only additions for 84cef5ef -> 0331efd7; actual git diff count is 15 (11 command outputs + summary.json + .gitattributes + README.md + run_checks.py). /002 report L40/L162 phrase '75 tests OK, 1 skipped'; unittest summary lines are ['Ran 75 tests in 30.234s', 'OK (skipped=1)'] (74 passed + 1 skipped = 75 total)."
+    },
+    "verified_author_002_final_outputs_count": 11,
+    "verified_author_002_final_outputs_all_match_summary": true
+  },
+  "commands": [
+    {
+      "name": "01-unittest",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "qualification/q0/harness/tests",
+        "-t",
+        "qualification/q0/harness/tests",
+        "-v"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:05.010990Z",
+      "seconds": 29.668,
+      "output": "01-unittest.txt",
+      "output_sha256": "1498e15aaf72dd37d52221b0dbbca3745244f01f9b4598c295b6bc78f47dbeb7",
+      "output_bytes": 9386
+    },
+    {
+      "name": "02-verify-snapshots",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "verify-snapshots"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:34.681320Z",
+      "seconds": 0.356,
+      "output": "02-verify-snapshots.txt",
+      "output_sha256": "ab0d1999b41619f51cb0a3204c96864275663ae6184f128bfa3842804ada3d6b",
+      "output_bytes": 7100
+    },
+    {
+      "name": "03-derive-rasters-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "derive-rasters",
+        "--check"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:35.036431Z",
+      "seconds": 0.435,
+      "output": "03-derive-rasters-check.txt",
+      "output_sha256": "3830bbd14720b6c09320d263ccfe3ac9888040e09865e4d0eca4df3198d94500",
+      "output_bytes": 911
+    },
+    {
+      "name": "04-model-manifest-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "build-model-manifest",
+        "--check"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:35.473830Z",
+      "seconds": 0.133,
+      "output": "04-model-manifest-check.txt",
+      "output_sha256": "b6dd29721724bf2a57940ef535ce23069fca3648060ee46af18ba3b38741837e",
+      "output_bytes": 198
+    },
+    {
+      "name": "05-check-protocol",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "check-protocol"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:35.607267Z",
+      "seconds": 0.132,
+      "output": "05-check-protocol.txt",
+      "output_sha256": "3698b7f74d5aa896221dc05930aaa6421f0b4b19c36ca600cf1f9d329bd5379e",
+      "output_bytes": 198
+    },
+    {
+      "name": "06-lock-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "lock-check"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:35.740794Z",
+      "seconds": 0.228,
+      "output": "06-lock-check.txt",
+      "output_sha256": "e1769d403a348e107d262ed12140eb8b6907233348a9b000a40aad590c51ca93",
+      "output_bytes": 3708
+    },
+    {
+      "name": "07-status",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "status"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:35.970082Z",
+      "seconds": 0.297,
+      "output": "07-status.txt",
+      "output_sha256": "545e490ed4e84b7c2f4d5bf5cb8ff1c1691c1dcc96c2b6b5aba946753fa0b1ce",
+      "output_bytes": 703
+    },
+    {
+      "name": "08-host-precheck-initial",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "host-precheck",
+        "--stage",
+        "initial"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:36.262837Z",
+      "seconds": 0.248,
+      "output": "08-host-precheck-initial.txt",
+      "output_sha256": "e9092934c9bfb5e81767048cbc2b4c95e62475da247cddba4619f8bcb1505da8",
+      "output_bytes": 5424
+    },
+    {
+      "name": "09-execute-author-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "execute",
+        "--owner",
+        "author"
+      ],
+      "expected_exit_code": 2,
+      "exit_code": 2,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:36.516665Z",
+      "seconds": 0.303,
+      "output": "09-execute-author-refused.txt",
+      "output_sha256": "f6c35002dab1e3f784df0c918653c6a6d1a88af2f7f159e318690e598e727050",
+      "output_bytes": 566
+    },
+    {
+      "name": "10-execute-reviewer-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "execute",
+        "--owner",
+        "reviewer"
+      ],
+      "expected_exit_code": 2,
+      "exit_code": 2,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:36.816760Z",
+      "seconds": 0.296,
+      "output": "10-execute-reviewer-refused.txt",
+      "output_sha256": "f6c35002dab1e3f784df0c918653c6a6d1a88af2f7f159e318690e598e727050",
+      "output_bytes": 566
+    },
+    {
+      "name": "11-write-requirements-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "write-requirements",
+        ".scratch/carbon-never-written.txt"
+      ],
+      "expected_exit_code": 2,
+      "exit_code": 2,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:37.117066Z",
+      "seconds": 0.233,
+      "output": "11-write-requirements-refused.txt",
+      "output_sha256": "7237b13dba7996e3ed2969de44da309a02033d31ef0c77b668ec7b6f5d2deeb4",
+      "output_bytes": 566
+    },
+    {
+      "name": "12-verify-wheelhouse-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "verify-wheelhouse",
+        ".scratch"
+      ],
+      "expected_exit_code": 2,
+      "exit_code": 2,
+      "matched_expected": true,
+      "started_utc": "2026-11-15T17:36:37.350970Z",
+      "seconds": 0.231,
+      "output": "12-verify-wheelhouse-refused.txt",
+      "output_sha256": "7237b13dba7996e3ed2969de44da309a02033d31ef0c77b668ec7b6f5d2deeb4",
+      "output_bytes": 566
+    }
+  ],
+  "independent_assertions_file": "independent-assertions.json",
+  "independent_assertions_sha256": "710b53d0d0ba3d3c36cb291bbe1426a0512447998b937bd6533fe42d70ef7d56",
+  "independent_assertions_bytes": 3921,
+  "head_after": "17107f369a96d0f40d99c83f21ca72d902d3f035",
+  "status_after": [],
+  "never_written_exists_after": false,
+  "other_scratch_entries_after": [
+    "q0-harness-tests"
+  ],
+  "all_passed": true
+}
