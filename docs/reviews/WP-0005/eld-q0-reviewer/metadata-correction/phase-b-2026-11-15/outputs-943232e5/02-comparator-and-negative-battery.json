@@ -1,0 +1,423 @@
+{
+  "graph_edges_parsed_cleanly": 850,
+  "malformed_cases": [
+    {
+      "input": "my pkg>=1.0",
+      "unparsed": true
+    },
+    {
+      "input": "pkg_>=1.0",
+      "unparsed": true
+    },
+    {
+      "input": "pkg.[a]>=1.0",
+      "unparsed": true
+    },
+    {
+      "input": "pkg[a][b]>=1.0",
+      "unparsed": true
+    },
+    {
+      "input": "pkg[a b]>=1.0",
+      "unparsed": true
+    },
+    {
+      "input": "pkg[a,]>=1.0",
+      "unparsed": true
+    },
+    {
+      "input": "pkg>=1. 0",
+      "unparsed": true
+    },
+    {
+      "input": "pkg>=1.0,",
+      "unparsed": true
+    },
+    {
+      "input": "pkg @ https://example.com/pkg-1.0.whl",
+      "unparsed": true
+    },
+    {
+      "input": "pkg ()",
+      "unparsed": true
+    },
+    {
+      "input": "pkg (==1.0",
+      "unparsed": true
+    },
+    {
+      "input": "pkg ==1.0)",
+      "unparsed": true
+    },
+    {
+      "input": "pkg (==1.0)(==2.0)",
+      "unparsed": true
+    },
+    {
+      "input": "pkg (==1.0), (>=2.0)",
+      "unparsed": true
+    },
+    {
+      "input": "pkg;",
+      "unparsed": true
+    },
+    {
+      "input": "pkg;   ",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; ()",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; (os_name == 'nt'",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; os_name == 'nt')",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; os_name == 'nt",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; os_name == 'nt\n'",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; not os_name == 'nt'",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; 'a' not('b')",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; 'a' notin 'b'",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; os_name = 'nt'",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; python_version < 3.14",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; True",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; os_name == 'nt' trailing",
+      "unparsed": true
+    },
+    {
+      "input": "pkg; ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((os_na",
+      "unparsed": true
+    }
+  ],
+  "malformed_cases_unparsed": 29,
+  "marker_idempotence_verified": 1632,
+  "negative_cases": [
+    {
+      "case": "or_inside_and_vs_unparenthesized",
+      "distinct": true,
+      "lhs_norm": "pkg[];(a == \"1\" or b == \"2\") and c == \"3\"",
+      "rhs_norm": "pkg[];a == \"1\" or b == \"2\" and c == \"3\""
+    },
+    {
+      "case": "or_inside_and_vs_right_grouped",
+      "distinct": true,
+      "lhs_norm": "pkg[];(a == \"1\" or b == \"2\") and c == \"3\"",
+      "rhs_norm": "pkg[];a == \"1\" or b == \"2\" and c == \"3\""
+    },
+    {
+      "case": "right_or_inside_and_vs_unparenthesized",
+      "distinct": true,
+      "lhs_norm": "pkg[];a == \"1\" and (b == \"2\" or c == \"3\")",
+      "rhs_norm": "pkg[];a == \"1\" and b == \"2\" or c == \"3\""
+    },
+    {
+      "case": "right_or_inside_and_vs_left_and",
+      "distinct": true,
+      "lhs_norm": "pkg[];a == \"1\" and (b == \"2\" or c == \"3\")",
+      "rhs_norm": "pkg[];a == \"1\" and b == \"2\" or c == \"3\""
+    },
+    {
+      "case": "two_or_groups_in_and_vs_flat",
+      "distinct": true,
+      "lhs_norm": "pkg[];(a == \"1\" or b == \"2\") and (c == \"3\" or d == \"4\")",
+      "rhs_norm": "pkg[];a == \"1\" or b == \"2\" and c == \"3\" or d == \"4\""
+    },
+    {
+      "case": "quoted_internal_space_preserved",
+      "distinct": true,
+      "lhs_norm": "pkg[];platform_system == \"Windows NT\"",
+      "rhs_norm": "pkg[];platform_system == \"WindowsNT\""
+    },
+    {
+      "case": "quoted_leading_space_preserved",
+      "distinct": true,
+      "lhs_norm": "pkg[];extra == \" dev\"",
+      "rhs_norm": "pkg[];extra == \"dev\""
+    },
+    {
+      "case": "quoted_parens_preserved",
+      "distinct": true,
+      "lhs_norm": "pkg[];extra == \"(dev)\"",
+      "rhs_norm": "pkg[];extra == \"dev\""
+    },
+    {
+      "case": "quoted_boolean_words_not_parsed",
+      "distinct": true,
+      "lhs_norm": "pkg[];extra == \"a or b\"",
+      "rhs_norm": "pkg[];extra == \"a\" or extra == \"b\""
+    },
+    {
+      "case": "embedded_single_vs_double_quote",
+      "distinct": true,
+      "lhs_norm": "pkg[];extra == \"'a'\"",
+      "rhs_norm": "pkg[];extra == \"\\\"a\\\"\""
+    },
+    {
+      "case": "embedded_backslash_preserved",
+      "distinct": true,
+      "lhs_norm": "pkg[];extra == \"a\\\\b\"",
+      "rhs_norm": "pkg[];extra == \"ab\""
+    },
+    {
+      "case": "quoted_case_preserved",
+      "distinct": true,
+      "lhs_norm": "pkg[];platform_python_implementation == \"CPython\"",
+      "rhs_norm": "pkg[];platform_python_implementation == \"cpython\""
+    },
+    {
+      "case": "quoted_string_vs_ident_disjoint",
+      "distinct": true,
+      "lhs_norm": "pkg[];\"os_name\" == \"nt\"",
+      "rhs_norm": "pkg[];os_name == \"nt\""
+    },
+    {
+      "case": "op_lt_vs_le",
+      "distinct": true,
+      "lhs_norm": "pkg[];python_version < \"3.14\"",
+      "rhs_norm": "pkg[];python_version <= \"3.14\""
+    },
+    {
+      "case": "op_gt_vs_ge",
+      "distinct": true,
+      "lhs_norm": "pkg[];python_version > \"3.12\"",
+      "rhs_norm": "pkg[];python_version >= \"3.12\""
+    },
+    {
+      "case": "op_eq_vs_arbitrary_eq",
+      "distinct": true,
+      "lhs_norm": "pkg[];python_version == \"3.12\"",
+      "rhs_norm": "pkg[];python_version === \"3.12\""
+    },
+    {
+      "case": "op_eq_vs_ne",
+      "distinct": true,
+      "lhs_norm": "pkg[];os_name == \"nt\"",
+      "rhs_norm": "pkg[];os_name != \"nt\""
+    },
+    {
+      "case": "op_compat_vs_ge",
+      "distinct": true,
+      "lhs_norm": "pkg[];python_version ~= \"3.12\"",
+      "rhs_norm": "pkg[];python_version >= \"3.12\""
+    },
+    {
+      "case": "op_in_vs_not_in",
+      "distinct": true,
+      "lhs_norm": "pkg[];\"linux\" in sys_platform",
+      "rhs_norm": "pkg[];\"linux\" not in sys_platform"
+    },
+    {
+      "case": "operand_var_change",
+      "distinct": true,
+      "lhs_norm": "pkg[];python_version < \"3.14\"",
+      "rhs_norm": "pkg[];python_full_version < \"3.14\""
+    },
+    {
+      "case": "operand_value_change",
+      "distinct": true,
+      "lhs_norm": "pkg[];python_version < \"3.14\"",
+      "rhs_norm": "pkg[];python_version < \"3.13\""
+    },
+    {
+      "case": "operand_lhs_rhs_swap",
+      "distinct": true,
+      "lhs_norm": "pkg[];\"nt\" == os_name",
+      "rhs_norm": "pkg[];os_name == \"nt\""
+    },
+    {
+      "case": "clause_order_and",
+      "distinct": true,
+      "lhs_norm": "pkg[];a == \"1\" and b == \"2\"",
+      "rhs_norm": "pkg[];b == \"2\" and a == \"1\""
+    },
+    {
+      "case": "duplicate_clause_not_collapsed",
+      "distinct": true,
+      "lhs_norm": "pkg[];a == \"1\" and a == \"1\"",
+      "rhs_norm": "pkg[];a == \"1\""
+    },
+    {
+      "case": "specifier_version_change",
+      "distinct": true,
+      "lhs_norm": "torch[]==2.13.0+cu130;",
+      "rhs_norm": "torch[]==2.13.0;"
+    },
+    {
+      "case": "extra_present_vs_absent",
+      "distinct": true,
+      "lhs_norm": "pkg[dev]>=1.0;",
+      "rhs_norm": "pkg[]>=1.0;"
+    },
+    {
+      "case": "extra_duplicate_preserved",
+      "distinct": true,
+      "lhs_norm": "pkg[dev,dev]>=1.0;",
+      "rhs_norm": "pkg[dev]>=1.0;"
+    },
+    {
+      "case": "extra_marker_value_change",
+      "distinct": true,
+      "lhs_norm": "pkg[];extra == \"dev\"",
+      "rhs_norm": "pkg[];extra == \"test\""
+    }
+  ],
+  "negative_cases_rejected": 28,
+  "positive_cases": [
+    {
+      "case": "coord_q0_02_fsspec",
+      "equal": true,
+      "normalized": "zstandard[];python_version < \"3.14\" and extra == \"test-full\""
+    },
+    {
+      "case": "coord_q0_02_psutil_colorama",
+      "equal": true,
+      "normalized": "colorama[];os_name == \"nt\" and extra == \"dev\""
+    },
+    {
+      "case": "coord_q0_02_psutil_pyreadline",
+      "equal": true,
+      "normalized": "pyreadline[];os_name == \"nt\" and extra == \"dev\""
+    },
+    {
+      "case": "coord_q0_02_urllib3_brotli",
+      "equal": true,
+      "normalized": "brotli[]>=1.0.9;platform_python_implementation == \"CPython\" and extra == \"brotli\""
+    },
+    {
+      "case": "coord_q0_02_urllib3_brotlicffi",
+      "equal": true,
+      "normalized": "brotlicffi[]>=0.8.0;platform_python_implementation != \"CPython\" and extra == \"brotli\""
+    },
+    {
+      "case": "psutil_compound_paren_in_and",
+      "equal": true,
+      "normalized": "pywin32[];os_name == \"nt\" and platform_python_implementation != \"PyPy\" and extra == \"dev\""
+    },
+    {
+      "case": "nested_singleton_marker_parens",
+      "equal": true,
+      "normalized": "pkg[];python_version >= \"3.12\""
+    },
+    {
+      "case": "outer_compound_marker_parens",
+      "equal": true,
+      "normalized": "pkg[];os_name == \"nt\" and extra == \"dev\""
+    },
+    {
+      "case": "precedence_or_of_and",
+      "equal": true,
+      "normalized": "pkg[];a == \"1\" or b == \"2\" and c == \"3\""
+    },
+    {
+      "case": "associative_and",
+      "equal": true,
+      "normalized": "pkg[];a == \"1\" and b == \"2\" and c == \"3\""
+    },
+    {
+      "case": "associative_or",
+      "equal": true,
+      "normalized": "pkg[];a == \"1\" or b == \"2\" or c == \"3\""
+    },
+    {
+      "case": "not_in_whitespace_collapse",
+      "equal": true,
+      "normalized": "pkg[];\"linux\" not in sys_platform"
+    },
+    {
+      "case": "quoted_spaces_and_semicolon",
+      "equal": true,
+      "normalized": "pkg[];platform_system == \"Windows NT\" and extra == \"a;b\""
+    },
+    {
+      "case": "legacy_version_parens_and_sort",
+      "equal": true,
+      "normalized": "pillow[]!=8.3.*,>=5.3.0;"
+    },
+    {
+      "case": "extras_case_and_sort",
+      "equal": true,
+      "normalized": "requests[security,socks]>=2.30;"
+    },
+    {
+      "case": "empty_brackets_vs_no_extras",
+      "equal": true,
+      "normalized": "pkg[]>=1.0;"
+    }
+  ],
+  "positive_cases_passed": 16,
+  "wheel_edges_parsed_cleanly": 850,
+  "wheel_negative_controls": [
+    {
+      "case": "drop_inactive_fsspec_zstandard",
+      "failure_class": "HASH_MISMATCH",
+      "only_in_graph": [
+        "zstandard[];python_version < \"3.14\" and extra == \"test-full\""
+      ]
+    },
+    {
+      "case": "duplicate_urllib3_brotli_edge",
+      "failure_class": "HASH_MISMATCH",
+      "only_in_wheel": [
+        "brotli[]>=1.0.9;platform_python_implementation == \"CPython\" and extra == \"brotli\""
+      ]
+    },
+    {
+      "case": "strip_meaningful_or_parens_pillow",
+      "failure_class": "HASH_MISMATCH",
+      "only_in_graph": [
+        "psutil[];(sys_platform == \"linux\" or sys_platform == \"darwin\") and extra == \"tests\""
+      ],
+      "only_in_wheel": [
+        "psutil[];sys_platform == \"linux\" or sys_platform == \"darwin\" and extra == \"tests\""
+      ]
+    },
+    {
+      "case": "altered_quoted_literal_case_urllib3",
+      "failure_class": "HASH_MISMATCH",
+      "only_in_wheel": [
+        "brotli[]>=1.0.9;platform_python_implementation == \"cpython\" and extra == \"brotli\""
+      ]
+    },
+    {
+      "case": "torch_pep658_byte_tamper",
+      "failure_class": "HASH_MISMATCH",
+      "published_metadata_sha256_match": false,
+      "requires_match": true
+    },
+    {
+      "case": "unparsed_identical_both_sides",
+      "failure_class": "HASH_MISMATCH",
+      "unparsed_requires_count": 2
+    }
+  ],
+  "wheel_negative_controls_rejected": 6
+}

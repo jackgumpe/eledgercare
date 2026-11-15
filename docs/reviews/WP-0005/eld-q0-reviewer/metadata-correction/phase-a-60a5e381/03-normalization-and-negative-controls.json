@@ -1,0 +1,130 @@
+{
+  "author_install_release_cross_worktree_refusal": {
+    "evidence": [
+      "harness_commit/clean"
+    ],
+    "failure_class": "EXECUTION_NOT_RELEASED",
+    "returncode": 2
+  },
+  "current_24a5866b_req_norm_observations": {
+    "coord_q0_02_root_cause": "locks._req_norm (locks.py:273) strips whitespace and normalizes quotes in raw marker text without parsing PEP 508 marker tokens/parentheses, rejecting redundant singleton parentheses around atomic comparisons in fsspec (1 edge), psutil (2 edges), and urllib3 (2 edges).",
+    "first_failure_short_circuit_note": "locks.verify_wheelhouse (locks.py:335-346) iterates alphabetically and raises on wheel #8 (fsspec-2025.10.0-py3-none-any.whl), masking wheel #17 (psutil-7.1.3-cp37-abi3-win_amd64.whl) and wheel #32 (urllib3-2.5.0-py3-none-any.whl) in single-run Stage B failure output.",
+    "latent_literal_whitespace_quirk_exposed_by_negative_control": "In 24a5866b locks.py:273, re.sub(r'\\s+', '', marker).replace(\"'\", '\"') also strips internal spaces inside quoted string literals ('Windows NT' == 'WindowsNT') and mutates apostrophes inside double-quoted literals; a tokenizing PEP 508 marker parser closes COORD-Q0-02 while preserving exact quoted literal contents."
+  },
+  "isolated_stage_api_reproduction": {
+    "code_identity": {
+      "dirty": [],
+      "harness_clean": true,
+      "head": "60a5e381703a0a723d8bc11b21fd2ed57807c87f"
+    },
+    "detail": "fsspec-2025.10.0-py3-none-any.whl: METADATA differs from the frozen dependency graph",
+    "evidence": {
+      "graph_requires": 101,
+      "metadata_sha256": "33de743cbf8933868fff5cc246279b43e94e694ab2f7fe24adad3e76a03cb422",
+      "ok": false,
+      "only_in_graph": [
+        "zstandard[];python_version<\"3.14\"andextra==\"test-full\""
+      ],
+      "only_in_wheel": [
+        "zstandard[];(python_version<\"3.14\")andextra==\"test-full\""
+      ],
+      "published_metadata_sha256_match": null,
+      "requires_dist": 101,
+      "requires_match": false,
+      "wheel": "fsspec-2025.10.0-py3-none-any.whl"
+    },
+    "failure_class": "HASH_MISMATCH"
+  },
+  "malformed_syntax_rejections": [
+    {
+      "case": "unclosed_paren",
+      "error": "unexpected end of marker (expected RP)",
+      "input": "zstandard; (python_version < \"3.14\" and extra == \"test-full\"",
+      "rejected": true
+    },
+    {
+      "case": "unopened_paren",
+      "error": "trailing marker tokens: [('RP', ')'), ('AND', 'and'), ('VAR', 'extra'), ('OP', '=='), ('STR', 'test-full')]",
+      "input": "zstandard; python_version < \"3.14\") and extra == \"test-full\"",
+      "rejected": true
+    },
+    {
+      "case": "empty_parens",
+      "error": "invalid marker comparison LHS: ('RP', ')')",
+      "input": "zstandard; () and extra == \"test-full\"",
+      "rejected": true
+    },
+    {
+      "case": "unknown_marker_var",
+      "error": "unknown PEP 508 marker variable: 'bogus_var'",
+      "input": "zstandard; bogus_var == \"1\"",
+      "rejected": true
+    },
+    {
+      "case": "standalone_not",
+      "error": "standalone 'not' is invalid in PEP 508 markers",
+      "input": "zstandard; not python_version < \"3.14\"",
+      "rejected": true
+    }
+  ],
+  "negative_semantic_controls": [
+    {
+      "case": "and_or_precedence_grouping",
+      "current_24a5866b_req_norm_equal": false,
+      "left": "pkg; (os_name == \"nt\" and sys_platform == \"win32\") or extra == \"dev\"",
+      "right": "pkg; os_name == \"nt\" and (sys_platform == \"win32\" or extra == \"dev\")",
+      "strict_pep508_ast_equal": false
+    },
+    {
+      "case": "explicit_nested_and_subgrouping",
+      "current_24a5866b_req_norm_equal": false,
+      "left": "pkg; (os_name == \"nt\" and platform_python_implementation != \"PyPy\") and extra == \"dev\"",
+      "right": "pkg; os_name == \"nt\" and platform_python_implementation != \"PyPy\" and extra == \"dev\"",
+      "strict_pep508_ast_equal": false
+    },
+    {
+      "case": "quoted_literal_internal_whitespace",
+      "current_24a5866b_req_norm_equal": true,
+      "left": "pkg; platform_system == \"Windows NT\"",
+      "right": "pkg; platform_system == \"WindowsNT\"",
+      "strict_pep508_ast_equal": false
+    },
+    {
+      "case": "quoted_literal_embedded_apostrophe_vs_quote",
+      "current_24a5866b_req_norm_equal": true,
+      "left": "pkg; extra == \"a'b\"",
+      "right": "pkg; extra == 'a\"b'",
+      "strict_pep508_ast_equal": false
+    },
+    {
+      "case": "comparison_operator_change",
+      "current_24a5866b_req_norm_equal": false,
+      "left": "zstandard; python_version <= \"3.14\" and extra == \"test-full\"",
+      "right": "zstandard; python_version < \"3.14\" and extra == \"test-full\"",
+      "strict_pep508_ast_equal": false
+    },
+    {
+      "case": "comparison_operand_change",
+      "current_24a5866b_req_norm_equal": false,
+      "left": "zstandard; python_version < \"3.13\" and extra == \"test-full\"",
+      "right": "zstandard; python_version < \"3.14\" and extra == \"test-full\"",
+      "strict_pep508_ast_equal": false
+    },
+    {
+      "case": "version_specifier_change",
+      "current_24a5866b_req_norm_equal": false,
+      "left": "brotli>=1.0.10; platform_python_implementation == \"CPython\" and extra == \"brotli\"",
+      "right": "brotli>=1.0.9; platform_python_implementation == \"CPython\" and extra == \"brotli\"",
+      "strict_pep508_ast_equal": false
+    },
+    {
+      "case": "extra_set_change",
+      "current_24a5866b_req_norm_equal": false,
+      "left": "safetensors[numpy,torch]; extra == \"all\"",
+      "right": "safetensors[numpy]; extra == \"all\"",
+      "strict_pep508_ast_equal": false
+    }
+  ],
+  "positive_singleton_parenthesis_cases_verified": 5,
+  "schema": "eld-q0-reviewer-011-phase-a-normalization/1"
+}
