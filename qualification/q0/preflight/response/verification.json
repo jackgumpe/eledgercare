@@ -1,0 +1,19 @@
+{
+  "kind": "author-verification-receipt; recorded from executed tool results",
+  "timestamp_utc": "2026-11-15T05:47:59Z",
+  "base": "2c32dde602b274251043bb216752f5d7fe9593be",
+  "candidate": "d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5",
+  "author": "eld-rd-astra",
+  "independent_reproduction": false,
+  "checks": [
+    {"command": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -I -B qualification/q0/preflight/response/verify-response.py", "exit_code": 0, "result": "PASS exact frozen helper/output bytes including committed objects; 12 source identities; tokenizer flags; 32-artifact marker closure; prior 13 artifact identities unchanged; CUDA metadata hashes; torchvision wheel hash explicitly absent"},
+    {"command": "git diff --check <base> <candidate> -- . :(exclude)qualification/q0/preflight/response/sources/model-card.md", "exit_code": 0, "result": "No authored whitespace errors"},
+    {"command": "git diff --check <base> <candidate>", "exit_code": 2, "result": "Only four original upstream trailing-space lines in identity-verified model-card.md, lines 302/308/312/318; intentionally preserved exact notice bytes"},
+    {"command": "git diff --name-status <base> <candidate>; git status --short", "result": "22 paths: prior README navigation addition plus 21 response additions; clean candidate worktree; no out-of-scope edits"},
+    {"command": "git diff --exit-code <base> <candidate> -- <original /001 report and six original evidence JSON paths>", "exit_code": 0, "result": "Original report and evidence unchanged"}
+  ],
+  "metadata_graph": {"artifacts": 32, "active_edges": 35, "inactive_edges": 815, "unresolved_active_edges": 0, "advertised_bytes": 1974477651, "hf_xet_active_on_AMD64": false, "publisher_wheel_hashes": 31, "torchvision_wheel_hash": null},
+  "failures_and_correction": [{"candidate": "13544cd27df99b1ff85235f3ef2adb2cea0cbe41", "check": "verify-response.py", "exit_code": 1, "result": "Frozen producer byte comparison failed: working helper retained CRLF despite normalized-unchanged git restore", "correction": "Materialized exact helper Git blob using binary write and recollected unchanged helper; evidence committed at 26f9d8e767067cf8cad9bb6029774aa78bc92860, passed; final candidate adds committed-output byte checks and passed"}],
+  "not_run": ["independent reviewer's denied checks", "fresh host/free-space/root observation", "MSVC DLL/LongPathsEnabled/pagefile observation", "installation", "wheel or model payload download", "runtime/model/tokenizer imports", "renderer/OCR", "CUDA/GPU execution"],
+  "remaining_gates": ["independent preflight/harness acceptance", "torchvision official-origin/local-SHA256 acquisition exception or publisher digest", "actual wheel-body hashes/metadata and future venv marker environment", "runtime import/platform qualification", "fresh host/storage checks", "explicit GPU lease before CUDA"]
+}
