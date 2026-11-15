@@ -34,6 +34,10 @@ Started 2026-11-15T05:42:49Z and finished 05:43:09Z. HEAD before and after was `
 
 The supervisor tests started and killed only their own `python -I` children and verified each PID was gone via `tasklist`.
 
+## Byte identity of the captured outputs
+
+The `output_sha256` values in both `summary.json` files are digests of the raw captured bytes. Those bytes used Windows CRLF newlines from the child processes' text stdout, and `run_decisive.py` wrote `summary.json` itself in text mode, also with CRLF. The repository's `* text=auto` rule stores these `.txt`/`.json` files LF-normalized: `git add` reported CRLF→LF normalization. A committed blob therefore matches its recorded digest only after LF→CRLF conversion, as produced by a Windows `core.autocrlf=true` checkout, or by re-running the commands. No content other than newlines differs.
+
 ## Not run
 
 - Real `pypdfium2` rendering and renderer identity: not installed, and installation is not released. A fake renderer replays the committed v1 XObject bytes instead.
