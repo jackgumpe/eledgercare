@@ -1,0 +1,162 @@
+{
+  "schema": "eldq0-protocol/1",
+  "packet": "WP-0005",
+  "author_sequence": "002",
+  "status": "PREPARED: frozen for /003 review; not executable until the dependency lock is final and a coordinator /004 release and GPU lease bind the run",
+  "model": {
+    "repo_id": "baidu/Unlimited-OCR-2",
+    "revision": "0480966938291445591f69f08a13b041c073a96a",
+    "file_manifest": "manifests/model-files.json",
+    "torch_dtype": "bfloat16",
+    "load": {
+      "trust_remote_code": true,
+      "use_safetensors": true,
+      "local_files_only": true,
+      "then": ["eval", "cuda"]
+    },
+    "custom_code_policy": "byte-for-byte; verified before load (git blob / LFS sha256) and after load (module-cache copies identical)"
+  },
+  "postprocessor": {
+    "repo": "https://github.com/baidu/Unlimited-OCR",
+    "commit": "3de5de31a7e5c925e84af68ef12b1b8d7db9e24a",
+    "path": "utils/process_unlimitedOCR2.py",
+    "sha256": null,
+    "executed_in_q0": false,
+    "note": "Pinned for later E1-E3 scoring only. Q0 never parses or scores output; raw native strings are preserved."
+  },
+  "renderer": {
+    "distribution": "pypdfium2",
+    "version": "5.15.2",
+    "pdfium_version": "159.0.8149.0",
+    "call": "pypdfium2.PdfDocument(verified_bytes)[i].render(scale=300.0 / 72.0).to_pil().convert('RGB')",
+    "scale_numerator": 300.0,
+    "scale_denominator": 72.0,
+    "input": "verified_pdf_bytes",
+    "model_input": "the rendered PIL RGB images are passed to infer_multi directly (no intermediate image file)"
+  },
+  "holdout_families": ["F03", "F05", "F06", "F08"],
+  "fixtures": [
+    {
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "family_id": "F01",
+      "split": "dev",
+      "variant_kind": "v0_clean",
+      "path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v0-clean.pdf",
+      "size_bytes": 3482,
+      "sha256": "893d08ddfc87ef6a18f846d9119d9ba68566d7914aef4bcdc47de0f991c7026f",
+      "git_blob_oid": "ec3dd81ac80ed0a27f846868884822e1de77ee6d",
+      "page_count": 1,
+      "max_new_tokens": 8000,
+      "ngram_window": 128,
+      "raster": [
+        {"page": 1, "width": 2550, "height": 3301, "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44"}
+      ],
+      "raster_derivation": {
+        "provenance": "corpus-derived prediction: inflated FlateDecode RGB XObjects of the committed dev v1-raster300 child, which generate_corpus.py produced from these exact v0-clean bytes with the same render call; must be confirmed by an actual render in the released stage",
+        "v1_raster300_path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v1-raster300.pdf",
+        "v1_raster300_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+      }
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "family_id": "F07",
+      "split": "dev",
+      "variant_kind": "v0_clean",
+      "path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v0-clean.pdf",
+      "size_bytes": 8422,
+      "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "git_blob_oid": "63469e783b65f27893c9bfff94728a8feb44f12f",
+      "page_count": 3,
+      "max_new_tokens": 24000,
+      "ngram_window": 1024,
+      "raster": [
+        {"page": 1, "width": 2550, "height": 3301, "rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c"},
+        {"page": 2, "width": 2550, "height": 3301, "rgb_sha256": "df8a12ad0ccf3b6aa1b9724c469d00a00600f192334a05d6d1073cd2cedc70f7"},
+        {"page": 3, "width": 2550, "height": 3301, "rgb_sha256": "6b17c074e893f5152852c8119798a5f3edc1d6e1a40f36c0347e69be14f24ac8"}
+      ],
+      "raster_derivation": {
+        "provenance": "corpus-derived prediction: inflated FlateDecode RGB XObjects of the committed dev v1-raster300 child, which generate_corpus.py produced from these exact v0-clean bytes with the same render call; must be confirmed by an actual render in the released stage",
+        "v1_raster300_path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v1-raster300.pdf",
+        "v1_raster300_sha256": "1cb5ed05bbf389b75a524bd14a41cf47d56aa46e4a8b8b6cadb09ab17bfde400"
+      }
+    }
+  ],
+  "call": {
+    "entry": "infer_multi",
+    "signature_used": "model.infer_multi(tokenizer, prompt=PROMPT, image_files=[PIL RGB pages in order], **fixed_kwargs, max_new_tokens=..., ngram_window=...)",
+    "prompt": "Multi page parsing.",
+    "prompt_expansion": "native infer(): '<PAGE><image>' * n_pages + prompt (no <image> placeholder in PROMPT)",
+    "page_token_id": 128827,
+    "fixed_kwargs": {
+      "crop_mode": false,
+      "save_results": false,
+      "output_path": "",
+      "temperature": 0.0,
+      "max_length": 131072,
+      "max_page_tokens": 20000,
+      "page_count_guard": true,
+      "image_size": 640,
+      "base_size": 1024,
+      "max_crops": 16,
+      "no_repeat_ngram_size": 35,
+      "ngram_whitelist_token_ids": null,
+      "dash_topm": 16,
+      "tps_interval": 0,
+      "test_compress": false,
+      "eval_mode": false
+    },
+    "per_fixture_kwargs": ["max_new_tokens", "ngram_window"],
+    "tokens_per_page": 8000,
+    "rules": {
+      "max_new_tokens": "8000 * page_count (upstream tokens_per_page); the accepted min(8000 * page_count, max_length - prompt_len) equals this whenever prompt_len + 8000 * page_count <= max_length, which is verified from native prompt_token_ids after every call; otherwise CONTEXT_BUDGET_EXCEEDED (failed, never truncated)",
+      "ngram_window": "1024 if page_count > 1 else 128 (upstream README evaluation setup), no whitelist",
+      "eval_mode": "explicit native default False: native TextStreamer stays on (stdout captured, bounded); unrelated to the eval() save path",
+      "stop": "native only: EOS -> finish_reason 'stop'; max_new_tokens or max_length -> 'length' (TRUNCATION failure); native PageCountGuard forces <PAGE>/EOS"
+    }
+  },
+  "sequence": {
+    "cold_load": 1,
+    "warmup_per_fixture": 1,
+    "warm_repeats_per_fixture": 2,
+    "order": "interleaved",
+    "fixture_order": ["SYN-WO-01-v0-clean", "SYN-MP-01-v0-clean"],
+    "expanded": "cold load; W(F01) W(F07) [excluded]; R1(F01) R1(F07); R2(F01) R2(F07)"
+  },
+  "guards": {
+    "timeouts_s": {
+      "preflight": 1800,
+      "load": 1800,
+      "call_pages_1": 1800,
+      "call_pages_3": 3600,
+      "session": 21600
+    },
+    "stall_s": 300,
+    "heartbeat_interval_s": 5,
+    "max_log_bytes": 67108864,
+    "max_raw_output_bytes": 16777216,
+    "basis": "Harness policy, not measured performance. Phase timeouts bound the run; stall = no native model-forward return for stall_s inside a call (suspected WDDM paging stall). Revisit only through review, never mid-run."
+  },
+  "storage": {
+    "root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+    "subdirs": {
+      "hf_home": "hf-home",
+      "models": "models\\0480966938291445591f69f08a13b041c073a96a",
+      "wheelhouse": "wheelhouse",
+      "venv": "venv",
+      "runs": ["runs\\author", "runs\\reviewer"]
+    },
+    "known_artifact_bytes": {
+      "weights": 6688305576,
+      "pinned_model_files_total": 6699209288
+    },
+    "unknown_until_lock": ["wheelhouse bytes", "installed venv bytes", "peak temp/cache bytes"]
+  },
+  "gpu": {
+    "uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+    "name_contains": "RTX 5070 Ti",
+    "concurrency": 1,
+    "observer_cmd": ["nvidia-smi", "--query-gpu=uuid,name,driver_version,memory.used,memory.total,utilization.gpu", "--format=csv", "--query-compute-apps=pid,process_name,used_memory"],
+    "observer_every_s": 60,
+    "observer_note": "Read-only observation recorded before/during/after; never used to stop other processes. The exact nvidia-smi argument form is validated in the released CPU preflight before the lease."
+  }
+}

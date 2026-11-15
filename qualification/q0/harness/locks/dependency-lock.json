@@ -1,0 +1,53 @@
+{
+  "schema": "eldq0-lock/1",
+  "status": "PENDING_ASTRA_001",
+  "statement": "Not an executable lock. Final exact versions, wheel filenames, index URLs and SHA-256 values come only from the published WP-0005 /001 proposal and its /003 review. Nothing below is a guessed final pin.",
+  "provenance": {
+    "astra_001": null,
+    "review_003": null
+  },
+  "fixed_by_accepted_specification": {
+    "transformers": "4.52.1",
+    "pypdfium2": "5.15.2",
+    "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+    "postprocessor_commit": "3de5de31a7e5c925e84af68ef12b1b8d7db9e24a"
+  },
+  "carried_evidence_not_yet_a_lock": {
+    "pypdfium2": {
+      "wheel_filename": "pypdfium2-5.15.2-py3-none-win_amd64.whl",
+      "sha256": "74d1bace34fb01c660d0b64344d5a4b7d276942b7c6623c88ab59ea21c5acfbd",
+      "size_bytes": 4187589,
+      "source": "evaluation/manifests/tooling-provenance.json (accepted WP-0004 corpus tooling); index origin to be confirmed by /001"
+    },
+    "upstream_readme_tested_set": {
+      "source": "research/astra/sources/hf-README.md.txt lines 84-88 (Linux, Python 3.10, A800-80GB; not this host)",
+      "torch": "2.13.0",
+      "transformers": "4.52.1",
+      "huggingface-hub": "0.36.0",
+      "tokenizers": "0.21.4",
+      "addict": "2.4.0",
+      "einops": "0.8.2",
+      "easydict": "1.13",
+      "torchvision": "unpinned upstream",
+      "pillow": "unpinned upstream"
+    },
+    "provisional_astra_observation_not_accepted": "Official cu130 index lists torch 2.13.0+cu130 cp312 win_amd64 and torchvision 0.28.0+cu130; no executed import or CUDA proof. Transformers 4.52.1 remote-ID loading may trip unconditional triton imports; local hash-verified directory + local_files_only=True + owned HF_MODULES_CACHE to be validated."
+  },
+  "unresolved": [
+    "exact Python version for the venv (host observation: only Python 3.12.10 at C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312)",
+    "torch / torchvision CUDA wheel filenames, index URL, SHA-256, torch.version.cuda, sm_120 in arch list",
+    "triton_policy: absent (native import fallback to dense SDPA) or a locked Windows triton wheel",
+    "tokenizers, huggingface-hub, safetensors, numpy, pillow, einops, addict, easydict, requests, tqdm and every transitive dependency with SHA-256",
+    "imports of configuration_deepseek_v2.py, conversation.py, packing_patch.py (not in the committed snapshots; checked statically after acquisition)",
+    "allowed_unlocked_tooling (default: pip only)"
+  ],
+  "required_final_shape": {
+    "status": "final",
+    "provenance": {"astra_001": {"deliverable": "<40-hex>", "report": "<40-hex>"}, "review_003": {"deliverable": "<40-hex>", "report": "<40-hex>"}},
+    "platform": {"os": "Windows", "machine": "AMD64", "python": "3.X.Y"},
+    "cuda": {"torch_cuda_version": "<torch.version.cuda>", "required_arch": "sm_120", "device_capability": [12, 0]},
+    "triton_policy": "absent|present",
+    "packages": [{"name": "<dist>", "version": "<exact>", "filename": "<wheel>.whl", "sha256": "<64-hex>", "index_url": "https://...", "role": "<why>"}],
+    "allowed_unlocked_tooling": ["pip"]
+  }
+}
