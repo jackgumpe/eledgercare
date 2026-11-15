@@ -300,3 +300,10 @@ NEW author-install-after-011.json binds author HEAD 099a2fa74cdc2df6068c437edf39
 
 
 Actual resumed /004 dispatch after exact-origin verified **12165f3c69f3aa46b79f1acee29427bd5dd9ec37**: same author **bd92ddc3-af60-4096-b683-65386d81b718**, actual **gemini-4-carbon-high/high**, owned harness cwd, PID **21828**, RUNNING B.3-D on exact HEAD **099a2fa74cdc2df6068c437edf3971eb37e9f07d**. No stage success inferred; no GPU lease. /011 reviewer completed SUCCESS/exit 0, now IDLE. Requested accept-edits/inherited always-proceed disclosed; no bypass/global setting change.
+
+
+### Author /004 GPU trial release after actual staging
+
+Staging checkpoint **9e73ef86600b5e16f74b056676a6d3a4f1474058** is clean/published/exact-origin verified. All B.3-D commands passed; coordinator verified 19 raw blobs, 22 evidence-only additions, unchanged core41d6204648e4115ab197507d1a22f6d5c7f3e784. Actual four page rasters, 32 locked installs, 18 runtime files plus notice passed. Old staging releases/checkpoints remain immutable.
+
+Same author bd92ddc3-af60-4096-b683-65386d81b718, gemini-4-carbon-high/high, qualification/wp-0005-harness / eld-q0-harness, exact clean9e73ef86600b5e16f74b056676a6d3a4f1474058 now receives sole Q0 lease **WP-0005-author-004-20261115T202152Z** for GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d. Fresh20:21:52Z host/process records are under docs/coordination/WP-0005/gpu-author-release; no previous Q0 lease/worker, recorded desktop WDDM occupants preserved. Single unmodified execute attempt is RELEASED after separately published/validated author-execute.json; actual dispatch receipt follows. Exact assignment docs/kickoffs/WP-0005-eld-q0-harness-gpu.md. Canonical /004 path/date/owner unchanged. /005 reviewer remains idle until actual author result and explicit observed lease return; /006 reserved. No model result yet.
