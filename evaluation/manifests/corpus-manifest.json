@@ -1,0 +1,1148 @@
+{
+  "schema_version": "1.0.0",
+  "packet": "WP-0004 / 004",
+  "corpus_status": "author_prepared_candidate_pending_opus_wp0004_005_review",
+  "disclaimer": "Bounded 8-family synthetic property-maintenance starter set (26 PDFs / 40 pages total). Not a representative population benchmark, not real handwriting or physical scanner output, and eval_holdout is a fixed test partition rather than blind validation to its author. Invoice Decimal ROUND_HALF_UP rules are this synthetic corpus's explicit convention, not universal tax/GAAP law.",
+  "counts": {
+    "families": 8,
+    "dev_families": [
+      "F01",
+      "F02",
+      "F04",
+      "F07"
+    ],
+    "eval_holdout_families": [
+      "F03",
+      "F05",
+      "F06",
+      "F08"
+    ],
+    "v0_clean_originals": {
+      "pdfs": 8,
+      "pages": 12
+    },
+    "v1_raster300_variants": {
+      "pdfs": 8,
+      "pages": 12
+    },
+    "v2_skew_variants": {
+      "pdfs": 8,
+      "pages": 12
+    },
+    "v3_hybrid_negative_controls": {
+      "pdfs": 2,
+      "pages": 4
+    },
+    "total_pdfs": 26,
+    "total_pages": 40,
+    "admitted_public_pdfs": 0
+  },
+  "generator_and_tooling": {
+    "python_version": "3.12.10",
+    "vector_pdf_writer": "evaluation/generation/pdf_writer.py (PDF 1.4, Base-14 Type1 /Helvetica & /Courier)",
+    "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+    "image_transform": "Pillow 13.0.0 (BILINEAR signed skew, white RGB fill)",
+    "seed": null,
+    "determinism_mode": "declarative_literal_v1 (zero RNG state; fixed metadata date D:20261114000000Z)"
+  },
+  "source_records": [
+    {
+      "family_id": "F01",
+      "fixture_prefix": "SYN-WO-01",
+      "split": "dev",
+      "source_path": "evaluation/synthetic/sources/F01_SYN-WO-01_source.json",
+      "size_bytes": 8177,
+      "sha256": "761ffc1e42b61c14a620d2fe3a207f4b29b53a78a0718d35840015a2b1bcf579",
+      "git_blob_oid": "79d98e84f96bb158d3420e1d85b19c4d5e77913e"
+    },
+    {
+      "family_id": "F02",
+      "fixture_prefix": "SYN-WO-02",
+      "split": "dev",
+      "source_path": "evaluation/synthetic/sources/F02_SYN-WO-02_source.json",
+      "size_bytes": 7615,
+      "sha256": "043b83e0f177a9c654c298a526defb6e9006024caf098ec7a1d52375c0b91d0d",
+      "git_blob_oid": "ea18450b01e9d86f4b8e8032f03bc4b4229c8b32"
+    },
+    {
+      "family_id": "F03",
+      "fixture_prefix": "SYN-WO-03",
+      "split": "eval_holdout",
+      "source_path": "evaluation/synthetic/sources/F03_SYN-WO-03_source.json",
+      "size_bytes": 9171,
+      "sha256": "66712fa2ad7ee00e80acc184202efb904753a3456aaf8a6c16ed9be5d6c58db9",
+      "git_blob_oid": "cf23d0f492015a694d42210a52d63a7624030338"
+    },
+    {
+      "family_id": "F04",
+      "fixture_prefix": "SYN-INV-01",
+      "split": "dev",
+      "source_path": "evaluation/synthetic/sources/F04_SYN-INV-01_source.json",
+      "size_bytes": 3964,
+      "sha256": "858a6dd7d0210a4463456e2d337ebd1ef28fbbb36bba0d6d6d4f9dc7f20b5315",
+      "git_blob_oid": "2da15eaf6edf5df701d4f27680e0eba5cec26e60"
+    },
+    {
+      "family_id": "F05",
+      "fixture_prefix": "SYN-INV-02",
+      "split": "eval_holdout",
+      "source_path": "evaluation/synthetic/sources/F05_SYN-INV-02_source.json",
+      "size_bytes": 4900,
+      "sha256": "1dc4ad24b107db309898eb5bfbfa34f1d4041fb25c136fbe16759d10e9f741f5",
+      "git_blob_oid": "1426c727c208f20bb0463cae0899b644d9899f26"
+    },
+    {
+      "family_id": "F06",
+      "fixture_prefix": "SYN-INV-03",
+      "split": "eval_holdout",
+      "source_path": "evaluation/synthetic/sources/F06_SYN-INV-03_source.json",
+      "size_bytes": 5215,
+      "sha256": "fe45d56abc4cc9e358793cbe2cc251bf710fa2ee55c3f435de75f0e5715796df",
+      "git_blob_oid": "d1f8bb42c238333e8b4ca0cb478a371ad5905d29"
+    },
+    {
+      "family_id": "F07",
+      "fixture_prefix": "SYN-MP-01",
+      "split": "dev",
+      "source_path": "evaluation/synthetic/sources/F07_SYN-MP-01_source.json",
+      "size_bytes": 8826,
+      "sha256": "1dc20052c8619bab7bee28d49e341bf0983d860623704d34dfd9b24b73f2d4fb",
+      "git_blob_oid": "16df1f40caa554c7b1ba0f5af12d30d9f36f22bd"
+    },
+    {
+      "family_id": "F08",
+      "fixture_prefix": "SYN-MP-02",
+      "split": "eval_holdout",
+      "source_path": "evaluation/synthetic/sources/F08_SYN-MP-02_source.json",
+      "size_bytes": 18405,
+      "sha256": "84292db57cf6aab8b6f7ce2ba9380f987f6cc1075c24a2d2ab9e0c55c94eceb8",
+      "git_blob_oid": "50ece39244a6b950c9f5cef4d134177a6a051335"
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "family_id": "F01",
+      "classification": "synthetic",
+      "variant_kind": "v0_clean",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F01_SYN-WO-01_source.json",
+      "source_record_sha256": "761ffc1e42b61c14a620d2fe3a207f4b29b53a78a0718d35840015a2b1bcf579",
+      "file_path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v0-clean.pdf",
+      "sha256": "893d08ddfc87ef6a18f846d9119d9ba68566d7914aef4bcdc47de0f991c7026f",
+      "git_blob_oid": "ec3dd81ac80ed0a27f846868884822e1de77ee6d",
+      "size_bytes": 3482,
+      "page_count": 1,
+      "parent_fixture_id": null,
+      "parent_pdf_sha256": null,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "2299f16b53ab01d7b2078439f81de2dba260de803393ae39fba7e28b5faa4b71",
+      "expected_ground_truth_git_blob_oid": "785d51b2edd889ec48c0cb1b66303e01f7957fc5",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+        "dpi": null,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-01-v1-raster300",
+      "family_id": "F01",
+      "classification": "synthetic",
+      "variant_kind": "v1_raster300",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F01_SYN-WO-01_source.json",
+      "source_record_sha256": "761ffc1e42b61c14a620d2fe3a207f4b29b53a78a0718d35840015a2b1bcf579",
+      "file_path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v1-raster300.pdf",
+      "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "git_blob_oid": "532f8edf85d04a4e8f81834bf9dd7753e5b4c8af",
+      "size_bytes": 372258,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-WO-01-v0-clean",
+      "parent_pdf_sha256": "893d08ddfc87ef6a18f846d9119d9ba68566d7914aef4bcdc47de0f991c7026f",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-01-v1-raster300_expected.json",
+      "expected_ground_truth_sha256": "e5cfb3665ef9903b820e2ec2159a1f90da8163a3b00a73e29ce2f0c40f5e9a27",
+      "expected_ground_truth_git_blob_oid": "963cefbf2e6c603af291b623078b534667b081d5",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+        "dpi": 300,
+        "pixel_size_per_page": [
+          2550,
+          3301
+        ],
+        "text_layer": false,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-01-v2-skew-pos4deg",
+      "family_id": "F01",
+      "classification": "synthetic",
+      "variant_kind": "v2_skew",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F01_SYN-WO-01_source.json",
+      "source_record_sha256": "761ffc1e42b61c14a620d2fe3a207f4b29b53a78a0718d35840015a2b1bcf579",
+      "file_path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v2-skew-pos4deg.pdf",
+      "sha256": "2b5ec36753fa2bb52894746d69851fe68a2b39de533a1e05b965573e5ae17b37",
+      "git_blob_oid": "a53b330201fc7219441867f53b34b3308b7a430e",
+      "size_bytes": 1554923,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-WO-01-v1-raster300",
+      "parent_pdf_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-01-v2-skew-pos4deg_expected.json",
+      "expected_ground_truth_sha256": "d06e26849235bff82c62e53f62e76d14d3c7abfc7878a7414fe36a24e5501d63",
+      "expected_ground_truth_git_blob_oid": "aea10a50259db6a8ff9ba64ed3ce8854f98cf5fa",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "source_raster_fixture": "SYN-WO-01-v1-raster300",
+        "pillow_version": "13.0.0",
+        "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+        "signed_angle_degrees_ccw": 4.0,
+        "dpi": 300,
+        "expanded_pixel_size_per_page": [
+          2776,
+          3471
+        ],
+        "text_layer": false
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-02-v0-clean",
+      "family_id": "F02",
+      "classification": "synthetic",
+      "variant_kind": "v0_clean",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F02_SYN-WO-02_source.json",
+      "source_record_sha256": "043b83e0f177a9c654c298a526defb6e9006024caf098ec7a1d52375c0b91d0d",
+      "file_path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v0-clean.pdf",
+      "sha256": "a265cae6f0892411f302a45fd90fae68d9a6954dbb05e24efa44b38885cc3852",
+      "git_blob_oid": "55b792e6bdc1c8870af8e653c1e2d1bd59822510",
+      "size_bytes": 3260,
+      "page_count": 1,
+      "parent_fixture_id": null,
+      "parent_pdf_sha256": null,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-02-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "10b7b56bd4c8b063e5b6c49d8d119e75c0091647ebc2ee29b73af3c9cf29ea4e",
+      "expected_ground_truth_git_blob_oid": "42f292a9f006ecf5e349e2608ac9a9dac1d125bb",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+        "dpi": null,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-02-v1-raster300",
+      "family_id": "F02",
+      "classification": "synthetic",
+      "variant_kind": "v1_raster300",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F02_SYN-WO-02_source.json",
+      "source_record_sha256": "043b83e0f177a9c654c298a526defb6e9006024caf098ec7a1d52375c0b91d0d",
+      "file_path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v1-raster300.pdf",
+      "sha256": "7499f8678025ee7cb1106d53ec4b1dff2eb13a56ca78e923709d4f6a32b60aeb",
+      "git_blob_oid": "27555e2d1d6b9049f1a7b24644d0b87eb27c53a7",
+      "size_bytes": 377213,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-WO-02-v0-clean",
+      "parent_pdf_sha256": "a265cae6f0892411f302a45fd90fae68d9a6954dbb05e24efa44b38885cc3852",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-02-v1-raster300_expected.json",
+      "expected_ground_truth_sha256": "ff5edd73d43d1479c5b5f5feae6374f646d3511e18edddebeea1049f6a7e91c4",
+      "expected_ground_truth_git_blob_oid": "60a1615c877745259f29f0da3fedd53cc80d0a7b",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+        "dpi": 300,
+        "pixel_size_per_page": [
+          2550,
+          3301
+        ],
+        "text_layer": false,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-02-v2-skew-neg3deg",
+      "family_id": "F02",
+      "classification": "synthetic",
+      "variant_kind": "v2_skew",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F02_SYN-WO-02_source.json",
+      "source_record_sha256": "043b83e0f177a9c654c298a526defb6e9006024caf098ec7a1d52375c0b91d0d",
+      "file_path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v2-skew-neg3deg.pdf",
+      "sha256": "51b2be5e3c30f2f25435c8d5992927acc49e80645f53c8d85c3bc903246fc96f",
+      "git_blob_oid": "fbde79685cb77cc904a7668e58ec210c1e9d9d6d",
+      "size_bytes": 1477583,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-WO-02-v1-raster300",
+      "parent_pdf_sha256": "7499f8678025ee7cb1106d53ec4b1dff2eb13a56ca78e923709d4f6a32b60aeb",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-02-v2-skew-neg3deg_expected.json",
+      "expected_ground_truth_sha256": "08331c60939d72a3271674b852bd8a80965eb0aa0a21555ecdbf7d73cd2cbc9b",
+      "expected_ground_truth_git_blob_oid": "313d9e33c0b92e3cefa1210924e64e3b7bf25c8c",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "source_raster_fixture": "SYN-WO-02-v1-raster300",
+        "pillow_version": "13.0.0",
+        "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+        "signed_angle_degrees_ccw": -3.0,
+        "dpi": 300,
+        "expanded_pixel_size_per_page": [
+          2720,
+          3431
+        ],
+        "text_layer": false
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-02-v3-hybrid-note",
+      "family_id": "F02",
+      "classification": "synthetic",
+      "variant_kind": "v3_hybrid",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F02_SYN-WO-02_source.json",
+      "source_record_sha256": "043b83e0f177a9c654c298a526defb6e9006024caf098ec7a1d52375c0b91d0d",
+      "file_path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v3-hybrid-note.pdf",
+      "sha256": "35be2a39efb642b0d8850161d2acef8acf10eb9811edcec3e1e64f02cae6f7d0",
+      "git_blob_oid": "f44ab889310e679d5869a46729b1d5aad5886ad9",
+      "size_bytes": 12224,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-WO-02-v0-clean",
+      "parent_pdf_sha256": "a265cae6f0892411f302a45fd90fae68d9a6954dbb05e24efa44b38885cc3852",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-02-v3-hybrid-note_expected.json",
+      "expected_ground_truth_sha256": "3431c700ac9eb785b45254207141917e7c8b37c20fa07470edf38307e00a8e5d",
+      "expected_ground_truth_git_blob_oid": "74f8dfcf2a052cba6956b01f4b4539f467d237b6",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "parent_vector_fixture": "SYN-WO-02-v0-clean",
+        "hybrid_target_page": 1,
+        "embedded_raster_box_pt": [
+          40,
+          62,
+          340,
+          108
+        ],
+        "embedded_raster_dpi": 300,
+        "stamp_font": "Pillow 13.0.0 ImageFont.load_default",
+        "vector_text_layer_present": true,
+        "embedded_image_xobject_present": true
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-03-v0-clean",
+      "family_id": "F03",
+      "classification": "synthetic",
+      "variant_kind": "v0_clean",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F03_SYN-WO-03_source.json",
+      "source_record_sha256": "66712fa2ad7ee00e80acc184202efb904753a3456aaf8a6c16ed9be5d6c58db9",
+      "file_path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v0-clean.pdf",
+      "sha256": "e248135d1ba2c3be8985c493b40355daf0b33fbca201f359e2e61ec5c1b6dcb3",
+      "git_blob_oid": "748eb046197e9bf9ffcb81a2f966ebf8f53dc53a",
+      "size_bytes": 3695,
+      "page_count": 1,
+      "parent_fixture_id": null,
+      "parent_pdf_sha256": null,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-03-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "cc153bc49c9cc76236427b3fde518bcf69764f1673d7985ceec9455db4dc70a3",
+      "expected_ground_truth_git_blob_oid": "7cb5df26bd4a79b3e80f516d524ba375100f61ac",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+        "dpi": null,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-03-v1-raster300",
+      "family_id": "F03",
+      "classification": "synthetic",
+      "variant_kind": "v1_raster300",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F03_SYN-WO-03_source.json",
+      "source_record_sha256": "66712fa2ad7ee00e80acc184202efb904753a3456aaf8a6c16ed9be5d6c58db9",
+      "file_path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v1-raster300.pdf",
+      "sha256": "f689f1fd6fe8dce90ac2ca1a2fdaf3a569dd0534dda4ad16e911517d6a2ced17",
+      "git_blob_oid": "7263dba88d0737d155506da5249b8da0d7578170",
+      "size_bytes": 382228,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-WO-03-v0-clean",
+      "parent_pdf_sha256": "e248135d1ba2c3be8985c493b40355daf0b33fbca201f359e2e61ec5c1b6dcb3",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-03-v1-raster300_expected.json",
+      "expected_ground_truth_sha256": "811e91d17faf553eb2090204d70bf4cb6862fb24a8a7e638f6b18b14d8b5cf47",
+      "expected_ground_truth_git_blob_oid": "856c65b2b885c33353e1d202d02de932c4aa97c7",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+        "dpi": 300,
+        "pixel_size_per_page": [
+          2550,
+          3301
+        ],
+        "text_layer": false,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-WO-03-v2-skew-pos4deg",
+      "family_id": "F03",
+      "classification": "synthetic",
+      "variant_kind": "v2_skew",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F03_SYN-WO-03_source.json",
+      "source_record_sha256": "66712fa2ad7ee00e80acc184202efb904753a3456aaf8a6c16ed9be5d6c58db9",
+      "file_path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v2-skew-pos4deg.pdf",
+      "sha256": "fefea484a9c54a68d9568b5810ad8a2a903b8f37b8d061c486f65c165d2b100c",
+      "git_blob_oid": "5878ea3314a5a007021f9af9dc02eeaa1e8f480e",
+      "size_bytes": 1553588,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-WO-03-v1-raster300",
+      "parent_pdf_sha256": "f689f1fd6fe8dce90ac2ca1a2fdaf3a569dd0534dda4ad16e911517d6a2ced17",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-03-v2-skew-pos4deg_expected.json",
+      "expected_ground_truth_sha256": "024a8911d93009110f89329932b2e43d1739d3afbf44ba514807a1545498991b",
+      "expected_ground_truth_git_blob_oid": "970d6e53b73dbd235f4b449d4d331ad849d8995c",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "source_raster_fixture": "SYN-WO-03-v1-raster300",
+        "pillow_version": "13.0.0",
+        "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+        "signed_angle_degrees_ccw": 4.0,
+        "dpi": 300,
+        "expanded_pixel_size_per_page": [
+          2776,
+          3471
+        ],
+        "text_layer": false
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-01-v0-clean",
+      "family_id": "F04",
+      "classification": "synthetic",
+      "variant_kind": "v0_clean",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F04_SYN-INV-01_source.json",
+      "source_record_sha256": "858a6dd7d0210a4463456e2d337ebd1ef28fbbb36bba0d6d6d4f9dc7f20b5315",
+      "file_path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v0-clean.pdf",
+      "sha256": "bbac9d1467a43fb23089d44480d8f60ca0f4cbb39171f99fc2bc7fb96ba25216",
+      "git_blob_oid": "a8dd83477b10a79867dfaa4e9b72da8947f1acee",
+      "size_bytes": 3606,
+      "page_count": 1,
+      "parent_fixture_id": null,
+      "parent_pdf_sha256": null,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-01-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "5d5e5ffde340f17c08ad863876b86e7fb3b9cd0503967a135cd2cf08a15c2570",
+      "expected_ground_truth_git_blob_oid": "9b59f6d3305b9fc164aa94c0e70e78cadf7878c3",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+        "dpi": null,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-01-v1-raster300",
+      "family_id": "F04",
+      "classification": "synthetic",
+      "variant_kind": "v1_raster300",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F04_SYN-INV-01_source.json",
+      "source_record_sha256": "858a6dd7d0210a4463456e2d337ebd1ef28fbbb36bba0d6d6d4f9dc7f20b5315",
+      "file_path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v1-raster300.pdf",
+      "sha256": "86acc16a8776ee2c7161cca80788bf7406c58f8804d1a59a7837d04927ea01e2",
+      "git_blob_oid": "d5e8f8911a1b44f6992a24d5dc0514f3fda0131f",
+      "size_bytes": 385393,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-INV-01-v0-clean",
+      "parent_pdf_sha256": "bbac9d1467a43fb23089d44480d8f60ca0f4cbb39171f99fc2bc7fb96ba25216",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-01-v1-raster300_expected.json",
+      "expected_ground_truth_sha256": "5cd2220653f92211e7c2a74afd3cd04e1eeea6375f5e13e7a992b302a724179f",
+      "expected_ground_truth_git_blob_oid": "1eaa4f5b7900501df9cfe491f4186865d2c50340",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+        "dpi": 300,
+        "pixel_size_per_page": [
+          2550,
+          3301
+        ],
+        "text_layer": false,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-01-v2-skew-neg3deg",
+      "family_id": "F04",
+      "classification": "synthetic",
+      "variant_kind": "v2_skew",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F04_SYN-INV-01_source.json",
+      "source_record_sha256": "858a6dd7d0210a4463456e2d337ebd1ef28fbbb36bba0d6d6d4f9dc7f20b5315",
+      "file_path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v2-skew-neg3deg.pdf",
+      "sha256": "dc8e822ae073e6786ca14dd048ebc6928565bfb24859dbbb53f6a07de8911ff8",
+      "git_blob_oid": "bc0ccd83b3ec53a90c6d3a5c8636df506ff59b2a",
+      "size_bytes": 1369145,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-INV-01-v1-raster300",
+      "parent_pdf_sha256": "86acc16a8776ee2c7161cca80788bf7406c58f8804d1a59a7837d04927ea01e2",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-01-v2-skew-neg3deg_expected.json",
+      "expected_ground_truth_sha256": "53688532b025742ce791a6cb90ba9f03bc4e0b54ddd1b25caa26900ff59d6c27",
+      "expected_ground_truth_git_blob_oid": "fd716a95ccce52f9f008ff4b7cee5b07b95de6a8",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "source_raster_fixture": "SYN-INV-01-v1-raster300",
+        "pillow_version": "13.0.0",
+        "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+        "signed_angle_degrees_ccw": -3.0,
+        "dpi": 300,
+        "expanded_pixel_size_per_page": [
+          2720,
+          3431
+        ],
+        "text_layer": false
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-02-v0-clean",
+      "family_id": "F05",
+      "classification": "synthetic",
+      "variant_kind": "v0_clean",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F05_SYN-INV-02_source.json",
+      "source_record_sha256": "1dc4ad24b107db309898eb5bfbfa34f1d4041fb25c136fbe16759d10e9f741f5",
+      "file_path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v0-clean.pdf",
+      "sha256": "bda052a55cb075f34421f036a5bfad222b509df50b6008929d17acfebdaac3da",
+      "git_blob_oid": "b356fd06179ea772b614ba096885b78c62d5abf5",
+      "size_bytes": 4036,
+      "page_count": 1,
+      "parent_fixture_id": null,
+      "parent_pdf_sha256": null,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-02-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "d06a3a1ba84f8aa57d823d3a1458f3ed3b685b78556500054d7292aa173c2fac",
+      "expected_ground_truth_git_blob_oid": "7ce29ce0f98bbf59795300bca05c0aff79d5db5e",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+        "dpi": null,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-02-v1-raster300",
+      "family_id": "F05",
+      "classification": "synthetic",
+      "variant_kind": "v1_raster300",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F05_SYN-INV-02_source.json",
+      "source_record_sha256": "1dc4ad24b107db309898eb5bfbfa34f1d4041fb25c136fbe16759d10e9f741f5",
+      "file_path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v1-raster300.pdf",
+      "sha256": "534d376e061564e9abecf960c83206e5199a8c5aab53d69ca8bec5e5edd0dd68",
+      "git_blob_oid": "478a1d0ca12117db1afdb6e50c303e8bf457601e",
+      "size_bytes": 448281,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-INV-02-v0-clean",
+      "parent_pdf_sha256": "bda052a55cb075f34421f036a5bfad222b509df50b6008929d17acfebdaac3da",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-02-v1-raster300_expected.json",
+      "expected_ground_truth_sha256": "b2be97a82cdc84fbafaa80d6e1e6204901486f79c731c98b9b85087604efcb39",
+      "expected_ground_truth_git_blob_oid": "7db6b09d0e35d850ee50eb1c1c16534f916586fc",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+        "dpi": 300,
+        "pixel_size_per_page": [
+          2550,
+          3301
+        ],
+        "text_layer": false,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-02-v2-skew-pos4deg",
+      "family_id": "F05",
+      "classification": "synthetic",
+      "variant_kind": "v2_skew",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F05_SYN-INV-02_source.json",
+      "source_record_sha256": "1dc4ad24b107db309898eb5bfbfa34f1d4041fb25c136fbe16759d10e9f741f5",
+      "file_path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v2-skew-pos4deg.pdf",
+      "sha256": "c1112be491e819c7b90e8adae41679cc754e83b2266f03d75ba9565539888fbf",
+      "git_blob_oid": "009dab9477a81e2ff14b55192e313bac0039c06d",
+      "size_bytes": 1702718,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-INV-02-v1-raster300",
+      "parent_pdf_sha256": "534d376e061564e9abecf960c83206e5199a8c5aab53d69ca8bec5e5edd0dd68",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-02-v2-skew-pos4deg_expected.json",
+      "expected_ground_truth_sha256": "fd480e1d3ce328e0c591dc04695b5a92d2471e3a7761aa1ab3b85dcac7658328",
+      "expected_ground_truth_git_blob_oid": "6c37697d6914d505c45f717a40bd9c2c13ce9062",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "source_raster_fixture": "SYN-INV-02-v1-raster300",
+        "pillow_version": "13.0.0",
+        "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+        "signed_angle_degrees_ccw": 4.0,
+        "dpi": 300,
+        "expanded_pixel_size_per_page": [
+          2776,
+          3471
+        ],
+        "text_layer": false
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-03-v0-clean",
+      "family_id": "F06",
+      "classification": "synthetic",
+      "variant_kind": "v0_clean",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F06_SYN-INV-03_source.json",
+      "source_record_sha256": "fe45d56abc4cc9e358793cbe2cc251bf710fa2ee55c3f435de75f0e5715796df",
+      "file_path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v0-clean.pdf",
+      "sha256": "c9954de6fbd964588e31b52421a64d2976f45023a5af2590ddc04756ee3f9543",
+      "git_blob_oid": "71b2fe36a293aef133f44cb3b8c7cbcdc94f5b09",
+      "size_bytes": 4559,
+      "page_count": 1,
+      "parent_fixture_id": null,
+      "parent_pdf_sha256": null,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-03-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "79aac57644b3819d8263c34876ab95746b531617e6f9e447f7105a6aad5fb68d",
+      "expected_ground_truth_git_blob_oid": "a284453d81c1a433d154c644693e4d000a9fcc9f",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+        "dpi": null,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-03-v1-raster300",
+      "family_id": "F06",
+      "classification": "synthetic",
+      "variant_kind": "v1_raster300",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F06_SYN-INV-03_source.json",
+      "source_record_sha256": "fe45d56abc4cc9e358793cbe2cc251bf710fa2ee55c3f435de75f0e5715796df",
+      "file_path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v1-raster300.pdf",
+      "sha256": "6161807d47de5b1da20092d11807d5803ddddb72a009d929a30708268e8d8e13",
+      "git_blob_oid": "ec87b5bd2eac657a184b902fb8ab3f2425c66361",
+      "size_bytes": 483832,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-INV-03-v0-clean",
+      "parent_pdf_sha256": "c9954de6fbd964588e31b52421a64d2976f45023a5af2590ddc04756ee3f9543",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-03-v1-raster300_expected.json",
+      "expected_ground_truth_sha256": "94dc11a8a6e854b85bcfc10892ffbf58ddbf308b0be3d7f13b58ae93ed17ce26",
+      "expected_ground_truth_git_blob_oid": "22c4718b1721fbb70a00ed525b2dddfa4c355fda",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+        "dpi": 300,
+        "pixel_size_per_page": [
+          2550,
+          3301
+        ],
+        "text_layer": false,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-INV-03-v2-skew-neg3deg",
+      "family_id": "F06",
+      "classification": "synthetic",
+      "variant_kind": "v2_skew",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F06_SYN-INV-03_source.json",
+      "source_record_sha256": "fe45d56abc4cc9e358793cbe2cc251bf710fa2ee55c3f435de75f0e5715796df",
+      "file_path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v2-skew-neg3deg.pdf",
+      "sha256": "c90eba98f2e3fe4604202b826f7d74f34ad89c946dff6392acca84523ea7eeee",
+      "git_blob_oid": "d213d1d642fc08ef79e79c3cb12d0fd027858517",
+      "size_bytes": 1786323,
+      "page_count": 1,
+      "parent_fixture_id": "SYN-INV-03-v1-raster300",
+      "parent_pdf_sha256": "6161807d47de5b1da20092d11807d5803ddddb72a009d929a30708268e8d8e13",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-INV-03-v2-skew-neg3deg_expected.json",
+      "expected_ground_truth_sha256": "e2f9c6c41d7b28a48e1534a0ce70ea118a90ad49eaac9530c8b42843a59aac1d",
+      "expected_ground_truth_git_blob_oid": "e68decb762716458125c89ce8a0c102968f7356e",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "source_raster_fixture": "SYN-INV-03-v1-raster300",
+        "pillow_version": "13.0.0",
+        "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+        "signed_angle_degrees_ccw": -3.0,
+        "dpi": 300,
+        "expanded_pixel_size_per_page": [
+          2720,
+          3431
+        ],
+        "text_layer": false
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "family_id": "F07",
+      "classification": "synthetic",
+      "variant_kind": "v0_clean",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F07_SYN-MP-01_source.json",
+      "source_record_sha256": "1dc20052c8619bab7bee28d49e341bf0983d860623704d34dfd9b24b73f2d4fb",
+      "file_path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v0-clean.pdf",
+      "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "git_blob_oid": "63469e783b65f27893c9bfff94728a8feb44f12f",
+      "size_bytes": 8422,
+      "page_count": 3,
+      "parent_fixture_id": null,
+      "parent_pdf_sha256": null,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-MP-01-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "ba7852dd2c4bd26d1dd213e4a1ebad8170f35a6d200861c54b4af0efb74945e6",
+      "expected_ground_truth_git_blob_oid": "317f8efb9b31deafbe5fcd49a0f662071914d781",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+        "dpi": null,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-MP-01-v1-raster300",
+      "family_id": "F07",
+      "classification": "synthetic",
+      "variant_kind": "v1_raster300",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F07_SYN-MP-01_source.json",
+      "source_record_sha256": "1dc20052c8619bab7bee28d49e341bf0983d860623704d34dfd9b24b73f2d4fb",
+      "file_path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v1-raster300.pdf",
+      "sha256": "1cb5ed05bbf389b75a524bd14a41cf47d56aa46e4a8b8b6cadb09ab17bfde400",
+      "git_blob_oid": "f902532aaf6f9f2d3bc1f5ef2bca00361aeb6856",
+      "size_bytes": 984010,
+      "page_count": 3,
+      "parent_fixture_id": "SYN-MP-01-v0-clean",
+      "parent_pdf_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-MP-01-v1-raster300_expected.json",
+      "expected_ground_truth_sha256": "74fa4dabec5def2460160ab4cac42372ce47e588764b67462be728fbeb3f14f5",
+      "expected_ground_truth_git_blob_oid": "37ae54da2d73d52a149ff0cd1b90221a3ca0c4d1",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+        "dpi": 300,
+        "pixel_size_per_page": [
+          2550,
+          3301
+        ],
+        "text_layer": false,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-MP-01-v2-skew-pos4deg",
+      "family_id": "F07",
+      "classification": "synthetic",
+      "variant_kind": "v2_skew",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "dev",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F07_SYN-MP-01_source.json",
+      "source_record_sha256": "1dc20052c8619bab7bee28d49e341bf0983d860623704d34dfd9b24b73f2d4fb",
+      "file_path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v2-skew-pos4deg.pdf",
+      "sha256": "403d41d990ff8cc9ee09c4c7a8bbd74b78388af7f3c956b11dce302eee0cc9b5",
+      "git_blob_oid": "9697ca5fc2296d818c057024e28562738116e514",
+      "size_bytes": 3837001,
+      "page_count": 3,
+      "parent_fixture_id": "SYN-MP-01-v1-raster300",
+      "parent_pdf_sha256": "1cb5ed05bbf389b75a524bd14a41cf47d56aa46e4a8b8b6cadb09ab17bfde400",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-MP-01-v2-skew-pos4deg_expected.json",
+      "expected_ground_truth_sha256": "c750bfefbd99174210302719c4932fe69ef0616ee901c326bcdfe6c0492bab62",
+      "expected_ground_truth_git_blob_oid": "e78b63880a7da7b19406f8730ee0d544c1ce94b3",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "source_raster_fixture": "SYN-MP-01-v1-raster300",
+        "pillow_version": "13.0.0",
+        "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+        "signed_angle_degrees_ccw": 4.0,
+        "dpi": 300,
+        "expanded_pixel_size_per_page": [
+          2776,
+          3471
+        ],
+        "text_layer": false
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-MP-02-v0-clean",
+      "family_id": "F08",
+      "classification": "synthetic",
+      "variant_kind": "v0_clean",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F08_SYN-MP-02_source.json",
+      "source_record_sha256": "84292db57cf6aab8b6f7ce2ba9380f987f6cc1075c24a2d2ab9e0c55c94eceb8",
+      "file_path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v0-clean.pdf",
+      "sha256": "6c4711bf76b5b9ed5024ba3e603f153bea23dae8d9c16da7d6b63226beb03039",
+      "git_blob_oid": "07deb0007888b7c555b32e02fe668bdf9a6a53a0",
+      "size_bytes": 7056,
+      "page_count": 3,
+      "parent_fixture_id": null,
+      "parent_pdf_sha256": null,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-MP-02-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "73571a2c3611acb9a5fd13dcead9b9e48f4b4fee588adebbc956bd93ba3132b4",
+      "expected_ground_truth_git_blob_oid": "d7c5651b6c38cc6292718290aaf890702ca9fbc7",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+        "dpi": null,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-MP-02-v1-raster300",
+      "family_id": "F08",
+      "classification": "synthetic",
+      "variant_kind": "v1_raster300",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F08_SYN-MP-02_source.json",
+      "source_record_sha256": "84292db57cf6aab8b6f7ce2ba9380f987f6cc1075c24a2d2ab9e0c55c94eceb8",
+      "file_path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v1-raster300.pdf",
+      "sha256": "838c42a857bb3df6ba3b287c46c1e822ac91056c33649b89d78b89668a8e8f5e",
+      "git_blob_oid": "89bd1a206f1bf7d1620771777151cb489ece2585",
+      "size_bytes": 898385,
+      "page_count": 3,
+      "parent_fixture_id": "SYN-MP-02-v0-clean",
+      "parent_pdf_sha256": "6c4711bf76b5b9ed5024ba3e603f153bea23dae8d9c16da7d6b63226beb03039",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-MP-02-v1-raster300_expected.json",
+      "expected_ground_truth_sha256": "c45b1898dcc1cc716d7b026110316c3321c9b74b43a7e934fe92f356db798f91",
+      "expected_ground_truth_git_blob_oid": "f30d7440cea647a2609dbc45c803b71f862e29c2",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+        "dpi": 300,
+        "pixel_size_per_page": [
+          2550,
+          3301
+        ],
+        "text_layer": false,
+        "rotation_deg": 0.0
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-MP-02-v2-skew-neg3deg",
+      "family_id": "F08",
+      "classification": "synthetic",
+      "variant_kind": "v2_skew",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F08_SYN-MP-02_source.json",
+      "source_record_sha256": "84292db57cf6aab8b6f7ce2ba9380f987f6cc1075c24a2d2ab9e0c55c94eceb8",
+      "file_path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v2-skew-neg3deg.pdf",
+      "sha256": "574965b86e760e7679c595f54919001fe88f2082345907162a12e97d2121ad29",
+      "git_blob_oid": "c0ec102747ca3292b262e3365785de1aff91d104",
+      "size_bytes": 3406918,
+      "page_count": 3,
+      "parent_fixture_id": "SYN-MP-02-v1-raster300",
+      "parent_pdf_sha256": "838c42a857bb3df6ba3b287c46c1e822ac91056c33649b89d78b89668a8e8f5e",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-MP-02-v2-skew-neg3deg_expected.json",
+      "expected_ground_truth_sha256": "f58efbe424d9b320fabfdcbc95d25a69027cca3e96e2e06ae3df60784d295760",
+      "expected_ground_truth_git_blob_oid": "0f4e04619d3e8733710bd98f820d02a30b248a66",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "source_raster_fixture": "SYN-MP-02-v1-raster300",
+        "pillow_version": "13.0.0",
+        "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+        "signed_angle_degrees_ccw": -3.0,
+        "dpi": 300,
+        "expanded_pixel_size_per_page": [
+          2720,
+          3431
+        ],
+        "text_layer": false
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    },
+    {
+      "fixture_id": "SYN-MP-02-v3-hybrid-stamp",
+      "family_id": "F08",
+      "classification": "synthetic",
+      "variant_kind": "v3_hybrid",
+      "admission_status": "author_checked_pending_opus_wp0004_005",
+      "split": "eval_holdout",
+      "origin_url": null,
+      "origin_revision": null,
+      "source_record_path": "evaluation/synthetic/sources/F08_SYN-MP-02_source.json",
+      "source_record_sha256": "84292db57cf6aab8b6f7ce2ba9380f987f6cc1075c24a2d2ab9e0c55c94eceb8",
+      "file_path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v3-hybrid-stamp.pdf",
+      "sha256": "9a73f54bf66ce5053fc14e76b4f0220851b7dccc3d05a5a53c628a5024ddf0dc",
+      "git_blob_oid": "9a804dece74ec865894fecc6b788bd85fa69f4d5",
+      "size_bytes": 16707,
+      "page_count": 3,
+      "parent_fixture_id": "SYN-MP-02-v0-clean",
+      "parent_pdf_sha256": "6c4711bf76b5b9ed5024ba3e603f153bea23dae8d9c16da7d6b63226beb03039",
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-MP-02-v3-hybrid-stamp_expected.json",
+      "expected_ground_truth_sha256": "2c94f42f72c86d5c09d2795dca2b84dc64f1f00221b2fbf8386de39cd6f8a46b",
+      "expected_ground_truth_git_blob_oid": "ccccee796183c5e138f6451ba27b15f1e041eafc",
+      "source_license_and_notices": "Repository-authored fictional synthetic fixture; standard PDF Base-14 Type1 font names (/Helvetica, /Courier) without embedded third-party font binaries.",
+      "generation_or_transform_params": {
+        "parent_vector_fixture": "SYN-MP-02-v0-clean",
+        "hybrid_target_page": 3,
+        "embedded_raster_box_pt": [
+          40,
+          62,
+          355,
+          108
+        ],
+        "embedded_raster_dpi": 300,
+        "stamp_font": "Pillow 13.0.0 ImageFont.load_default",
+        "vector_text_layer_present": true,
+        "embedded_image_xobject_present": true
+      },
+      "author": "eld-rd-carbon",
+      "author_checkers": [
+        "evaluation/generation/verify_arithmetic_independent.py",
+        "evaluation/generation/verify_corpus_integrity.py"
+      ],
+      "independent_checker": null,
+      "independent_checker_note": "Unresolved pending non-author verification by eld-rd-reviewer (uninvolved Opus) in WP-0004 / 005."
+    }
+  ]
+}

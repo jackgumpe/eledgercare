@@ -1,0 +1,1769 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "SYN-MP-01-v1-raster300",
+  "family_id": "F07",
+  "doc_kind": "invoice",
+  "split": "dev",
+  "split_disclosure": "fixed_test_partition_not_blind_to_corpus_author",
+  "variant_kind": "v1_raster300",
+  "parent_fixture_id": "SYN-MP-01-v0-clean",
+  "page_count": 3,
+  "expected_adjacent_page_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "page_sentinels": [
+    {
+      "page_number": 1,
+      "page_label": "Page 1 of 3",
+      "sentinel_id": "MP01-P1",
+      "repeated_doc_id": "INV-008810",
+      "repeated_contract_id": "CTR-008840"
+    },
+    {
+      "page_number": 2,
+      "page_label": "Page 2 of 3",
+      "sentinel_id": "MP01-P2",
+      "repeated_doc_id": "INV-008810",
+      "repeated_contract_id": "CTR-008840"
+    },
+    {
+      "page_number": 3,
+      "page_label": "Page 3 of 3",
+      "sentinel_id": "MP01-P3",
+      "repeated_doc_id": "INV-008810",
+      "repeated_contract_id": "CTR-008840"
+    }
+  ],
+  "cross_page_links": [
+    {
+      "link_id": "XPL-MP01-DOCID",
+      "link_type": "repeated_document_id",
+      "value": "INV-008810",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "link_id": "XPL-MP01-CTRID",
+      "link_type": "repeated_contract_id",
+      "value": "CTR-008840",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "link_id": "XPL-MP01-TBL-P1P2",
+      "link_type": "table_continuation",
+      "table_id": "line_items",
+      "from_page": 1,
+      "from_last_row": "L08",
+      "to_page": 2,
+      "to_first_row": "L09"
+    },
+    {
+      "link_id": "XPL-MP01-TBL-P2P3",
+      "link_type": "table_continuation",
+      "table_id": "line_items",
+      "from_page": 2,
+      "from_last_row": "L16",
+      "to_page": 3,
+      "to_first_row": "L17"
+    },
+    {
+      "link_id": "XPL-MP01-TOTALS-P3",
+      "link_type": "final_page_only_summary",
+      "summary_page": 3,
+      "excluded_pages": [
+        1,
+        2
+      ]
+    }
+  ],
+  "expected_routing_for_e3": "must_route_to_ocr",
+  "transform_params": {
+    "rasterizer": "pypdfium2 5.15.2 (159.0.8149.0@sourcebuild-toolchained)",
+    "dpi": 300,
+    "pixel_size_per_page": [
+      2550,
+      3301
+    ],
+    "text_layer": false,
+    "rotation_deg": 0.0
+  },
+  "expected_fields": [
+    {
+      "field_id": "address_bill_to",
+      "label_printed": "BILL TO",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Maple Ridge Commons Asset Operations, Consolidated AP Ledger Desk, 815 Maple Ridge Dr, Downers Grove, IL 60515",
+      "normalized_value": "Maple Ridge Commons Asset Operations, Consolidated AP Ledger Desk, 815 Maple Ridge Dr, Downers Grove, IL 60515",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "address_contract_scope",
+      "label_printed": "CONTRACT & COVERAGE",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Master Service Agreement CTR-008840, Buildings A, B, C & Clubhouse, Billing Period: 2026-10-01 through 2026-10-31",
+      "normalized_value": "Master Service Agreement CTR-008840, Buildings A, B, C & Clubhouse, Billing Period: 2026-10-01 through 2026-10-31",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "invoice_number",
+      "label_printed": "Invoice No",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "INV-008810",
+      "normalized_value": "INV-008810",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "contract_id",
+      "label_printed": "Contract ID",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "CTR-008840",
+      "normalized_value": "CTR-008840",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "invoice_date",
+      "label_printed": "Statement Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-10-31",
+      "normalized_value": "2026-10-31",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "due_date",
+      "label_printed": "Due Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-11-30",
+      "normalized_value": "2026-11-30",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "payment_terms",
+      "label_printed": "Terms",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Net 30 Consolidated",
+      "normalized_value": "Net 30 Consolidated",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "subtotal",
+      "label_printed": "Line Net Subtotal",
+      "page_number": 3,
+      "value_type": "currency_usd",
+      "printed_text": "$1,478.19",
+      "normalized_value": "1478.19",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "label_printed": "Taxable Subtotal (Tax=T Rows)",
+      "page_number": 3,
+      "value_type": "currency_usd",
+      "printed_text": "$562.19",
+      "normalized_value": "562.19",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "tax_amount",
+      "label_printed": "Sales Tax (7.50% on Taxable Subtotal)",
+      "page_number": 3,
+      "value_type": "currency_usd",
+      "printed_text": "$42.16",
+      "normalized_value": "42.16",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "fee_fee_manifest_01",
+      "label_printed": "Non-Taxable Hazmat Lamp Recycling Manifest Fee",
+      "page_number": 3,
+      "value_type": "currency_usd",
+      "printed_text": "$15.00",
+      "normalized_value": "15.00",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "invoice_total",
+      "label_printed": "CURRENT INVOICE TOTAL",
+      "page_number": 3,
+      "value_type": "currency_usd",
+      "printed_text": "$1,535.35",
+      "normalized_value": "1535.35",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "previous_balance",
+      "label_printed": "Prior Unpaid Balance",
+      "page_number": 3,
+      "value_type": "currency_usd",
+      "printed_text": "$240.00",
+      "normalized_value": "240.00",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "payments_credits_applied",
+      "label_printed": "Payments / Credits Applied",
+      "page_number": 3,
+      "value_type": "currency_usd",
+      "printed_text": "$240.00",
+      "normalized_value": "240.00",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "amount_due",
+      "label_printed": "TOTAL AMOUNT DUE",
+      "page_number": 3,
+      "value_type": "currency_usd",
+      "printed_text": "$1,535.35",
+      "normalized_value": "1535.35",
+      "bbox_pt": null
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "lender_draw_ref",
+      "label_printed": "Escrow / Lender Draw Ref",
+      "page_number": 1,
+      "expected_state": "absent_blank"
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "line_items",
+      "page_numbers": [
+        1,
+        2,
+        3
+      ],
+      "repeated_header_pages": [
+        2,
+        3
+      ],
+      "column_ids": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "rows": [
+        {
+          "row_id": "L01",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L01",
+              "normalized_value": "L01",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004701",
+              "normalized_value": "WO-004701",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 02A - Replace Leaking Tub Diverter Spout",
+              "normalized_value": "Unit 02A - Replace Leaking Tub Diverter Spout",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 EA",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$28.50",
+              "normalized_value": "28.50",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$28.50",
+              "normalized_value": "28.50",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L02",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L02",
+              "normalized_value": "L02",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004701",
+              "normalized_value": "LAB-004701",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 02A - Plumbing Repair Labor",
+              "normalized_value": "Unit 02A - Plumbing Repair Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.25 HR",
+              "normalized_value": "1.25",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$76.00",
+              "normalized_value": "76.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$95.00",
+              "normalized_value": "95.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L03",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L03",
+              "normalized_value": "L03",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004705",
+              "normalized_value": "WO-004705",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Bldg A Hall - Emergency Exit Sign NiCd Battery",
+              "normalized_value": "Bldg A Hall - Emergency Exit Sign NiCd Battery",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "3.00 EA",
+              "normalized_value": "3.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$19.20",
+              "normalized_value": "19.20",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "10.00%",
+              "normalized_value": "0.1000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$5.76",
+              "normalized_value": "5.76",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$51.84",
+              "normalized_value": "51.84",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L04",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L04",
+              "normalized_value": "L04",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004705",
+              "normalized_value": "LAB-004705",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Bldg A Hall - Life-Safety Load Test Labor",
+              "normalized_value": "Bldg A Hall - Life-Safety Load Test Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 HR",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$82.00",
+              "normalized_value": "82.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$82.00",
+              "normalized_value": "82.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L05",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L05",
+              "normalized_value": "L05",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004712",
+              "normalized_value": "WO-004712",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 08C - Patio Sliding Door Tandem Roller Kit",
+              "normalized_value": "Unit 08C - Patio Sliding Door Tandem Roller Kit",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 KT",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$22.40",
+              "normalized_value": "22.40",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$44.80",
+              "normalized_value": "44.80",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L06",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L06",
+              "normalized_value": "L06",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004712",
+              "normalized_value": "LAB-004712",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 08C - Carpentry Track Alignment Labor",
+              "normalized_value": "Unit 08C - Carpentry Track Alignment Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.50 HR",
+              "normalized_value": "1.50",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$72.00",
+              "normalized_value": "72.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$108.00",
+              "normalized_value": "108.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L07",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L07",
+              "normalized_value": "L07",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004719",
+              "normalized_value": "WO-004719",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Clubhouse - Commercial Entry Closer Hydraulic Unit",
+              "normalized_value": "Clubhouse - Commercial Entry Closer Hydraulic Unit",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 EA",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$134.00",
+              "normalized_value": "134.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "5.00%",
+              "normalized_value": "0.0500",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$6.70",
+              "normalized_value": "6.70",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$127.30",
+              "normalized_value": "127.30",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L08",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L08",
+              "normalized_value": "L08",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004719",
+              "normalized_value": "LAB-004719",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Clubhouse - Door Closer Install & Sweep Adjust",
+              "normalized_value": "Clubhouse - Door Closer Install & Sweep Adjust",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 HR",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$72.00",
+              "normalized_value": "72.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$72.00",
+              "normalized_value": "72.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L09",
+          "page_number": 2,
+          "cells": {
+            "row_id": {
+              "printed_text": "L09",
+              "normalized_value": "L09",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004724",
+              "normalized_value": "WO-004724",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 11A - Refrigerator Evaporator Fan Motor",
+              "normalized_value": "Unit 11A - Refrigerator Evaporator Fan Motor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 EA",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$54.80",
+              "normalized_value": "54.80",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$54.80",
+              "normalized_value": "54.80",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L10",
+          "page_number": 2,
+          "cells": {
+            "row_id": {
+              "printed_text": "L10",
+              "normalized_value": "L10",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004724",
+              "normalized_value": "LAB-004724",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 11A - Appliance Diagnostic & Install Labor",
+              "normalized_value": "Unit 11A - Appliance Diagnostic & Install Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.25 HR",
+              "normalized_value": "1.25",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$80.00",
+              "normalized_value": "80.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$100.00",
+              "normalized_value": "100.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L11",
+          "page_number": 2,
+          "cells": {
+            "row_id": {
+              "printed_text": "L11",
+              "normalized_value": "L11",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004731",
+              "normalized_value": "WO-004731",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Bldg B Boiler - Brass Auto Air Vent Valve 1/8 NPT",
+              "normalized_value": "Bldg B Boiler - Brass Auto Air Vent Valve 1/8 NPT",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "4.00 EA",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$16.75",
+              "normalized_value": "16.75",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$67.00",
+              "normalized_value": "67.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L12",
+          "page_number": 2,
+          "cells": {
+            "row_id": {
+              "printed_text": "L12",
+              "normalized_value": "L12",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004731",
+              "normalized_value": "LAB-004731",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Bldg B Boiler - Hydronic Loop Purge Labor",
+              "normalized_value": "Bldg B Boiler - Hydronic Loop Purge Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 HR",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$88.00",
+              "normalized_value": "88.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$176.00",
+              "normalized_value": "176.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L13",
+          "page_number": 2,
+          "cells": {
+            "row_id": {
+              "printed_text": "L13",
+              "normalized_value": "L13",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004738",
+              "normalized_value": "WO-004738",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 14D - Dual-Flush Toilet Flapper Seal Assembly",
+              "normalized_value": "Unit 14D - Dual-Flush Toilet Flapper Seal Assembly",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 EA",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$11.60",
+              "normalized_value": "11.60",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$23.20",
+              "normalized_value": "23.20",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L14",
+          "page_number": 2,
+          "cells": {
+            "row_id": {
+              "printed_text": "L14",
+              "normalized_value": "L14",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004738",
+              "normalized_value": "LAB-004738",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 14D - Tank Rebuild & Fill Calibration Labor",
+              "normalized_value": "Unit 14D - Tank Rebuild & Fill Calibration Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "0.75 HR",
+              "normalized_value": "0.75",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$76.00",
+              "normalized_value": "76.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$57.00",
+              "normalized_value": "57.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L15",
+          "page_number": 2,
+          "cells": {
+            "row_id": {
+              "printed_text": "L15",
+              "normalized_value": "L15",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004744",
+              "normalized_value": "WO-004744",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Bldg C Exterior - Photocell Dusk-to-Dawn Sensor",
+              "normalized_value": "Bldg C Exterior - Photocell Dusk-to-Dawn Sensor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "3.00 EA",
+              "normalized_value": "3.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$24.50",
+              "normalized_value": "24.50",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "10.00%",
+              "normalized_value": "0.1000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$7.35",
+              "normalized_value": "7.35",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$66.15",
+              "normalized_value": "66.15",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L16",
+          "page_number": 2,
+          "cells": {
+            "row_id": {
+              "printed_text": "L16",
+              "normalized_value": "L16",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004744",
+              "normalized_value": "LAB-004744",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Bldg C Exterior - Wallpack Sensor Wiring Labor",
+              "normalized_value": "Bldg C Exterior - Wallpack Sensor Wiring Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.50 HR",
+              "normalized_value": "1.50",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$82.00",
+              "normalized_value": "82.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$123.00",
+              "normalized_value": "123.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L17",
+          "page_number": 3,
+          "cells": {
+            "row_id": {
+              "printed_text": "L17",
+              "normalized_value": "L17",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004752",
+              "normalized_value": "WO-004752",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Unit 19B - Range Hood Aluminum Grease Filter Pair",
+              "normalized_value": "Unit 19B - Range Hood Aluminum Grease Filter Pair",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 PR",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$15.30",
+              "normalized_value": "15.30",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$30.60",
+              "normalized_value": "30.60",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L18",
+          "page_number": 3,
+          "cells": {
+            "row_id": {
+              "printed_text": "L18",
+              "normalized_value": "L18",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "WO-004759",
+              "normalized_value": "WO-004759",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Laundry Rm B - T8 Ballast Bypass LED Tube 4ft Box",
+              "normalized_value": "Laundry Rm B - T8 Ballast Bypass LED Tube 4ft Box",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 BX",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$68.00",
+              "normalized_value": "68.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$68.00",
+              "normalized_value": "68.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L19",
+          "page_number": 3,
+          "cells": {
+            "row_id": {
+              "printed_text": "L19",
+              "normalized_value": "L19",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-004759",
+              "normalized_value": "LAB-004759",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Laundry Rm B - Tombstone Rewire & Lamp Retrofit",
+              "normalized_value": "Laundry Rm B - Tombstone Rewire & Lamp Retrofit",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.50 HR",
+              "normalized_value": "1.50",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$82.00",
+              "normalized_value": "82.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$123.00",
+              "normalized_value": "123.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L20",
+          "page_number": 3,
+          "cells": {
+            "row_id": {
+              "printed_text": "L20",
+              "normalized_value": "L20",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "CRD-008840",
+              "normalized_value": "CRD-008840",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "SLA Response Credit - Late Callback Ticket WO-004690",
+              "normalized_value": "SLA Response Credit - Late Callback Ticket WO-004690",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 EA",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "-$20.00",
+              "normalized_value": "-20.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "-$20.00",
+              "normalized_value": "-20.00",
+              "value_type": "currency_usd"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "invoice_accounting": {
+    "convention": "eledgercare_synthetic_decimal_round_half_up_v1",
+    "currency": "USD",
+    "printed_rule_notice": "Continued 20-row table across Pages 1-3 (repeated headers on Pages 2 & 3 are NOT line items). Summary totals appear ONLY on Page 3. Tax (7.50%) applies strictly to Net rows marked Tax=T.",
+    "rows": [
+      {
+        "row_id": "L01",
+        "page_number": 1,
+        "sku": "WO-004701",
+        "description": "Unit 02A - Replace Leaking Tub Diverter Spout",
+        "quantity_norm": "1.00",
+        "unit": "EA",
+        "qty_unit_printed": "1.00 EA",
+        "unit_price_norm": "28.50",
+        "unit_price_printed": "$28.50",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "28.50",
+        "gross_line_printed": "$28.50",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "28.50",
+        "net_line_printed": "$28.50"
+      },
+      {
+        "row_id": "L02",
+        "page_number": 1,
+        "sku": "LAB-004701",
+        "description": "Unit 02A - Plumbing Repair Labor",
+        "quantity_norm": "1.25",
+        "unit": "HR",
+        "qty_unit_printed": "1.25 HR",
+        "unit_price_norm": "76.00",
+        "unit_price_printed": "$76.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "95.00",
+        "gross_line_printed": "$95.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "95.00",
+        "net_line_printed": "$95.00"
+      },
+      {
+        "row_id": "L03",
+        "page_number": 1,
+        "sku": "WO-004705",
+        "description": "Bldg A Hall - Emergency Exit Sign NiCd Battery",
+        "quantity_norm": "3.00",
+        "unit": "EA",
+        "qty_unit_printed": "3.00 EA",
+        "unit_price_norm": "19.20",
+        "unit_price_printed": "$19.20",
+        "discount_rate_norm": "0.1000",
+        "discount_rate_printed": "10.00%",
+        "gross_line_norm": "57.60",
+        "gross_line_printed": "$57.60",
+        "line_discount_norm": "5.76",
+        "line_discount_printed": "$5.76",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "51.84",
+        "net_line_printed": "$51.84"
+      },
+      {
+        "row_id": "L04",
+        "page_number": 1,
+        "sku": "LAB-004705",
+        "description": "Bldg A Hall - Life-Safety Load Test Labor",
+        "quantity_norm": "1.00",
+        "unit": "HR",
+        "qty_unit_printed": "1.00 HR",
+        "unit_price_norm": "82.00",
+        "unit_price_printed": "$82.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "82.00",
+        "gross_line_printed": "$82.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "82.00",
+        "net_line_printed": "$82.00"
+      },
+      {
+        "row_id": "L05",
+        "page_number": 1,
+        "sku": "WO-004712",
+        "description": "Unit 08C - Patio Sliding Door Tandem Roller Kit",
+        "quantity_norm": "2.00",
+        "unit": "KT",
+        "qty_unit_printed": "2.00 KT",
+        "unit_price_norm": "22.40",
+        "unit_price_printed": "$22.40",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "44.80",
+        "gross_line_printed": "$44.80",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "44.80",
+        "net_line_printed": "$44.80"
+      },
+      {
+        "row_id": "L06",
+        "page_number": 1,
+        "sku": "LAB-004712",
+        "description": "Unit 08C - Carpentry Track Alignment Labor",
+        "quantity_norm": "1.50",
+        "unit": "HR",
+        "qty_unit_printed": "1.50 HR",
+        "unit_price_norm": "72.00",
+        "unit_price_printed": "$72.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "108.00",
+        "gross_line_printed": "$108.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "108.00",
+        "net_line_printed": "$108.00"
+      },
+      {
+        "row_id": "L07",
+        "page_number": 1,
+        "sku": "WO-004719",
+        "description": "Clubhouse - Commercial Entry Closer Hydraulic Unit",
+        "quantity_norm": "1.00",
+        "unit": "EA",
+        "qty_unit_printed": "1.00 EA",
+        "unit_price_norm": "134.00",
+        "unit_price_printed": "$134.00",
+        "discount_rate_norm": "0.0500",
+        "discount_rate_printed": "5.00%",
+        "gross_line_norm": "134.00",
+        "gross_line_printed": "$134.00",
+        "line_discount_norm": "6.70",
+        "line_discount_printed": "$6.70",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "127.30",
+        "net_line_printed": "$127.30"
+      },
+      {
+        "row_id": "L08",
+        "page_number": 1,
+        "sku": "LAB-004719",
+        "description": "Clubhouse - Door Closer Install & Sweep Adjust",
+        "quantity_norm": "1.00",
+        "unit": "HR",
+        "qty_unit_printed": "1.00 HR",
+        "unit_price_norm": "72.00",
+        "unit_price_printed": "$72.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "72.00",
+        "gross_line_printed": "$72.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "72.00",
+        "net_line_printed": "$72.00"
+      },
+      {
+        "row_id": "L09",
+        "page_number": 2,
+        "sku": "WO-004724",
+        "description": "Unit 11A - Refrigerator Evaporator Fan Motor",
+        "quantity_norm": "1.00",
+        "unit": "EA",
+        "qty_unit_printed": "1.00 EA",
+        "unit_price_norm": "54.80",
+        "unit_price_printed": "$54.80",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "54.80",
+        "gross_line_printed": "$54.80",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "54.80",
+        "net_line_printed": "$54.80"
+      },
+      {
+        "row_id": "L10",
+        "page_number": 2,
+        "sku": "LAB-004724",
+        "description": "Unit 11A - Appliance Diagnostic & Install Labor",
+        "quantity_norm": "1.25",
+        "unit": "HR",
+        "qty_unit_printed": "1.25 HR",
+        "unit_price_norm": "80.00",
+        "unit_price_printed": "$80.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "100.00",
+        "gross_line_printed": "$100.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "100.00",
+        "net_line_printed": "$100.00"
+      },
+      {
+        "row_id": "L11",
+        "page_number": 2,
+        "sku": "WO-004731",
+        "description": "Bldg B Boiler - Brass Auto Air Vent Valve 1/8 NPT",
+        "quantity_norm": "4.00",
+        "unit": "EA",
+        "qty_unit_printed": "4.00 EA",
+        "unit_price_norm": "16.75",
+        "unit_price_printed": "$16.75",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "67.00",
+        "gross_line_printed": "$67.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "67.00",
+        "net_line_printed": "$67.00"
+      },
+      {
+        "row_id": "L12",
+        "page_number": 2,
+        "sku": "LAB-004731",
+        "description": "Bldg B Boiler - Hydronic Loop Purge Labor",
+        "quantity_norm": "2.00",
+        "unit": "HR",
+        "qty_unit_printed": "2.00 HR",
+        "unit_price_norm": "88.00",
+        "unit_price_printed": "$88.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "176.00",
+        "gross_line_printed": "$176.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "176.00",
+        "net_line_printed": "$176.00"
+      },
+      {
+        "row_id": "L13",
+        "page_number": 2,
+        "sku": "WO-004738",
+        "description": "Unit 14D - Dual-Flush Toilet Flapper Seal Assembly",
+        "quantity_norm": "2.00",
+        "unit": "EA",
+        "qty_unit_printed": "2.00 EA",
+        "unit_price_norm": "11.60",
+        "unit_price_printed": "$11.60",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "23.20",
+        "gross_line_printed": "$23.20",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "23.20",
+        "net_line_printed": "$23.20"
+      },
+      {
+        "row_id": "L14",
+        "page_number": 2,
+        "sku": "LAB-004738",
+        "description": "Unit 14D - Tank Rebuild & Fill Calibration Labor",
+        "quantity_norm": "0.75",
+        "unit": "HR",
+        "qty_unit_printed": "0.75 HR",
+        "unit_price_norm": "76.00",
+        "unit_price_printed": "$76.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "57.00",
+        "gross_line_printed": "$57.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "57.00",
+        "net_line_printed": "$57.00"
+      },
+      {
+        "row_id": "L15",
+        "page_number": 2,
+        "sku": "WO-004744",
+        "description": "Bldg C Exterior - Photocell Dusk-to-Dawn Sensor",
+        "quantity_norm": "3.00",
+        "unit": "EA",
+        "qty_unit_printed": "3.00 EA",
+        "unit_price_norm": "24.50",
+        "unit_price_printed": "$24.50",
+        "discount_rate_norm": "0.1000",
+        "discount_rate_printed": "10.00%",
+        "gross_line_norm": "73.50",
+        "gross_line_printed": "$73.50",
+        "line_discount_norm": "7.35",
+        "line_discount_printed": "$7.35",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "66.15",
+        "net_line_printed": "$66.15"
+      },
+      {
+        "row_id": "L16",
+        "page_number": 2,
+        "sku": "LAB-004744",
+        "description": "Bldg C Exterior - Wallpack Sensor Wiring Labor",
+        "quantity_norm": "1.50",
+        "unit": "HR",
+        "qty_unit_printed": "1.50 HR",
+        "unit_price_norm": "82.00",
+        "unit_price_printed": "$82.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "123.00",
+        "gross_line_printed": "$123.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "123.00",
+        "net_line_printed": "$123.00"
+      },
+      {
+        "row_id": "L17",
+        "page_number": 3,
+        "sku": "WO-004752",
+        "description": "Unit 19B - Range Hood Aluminum Grease Filter Pair",
+        "quantity_norm": "2.00",
+        "unit": "PR",
+        "qty_unit_printed": "2.00 PR",
+        "unit_price_norm": "15.30",
+        "unit_price_printed": "$15.30",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "30.60",
+        "gross_line_printed": "$30.60",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "30.60",
+        "net_line_printed": "$30.60"
+      },
+      {
+        "row_id": "L18",
+        "page_number": 3,
+        "sku": "WO-004759",
+        "description": "Laundry Rm B - T8 Ballast Bypass LED Tube 4ft Box",
+        "quantity_norm": "1.00",
+        "unit": "BX",
+        "qty_unit_printed": "1.00 BX",
+        "unit_price_norm": "68.00",
+        "unit_price_printed": "$68.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "68.00",
+        "gross_line_printed": "$68.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "68.00",
+        "net_line_printed": "$68.00"
+      },
+      {
+        "row_id": "L19",
+        "page_number": 3,
+        "sku": "LAB-004759",
+        "description": "Laundry Rm B - Tombstone Rewire & Lamp Retrofit",
+        "quantity_norm": "1.50",
+        "unit": "HR",
+        "qty_unit_printed": "1.50 HR",
+        "unit_price_norm": "82.00",
+        "unit_price_printed": "$82.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "123.00",
+        "gross_line_printed": "$123.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "123.00",
+        "net_line_printed": "$123.00"
+      },
+      {
+        "row_id": "L20",
+        "page_number": 3,
+        "sku": "CRD-008840",
+        "description": "SLA Response Credit - Late Callback Ticket WO-004690",
+        "quantity_norm": "1.00",
+        "unit": "EA",
+        "qty_unit_printed": "1.00 EA",
+        "unit_price_norm": "-20.00",
+        "unit_price_printed": "-$20.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "-20.00",
+        "gross_line_printed": "-$20.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "-20.00",
+        "net_line_printed": "-$20.00"
+      }
+    ],
+    "fees": [
+      {
+        "fee_id": "FEE-MANIFEST-01",
+        "label": "Non-Taxable Hazmat Lamp Recycling Manifest Fee",
+        "amount_norm": "15.00",
+        "amount_printed": "$15.00"
+      }
+    ],
+    "summary": {
+      "subtotal": {
+        "normalized_value": "1478.19",
+        "printed_text": "$1,478.19"
+      },
+      "taxable_subtotal": {
+        "normalized_value": "562.19",
+        "printed_text": "$562.19"
+      },
+      "tax_rate": {
+        "normalized_value": "0.0750",
+        "printed_text": "7.50%"
+      },
+      "tax_amount": {
+        "normalized_value": "42.16",
+        "printed_text": "$42.16"
+      },
+      "non_taxable_fees": {
+        "normalized_value": "15.00",
+        "printed_text": "$15.00"
+      },
+      "invoice_total": {
+        "normalized_value": "1535.35",
+        "printed_text": "$1,535.35"
+      },
+      "previous_balance": {
+        "normalized_value": "240.00",
+        "printed_text": "$240.00"
+      },
+      "payments_credits_applied": {
+        "normalized_value": "240.00",
+        "printed_text": "$240.00"
+      },
+      "amount_due": {
+        "normalized_value": "1535.35",
+        "printed_text": "$1,535.35"
+      }
+    }
+  }
+}

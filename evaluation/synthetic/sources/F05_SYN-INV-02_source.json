@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "generation_mode": "declarative_literal_v1",
+  "seed": null,
+  "family_id": "F05",
+  "fixture_prefix": "SYN-INV-02",
+  "doc_kind": "invoice",
+  "split": "eval_holdout",
+  "page_count": 1,
+  "signed_skew_degrees": 4.0,
+  "hybrid_control": null,
+  "banner": {
+    "vendor_name": "NORTHSTAR MECHANICAL SUPPLY & SERVICE INC.",
+    "document_title": "HVAC SERVICE & PARTS SUPPLIER INVOICE",
+    "vendor_contact": "740 Northstar Commerce Blvd, Waukesha, WI 53186 | Tel: 555-0174 | ar@northstarmech.example"
+  },
+  "address_blocks": [
+    {
+      "block_id": "bill_to",
+      "title": "BILL TO",
+      "lines": [
+        "Harborview Lofts Residential Engineering",
+        "Attn: Accounts Payable",
+        "410 Harborview Promenade, Milwaukee, WI 53202"
+      ]
+    },
+    {
+      "block_id": "service_location",
+      "title": "SERVICE LOCATION",
+      "lines": [
+        "Harborview Lofts - Rooftop Zone 5",
+        "RTU-05B Serving Unit 509",
+        "414 Harborview Promenade, Milwaukee, WI 53202"
+      ]
+    },
+    {
+      "block_id": "remit_to",
+      "title": "REMIT TO",
+      "lines": [
+        "Northstar Mechanical Lockbox #00812",
+        "PO Box 940812",
+        "Milwaukee, WI 53294-0812"
+      ]
+    }
+  ],
+  "header_fields": [
+    {"field_id": "invoice_number", "label": "Invoice No", "value_type": "identifier", "printed_text": "INV-005920", "normalized_value": "INV-005920", "is_absent": false},
+    {"field_id": "work_order_ref", "label": "Work Order Ref", "value_type": "identifier", "printed_text": "WO-005309", "normalized_value": "WO-005309", "is_absent": false},
+    {"field_id": "customer_acct_id", "label": "Customer Acct ID", "value_type": "identifier", "printed_text": "ACCT-00391", "normalized_value": "ACCT-00391", "is_absent": false},
+    {"field_id": "invoice_date", "label": "Invoice Date", "value_type": "date_iso", "printed_text": "2026-10-22", "normalized_value": "2026-10-22", "is_absent": false},
+    {"field_id": "due_date", "label": "Due Date", "value_type": "date_iso", "printed_text": "2026-11-21", "normalized_value": "2026-11-21", "is_absent": false},
+    {"field_id": "warranty_auth_code", "label": "Warranty Claim Auth #", "value_type": "identifier", "printed_text": "", "normalized_value": null, "is_absent": true}
+  ],
+  "accounting_spec": {
+    "convention": "eledgercare_synthetic_decimal_round_half_up_v1",
+    "currency": "USD",
+    "printed_rule_notice": "Basis: Gross = round_half_up(Qty * Unit Price, 0.01); Disc = round_half_up(Gross * Disc%, 0.01); Net = Gross - Disc. Tax (8.00%) applies ONLY to discounted Net rows marked Tax=T. Amount Due = Invoice Total + Prior Balance - Payments/Credits.",
+    "tax_rate": "0.0800",
+    "tax_rate_printed": "8.00%",
+    "previous_balance": "150.00",
+    "payments_credits_applied": "25.00",
+    "fees": [],
+    "line_items": [
+      {
+        "row_id": "L01",
+        "page_number": 1,
+        "sku": "LAB-HVAC-DIAG",
+        "description": "RTU-05B Compressor & Ignition Control Diagnostic Labor",
+        "quantity": "1.50",
+        "unit": "HR",
+        "unit_price": "110.00",
+        "discount_rate": "0.0000",
+        "is_taxable": false
+      },
+      {
+        "row_id": "L02",
+        "page_number": 1,
+        "sku": "LAB-HVAC-RPL",
+        "description": "Blower Motor & Hot-Surface Igniter Replacement Labor",
+        "quantity": "2.25",
+        "unit": "HR",
+        "unit_price": "110.00",
+        "discount_rate": "0.0000",
+        "is_taxable": false
+      },
+      {
+        "row_id": "L03",
+        "page_number": 1,
+        "sku": "00489-IGN",
+        "description": "Silicon Nitride Hot-Surface Igniter Kit 120V",
+        "quantity": "3.00",
+        "unit": "EA",
+        "unit_price": "45.50",
+        "discount_rate": "0.1000",
+        "is_taxable": true
+      },
+      {
+        "row_id": "L04",
+        "page_number": 1,
+        "sku": "00614-MTR",
+        "description": "Direct-Drive 1/2 HP ECM Blower Motor Module",
+        "quantity": "2.00",
+        "unit": "EA",
+        "unit_price": "89.95",
+        "discount_rate": "0.1500",
+        "is_taxable": true
+      },
+      {
+        "row_id": "L05",
+        "page_number": 1,
+        "sku": "00712-FLT",
+        "description": "MERV-11 Pleated Return Air Filter 20x25x2",
+        "quantity": "4.00",
+        "unit": "EA",
+        "unit_price": "12.25",
+        "discount_rate": "0.1000",
+        "is_taxable": true
+      },
+      {
+        "row_id": "L06",
+        "page_number": 1,
+        "sku": "00805-CAP",
+        "description": "Dual Run Oval Capacitor 45/5 uF 440VAC",
+        "quantity": "1.00",
+        "unit": "EA",
+        "unit_price": "34.00",
+        "discount_rate": "0.0000",
+        "is_taxable": true
+      }
+    ]
+  },
+  "remittance_note": "Include Acct ACCT-00391 and Invoice INV-005920 on remittance. Current Invoice Total ($794.67) differs from Total Amount Due ($919.67)."
+}

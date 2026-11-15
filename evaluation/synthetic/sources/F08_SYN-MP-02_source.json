@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "generation_mode": "declarative_literal_v1",
+  "seed": null,
+  "family_id": "F08",
+  "fixture_prefix": "SYN-MP-02",
+  "doc_kind": "work_order_packet",
+  "split": "eval_holdout",
+  "page_count": 3,
+  "signed_skew_degrees": -3.0,
+  "hybrid_control": {
+    "fixture_id": "SYN-MP-02-v3-hybrid-stamp",
+    "target_page": 3,
+    "box_pt": [40, 62, 355, 108],
+    "raster_dpi": 300,
+    "field_id": "hybrid_holdover_stamp",
+    "label": "RASTER HOLDOVER STAMP",
+    "printed_text": "RASTER STAMP: HOLD EQUIP DH-00855 +24H - AUTH J. RIVERA",
+    "normalized_value": "RASTER STAMP: HOLD EQUIP DH-00855 +24H - AUTH J. RIVERA",
+    "purpose": "Holdout 3-page hybrid negative control (~3.0% page-3 area) verifying strict zero-image abstention prevents bypassing a page-3 raster holdover instruction."
+  },
+  "page_sentinels": [
+    {"page_number": 1, "page_label": "Page 1 of 3", "sentinel_id": "MP02-P1", "repeated_doc_id": "WMP-00073", "repeated_auth_id": "AUTH-00319"},
+    {"page_number": 2, "page_label": "Page 2 of 3", "sentinel_id": "MP02-P2", "repeated_doc_id": "WMP-00073", "repeated_auth_id": "AUTH-00319"},
+    {"page_number": 3, "page_label": "Page 3 of 3", "sentinel_id": "MP02-P3", "repeated_doc_id": "WMP-00073", "repeated_auth_id": "AUTH-00319"}
+  ],
+  "banner": {
+    "organization": "DRYFAST STRUCTURAL MITIGATION SERVICES INC.",
+    "document_title": "EMERGENCY WATER-MITIGATION FIELD PACKET",
+    "subtitle": "Multi-Unit Dispatch, Psychrometric Placement & Equipment Retrieval Log",
+    "contact_line": "900 Mitigation Way, Wauwatosa, WI 53226 | 24h Dispatch: 555-0196 | packets@dryfast.example"
+  },
+  "header_columns": [
+    {
+      "group_title": "PACKET & MULTI-UNIT SCOPE (PAGE 1)",
+      "fields": [
+        {"field_id": "packet_id", "label": "Mitigation Packet ID", "value_type": "identifier", "printed_text": "WMP-00073", "normalized_value": "WMP-00073", "is_absent": false},
+        {"field_id": "auth_ref", "label": "Emergency Auth Ref", "value_type": "identifier", "printed_text": "AUTH-00319", "normalized_value": "AUTH-00319", "is_absent": false},
+        {"field_id": "property_name", "label": "Property", "value_type": "text", "printed_text": "Harborview Lofts", "normalized_value": "Harborview Lofts", "is_absent": false},
+        {"field_id": "affected_units", "label": "Affected Units", "value_type": "identifier", "printed_text": "Unit 402 (Origin) & Unit 302 (Below)", "normalized_value": "Unit 402 (Origin) & Unit 302 (Below)", "is_absent": false}
+      ]
+    },
+    {
+      "group_title": "INCIDENT TIMELINE & INSURANCE",
+      "fields": [
+        {"field_id": "loss_date", "label": "Loss Reported Date", "value_type": "date_iso", "printed_text": "2026-10-25", "normalized_value": "2026-10-25", "is_absent": false},
+        {"field_id": "water_category", "label": "IICRC Water Category", "value_type": "text", "printed_text": "Category 1 - Clean Supply Line", "normalized_value": "Category 1 - Clean Supply Line", "is_absent": false},
+        {"field_id": "crew_lead", "label": "Crew Lead", "value_type": "text", "printed_text": "Devon Alverez (WRT #00612)", "normalized_value": "Devon Alverez (WRT #00612)", "is_absent": false},
+        {"field_id": "insurance_claim_no", "label": "Insurance Adjuster Claim #", "value_type": "identifier", "printed_text": "", "normalized_value": null, "is_absent": true}
+      ]
+    }
+  ],
+  "prose_blocks": [
+    {
+      "field_id": "incident_scope_narrative",
+      "label": "INCIDENT ORIGIN & CONTAINMENT SCOPE",
+      "page_number": 1,
+      "printed_text": "Braided supply hose on Unit 402 laundry washer ruptured at 06:10, migrating through utility chase into Unit 302 ceiling plenum. Building engineer isolated riser within 18 minutes. Extracted 34 gallons standing water, removed wet cove base, erected 6-mil poly containment, and deployed 8 serialized drying units tracked across Pages 2 and 3.",
+      "normalized_value": "Braided supply hose on Unit 402 laundry washer ruptured at 06:10, migrating through utility chase into Unit 302 ceiling plenum. Building engineer isolated riser within 18 minutes. Extracted 34 gallons standing water, removed wet cove base, erected 6-mil poly containment, and deployed 8 serialized drying units tracked across Pages 2 and 3."
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "containment_checklist",
+      "title": "PAGE 1 INITIAL CONTAINMENT & SAFETY VERIFICATION",
+      "page_numbers": [1],
+      "columns": [
+        {"col_id": "step_code", "header": "Step", "width_pt": 65, "align": "left", "value_type": "identifier"},
+        {"col_id": "unit_zone", "header": "Unit / Zone", "width_pt": 110, "align": "left", "value_type": "text"},
+        {"col_id": "control_action", "header": "Containment / Safety Control", "width_pt": 272, "align": "left", "value_type": "text"},
+        {"col_id": "verified", "header": "Status", "width_pt": 85, "align": "center", "value_type": "text"}
+      ],
+      "rows": [
+        {"row_id": "S01", "page_number": 1, "cells": {"step_code": {"printed_text": "CNT-01", "normalized_value": "CNT-01"}, "unit_zone": {"printed_text": "Unit 402 Laundry", "normalized_value": "Unit 402 Laundry"}, "control_action": {"printed_text": "Capped hot/cold washer valves & extracted pad", "normalized_value": "Capped hot/cold washer valves & extracted pad"}, "verified": {"printed_text": "VERIFIED", "normalized_value": "VERIFIED"}}},
+        {"row_id": "S02", "page_number": 1, "cells": {"step_code": {"printed_text": "CNT-02", "normalized_value": "CNT-02"}, "unit_zone": {"printed_text": "Unit 402 Hall", "normalized_value": "Unit 402 Hall"}, "control_action": {"printed_text": "Installed zipper poly barrier & GFCI spider box", "normalized_value": "Installed zipper poly barrier & GFCI spider box"}, "verified": {"printed_text": "VERIFIED", "normalized_value": "VERIFIED"}}},
+        {"row_id": "S03", "page_number": 1, "cells": {"step_code": {"printed_text": "CNT-03", "normalized_value": "CNT-03"}, "unit_zone": {"printed_text": "Unit 302 Ceiling", "normalized_value": "Unit 302 Ceiling"}, "control_action": {"printed_text": "Drilled 1/4 in weep relief holes & bagged light", "normalized_value": "Drilled 1/4 in weep relief holes & bagged light"}, "verified": {"printed_text": "VERIFIED", "normalized_value": "VERIFIED"}}},
+        {"row_id": "S04", "page_number": 1, "cells": {"step_code": {"printed_text": "CNT-04", "normalized_value": "CNT-04"}, "unit_zone": {"printed_text": "Unit 302 Utility", "normalized_value": "Unit 302 Utility"}, "control_action": {"printed_text": "HEPA negative-air scrubber ducted to chase", "normalized_value": "HEPA negative-air scrubber ducted to chase"}, "verified": {"printed_text": "VERIFIED", "normalized_value": "VERIFIED"}}}
+      ]
+    },
+    {
+      "table_id": "equipment_deployment",
+      "title": "PSYCHROMETRIC & SERIALIZED EQUIPMENT DEPLOYMENT TABLE (CONT. PAGES 2-3)",
+      "page_numbers": [2, 3],
+      "repeated_header_pages": [3],
+      "columns": [
+        {"col_id": "dep_row", "header": "Row", "width_pt": 45, "align": "left", "value_type": "identifier"},
+        {"col_id": "serial_no", "header": "Equipment Serial #", "width_pt": 105, "align": "left", "value_type": "identifier"},
+        {"col_id": "equip_type", "header": "Equipment Type", "width_pt": 125, "align": "left", "value_type": "text"},
+        {"col_id": "placed_room", "header": "Unit / Room Placement", "width_pt": 122, "align": "left", "value_type": "text"},
+        {"col_id": "init_rh", "header": "Init RH%", "width_pt": 65, "align": "right", "value_type": "text"},
+        {"col_id": "init_gpp", "header": "Init GPP", "width_pt": 70, "align": "right", "value_type": "text"}
+      ],
+      "rows": [
+        {"row_id": "E01", "page_number": 2, "cells": {"dep_row": {"printed_text": "E01", "normalized_value": "E01"}, "serial_no": {"printed_text": "DH-00841", "normalized_value": "DH-00841"}, "equip_type": {"printed_text": "LGR Dehumidifier 110pt", "normalized_value": "LGR Dehumidifier 110pt"}, "placed_room": {"printed_text": "Unit 402 Laundry", "normalized_value": "Unit 402 Laundry"}, "init_rh": {"printed_text": "74.2%", "normalized_value": "74.2%"}, "init_gpp": {"printed_text": "96.4 GPP", "normalized_value": "96.4 GPP"}}},
+        {"row_id": "E02", "page_number": 2, "cells": {"dep_row": {"printed_text": "E02", "normalized_value": "E02"}, "serial_no": {"printed_text": "AM-01902", "normalized_value": "AM-01902"}, "equip_type": {"printed_text": "Axial Air Mover 1/3 HP", "normalized_value": "Axial Air Mover 1/3 HP"}, "placed_room": {"printed_text": "Unit 402 Laundry", "normalized_value": "Unit 402 Laundry"}, "init_rh": {"printed_text": "74.2%", "normalized_value": "74.2%"}, "init_gpp": {"printed_text": "96.4 GPP", "normalized_value": "96.4 GPP"}}},
+        {"row_id": "E03", "page_number": 2, "cells": {"dep_row": {"printed_text": "E03", "normalized_value": "E03"}, "serial_no": {"printed_text": "AM-01905", "normalized_value": "AM-01905"}, "equip_type": {"printed_text": "Axial Air Mover 1/3 HP", "normalized_value": "Axial Air Mover 1/3 HP"}, "placed_room": {"printed_text": "Unit 402 Hallway", "normalized_value": "Unit 402 Hallway"}, "init_rh": {"printed_text": "68.5%", "normalized_value": "68.5%"}, "init_gpp": {"printed_text": "88.1 GPP", "normalized_value": "88.1 GPP"}}},
+        {"row_id": "E04", "page_number": 2, "cells": {"dep_row": {"printed_text": "E04", "normalized_value": "E04"}, "serial_no": {"printed_text": "DH-00849", "normalized_value": "DH-00849"}, "equip_type": {"printed_text": "LGR Dehumidifier 110pt", "normalized_value": "LGR Dehumidifier 110pt"}, "placed_room": {"printed_text": "Unit 302 Living/Hall", "normalized_value": "Unit 302 Living/Hall"}, "init_rh": {"printed_text": "71.8%", "normalized_value": "71.8%"}, "init_gpp": {"printed_text": "92.7 GPP", "normalized_value": "92.7 GPP"}}},
+        {"row_id": "E05", "page_number": 2, "cells": {"dep_row": {"printed_text": "E05", "normalized_value": "E05"}, "serial_no": {"printed_text": "AM-01911", "normalized_value": "AM-01911"}, "equip_type": {"printed_text": "Centrifugal Snout Mover", "normalized_value": "Centrifugal Snout Mover"}, "placed_room": {"printed_text": "Unit 302 Chase Cavity", "normalized_value": "Unit 302 Chase Cavity"}, "init_rh": {"printed_text": "76.0%", "normalized_value": "76.0%"}, "init_gpp": {"printed_text": "99.2 GPP", "normalized_value": "99.2 GPP"}}},
+        {"row_id": "E06", "page_number": 2, "cells": {"dep_row": {"printed_text": "E06", "normalized_value": "E06"}, "serial_no": {"printed_text": "HEPA-00304", "normalized_value": "HEPA-00304"}, "equip_type": {"printed_text": "HEPA 500 Air Scrubber", "normalized_value": "HEPA 500 Air Scrubber"}, "placed_room": {"printed_text": "Unit 302 Utility", "normalized_value": "Unit 302 Utility"}, "init_rh": {"printed_text": "70.4%", "normalized_value": "70.4%"}, "init_gpp": {"printed_text": "90.5 GPP", "normalized_value": "90.5 GPP"}}},
+        {"row_id": "E07", "page_number": 3, "cells": {"dep_row": {"printed_text": "E07", "normalized_value": "E07"}, "serial_no": {"printed_text": "AM-01918", "normalized_value": "AM-01918"}, "equip_type": {"printed_text": "Axial Air Mover 1/3 HP", "normalized_value": "Axial Air Mover 1/3 HP"}, "placed_room": {"printed_text": "Unit 302 Laundry", "normalized_value": "Unit 302 Laundry"}, "init_rh": {"printed_text": "72.1%", "normalized_value": "72.1%"}, "init_gpp": {"printed_text": "93.0 GPP", "normalized_value": "93.0 GPP"}}},
+        {"row_id": "E08", "page_number": 3, "cells": {"dep_row": {"printed_text": "E08", "normalized_value": "E08"}, "serial_no": {"printed_text": "DH-00855", "normalized_value": "DH-00855"}, "equip_type": {"printed_text": "Compact LGR Dehumidifier", "normalized_value": "Compact LGR Dehumidifier"}, "placed_room": {"printed_text": "Unit 402 Closet", "normalized_value": "Unit 402 Closet"}, "init_rh": {"printed_text": "66.9%", "normalized_value": "66.9%"}, "init_gpp": {"printed_text": "85.8 GPP", "normalized_value": "85.8 GPP"}}}
+      ]
+    },
+    {
+      "table_id": "equipment_retrieval",
+      "title": "PAGE 3 FINAL DRY-STANDARD & EQUIPMENT RETRIEVAL LOG",
+      "page_numbers": [3],
+      "columns": [
+        {"col_id": "ret_row", "header": "Log", "width_pt": 45, "align": "left", "value_type": "identifier"},
+        {"col_id": "serial_no", "header": "Retrieved Serial #", "width_pt": 110, "align": "left", "value_type": "identifier"},
+        {"col_id": "pickup_date", "header": "Retrieval Date", "width_pt": 95, "align": "left", "value_type": "date_iso"},
+        {"col_id": "run_hours", "header": "Run Hrs", "width_pt": 70, "align": "right", "value_type": "decimal_2"},
+        {"col_id": "final_rh", "header": "Final RH%", "width_pt": 75, "align": "right", "value_type": "text"},
+        {"col_id": "disposition", "header": "Pickup Disposition", "width_pt": 137, "align": "left", "value_type": "text"}
+      ],
+      "rows": [
+        {"row_id": "R01", "page_number": 3, "cells": {"ret_row": {"printed_text": "R01", "normalized_value": "R01"}, "serial_no": {"printed_text": "DH-00841", "normalized_value": "DH-00841"}, "pickup_date": {"printed_text": "2026-10-28", "normalized_value": "2026-10-28"}, "run_hours": {"printed_text": "71.50", "normalized_value": "71.50"}, "final_rh": {"printed_text": "41.0%", "normalized_value": "41.0%"}, "disposition": {"printed_text": "Removed to Truck #04", "normalized_value": "Removed to Truck #04"}}},
+        {"row_id": "R02", "page_number": 3, "cells": {"ret_row": {"printed_text": "R02", "normalized_value": "R02"}, "serial_no": {"printed_text": "AM-01902", "normalized_value": "AM-01902"}, "pickup_date": {"printed_text": "2026-10-28", "normalized_value": "2026-10-28"}, "run_hours": {"printed_text": "71.50", "normalized_value": "71.50"}, "final_rh": {"printed_text": "41.0%", "normalized_value": "41.0%"}, "disposition": {"printed_text": "Removed to Truck #04", "normalized_value": "Removed to Truck #04"}}},
+        {"row_id": "R03", "page_number": 3, "cells": {"ret_row": {"printed_text": "R03", "normalized_value": "R03"}, "serial_no": {"printed_text": "AM-01905", "normalized_value": "AM-01905"}, "pickup_date": {"printed_text": "2026-10-28", "normalized_value": "2026-10-28"}, "run_hours": {"printed_text": "71.00", "normalized_value": "71.00"}, "final_rh": {"printed_text": "40.2%", "normalized_value": "40.2%"}, "disposition": {"printed_text": "Removed to Truck #04", "normalized_value": "Removed to Truck #04"}}},
+        {"row_id": "R04", "page_number": 3, "cells": {"ret_row": {"printed_text": "R04", "normalized_value": "R04"}, "serial_no": {"printed_text": "DH-00849", "normalized_value": "DH-00849"}, "pickup_date": {"printed_text": "2026-10-28", "normalized_value": "2026-10-28"}, "run_hours": {"printed_text": "72.00", "normalized_value": "72.00"}, "final_rh": {"printed_text": "42.5%", "normalized_value": "42.5%"}, "disposition": {"printed_text": "Removed to Truck #04", "normalized_value": "Removed to Truck #04"}}},
+        {"row_id": "R05", "page_number": 3, "cells": {"ret_row": {"printed_text": "R05", "normalized_value": "R05"}, "serial_no": {"printed_text": "AM-01911", "normalized_value": "AM-01911"}, "pickup_date": {"printed_text": "2026-10-28", "normalized_value": "2026-10-28"}, "run_hours": {"printed_text": "72.00", "normalized_value": "72.00"}, "final_rh": {"printed_text": "42.8%", "normalized_value": "42.8%"}, "disposition": {"printed_text": "Removed to Truck #04", "normalized_value": "Removed to Truck #04"}}},
+        {"row_id": "R06", "page_number": 3, "cells": {"ret_row": {"printed_text": "R06", "normalized_value": "R06"}, "serial_no": {"printed_text": "HEPA-00304", "normalized_value": "HEPA-00304"}, "pickup_date": {"printed_text": "2026-10-28", "normalized_value": "2026-10-28"}, "run_hours": {"printed_text": "72.00", "normalized_value": "72.00"}, "final_rh": {"printed_text": "42.1%", "normalized_value": "42.1%"}, "disposition": {"printed_text": "Filter Sealed & Removed", "normalized_value": "Filter Sealed & Removed"}}},
+        {"row_id": "R07", "page_number": 3, "cells": {"ret_row": {"printed_text": "R07", "normalized_value": "R07"}, "serial_no": {"printed_text": "AM-01918", "normalized_value": "AM-01918"}, "pickup_date": {"printed_text": "2026-10-28", "normalized_value": "2026-10-28"}, "run_hours": {"printed_text": "71.25", "normalized_value": "71.25"}, "final_rh": {"printed_text": "41.6%", "normalized_value": "41.6%"}, "disposition": {"printed_text": "Removed to Truck #04", "normalized_value": "Removed to Truck #04"}}},
+        {"row_id": "R08", "page_number": 3, "cells": {"ret_row": {"printed_text": "R08", "normalized_value": "R08"}, "serial_no": {"printed_text": "DH-00855", "normalized_value": "DH-00855"}, "pickup_date": {"printed_text": "2026-10-28", "normalized_value": "2026-10-28"}, "run_hours": {"printed_text": "71.75", "normalized_value": "71.75"}, "final_rh": {"printed_text": "39.8%", "normalized_value": "39.8%"}, "disposition": {"printed_text": "Cleared Dry Standard", "normalized_value": "Cleared Dry Standard"}}}
+      ]
+    }
+  ],
+  "cross_page_links": [
+    {"link_id": "XPL-MP02-PKTID", "link_type": "repeated_document_id", "value": "WMP-00073", "pages": [1, 2, 3]},
+    {"link_id": "XPL-MP02-AUTHID", "link_type": "repeated_authorization_id", "value": "AUTH-00319", "pages": [1, 2, 3]},
+    {"link_id": "XPL-MP02-TBL-P2P3", "link_type": "table_continuation", "table_id": "equipment_deployment", "from_page": 2, "from_last_row": "E06", "to_page": 3, "to_first_row": "E07"},
+    {"link_id": "XPL-MP02-SERIALS", "link_type": "cross_table_serial_referential_integrity", "serial_numbers": ["DH-00841", "AM-01902", "AM-01905", "DH-00849", "AM-01911", "HEPA-00304", "AM-01918", "DH-00855"], "source_table": "equipment_deployment", "target_table": "equipment_retrieval"}
+  ],
+  "signoff_fields": [
+    {"field_id": "final_dry_status", "label": "Mitigation Sign-Off", "value_type": "text", "printed_text": "DRY STANDARD MET - READY FOR DRYWALL CLOSE", "normalized_value": "DRY STANDARD MET - READY FOR DRYWALL CLOSE", "is_absent": false},
+    {"field_id": "lead_tech_signoff", "label": "Mitigation Lead", "value_type": "text", "printed_text": "Devon Alverez (WRT #00612)", "normalized_value": "Devon Alverez (WRT #00612)", "is_absent": false},
+    {"field_id": "property_mgr_signoff", "label": "Property Manager Ack", "value_type": "text", "printed_text": "J. Rivera", "normalized_value": "J. Rivera", "is_absent": false}
+  ]
+}

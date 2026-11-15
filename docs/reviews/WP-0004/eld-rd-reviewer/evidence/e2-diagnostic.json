@@ -1,0 +1,201 @@
+{
+ "tool": "docs/reviews/WP-0004/eld-rd-reviewer/helpers/e2_sign_diagnostic.py",
+ "scope": "dev families F01,F02,F04,F07 page 1 only; v1 (unrotated) and v2 (signed skew); no OCR, no holdout",
+ "pillow": "13.0.0",
+ "angles": "101 candidates -5.0..+5.0 step 0.1",
+ "mask_rotation_resample": "NEAREST (unspecified by card)",
+ "results": [
+  {
+   "family": "F01",
+   "fixture_page": "SYN-WO-01-v1-raster300.pdf#p1",
+   "variant": "v1_raster300",
+   "true_ccw_skew_deg": 0.0,
+   "otsu_threshold": 153,
+   "reading_A": {
+    "theta_hat": 0.0,
+    "V_ratio_vs_0": 1.0,
+    "triggered": false,
+    "applied_pil_rotate_deg": 0.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "outcome": "pass-through"
+   },
+   "reading_B": {
+    "theta_hat": 0.0,
+    "V_ratio_vs_0": 1.0,
+    "triggered": false,
+    "applied_pil_rotate_deg": 0.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "outcome": "pass-through"
+   }
+  },
+  {
+   "family": "F01",
+   "fixture_page": "SYN-WO-01-v2-skew-pos4deg.pdf#p1",
+   "variant": "v2_skew",
+   "true_ccw_skew_deg": 4.0,
+   "otsu_threshold": 160,
+   "reading_A": {
+    "theta_hat": -4.0,
+    "V_ratio_vs_0": 6.8005,
+    "triggered": true,
+    "applied_pil_rotate_deg": 4.0,
+    "analytic_residual_ccw_deg": 8.0,
+    "empirical_residual_ccw_deg": 8.0,
+    "outcome": "amplified"
+   },
+   "reading_B": {
+    "theta_hat": 4.0,
+    "V_ratio_vs_0": 6.8005,
+    "triggered": true,
+    "applied_pil_rotate_deg": -4.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "empirical_residual_ccw_deg": -0.0,
+    "outcome": "corrected"
+   }
+  },
+  {
+   "family": "F02",
+   "fixture_page": "SYN-WO-02-v1-raster300.pdf#p1",
+   "variant": "v1_raster300",
+   "true_ccw_skew_deg": 0.0,
+   "otsu_threshold": 155,
+   "reading_A": {
+    "theta_hat": 0.0,
+    "V_ratio_vs_0": 1.0,
+    "triggered": false,
+    "applied_pil_rotate_deg": 0.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "outcome": "pass-through"
+   },
+   "reading_B": {
+    "theta_hat": 0.0,
+    "V_ratio_vs_0": 1.0,
+    "triggered": false,
+    "applied_pil_rotate_deg": 0.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "outcome": "pass-through"
+   }
+  },
+  {
+   "family": "F02",
+   "fixture_page": "SYN-WO-02-v2-skew-neg3deg.pdf#p1",
+   "variant": "v2_skew",
+   "true_ccw_skew_deg": -3.0,
+   "otsu_threshold": 161,
+   "reading_A": {
+    "theta_hat": 3.0,
+    "V_ratio_vs_0": 7.0318,
+    "triggered": true,
+    "applied_pil_rotate_deg": -3.0,
+    "analytic_residual_ccw_deg": -6.0,
+    "empirical_residual_ccw_deg": -6.0,
+    "outcome": "amplified"
+   },
+   "reading_B": {
+    "theta_hat": -3.0,
+    "V_ratio_vs_0": 7.0318,
+    "triggered": true,
+    "applied_pil_rotate_deg": 3.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "empirical_residual_ccw_deg": -0.0,
+    "outcome": "corrected"
+   }
+  },
+  {
+   "family": "F04",
+   "fixture_page": "SYN-INV-01-v1-raster300.pdf#p1",
+   "variant": "v1_raster300",
+   "true_ccw_skew_deg": 0.0,
+   "otsu_threshold": 156,
+   "reading_A": {
+    "theta_hat": 0.0,
+    "V_ratio_vs_0": 1.0,
+    "triggered": false,
+    "applied_pil_rotate_deg": 0.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "outcome": "pass-through"
+   },
+   "reading_B": {
+    "theta_hat": 0.0,
+    "V_ratio_vs_0": 1.0,
+    "triggered": false,
+    "applied_pil_rotate_deg": 0.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "outcome": "pass-through"
+   }
+  },
+  {
+   "family": "F04",
+   "fixture_page": "SYN-INV-01-v2-skew-neg3deg.pdf#p1",
+   "variant": "v2_skew",
+   "true_ccw_skew_deg": -3.0,
+   "otsu_threshold": 163,
+   "reading_A": {
+    "theta_hat": 3.0,
+    "V_ratio_vs_0": 6.8949,
+    "triggered": true,
+    "applied_pil_rotate_deg": -3.0,
+    "analytic_residual_ccw_deg": -6.0,
+    "empirical_residual_ccw_deg": -6.0,
+    "outcome": "amplified"
+   },
+   "reading_B": {
+    "theta_hat": -3.0,
+    "V_ratio_vs_0": 6.8949,
+    "triggered": true,
+    "applied_pil_rotate_deg": 3.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "empirical_residual_ccw_deg": -0.0,
+    "outcome": "corrected"
+   }
+  },
+  {
+   "family": "F07",
+   "fixture_page": "SYN-MP-01-v1-raster300.pdf#p1",
+   "variant": "v1_raster300",
+   "true_ccw_skew_deg": 0.0,
+   "otsu_threshold": 158,
+   "reading_A": {
+    "theta_hat": 0.0,
+    "V_ratio_vs_0": 1.0,
+    "triggered": false,
+    "applied_pil_rotate_deg": 0.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "outcome": "pass-through"
+   },
+   "reading_B": {
+    "theta_hat": 0.0,
+    "V_ratio_vs_0": 1.0,
+    "triggered": false,
+    "applied_pil_rotate_deg": 0.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "outcome": "pass-through"
+   }
+  },
+  {
+   "family": "F07",
+   "fixture_page": "SYN-MP-01-v2-skew-pos4deg.pdf#p1",
+   "variant": "v2_skew",
+   "true_ccw_skew_deg": 4.0,
+   "otsu_threshold": 165,
+   "reading_A": {
+    "theta_hat": -4.0,
+    "V_ratio_vs_0": 7.2433,
+    "triggered": true,
+    "applied_pil_rotate_deg": 4.0,
+    "analytic_residual_ccw_deg": 8.0,
+    "empirical_residual_ccw_deg": 8.0,
+    "outcome": "amplified"
+   },
+   "reading_B": {
+    "theta_hat": 4.0,
+    "V_ratio_vs_0": 7.2433,
+    "triggered": true,
+    "applied_pil_rotate_deg": -4.0,
+    "analytic_residual_ccw_deg": 0.0,
+    "empirical_residual_ccw_deg": -0.0,
+    "outcome": "corrected"
+   }
+  }
+ ]
+}

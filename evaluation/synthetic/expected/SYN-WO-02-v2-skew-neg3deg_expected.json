@@ -1,0 +1,268 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "SYN-WO-02-v2-skew-neg3deg",
+  "family_id": "F02",
+  "doc_kind": "work_order",
+  "split": "dev",
+  "split_disclosure": "fixed_test_partition_not_blind_to_corpus_author",
+  "variant_kind": "v2_skew",
+  "parent_fixture_id": "SYN-WO-02-v1-raster300",
+  "page_count": 1,
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": [],
+  "expected_routing_for_e3": "must_route_to_ocr",
+  "transform_params": {
+    "source_raster_fixture": "SYN-WO-02-v1-raster300",
+    "pillow_version": "13.0.0",
+    "method": "PIL.Image.Image.rotate(angle, resample=BILINEAR, expand=True, fillcolor=(255,255,255))",
+    "signed_angle_degrees_ccw": -3.0,
+    "dpi": 300,
+    "expanded_pixel_size_per_page": [
+      2720,
+      3431
+    ],
+    "text_layer": false
+  },
+  "expected_fields": [
+    {
+      "field_id": "work_order_id",
+      "label_printed": "Ticket Number",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "WO-004815",
+      "normalized_value": "WO-004815",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "property_unit",
+      "label_printed": "Property / Unit",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "Maple Ridge Commons - Unit 12B",
+      "normalized_value": "Maple Ridge Commons - Unit 12B",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "equipment_asset_tag",
+      "label_printed": "Water Heater Asset Tag",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "WH-40G-8821",
+      "normalized_value": "WH-40G-8821",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "lockbox_key_code",
+      "label_printed": "Lockbox / Key Code",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "LBX-0942",
+      "normalized_value": "LBX-0942",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "reported_at",
+      "label_printed": "Reported UTC",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "2026-10-19 07:30",
+      "normalized_value": "2026-10-19 07:30",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "dispatched_at",
+      "label_printed": "Dispatched UTC",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "2026-10-19 08:05",
+      "normalized_value": "2026-10-19 08:05",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "completed_at",
+      "label_printed": "Completed UTC",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "2026-10-19 11:20",
+      "normalized_value": "2026-10-19 11:20",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "unit_vacant",
+      "label_printed": "Occupancy: Vacant",
+      "page_number": 1,
+      "value_type": "boolean_mark",
+      "printed_text": "[X]",
+      "normalized_value": "true",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "water_isolated",
+      "label_printed": "Branch Isolation Tested",
+      "page_number": 1,
+      "value_type": "boolean_mark",
+      "printed_text": "[X]",
+      "normalized_value": "true",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "drywall_damage",
+      "label_printed": "Subfloor / Drywall Wet",
+      "page_number": 1,
+      "value_type": "boolean_mark",
+      "printed_text": "[ ]",
+      "normalized_value": "false",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "root_cause_findings",
+      "label_printed": "ROOT CAUSE DIAGNOSTIC NOTES",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "During vacant turnover walkthrough in Unit 12B, observed slow drip (approx. 1 drop/10 sec) at cold-water dielectric union above 40-gallon tank WH-40G-8821 and seized quarter-turn angle stop beneath kitchen sink. Catch pan contained 0.4 L standing water; utility closet vinyl floor dry.",
+      "normalized_value": "During vacant turnover walkthrough in Unit 12B, observed slow drip (approx. 1 drop/10 sec) at cold-water dielectric union above 40-gallon tank WH-40G-8821 and seized quarter-turn angle stop beneath kitchen sink. Catch pan contained 0.4 L standing water; utility closet vinyl floor dry.",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "corrective_resolution",
+      "label_printed": "CORRECTIVE WORK PERFORMED",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Depressurized domestic branch line, replaced corroded 3/4 in dielectric union washer and braided stainless supply flex on WH-40G-8821, installed new 1/2x3/8 compression quarter-turn stop under kitchen sink, and hydrostatic-tested at 68 PSI for 30 minutes with zero seepage.",
+      "normalized_value": "Depressurized domestic branch line, replaced corroded 3/4 in dielectric union washer and braided stainless supply flex on WH-40G-8821, installed new 1/2x3/8 compression quarter-turn stop under kitchen sink, and hydrostatic-tested at 68 PSI for 30 minutes with zero seepage.",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "technician_name",
+      "label_printed": "Lead Plumber",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Tomasz Kowalski (#0043)",
+      "normalized_value": "Tomasz Kowalski (#0043)",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "supervisor_name",
+      "label_printed": "Turnover Supervisor",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "R. Henderson",
+      "normalized_value": "R. Henderson",
+      "bbox_pt": null
+    },
+    {
+      "field_id": "ticket_disposition",
+      "label_printed": "Disposition",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "READY FOR MAKE-READY PAINT",
+      "normalized_value": "READY FOR MAKE-READY PAINT",
+      "bbox_pt": null
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "secondary_vendor_po",
+      "label_printed": "Secondary Vendor PO",
+      "page_number": 1,
+      "expected_state": "absent_blank"
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "turnover_tasks",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "task_code",
+        "fixture_area",
+        "action_taken",
+        "pressure_psi"
+      ],
+      "rows": [
+        {
+          "row_id": "TK01",
+          "page_number": 1,
+          "cells": {
+            "task_code": {
+              "printed_text": "PLM-0104",
+              "normalized_value": "PLM-0104",
+              "value_type": "identifier"
+            },
+            "fixture_area": {
+              "printed_text": "Utility Closet WH",
+              "normalized_value": "Utility Closet WH",
+              "value_type": "text"
+            },
+            "action_taken": {
+              "printed_text": "Replaced 3/4 in dielectric union & flex",
+              "normalized_value": "Replaced 3/4 in dielectric union & flex",
+              "value_type": "text"
+            },
+            "pressure_psi": {
+              "printed_text": "68.0 PSI",
+              "normalized_value": "68.0 PSI",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "TK02",
+          "page_number": 1,
+          "cells": {
+            "task_code": {
+              "printed_text": "PLM-0209",
+              "normalized_value": "PLM-0209",
+              "value_type": "identifier"
+            },
+            "fixture_area": {
+              "printed_text": "Kitchen Base Sink",
+              "normalized_value": "Kitchen Base Sink",
+              "value_type": "text"
+            },
+            "action_taken": {
+              "printed_text": "Replaced cold angle stop & supply riser",
+              "normalized_value": "Replaced cold angle stop & supply riser",
+              "value_type": "text"
+            },
+            "pressure_psi": {
+              "printed_text": "68.0 PSI",
+              "normalized_value": "68.0 PSI",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "TK03",
+          "page_number": 1,
+          "cells": {
+            "task_code": {
+              "printed_text": "PLM-0311",
+              "normalized_value": "PLM-0311",
+              "value_type": "identifier"
+            },
+            "fixture_area": {
+              "printed_text": "Hall Bath Tub/Lav",
+              "normalized_value": "Hall Bath Tub/Lav",
+              "value_type": "text"
+            },
+            "action_taken": {
+              "printed_text": "Cleared aerator & verified drain trap seal",
+              "normalized_value": "Cleared aerator & verified drain trap seal",
+              "value_type": "text"
+            },
+            "pressure_psi": {
+              "printed_text": "67.5 PSI",
+              "normalized_value": "67.5 PSI",
+              "value_type": "text"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "invoice_accounting": null
+}

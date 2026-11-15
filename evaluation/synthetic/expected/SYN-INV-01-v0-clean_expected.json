@@ -1,0 +1,596 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "SYN-INV-01-v0-clean",
+  "family_id": "F04",
+  "doc_kind": "invoice",
+  "split": "dev",
+  "split_disclosure": "fixed_test_partition_not_blind_to_corpus_author",
+  "variant_kind": "v0_clean",
+  "parent_fixture_id": null,
+  "page_count": 1,
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": [],
+  "expected_routing_for_e3": "eligible_digital_text_layer",
+  "transform_params": {
+    "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+    "dpi": null,
+    "rotation_deg": 0.0
+  },
+  "expected_fields": [
+    {
+      "field_id": "address_bill_to",
+      "label_printed": "BILL TO",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Cedar Hollow Property Management LLC, Accounts Payable - Suite 110, 2400 Cedar Hollow Pkwy, Oakbrook, IL 60523",
+      "normalized_value": "Cedar Hollow Property Management LLC, Accounts Payable - Suite 110, 2400 Cedar Hollow Pkwy, Oakbrook, IL 60523",
+      "bbox_pt": [
+        40.0,
+        656.0,
+        303.0,
+        710.0
+      ]
+    },
+    {
+      "field_id": "address_service_location",
+      "label_printed": "SERVICE LOCATION",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Cedar Hollow Apartments, Bldg B - Main Stack & Unit 104 Cleanout, 2412 Cedar Hollow Pkwy, Oakbrook, IL 60523",
+      "normalized_value": "Cedar Hollow Apartments, Bldg B - Main Stack & Unit 104 Cleanout, 2412 Cedar Hollow Pkwy, Oakbrook, IL 60523",
+      "bbox_pt": [
+        309.0,
+        656.0,
+        572.0,
+        710.0
+      ]
+    },
+    {
+      "field_id": "invoice_number",
+      "label_printed": "Invoice No",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "INV-002641",
+      "normalized_value": "INV-002641",
+      "bbox_pt": [
+        45.0,
+        631.5,
+        87.59,
+        639.3
+      ]
+    },
+    {
+      "field_id": "work_order_ref",
+      "label_printed": "Work Order Ref",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "WO-004118",
+      "normalized_value": "WO-004118",
+      "bbox_pt": [
+        222.33,
+        631.5,
+        263.44,
+        639.3
+      ]
+    },
+    {
+      "field_id": "invoice_date",
+      "label_printed": "Invoice Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-10-18",
+      "normalized_value": "2026-10-18",
+      "bbox_pt": [
+        399.67,
+        631.5,
+        440.07,
+        639.3
+      ]
+    },
+    {
+      "field_id": "due_date",
+      "label_printed": "Due Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-11-17",
+      "normalized_value": "2026-11-17",
+      "bbox_pt": [
+        45.0,
+        608.5,
+        85.4,
+        616.3
+      ]
+    },
+    {
+      "field_id": "payment_terms",
+      "label_printed": "Terms",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Net 30",
+      "normalized_value": "Net 30",
+      "bbox_pt": [
+        222.33,
+        608.5,
+        246.36,
+        616.3
+      ]
+    },
+    {
+      "field_id": "subtotal",
+      "label_printed": "Line Net Subtotal",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$287.05",
+      "normalized_value": "287.05",
+      "bbox_pt": [
+        537.53,
+        431.0,
+        566.0,
+        438.8
+      ]
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "label_printed": "Taxable Subtotal (Tax=T Rows)",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$79.55",
+      "normalized_value": "79.55",
+      "bbox_pt": [
+        541.9,
+        416.5,
+        566.0,
+        424.3
+      ]
+    },
+    {
+      "field_id": "tax_amount",
+      "label_printed": "Sales Tax (6.25% on Taxable Subtotal)",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$4.97",
+      "normalized_value": "4.97",
+      "bbox_pt": [
+        546.27,
+        402.0,
+        566.0,
+        409.8
+      ]
+    },
+    {
+      "field_id": "non_taxable_fees",
+      "label_printed": "Non-Taxable Fees",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$0.00",
+      "normalized_value": "0.00",
+      "bbox_pt": [
+        546.27,
+        387.5,
+        566.0,
+        395.3
+      ]
+    },
+    {
+      "field_id": "invoice_total",
+      "label_printed": "CURRENT INVOICE TOTAL",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$292.02",
+      "normalized_value": "292.02",
+      "bbox_pt": [
+        535.82,
+        373.0,
+        566.0,
+        380.8
+      ]
+    },
+    {
+      "field_id": "previous_balance",
+      "label_printed": "Prior Unpaid Balance",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$0.00",
+      "normalized_value": "0.00",
+      "bbox_pt": [
+        546.27,
+        358.5,
+        566.0,
+        366.3
+      ]
+    },
+    {
+      "field_id": "payments_credits_applied",
+      "label_printed": "Payments / Credits Applied",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$0.00",
+      "normalized_value": "0.00",
+      "bbox_pt": [
+        546.27,
+        344.0,
+        566.0,
+        351.8
+      ]
+    },
+    {
+      "field_id": "amount_due",
+      "label_printed": "TOTAL AMOUNT DUE",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$292.02",
+      "normalized_value": "292.02",
+      "bbox_pt": [
+        535.82,
+        329.5,
+        566.0,
+        337.3
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "customer_po_code",
+      "label_printed": "Customer PO / CapEx Code",
+      "page_number": 1,
+      "expected_state": "absent_blank"
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "line_items",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "rows": [
+        {
+          "row_id": "L01",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L01",
+              "normalized_value": "L01",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-DRN-AUG",
+              "normalized_value": "LAB-DRN-AUG",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Emergency Main Drain Auger & Camera Clearing Labor",
+              "normalized_value": "Emergency Main Drain Auger & Camera Clearing Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.50 HR",
+              "normalized_value": "1.50",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$95.00",
+              "normalized_value": "95.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$142.50",
+              "normalized_value": "142.50",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L02",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L02",
+              "normalized_value": "L02",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-DRN-TST",
+              "normalized_value": "LAB-DRN-TST",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Secondary Trap Hydro-Flush & Standing Column Leak Test",
+              "normalized_value": "Secondary Trap Hydro-Flush & Standing Column Leak Test",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 HR",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$65.00",
+              "normalized_value": "65.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$65.00",
+              "normalized_value": "65.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L03",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L03",
+              "normalized_value": "L03",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0034-PVC-2IN",
+              "normalized_value": "0034-PVC-2IN",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Schedule 40 PVC Cleanout Tee Assembly w/ Threaded Plug",
+              "normalized_value": "Schedule 40 PVC Cleanout Tee Assembly w/ Threaded Plug",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 EA",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$18.40",
+              "normalized_value": "18.40",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$36.80",
+              "normalized_value": "36.80",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L04",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L04",
+              "normalized_value": "L04",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "0091-WAX-HD",
+              "normalized_value": "0091-WAX-HD",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Reinforced Closet Flange Ring & Solid Brass Bolt Kit",
+              "normalized_value": "Reinforced Closet Flange Ring & Solid Brass Bolt Kit",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 KT",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$42.75",
+              "normalized_value": "42.75",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$42.75",
+              "normalized_value": "42.75",
+              "value_type": "currency_usd"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "invoice_accounting": {
+    "convention": "eledgercare_synthetic_decimal_round_half_up_v1",
+    "currency": "USD",
+    "printed_rule_notice": "Basis: Line Gross = round_half_up(Qty * Unit Price, 0.01); Net Line = Gross - round_half_up(Gross * Disc%, 0.01); Sales Tax (6.25%) applies ONLY to net rows marked Tax=T; Labor rows (Tax=N) are exempt.",
+    "rows": [
+      {
+        "row_id": "L01",
+        "page_number": 1,
+        "sku": "LAB-DRN-AUG",
+        "description": "Emergency Main Drain Auger & Camera Clearing Labor",
+        "quantity_norm": "1.50",
+        "unit": "HR",
+        "qty_unit_printed": "1.50 HR",
+        "unit_price_norm": "95.00",
+        "unit_price_printed": "$95.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "142.50",
+        "gross_line_printed": "$142.50",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "142.50",
+        "net_line_printed": "$142.50"
+      },
+      {
+        "row_id": "L02",
+        "page_number": 1,
+        "sku": "LAB-DRN-TST",
+        "description": "Secondary Trap Hydro-Flush & Standing Column Leak Test",
+        "quantity_norm": "1.00",
+        "unit": "HR",
+        "qty_unit_printed": "1.00 HR",
+        "unit_price_norm": "65.00",
+        "unit_price_printed": "$65.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "65.00",
+        "gross_line_printed": "$65.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "65.00",
+        "net_line_printed": "$65.00"
+      },
+      {
+        "row_id": "L03",
+        "page_number": 1,
+        "sku": "0034-PVC-2IN",
+        "description": "Schedule 40 PVC Cleanout Tee Assembly w/ Threaded Plug",
+        "quantity_norm": "2.00",
+        "unit": "EA",
+        "qty_unit_printed": "2.00 EA",
+        "unit_price_norm": "18.40",
+        "unit_price_printed": "$18.40",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "36.80",
+        "gross_line_printed": "$36.80",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "36.80",
+        "net_line_printed": "$36.80"
+      },
+      {
+        "row_id": "L04",
+        "page_number": 1,
+        "sku": "0091-WAX-HD",
+        "description": "Reinforced Closet Flange Ring & Solid Brass Bolt Kit",
+        "quantity_norm": "1.00",
+        "unit": "KT",
+        "qty_unit_printed": "1.00 KT",
+        "unit_price_norm": "42.75",
+        "unit_price_printed": "$42.75",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "42.75",
+        "gross_line_printed": "$42.75",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "42.75",
+        "net_line_printed": "$42.75"
+      }
+    ],
+    "fees": [],
+    "summary": {
+      "subtotal": {
+        "normalized_value": "287.05",
+        "printed_text": "$287.05"
+      },
+      "taxable_subtotal": {
+        "normalized_value": "79.55",
+        "printed_text": "$79.55"
+      },
+      "tax_rate": {
+        "normalized_value": "0.0625",
+        "printed_text": "6.25%"
+      },
+      "tax_amount": {
+        "normalized_value": "4.97",
+        "printed_text": "$4.97"
+      },
+      "non_taxable_fees": {
+        "normalized_value": "0.00",
+        "printed_text": "$0.00"
+      },
+      "invoice_total": {
+        "normalized_value": "292.02",
+        "printed_text": "$292.02"
+      },
+      "previous_balance": {
+        "normalized_value": "0.00",
+        "printed_text": "$0.00"
+      },
+      "payments_credits_applied": {
+        "normalized_value": "0.00",
+        "printed_text": "$0.00"
+      },
+      "amount_due": {
+        "normalized_value": "292.02",
+        "printed_text": "$292.02"
+      }
+    }
+  }
+}

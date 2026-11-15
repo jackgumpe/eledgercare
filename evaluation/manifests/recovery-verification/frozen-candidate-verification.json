@@ -1,0 +1,1450 @@
+{
+  "schema_version": "1.0.0",
+  "packet": "WP-0004 / 004",
+  "recorded_at_utc": "2026-11-14T21:25:03Z",
+  "author_id": "eld-rd-carbon",
+  "authorship_and_independence_disclosure": {
+    "prior_stalled_session": "74513d00-ee88-4e85-a554-120908615b21",
+    "fresh_recovery_session": "993d4f08-72d0-479c-9e6c-047280cedf95",
+    "checkpoint_publisher": "eld-coordinator (unchanged 71-file draft copy verified via 5af7074ad974829537487276ec5dbc26402e68ac:docs/coordination/rd-carbon-recovery-copy.json)",
+    "status": "author_verification_only_ready_for_review",
+    "non_author_acceptance": false,
+    "next_reviewer": "eld-rd-reviewer (uninvolved Opus in WP-0004 / 005)"
+  },
+  "revisions": {
+    "coordinator_release_sha": "5af7074ad974829537487276ec5dbc26402e68ac",
+    "original_author_base_sha": "fef02d64aca2594e146930e4a0cb3ec18e355ed5",
+    "checkpoint_execution_base_sha": "8fb7e3ca537b1710fe231dad0cf5d177c6e5d733",
+    "frozen_candidate_sha": "fca8f16e51359d6895dca27a05fe76af82f58ff4",
+    "owned_branch": "research/wp-0004-carbon-recovery"
+  },
+  "pre_freeze_checkpoint_findings_and_bounded_fixes": [
+    {
+      "finding_id": "REC-01",
+      "description": "Pre-edit execution of verify_corpus_integrity.py --check-regeneration failed with AssertionError on manifests/corpus-manifest.json because the stalled prior session had refined character-width estimation in pdf_writer.py right before stalling without re-running generate_corpus.py onto evaluation/.",
+      "resolution": "Re-ran evaluation/generation/generate_corpus.py cleanly from the unchanged F01..F08 sources and unchanged Python scripts, synchronizing all 26 PDFs, 10 vector/hybrid expected bbox JSONs, and corpus-manifest.json."
+    },
+    {
+      "finding_id": "REC-02",
+      "description": "Relative link ../../evaluation/README.md in research/carbon/reconciliation/README.md resolved to non-existent research/evaluation/README.md, and header metadata still cited old branch/worktree/release.",
+      "resolution": "Corrected relative link to ../../../evaluation/README.md and updated branch/worktree/checkpoint/release metadata across research/carbon/reconciliation/README.md, evaluation/README.md, and evaluation/manifests/tooling-provenance.json."
+    },
+    {
+      "finding_id": "REC-03",
+      "description": "Missing *.py text eol=lf rule in .gitattributes caused core.autocrlf=true checkout warnings on Windows and risked CRLF mutation of the 4 hash-recorded generation/check scripts in fresh reviewer clones.",
+      "resolution": "Added narrow *.py text eol=lf rule to .gitattributes preserving all existing rules; verified zero CRLF bytes and identical SHA-256/blob OIDs in a fresh core.autocrlf=true clone."
+    }
+  ],
+  "executed_checks_on_frozen_candidate": {
+    "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "gate_a_independent_arithmetic_stdout": "AUTHOR_ARITHMETIC_CHECK_PASS: verified_expected_files=26 invoice_fixtures_recomputed=12 (Note: author check only; Opus /005 review required for admission)",
+    "gate_b_corpus_integrity_and_two_run_regeneration_stdout": "GENERATED_OK: families=8 pdfs=26 pages=40\nGENERATED_OK: families=8 pdfs=26 pages=40\nCORPUS_INTEGRITY_PASS: {\"tree\": {\"pdfs_verified\": 26, \"pages_verified\": 40, \"variant_counts\": {\"v0_clean\": 8, \"v1_raster300\": 8, \"v2_skew\": 8, \"v3_hybrid\": 2}}, \"regeneration\": {\"byte_identical_artifacts_across_run1_run2_and_repo\": 53}}",
+    "clean_autocrlf_clone_arithmetic_stdout": "AUTHOR_ARITHMETIC_CHECK_PASS: verified_expected_files=26 invoice_fixtures_recomputed=12 (Note: author check only; Opus /005 review required for admission)",
+    "clean_autocrlf_clone_integrity_and_regeneration_stdout": "GENERATED_OK: families=8 pdfs=26 pages=40\nGENERATED_OK: families=8 pdfs=26 pages=40\nCORPUS_INTEGRITY_PASS: {\"tree\": {\"pdfs_verified\": 26, \"pages_verified\": 40, \"variant_counts\": {\"v0_clean\": 8, \"v1_raster300\": 8, \"v2_skew\": 8, \"v3_hybrid\": 2}}, \"regeneration\": {\"byte_identical_artifacts_across_run1_run2_and_repo\": 53}}",
+    "clean_autocrlf_clone_script_verifications": [
+      {
+        "path": "evaluation/generation/generate_corpus.py",
+        "size_bytes": 51675,
+        "crlf_count": 0,
+        "sha256": "7ae2bc77faca1409dc97ac0632eff2fe8dac85c15e7315d8f159b7f6b49a7629",
+        "git_blob_oid": "484a77b1641d82efbcb0e30c172b6d220ec7394e",
+        "matches_checkpoint_copy_receipt": true
+      },
+      {
+        "path": "evaluation/generation/pdf_writer.py",
+        "size_bytes": 11711,
+        "crlf_count": 0,
+        "sha256": "e75929f4d9567921d4e64093f6c655021dd82c28b161280066191fb7808087c6",
+        "git_blob_oid": "3c50e6dff4bb47b4e20cf7119d957ebad474f184",
+        "matches_checkpoint_copy_receipt": true
+      },
+      {
+        "path": "evaluation/generation/verify_arithmetic_independent.py",
+        "size_bytes": 7908,
+        "crlf_count": 0,
+        "sha256": "8b5c7d70c958e1b26266284565c6390e4ee48b94d899d460c0cf10c99dcb1b84",
+        "git_blob_oid": "9ca2593318040ada6033993af3df215cd2128c85",
+        "matches_checkpoint_copy_receipt": true
+      },
+      {
+        "path": "evaluation/generation/verify_corpus_integrity.py",
+        "size_bytes": 11641,
+        "crlf_count": 0,
+        "sha256": "ebbb31278afa3d88a2aa2c964e0e75fac4442bb844776db2c0f358f40a7898b2",
+        "git_blob_oid": "2fb634c390f266f1e7d6f68da5a29aa438a1fc38",
+        "matches_checkpoint_copy_receipt": true
+      }
+    ],
+    "markdown_relative_links_verified": 10,
+    "wheel_license_files_verified": 14,
+    "visual_inspection_summary": {
+      "pages_inspected_in_fresh_session": 40,
+      "total_corpus_pages": 40,
+      "coverage_ratio": "40/40 (100%)",
+      "resolution_dpi": 300,
+      "frozen_candidate_vs_inspected_png_byte_mismatches": 0
+    }
+  },
+  "diff_inventory_counts": {
+    "original_base_to_frozen_candidate_files": 72,
+    "checkpoint_to_frozen_candidate_files": 41
+  },
+  "checkpoint_to_frozen_candidate_delta": [
+    {
+      "status": "M",
+      "path": ".gitattributes",
+      "size_bytes": 321,
+      "sha256": "7f6aa8f3cc01cbd34f82fc6086607b79ce91d3cf01d1c7127a5b87ad3fb04719",
+      "git_blob_oid": "91517ab018a1b44713bf536c0bb04b7d128912b6"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/README.md",
+      "size_bytes": 6107,
+      "sha256": "700f1f491e285bcf424c28ce28101fe966d659a52959310455ea9d398ff42a72",
+      "git_blob_oid": "4a9c6df1b3067e3ff33cfad341f77d30455f0ad2"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/manifests/corpus-manifest.json",
+      "size_bytes": 57873,
+      "sha256": "ad9bcb09f9e60c5537bf43ff5bab83813ee2eec2e722ebdd81d89ceb6f572fe3",
+      "git_blob_oid": "57ec8a0de6a34c70510cb02d5b980ad5f5e2d305"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/manifests/tooling-provenance.json",
+      "size_bytes": 5509,
+      "sha256": "b3de20ab326b77abb6f14f3d55b13bd68185a64a8e7529ee80e6351a4920e2fa",
+      "git_blob_oid": "999fcab1a23d88bf99bc6d9f6786b56495367933"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-INV-01-v0-clean_expected.json",
+      "size_bytes": 17186,
+      "sha256": "5d5e5ffde340f17c08ad863876b86e7fb3b9cd0503967a135cd2cf08a15c2570",
+      "git_blob_oid": "9b59f6d3305b9fc164aa94c0e70e78cadf7878c3"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-INV-02-v0-clean_expected.json",
+      "size_bytes": 22425,
+      "sha256": "d06a3a1ba84f8aa57d823d3a1458f3ed3b685b78556500054d7292aa173c2fac",
+      "git_blob_oid": "7ce29ce0f98bbf59795300bca05c0aff79d5db5e"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-INV-03-v0-clean_expected.json",
+      "size_bytes": 31612,
+      "sha256": "79aac57644b3819d8263c34876ab95746b531617e6f9e447f7105a6aad5fb68d",
+      "git_blob_oid": "a284453d81c1a433d154c644693e4d000a9fcc9f"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-MP-01-v0-clean_expected.json",
+      "size_bytes": 57230,
+      "sha256": "ba7852dd2c4bd26d1dd213e4a1ebad8170f35a6d200861c54b4af0efb74945e6",
+      "git_blob_oid": "317f8efb9b31deafbe5fcd49a0f662071914d781"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-MP-02-v0-clean_expected.json",
+      "size_bytes": 29279,
+      "sha256": "73571a2c3611acb9a5fd13dcead9b9e48f4b4fee588adebbc956bd93ba3132b4",
+      "git_blob_oid": "d7c5651b6c38cc6292718290aaf890702ca9fbc7"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-MP-02-v3-hybrid-stamp_expected.json",
+      "size_bytes": 30004,
+      "sha256": "2c94f42f72c86d5c09d2795dca2b84dc64f1f00221b2fbf8386de39cd6f8a46b",
+      "git_blob_oid": "ccccee796183c5e138f6451ba27b15f1e041eafc"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json",
+      "size_bytes": 10662,
+      "sha256": "2299f16b53ab01d7b2078439f81de2dba260de803393ae39fba7e28b5faa4b71",
+      "git_blob_oid": "785d51b2edd889ec48c0cb1b66303e01f7957fc5"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-WO-02-v0-clean_expected.json",
+      "size_bytes": 9572,
+      "sha256": "10b7b56bd4c8b063e5b6c49d8d119e75c0091647ebc2ee29b73af3c9cf29ea4e",
+      "git_blob_oid": "42f292a9f006ecf5e349e2608ac9a9dac1d125bb"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-WO-02-v3-hybrid-note_expected.json",
+      "size_bytes": 10284,
+      "sha256": "3431c700ac9eb785b45254207141917e7c8b37c20fa07470edf38307e00a8e5d",
+      "git_blob_oid": "74f8dfcf2a052cba6956b01f4b4539f467d237b6"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/expected/SYN-WO-03-v0-clean_expected.json",
+      "size_bytes": 14975,
+      "sha256": "cc153bc49c9cc76236427b3fde518bcf69764f1673d7985ceec9455db4dc70a3",
+      "git_blob_oid": "7cb5df26bd4a79b3e80f516d524ba375100f61ac"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v0-clean.pdf",
+      "size_bytes": 3482,
+      "sha256": "893d08ddfc87ef6a18f846d9119d9ba68566d7914aef4bcdc47de0f991c7026f",
+      "git_blob_oid": "ec3dd81ac80ed0a27f846868884822e1de77ee6d"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v1-raster300.pdf",
+      "size_bytes": 372258,
+      "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "git_blob_oid": "532f8edf85d04a4e8f81834bf9dd7753e5b4c8af"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v2-skew-pos4deg.pdf",
+      "size_bytes": 1554923,
+      "sha256": "2b5ec36753fa2bb52894746d69851fe68a2b39de533a1e05b965573e5ae17b37",
+      "git_blob_oid": "a53b330201fc7219441867f53b34b3308b7a430e"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v0-clean.pdf",
+      "size_bytes": 3260,
+      "sha256": "a265cae6f0892411f302a45fd90fae68d9a6954dbb05e24efa44b38885cc3852",
+      "git_blob_oid": "55b792e6bdc1c8870af8e653c1e2d1bd59822510"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v1-raster300.pdf",
+      "size_bytes": 377213,
+      "sha256": "7499f8678025ee7cb1106d53ec4b1dff2eb13a56ca78e923709d4f6a32b60aeb",
+      "git_blob_oid": "27555e2d1d6b9049f1a7b24644d0b87eb27c53a7"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v2-skew-neg3deg.pdf",
+      "size_bytes": 1477583,
+      "sha256": "51b2be5e3c30f2f25435c8d5992927acc49e80645f53c8d85c3bc903246fc96f",
+      "git_blob_oid": "fbde79685cb77cc904a7668e58ec210c1e9d9d6d"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v3-hybrid-note.pdf",
+      "size_bytes": 12224,
+      "sha256": "35be2a39efb642b0d8850161d2acef8acf10eb9811edcec3e1e64f02cae6f7d0",
+      "git_blob_oid": "f44ab889310e679d5869a46729b1d5aad5886ad9"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v0-clean.pdf",
+      "size_bytes": 3695,
+      "sha256": "e248135d1ba2c3be8985c493b40355daf0b33fbca201f359e2e61ec5c1b6dcb3",
+      "git_blob_oid": "748eb046197e9bf9ffcb81a2f966ebf8f53dc53a"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v1-raster300.pdf",
+      "size_bytes": 382228,
+      "sha256": "f689f1fd6fe8dce90ac2ca1a2fdaf3a569dd0534dda4ad16e911517d6a2ced17",
+      "git_blob_oid": "7263dba88d0737d155506da5249b8da0d7578170"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v2-skew-pos4deg.pdf",
+      "size_bytes": 1553588,
+      "sha256": "fefea484a9c54a68d9568b5810ad8a2a903b8f37b8d061c486f65c165d2b100c",
+      "git_blob_oid": "5878ea3314a5a007021f9af9dc02eeaa1e8f480e"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v0-clean.pdf",
+      "size_bytes": 3606,
+      "sha256": "bbac9d1467a43fb23089d44480d8f60ca0f4cbb39171f99fc2bc7fb96ba25216",
+      "git_blob_oid": "a8dd83477b10a79867dfaa4e9b72da8947f1acee"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v1-raster300.pdf",
+      "size_bytes": 385393,
+      "sha256": "86acc16a8776ee2c7161cca80788bf7406c58f8804d1a59a7837d04927ea01e2",
+      "git_blob_oid": "d5e8f8911a1b44f6992a24d5dc0514f3fda0131f"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v2-skew-neg3deg.pdf",
+      "size_bytes": 1369145,
+      "sha256": "dc8e822ae073e6786ca14dd048ebc6928565bfb24859dbbb53f6a07de8911ff8",
+      "git_blob_oid": "bc0ccd83b3ec53a90c6d3a5c8636df506ff59b2a"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v0-clean.pdf",
+      "size_bytes": 4036,
+      "sha256": "bda052a55cb075f34421f036a5bfad222b509df50b6008929d17acfebdaac3da",
+      "git_blob_oid": "b356fd06179ea772b614ba096885b78c62d5abf5"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v1-raster300.pdf",
+      "size_bytes": 448281,
+      "sha256": "534d376e061564e9abecf960c83206e5199a8c5aab53d69ca8bec5e5edd0dd68",
+      "git_blob_oid": "478a1d0ca12117db1afdb6e50c303e8bf457601e"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v2-skew-pos4deg.pdf",
+      "size_bytes": 1702718,
+      "sha256": "c1112be491e819c7b90e8adae41679cc754e83b2266f03d75ba9565539888fbf",
+      "git_blob_oid": "009dab9477a81e2ff14b55192e313bac0039c06d"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v0-clean.pdf",
+      "size_bytes": 4559,
+      "sha256": "c9954de6fbd964588e31b52421a64d2976f45023a5af2590ddc04756ee3f9543",
+      "git_blob_oid": "71b2fe36a293aef133f44cb3b8c7cbcdc94f5b09"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v1-raster300.pdf",
+      "size_bytes": 483832,
+      "sha256": "6161807d47de5b1da20092d11807d5803ddddb72a009d929a30708268e8d8e13",
+      "git_blob_oid": "ec87b5bd2eac657a184b902fb8ab3f2425c66361"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v2-skew-neg3deg.pdf",
+      "size_bytes": 1786323,
+      "sha256": "c90eba98f2e3fe4604202b826f7d74f34ad89c946dff6392acca84523ea7eeee",
+      "git_blob_oid": "d213d1d642fc08ef79e79c3cb12d0fd027858517"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v0-clean.pdf",
+      "size_bytes": 8422,
+      "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "git_blob_oid": "63469e783b65f27893c9bfff94728a8feb44f12f"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v1-raster300.pdf",
+      "size_bytes": 984010,
+      "sha256": "1cb5ed05bbf389b75a524bd14a41cf47d56aa46e4a8b8b6cadb09ab17bfde400",
+      "git_blob_oid": "f902532aaf6f9f2d3bc1f5ef2bca00361aeb6856"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v2-skew-pos4deg.pdf",
+      "size_bytes": 3837001,
+      "sha256": "403d41d990ff8cc9ee09c4c7a8bbd74b78388af7f3c956b11dce302eee0cc9b5",
+      "git_blob_oid": "9697ca5fc2296d818c057024e28562738116e514"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v0-clean.pdf",
+      "size_bytes": 7056,
+      "sha256": "6c4711bf76b5b9ed5024ba3e603f153bea23dae8d9c16da7d6b63226beb03039",
+      "git_blob_oid": "07deb0007888b7c555b32e02fe668bdf9a6a53a0"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v1-raster300.pdf",
+      "size_bytes": 898385,
+      "sha256": "838c42a857bb3df6ba3b287c46c1e822ac91056c33649b89d78b89668a8e8f5e",
+      "git_blob_oid": "89bd1a206f1bf7d1620771777151cb489ece2585"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v2-skew-neg3deg.pdf",
+      "size_bytes": 3406918,
+      "sha256": "574965b86e760e7679c595f54919001fe88f2082345907162a12e97d2121ad29",
+      "git_blob_oid": "c0ec102747ca3292b262e3365785de1aff91d104"
+    },
+    {
+      "status": "M",
+      "path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v3-hybrid-stamp.pdf",
+      "size_bytes": 16707,
+      "sha256": "9a73f54bf66ce5053fc14e76b4f0220851b7dccc3d05a5a53c628a5024ddf0dc",
+      "git_blob_oid": "9a804dece74ec865894fecc6b788bd85fa69f4d5"
+    },
+    {
+      "status": "M",
+      "path": "research/carbon/reconciliation/README.md",
+      "size_bytes": 3781,
+      "sha256": "ff3a5f9828d4d67dae6937ef8c14c833c53fb14ec5963e3d4e5acff677555bd9",
+      "git_blob_oid": "21db85949773d4db88caab41798933e6e55738b0"
+    }
+  ],
+  "original_base_to_frozen_candidate_inventory": [
+    {
+      "status": "M",
+      "path": ".gitattributes",
+      "size_bytes": 321,
+      "sha256": "7f6aa8f3cc01cbd34f82fc6086607b79ce91d3cf01d1c7127a5b87ad3fb04719",
+      "git_blob_oid": "91517ab018a1b44713bf536c0bb04b7d128912b6"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/README.md",
+      "size_bytes": 6107,
+      "sha256": "700f1f491e285bcf424c28ce28101fe966d659a52959310455ea9d398ff42a72",
+      "git_blob_oid": "4a9c6df1b3067e3ff33cfad341f77d30455f0ad2"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/generation/generate_corpus.py",
+      "size_bytes": 51675,
+      "sha256": "7ae2bc77faca1409dc97ac0632eff2fe8dac85c15e7315d8f159b7f6b49a7629",
+      "git_blob_oid": "484a77b1641d82efbcb0e30c172b6d220ec7394e"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/generation/pdf_writer.py",
+      "size_bytes": 11711,
+      "sha256": "e75929f4d9567921d4e64093f6c655021dd82c28b161280066191fb7808087c6",
+      "git_blob_oid": "3c50e6dff4bb47b4e20cf7119d957ebad474f184"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/generation/verify_arithmetic_independent.py",
+      "size_bytes": 7908,
+      "sha256": "8b5c7d70c958e1b26266284565c6390e4ee48b94d899d460c0cf10c99dcb1b84",
+      "git_blob_oid": "9ca2593318040ada6033993af3df215cd2128c85"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/generation/verify_corpus_integrity.py",
+      "size_bytes": 11641,
+      "sha256": "ebbb31278afa3d88a2aa2c964e0e75fac4442bb844776db2c0f358f40a7898b2",
+      "git_blob_oid": "2fb634c390f266f1e7d6f68da5a29aa438a1fc38"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/manifests/corpus-manifest.json",
+      "size_bytes": 57873,
+      "sha256": "ad9bcb09f9e60c5537bf43ff5bab83813ee2eec2e722ebdd81d89ceb6f572fe3",
+      "git_blob_oid": "57ec8a0de6a34c70510cb02d5b980ad5f5e2d305"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/manifests/public-candidates.json",
+      "size_bytes": 6378,
+      "sha256": "7e992711c6dc38304a7ae1c7d87c50ab61fdb49fb8a5ffa6663d60eba11f0852",
+      "git_blob_oid": "feaf302dfc0bba46eed9967eec15669fe17afd72"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/manifests/tooling-provenance.json",
+      "size_bytes": 5509,
+      "sha256": "b3de20ab326b77abb6f14f3d55b13bd68185a64a8e7529ee80e6351a4920e2fa",
+      "git_blob_oid": "999fcab1a23d88bf99bc6d9f6786b56495367933"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-01-v0-clean_expected.json",
+      "size_bytes": 17186,
+      "sha256": "5d5e5ffde340f17c08ad863876b86e7fb3b9cd0503967a135cd2cf08a15c2570",
+      "git_blob_oid": "9b59f6d3305b9fc164aa94c0e70e78cadf7878c3"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-01-v1-raster300_expected.json",
+      "size_bytes": 16330,
+      "sha256": "5cd2220653f92211e7c2a74afd3cd04e1eeea6375f5e13e7a992b302a724179f",
+      "git_blob_oid": "1eaa4f5b7900501df9cfe491f4186865d2c50340"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-01-v2-skew-neg3deg_expected.json",
+      "size_bytes": 16469,
+      "sha256": "53688532b025742ce791a6cb90ba9f03bc4e0b54ddd1b25caa26900ff59d6c27",
+      "git_blob_oid": "fd716a95ccce52f9f008ff4b7cee5b07b95de6a8"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-02-v0-clean_expected.json",
+      "size_bytes": 22425,
+      "sha256": "d06a3a1ba84f8aa57d823d3a1458f3ed3b685b78556500054d7292aa173c2fac",
+      "git_blob_oid": "7ce29ce0f98bbf59795300bca05c0aff79d5db5e"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-02-v1-raster300_expected.json",
+      "size_bytes": 21502,
+      "sha256": "b2be97a82cdc84fbafaa80d6e1e6204901486f79c731c98b9b85087604efcb39",
+      "git_blob_oid": "7db6b09d0e35d850ee50eb1c1c16534f916586fc"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-02-v2-skew-pos4deg_expected.json",
+      "size_bytes": 21640,
+      "sha256": "fd480e1d3ce328e0c591dc04695b5a92d2471e3a7761aa1ab3b85dcac7658328",
+      "git_blob_oid": "6c37697d6914d505c45f717a40bd9c2c13ce9062"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-03-v0-clean_expected.json",
+      "size_bytes": 31612,
+      "sha256": "79aac57644b3819d8263c34876ab95746b531617e6f9e447f7105a6aad5fb68d",
+      "git_blob_oid": "a284453d81c1a433d154c644693e4d000a9fcc9f"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-03-v1-raster300_expected.json",
+      "size_bytes": 30757,
+      "sha256": "94dc11a8a6e854b85bcfc10892ffbf58ddbf308b0be3d7f13b58ae93ed17ce26",
+      "git_blob_oid": "22c4718b1721fbb70a00ed525b2dddfa4c355fda"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-INV-03-v2-skew-neg3deg_expected.json",
+      "size_bytes": 30896,
+      "sha256": "e2f9c6c41d7b28a48e1534a0ce70ea118a90ad49eaac9530c8b42843a59aac1d",
+      "git_blob_oid": "e68decb762716458125c89ce8a0c102968f7356e"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-MP-01-v0-clean_expected.json",
+      "size_bytes": 57230,
+      "sha256": "ba7852dd2c4bd26d1dd213e4a1ebad8170f35a6d200861c54b4af0efb74945e6",
+      "git_blob_oid": "317f8efb9b31deafbe5fcd49a0f662071914d781"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-MP-01-v1-raster300_expected.json",
+      "size_bytes": 56375,
+      "sha256": "74fa4dabec5def2460160ab4cac42372ce47e588764b67462be728fbeb3f14f5",
+      "git_blob_oid": "37ae54da2d73d52a149ff0cd1b90221a3ca0c4d1"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-MP-01-v2-skew-pos4deg_expected.json",
+      "size_bytes": 56512,
+      "sha256": "c750bfefbd99174210302719c4932fe69ef0616ee901c326bcdfe6c0492bab62",
+      "git_blob_oid": "e78b63880a7da7b19406f8730ee0d544c1ce94b3"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-MP-02-v0-clean_expected.json",
+      "size_bytes": 29279,
+      "sha256": "73571a2c3611acb9a5fd13dcead9b9e48f4b4fee588adebbc956bd93ba3132b4",
+      "git_blob_oid": "d7c5651b6c38cc6292718290aaf890702ca9fbc7"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-MP-02-v1-raster300_expected.json",
+      "size_bytes": 28678,
+      "sha256": "c45b1898dcc1cc716d7b026110316c3321c9b74b43a7e934fe92f356db798f91",
+      "git_blob_oid": "f30d7440cea647a2609dbc45c803b71f862e29c2"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-MP-02-v2-skew-neg3deg_expected.json",
+      "size_bytes": 28816,
+      "sha256": "f58efbe424d9b320fabfdcbc95d25a69027cca3e96e2e06ae3df60784d295760",
+      "git_blob_oid": "0f4e04619d3e8733710bd98f820d02a30b248a66"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-MP-02-v3-hybrid-stamp_expected.json",
+      "size_bytes": 30004,
+      "sha256": "2c94f42f72c86d5c09d2795dca2b84dc64f1f00221b2fbf8386de39cd6f8a46b",
+      "git_blob_oid": "ccccee796183c5e138f6451ba27b15f1e041eafc"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json",
+      "size_bytes": 10662,
+      "sha256": "2299f16b53ab01d7b2078439f81de2dba260de803393ae39fba7e28b5faa4b71",
+      "git_blob_oid": "785d51b2edd889ec48c0cb1b66303e01f7957fc5"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-01-v1-raster300_expected.json",
+      "size_bytes": 9801,
+      "sha256": "e5cfb3665ef9903b820e2ec2159a1f90da8163a3b00a73e29ce2f0c40f5e9a27",
+      "git_blob_oid": "963cefbf2e6c603af291b623078b534667b081d5"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-01-v2-skew-pos4deg_expected.json",
+      "size_bytes": 9938,
+      "sha256": "d06e26849235bff82c62e53f62e76d14d3c7abfc7878a7414fe36a24e5501d63",
+      "git_blob_oid": "aea10a50259db6a8ff9ba64ed3ce8854f98cf5fa"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-02-v0-clean_expected.json",
+      "size_bytes": 9572,
+      "sha256": "10b7b56bd4c8b063e5b6c49d8d119e75c0091647ebc2ee29b73af3c9cf29ea4e",
+      "git_blob_oid": "42f292a9f006ecf5e349e2608ac9a9dac1d125bb"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-02-v1-raster300_expected.json",
+      "size_bytes": 8715,
+      "sha256": "ff5edd73d43d1479c5b5f5feae6374f646d3511e18edddebeea1049f6a7e91c4",
+      "git_blob_oid": "60a1615c877745259f29f0da3fedd53cc80d0a7b"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-02-v2-skew-neg3deg_expected.json",
+      "size_bytes": 8853,
+      "sha256": "08331c60939d72a3271674b852bd8a80965eb0aa0a21555ecdbf7d73cd2cbc9b",
+      "git_blob_oid": "313d9e33c0b92e3cefa1210924e64e3b7bf25c8c"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-02-v3-hybrid-note_expected.json",
+      "size_bytes": 10284,
+      "sha256": "3431c700ac9eb785b45254207141917e7c8b37c20fa07470edf38307e00a8e5d",
+      "git_blob_oid": "74f8dfcf2a052cba6956b01f4b4539f467d237b6"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-03-v0-clean_expected.json",
+      "size_bytes": 14975,
+      "sha256": "cc153bc49c9cc76236427b3fde518bcf69764f1673d7985ceec9455db4dc70a3",
+      "git_blob_oid": "7cb5df26bd4a79b3e80f516d524ba375100f61ac"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-03-v1-raster300_expected.json",
+      "size_bytes": 14504,
+      "sha256": "811e91d17faf553eb2090204d70bf4cb6862fb24a8a7e638f6b18b14d8b5cf47",
+      "git_blob_oid": "856c65b2b885c33353e1d202d02de932c4aa97c7"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/expected/SYN-WO-03-v2-skew-pos4deg_expected.json",
+      "size_bytes": 14641,
+      "sha256": "024a8911d93009110f89329932b2e43d1739d3afbf44ba514807a1545498991b",
+      "git_blob_oid": "970d6e53b73dbd235f4b449d4d331ad849d8995c"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v0-clean.pdf",
+      "size_bytes": 3482,
+      "sha256": "893d08ddfc87ef6a18f846d9119d9ba68566d7914aef4bcdc47de0f991c7026f",
+      "git_blob_oid": "ec3dd81ac80ed0a27f846868884822e1de77ee6d"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v1-raster300.pdf",
+      "size_bytes": 372258,
+      "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "git_blob_oid": "532f8edf85d04a4e8f81834bf9dd7753e5b4c8af"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v2-skew-pos4deg.pdf",
+      "size_bytes": 1554923,
+      "sha256": "2b5ec36753fa2bb52894746d69851fe68a2b39de533a1e05b965573e5ae17b37",
+      "git_blob_oid": "a53b330201fc7219441867f53b34b3308b7a430e"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v0-clean.pdf",
+      "size_bytes": 3260,
+      "sha256": "a265cae6f0892411f302a45fd90fae68d9a6954dbb05e24efa44b38885cc3852",
+      "git_blob_oid": "55b792e6bdc1c8870af8e653c1e2d1bd59822510"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v1-raster300.pdf",
+      "size_bytes": 377213,
+      "sha256": "7499f8678025ee7cb1106d53ec4b1dff2eb13a56ca78e923709d4f6a32b60aeb",
+      "git_blob_oid": "27555e2d1d6b9049f1a7b24644d0b87eb27c53a7"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v2-skew-neg3deg.pdf",
+      "size_bytes": 1477583,
+      "sha256": "51b2be5e3c30f2f25435c8d5992927acc49e80645f53c8d85c3bc903246fc96f",
+      "git_blob_oid": "fbde79685cb77cc904a7668e58ec210c1e9d9d6d"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F02/SYN-WO-02-v3-hybrid-note.pdf",
+      "size_bytes": 12224,
+      "sha256": "35be2a39efb642b0d8850161d2acef8acf10eb9811edcec3e1e64f02cae6f7d0",
+      "git_blob_oid": "f44ab889310e679d5869a46729b1d5aad5886ad9"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v0-clean.pdf",
+      "size_bytes": 3695,
+      "sha256": "e248135d1ba2c3be8985c493b40355daf0b33fbca201f359e2e61ec5c1b6dcb3",
+      "git_blob_oid": "748eb046197e9bf9ffcb81a2f966ebf8f53dc53a"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v1-raster300.pdf",
+      "size_bytes": 382228,
+      "sha256": "f689f1fd6fe8dce90ac2ca1a2fdaf3a569dd0534dda4ad16e911517d6a2ced17",
+      "git_blob_oid": "7263dba88d0737d155506da5249b8da0d7578170"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F03/SYN-WO-03-v2-skew-pos4deg.pdf",
+      "size_bytes": 1553588,
+      "sha256": "fefea484a9c54a68d9568b5810ad8a2a903b8f37b8d061c486f65c165d2b100c",
+      "git_blob_oid": "5878ea3314a5a007021f9af9dc02eeaa1e8f480e"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v0-clean.pdf",
+      "size_bytes": 3606,
+      "sha256": "bbac9d1467a43fb23089d44480d8f60ca0f4cbb39171f99fc2bc7fb96ba25216",
+      "git_blob_oid": "a8dd83477b10a79867dfaa4e9b72da8947f1acee"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v1-raster300.pdf",
+      "size_bytes": 385393,
+      "sha256": "86acc16a8776ee2c7161cca80788bf7406c58f8804d1a59a7837d04927ea01e2",
+      "git_blob_oid": "d5e8f8911a1b44f6992a24d5dc0514f3fda0131f"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F04/SYN-INV-01-v2-skew-neg3deg.pdf",
+      "size_bytes": 1369145,
+      "sha256": "dc8e822ae073e6786ca14dd048ebc6928565bfb24859dbbb53f6a07de8911ff8",
+      "git_blob_oid": "bc0ccd83b3ec53a90c6d3a5c8636df506ff59b2a"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v0-clean.pdf",
+      "size_bytes": 4036,
+      "sha256": "bda052a55cb075f34421f036a5bfad222b509df50b6008929d17acfebdaac3da",
+      "git_blob_oid": "b356fd06179ea772b614ba096885b78c62d5abf5"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v1-raster300.pdf",
+      "size_bytes": 448281,
+      "sha256": "534d376e061564e9abecf960c83206e5199a8c5aab53d69ca8bec5e5edd0dd68",
+      "git_blob_oid": "478a1d0ca12117db1afdb6e50c303e8bf457601e"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F05/SYN-INV-02-v2-skew-pos4deg.pdf",
+      "size_bytes": 1702718,
+      "sha256": "c1112be491e819c7b90e8adae41679cc754e83b2266f03d75ba9565539888fbf",
+      "git_blob_oid": "009dab9477a81e2ff14b55192e313bac0039c06d"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v0-clean.pdf",
+      "size_bytes": 4559,
+      "sha256": "c9954de6fbd964588e31b52421a64d2976f45023a5af2590ddc04756ee3f9543",
+      "git_blob_oid": "71b2fe36a293aef133f44cb3b8c7cbcdc94f5b09"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v1-raster300.pdf",
+      "size_bytes": 483832,
+      "sha256": "6161807d47de5b1da20092d11807d5803ddddb72a009d929a30708268e8d8e13",
+      "git_blob_oid": "ec87b5bd2eac657a184b902fb8ab3f2425c66361"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F06/SYN-INV-03-v2-skew-neg3deg.pdf",
+      "size_bytes": 1786323,
+      "sha256": "c90eba98f2e3fe4604202b826f7d74f34ad89c946dff6392acca84523ea7eeee",
+      "git_blob_oid": "d213d1d642fc08ef79e79c3cb12d0fd027858517"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v0-clean.pdf",
+      "size_bytes": 8422,
+      "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "git_blob_oid": "63469e783b65f27893c9bfff94728a8feb44f12f"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v1-raster300.pdf",
+      "size_bytes": 984010,
+      "sha256": "1cb5ed05bbf389b75a524bd14a41cf47d56aa46e4a8b8b6cadb09ab17bfde400",
+      "git_blob_oid": "f902532aaf6f9f2d3bc1f5ef2bca00361aeb6856"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v2-skew-pos4deg.pdf",
+      "size_bytes": 3837001,
+      "sha256": "403d41d990ff8cc9ee09c4c7a8bbd74b78388af7f3c956b11dce302eee0cc9b5",
+      "git_blob_oid": "9697ca5fc2296d818c057024e28562738116e514"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v0-clean.pdf",
+      "size_bytes": 7056,
+      "sha256": "6c4711bf76b5b9ed5024ba3e603f153bea23dae8d9c16da7d6b63226beb03039",
+      "git_blob_oid": "07deb0007888b7c555b32e02fe668bdf9a6a53a0"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v1-raster300.pdf",
+      "size_bytes": 898385,
+      "sha256": "838c42a857bb3df6ba3b287c46c1e822ac91056c33649b89d78b89668a8e8f5e",
+      "git_blob_oid": "89bd1a206f1bf7d1620771777151cb489ece2585"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v2-skew-neg3deg.pdf",
+      "size_bytes": 3406918,
+      "sha256": "574965b86e760e7679c595f54919001fe88f2082345907162a12e97d2121ad29",
+      "git_blob_oid": "c0ec102747ca3292b262e3365785de1aff91d104"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/pdfs/F08/SYN-MP-02-v3-hybrid-stamp.pdf",
+      "size_bytes": 16707,
+      "sha256": "9a73f54bf66ce5053fc14e76b4f0220851b7dccc3d05a5a53c628a5024ddf0dc",
+      "git_blob_oid": "9a804dece74ec865894fecc6b788bd85fa69f4d5"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/sources/F01_SYN-WO-01_source.json",
+      "size_bytes": 8177,
+      "sha256": "761ffc1e42b61c14a620d2fe3a207f4b29b53a78a0718d35840015a2b1bcf579",
+      "git_blob_oid": "79d98e84f96bb158d3420e1d85b19c4d5e77913e"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/sources/F02_SYN-WO-02_source.json",
+      "size_bytes": 7615,
+      "sha256": "043b83e0f177a9c654c298a526defb6e9006024caf098ec7a1d52375c0b91d0d",
+      "git_blob_oid": "ea18450b01e9d86f4b8e8032f03bc4b4229c8b32"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/sources/F03_SYN-WO-03_source.json",
+      "size_bytes": 9171,
+      "sha256": "66712fa2ad7ee00e80acc184202efb904753a3456aaf8a6c16ed9be5d6c58db9",
+      "git_blob_oid": "cf23d0f492015a694d42210a52d63a7624030338"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/sources/F04_SYN-INV-01_source.json",
+      "size_bytes": 3964,
+      "sha256": "858a6dd7d0210a4463456e2d337ebd1ef28fbbb36bba0d6d6d4f9dc7f20b5315",
+      "git_blob_oid": "2da15eaf6edf5df701d4f27680e0eba5cec26e60"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/sources/F05_SYN-INV-02_source.json",
+      "size_bytes": 4900,
+      "sha256": "1dc4ad24b107db309898eb5bfbfa34f1d4041fb25c136fbe16759d10e9f741f5",
+      "git_blob_oid": "1426c727c208f20bb0463cae0899b644d9899f26"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/sources/F06_SYN-INV-03_source.json",
+      "size_bytes": 5215,
+      "sha256": "fe45d56abc4cc9e358793cbe2cc251bf710fa2ee55c3f435de75f0e5715796df",
+      "git_blob_oid": "d1f8bb42c238333e8b4ca0cb478a371ad5905d29"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/sources/F07_SYN-MP-01_source.json",
+      "size_bytes": 8826,
+      "sha256": "1dc20052c8619bab7bee28d49e341bf0983d860623704d34dfd9b24b73f2d4fb",
+      "git_blob_oid": "16df1f40caa554c7b1ba0f5af12d30d9f36f22bd"
+    },
+    {
+      "status": "A",
+      "path": "evaluation/synthetic/sources/F08_SYN-MP-02_source.json",
+      "size_bytes": 18405,
+      "sha256": "84292db57cf6aab8b6f7ce2ba9380f987f6cc1075c24a2d2ab9e0c55c94eceb8",
+      "git_blob_oid": "50ece39244a6b950c9f5cef4d134177a6a051335"
+    },
+    {
+      "status": "A",
+      "path": "research/carbon/reconciliation/01-exchange-disposition.md",
+      "size_bytes": 13489,
+      "sha256": "e6ab8a7f9b6d9e82f7e6cb63924d7003a08df40082ed117e10094f5c31e2555e",
+      "git_blob_oid": "85b50da73774d74043d91d8d31508a869e0d7def"
+    },
+    {
+      "status": "A",
+      "path": "research/carbon/reconciliation/02-ranked-experiment-backlog.md",
+      "size_bytes": 19384,
+      "sha256": "2a714eaccc2fd3d004ee7c572734c47894b631e8bdb33278dc04b433ba370204",
+      "git_blob_oid": "cb26fa82c587ec737c25715545bdba3f0235c2b1"
+    },
+    {
+      "status": "A",
+      "path": "research/carbon/reconciliation/README.md",
+      "size_bytes": 3781,
+      "sha256": "ff3a5f9828d4d67dae6937ef8c14c833c53fb14ec5963e3d4e5acff677555bd9",
+      "git_blob_oid": "21db85949773d4db88caab41798933e6e55738b0"
+    }
+  ],
+  "visual_page_inspection_manifest": [
+    {
+      "page_key": "F01_SYN-WO-01-v0-clean_p1",
+      "family_id": "F01",
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "bc0358922c132fd4e90408aa23a0395fa0dc8cc04d280305ceed8eea7c8e37e3",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F01_SYN-WO-01-v1-raster300_p1",
+      "family_id": "F01",
+      "fixture_id": "SYN-WO-01-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "bc0358922c132fd4e90408aa23a0395fa0dc8cc04d280305ceed8eea7c8e37e3",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F01_SYN-WO-01-v2-skew-pos4deg_p1",
+      "family_id": "F01",
+      "fixture_id": "SYN-WO-01-v2-skew-pos4deg",
+      "variant_kind": "v2_skew",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2776,
+        3471
+      ],
+      "png_sha256": "b19c94cdb9df3c864056b7804b3dd49c4b4ff47f62d0950301d8612dc5c11494",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F02_SYN-WO-02-v0-clean_p1",
+      "family_id": "F02",
+      "fixture_id": "SYN-WO-02-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "96e847e9dad072d1c6aaf551e7ee0f4e4d03f57d8cc6b44dd87dd2b398a5ccd5",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F02_SYN-WO-02-v1-raster300_p1",
+      "family_id": "F02",
+      "fixture_id": "SYN-WO-02-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "96e847e9dad072d1c6aaf551e7ee0f4e4d03f57d8cc6b44dd87dd2b398a5ccd5",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F02_SYN-WO-02-v2-skew-neg3deg_p1",
+      "family_id": "F02",
+      "fixture_id": "SYN-WO-02-v2-skew-neg3deg",
+      "variant_kind": "v2_skew",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2720,
+        3432
+      ],
+      "png_sha256": "49e661eab76294736bb79cdd0e00aa31587f8d22aaa2a7d6e8b9bdf5d9a25397",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F02_SYN-WO-02-v3-hybrid-note_p1",
+      "family_id": "F02",
+      "fixture_id": "SYN-WO-02-v3-hybrid-note",
+      "variant_kind": "v3_hybrid",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "b8e72bac63ba06d78debb1fb5bcb2cb921c912568d006adbd531f13c2cdc8789",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F03_SYN-WO-03-v0-clean_p1",
+      "family_id": "F03",
+      "fixture_id": "SYN-WO-03-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "a3ca4e32819ca3afad0ed0222f15f064839eea9d88b09ea0d6dfbbdcc8cd670f",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F03_SYN-WO-03-v1-raster300_p1",
+      "family_id": "F03",
+      "fixture_id": "SYN-WO-03-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "a3ca4e32819ca3afad0ed0222f15f064839eea9d88b09ea0d6dfbbdcc8cd670f",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F03_SYN-WO-03-v2-skew-pos4deg_p1",
+      "family_id": "F03",
+      "fixture_id": "SYN-WO-03-v2-skew-pos4deg",
+      "variant_kind": "v2_skew",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2776,
+        3471
+      ],
+      "png_sha256": "491b257ba0b2fe4d06585a0dc451032cc85fc7e0d49097ddd841ec6b163fc5c3",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F04_SYN-INV-01-v0-clean_p1",
+      "family_id": "F04",
+      "fixture_id": "SYN-INV-01-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "6d64db2509ea03bf6828f9999e039a20634d3e4dc71e0f5dcbb90ff78977c37c",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F04_SYN-INV-01-v1-raster300_p1",
+      "family_id": "F04",
+      "fixture_id": "SYN-INV-01-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "6d64db2509ea03bf6828f9999e039a20634d3e4dc71e0f5dcbb90ff78977c37c",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F04_SYN-INV-01-v2-skew-neg3deg_p1",
+      "family_id": "F04",
+      "fixture_id": "SYN-INV-01-v2-skew-neg3deg",
+      "variant_kind": "v2_skew",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2720,
+        3432
+      ],
+      "png_sha256": "5601ffe2a464ef2cf1709988014fe5191de7b2a31af498282cf5a84c85dc6b43",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F05_SYN-INV-02-v0-clean_p1",
+      "family_id": "F05",
+      "fixture_id": "SYN-INV-02-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "148f074b909a6f88f668c381bcd0e12551cbec505dfe082c3ce1cde5ef94a7df",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F05_SYN-INV-02-v1-raster300_p1",
+      "family_id": "F05",
+      "fixture_id": "SYN-INV-02-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "148f074b909a6f88f668c381bcd0e12551cbec505dfe082c3ce1cde5ef94a7df",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F05_SYN-INV-02-v2-skew-pos4deg_p1",
+      "family_id": "F05",
+      "fixture_id": "SYN-INV-02-v2-skew-pos4deg",
+      "variant_kind": "v2_skew",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2776,
+        3471
+      ],
+      "png_sha256": "b237158432f48fe36cf8f77dac1d5467cc1140045472d28e747b236e0fbde392",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F06_SYN-INV-03-v0-clean_p1",
+      "family_id": "F06",
+      "fixture_id": "SYN-INV-03-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "46c9a2cca34b2e261a155a05ed7098f8303e5fdaef74642f675e66f8fe4e26e1",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F06_SYN-INV-03-v1-raster300_p1",
+      "family_id": "F06",
+      "fixture_id": "SYN-INV-03-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "46c9a2cca34b2e261a155a05ed7098f8303e5fdaef74642f675e66f8fe4e26e1",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F06_SYN-INV-03-v2-skew-neg3deg_p1",
+      "family_id": "F06",
+      "fixture_id": "SYN-INV-03-v2-skew-neg3deg",
+      "variant_kind": "v2_skew",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2720,
+        3432
+      ],
+      "png_sha256": "895baf892b713281196dde3d675d2da574004665f2eade914450cd2295e9a46a",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v0-clean_p1",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "3ca5d02f0eb79456f9092c3be43a00aafc9c810bba03d459154a5a84371a5246",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v0-clean_p2",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 2,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "2dd9bef90ad7949d352bc7fc5d882e5077ce102c50e3773a07616884b11fe71e",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v0-clean_p3",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 3,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "601d0d06680559c09f1d93ee81e8ed60c2e9fb9b6f7d4f1921e26b97d850ab98",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v1-raster300_p1",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "3ca5d02f0eb79456f9092c3be43a00aafc9c810bba03d459154a5a84371a5246",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v1-raster300_p2",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 2,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "2dd9bef90ad7949d352bc7fc5d882e5077ce102c50e3773a07616884b11fe71e",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v1-raster300_p3",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 3,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "601d0d06680559c09f1d93ee81e8ed60c2e9fb9b6f7d4f1921e26b97d850ab98",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v2-skew-pos4deg_p1",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v2-skew-pos4deg",
+      "variant_kind": "v2_skew",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2776,
+        3471
+      ],
+      "png_sha256": "24b18a972ac451ea4c2447144f018e2d56100f850474dc075f4107b32ee9fb8a",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v2-skew-pos4deg_p2",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v2-skew-pos4deg",
+      "variant_kind": "v2_skew",
+      "page_number": 2,
+      "dpi": 300,
+      "pixel_size": [
+        2776,
+        3471
+      ],
+      "png_sha256": "afe5437fd93cbb13e304fe3958eb3cfe7e7d2a1f758137bd43f313ef5d9c7479",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F07_SYN-MP-01-v2-skew-pos4deg_p3",
+      "family_id": "F07",
+      "fixture_id": "SYN-MP-01-v2-skew-pos4deg",
+      "variant_kind": "v2_skew",
+      "page_number": 3,
+      "dpi": 300,
+      "pixel_size": [
+        2776,
+        3471
+      ],
+      "png_sha256": "b8ba07bdae423e122ca240b748c9a087f2f484c189425e3520afce0fefdc4621",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v0-clean_p1",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "ee56b4a51587a0f33ff5eb9f1bfdaf30998469676acbe8a56d00dcd12dd9a853",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v0-clean_p2",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 2,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "ce4261dab712547dd9b49a4716c85091ab676e21cebc50d60b52bacdb0288872",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v0-clean_p3",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v0-clean",
+      "variant_kind": "v0_clean",
+      "page_number": 3,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "5278b1b9bb5e6b61727d3186796b666f3b78054807617e627b87f4844ae82404",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v1-raster300_p1",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "ee56b4a51587a0f33ff5eb9f1bfdaf30998469676acbe8a56d00dcd12dd9a853",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v1-raster300_p2",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 2,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "ce4261dab712547dd9b49a4716c85091ab676e21cebc50d60b52bacdb0288872",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v1-raster300_p3",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v1-raster300",
+      "variant_kind": "v1_raster300",
+      "page_number": 3,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "5278b1b9bb5e6b61727d3186796b666f3b78054807617e627b87f4844ae82404",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v2-skew-neg3deg_p1",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v2-skew-neg3deg",
+      "variant_kind": "v2_skew",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2720,
+        3432
+      ],
+      "png_sha256": "ca586bc4f8a257ba26b34ee10a250659e5d38cf6cd7117866fc101d92215916a",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v2-skew-neg3deg_p2",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v2-skew-neg3deg",
+      "variant_kind": "v2_skew",
+      "page_number": 2,
+      "dpi": 300,
+      "pixel_size": [
+        2720,
+        3432
+      ],
+      "png_sha256": "645f42f219d1f00c72fa69813cb72301a25dcc67db1596d36a8b5e2be0a28afe",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v2-skew-neg3deg_p3",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v2-skew-neg3deg",
+      "variant_kind": "v2_skew",
+      "page_number": 3,
+      "dpi": 300,
+      "pixel_size": [
+        2720,
+        3432
+      ],
+      "png_sha256": "3c7cd1296a47f0ccb84446730d137c6f63622bf7eed111518ee03c1a423d9113",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v3-hybrid-stamp_p1",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v3-hybrid-stamp",
+      "variant_kind": "v3_hybrid",
+      "page_number": 1,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "ee56b4a51587a0f33ff5eb9f1bfdaf30998469676acbe8a56d00dcd12dd9a853",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v3-hybrid-stamp_p2",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v3-hybrid-stamp",
+      "variant_kind": "v3_hybrid",
+      "page_number": 2,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "ce4261dab712547dd9b49a4716c85091ab676e21cebc50d60b52bacdb0288872",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    },
+    {
+      "page_key": "F08_SYN-MP-02-v3-hybrid-stamp_p3",
+      "family_id": "F08",
+      "fixture_id": "SYN-MP-02-v3-hybrid-stamp",
+      "variant_kind": "v3_hybrid",
+      "page_number": 3,
+      "dpi": 300,
+      "pixel_size": [
+        2550,
+        3301
+      ],
+      "png_sha256": "14a5aa27fa4ec8ab0bb6b0bb8a7d94ff292bbf0c1cfc6ca7c2e0705fe3a0a5e6",
+      "fresh_session_visual_inspection": "inspected_pass_zero_clipping_or_overlap"
+    }
+  ]
+}

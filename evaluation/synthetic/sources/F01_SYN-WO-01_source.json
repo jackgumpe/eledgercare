@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "generation_mode": "declarative_literal_v1",
+  "seed": null,
+  "family_id": "F01",
+  "fixture_prefix": "SYN-WO-01",
+  "doc_kind": "work_order",
+  "split": "dev",
+  "page_count": 1,
+  "signed_skew_degrees": 4.0,
+  "hybrid_control": null,
+  "banner": {
+    "organization": "CEDAR HOLLOW PROPERTY MANAGEMENT LLC",
+    "document_title": "CORRECTIVE MAINTENANCE WORK ORDER",
+    "subtitle": " Dispatch & Field Completion Record (Internal Stock - Non-Billing)",
+    "contact_line": "2400 Cedar Hollow Pkwy, Suite 110, Oakbrook, IL 60523 | Tel: 555-0141 | dispatch@cedarhollow.example"
+  },
+  "header_columns": [
+    {
+      "group_title": "DISPATCH & LOCATION METADATA",
+      "fields": [
+        {"field_id": "work_order_id", "label": "Work Order ID", "value_type": "identifier", "printed_text": "WO-004192", "normalized_value": "WO-004192", "is_absent": false},
+        {"field_id": "property_name", "label": "Property", "value_type": "text", "printed_text": "Cedar Hollow Apartments", "normalized_value": "Cedar Hollow Apartments", "is_absent": false},
+        {"field_id": "building_unit", "label": "Building / Unit", "value_type": "identifier", "printed_text": "Bldg B - Unit 204", "normalized_value": "Bldg B - Unit 204", "is_absent": false},
+        {"field_id": "requested_date", "label": "Requested Date", "value_type": "date_iso", "printed_text": "2026-10-16", "normalized_value": "2026-10-16", "is_absent": false}
+      ]
+    },
+    {
+      "group_title": "ASSIGNMENT & ACCESS DETAILS",
+      "fields": [
+        {"field_id": "trade_category", "label": "Trade Category", "value_type": "text", "printed_text": "HVAC - Cooling / Heat Pump", "normalized_value": "HVAC - Cooling / Heat Pump", "is_absent": false},
+        {"field_id": "assigned_tech", "label": "Assigned Technician", "value_type": "text", "printed_text": "Marcus Vance (Tech #0087)", "normalized_value": "Marcus Vance (Tech #0087)", "is_absent": false},
+        {"field_id": "resident_contact", "label": "Resident Contact", "value_type": "text", "printed_text": "Elena Rostova (555-0184)", "normalized_value": "Elena Rostova (555-0184)", "is_absent": false},
+        {"field_id": "tenant_callback_notes", "label": "Tenant Callback Notes", "value_type": "text", "printed_text": "", "normalized_value": null, "is_absent": true}
+      ]
+    }
+  ],
+  "checkbox_strip": [
+    {"field_id": "priority_urgent", "label": "Priority: Urgent", "printed_text": "[X]", "normalized_value": "true"},
+    {"field_id": "permission_to_enter", "label": "Permission to Enter: Yes", "printed_text": "[X]", "normalized_value": "true"},
+    {"field_id": "pets_on_premises", "label": "Pets on Premises: No", "printed_text": "[ ]", "normalized_value": "false"},
+    {"field_id": "utility_shutoff_req", "label": "Main Utility Shutoff", "printed_text": "[ ]", "normalized_value": "false"}
+  ],
+  "prose_blocks": [
+    {
+      "field_id": "reported_issue_and_resolution",
+      "label": "REPORTED SYMPTOM & TECHNICIAN RESOLUTION SUMMARY",
+      "page_number": 1,
+      "printed_text": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+      "normalized_value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil."
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "labor_log",
+      "title": "TECHNICIAN LABOR TIME LOG",
+      "page_numbers": [1],
+      "columns": [
+        {"col_id": "log_id", "header": "Entry", "width_pt": 55, "align": "left", "value_type": "identifier"},
+        {"col_id": "tech_id", "header": "Tech ID", "width_pt": 75, "align": "left", "value_type": "identifier"},
+        {"col_id": "work_date", "header": "Date", "width_pt": 85, "align": "left", "value_type": "date_iso"},
+        {"col_id": "time_in", "header": "Time In", "width_pt": 75, "align": "left", "value_type": "text"},
+        {"col_id": "time_out", "header": "Time Out", "width_pt": 75, "align": "left", "value_type": "text"},
+        {"col_id": "hours", "header": "Hours", "width_pt": 65, "align": "right", "value_type": "decimal_2"},
+        {"col_id": "activity", "header": "Activity Code", "width_pt": 102, "align": "left", "value_type": "identifier"}
+      ],
+      "rows": [
+        {
+          "row_id": "T01",
+          "page_number": 1,
+          "cells": {
+            "log_id": {"printed_text": "LB-01", "normalized_value": "LB-01"},
+            "tech_id": {"printed_text": "TECH-0087", "normalized_value": "TECH-0087"},
+            "work_date": {"printed_text": "2026-10-16", "normalized_value": "2026-10-16"},
+            "time_in": {"printed_text": "09:15", "normalized_value": "09:15"},
+            "time_out": {"printed_text": "10:45", "normalized_value": "10:45"},
+            "hours": {"printed_text": "1.50", "normalized_value": "1.50"},
+            "activity": {"printed_text": "HVAC-DIAG-RPR", "normalized_value": "HVAC-DIAG-RPR"}
+          }
+        }
+      ]
+    },
+    {
+      "table_id": "stock_parts",
+      "title": "INTERNAL MAINTENANCE STOCK PARTS USED (NO TENANT CHARGE)",
+      "page_numbers": [1],
+      "columns": [
+        {"col_id": "part_sku", "header": "Part SKU", "width_pt": 135, "align": "left", "value_type": "identifier"},
+        {"col_id": "part_desc", "header": "Part Description", "width_pt": 247, "align": "left", "value_type": "text"},
+        {"col_id": "bin_loc", "header": "Bin", "width_pt": 80, "align": "left", "value_type": "identifier"},
+        {"col_id": "qty_used", "header": "Qty Used", "width_pt": 70, "align": "right", "value_type": "decimal_2"}
+      ],
+      "rows": [
+        {
+          "row_id": "P01",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {"printed_text": "CAP-45-5MFD-440V", "normalized_value": "CAP-45-5MFD-440V"},
+            "part_desc": {"printed_text": "Oval Dual Run Capacitor 45/5 uF 440VAC", "normalized_value": "Oval Dual Run Capacitor 45/5 uF 440VAC"},
+            "bin_loc": {"printed_text": "VAN-03-B2", "normalized_value": "VAN-03-B2"},
+            "qty_used": {"printed_text": "1.00", "normalized_value": "1.00"}
+          }
+        },
+        {
+          "row_id": "P02",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {"printed_text": "CONT-24V-2P30A", "normalized_value": "CONT-24V-2P30A"},
+            "part_desc": {"printed_text": "24V Coil Definite Purpose Contactor 2P 30A", "normalized_value": "24V Coil Definite Purpose Contactor 2P 30A"},
+            "bin_loc": {"printed_text": "VAN-03-C4", "normalized_value": "VAN-03-C4"},
+            "qty_used": {"printed_text": "1.00", "normalized_value": "1.00"}
+          }
+        },
+        {
+          "row_id": "P03",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {"printed_text": "0018-TERM-QC", "normalized_value": "0018-TERM-QC"},
+            "part_desc": {"printed_text": "High-Temp Flag Quick-Disconnect Terminal Pack", "normalized_value": "High-Temp Flag Quick-Disconnect Terminal Pack"},
+            "bin_loc": {"printed_text": "VAN-03-A1", "normalized_value": "VAN-03-A1"},
+            "qty_used": {"printed_text": "4.00", "normalized_value": "4.00"}
+          }
+        }
+      ]
+    }
+  ],
+  "signoff_fields": [
+    {"field_id": "completion_status", "label": "Work Order Status", "value_type": "text", "printed_text": "COMPLETED - VERIFIED", "normalized_value": "COMPLETED - VERIFIED", "is_absent": false},
+    {"field_id": "completed_timestamp", "label": "Completed Timestamp", "value_type": "text", "printed_text": "2026-10-16 10:45", "normalized_value": "2026-10-16 10:45", "is_absent": false},
+    {"field_id": "supervisor_signoff", "label": "Supervisor Review", "value_type": "text", "printed_text": "D. Callahan", "normalized_value": "D. Callahan", "is_absent": false}
+  ]
+}

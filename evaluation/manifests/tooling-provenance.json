@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "packet": "WP-0004 / 004",
+  "recorded_by": "eld-rd-carbon",
+  "session_provenance": {
+    "prior_author_draft_session": "74513d00-ee88-4e85-a554-120908615b21",
+    "recovery_continuation_session": "993d4f08-72d0-479c-9e6c-047280cedf95",
+    "note": "Both sessions represent eld-rd-carbon authorship; fresh session execution is author verification, not non-author acceptance."
+  },
+  "environment_scope": "Fresh worktree-local ignored virtual environment (.venv) at C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-rd-carbon-recovery\\.venv. Offline wheel installation from 3 SHA-256/size-verified archives copied read-only from eld-rd-carbon\\.scratch\\wheels into eld-rd-carbon-recovery\\.scratch\\wheels. Zero global installations, zero model weights, zero CUDA/GPU packages.",
+  "python_runtime": {
+    "version": "3.12.10",
+    "platform": "win_amd64 (Windows-11-10.0.26200-SP0)",
+    "installer": "pip 25.0.1 (--no-index --no-deps --find-links .scratch/wheels)"
+  },
+  "vector_pdf_generator_and_fonts": {
+    "generator_module": "evaluation/generation/pdf_writer.py",
+    "pdf_version": "1.4",
+    "font_strategy": "Standard PDF Base-14 Type1 fonts referenced by name (/Helvetica, /Helvetica-Bold, /Courier, /Courier-Bold) with /WinAnsiEncoding; zero proprietary third-party font binaries embedded inside generated PDFs.",
+    "raster_hybrid_stamp_font": "Pillow 13.0.0 bundled scalable default font (ImageFont.load_default(size=...)), deterministic across hosts without reading OS system font directories."
+  },
+  "generation_and_verification_scripts": [
+    {
+      "path": "evaluation/generation/generate_corpus.py",
+      "eol": "lf (*.py text eol=lf in .gitattributes)",
+      "size_bytes": 51675,
+      "sha256": "7ae2bc77faca1409dc97ac0632eff2fe8dac85c15e7315d8f159b7f6b49a7629",
+      "git_blob_oid": "484a77b1641d82efbcb0e30c172b6d220ec7394e"
+    },
+    {
+      "path": "evaluation/generation/pdf_writer.py",
+      "eol": "lf (*.py text eol=lf in .gitattributes)",
+      "size_bytes": 11711,
+      "sha256": "e75929f4d9567921d4e64093f6c655021dd82c28b161280066191fb7808087c6",
+      "git_blob_oid": "3c50e6dff4bb47b4e20cf7119d957ebad474f184"
+    },
+    {
+      "path": "evaluation/generation/verify_arithmetic_independent.py",
+      "eol": "lf (*.py text eol=lf in .gitattributes)",
+      "size_bytes": 7908,
+      "sha256": "8b5c7d70c958e1b26266284565c6390e4ee48b94d899d460c0cf10c99dcb1b84",
+      "git_blob_oid": "9ca2593318040ada6033993af3df215cd2128c85"
+    },
+    {
+      "path": "evaluation/generation/verify_corpus_integrity.py",
+      "eol": "lf (*.py text eol=lf in .gitattributes)",
+      "size_bytes": 11641,
+      "sha256": "ebbb31278afa3d88a2aa2c964e0e75fac4442bb844776db2c0f358f40a7898b2",
+      "git_blob_oid": "2fb634c390f266f1e7d6f68da5a29aa438a1fc38"
+    }
+  ],
+  "installed_wheels": [
+    {
+      "package": "pypdfium2",
+      "version": "5.15.2",
+      "bundled_native_build": "PDFium 159.0.8149.0@sourcebuild-toolchained",
+      "wheel_filename": "pypdfium2-5.15.2-py3-none-win_amd64.whl",
+      "size_bytes": 4187589,
+      "sha256": "74d1bace34fb01c660d0b64344d5a4b7d276942b7c6623c88ab59ea21c5acfbd",
+      "declared_license": "BSD-3-Clause, Apache-2.0, dependency licenses",
+      "bundled_license_files_inspected": [
+        "pypdfium2-5.15.2.dist-info/licenses/LICENSES/Apache-2.0.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/LICENSES/BSD-3-Clause.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/LICENSES/CC-BY-4.0.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/pdfium.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/pdfium-binaries.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/freetype.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/harfbuzz.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/icu.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/libjpeg_turbo.md",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/libopenjpeg.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/libpng.txt",
+        "pypdfium2-5.15.2.dist-info/licenses/BUILD_LICENSES/zlib.txt"
+      ],
+      "role_in_wp0004_004": "Deterministic 300-DPI CPU rasterization of v0-clean vector PDFs for v1-raster300, v2-skew, and legible visual page inspection."
+    },
+    {
+      "package": "Pillow",
+      "version": "13.0.0",
+      "wheel_filename": "pillow-13.0.0-cp312-cp312-win_amd64.whl",
+      "size_bytes": 7272166,
+      "sha256": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b",
+      "declared_license": "MIT-CMU",
+      "bundled_license_files_inspected": [
+        "pillow-13.0.0.dist-info/licenses/LICENSE"
+      ],
+      "role_in_wp0004_004": "Deterministic BILINEAR signed-skew rotation (+4.0 deg odd families, -3.0 deg even families, expanded white RGB canvas) and deterministic raster stamp synthesis for F02/F08 hybrid controls."
+    },
+    {
+      "package": "pypdf",
+      "version": "7.1.0",
+      "wheel_filename": "pypdf-7.1.0-py3-none-any.whl",
+      "size_bytes": 418698,
+      "sha256": "47cca6b24bdcf4c4d65b5f7b8b972535c61710a061261e737688777cfd9a7bfb",
+      "declared_license": "BSD-3-Clause",
+      "bundled_license_files_inspected": [
+        "pypdf-7.1.0.dist-info/licenses/LICENSE"
+      ],
+      "role_in_wp0004_004": "Automated Gate B PDF structure, page-count, text-stream extraction, zero-font/image-only verification, and hybrid XObject verification."
+    }
+  ]
+}

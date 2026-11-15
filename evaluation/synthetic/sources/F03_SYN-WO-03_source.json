@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "generation_mode": "declarative_literal_v1",
+  "seed": null,
+  "family_id": "F03",
+  "fixture_prefix": "SYN-WO-03",
+  "doc_kind": "work_order",
+  "split": "eval_holdout",
+  "page_count": 1,
+  "signed_skew_degrees": 4.0,
+  "hybrid_control": null,
+  "banner": {
+    "organization": "HARBORVIEW LOFTS RESIDENTIAL ENGINEERING",
+    "document_title": "ELECTRICAL & APPLIANCE SAFETY INSPECTION TICKET",
+    "subtitle": "Annual Preventive Safety Checklist & Requisition Record",
+    "contact_line": "410 Harborview Promenade, Milwaukee, WI 53202 | Eng Office: 555-0168 | safety@harborview.example"
+  },
+  "header_columns": [
+    {
+      "group_title": "INSPECTION TICKET METADATA",
+      "fields": [
+        {"field_id": "work_order_id", "label": "Inspection Ticket ID", "value_type": "identifier", "printed_text": "WO-005309", "normalized_value": "WO-005309", "is_absent": false},
+        {"field_id": "property_unit", "label": "Property / Unit", "value_type": "identifier", "printed_text": "Harborview Lofts - Unit 509", "normalized_value": "Harborview Lofts - Unit 509", "is_absent": false},
+        {"field_id": "panel_id", "label": "Load Center ID", "value_type": "identifier", "printed_text": "PNL-509-125A", "normalized_value": "PNL-509-125A", "is_absent": false}
+      ]
+    },
+    {
+      "group_title": "SCHEDULE & FOLLOW-UP",
+      "fields": [
+        {"field_id": "inspection_date", "label": "Inspection Date", "value_type": "date_iso", "printed_text": "2026-10-21", "normalized_value": "2026-10-21", "is_absent": false},
+        {"field_id": "inspector_id", "label": "Inspector", "value_type": "text", "printed_text": "Nadia Okafor (Lic #EL-00928)", "normalized_value": "Nadia Okafor (Lic #EL-00928)", "is_absent": false},
+        {"field_id": "reinspection_date", "label": "Re-Inspection Date", "value_type": "date_iso", "printed_text": "", "normalized_value": null, "is_absent": true}
+      ]
+    }
+  ],
+  "checkbox_strip": [],
+  "prose_blocks": [
+    {
+      "field_id": "requisition_note",
+      "label": "FOLLOW-UP PARTS REQUISITION & DEFICIENCY SUMMARY",
+      "page_number": 1,
+      "printed_text": "Item CHK-04 failed push-to-test and external GFCI tester at 30 mA fault injection (no trip). Issued parts requisition REQ-00914 for 1x 20A weather/tamper-resistant GFCI receptacle; circuit BRK-07 locked open pending replacement.",
+      "normalized_value": "Item CHK-04 failed push-to-test and external GFCI tester at 30 mA fault injection (no trip). Issued parts requisition REQ-00914 for 1x 20A weather/tamper-resistant GFCI receptacle; circuit BRK-07 locked open pending replacement."
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "safety_checklist",
+      "title": "8-POINT UNIT ELECTRICAL & LIFE-SAFETY CHECKLIST",
+      "page_numbers": [1],
+      "columns": [
+        {"col_id": "item_id", "header": "Item", "width_pt": 52, "align": "left", "value_type": "identifier"},
+        {"col_id": "check_desc", "header": "Inspection Point", "width_pt": 165, "align": "left", "value_type": "text"},
+        {"col_id": "location", "header": "Location", "width_pt": 90, "align": "left", "value_type": "text"},
+        {"col_id": "pass_mark", "header": "Pass", "width_pt": 35, "align": "center", "value_type": "text"},
+        {"col_id": "fail_mark", "header": "Fail", "width_pt": 35, "align": "center", "value_type": "text"},
+        {"col_id": "na_mark", "header": "N/A", "width_pt": 35, "align": "center", "value_type": "text"},
+        {"col_id": "reading_notes", "header": "Measured Reading / Notes", "width_pt": 120, "align": "left", "value_type": "text"}
+      ],
+      "rows": [
+        {"row_id": "C01", "page_number": 1, "cells": {"item_id": {"printed_text": "CHK-01", "normalized_value": "CHK-01"}, "check_desc": {"printed_text": "Main lug torque & bus thermal scan", "normalized_value": "Main lug torque & bus thermal scan"}, "location": {"printed_text": "Entry Closet", "normalized_value": "Entry Closet"}, "pass_mark": {"printed_text": "X", "normalized_value": "X"}, "fail_mark": {"printed_text": "-", "normalized_value": "-"}, "na_mark": {"printed_text": "-", "normalized_value": "-"}, "reading_notes": {"printed_text": "120.4 V / 28.6 C max", "normalized_value": "120.4 V / 28.6 C max"}}},
+        {"row_id": "C02", "page_number": 1, "cells": {"item_id": {"printed_text": "CHK-02", "normalized_value": "CHK-02"}, "check_desc": {"printed_text": "Kitchen countertop GFCI #1 trip", "normalized_value": "Kitchen countertop GFCI #1 trip"}, "location": {"printed_text": "Kitchen East", "normalized_value": "Kitchen East"}, "pass_mark": {"printed_text": "X", "normalized_value": "X"}, "fail_mark": {"printed_text": "-", "normalized_value": "-"}, "na_mark": {"printed_text": "-", "normalized_value": "-"}, "reading_notes": {"printed_text": "4.8 mA / 22 ms trip", "normalized_value": "4.8 mA / 22 ms trip"}}},
+        {"row_id": "C03", "page_number": 1, "cells": {"item_id": {"printed_text": "CHK-03", "normalized_value": "CHK-03"}, "check_desc": {"printed_text": "Kitchen island GFCI #2 trip", "normalized_value": "Kitchen island GFCI #2 trip"}, "location": {"printed_text": "Kitchen West", "normalized_value": "Kitchen West"}, "pass_mark": {"printed_text": "X", "normalized_value": "X"}, "fail_mark": {"printed_text": "-", "normalized_value": "-"}, "na_mark": {"printed_text": "-", "normalized_value": "-"}, "reading_notes": {"printed_text": "4.5 mA / 19 ms trip", "normalized_value": "4.5 mA / 19 ms trip"}}},
+        {"row_id": "C04", "page_number": 1, "cells": {"item_id": {"printed_text": "CHK-04", "normalized_value": "CHK-04"}, "check_desc": {"printed_text": "Bath vanity 20A GFCI receptacle", "normalized_value": "Bath vanity 20A GFCI receptacle"}, "location": {"printed_text": "Full Bath", "normalized_value": "Full Bath"}, "pass_mark": {"printed_text": "-", "normalized_value": "-"}, "fail_mark": {"printed_text": "X", "normalized_value": "X"}, "na_mark": {"printed_text": "-", "normalized_value": "-"}, "reading_notes": {"printed_text": "NO TRIP @ 30 mA (BRK-07)", "normalized_value": "NO TRIP @ 30 mA (BRK-07)"}}},
+        {"row_id": "C05", "page_number": 1, "cells": {"item_id": {"printed_text": "CHK-05", "normalized_value": "CHK-05"}, "check_desc": {"printed_text": "Bedroom AFCI 15A arc-test button", "normalized_value": "Bedroom AFCI 15A arc-test button"}, "location": {"printed_text": "Panel Pos 03", "normalized_value": "Panel Pos 03"}, "pass_mark": {"printed_text": "X", "normalized_value": "X"}, "fail_mark": {"printed_text": "-", "normalized_value": "-"}, "na_mark": {"printed_text": "-", "normalized_value": "-"}, "reading_notes": {"printed_text": "15A AFCI instantaneous", "normalized_value": "15A AFCI instantaneous"}}},
+        {"row_id": "C06", "page_number": 1, "cells": {"item_id": {"printed_text": "CHK-06", "normalized_value": "CHK-06"}, "check_desc": {"printed_text": "Range 4-wire 40A NEMA 14-50", "normalized_value": "Range 4-wire 40A NEMA 14-50"}, "location": {"printed_text": "Kitchen Range", "normalized_value": "Kitchen Range"}, "pass_mark": {"printed_text": "X", "normalized_value": "X"}, "fail_mark": {"printed_text": "-", "normalized_value": "-"}, "na_mark": {"printed_text": "-", "normalized_value": "-"}, "reading_notes": {"printed_text": "240.8 V L1-L2; neutral iso", "normalized_value": "240.8 V L1-L2; neutral iso"}}},
+        {"row_id": "C07", "page_number": 1, "cells": {"item_id": {"printed_text": "CHK-07", "normalized_value": "CHK-07"}, "check_desc": {"printed_text": "Balcony weatherproof outlet cover", "normalized_value": "Balcony weatherproof outlet cover"}, "location": {"printed_text": "Balcony", "normalized_value": "Balcony"}, "pass_mark": {"printed_text": "-", "normalized_value": "-"}, "fail_mark": {"printed_text": "-", "normalized_value": "-"}, "na_mark": {"printed_text": "X", "normalized_value": "X"}, "reading_notes": {"printed_text": "Interior loft - no balcony", "normalized_value": "Interior loft - no balcony"}}},
+        {"row_id": "C08", "page_number": 1, "cells": {"item_id": {"printed_text": "CHK-08", "normalized_value": "CHK-08"}, "check_desc": {"printed_text": "Hardwired smoke/CO interconnect", "normalized_value": "Hardwired smoke/CO interconnect"}, "location": {"printed_text": "Hall & Bed", "normalized_value": "Hall & Bed"}, "pass_mark": {"printed_text": "X", "normalized_value": "X"}, "fail_mark": {"printed_text": "-", "normalized_value": "-"}, "na_mark": {"printed_text": "-", "normalized_value": "-"}, "reading_notes": {"printed_text": "9.32 V battery backup OK", "normalized_value": "9.32 V battery backup OK"}}}
+      ]
+    }
+  ],
+  "signoff_fields": [
+    {"field_id": "requisition_id", "label": "Parts Requisition Ref", "value_type": "identifier", "printed_text": "REQ-00914", "normalized_value": "REQ-00914", "is_absent": false},
+    {"field_id": "overall_result", "label": "Inspection Result", "value_type": "text", "printed_text": "CONDITIONAL HOLD - 1 DEFICIENCY", "normalized_value": "CONDITIONAL HOLD - 1 DEFICIENCY", "is_absent": false},
+    {"field_id": "chief_engineer_ack", "label": "Chief Engineer Ack", "value_type": "text", "printed_text": "H. Lindholm", "normalized_value": "H. Lindholm", "is_absent": false}
+  ]
+}

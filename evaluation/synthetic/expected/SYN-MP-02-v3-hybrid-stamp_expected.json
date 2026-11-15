@@ -1,0 +1,1021 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "SYN-MP-02-v3-hybrid-stamp",
+  "family_id": "F08",
+  "doc_kind": "work_order_packet",
+  "split": "eval_holdout",
+  "split_disclosure": "fixed_test_partition_not_blind_to_corpus_author",
+  "variant_kind": "v3_hybrid",
+  "parent_fixture_id": "SYN-MP-02-v0-clean",
+  "page_count": 3,
+  "expected_adjacent_page_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "page_sentinels": [
+    {
+      "page_number": 1,
+      "page_label": "Page 1 of 3",
+      "sentinel_id": "MP02-P1",
+      "repeated_doc_id": "WMP-00073",
+      "repeated_auth_id": "AUTH-00319"
+    },
+    {
+      "page_number": 2,
+      "page_label": "Page 2 of 3",
+      "sentinel_id": "MP02-P2",
+      "repeated_doc_id": "WMP-00073",
+      "repeated_auth_id": "AUTH-00319"
+    },
+    {
+      "page_number": 3,
+      "page_label": "Page 3 of 3",
+      "sentinel_id": "MP02-P3",
+      "repeated_doc_id": "WMP-00073",
+      "repeated_auth_id": "AUTH-00319"
+    }
+  ],
+  "cross_page_links": [
+    {
+      "link_id": "XPL-MP02-PKTID",
+      "link_type": "repeated_document_id",
+      "value": "WMP-00073",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "link_id": "XPL-MP02-AUTHID",
+      "link_type": "repeated_authorization_id",
+      "value": "AUTH-00319",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "link_id": "XPL-MP02-TBL-P2P3",
+      "link_type": "table_continuation",
+      "table_id": "equipment_deployment",
+      "from_page": 2,
+      "from_last_row": "E06",
+      "to_page": 3,
+      "to_first_row": "E07"
+    },
+    {
+      "link_id": "XPL-MP02-SERIALS",
+      "link_type": "cross_table_serial_referential_integrity",
+      "serial_numbers": [
+        "DH-00841",
+        "AM-01902",
+        "AM-01905",
+        "DH-00849",
+        "AM-01911",
+        "HEPA-00304",
+        "AM-01918",
+        "DH-00855"
+      ],
+      "source_table": "equipment_deployment",
+      "target_table": "equipment_retrieval"
+    }
+  ],
+  "expected_routing_for_e3": "must_route_to_ocr",
+  "transform_params": {
+    "parent_vector_fixture": "SYN-MP-02-v0-clean",
+    "hybrid_target_page": 3,
+    "embedded_raster_box_pt": [
+      40,
+      62,
+      355,
+      108
+    ],
+    "embedded_raster_dpi": 300,
+    "stamp_font": "Pillow 13.0.0 ImageFont.load_default",
+    "vector_text_layer_present": true,
+    "embedded_image_xobject_present": true
+  },
+  "expected_fields": [
+    {
+      "field_id": "packet_id",
+      "label_printed": "Mitigation Packet ID",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "WMP-00073",
+      "normalized_value": "WMP-00073",
+      "bbox_pt": [
+        154.0,
+        646.0,
+        197.12,
+        654.0
+      ]
+    },
+    {
+      "field_id": "auth_ref",
+      "label_printed": "Emergency Auth Ref",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "AUTH-00319",
+      "normalized_value": "AUTH-00319",
+      "bbox_pt": [
+        154.0,
+        629.0,
+        202.56,
+        637.0
+      ]
+    },
+    {
+      "field_id": "property_name",
+      "label_printed": "Property",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Harborview Lofts",
+      "normalized_value": "Harborview Lofts",
+      "bbox_pt": [
+        154.0,
+        612.0,
+        218.0,
+        620.0
+      ]
+    },
+    {
+      "field_id": "affected_units",
+      "label_printed": "Affected Units",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "Unit 402 (Origin) & Unit 302 (Below)",
+      "normalized_value": "Unit 402 (Origin) & Unit 302 (Below)",
+      "bbox_pt": [
+        154.0,
+        595.0,
+        288.56,
+        603.0
+      ]
+    },
+    {
+      "field_id": "loss_date",
+      "label_printed": "Loss Reported Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-10-25",
+      "normalized_value": "2026-10-25",
+      "bbox_pt": [
+        426.0,
+        646.0,
+        467.44,
+        654.0
+      ]
+    },
+    {
+      "field_id": "water_category",
+      "label_printed": "IICRC Water Category",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Category 1 - Clean Supply Line",
+      "normalized_value": "Category 1 - Clean Supply Line",
+      "bbox_pt": [
+        426.0,
+        629.0,
+        541.28,
+        637.0
+      ]
+    },
+    {
+      "field_id": "crew_lead",
+      "label_printed": "Crew Lead",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Devon Alverez (WRT #00612)",
+      "normalized_value": "Devon Alverez (WRT #00612)",
+      "bbox_pt": [
+        426.0,
+        612.0,
+        533.76,
+        620.0
+      ]
+    },
+    {
+      "field_id": "incident_scope_narrative",
+      "label_printed": "INCIDENT ORIGIN & CONTAINMENT SCOPE",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Braided supply hose on Unit 402 laundry washer ruptured at 06:10, migrating through utility chase into Unit 302 ceiling plenum. Building engineer isolated riser within 18 minutes. Extracted 34 gallons standing water, removed wet cove base, erected 6-mil poly containment, and deployed 8 serialized drying units tracked across Pages 2 and 3.",
+      "normalized_value": "Braided supply hose on Unit 402 laundry washer ruptured at 06:10, migrating through utility chase into Unit 302 ceiling plenum. Building engineer isolated riser within 18 minutes. Extracted 34 gallons standing water, removed wet cove base, erected 6-mil poly containment, and deployed 8 serialized drying units tracked across Pages 2 and 3.",
+      "bbox_pt": [
+        48.0,
+        530.0,
+        564.0,
+        560.0
+      ]
+    },
+    {
+      "field_id": "final_dry_status",
+      "label_printed": "Mitigation Sign-Off",
+      "page_number": 3,
+      "value_type": "text",
+      "printed_text": "DRY STANDARD MET - READY FOR DRYWALL CLOSE",
+      "normalized_value": "DRY STANDARD MET - READY FOR DRYWALL CLOSE",
+      "bbox_pt": [
+        46.0,
+        422.2,
+        173.46,
+        439.3
+      ]
+    },
+    {
+      "field_id": "lead_tech_signoff",
+      "label_printed": "Mitigation Lead",
+      "page_number": 3,
+      "value_type": "text",
+      "printed_text": "Devon Alverez (WRT #00612)",
+      "normalized_value": "Devon Alverez (WRT #00612)",
+      "bbox_pt": [
+        219.33,
+        432.0,
+        317.66,
+        439.3
+      ]
+    },
+    {
+      "field_id": "property_mgr_signoff",
+      "label_printed": "Property Manager Ack",
+      "page_number": 3,
+      "value_type": "text",
+      "printed_text": "J. Rivera",
+      "normalized_value": "J. Rivera",
+      "bbox_pt": [
+        392.67,
+        432.0,
+        423.33,
+        439.3
+      ]
+    },
+    {
+      "field_id": "hybrid_holdover_stamp",
+      "label_printed": "RASTER HOLDOVER STAMP",
+      "page_number": 3,
+      "value_type": "text",
+      "modality": "embedded_raster_only",
+      "page_area_ratio": 0.02989,
+      "printed_text": "RASTER STAMP: HOLD EQUIP DH-00855 +24H - AUTH J. RIVERA",
+      "normalized_value": "RASTER STAMP: HOLD EQUIP DH-00855 +24H - AUTH J. RIVERA",
+      "bbox_pt": [
+        40.0,
+        62.0,
+        355.0,
+        108.0
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "insurance_claim_no",
+      "label_printed": "Insurance Adjuster Claim #",
+      "page_number": 1,
+      "expected_state": "absent_blank"
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "containment_checklist",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "step_code",
+        "unit_zone",
+        "control_action",
+        "verified"
+      ],
+      "rows": [
+        {
+          "row_id": "S01",
+          "page_number": 1,
+          "cells": {
+            "step_code": {
+              "printed_text": "CNT-01",
+              "normalized_value": "CNT-01",
+              "value_type": "identifier"
+            },
+            "unit_zone": {
+              "printed_text": "Unit 402 Laundry",
+              "normalized_value": "Unit 402 Laundry",
+              "value_type": "text"
+            },
+            "control_action": {
+              "printed_text": "Capped hot/cold washer valves & extracted pad",
+              "normalized_value": "Capped hot/cold washer valves & extracted pad",
+              "value_type": "text"
+            },
+            "verified": {
+              "printed_text": "VERIFIED",
+              "normalized_value": "VERIFIED",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "S02",
+          "page_number": 1,
+          "cells": {
+            "step_code": {
+              "printed_text": "CNT-02",
+              "normalized_value": "CNT-02",
+              "value_type": "identifier"
+            },
+            "unit_zone": {
+              "printed_text": "Unit 402 Hall",
+              "normalized_value": "Unit 402 Hall",
+              "value_type": "text"
+            },
+            "control_action": {
+              "printed_text": "Installed zipper poly barrier & GFCI spider box",
+              "normalized_value": "Installed zipper poly barrier & GFCI spider box",
+              "value_type": "text"
+            },
+            "verified": {
+              "printed_text": "VERIFIED",
+              "normalized_value": "VERIFIED",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "S03",
+          "page_number": 1,
+          "cells": {
+            "step_code": {
+              "printed_text": "CNT-03",
+              "normalized_value": "CNT-03",
+              "value_type": "identifier"
+            },
+            "unit_zone": {
+              "printed_text": "Unit 302 Ceiling",
+              "normalized_value": "Unit 302 Ceiling",
+              "value_type": "text"
+            },
+            "control_action": {
+              "printed_text": "Drilled 1/4 in weep relief holes & bagged light",
+              "normalized_value": "Drilled 1/4 in weep relief holes & bagged light",
+              "value_type": "text"
+            },
+            "verified": {
+              "printed_text": "VERIFIED",
+              "normalized_value": "VERIFIED",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "S04",
+          "page_number": 1,
+          "cells": {
+            "step_code": {
+              "printed_text": "CNT-04",
+              "normalized_value": "CNT-04",
+              "value_type": "identifier"
+            },
+            "unit_zone": {
+              "printed_text": "Unit 302 Utility",
+              "normalized_value": "Unit 302 Utility",
+              "value_type": "text"
+            },
+            "control_action": {
+              "printed_text": "HEPA negative-air scrubber ducted to chase",
+              "normalized_value": "HEPA negative-air scrubber ducted to chase",
+              "value_type": "text"
+            },
+            "verified": {
+              "printed_text": "VERIFIED",
+              "normalized_value": "VERIFIED",
+              "value_type": "text"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "table_id": "equipment_deployment",
+      "page_numbers": [
+        2,
+        3
+      ],
+      "repeated_header_pages": [
+        3
+      ],
+      "column_ids": [
+        "dep_row",
+        "serial_no",
+        "equip_type",
+        "placed_room",
+        "init_rh",
+        "init_gpp"
+      ],
+      "rows": [
+        {
+          "row_id": "E01",
+          "page_number": 2,
+          "cells": {
+            "dep_row": {
+              "printed_text": "E01",
+              "normalized_value": "E01",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "DH-00841",
+              "normalized_value": "DH-00841",
+              "value_type": "identifier"
+            },
+            "equip_type": {
+              "printed_text": "LGR Dehumidifier 110pt",
+              "normalized_value": "LGR Dehumidifier 110pt",
+              "value_type": "text"
+            },
+            "placed_room": {
+              "printed_text": "Unit 402 Laundry",
+              "normalized_value": "Unit 402 Laundry",
+              "value_type": "text"
+            },
+            "init_rh": {
+              "printed_text": "74.2%",
+              "normalized_value": "74.2%",
+              "value_type": "text"
+            },
+            "init_gpp": {
+              "printed_text": "96.4 GPP",
+              "normalized_value": "96.4 GPP",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "E02",
+          "page_number": 2,
+          "cells": {
+            "dep_row": {
+              "printed_text": "E02",
+              "normalized_value": "E02",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "AM-01902",
+              "normalized_value": "AM-01902",
+              "value_type": "identifier"
+            },
+            "equip_type": {
+              "printed_text": "Axial Air Mover 1/3 HP",
+              "normalized_value": "Axial Air Mover 1/3 HP",
+              "value_type": "text"
+            },
+            "placed_room": {
+              "printed_text": "Unit 402 Laundry",
+              "normalized_value": "Unit 402 Laundry",
+              "value_type": "text"
+            },
+            "init_rh": {
+              "printed_text": "74.2%",
+              "normalized_value": "74.2%",
+              "value_type": "text"
+            },
+            "init_gpp": {
+              "printed_text": "96.4 GPP",
+              "normalized_value": "96.4 GPP",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "E03",
+          "page_number": 2,
+          "cells": {
+            "dep_row": {
+              "printed_text": "E03",
+              "normalized_value": "E03",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "AM-01905",
+              "normalized_value": "AM-01905",
+              "value_type": "identifier"
+            },
+            "equip_type": {
+              "printed_text": "Axial Air Mover 1/3 HP",
+              "normalized_value": "Axial Air Mover 1/3 HP",
+              "value_type": "text"
+            },
+            "placed_room": {
+              "printed_text": "Unit 402 Hallway",
+              "normalized_value": "Unit 402 Hallway",
+              "value_type": "text"
+            },
+            "init_rh": {
+              "printed_text": "68.5%",
+              "normalized_value": "68.5%",
+              "value_type": "text"
+            },
+            "init_gpp": {
+              "printed_text": "88.1 GPP",
+              "normalized_value": "88.1 GPP",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "E04",
+          "page_number": 2,
+          "cells": {
+            "dep_row": {
+              "printed_text": "E04",
+              "normalized_value": "E04",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "DH-00849",
+              "normalized_value": "DH-00849",
+              "value_type": "identifier"
+            },
+            "equip_type": {
+              "printed_text": "LGR Dehumidifier 110pt",
+              "normalized_value": "LGR Dehumidifier 110pt",
+              "value_type": "text"
+            },
+            "placed_room": {
+              "printed_text": "Unit 302 Living/Hall",
+              "normalized_value": "Unit 302 Living/Hall",
+              "value_type": "text"
+            },
+            "init_rh": {
+              "printed_text": "71.8%",
+              "normalized_value": "71.8%",
+              "value_type": "text"
+            },
+            "init_gpp": {
+              "printed_text": "92.7 GPP",
+              "normalized_value": "92.7 GPP",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "E05",
+          "page_number": 2,
+          "cells": {
+            "dep_row": {
+              "printed_text": "E05",
+              "normalized_value": "E05",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "AM-01911",
+              "normalized_value": "AM-01911",
+              "value_type": "identifier"
+            },
+            "equip_type": {
+              "printed_text": "Centrifugal Snout Mover",
+              "normalized_value": "Centrifugal Snout Mover",
+              "value_type": "text"
+            },
+            "placed_room": {
+              "printed_text": "Unit 302 Chase Cavity",
+              "normalized_value": "Unit 302 Chase Cavity",
+              "value_type": "text"
+            },
+            "init_rh": {
+              "printed_text": "76.0%",
+              "normalized_value": "76.0%",
+              "value_type": "text"
+            },
+            "init_gpp": {
+              "printed_text": "99.2 GPP",
+              "normalized_value": "99.2 GPP",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "E06",
+          "page_number": 2,
+          "cells": {
+            "dep_row": {
+              "printed_text": "E06",
+              "normalized_value": "E06",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "HEPA-00304",
+              "normalized_value": "HEPA-00304",
+              "value_type": "identifier"
+            },
+            "equip_type": {
+              "printed_text": "HEPA 500 Air Scrubber",
+              "normalized_value": "HEPA 500 Air Scrubber",
+              "value_type": "text"
+            },
+            "placed_room": {
+              "printed_text": "Unit 302 Utility",
+              "normalized_value": "Unit 302 Utility",
+              "value_type": "text"
+            },
+            "init_rh": {
+              "printed_text": "70.4%",
+              "normalized_value": "70.4%",
+              "value_type": "text"
+            },
+            "init_gpp": {
+              "printed_text": "90.5 GPP",
+              "normalized_value": "90.5 GPP",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "E07",
+          "page_number": 3,
+          "cells": {
+            "dep_row": {
+              "printed_text": "E07",
+              "normalized_value": "E07",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "AM-01918",
+              "normalized_value": "AM-01918",
+              "value_type": "identifier"
+            },
+            "equip_type": {
+              "printed_text": "Axial Air Mover 1/3 HP",
+              "normalized_value": "Axial Air Mover 1/3 HP",
+              "value_type": "text"
+            },
+            "placed_room": {
+              "printed_text": "Unit 302 Laundry",
+              "normalized_value": "Unit 302 Laundry",
+              "value_type": "text"
+            },
+            "init_rh": {
+              "printed_text": "72.1%",
+              "normalized_value": "72.1%",
+              "value_type": "text"
+            },
+            "init_gpp": {
+              "printed_text": "93.0 GPP",
+              "normalized_value": "93.0 GPP",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "E08",
+          "page_number": 3,
+          "cells": {
+            "dep_row": {
+              "printed_text": "E08",
+              "normalized_value": "E08",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "DH-00855",
+              "normalized_value": "DH-00855",
+              "value_type": "identifier"
+            },
+            "equip_type": {
+              "printed_text": "Compact LGR Dehumidifier",
+              "normalized_value": "Compact LGR Dehumidifier",
+              "value_type": "text"
+            },
+            "placed_room": {
+              "printed_text": "Unit 402 Closet",
+              "normalized_value": "Unit 402 Closet",
+              "value_type": "text"
+            },
+            "init_rh": {
+              "printed_text": "66.9%",
+              "normalized_value": "66.9%",
+              "value_type": "text"
+            },
+            "init_gpp": {
+              "printed_text": "85.8 GPP",
+              "normalized_value": "85.8 GPP",
+              "value_type": "text"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "table_id": "equipment_retrieval",
+      "page_numbers": [
+        3
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "ret_row",
+        "serial_no",
+        "pickup_date",
+        "run_hours",
+        "final_rh",
+        "disposition"
+      ],
+      "rows": [
+        {
+          "row_id": "R01",
+          "page_number": 3,
+          "cells": {
+            "ret_row": {
+              "printed_text": "R01",
+              "normalized_value": "R01",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "DH-00841",
+              "normalized_value": "DH-00841",
+              "value_type": "identifier"
+            },
+            "pickup_date": {
+              "printed_text": "2026-10-28",
+              "normalized_value": "2026-10-28",
+              "value_type": "date_iso"
+            },
+            "run_hours": {
+              "printed_text": "71.50",
+              "normalized_value": "71.50",
+              "value_type": "decimal_2"
+            },
+            "final_rh": {
+              "printed_text": "41.0%",
+              "normalized_value": "41.0%",
+              "value_type": "text"
+            },
+            "disposition": {
+              "printed_text": "Removed to Truck #04",
+              "normalized_value": "Removed to Truck #04",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "R02",
+          "page_number": 3,
+          "cells": {
+            "ret_row": {
+              "printed_text": "R02",
+              "normalized_value": "R02",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "AM-01902",
+              "normalized_value": "AM-01902",
+              "value_type": "identifier"
+            },
+            "pickup_date": {
+              "printed_text": "2026-10-28",
+              "normalized_value": "2026-10-28",
+              "value_type": "date_iso"
+            },
+            "run_hours": {
+              "printed_text": "71.50",
+              "normalized_value": "71.50",
+              "value_type": "decimal_2"
+            },
+            "final_rh": {
+              "printed_text": "41.0%",
+              "normalized_value": "41.0%",
+              "value_type": "text"
+            },
+            "disposition": {
+              "printed_text": "Removed to Truck #04",
+              "normalized_value": "Removed to Truck #04",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "R03",
+          "page_number": 3,
+          "cells": {
+            "ret_row": {
+              "printed_text": "R03",
+              "normalized_value": "R03",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "AM-01905",
+              "normalized_value": "AM-01905",
+              "value_type": "identifier"
+            },
+            "pickup_date": {
+              "printed_text": "2026-10-28",
+              "normalized_value": "2026-10-28",
+              "value_type": "date_iso"
+            },
+            "run_hours": {
+              "printed_text": "71.00",
+              "normalized_value": "71.00",
+              "value_type": "decimal_2"
+            },
+            "final_rh": {
+              "printed_text": "40.2%",
+              "normalized_value": "40.2%",
+              "value_type": "text"
+            },
+            "disposition": {
+              "printed_text": "Removed to Truck #04",
+              "normalized_value": "Removed to Truck #04",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "R04",
+          "page_number": 3,
+          "cells": {
+            "ret_row": {
+              "printed_text": "R04",
+              "normalized_value": "R04",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "DH-00849",
+              "normalized_value": "DH-00849",
+              "value_type": "identifier"
+            },
+            "pickup_date": {
+              "printed_text": "2026-10-28",
+              "normalized_value": "2026-10-28",
+              "value_type": "date_iso"
+            },
+            "run_hours": {
+              "printed_text": "72.00",
+              "normalized_value": "72.00",
+              "value_type": "decimal_2"
+            },
+            "final_rh": {
+              "printed_text": "42.5%",
+              "normalized_value": "42.5%",
+              "value_type": "text"
+            },
+            "disposition": {
+              "printed_text": "Removed to Truck #04",
+              "normalized_value": "Removed to Truck #04",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "R05",
+          "page_number": 3,
+          "cells": {
+            "ret_row": {
+              "printed_text": "R05",
+              "normalized_value": "R05",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "AM-01911",
+              "normalized_value": "AM-01911",
+              "value_type": "identifier"
+            },
+            "pickup_date": {
+              "printed_text": "2026-10-28",
+              "normalized_value": "2026-10-28",
+              "value_type": "date_iso"
+            },
+            "run_hours": {
+              "printed_text": "72.00",
+              "normalized_value": "72.00",
+              "value_type": "decimal_2"
+            },
+            "final_rh": {
+              "printed_text": "42.8%",
+              "normalized_value": "42.8%",
+              "value_type": "text"
+            },
+            "disposition": {
+              "printed_text": "Removed to Truck #04",
+              "normalized_value": "Removed to Truck #04",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "R06",
+          "page_number": 3,
+          "cells": {
+            "ret_row": {
+              "printed_text": "R06",
+              "normalized_value": "R06",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "HEPA-00304",
+              "normalized_value": "HEPA-00304",
+              "value_type": "identifier"
+            },
+            "pickup_date": {
+              "printed_text": "2026-10-28",
+              "normalized_value": "2026-10-28",
+              "value_type": "date_iso"
+            },
+            "run_hours": {
+              "printed_text": "72.00",
+              "normalized_value": "72.00",
+              "value_type": "decimal_2"
+            },
+            "final_rh": {
+              "printed_text": "42.1%",
+              "normalized_value": "42.1%",
+              "value_type": "text"
+            },
+            "disposition": {
+              "printed_text": "Filter Sealed & Removed",
+              "normalized_value": "Filter Sealed & Removed",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "R07",
+          "page_number": 3,
+          "cells": {
+            "ret_row": {
+              "printed_text": "R07",
+              "normalized_value": "R07",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "AM-01918",
+              "normalized_value": "AM-01918",
+              "value_type": "identifier"
+            },
+            "pickup_date": {
+              "printed_text": "2026-10-28",
+              "normalized_value": "2026-10-28",
+              "value_type": "date_iso"
+            },
+            "run_hours": {
+              "printed_text": "71.25",
+              "normalized_value": "71.25",
+              "value_type": "decimal_2"
+            },
+            "final_rh": {
+              "printed_text": "41.6%",
+              "normalized_value": "41.6%",
+              "value_type": "text"
+            },
+            "disposition": {
+              "printed_text": "Removed to Truck #04",
+              "normalized_value": "Removed to Truck #04",
+              "value_type": "text"
+            }
+          }
+        },
+        {
+          "row_id": "R08",
+          "page_number": 3,
+          "cells": {
+            "ret_row": {
+              "printed_text": "R08",
+              "normalized_value": "R08",
+              "value_type": "identifier"
+            },
+            "serial_no": {
+              "printed_text": "DH-00855",
+              "normalized_value": "DH-00855",
+              "value_type": "identifier"
+            },
+            "pickup_date": {
+              "printed_text": "2026-10-28",
+              "normalized_value": "2026-10-28",
+              "value_type": "date_iso"
+            },
+            "run_hours": {
+              "printed_text": "71.75",
+              "normalized_value": "71.75",
+              "value_type": "decimal_2"
+            },
+            "final_rh": {
+              "printed_text": "39.8%",
+              "normalized_value": "39.8%",
+              "value_type": "text"
+            },
+            "disposition": {
+              "printed_text": "Cleared Dry Standard",
+              "normalized_value": "Cleared Dry Standard",
+              "value_type": "text"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "invoice_accounting": null
+}

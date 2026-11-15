@@ -1,0 +1,754 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "SYN-INV-02-v0-clean",
+  "family_id": "F05",
+  "doc_kind": "invoice",
+  "split": "eval_holdout",
+  "split_disclosure": "fixed_test_partition_not_blind_to_corpus_author",
+  "variant_kind": "v0_clean",
+  "parent_fixture_id": null,
+  "page_count": 1,
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": [],
+  "expected_routing_for_e3": "eligible_digital_text_layer",
+  "transform_params": {
+    "renderer": "pdf_writer.py PDF 1.4 Base-14 Type1 vector",
+    "dpi": null,
+    "rotation_deg": 0.0
+  },
+  "expected_fields": [
+    {
+      "field_id": "address_bill_to",
+      "label_printed": "BILL TO",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Harborview Lofts Residential Engineering, Attn: Accounts Payable, 410 Harborview Promenade, Milwaukee, WI 53202",
+      "normalized_value": "Harborview Lofts Residential Engineering, Attn: Accounts Payable, 410 Harborview Promenade, Milwaukee, WI 53202",
+      "bbox_pt": [
+        40.0,
+        656.0,
+        213.33,
+        710.0
+      ]
+    },
+    {
+      "field_id": "address_service_location",
+      "label_printed": "SERVICE LOCATION",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Harborview Lofts - Rooftop Zone 5, RTU-05B Serving Unit 509, 414 Harborview Promenade, Milwaukee, WI 53202",
+      "normalized_value": "Harborview Lofts - Rooftop Zone 5, RTU-05B Serving Unit 509, 414 Harborview Promenade, Milwaukee, WI 53202",
+      "bbox_pt": [
+        219.33,
+        656.0,
+        392.67,
+        710.0
+      ]
+    },
+    {
+      "field_id": "address_remit_to",
+      "label_printed": "REMIT TO",
+      "page_number": 1,
+      "value_type": "text",
+      "printed_text": "Northstar Mechanical Lockbox #00812, PO Box 940812, Milwaukee, WI 53294-0812",
+      "normalized_value": "Northstar Mechanical Lockbox #00812, PO Box 940812, Milwaukee, WI 53294-0812",
+      "bbox_pt": [
+        398.67,
+        656.0,
+        572.0,
+        710.0
+      ]
+    },
+    {
+      "field_id": "invoice_number",
+      "label_printed": "Invoice No",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "INV-005920",
+      "normalized_value": "INV-005920",
+      "bbox_pt": [
+        45.0,
+        631.5,
+        87.59,
+        639.3
+      ]
+    },
+    {
+      "field_id": "work_order_ref",
+      "label_printed": "Work Order Ref",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "WO-005309",
+      "normalized_value": "WO-005309",
+      "bbox_pt": [
+        222.33,
+        631.5,
+        263.44,
+        639.3
+      ]
+    },
+    {
+      "field_id": "customer_acct_id",
+      "label_printed": "Customer Acct ID",
+      "page_number": 1,
+      "value_type": "identifier",
+      "printed_text": "ACCT-00391",
+      "normalized_value": "ACCT-00391",
+      "bbox_pt": [
+        399.67,
+        631.5,
+        447.01,
+        639.3
+      ]
+    },
+    {
+      "field_id": "invoice_date",
+      "label_printed": "Invoice Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-10-22",
+      "normalized_value": "2026-10-22",
+      "bbox_pt": [
+        45.0,
+        608.5,
+        85.4,
+        616.3
+      ]
+    },
+    {
+      "field_id": "due_date",
+      "label_printed": "Due Date",
+      "page_number": 1,
+      "value_type": "date_iso",
+      "printed_text": "2026-11-21",
+      "normalized_value": "2026-11-21",
+      "bbox_pt": [
+        222.33,
+        608.5,
+        262.74,
+        616.3
+      ]
+    },
+    {
+      "field_id": "subtotal",
+      "label_printed": "Line Net Subtotal",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$766.36",
+      "normalized_value": "766.36",
+      "bbox_pt": [
+        537.53,
+        406.5,
+        566.0,
+        414.3
+      ]
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "label_printed": "Taxable Subtotal (Tax=T Rows)",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$353.86",
+      "normalized_value": "353.86",
+      "bbox_pt": [
+        537.53,
+        392.0,
+        566.0,
+        399.8
+      ]
+    },
+    {
+      "field_id": "tax_amount",
+      "label_printed": "Sales Tax (8.00% on Taxable Subtotal)",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$28.31",
+      "normalized_value": "28.31",
+      "bbox_pt": [
+        541.9,
+        377.5,
+        566.0,
+        385.3
+      ]
+    },
+    {
+      "field_id": "non_taxable_fees",
+      "label_printed": "Non-Taxable Fees",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$0.00",
+      "normalized_value": "0.00",
+      "bbox_pt": [
+        546.27,
+        363.0,
+        566.0,
+        370.8
+      ]
+    },
+    {
+      "field_id": "invoice_total",
+      "label_printed": "CURRENT INVOICE TOTAL",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$794.67",
+      "normalized_value": "794.67",
+      "bbox_pt": [
+        535.82,
+        348.5,
+        566.0,
+        356.3
+      ]
+    },
+    {
+      "field_id": "previous_balance",
+      "label_printed": "Prior Unpaid Balance",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$150.00",
+      "normalized_value": "150.00",
+      "bbox_pt": [
+        537.53,
+        334.0,
+        566.0,
+        341.8
+      ]
+    },
+    {
+      "field_id": "payments_credits_applied",
+      "label_printed": "Payments / Credits Applied",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$25.00",
+      "normalized_value": "25.00",
+      "bbox_pt": [
+        541.9,
+        319.5,
+        566.0,
+        327.3
+      ]
+    },
+    {
+      "field_id": "amount_due",
+      "label_printed": "TOTAL AMOUNT DUE",
+      "page_number": 1,
+      "value_type": "currency_usd",
+      "printed_text": "$919.67",
+      "normalized_value": "919.67",
+      "bbox_pt": [
+        535.82,
+        305.0,
+        566.0,
+        312.8
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "warranty_auth_code",
+      "label_printed": "Warranty Claim Auth #",
+      "page_number": 1,
+      "expected_state": "absent_blank"
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "line_items",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "rows": [
+        {
+          "row_id": "L01",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L01",
+              "normalized_value": "L01",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-HVAC-DIAG",
+              "normalized_value": "LAB-HVAC-DIAG",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "RTU-05B Compressor & Ignition Control Diagnostic Labor",
+              "normalized_value": "RTU-05B Compressor & Ignition Control Diagnostic Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.50 HR",
+              "normalized_value": "1.50",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$110.00",
+              "normalized_value": "110.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$165.00",
+              "normalized_value": "165.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L02",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L02",
+              "normalized_value": "L02",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "LAB-HVAC-RPL",
+              "normalized_value": "LAB-HVAC-RPL",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Blower Motor & Hot-Surface Igniter Replacement Labor",
+              "normalized_value": "Blower Motor & Hot-Surface Igniter Replacement Labor",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.25 HR",
+              "normalized_value": "2.25",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$110.00",
+              "normalized_value": "110.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "N",
+              "normalized_value": "N",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$247.50",
+              "normalized_value": "247.50",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L03",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L03",
+              "normalized_value": "L03",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "00489-IGN",
+              "normalized_value": "00489-IGN",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Silicon Nitride Hot-Surface Igniter Kit 120V",
+              "normalized_value": "Silicon Nitride Hot-Surface Igniter Kit 120V",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "3.00 EA",
+              "normalized_value": "3.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$45.50",
+              "normalized_value": "45.50",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "10.00%",
+              "normalized_value": "0.1000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$13.65",
+              "normalized_value": "13.65",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$122.85",
+              "normalized_value": "122.85",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L04",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L04",
+              "normalized_value": "L04",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "00614-MTR",
+              "normalized_value": "00614-MTR",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Direct-Drive 1/2 HP ECM Blower Motor Module",
+              "normalized_value": "Direct-Drive 1/2 HP ECM Blower Motor Module",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 EA",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$89.95",
+              "normalized_value": "89.95",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "15.00%",
+              "normalized_value": "0.1500",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$26.99",
+              "normalized_value": "26.99",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$152.91",
+              "normalized_value": "152.91",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L05",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L05",
+              "normalized_value": "L05",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "00712-FLT",
+              "normalized_value": "00712-FLT",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "MERV-11 Pleated Return Air Filter 20x25x2",
+              "normalized_value": "MERV-11 Pleated Return Air Filter 20x25x2",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "4.00 EA",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$12.25",
+              "normalized_value": "12.25",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "10.00%",
+              "normalized_value": "0.1000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$4.90",
+              "normalized_value": "4.90",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$44.10",
+              "normalized_value": "44.10",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "L06",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "L06",
+              "normalized_value": "L06",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "00805-CAP",
+              "normalized_value": "00805-CAP",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Dual Run Oval Capacitor 45/5 uF 440VAC",
+              "normalized_value": "Dual Run Oval Capacitor 45/5 uF 440VAC",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.00 EA",
+              "normalized_value": "1.00",
+              "value_type": "decimal_2"
+            },
+            "unit_price": {
+              "printed_text": "$34.00",
+              "normalized_value": "34.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$34.00",
+              "normalized_value": "34.00",
+              "value_type": "currency_usd"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "invoice_accounting": {
+    "convention": "eledgercare_synthetic_decimal_round_half_up_v1",
+    "currency": "USD",
+    "printed_rule_notice": "Basis: Gross = round_half_up(Qty * Unit Price, 0.01); Disc = round_half_up(Gross * Disc%, 0.01); Net = Gross - Disc. Tax (8.00%) applies ONLY to discounted Net rows marked Tax=T. Amount Due = Invoice Total + Prior Balance - Payments/Credits.",
+    "rows": [
+      {
+        "row_id": "L01",
+        "page_number": 1,
+        "sku": "LAB-HVAC-DIAG",
+        "description": "RTU-05B Compressor & Ignition Control Diagnostic Labor",
+        "quantity_norm": "1.50",
+        "unit": "HR",
+        "qty_unit_printed": "1.50 HR",
+        "unit_price_norm": "110.00",
+        "unit_price_printed": "$110.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "165.00",
+        "gross_line_printed": "$165.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "165.00",
+        "net_line_printed": "$165.00"
+      },
+      {
+        "row_id": "L02",
+        "page_number": 1,
+        "sku": "LAB-HVAC-RPL",
+        "description": "Blower Motor & Hot-Surface Igniter Replacement Labor",
+        "quantity_norm": "2.25",
+        "unit": "HR",
+        "qty_unit_printed": "2.25 HR",
+        "unit_price_norm": "110.00",
+        "unit_price_printed": "$110.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "247.50",
+        "gross_line_printed": "$247.50",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": false,
+        "tax_flag_printed": "N",
+        "net_line_norm": "247.50",
+        "net_line_printed": "$247.50"
+      },
+      {
+        "row_id": "L03",
+        "page_number": 1,
+        "sku": "00489-IGN",
+        "description": "Silicon Nitride Hot-Surface Igniter Kit 120V",
+        "quantity_norm": "3.00",
+        "unit": "EA",
+        "qty_unit_printed": "3.00 EA",
+        "unit_price_norm": "45.50",
+        "unit_price_printed": "$45.50",
+        "discount_rate_norm": "0.1000",
+        "discount_rate_printed": "10.00%",
+        "gross_line_norm": "136.50",
+        "gross_line_printed": "$136.50",
+        "line_discount_norm": "13.65",
+        "line_discount_printed": "$13.65",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "122.85",
+        "net_line_printed": "$122.85"
+      },
+      {
+        "row_id": "L04",
+        "page_number": 1,
+        "sku": "00614-MTR",
+        "description": "Direct-Drive 1/2 HP ECM Blower Motor Module",
+        "quantity_norm": "2.00",
+        "unit": "EA",
+        "qty_unit_printed": "2.00 EA",
+        "unit_price_norm": "89.95",
+        "unit_price_printed": "$89.95",
+        "discount_rate_norm": "0.1500",
+        "discount_rate_printed": "15.00%",
+        "gross_line_norm": "179.90",
+        "gross_line_printed": "$179.90",
+        "line_discount_norm": "26.99",
+        "line_discount_printed": "$26.99",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "152.91",
+        "net_line_printed": "$152.91"
+      },
+      {
+        "row_id": "L05",
+        "page_number": 1,
+        "sku": "00712-FLT",
+        "description": "MERV-11 Pleated Return Air Filter 20x25x2",
+        "quantity_norm": "4.00",
+        "unit": "EA",
+        "qty_unit_printed": "4.00 EA",
+        "unit_price_norm": "12.25",
+        "unit_price_printed": "$12.25",
+        "discount_rate_norm": "0.1000",
+        "discount_rate_printed": "10.00%",
+        "gross_line_norm": "49.00",
+        "gross_line_printed": "$49.00",
+        "line_discount_norm": "4.90",
+        "line_discount_printed": "$4.90",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "44.10",
+        "net_line_printed": "$44.10"
+      },
+      {
+        "row_id": "L06",
+        "page_number": 1,
+        "sku": "00805-CAP",
+        "description": "Dual Run Oval Capacitor 45/5 uF 440VAC",
+        "quantity_norm": "1.00",
+        "unit": "EA",
+        "qty_unit_printed": "1.00 EA",
+        "unit_price_norm": "34.00",
+        "unit_price_printed": "$34.00",
+        "discount_rate_norm": "0.0000",
+        "discount_rate_printed": "0.00%",
+        "gross_line_norm": "34.00",
+        "gross_line_printed": "$34.00",
+        "line_discount_norm": "0.00",
+        "line_discount_printed": "$0.00",
+        "is_taxable": true,
+        "tax_flag_printed": "T",
+        "net_line_norm": "34.00",
+        "net_line_printed": "$34.00"
+      }
+    ],
+    "fees": [],
+    "summary": {
+      "subtotal": {
+        "normalized_value": "766.36",
+        "printed_text": "$766.36"
+      },
+      "taxable_subtotal": {
+        "normalized_value": "353.86",
+        "printed_text": "$353.86"
+      },
+      "tax_rate": {
+        "normalized_value": "0.0800",
+        "printed_text": "8.00%"
+      },
+      "tax_amount": {
+        "normalized_value": "28.31",
+        "printed_text": "$28.31"
+      },
+      "non_taxable_fees": {
+        "normalized_value": "0.00",
+        "printed_text": "$0.00"
+      },
+      "invoice_total": {
+        "normalized_value": "794.67",
+        "printed_text": "$794.67"
+      },
+      "previous_balance": {
+        "normalized_value": "150.00",
+        "printed_text": "$150.00"
+      },
+      "payments_credits_applied": {
+        "normalized_value": "25.00",
+        "printed_text": "$25.00"
+      },
+      "amount_due": {
+        "normalized_value": "919.67",
+        "printed_text": "$919.67"
+      }
+    }
+  }
+}
