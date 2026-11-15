@@ -1,0 +1,227 @@
+{
+  "head": "24a5866b505532fd03e7db62a4e57875e4c5a170",
+  "branch": "qualification/wp-0005-harness",
+  "status_before": [
+    "?? qualification/q0/harness/evidence/008-git-isolation/.gitattributes",
+    "?? qualification/q0/harness/evidence/008-git-isolation/run_checks.py",
+    "?? qualification/q0/harness/evidence/008-git-isolation/verify_isolated_git.py"
+  ],
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "external_storage_parent_exists_before": false,
+  "started_utc": "2026-11-15T18:08:01.088703Z",
+  "commands": [
+    {
+      "name": "01-unittest",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "qualification/q0/harness/tests",
+        "-t",
+        "qualification/q0/harness/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:01.088703Z",
+      "seconds": 36.875,
+      "output": "01-unittest.txt",
+      "output_sha256": "e6d0160d475bf136ee293cf2d937f52899ba7e9456274c831a2273ddea8c33b5",
+      "output_bytes": 10274
+    },
+    {
+      "name": "02-verify-snapshots",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "verify-snapshots"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:37.963869Z",
+      "seconds": 0.359,
+      "output": "02-verify-snapshots.txt",
+      "output_sha256": "ab0d1999b41619f51cb0a3204c96864275663ae6184f128bfa3842804ada3d6b",
+      "output_bytes": 7100
+    },
+    {
+      "name": "03-derive-rasters-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "derive-rasters",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:38.321167Z",
+      "seconds": 0.437,
+      "output": "03-derive-rasters-check.txt",
+      "output_sha256": "3830bbd14720b6c09320d263ccfe3ac9888040e09865e4d0eca4df3198d94500",
+      "output_bytes": 911
+    },
+    {
+      "name": "04-model-manifest-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "build-model-manifest",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:38.764838Z",
+      "seconds": 0.125,
+      "output": "04-model-manifest-check.txt",
+      "output_sha256": "b9503dd1b8a99dfa601eea1f999e8cfae513219b042d1ce255d38266546a1c47",
+      "output_bytes": 190
+    },
+    {
+      "name": "05-check-protocol",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "check-protocol"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:38.896354Z",
+      "seconds": 0.141,
+      "output": "05-check-protocol.txt",
+      "output_sha256": "3698b7f74d5aa896221dc05930aaa6421f0b4b19c36ca600cf1f9d329bd5379e",
+      "output_bytes": 198
+    },
+    {
+      "name": "06-lock-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "lock-check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:39.030317Z",
+      "seconds": 0.25,
+      "output": "06-lock-check.txt",
+      "output_sha256": "e1769d403a348e107d262ed12140eb8b6907233348a9b000a40aad590c51ca93",
+      "output_bytes": 3708
+    },
+    {
+      "name": "07-status",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "status"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:39.277756Z",
+      "seconds": 0.313,
+      "output": "07-status.txt",
+      "output_sha256": "ed4bb346ec5afdb0f8aba79d603dbdf1e9b65555b307db4a5f2640dd5acc0af5",
+      "output_bytes": 703
+    },
+    {
+      "name": "08-host-precheck-initial",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "host-precheck",
+        "--stage",
+        "initial"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:39.597816Z",
+      "seconds": 0.25,
+      "output": "08-host-precheck-initial.txt",
+      "output_sha256": "e06e9aeef6101b4422961c67855f03e96b9dd12c75bc7427340c51e0f3591318",
+      "output_bytes": 5530
+    },
+    {
+      "name": "09-execute-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "execute",
+        "--owner",
+        "author"
+      ],
+      "exit_code": 2,
+      "started_utc": "2026-11-15T18:08:39.846830Z",
+      "seconds": 0.328,
+      "output": "09-execute-refused.txt",
+      "output_sha256": "f6c35002dab1e3f784df0c918653c6a6d1a88af2f7f159e318690e598e727050",
+      "output_bytes": 566
+    },
+    {
+      "name": "10-write-requirements-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "write-requirements",
+        ".scratch/never-written.txt"
+      ],
+      "exit_code": 2,
+      "started_utc": "2026-11-15T18:08:40.173694Z",
+      "seconds": 0.25,
+      "output": "10-write-requirements-refused.txt",
+      "output_sha256": "7237b13dba7996e3ed2969de44da309a02033d31ef0c77b668ec7b6f5d2deeb4",
+      "output_bytes": 566
+    },
+    {
+      "name": "11-verify-wheelhouse-refused",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/q0.py",
+        "verify-wheelhouse",
+        ".scratch"
+      ],
+      "exit_code": 2,
+      "started_utc": "2026-11-15T18:08:40.418080Z",
+      "seconds": 0.234,
+      "output": "11-verify-wheelhouse-refused.txt",
+      "output_sha256": "7237b13dba7996e3ed2969de44da309a02033d31ef0c77b668ec7b6f5d2deeb4",
+      "output_bytes": 566
+    },
+    {
+      "name": "12-isolated-git-subprocess-check",
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "qualification/q0/harness/evidence/008-git-isolation/verify_isolated_git.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-15T18:08:40.658881Z",
+      "seconds": 8.734,
+      "output": "12-isolated-git-subprocess-check.txt",
+      "output_sha256": "ce5dc2aacb4c261417e764f27b3100dbf9a8e0b4df7d8e7a2be9db6e823f43f2",
+      "output_bytes": 6498
+    }
+  ],
+  "finished_utc": "2026-11-15T18:08:49.394047Z",
+  "external_storage_parent_exists_after": false,
+  "head_after": "24a5866b505532fd03e7db62a4e57875e4c5a170",
+  "tracked_diff_after": [],
+  "never_written_exists": false,
+  "scratch_test_dirs_left": []
+}
