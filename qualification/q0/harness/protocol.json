@@ -2,7 +2,7 @@
   "schema": "eldq0-protocol/1",
   "packet": "WP-0005",
   "author_sequence": "002",
-  "status": "PREPARED for /003 review; not executable until every wheel has an effective SHA-256 and coordinator install/execute release records (eldq0-release/2) bind the accepted review, harness commit, protocol and lock digests, storage root and an observed GPU lease",
+  "status": "FROZEN for independent /003 review; not executable until coordinator install/execute release records (eldq0-release/2) bind the accepted review, harness commit, protocol and lock digests, the accepted torchvision-local-sha256-TOFU exception, storage root and (execute) an observed GPU lease",
   "baseline_label": "unmodified model on non-Triton fallback path",
   "model": {
     "repo_id": "baidu/Unlimited-OCR-2",
@@ -150,7 +150,7 @@
       "stage_temp": "temp",
       "runs": ["runs\\author", "runs\\reviewer"]
     },
-    "model_dir_rule": "The model directory basename becomes the transformers_modules package name (upstream dynamic_module_utils local branch uses basename(path), per /003 phase A C10). It must be a Python identifier, so the coordinator-proposed leaf 'models\\0480966…' (leading digit) is replaced by the identifier-safe 'Unlimited_OCR_2_04809669' (Astra /007 proposal); the revision pin is enforced by the 18-object digest check, not by the directory name. Passed as a normalized absolute path without trailing separator; never a repo ID.",
+    "model_dir_rule": "The model directory basename becomes the transformers_modules package name (upstream dynamic_module_utils local branch uses basename(path), per /003 phase A C10). It must be a Python identifier, so the originally proposed leaf 'models\\0480966…' (leading digit) is replaced by the identifier-safe 'Unlimited_OCR_2_04809669' (Astra /007 proposal; accepted by the coordinator in docs/kickoffs/WP-0005-resume-2026-11-15.md); the revision pin is enforced by the 18-object digest check, not by the directory name. Passed as a normalized absolute path without trailing separator; never a repo ID.",
     "free_space": {
       "volume": "C:\\",
       "initial_min_bytes": 62277025792,
@@ -184,6 +184,9 @@
     "astra_001": "candidate 95ce0a8df728ae2c41aaf9e09d1b97c7d990fe36, report 2c32dde602b274251043bb216752f5d7fe9593be",
     "astra_007": "candidate d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5, evidence 6cb6a258b9652b7becd3fca9c7cf2f04866c3ec3, report 951d408aabf7bdad3602c0e7698869e2e2457aed",
     "reviewer_phase_a": "b75011da408fed5d2cc4f9025416ead6c5632ceb:docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/README.md (Q0R-01..09)",
-    "harness_checkpoint_1": "candidate 50157e6cbaf0a2fcc29d229781237a05aa95fa92 (53 passing CPU tests apply to that candidate only); evidence fde7fdc16d4e32ca347661e96afc0d2f7c099fb4, 1b88bfd7cc22e06bc8fd78193ad4821d1a383cb0"
+    "harness_checkpoint_1": "candidate 50157e6cbaf0a2fcc29d229781237a05aa95fa92 (53 passing CPU tests apply to that candidate only); evidence fde7fdc16d4e32ca347661e96afc0d2f7c099fb4, 1b88bfd7cc22e06bc8fd78193ad4821d1a383cb0",
+    "harness_checkpoint_2": "prepared code e228f9d19b64116d3d5894af97d21553d1fe4d10 (68 tests, 1 skipped, apply to that revision only); evidence 912f4f4f991977cca83bb40928cff45ac525efaa",
+    "reviewer_torchvision_receipt": "ef72849519c83a71e59e80c311b48719252d0cd6:docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/response-2026-11-15/torchvision-acquisition-receipt.json (blob 877d822099e7b3628d36f6b4a709d76ecad6de00); local-sha256-TOFU accepted narrowly for bounded local Q0 by the coordinator (docs/kickoffs/WP-0005-resume-2026-11-15.md)",
+    "model_leaf_decision": "coordinator accepted models\\Unlimited_OCR_2_04809669 (docs/kickoffs/WP-0005-resume-2026-11-15.md, final section)"
   }
 }

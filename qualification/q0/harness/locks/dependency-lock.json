@@ -1,6 +1,6 @@
 {
   "schema": "eldq0-lock/2",
-  "statement": "Bound, non-circular dependency lock. The 32 artifacts (names, versions, filenames, official URLs, sizes and the 31 publisher-declared SHA-256 values) are read from the exact Git blob named in `source`, never transcribed. The lock never names the review that accepts it; the coordinator release record binds accepted review, harness code, protocol and lock identities. Installation stays blocked while any artifact lacks an effective wheel SHA-256.",
+  "statement": "Bound, non-circular dependency lock. The 32 artifacts (names, versions, filenames, official URLs, sizes, the 31 publisher-declared SHA-256 values and the complete Requires-Dist graph) are read from the exact Git blob named in `source`, never transcribed. torchvision's wheel digest is a local-sha256-TOFU record bound to an exact published independent receipt that the harness re-reads and checks. The lock never names the review that accepts it; the coordinator release record binds accepted review, harness code, protocol and lock identities and the accepted provenance exception.",
   "lineage": {
     "astra_001": {"candidate": "95ce0a8df728ae2c41aaf9e09d1b97c7d990fe36", "report_publication": "2c32dde602b274251043bb216752f5d7fe9593be"},
     "astra_007": {"candidate": "d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5", "evidence": "6cb6a258b9652b7becd3fca9c7cf2f04866c3ec3", "report_publication": "951d408aabf7bdad3602c0e7698869e2e2457aed"},
@@ -12,6 +12,14 @@
     "git_blob": "ec8c650ed5fbeb0a754e4daee53aad53753a57a3",
     "size": 123592,
     "status": "metadata-closure-complete; NOT-installable-until-torchvision-hash"
+  },
+  "metadata_digest_source": {
+    "commit": "d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5",
+    "path": "qualification/q0/preflight/response/cuda-metadata.json",
+    "git_blob": "bca91aaa8e2d51eabb8e9d7d85c7f3602c4e8b8b",
+    "size": 57150,
+    "names": ["torch", "torchvision"],
+    "role": "Published PEP 658 METADATA digests (and recorded bodies) from the official PyTorch cu130 index; acquired torch/torchvision wheels must carry exactly that METADATA"
   },
   "platform": {
     "os": "Windows",
@@ -58,8 +66,34 @@
       "published_metadata_sha256": "f8e91ee987603053e2166e2e4063ddcfb533f266c88bae82b7f79119aadceb59",
       "required_requires_dist": "torch (==2.13.0)",
       "reason": "Neither official PyTorch index (combined /whl/torchvision/ or /whl/cu130/torchvision/) publishes a wheel SHA-256 (Astra /007 torchvision-alternate-indexes.json). The PEP 658 digest authenticates METADATA only; the multipart ETag is not a content digest.",
-      "resolution": "Bind exactly one published local-digest receipt (independent reviewer acquisition) as a local_hash_records entry with hash_kind local-sha256-TOFU. Never relabel it publisher-verified. Installation additionally requires the release record to list 'torchvision-local-sha256-TOFU' in accepted_provenance_exceptions."
+      "resolution": "Bound below to exactly one published independent receipt as a local_hash_records entry with hash_kind local-sha256-TOFU. Never relabelled publisher-verified. Installation additionally requires the install release record to list 'torchvision-local-sha256-TOFU' in accepted_provenance_exceptions (coordinator acceptance for bounded local Q0 is recorded in docs/kickoffs/WP-0005-resume-2026-11-15.md, not in this lock)."
     }
   ],
-  "local_hash_records": []
+  "local_hash_records": [
+    {
+      "name": "torchvision",
+      "version": "0.28.0+cu130",
+      "filename": "torchvision-0.28.0+cu130-cp312-cp312-win_amd64.whl",
+      "url": "https://download-r2.pytorch.org/whl/cu130/torchvision-0.28.0%2Bcu130-cp312-cp312-win_amd64.whl",
+      "size": 9091113,
+      "sha256": "5ae0ff50fcb43a189250a5fdb36a7dc780ea5caff469653cab1e3f32ed5d385c",
+      "hash_kind": "local-sha256-TOFU",
+      "provenance_label": "local-sha256-TOFU; publisher wheel digest unavailable",
+      "metadata_sha256": "f8e91ee987603053e2166e2e4063ddcfb533f266c88bae82b7f79119aadceb59",
+      "acquired_utc": ["2026-11-15T15:55:12.355593Z", "2026-11-15T15:55:15.799959Z"],
+      "receipt": {
+        "author": "eld-q0-reviewer (independent observer acquisition; not harness author)",
+        "commit": "ef72849519c83a71e59e80c311b48719252d0cd6",
+        "path": "docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/response-2026-11-15/torchvision-acquisition-receipt.json",
+        "git_blob": "877d822099e7b3628d36f6b4a709d76ecad6de00",
+        "size": 3103,
+        "readme_git_blob": "63aa845bae7bf01985e3f7b0875e813da0d308b2"
+      },
+      "limits": [
+        "Trust-on-first-use: proves later copies equal the bytes received over TLS from the official origin (Cloudflare edge HIT, HTTP 200, no redirects) at acquisition time; not publisher intent.",
+        "The PEP 658 METADATA match authenticates only the METADATA member, not the other 214 ZIP members."
+      ],
+      "receipt_errata": "Receipt field etag_matches_recorded_head=false is a disclosed reviewer reporting defect (N-03: lowercase 'etag' header key looked up as 'ETag'); the ETag strings are byte-identical and an ETag is not a content digest. The harness ignores that field; the receipt is preserved unchanged."
+    }
+  ]
 }

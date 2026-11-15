@@ -57,10 +57,7 @@ def _fail(msg, evidence=None):
 def bound_artifacts(lock: dict, reader) -> list[dict]:
     """Read the pinned metadata graph by exact Git blob and check it against the lock's expectations."""
     src = lock["source"]
-    data = reader(src["git_blob"])
-    if git_blob_sha1_bytes(data) != src["git_blob"] or len(data) != src["size"]:
-        _fail("metadata source bytes do not match the pinned Git blob/size")
-    meta = json.loads(data.decode("utf-8"))
+    meta = json.loads(_read_pinned(reader, src).decode("utf-8"))
     if meta.get("status") != src["status"]:
         _fail("metadata source status differs", meta.get("status"))
     if meta.get("environment") != lock["platform"]["marker_environment"]:
@@ -94,21 +91,90 @@ def bound_artifacts(lock: dict, reader) -> list[dict]:
         _fail("metadata graph lacks required distributions", absent)
     if any(n in by for n in ("triton", "triton-windows", "flash-attn", "xformers")):
         _fail("metadata graph contains an optional accelerated backend; policy is triton absent")
+    # Frozen dependency graph (N-02): every artifact's complete published Requires-Dist list,
+    # active and inactive, as recorded edges. Each acquired wheel's own METADATA must match it.
+    graph = {}
+    for e in meta.get("edges", []):
+        p = canonical(e["parent"])
+        if p not in by:
+            _fail(f"graph edge from unknown parent {e['parent']}")
+        graph.setdefault(p, []).append(e["requirement"])
+    if meta.get("unresolved_edges"):
+        _fail("metadata graph has unresolved edges", meta["unresolved_edges"])
+    for a in arts:
+        a["graph_requires"] = graph.get(canonical(a["name"]), [])
+    _attach_published_metadata(lock, reader, by)
     return arts
 
 
-def check_local_record(rec: dict, art: dict, gap: dict) -> None:
+def _read_pinned(reader, src: dict) -> bytes:
+    data = reader(src["git_blob"])
+    if git_blob_sha1_bytes(data) != src["git_blob"] or len(data) != src["size"]:
+        _fail(f"pinned source {src.get('path')} bytes do not match its Git blob/size")
+    return data
+
+
+def _attach_published_metadata(lock: dict, reader, by: dict) -> None:
+    """PEP 658 METADATA digests published by the official PyTorch index (Astra /007
+    cuda-metadata.json); acquired CUDA wheels must carry exactly that METADATA."""
+    src = lock["metadata_digest_source"]
+    recs = json.loads(_read_pinned(reader, src).decode("utf-8"))
+    seen = []
+    for r in recs:
+        n = canonical(r["name"])
+        a = by.get(n)
+        if a is None or (a["version"], a["filename"], a["url"], a["size"]) != (r["version"], r["filename"], r["url"], r["size"]):
+            _fail(f"metadata digest source disagrees with the graph for {r['name']}")
+        if a.get("sha256") != r.get("sha256") or not is_hex(r.get("metadata_published_sha256"), 64):
+            _fail(f"metadata digest source wheel/metadata hash inconsistent for {r['name']}")
+        if sha256_bytes(r["metadata_text"].encode("utf-8")) != r["metadata_published_sha256"]:
+            _fail(f"recorded METADATA body does not hash to its published digest for {r['name']}")
+        a["published_metadata_sha256"] = r["metadata_published_sha256"]
+        seen.append(n)
+    if sorted(seen) != sorted(src["names"]):
+        _fail("metadata digest source covers unexpected artifacts", seen)
+
+
+RECEIPT_LABEL = "local-sha256-TOFU; publisher wheel digest unavailable"
+
+
+def check_local_record(rec: dict, art: dict, gap: dict, reader) -> dict:
     want = {"name": art["name"], "version": art["version"], "filename": art["filename"], "url": art["url"],
-            "size": art["size"], "hash_kind": TOFU, "metadata_sha256": gap["published_metadata_sha256"]}
+            "size": art["size"], "hash_kind": TOFU, "metadata_sha256": gap["published_metadata_sha256"],
+            "provenance_label": RECEIPT_LABEL}
     got = {k: rec.get(k) for k in want}
     if got != want or not is_hex(rec.get("sha256"), 64):
         _fail(f"local digest record for {art['name']} does not match its artifact/gap", {"got": got, "want": want})
+    if art.get("published_metadata_sha256") not in (None, gap["published_metadata_sha256"]):
+        _fail("hash gap METADATA digest differs from the published index digest")
     r = rec.get("receipt") or {}
-    if not (is_hex(r.get("commit"), 40) and is_hex(r.get("git_blob"), 40) and r.get("path") and r.get("author")):
-        _fail("local digest record lacks an exact published receipt pin (commit, path, git_blob, author)")
+    if not (is_hex(r.get("commit"), 40) and is_hex(r.get("git_blob"), 40) and r.get("path") and r.get("author")
+            and isinstance(r.get("size"), int)):
+        _fail("local digest record lacks an exact published receipt pin (commit, path, git_blob, size, author)")
+    # The receipt itself is read from its exact Git blob and must state the same facts.
+    d = json.loads(_read_pinned(reader, r).decode("utf-8"))
+    checks = {
+        "label": d.get("label") == RECEIPT_LABEL,
+        "pass": d.get("pass") is True and bool(d.get("checks")) and all(v is True for v in d["checks"].values()),
+        "url": d.get("requested_url") == art["url"] and d.get("final_url") == art["url"],
+        "no_redirects": d.get("redirects") == [],
+        "http_200": d.get("http_status") == 200,
+        "size": d.get("actual_size") == art["size"] == d.get("expected_size"),
+        "local_sha256": d.get("local_sha256") == rec["sha256"],
+        "metadata_sha256": d.get("metadata_sha256") == gap["published_metadata_sha256"],
+        "name_version": (d.get("metadata_fields") or {}).get("Name") == art["name"]
+                        and (d.get("metadata_fields") or {}).get("Version") == art["version"],
+        "torch_requirement": _req_norm(gap["required_requires_dist"]) in
+                             {_req_norm(x) for x in (d.get("metadata_fields") or {}).get("Requires-Dist", [])},
+    }
+    if not all(checks.values()):
+        _fail(f"receipt {r['path']} does not support the local digest record", checks)
+    # Deliberately ignored: 'etag_matches_recorded_head' (reviewer-disclosed header-case reporting
+    # defect N-03; the ETag strings are identical and an ETag is not a content digest).
+    return checks
 
 
-def effective_artifacts(lock: dict, arts: list[dict]) -> dict[str, dict]:
+def effective_artifacts(lock: dict, arts: list[dict], reader) -> dict[str, dict]:
     gaps = {canonical(g["name"]): g for g in lock.get("hash_gaps", [])}
     recs = {}
     for rec in lock.get("local_hash_records", []):
@@ -127,8 +193,9 @@ def effective_artifacts(lock: dict, arts: list[dict]) -> dict[str, dict]:
         elif n in recs:
             if n not in gaps:
                 _fail(f"local record for {n} without a declared hash gap")
-            check_local_record(recs[n], a, gaps[n])
-            e.update(effective_sha256=recs[n]["sha256"], effective_kind=TOFU, local_record=recs[n])
+            receipt_checks = check_local_record(recs[n], a, gaps[n], reader)
+            e.update(effective_sha256=recs[n]["sha256"], effective_kind=TOFU, local_record=recs[n],
+                     receipt_checks=receipt_checks)
         else:
             if n not in gaps:
                 _fail(f"{n} has no hash and no declared gap")
@@ -153,7 +220,7 @@ def validate_lock(lock: dict, reader) -> dict[str, dict]:
     cuda = lock.get("cuda") or {}
     if cuda.get("device_capability") != [12, 0] or cuda.get("required_arch") != "sm_120":
         _fail("lock must require capability 12.0 / sm_120")
-    return effective_artifacts(lock, bound_artifacts(lock, reader))
+    return effective_artifacts(lock, bound_artifacts(lock, reader), reader)
 
 
 def readiness(pkgs: dict[str, dict]) -> dict:
@@ -184,9 +251,44 @@ def requirements_text(pkgs: dict[str, dict]) -> str:
     return "".join(f"{a['name']}=={a['version']} --hash=sha256:{a['effective_sha256']}\n" for _, a in sorted(pkgs.items()))
 
 
+_REQ = re.compile(r"^([A-Za-z0-9][A-Za-z0-9._-]*)(\[[^\]]*\])?(.*)$")
+
+
 def _req_norm(req: str) -> str:
-    """'torch (==2.13.0)' and 'torch==2.13.0' compare equal; markers are kept."""
-    return re.sub(r"[\s()]", "", req).lower()
+    """Formatting-insensitive form of one Requires-Dist entry, so the raw wheel METADATA form
+    ('torch (==2.13.0)', "x ; extra == 'y'") and the published index form ('torch==2.13.0',
+    'x; extra == "y"') compare equal. Name is canonicalized, extras and specifiers are sorted,
+    marker whitespace is removed and quotes unified; nothing else is relaxed."""
+    spec, sep, marker = req.partition(";")
+    spec = re.sub(r"[\s()]", "", spec)
+    m = _REQ.match(spec)
+    if not m:
+        return "!unparsed:" + req
+    extras = ",".join(sorted(x.lower() for x in (m.group(2) or "[]")[1:-1].split(",") if x))
+    specs = ",".join(sorted(s for s in m.group(3).split(",") if s))
+    mk = re.sub(r"\s+", "", marker).replace("'", '"') if sep else ""
+    return f"{canonical(m.group(1))}[{extras}]{specs};{mk}"
+
+
+def verify_wheel_metadata(wheel: Path, art: dict) -> dict:
+    """N-02: the wheel's own dist-info METADATA must name the locked distribution/version and
+    declare exactly the frozen graph's Requires-Dist multiset; where the index published a
+    PEP 658 digest, the METADATA bytes must hash to it."""
+    from collections import Counter
+    meta = inspect_wheel_metadata(wheel, art["name"], art["version"])
+    got = Counter(_req_norm(r) for r in meta["requires_dist"])
+    want = Counter(_req_norm(r) for r in art.get("graph_requires", []))
+    row = {"wheel": wheel.name, "metadata_sha256": meta["sha256"], "requires_dist": len(meta["requires_dist"]),
+           "graph_requires": sum(want.values()), "requires_match": got == want}
+    if got != want:
+        row["only_in_wheel"] = sorted((got - want).elements())
+        row["only_in_graph"] = sorted((want - got).elements())
+    pub = art.get("published_metadata_sha256")
+    row["published_metadata_sha256_match"] = None if pub is None else meta["sha256"] == pub
+    row["ok"] = row["requires_match"] and row["published_metadata_sha256_match"] is not False
+    if not row["ok"]:
+        raise Q0Failure("HASH_MISMATCH", f"{wheel.name}: METADATA differs from the frozen dependency graph", row)
+    return row
 
 
 def inspect_wheel_metadata(wheel: Path, name: str, version: str) -> dict:
@@ -213,8 +315,9 @@ def inspect_wheel_metadata(wheel: Path, name: str, version: str) -> dict:
 
 
 def verify_wheelhouse(pkgs: dict[str, dict], wheelhouse: Path, lock: dict) -> dict:
-    """Exactly the locked wheel files, each matching size and effective SHA-256; TOFU wheels
-    additionally re-check their METADATA against the published PEP 658 digest."""
+    """Before any install: exactly the 32 locked wheel files; each matches its locked size and
+    effective SHA-256 (publisher-declared or the bound local-sha256-TOFU receipt), AND each
+    wheel's own METADATA matches the frozen dependency graph (verify_wheel_metadata, N-02)."""
     if not readiness(pkgs)["installable"]:
         raise Q0Failure("ACQUISITION_PROVENANCE_PENDING", "wheelhouse cannot be verified with a missing wheel digest")
     want = {a["filename"]: a for a in pkgs.values()}
@@ -228,17 +331,16 @@ def verify_wheelhouse(pkgs: dict[str, dict], wheelhouse: Path, lock: dict) -> di
     for name, a in sorted(want.items()):
         d = file_digests(Path(wheelhouse) / name, git_blob=False)
         row = {"wheel": name, "size": d["size"], "sha256": d["sha256"], "kind": a["effective_kind"],
-               "ok": d["sha256"] == a["effective_sha256"] and d["size"] == a["size"]}
-        if row["ok"] and a["effective_kind"] == TOFU:
+               "payload_ok": d["sha256"] == a["effective_sha256"] and d["size"] == a["size"]}
+        if not row["payload_ok"]:
+            raise Q0Failure("HASH_MISMATCH", f"wheel payload differs from the lock: {name}", row)
+        row["metadata"] = verify_wheel_metadata(Path(wheelhouse) / name, a)
+        if a["effective_kind"] == TOFU:
             gap = gaps[canonical(a["name"])]
-            meta = inspect_wheel_metadata(Path(wheelhouse) / name, a["name"], a["version"])
-            row["metadata"] = meta
-            row["ok"] = meta["sha256"] == gap["published_metadata_sha256"] and \
-                _req_norm(gap["required_requires_dist"]) in {_req_norm(r) for r in meta["requires_dist"]}
+            if row["metadata"]["metadata_sha256"] != gap["published_metadata_sha256"]:
+                raise Q0Failure("HASH_MISMATCH", f"{name}: METADATA differs from the published PEP 658 digest", row)
         rows.append(row)
-        if not row["ok"]:
-            raise Q0Failure("HASH_MISMATCH", f"wheel differs from the lock: {name}", row)
-    return {"wheels": rows}
+    return {"wheels": rows, "metadata_checked": len(rows)}
 
 
 def verify_installed(pkgs: dict[str, dict], lock: dict, installed: dict[str, str], importable) -> dict:

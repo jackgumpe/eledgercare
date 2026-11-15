@@ -47,20 +47,26 @@ Exit 4 means a precondition failed; stop. This creates no CUDA context, does not
 
 ## Stage B: wheels, offline hash-only install (release: `eldq0-release/2` stage `install`)
 
-**Stop gate.** The torchvision wheel has no publisher SHA-256. `q0.py lock-check` reports `installable: false`, and every install-stage command refuses with `ACQUISITION_PROVENANCE_PENDING`. The gate opens only when all three of these hold:
+**Gate.** All 32 wheels have an effective SHA-256: 31 publisher-declared, plus torchvision `local-sha256-TOFU` (`5ae0ff50…d385c`). The torchvision value is bound to the independent receipt `ef728495…:…/torchvision-acquisition-receipt.json`, which the harness re-reads and checks. `q0.py lock-check` reports `installable: true` and `required_exceptions: ["torchvision-local-sha256-TOFU"]`. The install-stage commands still refuse until a coordinator `eldq0-release/2` `install` record binds four things:
 
-1. **Receipt bound.** The independent reviewer's published local-digest receipt is bound in `locks/dependency-lock.json` as `local_hash_records[0]`, with `hash_kind: local-sha256-TOFU`. The receipt must come from exactly the official URL `https://download-r2.pytorch.org/whl/cu130/torchvision-0.28.0%2Bcu130-cp312-cp312-win_amd64.whl`. Its size must be 9,091,113 B, and its METADATA SHA-256 must equal `f8e91ee987603053e2166e2e4063ddcfb533f266c88bae82b7f79119aadceb59` with `Requires-Dist: torch (==2.13.0)`. The record carries the receipt's commit, path and Git blob.
-2. **New candidate reviewed.** That lock revision is frozen in a new harness candidate and reviewed.
-3. **Exception accepted.** The install release lists `torchvision-local-sha256-TOFU` in `accepted_provenance_exceptions`.
+- the independently accepted harness commit, clean;
+- the protocol and lock SHA-256;
+- the accepted review;
+- `accepted_provenance_exceptions: ["torchvision-local-sha256-TOFU"]`.
 
 Then:
 
 1. **Venv.** Create it from the exact interpreter: `& $Py -m venv "$Root\venv"`. Record the bundled pip version and never upgrade it.
 2. **Download.** For each of the 32 locked wheels, fetch its locked `url` (`files.pythonhosted.org` or `download-r2.pytorch.org`) into `$Root\wheelhouse` under the network stage environment. Use direct URLs only: no resolver, no extra index, no sdist and no extras. One way is `pip download --no-deps --only-binary=:all: <locked url>`, run with the venv interpreter.
-3. **Verify the wheelhouse.** `& "$Root\venv\Scripts\python.exe" -s $Q0 verify-wheelhouse "$Root\wheelhouse" --release <install.json>` checks:
+3. **Verify the wheelhouse.** `& "$Root\venv\Scripts\python.exe" -s $Q0 verify-wheelhouse "$Root\wheelhouse" --release <install.json>` checks, before any install:
    - exactly the 32 filenames;
    - each locked size and effective SHA-256;
-   - for torchvision, its own `dist-info/METADATA` digest and `torch (==2.13.0)` requirement, read from the ZIP with no extraction.
+   - **every** wheel's own `dist-info/METADATA`, read from the ZIP with no extraction or import (reviewer N-02):
+     - `Name`/`Version` as locked;
+     - the `Requires-Dist` multiset equal to the frozen graph's edges for that artifact;
+     - for torch and torchvision, METADATA bytes equal to the published PEP 658 digest.
+
+   Any mismatch stops the stage. The torchvision bytes re-acquired here must equal the receipt's local SHA-256; a different payload fails as `HASH_MISMATCH`.
 4. **Write requirements.** `& "$Root\venv\Scripts\python.exe" -s $Q0 write-requirements "$Root\wheelhouse\requirements.lock.txt" --release <install.json>` writes 32 lines of the form `name==version --hash=sha256:…`. Torch is `torch==2.13.0+cu130`, never the CPU `torch 2.13.0` (Q0R-08).
 5. **Install offline, hash-only (Q0R-08):**
    ```powershell

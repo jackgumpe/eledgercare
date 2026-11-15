@@ -98,7 +98,8 @@ class SessionBookkeeping(unittest.TestCase):
                                         release_mutation=lambda r: r | {"gpu_uuid": "GPU-00000000-0000-0000-0000-000000000000"})
         self.assert_blocked_before_load("dirtycode", "EXECUTION_NOT_RELEASED",
                                         code=support.FAKE_CODE | {"harness_clean": False})
-        self.assert_blocked_before_load("hashgap", "ACQUISITION_PROVENANCE_PENDING", lock=support.committed_lock())
+        self.assert_blocked_before_load("hashgap", "ACQUISITION_PROVENANCE_PENDING",
+                                        lock=support.without_local_records(support.committed_lock()))
         self.assert_blocked_before_load("noexception", "ACQUISITION_PROVENANCE_PENDING",
                                         release_mutation=lambda r: r | {"accepted_provenance_exceptions": []})
         self.assert_blocked_before_load("floor", "STORAGE_FLOOR", disk_usage=lambda p: du(10 ** 12, 0, 10 ** 9))

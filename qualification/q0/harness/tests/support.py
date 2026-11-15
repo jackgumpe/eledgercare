@@ -166,7 +166,7 @@ class FakePdfium:
 
 
 LOCK_PATH = HARNESS / "locks" / "dependency-lock.json"
-FAKE_TOFU_SHA = "d" * 64  # TEST-ONLY placeholder; never a claim about the real torchvision wheel
+TV_LOCAL_SHA = "5ae0ff50fcb43a189250a5fdb36a7dc780ea5caff469653cab1e3f32ed5d385c"  # from the bound receipt
 
 
 def committed_lock() -> dict:
@@ -178,20 +178,15 @@ def git_reader():
     return git_blob_reader(REPO_ROOT)
 
 
-def with_test_tofu(lock: dict, sha: str = FAKE_TOFU_SHA) -> dict:
-    """In-memory TEST copy of the committed lock with a synthetic local-digest record."""
+def without_local_records(lock: dict) -> dict:
+    """In-memory TEST copy of the lock with the torchvision receipt binding removed (gap state)."""
     lock = copy.deepcopy(lock)
-    g = lock["hash_gaps"][0]
-    lock["local_hash_records"] = [{
-        "name": "torchvision", "version": "0.28.0+cu130", "filename": g["filename"], "url": g["url"],
-        "size": g["size"], "sha256": sha, "hash_kind": "local-sha256-TOFU",
-        "metadata_sha256": g["published_metadata_sha256"],
-        "receipt": {"author": "test-double", "commit": "e" * 40, "path": "test/receipt.json", "git_blob": "f" * 40}}]
+    lock["local_hash_records"] = []
     return lock
 
 
 def final_lock() -> dict:
-    return with_test_tofu(committed_lock())
+    return committed_lock()
 
 
 def lock_pkgs(lock: dict) -> dict:

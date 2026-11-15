@@ -139,8 +139,7 @@ class CliRefusesWithoutRelease(unittest.TestCase):
         self.assertEqual(cp.returncode, 2, cp.stderr)
         rec = json.loads(cp.stdout)
         self.assertEqual(rec["status"], "BLOCKED")
-        self.assertEqual(rec["failures"][0]["failure_class"], "ACQUISITION_PROVENANCE_PENDING")
-        self.assertEqual(rec["failures"][0]["evidence"], ["torchvision"])
+        self.assertEqual(rec["failures"][0]["failure_class"], "EXECUTION_NOT_RELEASED")
         self.assertIsNone(rec["accuracy_score"])
         self.assertEqual(root.exists(), existed, "execute must not create the external storage root")
 

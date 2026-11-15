@@ -1,9 +1,6 @@
 # WP-0005 Q0 frozen qualification protocol (author: eld-q0-harness, /002)
 
-Status: **PREPARED, not executable.** It is prepared for the independent `/003` review. Two separate conditions gate it:
-
-- every one of the 32 locked wheels needs an effective SHA-256 (§8);
-- coordinator `eldq0-release/2` records must exist for the install and execute stages. Each record binds:
+Status: **FROZEN for the independent `/003` review. Not executable.** All 32 locked wheels now have an effective SHA-256: 31 publisher-declared, plus torchvision as `local-sha256-TOFU` bound to the independent reviewer receipt (§8). Coordinator `eldq0-release/2` records must still exist for the install and execute stages. Each record binds:
   - the accepted review;
   - the exact harness commit, clean;
   - the protocol and lock SHA-256 values;
@@ -132,6 +129,13 @@ Unsupported (reported, not substituted): which GPU kernels Triton/SDPA dispatch 
 
    The installed set must equal those 32 exactly; only `pip` may be unlocked. The PyPI CPU `torch 2.13.0` counts as a mismatch (Q0R-08). `flash_attn`, `xformers` and `triton` must not be importable (`find_spec is None`).
 
+   **Every-wheel METADATA check before install (reviewer N-02).** `verify-wheelhouse` checks each of the 32 acquired wheels after its size and effective SHA-256. It reads the wheel's own top-level `dist-info/METADATA` from the ZIP, with no extraction or import. The check (`locks.verify_wheel_metadata`) requires:
+   - `Name` and `Version` exactly as locked;
+   - the multiset of `Requires-Dist` entries equal to that artifact's frozen graph edges. These are all 850 recorded requirements, active and inactive, and they reproduce each artifact's published Requires-Dist exactly. The comparison only normalizes formatting: canonical name, sorted extras and specifiers, marker whitespace and quote style. Nothing else is relaxed;
+   - for torch and torchvision, METADATA bytes that hash to the official index's published PEP 658 digest. These digests are read from the bound `cuda-metadata.json` blob `bca91aaa…`, whose recorded bodies are re-hashed.
+
+   Any divergence is `HASH_MISMATCH` and blocks installation.
+
 ## 6. Guards and failure accounting
 
 Timeouts (harness policy, not measured performance): preflight 1800 s, load 1800 s, 1-page call 1800 s, 3-page call 3600 s, session 21600 s. A **stall** is no native model-forward return for 300 s inside a call (heartbeat every 5 s), which suggests a WDDM paging stall. The supervisor (`supervisor.py`) kills **only its own child** through its `Popen` handle. Log cap: 64 MiB. Raw output cap: 16 MiB per file.
@@ -144,7 +148,7 @@ Fail-closed classes are listed in `outcome.FAILURE_CLASSES`, including hash mism
 
 - Storage root: `C:\Users\jackg\eLedgerCare-Q0\WP-0005` (coordinator-selected). It must equal the release record and lie outside the repository, the worktrees, `TEMP`/`TMP`, `APPDATA`/`LOCALAPPDATA` and `~/.cache`.
 - Each run gets a new `runs\<author|reviewer>\<UTC>-<id>` with its own `HF_MODULES_CACHE`, temp and caches.
-- Model runtime directory `models\Unlimited_OCR_2_04809669` (identifier-safe; see §5.3). This replaces the coordinator-proposed leaf `models\0480966…`, which starts with a digit; the coordinator should confirm. Notice: `notices\Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a\README.md`.
+- Model runtime directory `models\Unlimited_OCR_2_04809669` (identifier-safe; see §5.3). The coordinator accepted it in place of the originally proposed leaf `models\0480966…`, which starts with a digit. Notice: `notices\Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a\README.md`.
 - GPU: `GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d` (RTX 5070 Ti, capability 12.0, `sm_120` in `torch.cuda.get_arch_list()`), concurrency 1, and exactly one visible device.
 - **Observer plan (reconciled).** The checkpoint-1 single command that combined `--query-gpu` and `--query-compute-apps` is replaced by two separate read-only queries, both bound by `--id=<UUID>`:
   - **GPU query:** `--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate --format=csv,noheader,nounits`.
@@ -161,12 +165,22 @@ Fail-closed classes are listed in `outcome.FAILURE_CLASSES`, including hash mism
 
 ## 8. Remaining gates and open items
 
-- **torchvision wheel digest (acquisition/install stop gate).** Neither official index publishes a wheel SHA-256. The lock records it as a declared `hash_gaps` entry, and `readiness()` reports `installable: false`. `execute`, `write-requirements`, `verify-wheelhouse` and `preflight-cpu` therefore refuse with `ACQUISITION_PROVENANCE_PENDING`. The resolution has three parts:
-  - exactly one published independent receipt, bound as a `local_hash_records` entry with `hash_kind: local-sha256-TOFU`. Its name, version, filename, URL, size and the PEP 658 METADATA digest `f8e91ee9…` must equal the gap. It carries the receipt's commit, path and Git blob pin;
-  - the release record listing `torchvision-local-sha256-TOFU` in `accepted_provenance_exceptions`;
-  - `verify-wheelhouse` re-reading the wheel's own `dist-info/METADATA` (ZIP read, no extraction or import). It requires that digest and `Requires-Dist: torch (==2.13.0)`.
+- **torchvision wheel digest: bound, local-sha256-TOFU.** Neither official index publishes a wheel SHA-256. The lock binds exactly one published independent receipt: `ef72849519c83a71e59e80c311b48719252d0cd6:docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/response-2026-11-15/torchvision-acquisition-receipt.json` (blob `877d8220…`, 3,103 B). The bound values are:
+  - local SHA-256 `5ae0ff50fcb43a189250a5fdb36a7dc780ea5caff469653cab1e3f32ed5d385c` and 9,091,113 B;
+  - METADATA digest `f8e91ee9…`;
+  - label **`local-sha256-TOFU; publisher wheel digest unavailable`**. It is never labelled publisher-verified.
 
-  The digest is never labelled publisher-verified.
+  `validate_lock` re-reads that blob, checks its SHA-1 and size, and requires all of the following:
+  - the label, `pass` and every recorded check true;
+  - the exact URL, with no redirects and HTTP 200;
+  - size, local SHA-256 and METADATA digest equal to the record;
+  - name/version and `torch (==2.13.0)`.
+
+  The receipt's `etag_matches_recorded_head: false` is the reviewer-disclosed header-case reporting defect (N-03). The ETag strings are identical, so the harness ignores that field. No cookies or unneeded headers are copied into the lock.
+
+  Installation still requires the install release record to list `torchvision-local-sha256-TOFU` in `accepted_provenance_exceptions`. The coordinator's narrow acceptance for bounded local Q0 is recorded in its resume kickoff, not in the lock. Without a release, `execute`, `write-requirements`, `verify-wheelhouse` and `preflight-cpu` refuse with `EXECUTION_NOT_RELEASED`. With a release that omits the exception, they refuse with `ACQUISITION_PROVENANCE_PENDING`.
+
+  TOFU limits: the hash proves only that later copies equal the bytes the reviewer received over TLS from the official origin (a Cloudflare edge). The METADATA match authenticates only that member.
 - `torch.version.cuda == "13.0"` is inferred from `+cu130` and must be observed in the runtime precheck.
 - Transformers 4.52.1 local-directory loading has not been executed. The reviewer's phase A read of upstream `dynamic_module_utils.py` is source evidence only: `check_imports` runs only on the entry module locally, while the remote ID would trip unconditional `import triton`. Module-cache identity is checked after load, and import failure is an honest blocker.
 - The exact `pypdfium2.version.PDFIUM_INFO` string form is verified only by `preflight-cpu`, which fails closed if `159.0.8149.0` is absent.

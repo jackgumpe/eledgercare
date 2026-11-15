@@ -99,9 +99,13 @@ def cmd_check_protocol(_):
 
 def cmd_lock_check(_):
     lock, digest, pkgs = _lock()
-    _print({"lock_sha256": digest, "source": lock["source"], "artifacts": len(pkgs),
-            "readiness": locks.readiness(pkgs),
-            "artifacts_by_kind": {n: a["effective_kind"] for n, a in sorted(pkgs.items())}})
+    _print({"lock_sha256": digest, "source": lock["source"], "metadata_digest_source": lock["metadata_digest_source"],
+            "artifacts": len(pkgs), "readiness": locks.readiness(pkgs),
+            "artifacts_by_kind": {n: a["effective_kind"] for n, a in sorted(pkgs.items())},
+            "graph_requires_per_artifact": {n: len(a["graph_requires"]) for n, a in sorted(pkgs.items())},
+            "published_metadata_sha256": {n: a["published_metadata_sha256"] for n, a in sorted(pkgs.items())
+                                          if a.get("published_metadata_sha256")},
+            "local_digest_receipt_checks": {n: a["receipt_checks"] for n, a in sorted(pkgs.items()) if a.get("receipt_checks")}})
 
 
 def cmd_status(_):
@@ -136,7 +140,9 @@ def _install_gate(a):
     """Common gate of installation-stage commands; returns (protocol, lock, pkgs)."""
     protocol, p_sha = load_protocol()
     lock, lock_sha, pkgs = _lock()
-    release = json.loads(Path(a.release).read_text(encoding="utf-8")) if a.release else None
+    if not a.release:
+        raise Q0Failure("EXECUTION_NOT_RELEASED", "no coordinator install release record supplied (--release)")
+    release = json.loads(Path(a.release).read_text(encoding="utf-8"))
     locks.require_installable(pkgs, release)
     validate_release(release, stage="install", owner=None, protocol=protocol, protocol_sha256=p_sha,
                      lock_sha256=lock_sha, root=Path(protocol["storage"]["root"]), code=code_identity(REPO_ROOT))
@@ -181,7 +187,9 @@ def cmd_execute(a):
     code = code_identity(REPO_ROOT)
     try:
         lock, lock_sha, pkgs = _lock()
-        release = json.loads(Path(a.release).read_text(encoding="utf-8")) if a.release else None
+        if not a.release:
+            raise Q0Failure("EXECUTION_NOT_RELEASED", "no coordinator execute release record supplied (--release)")
+        release = json.loads(Path(a.release).read_text(encoding="utf-8"))
         locks.require_installable(pkgs, release)
         validate_release(release, stage="execute", owner=a.owner, protocol=protocol, protocol_sha256=p_sha,
                          lock_sha256=lock_sha, root=root, code=code)

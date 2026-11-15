@@ -2,13 +2,17 @@
 
 Author: `eld-q0-harness` (WP-0005 `/002`). This is a separate research qualification runner. It is **not** production OCR integration, and no product project may reference it. All of its code runs on the Python standard library. torch, transformers, pypdfium2 and the model's remote code are imported only inside the released execution stage.
 
-Status: **prepared for independent `/003` review; not executable.**
+Status: **frozen for the independent `/003` review. CPU harness preparation only; this is not model qualification.**
 
-- The dependency lock is bound to Astra `/007`'s exact 32-artifact metadata graph: Git blob `ec8c650e…` at `d666c416…`. 31 artifacts have publisher-declared hashes.
-- The **torchvision wheel digest is a declared gap**, so the harness reports `installable: false`. It waits for the independent reviewer's local-digest receipt; no hash is fabricated.
+- The dependency lock is bound to Astra `/007`'s exact 32-artifact metadata graph: Git blob `ec8c650e…` at `d666c416…`.
+  - 31 artifacts are publisher-declared.
+  - torchvision is `local-sha256-TOFU; publisher wheel digest unavailable` (`5ae0ff50…`), bound to the independent receipt `ef728495…`.
+- Before install, every acquired wheel's own METADATA is checked against the frozen graph.
 - No storage root, wheel, model, venv or GPU lease exists for this work.
-- `q0.py execute` and the install-stage commands refuse with `ACQUISITION_PROVENANCE_PENDING` before creating anything.
-- Checkpoint-1 candidate `50157e6c…` and its 53-test evidence (`evidence/002-cpu/`) are immutable. They do not validate later code.
+- `q0.py execute` and the install-stage commands refuse with `EXECUTION_NOT_RELEASED` before creating anything, because no coordinator release record exists.
+- Earlier checkpoint records stay immutable and validate only their own revisions:
+  - `evidence/002-cpu/`: candidate `50157e6c…`, 53 tests;
+  - `evidence/002-checkpoint-2/`: prepared `e228f9d1…`, 68 tests.
 
 ## Contents
 
