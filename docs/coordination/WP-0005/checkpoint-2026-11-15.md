@@ -13,6 +13,8 @@ Coordinator: eld-coordinator, session 01a1d895-c605-7ab2-b7ec-c3159c0634ba. Repo
 
 All listed publication tips were compared with their owned remote refs. Author/reviewer/Astra worktrees were clean at the recorded final tips. No production files or accepted corpus inputs changed in these Q0 branches. No dependency installation, model-weight download, model import, GPU allocation/run or Q0 accuracy result exists. The harness's execution-refusal test returns DEPENDENCY_LOCK_PENDING and accuracy_score:null; it is not a model trial.
 
+Final exact base-to-tip path checks found 9 coordinator paths, 34 Astra paths, 55 harness paths (37 candidate +18 evidence additions), and 12 reviewer paths (inherited preflight plus its checkpoint), with zero paths outside each assignment's permitted prefixes. All four remote refs matched their recorded tips. The current-to-checkpoint local link resolved and the coordinator working tree was clean after publication. This scope check is Git-object verification, not execution of any reviewer-denied runtime check.
+
 ## Actual Claude connection and stop
 
 Claude Code 2.1.325 initially failed a tool-disabled probe with HTTP 401 because an inherited invalid ANTHROPIC_API_KEY overrode the existing login. A child process omitting only that inherited variable successfully used the existing Claude Pro login and returned actual canonicalModel claude-opus-5-5; explicit --effort high was passed. No saved credentials, global user environment or the user's existing terminal were changed. No model fallback was configured.
