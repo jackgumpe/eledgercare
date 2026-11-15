@@ -2,17 +2,17 @@
 
 Sole writer: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba. Actual coordinator model/effort: not exposed. Repository https://github.com/jackgumpe/eledgercare is PRIVATE; default/integration branch coordination/bootstrap. Normal scoped commits and pushes are active. INDEX.md and immutable reports retain historical reservations, receipts and corrected findings.
 
-## Active WP-0005: both trials passed; final publications pending
+## WP-0005: independently accepted and integrated; final publication underway
 
-**Author and independent reviewer actual trials both completed QUALIFIED_RUNTIME_OBSERVATION.** Each passed all six checks with no failures; all twelve calls stopped normally with expected page counts. Both fixtures' measured repeats match within each session, and all four measured outputs match across sessions in token IDs and raw text bytes. [Direct comparison and final runtime observations](docs/coordination/WP-0005/final-runtime-observations/README.md) retain the evidence and actual limitations.
+**The unmodified Q0 trial and independent reproduction are ACCEPTED.** Both returned QUALIFIED_RUNTIME_OBSERVATION: all six checks passed in each run, and all twelve calls stopped normally with expected page counts. All four measured outputs match within and across sessions in token IDs and raw text bytes. The [final disposition](docs/coordination/WP-0005/final-disposition/README.md) records exact revisions, evidence corrections and limits.
 
-Author run **20261115T202627Z-eb5bf7da**, executing **9e73ef86600b5e16f74b056676a6d3a4f1474058**, lasted1235.281s. Reviewer run **20261115T210422Z-565e2de9**, executing **c8daa97c5be6bc67931b215652a7a0f6ced621ef**, lasted1266.187s. Accepted core **41d6204648e4115ab197507d1a22f6d5c7f3e784**, original model/weights/protocol/lock/inputs remain unchanged; post-reviewer model verification passed all18 objects and notice.
+Independent reviewer /005 is published at **848fe70bd6d6fce9c958f11b76102d2fdfad77d4**, evidence **acf2ce43ccb3c22883e9961f2c763a2ece11b54f**; author /004 at **72fffbcbfa47f3c93425d9de5f338e511df7da3e**. Both exact origin refs were verified and normally integrated at **8bb643ce79f3728fcf90b1ad4e08e9ab87e76982**. Original authorship and all immutable reports are preserved.
 
-**Both GPU leases are RETURNED; no Q0 worker or active lease remains.** Root directly observed reviewer launcher30436 and actual worker30484 absent at21:26:25Z, following earlier author exit. Fresh host/GPU observations passed with desktop WDDM processes preserved. External task environment and both raw runs remain retained.
+Author run **20261115T202627Z-eb5bf7da** lasted 1235.281s; reviewer run **20261115T210422Z-565e2de9** lasted 1266.187s. Original model/weights and frozen protocol, dependencies and inputs remain unchanged. [Direct observations](docs/coordination/WP-0005/final-runtime-observations/README.md) record post-run verification of all 18 model objects and notice.
 
-Author **bd92ddc3-af60-4096-b683-65386d81b718** is IDLE after published /004 evidence **6e5f87fe4d0e19338a387bb5870efd083b2b491c**, report **72fffbcbfa47f3c93425d9de5f338e511df7da3e**, exact origin verified. [Publication handoff](docs/coordination/WP-0005/gpu-reviewer-release/author-publication-handoff.md) preserves report-only corrections. Separate reviewer **0815536f-045a-4112-8a89-ebf0e0cc782f**, actual gemini-4-carbon-high/high, is finishing independent /005 evidence/report and normal integration of exact author publication after runtime. Final /005 and coordinator /006 remain outstanding; there is no missing user approval or further runtime release.
+**Both GPU leases are RETURNED, both delegated sessions finished successfully, and no Q0 worker or active lease remains.** External task environment and both raw runs remain retained. Carbon completed the authorized continuation in separate author/reviewer conversations after the Claude route remained blocked; no account or billing settings changed.
 
-Original Opus/Astra/Carbon authorship and [accepted metadata correction](docs/coordination/WP-0005/metadata-correction-acceptance.md) are preserved. This is bounded runtime qualification, not OCR accuracy scoring or production readiness. E1-E3 and production extension remain unreleased.
+Coordinator preservation evidence, canonical /006 and final publication receipt are the only remaining administrative steps. This qualification does not score OCR accuracy or establish production readiness. E1-E3 and production extension remain unreleased.
 
 ## Accepted prior milestones
 

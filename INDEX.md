@@ -343,3 +343,10 @@ Independent actual run **20261115T210422Z-565e2de9** completed **QUALIFIED_RUNTI
 
 
 Independent /005 runtime evidence frozen locally at **acf2ce43ccb3c22883e9961f2c763a2ece11b54f**, after normal author-publication merge **5bc2e0d9b3c3aad5e19e6b6d24b03936620f291b**. Root verified all96 Git blobs:72 original runtime copies,21 actual scratch check/wrapper copies, metadata and manifest. All6 corresponding author/reviewer raw texts and token-ID lists match exactly, including excluded warm-ups. Evidence-only diff adds96 permitted paths; accepted core and evaluation inputs unchanged. Canonical005 publication/remote binding remains pending, so final acceptance/integration is not yet declared. Audit is docs/coordination/WP-0005/final-runtime-observations/reviewer-publication-audit.json.
+
+
+### WP-0005 final independent acceptance and integration
+
+Independent canonical /005 **848fe70bd6d6fce9c958f11b76102d2fdfad77d4**, evidence **acf2ce43ccb3c22883e9961f2c763a2ece11b54f**, is **ACCEPTED**. Its report-only addition and exact origin ref were verified; prior 96-blob/72-original/21-scratch audit is retained. Normal coordinator merge **8bb643ce79f3728fcf90b1ad4e08e9ab87e76982** includes exact author /004 **72fffbcbfa47f3c93425d9de5f338e511df7da3e** without changing accepted core, raw evidence or immutable reports. Both trials passed, all six corresponding calls match across sessions, both leases returned, and both agent CLIs completed SUCCESS/exit 0.
+
+Final disposition is `docs/coordination/WP-0005/final-disposition/README.md`, including three factual /005 prose reconciliations (36 coordinate tuples, correct metadata-acceptance publication e0ee634f6a92624c8c305c1c8730f79e95b93647, and no causal/zero-effect inference about desktop confounders). Reserved coordinator /006 remains the same owner/path; preservation evidence and report publication follow the frozen deliverable. No further model trial, agent task, permission gate or production release is pending.
