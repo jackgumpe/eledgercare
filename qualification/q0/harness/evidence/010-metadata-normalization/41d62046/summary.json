@@ -1,0 +1,251 @@
+{
+  "schema": "eldq0-010-verification/1",
+  "packet": "WP-0005",
+  "sequence": "010",
+  "candidate": "41d6204648e4115ab197507d1a22f6d5c7f3e784",
+  "harness_tree": "fb2c704c2c36504d79b5eb30fe2efb35b7b01793",
+  "started_utc": "2026-11-15T19:30:56.730638Z",
+  "protocol_sha256": "dd8a7dc38c2a0c46103f6667f522656a2dddf5882727c18bf7b6b5426c5e2309",
+  "lock_sha256": "d8eeaf0fe838d9df5728f17fcbacc8b504d98b79644a524b4faa705d97c49e6e",
+  "manifest_sha256": "085ac7ba1e25a7300846de18bdac19c7f9612bf417041643beff6a9cab6b8ea8",
+  "runner_script": {
+    "name": "run_010_checks.py",
+    "size": 8965,
+    "sha256": "b10503f5c1a2227d3eaa4a2672c60c649e67161dc43309862359dcdac6635248",
+    "git_blob_sha1": "74db00f77878f24d7a4de51bf5768ce083b38ffa"
+  },
+  "wheel_verifier_script": {
+    "name": "verify_32_wheels_readonly.py",
+    "size": 2546,
+    "sha256": "d27131365670090af9374d840d2fbe2b88b7c8475cca0aa80a685467cf556b07",
+    "git_blob_sha1": "f3e722b2848b4d7ddae0852fc635a81e24d0e36c"
+  },
+  "stage_offline_env": {
+    "GIT_CONFIG_GLOBAL": "NUL",
+    "GIT_CONFIG_NOSYSTEM": "1",
+    "GIT_TERMINAL_PROMPT": "0",
+    "HF_HOME": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\hf-home",
+    "HF_HUB_CACHE": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\hf-home\\hub",
+    "HF_HUB_DISABLE_PROGRESS_BARS": "1",
+    "HF_HUB_DISABLE_TELEMETRY": "1",
+    "HF_HUB_DISABLE_XET": "1",
+    "HF_HUB_OFFLINE": "1",
+    "HUGGINGFACE_HUB_CACHE": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\hf-home\\hub",
+    "NUMBER_OF_PROCESSORS": "12",
+    "OS": "Windows_NT",
+    "PATH": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts;C:\\WINDOWS\\System32;C:\\WINDOWS",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL",
+    "PIP_CACHE_DIR": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\pip-cache",
+    "PIP_CONFIG_FILE": "NUL",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PIP_NO_INDEX": "1",
+    "PIP_NO_INPUT": "1",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "PROCESSOR_LEVEL": "23",
+    "PROCESSOR_REVISION": "7100",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONUTF8": "1",
+    "Q0_GIT_EXECUTABLE": "C:\\Program Files\\Git\\cmd\\git.exe",
+    "SYSTEMROOT": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\temp",
+    "TMP": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\temp",
+    "TMPDIR": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\temp",
+    "TRANSFORMERS_OFFLINE": "1",
+    "UV_CACHE_DIR": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\uv-cache"
+  },
+  "runtime_root_before": {
+    "files": 893,
+    "bytes": 1986484301,
+    "reparse_points": []
+  },
+  "venv_pip_list_before": [
+    {
+      "name": "pip",
+      "version": "25.0.1"
+    }
+  ],
+  "steps": [
+    {
+      "name": "01-unittest-locks-preflight",
+      "env_profile": "host",
+      "argv": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "qualification/q0/harness/tests",
+        "-t",
+        "qualification/q0/harness/tests",
+        "-p",
+        "test_locks_preflight.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "started_utc": "2026-11-15T19:30:56.733032Z",
+      "finished_utc": "2026-11-15T19:31:02.371751Z",
+      "seconds": 5.641,
+      "output": "01-unittest-locks-preflight.txt",
+      "output_bytes": 2288,
+      "output_sha256": "bea973542a4e03082754dae7982abca1c897c850b9a0ab1cc42b4ea68416e971"
+    },
+    {
+      "name": "02-unittest-isolated-git-subprocess",
+      "env_profile": "host",
+      "argv": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "qualification/q0/harness/tests",
+        "-t",
+        "qualification/q0/harness/tests",
+        "-p",
+        "test_isolated_git_subprocess.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "started_utc": "2026-11-15T19:31:02.371751Z",
+      "finished_utc": "2026-11-15T19:31:08.107711Z",
+      "seconds": 5.734,
+      "output": "02-unittest-isolated-git-subprocess.txt",
+      "output_bytes": 827,
+      "output_sha256": "bf58350cdd19f96e0da5c9fc6ac0234951af740ad468101c4f1238c98749b88c"
+    },
+    {
+      "name": "03-lock-check-stage-offline",
+      "env_profile": "stage_offline",
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness\\qualification\\q0\\harness\\q0.py",
+        "lock-check"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "started_utc": "2026-11-15T19:31:08.107711Z",
+      "finished_utc": "2026-11-15T19:31:08.356713Z",
+      "seconds": 0.25,
+      "output": "03-lock-check-stage-offline.txt",
+      "output_bytes": 3708,
+      "output_sha256": "e1769d403a348e107d262ed12140eb8b6907233348a9b000a40aad590c51ca93"
+    },
+    {
+      "name": "04-status-stage-offline",
+      "env_profile": "stage_offline",
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness\\qualification\\q0\\harness\\q0.py",
+        "status"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "started_utc": "2026-11-15T19:31:08.358727Z",
+      "finished_utc": "2026-11-15T19:31:08.693020Z",
+      "seconds": 0.328,
+      "output": "04-status-stage-offline.txt",
+      "output_bytes": 702,
+      "output_sha256": "3988188a767979b3235f1e2ac22f0da8963552f908e612d3bf01798e0a563eea"
+    },
+    {
+      "name": "05-verify-wheelhouse-stale-release-refused",
+      "env_profile": "stage_offline",
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness\\qualification\\q0\\harness\\q0.py",
+        "verify-wheelhouse",
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\wheelhouse",
+        "--release",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0005\\releases\\author-install.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "started_utc": "2026-11-15T19:31:08.696310Z",
+      "finished_utc": "2026-11-15T19:31:09.033128Z",
+      "seconds": 0.328,
+      "output": "05-verify-wheelhouse-stale-release-refused.txt",
+      "output_bytes": 598,
+      "output_sha256": "22e67d5e4f82f32e02130e2a16446397b0987bce7c422f0ae6dd5d2ea6e5d64f"
+    },
+    {
+      "name": "06-readonly-32-wheel-verify-stage-offline",
+      "env_profile": "stage_offline",
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "-P",
+        "-X",
+        "utf8",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness\\.scratch\\010-metadata-correction\\verify_32_wheels_readonly.py",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness\\qualification\\q0\\harness",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness",
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\wheelhouse",
+        "stage_offline"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "started_utc": "2026-11-15T19:31:09.033128Z",
+      "finished_utc": "2026-11-15T19:31:11.128935Z",
+      "seconds": 2.094,
+      "output": "06-readonly-32-wheel-verify-stage-offline.txt",
+      "output_bytes": 19792,
+      "output_sha256": "dd3b6cd069be8c48d87d73949e7178befdf1f91ab4ae343f173c6771fefdf7a9"
+    },
+    {
+      "name": "06b-readonly-32-wheel-verify-stdlib-host",
+      "env_profile": "host",
+      "argv": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness\\.scratch\\010-metadata-correction\\verify_32_wheels_readonly.py",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness\\qualification\\q0\\harness",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-harness",
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\wheelhouse",
+        "stdlib_host"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "started_utc": "2026-11-15T19:31:11.137308Z",
+      "finished_utc": "2026-11-15T19:31:13.335530Z",
+      "seconds": 2.188,
+      "output": "06b-readonly-32-wheel-verify-stdlib-host.txt",
+      "output_bytes": 19795,
+      "output_sha256": "aff74a6bda144248ed1c7a785817373e2ea04d471cd138e94a4cc94933b63040"
+    }
+  ],
+  "status": "pass",
+  "head_after": "41d6204648e4115ab197507d1a22f6d5c7f3e784",
+  "status_after": "",
+  "head_and_worktree_unchanged": true,
+  "runtime_root_after": {
+    "files": 893,
+    "bytes": 1986484301,
+    "reparse_points": []
+  },
+  "runtime_root_unchanged": true,
+  "venv_pip_list_after": [
+    {
+      "name": "pip",
+      "version": "25.0.1"
+    }
+  ],
+  "venv_unchanged": true,
+  "scratch_test_dirs_left": [],
+  "finished_utc": "2026-11-15T19:31:13.935504Z"
+}
