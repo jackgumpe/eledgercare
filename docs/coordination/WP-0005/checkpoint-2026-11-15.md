@@ -1,0 +1,34 @@
+# WP-0005 Q0 preparation checkpoint, 2026-11-15T05:58:21Z
+
+Coordinator: eld-coordinator, session 01a1d895-c605-7ab2-b7ec-c3159c0634ba. Repository https://github.com/jackgumpe/eledgercare (private), integration coordination/bootstrap. Original packet base df9a2b50894f01987d779d7f9ae805794503ce6f. This is a coordination receipt, not the reserved final /006 report or Q0 acceptance.
+
+## Concrete state
+
+| Work | Exact published state | Meaning |
+| --- | --- | --- |
+| Astra initial /001 | Candidate 95ce0a8df728ae2c41aaf9e09d1b97c7d990fe36; report 2c32dde602b274251043bb216752f5d7fe9593be | Source/host proposal; immutable original report has a producer-provenance correction in /007 |
+| Astra response /007 | Candidate d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5; evidence 6cb6a258b9652b7becd3fca9c7cf2f04866c3ec3; report 951d408aabf7bdad3602c0e7698869e2e2457aed | Author-verified correction and 32-artifact metadata graph; independent closure pending |
+| Opus author /002 preparation | Candidate 50157e6cbaf0a2fcc29d229781237a05aa95fa92; CPU evidence fde7fdc16d4e32ca347661e96afc0d2f7c099fb4; final checkpoint 1b88bfd7cc22e06bc8fd78193ad4821d1a383cb0 | 53 author CPU tests passed on this candidate; canonical /002 not published; runtime lock remains pending |
+| Independent Opus /003 phase A | Normal author-publication merge 3e1837a61c9a33cce538976ac83f75e325a78021; interim checkpoint b75011da408fed5d2cc4f9025416ead6c5632ceb | Source/Git-object review and Q0R-01..09 findings; no final /003 or independent Python execution |
+
+All listed publication tips were compared with their owned remote refs. Author/reviewer/Astra worktrees were clean at the recorded final tips. No production files or accepted corpus inputs changed in these Q0 branches. No dependency installation, model-weight download, model import, GPU allocation/run or Q0 accuracy result exists. The harness's execution-refusal test returns DEPENDENCY_LOCK_PENDING and accuracy_score:null; it is not a model trial.
+
+## Actual Claude connection and stop
+
+Claude Code 2.1.325 initially failed a tool-disabled probe with HTTP 401 because an inherited invalid ANTHROPIC_API_KEY overrode the existing login. A child process omitting only that inherited variable successfully used the existing Claude Pro login and returned actual canonicalModel claude-opus-5-5; explicit --effort high was passed. No saved credentials, global user environment or the user's existing terminal were changed. No model fallback was configured.
+
+Author session 04e0efba-5292-4cae-b922-1517dee7bbed and separate uninvolved reviewer e6147c9e-0303-475f-99ff-93ee38a681e4 were confirmed in actual CLI init metadata. Initial author/reviewer turns finished exit 0 and published their respective checkpoints. Subsequent source-only continuations were bound by releases 4bf09f29afcae3ae67cc04e60d82ffb098412316 and d4168038d4232d39207db3061dc507fcceb46bd4. They ended exit 1 with HTTP 429/rate_limit_error and the provider's five-hour limit message. Reset epoch 1794736200 = **2026-11-15T09:50:00Z = 04:50 America/New_York**. Author continuation had 16 turns; reviewer 2. Both made no source changes. Their owned PIDs 26352 and 9908 were absent at the final observation. Do not retry before reset or switch identities/providers to evade the limit.
+
+Claude's scoped command/path permissions denied several initial operations. In particular the independent reviewer did not run Python/SHA-256 verification or fresh host/external-root checks. It disclosed source/Git-object inspection separately. Jack has been asked to grant the Q0 sessions scoped Python verification in owned worktrees and access to C:\Users\jackg\eLedgerCare-Q0\WP-0005; no answer is recorded. Keep those denied operations held. The final continuations deliberately reduced tools to source editing/inspection and owned Git publication; no bypass-permissions mode was used. The permission question and provider limit are separate blockers.
+
+The author's first evidence-capture attempt used the wrong working directory and executed no candidate code. Its preserved second attempt ran all 53 tests successfully against unchanged 50157e6c. Captured Windows CRLF bytes were normalized to LF by Git, explicitly disclosed by 1b88bfd7. A changed future candidate requires new relevant checks; prior results cannot be relabeled as its verification. Initial dispatch stream capture missed early events because the ignored log directory was absent; actual init was captured in command output and later stream events were retained. No raw private agent transcripts or credentials are published in Git.
+
+## Resume without restarting completed work
+
+1. Confirm the provider reset/state and obtain the pending scoped permission answer before expanding denied operations. Preserve both exact conversations and owned branches/worktrees; never resume two writers concurrently in one worktree.
+2. Resume eld-q0-harness from clean 1b88bfd7cc22e06bc8fd78193ad4821d1a383cb0 under its amended kickoff. It has received /007 pins but made no source amendments. Incorporate the exact 32-artifact proposal, keep torchvision's missing publisher hash explicit, remove the circular requirement for the future /003 SHA, and correct/validate the GPU/process observation plan. Address Q0R-04..09. Freeze the new candidate, then execute permitted relevant checks and publish canonical /002 with actual evidence.
+3. Resume the uninvolved reviewer from clean b75011da408fed5d2cc4f9025416ead6c5632ceb under its amended kickoff. The /007 normal merge/source response remains unperformed. Preserve its published initial findings. Bind exact new /002 candidate/evidence/report before harness review, independently execute permitted relevant checks, and publish an explicit /003 verdict. Do not substitute author tests for the missing independent checks.
+4. Only after the exact protocol/harness disposition, resolve the reviewed torchvision official-origin/local-digest acquisition procedure, complete immutable dependency/artifact identity, refresh storage/runtime preconditions, and bind /004 full base plus observed exclusive GPU ownership. No runtime release is implied by this checkpoint. A required model-source patch is a strict-unmodified-baseline blocker.
+5. Finish bounded F01/F07 native qualification and separate /005 reproduction/independent review, then /006 disposition. Preserve accepted F1 and corpus bytes; F2 integration, E1-E3, training, customer data, deployment and legacy work remain outside this packet.
+
+The selected task root is C:\Users\jackg\eLedgerCare-Q0\WP-0005. Latest author evidence observed its parent absent before/after the CPU suite at 05:43Z; no fresh independent observation is claimed. Storage budget, MSVC/long-path preconditions, real imports/rendering, sm_120 kernels and 16-GiB model fit remain later unexecuted gates. Astra's 31 publisher hashes plus explicit torchvision null are metadata evidence, not downloaded wheel verification.
