@@ -8,6 +8,8 @@ The only coordinator and writer of INDEX.md, CURRENT.md, shared assignments, and
 
 Jack authorized the new repository, PostgreSQL, durable maintenance-document intake, synthetic/permitted public fixtures, scoped setup, normal commits/pushes on owned branches, and separate source-based R&D. Do not seek repeated approval for those choices. Jack subsequently authorized Q0 trial of the unmodified model, delegated preparation/execution, and an Opus 5.5/high harness agent. WP-0005 in INDEX.md and its exact kickoffs govern that bounded extension, including staged isolated dependencies/model downloads and concurrency-1 GPU qualification. Customer data, public/intranet deployment, E1-E3 treatments, training, architecture modifications, and production OCR integrations remain unreleased.
 
+Jack subsequently requested using his existing Claude credits to continue, or handing the interrupted work to Carbon. This explicitly authorizes that provider/model handoff within Q0 when the credits route is unavailable. Preserve authorship, independent-review separation, exact revisions and report reservations; disclose the actual new session/model. Do not treat the historical quota checkpoint's model-switch hold as overriding this later user instruction.
+
 ## Roles and release gates
 
 - eld-coordinator: receiving Codex session; coordination, model/design, reports, and integration. Requested Astra/High is not proof of actual model identity. Never implement production application code as a substitute for the assigned implementer.
