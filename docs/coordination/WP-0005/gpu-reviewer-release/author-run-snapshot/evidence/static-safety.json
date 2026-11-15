@@ -1,0 +1,88 @@
+{
+  "entry": {
+    "decode_disables_ring_window": true,
+    "eval_sites": [
+      {
+        "builtin": "eval",
+        "file": "modeling_unlimitedocr.py",
+        "line": 120
+      }
+    ],
+    "infer_multi_crop_default": [
+      false
+    ],
+    "infer_multi_forwards": [
+      "image_file",
+      "image_size",
+      "max_length",
+      "ngram_window",
+      "no_repeat_ngram_size",
+      "output_path",
+      "prompt",
+      "return_dict",
+      "save_results",
+      "temperature",
+      "tps_interval"
+    ],
+    "infer_parameters": [
+      "base_size",
+      "crop_mode",
+      "dash_topm",
+      "eval_mode",
+      "image_file",
+      "image_size",
+      "max_crops",
+      "max_length",
+      "max_new_tokens",
+      "max_page_tokens",
+      "ngram_whitelist_token_ids",
+      "ngram_window",
+      "no_repeat_ngram_size",
+      "output_path",
+      "page_count_guard",
+      "prompt",
+      "return_dict",
+      "save_results",
+      "self",
+      "temperature",
+      "test_compress",
+      "tokenizer",
+      "tps_interval"
+    ],
+    "native_return_keys": [
+      "expected_pages",
+      "finish_reason",
+      "num_pages_out",
+      "prefill_time",
+      "prompt_token_ids",
+      "text",
+      "time",
+      "token_ids"
+    ],
+    "save_guard_lines": [
+      1103
+    ],
+    "save_path_callers": {
+      "_uocr_save_results": [
+        "infer"
+      ],
+      "draw_bounding_boxes": [
+        "process_image_with_refs"
+      ],
+      "extract_coordinates_and_label": [
+        "draw_bounding_boxes"
+      ],
+      "process_image_with_refs": [
+        "_uocr_save_results"
+      ]
+    },
+    "uses_dynamic_cache": true
+  },
+  "eval_exec_compile_sites_all_modules": [
+    {
+      "builtin": "eval",
+      "file": "modeling_unlimitedocr.py",
+      "line": 120
+    }
+  ]
+}

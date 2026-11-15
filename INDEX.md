@@ -315,3 +315,12 @@ Actual author /004 GPU dispatch after exact-origin verified **41c75178525a9f4367
 
 
 Author actual GPU run **20261115T202627Z-eb5bf7da** completed **QUALIFIED_RUNTIME_OBSERVATION**, six checks pass, zero failures, six native calls stop normally, exact measured repeats for both fixtures. Supervisor1235.281s, CHILD_COMPLETED/exit0. Coordinator directly observed both launcher31816 and actual worker30992 absent, no task Q0 child, at20:47:38Z; sole author lease **WP-0005-author-004-20261115T202152Z RETURNED**. Fresh host pass retained under docs/coordination/WP-0005/gpu-reviewer-release. No active GPU lease. /004 safe evidence/report publication underway; independent /005 remains IDLE pending exact published handoff and its own release. No final model acceptance yet.
+
+
+### Independent /005 reproduction from frozen actual author evidence
+
+Coordinator-frozen snapshot contains **72 original author runtime files / 367804 bytes**, each raw SHA-256 recorded, from completed run **20261115T202627Z-eb5bf7da**, executing HEAD **9e73ef86600b5e16f74b056676a6d3a4f1474058**. Attribution remains Carbon author bd92ddc3; root publishes unchanged observations, not its own model execution. All 18 model objects reverified after run; both workers absent and author lease returned. Fresh20:55:27Z process/host checks pass, no prior active Q0 lease.
+
+**Bounded sequencing update:** independent /005 runtime may start from this frozen completed evidence while author canonical /004 publication finishes. Final /005 verdict/publication remains held for exact author evidence/report pins and inspection; no source/input/criteria change. This supersedes only the old prose-publication-before-runtime wait.
+
+Same independent reviewer **0815536f-045a-4112-8a89-ebf0e0cc782f**, gemini-4-carbon-high/high, branch review/wp-0005-q0-carbon / owned eld-q0-reviewer-carbon worktree, exact clean executing **c8daa97c5be6bc67931b215652a7a0f6ced621ef**, accepted core **41d6204648e4115ab197507d1a22f6d5c7f3e784**. Coordinator verified exact core/evaluation identity with author. Sole lease **WP-0005-reviewer-005-20261115T205527Z**, selected GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, releases one fixed full trial only after validated new reviewer-install.json/reviewer-execute.json publication. Installation record permits verification/reuse only. Exact kickoff docs/kickoffs/WP-0005-eld-q0-reviewer-runtime.md; final canonical005 path unchanged, next coordinator006. Dispatch PREPARED until actual init. Author has no further GPU lease.
