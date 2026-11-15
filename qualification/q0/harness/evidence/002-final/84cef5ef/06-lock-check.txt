@@ -1,0 +1,120 @@
+{
+  "artifacts": 32,
+  "artifacts_by_kind": {
+    "addict": "publisher-declared",
+    "certifi": "publisher-declared",
+    "charset-normalizer": "publisher-declared",
+    "colorama": "publisher-declared",
+    "easydict": "publisher-declared",
+    "einops": "publisher-declared",
+    "filelock": "publisher-declared",
+    "fsspec": "publisher-declared",
+    "huggingface-hub": "publisher-declared",
+    "idna": "publisher-declared",
+    "jinja2": "publisher-declared",
+    "markupsafe": "publisher-declared",
+    "mpmath": "publisher-declared",
+    "networkx": "publisher-declared",
+    "numpy": "publisher-declared",
+    "packaging": "publisher-declared",
+    "pillow": "publisher-declared",
+    "psutil": "publisher-declared",
+    "pypdfium2": "publisher-declared",
+    "pyyaml": "publisher-declared",
+    "regex": "publisher-declared",
+    "requests": "publisher-declared",
+    "safetensors": "publisher-declared",
+    "setuptools": "publisher-declared",
+    "sympy": "publisher-declared",
+    "tokenizers": "publisher-declared",
+    "torch": "publisher-declared",
+    "torchvision": "local-sha256-TOFU",
+    "tqdm": "publisher-declared",
+    "transformers": "publisher-declared",
+    "typing-extensions": "publisher-declared",
+    "urllib3": "publisher-declared"
+  },
+  "graph_requires_per_artifact": {
+    "addict": 0,
+    "certifi": 0,
+    "charset-normalizer": 0,
+    "colorama": 0,
+    "easydict": 0,
+    "einops": 0,
+    "filelock": 0,
+    "fsspec": 101,
+    "huggingface-hub": 128,
+    "idna": 4,
+    "jinja2": 2,
+    "markupsafe": 0,
+    "mpmath": 8,
+    "networkx": 30,
+    "numpy": 0,
+    "packaging": 0,
+    "pillow": 26,
+    "psutil": 38,
+    "pypdfium2": 0,
+    "pyyaml": 0,
+    "regex": 0,
+    "requests": 6,
+    "safetensors": 36,
+    "setuptools": 51,
+    "sympy": 3,
+    "tokenizers": 11,
+    "torch": 10,
+    "torchvision": 5,
+    "tqdm": 10,
+    "transformers": 376,
+    "typing-extensions": 0,
+    "urllib3": 5
+  },
+  "local_digest_receipt_checks": {
+    "torchvision": {
+      "http_200": true,
+      "label": true,
+      "local_sha256": true,
+      "metadata_sha256": true,
+      "name_version": true,
+      "no_redirects": true,
+      "pass": true,
+      "size": true,
+      "torch_requirement": true,
+      "url": true
+    }
+  },
+  "lock_sha256": "d8eeaf0fe838d9df5728f17fcbacc8b504d98b79644a524b4faa705d97c49e6e",
+  "metadata_digest_source": {
+    "commit": "d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5",
+    "git_blob": "bca91aaa8e2d51eabb8e9d7d85c7f3602c4e8b8b",
+    "names": [
+      "torch",
+      "torchvision"
+    ],
+    "path": "qualification/q0/preflight/response/cuda-metadata.json",
+    "role": "Published PEP 658 METADATA digests (and recorded bodies) from the official PyTorch cu130 index; acquired torch/torchvision wheels must carry exactly that METADATA",
+    "size": 57150
+  },
+  "published_metadata_sha256": {
+    "torch": "c70f358c762d072ea6b9275b08e1af444abc989448dcf6b721f9049313c8e87b",
+    "torchvision": "f8e91ee987603053e2166e2e4063ddcfb533f266c88bae82b7f79119aadceb59"
+  },
+  "readiness": {
+    "counts": {
+      "local-sha256-TOFU": 1,
+      "missing": 0,
+      "publisher-declared": 31
+    },
+    "installable": true,
+    "missing_wheel_sha256": [],
+    "required_exceptions": [
+      "torchvision-local-sha256-TOFU"
+    ]
+  },
+  "source": {
+    "commit": "d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5",
+    "git_blob": "ec8c650ed5fbeb0a754e4daee53aad53753a57a3",
+    "path": "qualification/q0/preflight/response/metadata-lock.json",
+    "size": 123592,
+    "status": "metadata-closure-complete; NOT-installable-until-torchvision-hash"
+  }
+}
