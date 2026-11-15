@@ -1,0 +1,243 @@
+{
+  "schema": "eldq0-carbon-correction-009-phase-a/1",
+  "packet": "WP-0005",
+  "reserved_sequence": "009",
+  "phase": "Phase A (original-source COORD-Q0-01 reproduction and /003 factual reconciliation; final /009 held for /008 pins)",
+  "role": "eld-q0-reviewer",
+  "reviewer_model": "Gemini 4 Carbon (High)",
+  "reviewer_session_id": "0815536f-045a-4112-8a89-ebf0e0cc782f",
+  "predecessor_opus_session_id": "e6147c9e-0303-475f-99ff-93ee38a681e4",
+  "started_utc": "2026-11-15T17:52:30.641965Z",
+  "finished_utc": "2026-11-15T17:52:32.555478Z",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon",
+  "external_storage_parent_exists_before": false,
+  "external_storage_parent_exists_after": false,
+  "immutability_and_pins": {
+    "branch": "review/wp-0005-q0-carbon",
+    "head_at_check": "b5f2f8ab888424a6961d88ee9f0c08a66d861b0a",
+    "status_before": [],
+    "continuation_base_verified": "4752128b8ceaa65b6d0caa9e44ef7a97d1675dc8",
+    "immutable_003_and_harness_unchanged": true,
+    "report_003_sha256_preserved": "eaa629c2b754c3e5514da26ba208a7d2cfa92130418864fc43dc8227a4f8ea9b",
+    "coordinator_diagnostic_verified_from_git_blob": {
+      "helper_commit": "73b5ba98d1e3834cc8c58768ff269730b867ee4c",
+      "helper_sha256": "a2125bdc42bfdbf3aa84056f9f0736f438d9d272dfaa085dd2a58b9f036b1c52",
+      "observation_commit": "8016f88f2e055e2a4e33335021824367e6230309",
+      "observation_sha256": "fdae3109946212750ba36ab1e50b41d0e437159e7e3fb65f17f5da1a190ba658",
+      "recorded_harness_revision": "2a52ea58fae2badcb4e9ef47d1cb416c006edca4"
+    }
+  },
+  "coord_q0_01_reproduction": {
+    "defect_id": "COORD-Q0-01",
+    "classification": "harness_subprocess_environment_defect (NOT a model failure or OCR accuracy result)",
+    "changes_earlier_003_readiness_conclusion": true,
+    "updated_disposition_on_84cef5ef": "CHANGES_REQUESTED (awaiting /008 harness correction and /009 Phase B verification before any install/runtime release)",
+    "why_003_missed_it": "In /003 (17107f36), run_carbon_review_checks.py inspected build_child_env/build_stage_env dict keys in-process while running q0.py status and lock-check in the parent operator environment (where Git was on PATH), and author unit tests injected in-memory lock readers / precomputed code_identity dicts rather than spawning real child Python processes under build_stage_env or build_child_env.",
+    "parent_process_control": {
+      "git_which": "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "code_identity": {
+        "head": "b5f2f8ab888424a6961d88ee9f0c08a66d861b0a",
+        "harness_clean": true,
+        "dirty": []
+      },
+      "git_blob_reader_bytes": 123592,
+      "validate_lock_artifact_count": 32
+    },
+    "sanitized_child_api_probes": {
+      "install_stage_offline": {
+        "python": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon",
+        "path_entries": [
+          "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts",
+          "C:\\WINDOWS\\System32",
+          "C:\\WINDOWS"
+        ],
+        "git_which": null,
+        "code_identity": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        },
+        "git_blob_reader": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        },
+        "validate_lock_with_git_reader": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        }
+      },
+      "acquire_stage_network": {
+        "python": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon",
+        "path_entries": [
+          "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts",
+          "C:\\WINDOWS\\System32",
+          "C:\\WINDOWS"
+        ],
+        "git_which": null,
+        "code_identity": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        },
+        "git_blob_reader": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        },
+        "validate_lock_with_git_reader": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        }
+      },
+      "runtime_child": {
+        "python": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-q0-reviewer-carbon",
+        "path_entries": [
+          "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts",
+          "C:\\WINDOWS\\System32",
+          "C:\\WINDOWS"
+        ],
+        "git_which": null,
+        "code_identity": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        },
+        "git_blob_reader": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        },
+        "validate_lock_with_git_reader": {
+          "ok": false,
+          "error_type": "FileNotFoundError",
+          "errno": 2,
+          "winerror": 2,
+          "text": "[WinError 2] The system cannot find the file specified"
+        }
+      }
+    },
+    "sanitized_child_q0_cli_failures": [
+      {
+        "name": "01-stage-offline-q0-status",
+        "environment": "install_stage_offline",
+        "argv": [
+          "python.exe",
+          "-I",
+          "-B",
+          "qualification/q0/harness/q0.py",
+          "status"
+        ],
+        "exit_code": 1,
+        "started_utc": "2026-11-15T17:52:31.820638Z",
+        "seconds": 0.131,
+        "output": "01-stage-offline-q0-status.txt",
+        "output_sha256": "747f601794701fc33e813fed35fe374475ee5ca813810a4dcd2b3a0f6bd7fba2",
+        "output_bytes": 2734,
+        "observed_exception": "FileNotFoundError: [WinError 2] The system cannot find the file specified"
+      },
+      {
+        "name": "02-stage-offline-q0-lock-check",
+        "environment": "install_stage_offline",
+        "argv": [
+          "python.exe",
+          "-I",
+          "-B",
+          "qualification/q0/harness/q0.py",
+          "lock-check"
+        ],
+        "exit_code": 1,
+        "started_utc": "2026-11-15T17:52:31.953513Z",
+        "seconds": 0.134,
+        "output": "02-stage-offline-q0-lock-check.txt",
+        "output_sha256": "2c7a47b8b745deaa74baf4306aff5f317d8a3e3f93d7c662ee39183e701249ad",
+        "output_bytes": 2734,
+        "observed_exception": "FileNotFoundError: [WinError 2] The system cannot find the file specified"
+      },
+      {
+        "name": "03-stage-offline-q0-write-requirements",
+        "environment": "install_stage_offline",
+        "argv": [
+          "python.exe",
+          "-I",
+          "-B",
+          "qualification/q0/harness/q0.py",
+          "write-requirements",
+          ".scratch/phase-a-never-written.txt"
+        ],
+        "exit_code": 1,
+        "started_utc": "2026-11-15T17:52:32.087857Z",
+        "seconds": 0.133,
+        "output": "03-stage-offline-q0-write-requirements.txt",
+        "output_sha256": "3a4aec2af51115157294857935cc1922732847371d342c1b8a73f4eb8f15f3c1",
+        "output_bytes": 2962,
+        "observed_exception": "FileNotFoundError: [WinError 2] The system cannot find the file specified"
+      },
+      {
+        "name": "04-runtime-child-q0-status",
+        "environment": "runtime_child",
+        "argv": [
+          "python.exe",
+          "-I",
+          "-B",
+          "qualification/q0/harness/q0.py",
+          "status"
+        ],
+        "exit_code": 1,
+        "started_utc": "2026-11-15T17:52:32.222068Z",
+        "seconds": 0.129,
+        "output": "04-runtime-child-q0-status.txt",
+        "output_sha256": "747f601794701fc33e813fed35fe374475ee5ca813810a4dcd2b3a0f6bd7fba2",
+        "output_bytes": 2734,
+        "observed_exception": "FileNotFoundError: [WinError 2] The system cannot find the file specified"
+      },
+      {
+        "name": "05-runtime-child-q0-lock-check",
+        "environment": "runtime_child",
+        "argv": [
+          "python.exe",
+          "-I",
+          "-B",
+          "qualification/q0/harness/q0.py",
+          "lock-check"
+        ],
+        "exit_code": 1,
+        "started_utc": "2026-11-15T17:52:32.350064Z",
+        "seconds": 0.127,
+        "output": "05-runtime-child-q0-lock-check.txt",
+        "output_sha256": "2c7a47b8b745deaa74baf4306aff5f317d8a3e3f93d7c662ee39183e701249ad",
+        "output_bytes": 2734,
+        "observed_exception": "FileNotFoundError: [WinError 2] The system cannot find the file specified"
+      }
+    ]
+  },
+  "reconciliation_003_file": "reconciliation-003.json",
+  "reconciliation_003_sha256": "598f712d021a48d855186e14cfb1e958dca237290b307a1b1221331ca560323d",
+  "reconciliation_003_bytes": 2334,
+  "head_after": "b5f2f8ab888424a6961d88ee9f0c08a66d861b0a",
+  "status_after": []
+}

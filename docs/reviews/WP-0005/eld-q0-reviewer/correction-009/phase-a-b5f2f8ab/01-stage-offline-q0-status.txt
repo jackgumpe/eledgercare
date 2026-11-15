@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer-carbon\qualification\q0\harness\q0.py", line 271, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer-carbon\qualification\q0\harness\q0.py", line 265, in main
+    return a.fn(a) or 0
+           ^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer-carbon\qualification\q0\harness\q0.py", line 113, in cmd_status
+    lock, lock_sha, pkgs = _lock()
+                           ^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer-carbon\qualification\q0\harness\q0.py", line 57, in _lock
+    pkgs = locks.validate_lock(lock, locks.git_blob_reader(REPO_ROOT))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer-carbon\qualification\q0\harness\q0harness\locks.py", line 223, in validate_lock
+    return effective_artifacts(lock, bound_artifacts(lock, reader), reader)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer-carbon\qualification\q0\harness\q0harness\locks.py", line 60, in bound_artifacts
+    meta = json.loads(_read_pinned(reader, src).decode("utf-8"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer-carbon\qualification\q0\harness\q0harness\locks.py", line 111, in _read_pinned
+    data = reader(src["git_blob"])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-reviewer-carbon\qualification\q0\harness\q0harness\locks.py", line 46, in read
+    cp = subprocess.run(["git", "cat-file", "blob", oid], cwd=str(repo_root), capture_output=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
