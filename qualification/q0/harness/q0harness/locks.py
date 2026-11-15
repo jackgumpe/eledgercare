@@ -157,6 +157,7 @@ def check_local_record(rec: dict, art: dict, gap: dict, reader) -> dict:
         _fail("local digest record lacks an exact published receipt pin (commit, path, git_blob, size, author)")
     # The receipt itself is read from its exact Git blob and must state the same facts.
     d = json.loads(_read_pinned(reader, r).decode("utf-8"))
+    req_target = _req_norm(gap["required_requires_dist"])
     checks = {
         "label": d.get("label") == RECEIPT_LABEL,
         "pass": d.get("pass") is True and bool(d.get("checks")) and all(v is True for v in d["checks"].values()),
@@ -168,7 +169,7 @@ def check_local_record(rec: dict, art: dict, gap: dict, reader) -> dict:
         "metadata_sha256": d.get("metadata_sha256") == gap["published_metadata_sha256"],
         "name_version": (d.get("metadata_fields") or {}).get("Name") == art["name"]
                         and (d.get("metadata_fields") or {}).get("Version") == art["version"],
-        "torch_requirement": _req_norm(gap["required_requires_dist"]) in
+        "torch_requirement": (not req_target.startswith("!unparsed:")) and req_target in
                              {_req_norm(x) for x in (d.get("metadata_fields") or {}).get("Requires-Dist", [])},
     }
     if not all(checks.values()):
@@ -256,22 +257,210 @@ def requirements_text(pkgs: dict[str, dict]) -> str:
 
 
 _REQ = re.compile(r"^([A-Za-z0-9][A-Za-z0-9._-]*)(\[[^\]]*\])?(.*)$")
+_SPEC_RE = re.compile(
+    r"^\s*([A-Za-z0-9](?:[A-Za-z0-9._-]*[A-Za-z0-9])?)"
+    r"\s*(\[[^\]]*\])?"
+    r"\s*(.*?)\s*$",
+    re.DOTALL,
+)
+_EXTRA_NAME = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9._-]*[A-Za-z0-9])?$")
+_VER_CLAUSE = re.compile(r"^\s*(===|==|~=|!=|<=|>=|<|>)\s*([A-Za-z0-9][A-Za-z0-9._*+!-]*)\s*$")
+_IDENT_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*")
+_CMP_OPS = ("===", "==", "!=", "<=", ">=", "~=", "<", ">")
+_MAX_MARKER_DEPTH = 64
+
+
+class _MarkerSyntaxError(ValueError):
+    pass
+
+
+def _tokenize_marker(marker: str) -> list[tuple[str, str]]:
+    """PEP 508 environment-marker tokenizer preserving exact quoted string contents."""
+    tokens: list[tuple[str, str]] = []
+    n = len(marker)
+    i = 0
+    while i < n:
+        ch = marker[i]
+        if ch in " \t\r\n":
+            i += 1
+            continue
+        if ch == "(":
+            tokens.append(("LPAREN", "("))
+            i += 1
+            continue
+        if ch == ")":
+            tokens.append(("RPAREN", ")"))
+            i += 1
+            continue
+        if ch in ("'", '"'):
+            end = marker.find(ch, i + 1)
+            if end < 0 or "\n" in marker[i + 1:end] or "\r" in marker[i + 1:end]:
+                raise _MarkerSyntaxError("unterminated string literal")
+            tokens.append(("STR", marker[i + 1:end]))
+            i = end + 1
+            continue
+        matched_op = next((op for op in _CMP_OPS if marker.startswith(op, i)), None)
+        if matched_op is not None:
+            tokens.append(("OP", matched_op))
+            i += len(matched_op)
+            continue
+        m = _IDENT_RE.match(marker, i)
+        if m:
+            word = m.group(0)
+            i = m.end()
+            if word == "and":
+                tokens.append(("AND", "and"))
+            elif word == "or":
+                tokens.append(("OR", "or"))
+            elif word == "in":
+                tokens.append(("OP", "in"))
+            elif word == "not":
+                j = i
+                while j < n and marker[j] in " \t\r\n":
+                    j += 1
+                m2 = _IDENT_RE.match(marker, j) if j > i else None
+                if not m2 or m2.group(0) != "in":
+                    raise _MarkerSyntaxError("expected 'in' after 'not'")
+                tokens.append(("OP", "not in"))
+                i = m2.end()
+            else:
+                tokens.append(("IDENT", word))
+            continue
+        raise _MarkerSyntaxError(f"unexpected character at {i}")
+    return tokens
+
+
+def _marker_norm(marker: str) -> str:
+    """PEP 508 boolean-marker AST canonicalizer (COORD-Q0-02).
+
+    Unwraps semantically redundant parentheses (such as singleton comparison parentheses
+    '(python_version < "3.14")' that PyPI's JSON serializer strips) while preserving real
+    AND/OR precedence grouping ('(a or b) and c' != 'a or (b and c)'), left-to-right operand
+    order, exact operators, and exact quoted string contents via injective JSON string encoding.
+    """
+    tokens = _tokenize_marker(marker)
+    if not tokens:
+        raise _MarkerSyntaxError("empty marker")
+    pos = 0
+
+    def peek() -> tuple[str, str]:
+        return tokens[pos] if pos < len(tokens) else ("EOF", "")
+
+    def take(kind: str | None = None) -> tuple[str, str]:
+        nonlocal pos
+        tok = peek()
+        if kind is not None and tok[0] != kind:
+            raise _MarkerSyntaxError(f"expected {kind}, got {tok[0]}")
+        pos += 1
+        return tok
+
+    def parse_var() -> tuple[str, str]:
+        if peek()[0] in ("IDENT", "STR"):
+            return take()
+        raise _MarkerSyntaxError(f"expected marker operand, got {peek()[0]}")
+
+    def parse_expr(depth: int):
+        if depth > _MAX_MARKER_DEPTH:
+            raise _MarkerSyntaxError("excessive marker parenthesis nesting")
+        if peek()[0] == "LPAREN":
+            take("LPAREN")
+            node = parse_or(depth + 1)
+            take("RPAREN")
+            return node
+        lhs = parse_var()
+        op = take("OP")[1]
+        rhs = parse_var()
+        return ("cmp", lhs, op, rhs)
+
+    def parse_and(depth: int):
+        items = [parse_expr(depth)]
+        while peek()[0] == "AND":
+            take("AND")
+            items.append(parse_expr(depth))
+        flat = []
+        for it in items:
+            if it[0] == "and":
+                flat.extend(it[1])
+            else:
+                flat.append(it)
+        return flat[0] if len(flat) == 1 else ("and", tuple(flat))
+
+    def parse_or(depth: int):
+        items = [parse_and(depth)]
+        while peek()[0] == "OR":
+            take("OR")
+            items.append(parse_and(depth))
+        flat = []
+        for it in items:
+            if it[0] == "or":
+                flat.extend(it[1])
+            else:
+                flat.append(it)
+        return flat[0] if len(flat) == 1 else ("or", tuple(flat))
+
+    ast = parse_or(0)
+    if pos != len(tokens):
+        raise _MarkerSyntaxError("trailing marker tokens")
+
+    def fmt_var(tok: tuple[str, str]) -> str:
+        return tok[1] if tok[0] == "IDENT" else json.dumps(tok[1], ensure_ascii=False)
+
+    def fmt(node) -> str:
+        if node[0] == "cmp":
+            return f"{fmt_var(node[1])} {node[2]} {fmt_var(node[3])}"
+        if node[0] == "and":
+            return " and ".join(f"({fmt(c)})" if c[0] == "or" else fmt(c) for c in node[1])
+        return " or ".join(fmt(c) for c in node[1])
+
+    return fmt(ast)
 
 
 def _req_norm(req: str) -> str:
-    """Formatting-insensitive form of one Requires-Dist entry, so the raw wheel METADATA form
-    ('torch (==2.13.0)', "x ; extra == 'y'") and the published index form ('torch==2.13.0',
-    'x; extra == "y"') compare equal. Name is canonicalized, extras and specifiers are sorted,
-    marker whitespace is removed and quotes unified; nothing else is relaxed."""
+    """Formatting-insensitive form of one PEP 508 Requires-Dist entry, so the raw wheel METADATA
+    form ('torch (==2.13.0)', "zstandard; (python_version < '3.14') and extra == 'test-full'")
+    and the published index form ('torch==2.13.0',
+    'zstandard; python_version < "3.14" and extra == "test-full"') compare equal without relaxing
+    AND/OR grouping, quoted strings, operands/operators, specifiers/extras, or syntax validity."""
     spec, sep, marker = req.partition(";")
-    spec = re.sub(r"[\s()]", "", spec)
-    m = _REQ.match(spec)
+    m = _SPEC_RE.match(spec)
     if not m:
         return "!unparsed:" + req
-    extras = ",".join(sorted(x.lower() for x in (m.group(2) or "[]")[1:-1].split(",") if x))
-    specs = ",".join(sorted(s for s in m.group(3).split(",") if s))
-    mk = re.sub(r"\s+", "", marker).replace("'", '"') if sep else ""
-    return f"{canonical(m.group(1))}[{extras}]{specs};{mk}"
+    name, ext_raw, ver_raw = m.group(1), m.group(2), m.group(3)
+    if ext_raw is not None:
+        inner = ext_raw[1:-1].strip()
+        if inner == "":
+            ext_items = []
+        else:
+            ext_items = [x.strip() for x in inner.split(",")]
+            if not all(_EXTRA_NAME.match(x) for x in ext_items):
+                return "!unparsed:" + req
+        extras = ",".join(sorted(x.lower() for x in ext_items))
+    else:
+        extras = ""
+    had_ver_parens = False
+    while ver_raw.startswith("(") and ver_raw.endswith(")"):
+        had_ver_parens = True
+        ver_raw = ver_raw[1:-1].strip()
+    if (had_ver_parens and not ver_raw) or "(" in ver_raw or ")" in ver_raw:
+        return "!unparsed:" + req
+    if ver_raw:
+        clauses = []
+        for raw_c in ver_raw.split(","):
+            cm = _VER_CLAUSE.match(raw_c)
+            if not cm:
+                return "!unparsed:" + req
+            clauses.append(cm.group(1) + cm.group(2))
+        specs = ",".join(sorted(clauses))
+    else:
+        specs = ""
+    if sep:
+        try:
+            mk = _marker_norm(marker)
+        except _MarkerSyntaxError:
+            return "!unparsed:" + req
+    else:
+        mk = ""
+    return f"{canonical(name)}[{extras}]{specs};{mk}"
 
 
 def verify_wheel_metadata(wheel: Path, art: dict) -> dict:
@@ -280,10 +469,15 @@ def verify_wheel_metadata(wheel: Path, art: dict) -> dict:
     PEP 658 digest, the METADATA bytes must hash to it."""
     from collections import Counter
     meta = inspect_wheel_metadata(wheel, art["name"], art["version"])
-    got = Counter(_req_norm(r) for r in meta["requires_dist"])
-    want = Counter(_req_norm(r) for r in art.get("graph_requires", []))
+    got_norm = [_req_norm(r) for r in meta["requires_dist"]]
+    want_norm = [_req_norm(r) for r in art.get("graph_requires", [])]
+    unparsed = [r for r in (*got_norm, *want_norm) if r.startswith("!unparsed:")]
+    got = Counter(got_norm)
+    want = Counter(want_norm)
     row = {"wheel": wheel.name, "metadata_sha256": meta["sha256"], "requires_dist": len(meta["requires_dist"]),
-           "graph_requires": sum(want.values()), "requires_match": got == want}
+           "graph_requires": sum(want.values()), "requires_match": got == want and not unparsed}
+    if unparsed:
+        row["unparsed_requires"] = unparsed
     if got != want:
         row["only_in_wheel"] = sorted((got - want).elements())
         row["only_in_graph"] = sorted((want - got).elements())

@@ -280,9 +280,146 @@ class EveryWheelMetadata(unittest.TestCase):
         self.assertEqual(n("pillow (!=8.3.*,>=5.3.0)"), n("pillow>=5.3.0,!=8.3.*"))
         self.assertEqual(n("gdown (>=4.7.3) ; extra == 'gdown'"), n('gdown>=4.7.3; extra == "gdown"'))
         self.assertEqual(n("Typing_Extensions>=4"), n("typing-extensions>=4"))
+        # COORD-Q0-02: exact five observed real-wheel singleton marker parenthesis edges.
+        self.assertEqual(
+            n("zstandard; (python_version < '3.14') and extra == 'test-full'"),
+            n('zstandard; python_version < "3.14" and extra == "test-full"'),
+        )
+        self.assertEqual(
+            n('colorama ; (os_name == "nt") and extra == \'dev\''),
+            n('colorama; os_name == "nt" and extra == "dev"'),
+        )
+        self.assertEqual(
+            n('pyreadline ; (os_name == "nt") and extra == \'dev\''),
+            n('pyreadline; os_name == "nt" and extra == "dev"'),
+        )
+        self.assertEqual(
+            n("brotli>=1.0.9; (platform_python_implementation == 'CPython') and extra == 'brotli'"),
+            n('brotli>=1.0.9; platform_python_implementation == "CPython" and extra == "brotli"'),
+        )
+        self.assertEqual(
+            n("brotlicffi>=0.8.0; (platform_python_implementation != 'CPython') and extra == 'brotli'"),
+            n('brotlicffi>=0.8.0; platform_python_implementation != "CPython" and extra == "brotli"'),
+        )
+        # Nested singleton, outer, precedence-equivalent, and associative marker parentheses.
+        self.assertEqual(n("pytest ((>=4.6))"), n("pytest>=4.6"))
+        self.assertEqual(n("x; ((python_version >= '3.10'))"), n('x; python_version >= "3.10"'))
+        self.assertEqual(n("x; a == '1' and (b == '2')"), n('x; a == "1" and b == "2"'))
+        self.assertEqual(n("x; (a == '1' and b == '2')"), n('x; a == "1" and b == "2"'))
+        self.assertEqual(n("x; a == '1' or (b == '2' and c == '3')"), n("x; a == '1' or b == '2' and c == '3'"))
+        self.assertEqual(n("x; (a == '1' and b == '2') and c == '3'"), n("x; a == '1' and b == '2' and c == '3'"))
+        self.assertEqual(n("x; 'linux' not   in sys_platform"), n('x; "linux" not in sys_platform'))
+        self.assertEqual(n("x; platform_system == 'Windows NT'"), n('x; platform_system == "Windows NT"'))
+        self.assertEqual(n("x; extra == 'a;b'"), n('x; extra == "a;b"'))
+        # Real AND/OR grouping differences MUST NOT collapse (no blanket paren stripping).
+        self.assertNotEqual(n("x; (a == '1' or b == '2') and c == '3'"), n("x; a == '1' or b == '2' and c == '3'"))
+        self.assertNotEqual(n("x; (a == '1' or b == '2') and c == '3'"), n("x; a == '1' or (b == '2' and c == '3')"))
+        self.assertNotEqual(n("x; a == '1' and (b == '2' or c == '3')"), n("x; a == '1' and b == '2' or c == '3'"))
+        self.assertNotEqual(n("x; a == '1' and (b == '2' or c == '3')"), n("x; (a == '1' and b == '2') or c == '3'"))
+        # Quoted string contents, operands, operators, order, specifiers, and extras preserved.
+        self.assertNotEqual(n("x; platform_system == 'Windows NT'"), n('x; platform_system == "WindowsNT"'))
+        self.assertNotEqual(n("x; extra == '(dev)'"), n("x; extra == 'dev'"))
+        self.assertNotEqual(n("x; extra == 'a or b'"), n("x; extra == 'a' or extra == 'b'"))
+        self.assertNotEqual(n("x; extra == \"'a'\""), n('x; extra == \'"a"\''))
+        self.assertNotEqual(n("x; python_version < '3.14'"), n("x; python_version <= '3.14'"))
+        self.assertNotEqual(n("x; python_version == '3.14'"), n("x; python_version === '3.14'"))
+        self.assertNotEqual(n("x; python_version ~= '3.14'"), n("x; python_version >= '3.14'"))
+        self.assertNotEqual(n("x; 'linux' in sys_platform"), n("x; 'linux' not in sys_platform"))
+        self.assertNotEqual(n("x; python_version < '3.14'"), n("x; python_full_version < '3.14'"))
+        self.assertNotEqual(n("x; a == '1' and b == '2'"), n("x; b == '2' and a == '1'"))
+        self.assertNotEqual(n('x; "nt" == os_name'), n('x; os_name == "nt"'))
         self.assertNotEqual(n("torch==2.13.0"), n("torch==2.13.1"))
         self.assertNotEqual(n('x; extra == "a"'), n('x; extra == "b"'))
         self.assertNotEqual(n("x[a]"), n("x"))
+        self.assertNotEqual(n("x[a,a]"), n("x[a]"))
+        # Malformed PEP 508 specifiers or markers must remain unparsed, never coerced.
+        for bad in (
+            "my pkg>=1.0",
+            "pkg[a b]>=1.0",
+            "pkg[a,]>=1.0",
+            "pkg>=1. 0",
+            "pkg>=1.0,",
+            "pkg ()",
+            "pkg (==1.0",
+            "pkg ==1.0)",
+            "pkg (==1.0)(==2.0)",
+            "pkg;",
+            "pkg;   ",
+            "pkg; ()",
+            "pkg; (os_name == 'nt'",
+            "pkg; os_name == 'nt')",
+            "pkg; os_name == 'nt",
+            "pkg; not os_name == 'nt'",
+            "pkg; python_version < 3.14",
+            "pkg; os_name == 'nt' trailing",
+            "pkg; " + "(" * 70 + "os_name == 'nt'" + ")" * 70,
+        ):
+            with self.subTest(bad=bad):
+                self.assertTrue(n(bad).startswith("!unparsed:"), n(bad))
+
+    def test_coord_q0_02_wheel_forms_grouping_and_multiset_guards(self):
+        # Exact raw wheel marker forms observed in fsspec, psutil, and urllib3 pass against the committed graph.
+        rewrites = {
+            "fsspec": {
+                'zstandard; python_version < "3.14" and extra == "test-full"':
+                "zstandard; (python_version < '3.14') and extra == 'test-full'",
+            },
+            "psutil": {
+                'colorama; os_name == "nt" and extra == "dev"': 'colorama ; (os_name == "nt") and extra == \'dev\'',
+                'pyreadline; os_name == "nt" and extra == "dev"': 'pyreadline ; (os_name == "nt") and extra == \'dev\'',
+                'sphinx_rtd_theme; extra == "dev"': "sphinx-rtd-theme ; extra == 'dev'",
+            },
+            "urllib3": {
+                'brotli>=1.0.9; platform_python_implementation == "CPython" and extra == "brotli"':
+                "brotli>=1.0.9; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+                'brotlicffi>=0.8.0; platform_python_implementation != "CPython" and extra == "brotli"':
+                "brotlicffi>=0.8.0; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+            },
+        }
+        for dist_name, mapping in rewrites.items():
+            with self.subTest(dist=dist_name):
+                art = self.pkgs[dist_name]
+                lines = [f"Metadata-Version: 2.1", f"Name: {art['name']}", f"Version: {art['version']}"]
+                lines.extend(f"Requires-Dist: {mapping.get(r, r)}" for r in art["graph_requires"])
+                w = self.put(f"{dist_name}-realstyle.whl", wheel_bytes(("\n".join(lines) + "\n\n").encode("utf-8")))
+                self.assertTrue(verify_wheel_metadata(w, art)["ok"])
+
+        # Inactive extra-gated markers are still strictly checked: dropping one must fail.
+        fs = self.pkgs["fsspec"]
+        dropped_inactive = [r for r in fs["graph_requires"] if not r.startswith("zstandard;")]
+        self.assertEqual(len(dropped_inactive), len(fs["graph_requires"]) - 1)
+        meta_drop = "\n".join(
+            [f"Metadata-Version: 2.1", f"Name: {fs['name']}", f"Version: {fs['version']}"]
+            + [f"Requires-Dist: {r}" for r in dropped_inactive]
+        ).encode("utf-8") + b"\n\n"
+        with self.assertRaises(Q0Failure) as cm:
+            verify_wheel_metadata(self.put("fsspec-drop-inactive.whl", wheel_bytes(meta_drop)), fs)
+        self.assertEqual(cm.exception.failure_class, "HASH_MISMATCH")
+
+        # Duplicate requirement (same set, altered multiset count) must fail.
+        u3 = self.pkgs["urllib3"]
+        meta_dup = synth_metadata(u3, add=u3["graph_requires"][0])
+        with self.assertRaises(Q0Failure) as cm:
+            verify_wheel_metadata(self.put("urllib3-dup.whl", wheel_bytes(meta_dup)), u3)
+        self.assertEqual(cm.exception.failure_class, "HASH_MISMATCH")
+
+        # Altering real OR-inside-AND grouping in pillow's inactive marker must fail.
+        pil = self.pkgs["pillow"]
+        meta_bad_group = synth_metadata(pil).replace(
+            b'(sys_platform == "linux" or sys_platform == "darwin") and extra == "tests"',
+            b'sys_platform == "linux" or sys_platform == "darwin" and extra == "tests"',
+        )
+        self.assertNotEqual(meta_bad_group, synth_metadata(pil))
+        with self.assertRaises(Q0Failure) as cm:
+            verify_wheel_metadata(self.put("pillow-bad-group.whl", wheel_bytes(meta_bad_group)), pil)
+        self.assertEqual(cm.exception.failure_class, "HASH_MISMATCH")
+
+        # Unparseable Requires-Dist fails closed even if synthetically present on both sides.
+        bad_art = {"name": "badpkg", "version": "1.0", "graph_requires": ["dep; (os_name == 'nt'"]}
+        bad_meta = b"Metadata-Version: 2.1\nName: badpkg\nVersion: 1.0\nRequires-Dist: dep; (os_name == 'nt'\n\n"
+        with self.assertRaises(Q0Failure) as cm:
+            verify_wheel_metadata(self.put("badpkg.whl", wheel_bytes(bad_meta, dist="badpkg-1.0")), bad_art)
+        self.assertIn("unparsed_requires", cm.exception.evidence)
 
 
 class ReleaseRecord(unittest.TestCase):
