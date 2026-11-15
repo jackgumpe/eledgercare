@@ -2,6 +2,12 @@
 
 Sole writer: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba. Actual coordinator model/effort: not exposed. Repository: https://github.com/jackgumpe/eledgercare, PRIVATE; default and integration branch coordination/bootstrap. Normal scoped pushes are active. Historical assignments, corrections and publication receipts remain in INDEX.md and immutable docs/agent-reports/.
 
+## Active WP-0005 checkpoint
+
+Opus 5.5/high author /002 has published a prepared harness checkpoint: candidate 50157e6cbaf0a2fcc29d229781237a05aa95fa92, evidence fde7fdc16d4e32ca347661e96afc0d2f7c099fb4 and newline note 1b88bfd7cc22e06bc8fd78193ad4821d1a383cb0; exact remote and clean worktree verified. Its 53 CPU tests passed on the frozen candidate after a preserved evidence-runner failure was corrected. The canonical /002 report is not published: dependency binding and known final-lock/observer corrections remain. Runtime execution refuses on the pending dependency lock; no weights, installed runtime or GPU run exist for this packet.
+
+Independent Opus phase A is published at b75011da408fed5d2cc4f9025416ead6c5632ceb and is an interim source/metadata review, not acceptance. Astra /007 is RUNNING the bounded provenance/source/dependency response on its owned branch. Reviewer Python and selected-directory checks were denied by Claude command/path permissions and remain unexecuted; a scoped grant is pending with Jack. No denied operation will be rerouted while waiting. Author-source preparation continues independently. Final /003 acceptance, /004 runtime and /005 reproduction remain held. Exact assignments and publication receipts are in INDEX.md; the dated records below preserve the progression and completed bootstrap.
+
 ## Product milestone: complete
 
 F1 is independently ACCEPTED, MERGED and PUBLISHED. Frozen application: e3117ec2aa11a78359a754cfe52ef3ece6c1733f. Integration: cbd059d350ddc3684eb53878cede17cafa3b56e0. Coordinator deliverable/report: e8421c4502d6d63dea39c7c086c6ba2f40ada17c / a487f4ff9119b5460b032eceac049410680922f9, exact origin verified.
