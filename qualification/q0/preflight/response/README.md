@@ -1,0 +1,72 @@
+# WP-0005 /007 — first preflight review response
+
+**Author response, ready for independent review; no execution release.** This supplements /001 and responds to [interim Q0R-01..09](https://github.com/jackgumpe/eledgercare/blob/b75011da408fed5d2cc4f9025416ead6c5632ceb/docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/README.md). Original /001 evidence and report remain unchanged. The metadata-only dependency graph now closes for **Windows CPython 3.12.10 x64 / AMD64**, with 32 exact artifacts. It is **not an installable publisher-hash lock** until torchvision's acquisition/provenance gate is resolved. No runtime import or hardware success is established.
+
+## Finding-to-evidence response
+
+| Finding | Author disposition / evidence | Remaining gate |
+| --- | --- | --- |
+| Q0R-01 provenance | Agree. The original JSON cannot be attributed solely to the original committed helper. Fresh direct-Python records in `pypi-metadata.json`, `cuda-metadata.json` and `collection-receipt.json` replace that producer claim. Collector frozen at `de184699ac633511d01d12249b34ba9be46843c4` before final collection | Reviewer checks new producer, receipt and exact bytes |
+| Q0R-02 AMD64/hf-xet | `metadata-lock.json` records actual marker environment and all evaluated requirements. hf-xet is **false** for `AMD64`; no extras requested. No hf-xet artifact proposed | Recheck exact marker environment in released venv; verify payload identities independently of HTTP/Xet transport |
+| Q0R-03 source closure | Six new model text files have exact expected Git-blob identities: three Python sources, tokenizer config/map, separate model-card notice. Static tokenizer path audit below; no new mandatory package found | Actual local class/tokenizer import after separate stage release; missing/corrupt tokenizer.json fails closed |
+| Q0R-04 fallback path | Agree and narrow /001's general fallback description: sparse prefill can materialize quadratic score/mask tensors; DASH fallback is silent | Capture raw stdout/stderr, record/assert Triton absence, label unmodified non-Triton fallback; measure F07 prefill VRAM, never infer path from no log |
+| Q0R-05 storage | Process-local cache map and system/pagefile uncertainty below | Fresh C: observations before/after stages; hard free-space floor; no claim all allocation stays in task root |
+| Q0R-06 local loader hygiene | Normalize absolute directory without trailing separator, verify existence and complete pinned runtime set; offline flags before HF imports | Misconfigured path/DLL/ABI error is platform failure, never switch silently to repo-ID or install optional packages |
+| Q0R-07 host preconditions | Accept required later read-only MSVC runtime and LongPathsEnabled observations | Not executed here or on reviewer's behalf; absence/insufficient paths stops dependency release |
+| Q0R-08 index confusion | Preserve torch==2.13.0+cu130; exact artifact manifest and reviewed future hash-only offline installation | No CPU substitution, implicit sdist, extra-index fallback or unpinned dependencies |
+| Q0R-09 notice | `sources/model-card.md`, model Git blob `c79e1e3362c8fd2f9193d79c1db80fbf7f041c45`, retained separately from the 18 runtime objects | Retain model/wheel/dependency notices during released acquisition |
+
+## Q0R-01 correction and producer chain
+
+The initial session did replace an earlier provisional Pillow 12 proposal with the corpus's Pillow 13.0.0 after the first collection. The committed JSON's appended Pillow record and timestamp show that separate update. PowerShell JSON parsing/serialization is consistent with the other timestamps changing from +00:00 to local -05:00 and a seven-digit Z timestamp on Pillow; the exact intermediate command chain is not retained here, so this is **not asserted as a reconstructed provenance trace**. The /001 verification row that credits the committed collector alone is incomplete/inaccurate. No timestamp equivalence or matching digest repairs that attribution.
+
+Correction method is regeneration, not retroactive reconstruction: initial collector freeze `13e6921257a17acc078fbc298806e56681f5eedd`, then extension `7e42f95853d4ca3a24313f001c989c808a6f8d17` to follow tokenizer conversion guards. Staging exposed Windows text-write CRLF versus Git LF normalization; final producer freeze `de184699ac633511d01d12249b34ba9be46843c4` adds explicit LF JSON writes before recollection, so receipt hashes bind the committed bytes. Final collection ran the exact frozen helper with CPython `-I -B`; `collection-receipt.json` binds helper SHA-256/Git blob, commit, UTC interval and every emitted output's size/SHA-256/Git blob. Outputs use direct Python UTF-8 JSON writes; no PowerShell parse/serialize or hand edits. The original 13 primary artifact pins are checked against /001, and their identities are unchanged. All response checks are author checks, not reproduction of the independent reviewer's denied operations.
+
+## Exact metadata closure and unresolved wheel hash
+
+`metadata-lock.json` contains **32 pinned artifacts**, **1,974,477,651 advertised bytes**, every requirement/marker result, the actual environment, and no unresolved active dependency edges. Existing pip **25.0.1** vendored packaging **24.2** is used only as a metadata parser/tag/marker evaluator; no pip resolver, installation, model/runtime imports or wheel downloads were used. [PyPA marker semantics](https://packaging.python.org/en/latest/specifications/dependency-specifiers/) and [packaging's evaluator documentation](https://packaging.pypa.io/en/stable/markers.html) explain the environment-specific evaluation. `AMD64` is preserved exactly, not lowercased to make hf-xet active.
+
+Unchanged top-level proposals: torch 2.13.0+cu130, torchvision 0.28.0+cu130, transformers 4.52.1, huggingface-hub 0.36.0, tokenizers 0.21.4, safetensors 0.6.2, Pillow 13.0.0, numpy 2.2.6, requests 2.32.5, tqdm 4.67.1, addict 2.4.0, einops 0.8.2, easydict 1.13, pypdfium2 5.15.2, psutil 7.1.3.
+
+Added explicit transitive pins: filelock 3.20.0; typing-extensions 4.15.0; setuptools 80.9.0; sympy 1.14.0; mpmath 1.3.0; networkx 3.5; jinja2 3.1.6; markupsafe 3.0.3; fsspec 2025.10.0; packaging 25.0; pyyaml 6.0.3; regex 2025.11.3; charset-normalizer 3.4.4; idna 3.11; urllib3 2.5.0; certifi 2025.11.12; colorama 0.4.6. These are explicit compatible proposal versions, not a claim they are newest or vulnerability-audited. `pypi-metadata.json` records exact per-version official URLs, retrieved response hash/size/time, Python requirements, license fields and selected non-yanked wheel details. Exact wheel tags are selected against this interpreter's sys_tags; no broad abi3 heuristic is used.
+
+This closes **published metadata requirements**, not executed imports or wheel-body METADATA equivalence. Future acquisition must inspect each wheel's own dist-info metadata and re-evaluate the frozen graph; mismatch fails closed. Bootstrap pip remains the explicit existing 25.0.1 tooling constraint, outside the 32 runtime artifacts; the later venv stage must record its installer version without silently upgrading it.
+
+Both torchvision indexes were re-read with `Accept: application/vnd.pypi.simple.v1+json`: the combined official `/whl/torchvision/` and `/whl/cu130/torchvision/` return HTML and the identical no-wheel-hash link. `torchvision-alternate-indexes.json` records this limitation. Torch's wheel hash is still publisher-declared; both CUDA PEP 658 metadata bodies match declared metadata hashes. Neither metadata hash nor multipart ETag is a wheel SHA-256.
+
+Proposed future, reviewer/coordinator-approved torchvision exception: acquire only the exact official-index URL from download-r2.pytorch.org into empty task-owned wheelhouse; capture final URL/origin, UTC, Content-Length/ETag/Last-Modified, actual 9,091,113 bytes and local SHA-256; inspect ZIP METADATA without importing, requiring its digest `f8e91ee987603053e2166e2e4063ddcfb533f266c88bae82b7f79119aadceb59` and exact name/version/torch dependency. Label **local-sha256-TOFU; publisher wheel digest unavailable**. Then freeze that local hash for `--no-index --find-links <owned-wheelhouse> --require-hashes --only-binary=:all:` with exact torch cu130. No install command/file containing a fabricated hash is supplied. Review can instead reject this provenance exception and hold acquisition.
+
+## Pinned source/tokenizer closure
+
+Model stays `baidu/Unlimited-OCR-2@0480966938291445591f69f08a13b041c073a96a`. `source-closure.json` records exact URL/time/hash/size/Git blob and retained bytes. Model files were verified against the inherited pinned tree before writing. Six additional Transformers source texts are fetched at `945727948c1143a10ac6f7d811aa58bb0d126b5b`; their computed identities bind the static audit, without claiming an independently fetched Git-tree comparison for those six.
+
+- `configuration_deepseek_v2.py`: only Transformers PretrainedConfig/logging imports. `conversation.py`: only dataclasses/enum/typing. `packing_patch.py`: torch only. Their source names/comments are upstream bytes; this packet does not apply a patch.
+- Tokenizer config: `tokenizer_class=LlamaTokenizerFast`; **no auto_map**, `add_prefix_space=null`, `legacy=true`, no from_slow/fast_tokenizer_files override. Special tokens map adds no code/class mapping. `tokenizer.json` remains a required 9,980,278-byte runtime object, not fetched here.
+- AutoTokenizer reads that class at tokenization_auto.py L949–1013 and chooses its built-in class. LlamaTokenizerFast L25–28 guards the slow SentencePiece class; L31 binds `tokenizer.json`; L150–151 forces slow conversion only when add_prefix_space is non-null. Do not add that override, set from_slow, or request GGUF.
+- tokenization_utils_base.py L1918–1956 resolves the conventional tokenizer.json; L2055–2075 avoids constructing a slow tokenizer when that file exists and from_slow is false. tokenization_utils_fast.py L113–117 loads `TokenizerFast.from_file` before conversion paths.
+- convert_slow_tokenizer.py imports tokenizers/packaging at module level; SentencePiece/protobuf/tiktoken imports and requires_backends checks occur in conversion helpers/constructors. integrations/ggml.py uses numpy/tokenizers and imports those converter classes; the selected JSON path does not instantiate a converter. Therefore no sentencepiece/protobuf/tiktoken/gguf artifact is proposed for this pinned path. This is conditional static reasoning, not a successful tokenizer import/load.
+
+Transport-independent eventual model verification: both safetensors bodies must match advertised **LFS SHA-256** and size, and **all 16 non-LFS runtime files** must match Git-blob SHA-1 and size from the 18-object manifest. Never compare a shard body to its Git pointer OID or treat xetHash as payload SHA-256. The separately retained card is a notice, not a 19th required runtime file. Download metadata `.cache/huggingface/**` may exist only as an explicitly permitted auxiliary subtree; it does not count as a runtime object or bypass verification. Prefer clean final runtime directory and separate notices; any other unexpected files, reparse points, path escapes or missing runtime objects stop loading.
+
+## Process-local containment and later host checks
+
+Set child-process variables before importing HF/torch, after separately authorized directory preparation. Relative locations below are under `C:\Users\jackg\eLedgerCare-Q0\WP-0005`:
+
+| Variable | Task-local value |
+| --- | --- |
+| HF_HOME | `hf-home` |
+| HF_HUB_CACHE / HUGGINGFACE_HUB_CACHE | `hf-home\hub` |
+| HF_MODULES_CACHE | `hf-modules` |
+| TRANSFORMERS_CACHE | `hf-home\transformers` (legacy override, if used consistently) |
+| PIP_CACHE_DIR / UV_CACHE_DIR | `pip-cache` / `uv-cache` |
+| CUDA_CACHE_PATH | `cuda-cache` |
+| TORCH_HOME / TORCHINDUCTOR_CACHE_DIR | `torch-home` / `torchinductor-cache` |
+| TEMP / TMP / TMPDIR | `temp` |
+
+These cache children share the original 1-GiB cache allowance and 3-GiB wheelhouse/cache allowance; they are not additional unlimited budgets. The stage must monitor their aggregate usage. Global environment/settings remain untouched. During local import/inference, set **HF_HUB_OFFLINE=1, TRANSFORMERS_OFFLINE=1** before any HF import and pass `local_files_only=True`; network-enabled acquisition is a distinct released process/stage. Optional `HF_HUB_DISABLE_XET=1` can make the proposed plain-HTTP acquisition explicit; it cannot weaken final hash verification.
+
+Pass normalized absolute `...\model\Unlimited_OCR_2_04809669` with no trailing separator, assert it is an existing owned directory and verify runtime identities before loading. Do not fall through to remote-ID parsing on a typo. DLL/ABI ImportErrors are platform failures. Before the dependency stage, record the architecture/version/presence of System32 msvcp140.dll, vcruntime140.dll and vcruntime140_1.dll, plus registry LongPathsEnabled and maximum intended paths. Presence does not prove successful DLL resolution; the later import gate does. No registry/runtime repair is authorized by this document.
+
+Original C: observation (64.32 GiB free) and 38-GiB planned task peak remain historical, not refreshed here. Require fresh >=58 GiB free at start and >=20 GiB remaining during stages; observe C: before/after download, installation, CPU load and GPU run, including failure paths. **Windows pagefile growth and OS/driver allocations outside the root are unknown and additional**; the 20-GiB floor is a stop buffer, not a measured pagefile bound. Record pagefile configuration/current usage and memory availability in the later host precheck. Do not modify pagefile settings or claim all C: consumption is contained in the root. If fresh capacity cannot cover reviewed peak plus system uncertainty, stop for a revised storage decision.
+
+The harness must preserve raw logs and classify the run as **unmodified model on non-Triton fallback path**, recording `find_spec('triton') is None` in its separately released runtime precheck. Non-Triton sparse prefill may allocate [B,H,Sq,Sk] scores/masks; DASH fallback can be silent. No inference of 16-GB fit, successful fallback or full path observability is warranted before execution. The reviewer remains responsible for independent acceptance of these changes and the frozen harness.
