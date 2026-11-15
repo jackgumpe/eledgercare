@@ -45,6 +45,12 @@ class TorchBackend:
         return pypdfium2
 
     def load(self, model_dir, protocol):
+        import os
+        # Q0R-06: offline flags must be present before the first HF import (set at process creation).
+        if "transformers" in sys.modules or "huggingface_hub" in sys.modules:
+            raise RuntimeError("transformers/huggingface_hub imported before the offline check")
+        if os.environ.get("HF_HUB_OFFLINE") != "1" or os.environ.get("TRANSFORMERS_OFFLINE") != "1":
+            raise RuntimeError("HF offline flags absent before import")
         t = {}
         s = time.perf_counter()
         import torch
@@ -78,6 +84,10 @@ class TorchBackend:
                 "max_reserved": torch.cuda.max_memory_reserved(), "allocated": torch.cuda.memory_allocated(),
                 "reserved": torch.cuda.memory_reserved(), "device_free": free, "device_total": total,
                 "note": "device_free includes other processes' use (WDDM/desktop confounder)."}
+
+    def memory_probe(self) -> dict:
+        import torch
+        return {"max_allocated": torch.cuda.max_memory_allocated(), "max_reserved": torch.cuda.max_memory_reserved()}
 
     def invoke(self, model, tokenizer, prompt, images, kwargs):
         return model.infer_multi(tokenizer, prompt=prompt, image_files=list(images), **kwargs)

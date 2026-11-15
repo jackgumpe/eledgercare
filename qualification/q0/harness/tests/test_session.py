@@ -62,11 +62,24 @@ class SessionBookkeeping(unittest.TestCase):
         mc = json.loads((run_dir / "evidence" / "module-cache.json").read_text(encoding="utf-8"))
         self.assertTrue(all(m["identical"] for m in mc["modules"]))
         self.assertTrue((run_dir / "heartbeat.json").is_file())
+        c2, c4 = out["checks"]["2_artifact_dependency_lock"], out["checks"]["4_kernel_cache_telemetry"]
+        self.assertEqual(c2["lock_counts"], {"publisher-declared": 31, "local-sha256-TOFU": 1, "missing": 0})
+        self.assertEqual(c2["model_runtime_objects_verified"], 18)
+        self.assertTrue(c2["triton_find_spec_none"] and c4["triton_find_spec_none"])
+        self.assertEqual(c4["baseline_label"], "unmodified model on non-Triton fallback path")
+        self.assertEqual(out["context"]["code_identity"]["head"], "c" * 40)
+        self.assertEqual(out["context"]["release"]["accepted_provenance_exceptions"], ["torchvision-local-sha256-TOFU"])
+        for o in obs:  # prefill-boundary allocator probe: exactly one read per call window
+            self.assertEqual(o["prefill_memory"]["provenance"], "direct")
+            self.assertEqual(o["prefill_memory"]["value"]["max_reserved"], 2000)
+        self.assertEqual(be.probes, 6)
 
-    def test_triton_present_variant(self):
+    def test_executed_triton_path_is_not_the_frozen_baseline(self):
         out, _, _ = self.run_kit("tritonstub", triton_stub=True)
-        self.assertEqual(out["status"], QUALIFIED, out["failures"])
+        self.assertEqual(out["status"], NOT_QUALIFIED)
+        self.assertEqual(self.classes(out), ["TELEMETRY_UNSUPPORTED"])
         self.assertEqual({o["kernel_path"]["label"] for o in out["observations"]}, {"triton_executed"})
+        self.assertIsNone(out["checks"]["4_kernel_cache_telemetry"]["baseline_label"])
 
     def assert_blocked_before_load(self, tag, expect, **kw):
         out, be, _ = self.run_kit(tag, **kw)
@@ -76,12 +89,21 @@ class SessionBookkeeping(unittest.TestCase):
         self.assertEqual(be.invocations, 0)
 
     def test_gates_fail_closed_before_any_model_load(self):
-        pending = support.final_lock() | {"status": "PENDING_ASTRA_001"}
+        from collections import namedtuple
+        du = namedtuple("du", "total used free")
         self.assert_blocked_before_load("nolease", "EXECUTION_NOT_RELEASED", release_mutation=lambda r: None)
         self.assert_blocked_before_load("wrongseq", "EXECUTION_NOT_RELEASED", release_mutation=lambda r: r | {"sequence": "002"})
+        self.assert_blocked_before_load("installstage", "EXECUTION_NOT_RELEASED", release_mutation=lambda r: r | {"stage": "install"})
         self.assert_blocked_before_load("wronggpu", "EXECUTION_NOT_RELEASED",
                                         release_mutation=lambda r: r | {"gpu_uuid": "GPU-00000000-0000-0000-0000-000000000000"})
-        self.assert_blocked_before_load("pending", "DEPENDENCY_LOCK_PENDING", lock=pending)
+        self.assert_blocked_before_load("dirtycode", "EXECUTION_NOT_RELEASED",
+                                        code=support.FAKE_CODE | {"harness_clean": False})
+        self.assert_blocked_before_load("hashgap", "ACQUISITION_PROVENANCE_PENDING", lock=support.committed_lock())
+        self.assert_blocked_before_load("noexception", "ACQUISITION_PROVENANCE_PENDING",
+                                        release_mutation=lambda r: r | {"accepted_provenance_exceptions": []})
+        self.assert_blocked_before_load("floor", "STORAGE_FLOOR", disk_usage=lambda p: du(10 ** 12, 0, 10 ** 9))
+        self.assert_blocked_before_load("nonotice", "HASH_MISMATCH", no_notice=True)
+        self.assert_blocked_before_load("cputorch", "DEPENDENCY_MISMATCH", opts={"extra_installed": {"torch": "2.13.0"}})
         self.assert_blocked_before_load("capab", "UNSUPPORTED_PLATFORM", opts={"platform_override": {"device_capability": [8, 9]}})
         self.assert_blocked_before_load("noarch", "UNSUPPORTED_PLATFORM", opts={"platform_override": {"arch_list": ["sm_90"]}})
         self.assert_blocked_before_load("py", "UNSUPPORTED_PLATFORM", opts={"platform_override": {"python": "3.10.11"}})

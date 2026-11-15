@@ -35,6 +35,12 @@ CHILD = textwrap.dedent("""
             sys.stdout.write("x" * 65536); sys.stdout.flush()
     elif mode == "crash":
         sys.exit(7)
+    elif mode == "markers":
+        beat("call:F07", 1, 30, False)
+        print("[SparseAttn] triton gather path failed (ModuleNotFoundError: No module named 'triton'); falling back")
+        os.makedirs(os.path.join(run_dir, "evidence"), exist_ok=True)
+        with open(os.path.join(run_dir, "evidence", "outcome.json"), "w") as f:
+            json.dump({"status": "NOT_QUALIFIED"}, f)
 """)
 
 
@@ -69,11 +75,36 @@ class Supervisor(unittest.TestCase):
         return rec
 
     def test_completed(self):
-        rec = self.sup("ok", observer_cmd=[sys.executable, "-I", "-c", "print('observer')"], observer_every_s=1)
+        obs = [[sys.executable, "-I", "-c", "print('gpu')"], [sys.executable, "-I", "-c", "print('apps')"]]
+        rec = self.sup("ok", observer_cmds=obs, observer_every_s=1, free_space_path=self.d, min_free_bytes=1)
         self.assertEqual(rec["verdict"], "CHILD_COMPLETED")
         self.assertEqual(rec["child_outcome_status"], "QUALIFIED_RUNTIME_OBSERVATION")
-        self.assertEqual([o["tag"] for o in rec["observers"]][0], "pre")
-        self.assertEqual(rec["observers"][-1]["tag"], "post")
+        self.assertEqual([(o["tag"], o["index"]) for o in rec["observers"][:2]], [("pre", 0), ("pre", 1)])
+        self.assertEqual([o["tag"] for o in rec["observers"][-2:]], ["post", "post"])
+        self.assertTrue(all(o["returncode"] == 0 for o in rec["observers"]))
+        self.assertGreater(rec["free_space"]["samples"], 2)
+        self.assertEqual(rec["log_markers"]["stdout"]["provenance"], "log")
+
+    def test_storage_floor_kills_own_child(self):
+        from collections import namedtuple
+        du = namedtuple("du", "total used free")
+        calls = []
+
+        def fake_du(path):
+            calls.append(path)
+            return du(10 ** 12, 0, 10 ** 12 if len(calls) < 3 else 10 ** 6)
+        rec = self.sup("stall", stall_s=600, free_space_path=self.d, min_free_bytes=10 ** 9, disk_usage=fake_du)
+        self.assertEqual(rec["verdict"], "STORAGE_FLOOR")
+        self.assertEqual(rec["free_space"]["min_observed"], 10 ** 6)
+
+    def test_log_markers_scanned_from_raw_output(self):
+        rec = self.sup("markers")
+        self.assertEqual(rec["verdict"], "CHILD_COMPLETED")
+        m = {x["marker"]: x["count"] for x in rec["log_markers"]["stdout"]["markers"]}
+        self.assertEqual(m["[SparseAttn] triton gather path failed"], 1)
+        self.assertEqual(m["[DASH] Triton block-sparse path active"], 0)
+        raw = (self.d / "markers" / "child.stdout.txt").read_bytes()
+        self.assertIn(b"[SparseAttn] triton gather path failed (ModuleNotFoundError", raw)
 
     def test_stall_kills_own_child(self):
         rec = self.sup("stall")
@@ -108,13 +139,14 @@ class CliRefusesWithoutRelease(unittest.TestCase):
         self.assertEqual(cp.returncode, 2, cp.stderr)
         rec = json.loads(cp.stdout)
         self.assertEqual(rec["status"], "BLOCKED")
-        self.assertEqual(rec["failures"][0]["failure_class"], "DEPENDENCY_LOCK_PENDING")
+        self.assertEqual(rec["failures"][0]["failure_class"], "ACQUISITION_PROVENANCE_PENDING")
+        self.assertEqual(rec["failures"][0]["evidence"], ["torchvision"])
         self.assertIsNone(rec["accuracy_score"])
         self.assertEqual(root.exists(), existed, "execute must not create the external storage root")
 
     def test_cpu_commands_succeed(self):
         for args in (["check-protocol"], ["derive-rasters", "--check"], ["build-model-manifest", "--check"],
-                     ["verify-snapshots"], ["status"]):
+                     ["verify-snapshots"], ["status"], ["lock-check"]):
             with self.subTest(args=args):
                 cp = subprocess.run([sys.executable, "-I", "-B", str(HARNESS_DIR / "q0.py"), *args],
                                     capture_output=True, text=True, timeout=300)

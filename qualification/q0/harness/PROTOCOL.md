@@ -1,6 +1,25 @@
 # WP-0005 Q0 frozen qualification protocol (author: eld-q0-harness, /002)
 
-Status: **PREPARED, not executable.** It is frozen for the independent `/003` review. It runs only after the dependency lock is final (WP-0005 `/001` plus `/003` review) and a coordinator `/004` release record binds this protocol digest, the lock digest, the storage root and an observed single-owner GPU lease. The machine-readable source of truth is [`protocol.json`](protocol.json). Its SHA-256 is recorded in every run and must match the release record.
+Status: **PREPARED, not executable.** It is prepared for the independent `/003` review. Two separate conditions gate it:
+
+- every one of the 32 locked wheels needs an effective SHA-256 (§8);
+- coordinator `eldq0-release/2` records must exist for the install and execute stages. Each record binds:
+  - the accepted review;
+  - the exact harness commit, clean;
+  - the protocol and lock SHA-256 values;
+  - any accepted provenance exceptions;
+  - the storage root;
+  - for execution only, an observed single-owner GPU lease.
+
+The lock never names the review that accepts it. Only the release record binds these identities together, which removes the circular requirement from checkpoint 1.
+
+The machine-readable source of truth is [`protocol.json`](protocol.json). Its SHA-256 is recorded in every run and must match the release record. Dependency lineage:
+
+- Astra `/001`: `95ce0a8d…` / `2c32dde6…`;
+- Astra `/007`: candidate `d666c416…`, evidence `6cb6a258…`, report `951d408a…`;
+- reviewer phase A findings Q0R-01..09: `b75011da…`.
+
+`protocol.json` `lineage` holds the full SHAs.
 
 Q0 is an engineering qualification of the **unmodified** `baidu/Unlimited-OCR-2@0480966938291445591f69f08a13b041c073a96a` checkpoint (`research/carbon/reconciliation/02-ranked-experiment-backlog.md` §1.2, input contract §2). It is not an experiment and not production OCR integration. No accuracy is ever computed, and a failed run is a blocker. It is never recorded as 0 %.
 
@@ -47,6 +66,7 @@ Sequence: one cold load, then one excluded warmup per fixture, then **exactly tw
 | Decode | `time - prefill_time` | derived |
 | Outside generate | wall minus native `time`: prompt build, `_uocr_build_inputs`, observer overhead, final sync | derived |
 | CUDA memory | `reset_peak_memory_stats()` per call, then `max_memory_allocated/reserved`, `memory_allocated/reserved`, `mem_get_info` | direct (`device_free` includes other processes) |
+| Prefill-boundary memory (Q0R-04, F07 prefill VRAM) | allocator `max_memory_allocated/reserved` read once per call, at the first model-forward return. These are host-side allocator counters: no sync and no change to the model | direct (allocator peak through the prefill launch, not a kernel-level measurement) |
 | Process RSS | Windows `K32GetProcessMemoryInfo` start/end, plus a 100 ms sampler for the window peak (lower bound) and the page-fault delta | direct, sampled |
 | Output tokens, finish, pages | native return dict captured at `infer` return (see §4); `<PAGE>` token positions | native and direct |
 | Repeatability | exact equality of token-id SHA-256 between R1 and R2 per fixture (warmup vs R1 reported separately) | direct |
@@ -67,7 +87,18 @@ Raw output is written by the bounded stdlib writer (`writer.py`): the exact nati
 | `modeling_deepseekv2._infer_prefill_attend`, `_dash_decode_forward`, `_decode_attend`, `_orig_forward`, `configure_dash_inference` | DASH prefill/decode path, fp32 decode attend, any non-DASH attention |
 | `_uocr_save_results`, `process_image_with_refs`, `draw_bounding_boxes`, `extract_coordinates_and_label` | **tripwire** (see §5) |
 
-Exception events (`EXCEPTION_HANDLED`, `PY_UNWIND`) can only be global in 3.12, so their callbacks filter by code object. The derived label is one of `triton_executed`, `triton_import_failed_dense_fallback`, `triton_returned_none_dense_fallback`, `triton_exception_propagated`, `triton_not_attempted` or `mixed` (fail). Cache growth must be observed as +1 per decode step with no ring marker. Otherwise check 4 fails.
+Exception events (`EXCEPTION_HANDLED`, `PY_UNWIND`) can only be global in 3.12, so their callbacks filter by code object. The derived label is one of:
+
+- `triton_executed`
+- `triton_import_failed_dense_fallback`
+- `triton_returned_none_dense_fallback`
+- `triton_exception_propagated`
+- `triton_not_attempted`
+- `mixed`
+
+**Frozen baseline path (Q0R-04).** The lock contains no Triton, flash-attn or xformers. `find_spec('triton') is None` is asserted and recorded. Check 4 passes only when every call is labelled `triton_import_failed_dense_fallback`, the DynamicCache grows by +1 per decode step and no ring marker appears. The result is then labelled **"unmodified model on non-Triton fallback path"**. Any other label, including Triton actually executing, does not match the frozen baseline: `TELEMETRY_UNSUPPORTED` / NOT_QUALIFIED. `_orig_forward` calls (the base sparse-attention path) are counted per call. Without Triton, that path's eager block-mask fallback materializes `[B,H,Sq,Sk]` (`_sparse_base_impl` L1803–1811).
+
+**Raw logs.** The supervisor preserves child stdout/stderr byte-for-byte and scans them (`logscan.py`) for the model's own diagnostic lines: `[SparseAttn] triton gather path failed` (L1761), `[DASH] Triton block-sparse path active` (L1224), `[CodeStamp]`, and others. These markers are supplementary. The DASH fallback is silent, so the **absence** of a marker is never treated as evidence of a path.
 
 Unsupported (reported, not substituted): which GPU kernels Triton/SDPA dispatch internally, per-kernel GPU time and direct WDDM paging state. Overhead: self-timed callback nanoseconds and event counts per call. This is a lower bound, because interpreter dispatch and global exception-event filtering are not included. Telemetry runs identically for warmup and both repeats.
 
@@ -82,13 +113,30 @@ Unsupported (reported, not substituted): which GPU kernels Triton/SDPA dispatch 
    - no other module contains eval/exec/compile.
 
    The frozen kwargs pass **both** `save_results=False` and `output_path=""`. At runtime a `sys.monitoring` tripwire raises `SafetyTripwire` (a `BaseException`) at `PY_START` of any chain function, before its first instruction runs. It records the violation even if native bare `except:` (L194–197) swallows the exception. This tripwire is the only intervention, and it fires only on a path the protocol has made unreachable.
-2. **Byte-for-byte code.** The model directory must contain exactly the 19 pinned files. Non-LFS files are checked by git-blob SHA-1 and LFS files by SHA-256 from `research/astra/sources/hf-tree.json`. Only `.cache/huggingface/**` download metadata without `.py` is tolerated. After load, every `transformers_modules.*` module file must lie in the run's own `HF_MODULES_CACHE` and be identical to the verified source. Every `.py` copied there is checked too. Nothing is patched or monkeypatched. A required source edit is `SOURCE_PATCH_REQUIRED`, a strict-baseline blocker.
-3. **Isolated child environment.** The environment is built from an allowlist, never inherited. It is offline (`HF_HUB_OFFLINE=1`, `TRANSFORMERS_OFFLINE=1`, `local_files_only=True`), has `CUDA_VISIBLE_DEVICES=<leased GPU UUID>`, and keeps all caches/temp/home under the run directory. Every model behaviour switch found in the pinned source is absent: `TIME_DIAG*`, `DASH_*`, `WARMUP_MAIN_LOCAL_WINDOW`, `PAGE_SCOPE_PREFILL`, `CODE_STAMP_LOG`, `INDEXER_SCORE_TRITON`, `FUSED_CHUNK_CE`, `CE_CHUNK_SIZE` and `KL_*`. So are `PYTORCH_CUDA_ALLOC_CONF` and every credential-shaped name.
-4. **Locked dependencies.** The installed set must equal the lock exactly (only `pip` may be unlocked). `flash_attn` and `xformers` must not be importable, because their presence changes `_sparse_base_impl` import-time paths (L165–175). `triton` must follow the lock's `triton_policy`.
+2. **Byte-for-byte code (18 runtime objects plus a separate notice, Q0R-09).** The model directory must contain exactly the **18 runtime objects**. 16 non-LFS files are checked by git-blob SHA-1 and size, and 2 shards by LFS SHA-256 and size, all from `research/astra/sources/hf-tree.json`. The checks are transport-independent: xetHash and LFS pointer OIDs are never used as payload digests. The model card `README.md` (blob `c79e1e33…`, 14,107 B) is a separately verified **notice** in `notices\…`, not a runtime object. A README inside the runtime directory is `UNEXPECTED_ARTIFACT`.
+
+   Only `.cache/huggingface/**` download metadata without `.py` is tolerated. Symbolic links and reparse points are rejected. After load, every `transformers_modules.*` module file must lie in the run's own `HF_MODULES_CACHE` and be identical to the verified source, and every `.py` copied there is checked too. Nothing is patched or monkeypatched. A required source edit is `SOURCE_PATCH_REQUIRED`, a strict-baseline blocker.
+3. **Normalized offline local loading (Q0R-06).** `normalize_model_dir` requires the model directory to be:
+   - absolute and normalized, with no trailing separator;
+   - existing, and not a reparse point;
+   - equal to the protocol path;
+   - named with a Python identifier as its basename (`Unlimited_OCR_2_04809669`). That basename becomes the `transformers_modules` package name: upstream's local branch uses `basename(path)`, and a missing directory would otherwise be parsed as a repo ID.
+
+   The offline flags are set when the child process is created. `backend_torch.load` asserts they are present and that no HF module is imported yet. A DLL/ABI ImportError is a platform failure, and the harness never falls back to a repo ID.
+4. **Isolated child environment (Q0R-05).** The environment is built from an allowlist, never inherited. It is offline (`HF_HUB_OFFLINE=1`, `TRANSFORMERS_OFFLINE=1`, `HF_HUB_DISABLE_XET=1`, `PIP_NO_INDEX=1`, `local_files_only=True`) and has `CUDA_VISIBLE_DEVICES=<leased GPU UUID>`.
+   - Under the run directory: `TEMP`/`TMP`/`TMPDIR`, `HF_MODULES_CACHE`, `TORCH_HOME`, `TORCHINDUCTOR_CACHE_DIR`, `TRITON_CACHE_DIR`, `CUDA_CACHE_PATH` (NVIDIA ComputeCache), `PIP_CACHE_DIR`, `UV_CACHE_DIR`, `XDG_CACHE_HOME` and home.
+   - Under the task root: `HF_HOME`, `HF_HUB_CACHE`, `HUGGINGFACE_HUB_CACHE` and `TRANSFORMERS_CACHE`.
+
+   Every model behaviour switch found in the pinned source is absent: `TIME_DIAG*`, `DASH_*`, `WARMUP_MAIN_LOCAL_WINDOW`, `PAGE_SCOPE_PREFILL`, `CODE_STAMP_LOG`, `INDEXER_SCORE_TRITON`, `FUSED_CHUNK_CE`, `CE_CHUNK_SIZE` and `KL_*`. So are `PYTORCH_CUDA_ALLOC_CONF` and every credential-shaped name.
+5. **Locked dependencies (bound lock).** `locks/dependency-lock.json` (`eldq0-lock/2`) reads the 32 artifacts from the exact Git blob `ec8c650e…` of Astra `/007` `metadata-lock.json`. It checks that blob's SHA-1, size, status and AMD64 marker environment, the 32/31/1 counts and the total bytes. It also checks the fixed versions transformers 4.52.1, pypdfium2 5.15.2, torch 2.13.0+cu130 and torchvision 0.28.0+cu130, and that no accelerated backend is present.
+
+   The installed set must equal those 32 exactly; only `pip` may be unlocked. The PyPI CPU `torch 2.13.0` counts as a mismatch (Q0R-08). `flash_attn`, `xformers` and `triton` must not be importable (`find_spec is None`).
 
 ## 6. Guards and failure accounting
 
 Timeouts (harness policy, not measured performance): preflight 1800 s, load 1800 s, 1-page call 1800 s, 3-page call 3600 s, session 21600 s. A **stall** is no native model-forward return for 300 s inside a call (heartbeat every 5 s), which suggests a WDDM paging stall. The supervisor (`supervisor.py`) kills **only its own child** through its `Popen` handle. Log cap: 64 MiB. Raw output cap: 16 MiB per file.
+
+**Free-space floor (Q0R-05).** At least 58 GiB must be free before the first download (`host-precheck --stage initial`). At least 20 GiB must remain at session preflight and on every supervisor poll; otherwise the supervisor raises `STORAGE_FLOOR` and kills its child. The floor is a stop buffer, not a measured bound. Pagefile growth and OS/driver allocations outside the root are unknown and additional. Commit limit, available commit and paging-file configuration are recorded read-only.
 
 Fail-closed classes are listed in `outcome.FAILURE_CLASSES`, including hash mismatch, unsupported platform, dependency mismatch, OOM, timeout, severe stall, safety violation, source patch required, truncation, page-count mismatch, non-determinism, context budget and telemetry unsupported. Outcome records carry `accuracy_score: null`, and `assert_no_score` rejects any score-like field anywhere.
 
@@ -96,13 +144,30 @@ Fail-closed classes are listed in `outcome.FAILURE_CLASSES`, including hash mism
 
 - Storage root: `C:\Users\jackg\eLedgerCare-Q0\WP-0005` (coordinator-selected). It must equal the release record and lie outside the repository, the worktrees, `TEMP`/`TMP`, `APPDATA`/`LOCALAPPDATA` and `~/.cache`.
 - Each run gets a new `runs\<author|reviewer>\<UTC>-<id>` with its own `HF_MODULES_CACHE`, temp and caches.
+- Model runtime directory `models\Unlimited_OCR_2_04809669` (identifier-safe; see §5.3). This replaces the coordinator-proposed leaf `models\0480966…`, which starts with a digit; the coordinator should confirm. Notice: `notices\Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a\README.md`.
 - GPU: `GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d` (RTX 5070 Ti, capability 12.0, `sm_120` in `torch.cuda.get_arch_list()`), concurrency 1, and exactly one visible device.
-- Read-only `nvidia-smi` observations are taken pre, every 60 s and post. Desktop/WDDM activity is a recorded confounder, never a reason to stop another process.
+- **Observer plan (reconciled).** The checkpoint-1 single command that combined `--query-gpu` and `--query-compute-apps` is replaced by two separate read-only queries, both bound by `--id=<UUID>`:
+  - **GPU query:** `--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate --format=csv,noheader,nounits`.
+  - **Compute-apps query:** `--query-compute-apps=pid,process_name,used_memory --format=csv,noheader,nounits`.
 
-## 8. Open items owned by `/001` and review
+  Both are the forms already exercised in the Astra `/001` host receipt. `q0.py host-precheck` validates them against this host: one line, the leased UUID, the name, and compute_cap 12.0. They run pre, every 60 s and post.
 
-- The exact Python, torch/torchvision CUDA wheels, `torch.version.cuda`, `triton_policy`, every remaining wheel with SHA-256, and the index URLs are open. `locks/dependency-lock.json` stays `PENDING_ASTRA_001`, so `execute`, `write-requirements`, `verify-wheelhouse` and `preflight-cpu` all refuse.
-- Transformers 4.52.1 local-directory dynamic loading with `local_files_only=True` is **not verified** by this author. The read-only fetch of upstream `dynamic_module_utils.py` was denied in this session. The design does not depend on it: the module-cache identity check runs after load, and an `IMPORT_FAILURE`/`SOURCE_PATCH_REQUIRED` blocker is reported honestly.
-- The exact `pypdfium2.version.PDFIUM_INFO` string form is verified only by `preflight-cpu`, which fails closed if `159.0.8149.0` is absent from it.
-- The `nvidia-smi` observer command combines two query modes in one call and is unvalidated. It must be run once read-only before the lease, and split by reviewed amendment if it errors. A failing observer is recorded, not fatal.
-- The imports of `configuration_deepseek_v2.py`, `conversation.py` and `packing_patch.py` are not in the committed snapshots. They are statically checked after acquisition.
+  Per-process VRAM is `[N/A]` under WDDM and is unsupported telemetry. Device `memory.used` includes the desktop and other processes; it is a confounder, never a reason to stop another process.
+- **Host preconditions (Q0R-07),** read-only via `host-precheck`:
+  - System32 `msvcp140.dll`, `vcruntime140.dll` and `vcruntime140_1.dll`: presence, size, SHA-256 and file version;
+  - `LongPathsEnabled`. If it is not 1, every harness-known path must stay below 240 characters. The venv's longest installed path is checked after installation (`hostcheck.max_path_under`).
+
+  DLL presence does not prove that torch's DLLs resolve; the later import gate does.
+
+## 8. Remaining gates and open items
+
+- **torchvision wheel digest (acquisition/install stop gate).** Neither official index publishes a wheel SHA-256. The lock records it as a declared `hash_gaps` entry, and `readiness()` reports `installable: false`. `execute`, `write-requirements`, `verify-wheelhouse` and `preflight-cpu` therefore refuse with `ACQUISITION_PROVENANCE_PENDING`. The resolution has three parts:
+  - exactly one published independent receipt, bound as a `local_hash_records` entry with `hash_kind: local-sha256-TOFU`. Its name, version, filename, URL, size and the PEP 658 METADATA digest `f8e91ee9…` must equal the gap. It carries the receipt's commit, path and Git blob pin;
+  - the release record listing `torchvision-local-sha256-TOFU` in `accepted_provenance_exceptions`;
+  - `verify-wheelhouse` re-reading the wheel's own `dist-info/METADATA` (ZIP read, no extraction or import). It requires that digest and `Requires-Dist: torch (==2.13.0)`.
+
+  The digest is never labelled publisher-verified.
+- `torch.version.cuda == "13.0"` is inferred from `+cu130` and must be observed in the runtime precheck.
+- Transformers 4.52.1 local-directory loading has not been executed. The reviewer's phase A read of upstream `dynamic_module_utils.py` is source evidence only: `check_imports` runs only on the entry module locally, while the remote ID would trip unconditional `import triton`. Module-cache identity is checked after load, and import failure is an honest blocker.
+- The exact `pypdfium2.version.PDFIUM_INFO` string form is verified only by `preflight-cpu`, which fails closed if `159.0.8149.0` is absent.
+- Astra `/007` closed the imports of `configuration_deepseek_v2.py`, `conversation.py` and `packing_patch.py` (Transformers, stdlib and torch only). The tokenizer is on the fast `tokenizer.json` path. All of this is static, and the actual tokenizer load is still unexecuted.

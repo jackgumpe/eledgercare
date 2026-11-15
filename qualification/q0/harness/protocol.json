@@ -2,7 +2,8 @@
   "schema": "eldq0-protocol/1",
   "packet": "WP-0005",
   "author_sequence": "002",
-  "status": "PREPARED: frozen for /003 review; not executable until the dependency lock is final and a coordinator /004 release and GPU lease bind the run",
+  "status": "PREPARED for /003 review; not executable until every wheel has an effective SHA-256 and coordinator install/execute release records (eldq0-release/2) bind the accepted review, harness commit, protocol and lock digests, storage root and an observed GPU lease",
+  "baseline_label": "unmodified model on non-Triton fallback path",
   "model": {
     "repo_id": "baidu/Unlimited-OCR-2",
     "revision": "0480966938291445591f69f08a13b041c073a96a",
@@ -14,7 +15,7 @@
       "local_files_only": true,
       "then": ["eval", "cuda"]
     },
-    "custom_code_policy": "byte-for-byte; verified before load (git blob / LFS sha256) and after load (module-cache copies identical)"
+    "custom_code_policy": "byte-for-byte; 18 runtime objects verified before load (16 git blob SHA-1, 2 LFS SHA-256, sizes) and after load (module-cache copies identical); model card README.md is a separately verified notice outside the runtime directory"
   },
   "postprocessor": {
     "repo": "https://github.com/baidu/Unlimited-OCR",
@@ -140,23 +141,49 @@
     "root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
     "subdirs": {
       "hf_home": "hf-home",
-      "models": "models\\0480966938291445591f69f08a13b041c073a96a",
+      "models": "models\\Unlimited_OCR_2_04809669",
+      "notices": "notices\\Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a",
       "wheelhouse": "wheelhouse",
       "venv": "venv",
+      "pip_cache": "pip-cache",
+      "uv_cache": "uv-cache",
+      "stage_temp": "temp",
       "runs": ["runs\\author", "runs\\reviewer"]
+    },
+    "model_dir_rule": "The model directory basename becomes the transformers_modules package name (upstream dynamic_module_utils local branch uses basename(path), per /003 phase A C10). It must be a Python identifier, so the coordinator-proposed leaf 'models\\0480966…' (leading digit) is replaced by the identifier-safe 'Unlimited_OCR_2_04809669' (Astra /007 proposal); the revision pin is enforced by the 18-object digest check, not by the directory name. Passed as a normalized absolute path without trailing separator; never a repo ID.",
+    "free_space": {
+      "volume": "C:\\",
+      "initial_min_bytes": 62277025792,
+      "during_min_bytes": 21474836480,
+      "basis": "Astra /007 proposed stage gates: >= 58 GiB free before the first download, >= 20 GiB remaining at every stage boundary and during execution (supervisor polls and stops its child below the floor). The floor is a stop buffer, not a measured bound: pagefile growth and OS/driver allocations outside the root are unknown and additional (Q0R-05). Historical observations (69,064,572,928 B by Astra; 69,305,819,136 B by the coordinator) are not refreshed here."
     },
     "known_artifact_bytes": {
       "weights": 6688305576,
-      "pinned_model_files_total": 6699209288
+      "runtime_objects_total": 6699195181,
+      "notice_bytes": 14107,
+      "wheels_advertised_total": 1974477651
     },
-    "unknown_until_lock": ["wheelhouse bytes", "installed venv bytes", "peak temp/cache bytes"]
+    "unknown_until_measured": ["installed venv bytes", "peak temp/cache bytes", "pagefile growth outside the root"]
   },
   "gpu": {
     "uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
     "name_contains": "RTX 5070 Ti",
     "concurrency": 1,
-    "observer_cmd": ["nvidia-smi", "--query-gpu=uuid,name,driver_version,memory.used,memory.total,utilization.gpu", "--format=csv", "--query-compute-apps=pid,process_name,used_memory"],
-    "observer_every_s": 60,
-    "observer_note": "Read-only observation recorded before/during/after; never used to stop other processes. The exact nvidia-smi argument form is validated in the released CPU preflight before the lease."
+    "observer": {
+      "gpu_fields": ["timestamp", "uuid", "name", "driver_version", "compute_cap", "memory.total", "memory.used", "memory.free", "utilization.gpu", "pstate"],
+      "commands": [
+        ["nvidia-smi", "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d", "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate", "--format=csv,noheader,nounits"],
+        ["nvidia-smi", "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d", "--query-compute-apps=pid,process_name,used_memory", "--format=csv,noheader,nounits"]
+      ],
+      "every_s": 60,
+      "reconciliation": "The /002 checkpoint's single command combining --query-gpu and --query-compute-apps was never validated and is replaced by two separate read-only queries, the forms already executed successfully in the Astra /001 host receipt (2c32dde:qualification/q0/preflight/host-receipt.json: gpu line incl. compute_cap 12.0; compute-apps rows with used_memory [N/A] under WDDM). The q0.py host-precheck command validates both against this host before any lease. Per-process VRAM is unsupported telemetry on WDDM; device memory.used is a whole-GPU observation that includes desktop/other processes (confounder, never a reason to stop another process)."
+    }
+  },
+  "lineage": {
+    "accepted_specification": "research/carbon/reconciliation/02-ranked-experiment-backlog.md sections 1.2 and 2 at df9a2b50894f01987d779d7f9ae805794503ce6f",
+    "astra_001": "candidate 95ce0a8df728ae2c41aaf9e09d1b97c7d990fe36, report 2c32dde602b274251043bb216752f5d7fe9593be",
+    "astra_007": "candidate d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5, evidence 6cb6a258b9652b7becd3fca9c7cf2f04866c3ec3, report 951d408aabf7bdad3602c0e7698869e2e2457aed",
+    "reviewer_phase_a": "b75011da408fed5d2cc4f9025416ead6c5632ceb:docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/README.md (Q0R-01..09)",
+    "harness_checkpoint_1": "candidate 50157e6cbaf0a2fcc29d229781237a05aa95fa92 (53 passing CPU tests apply to that candidate only); evidence fde7fdc16d4e32ca347661e96afc0d2f7c099fb4, 1b88bfd7cc22e06bc8fd78193ad4821d1a383cb0"
   }
 }

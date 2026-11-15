@@ -19,11 +19,13 @@ import traceback
 from pathlib import Path
 
 from . import HARNESS_ID
-from .environment import audit_child_env, check_run_dir, check_storage_root, layout
+from .environment import audit_child_env, check_run_dir, check_storage_root
 from .fixtures import read_verified_fixture, verify_rendered_pages
-from .hashing import is_hex, sha256_bytes
-from .locks import validate_lock, verify_installed
-from .modelfiles import load_manifest, verify_model_dir, verify_module_cache
+from .hashing import sha256_bytes
+from .locks import require_installable, validate_lock, verify_installed
+from .modelfiles import (load_manifest, normalize_model_dir, verify_model_dir, verify_module_cache,
+                         verify_notices)
+from .release import validate_release
 from .outcome import BLOCKED, NOT_QUALIFIED, QUALIFIED, Q0Failure, make_outcome
 from .procmem import PeakSampler
 from .protocol import HARNESS_DIR, build_call_kwargs, call_timeout_s, check_context_budget, fixture_by_id, schedule
@@ -70,31 +72,12 @@ class Heartbeat:
         self._t.join(timeout=5)
 
 
-def validate_release(release: dict | None, *, protocol: dict, protocol_sha256: str, lock_sha256: str,
-                     root: Path, owner: str) -> dict:
-    if not release:
-        raise Q0Failure("EXECUTION_NOT_RELEASED", "no coordinator release record supplied")
-    want_seq = {"author": "004", "reviewer": "005"}[owner]
-    problems = []
-    if release.get("schema") != "eldq0-release/1": problems.append("schema")
-    if release.get("packet") != "WP-0005" or release.get("sequence") != want_seq: problems.append("packet/sequence")
-    if release.get("released_by") != "eld-coordinator": problems.append("released_by")
-    if not is_hex(release.get("release_commit"), 40): problems.append("release_commit")
-    if release.get("protocol_sha256") != protocol_sha256: problems.append("protocol_sha256")
-    if release.get("lock_sha256") != lock_sha256: problems.append("lock_sha256")
-    if release.get("gpu_uuid") != protocol["gpu"]["uuid"]: problems.append("gpu_uuid")
-    if not release.get("lease_id"): problems.append("lease_id")
-    if os.path.normcase(str(release.get("storage_root"))) != os.path.normcase(str(root)): problems.append("storage_root")
-    if problems:
-        raise Q0Failure("EXECUTION_NOT_RELEASED", "release record does not bind this exact execution", problems)
-    return {k: release[k] for k in ("release_commit", "lease_id", "sequence", "gpu_uuid")}
-
-
 class Session:
     def __init__(self, *, protocol: dict, protocol_sha256: str, lock: dict, lock_sha256: str, release: dict | None,
                  root: Path, owner: str, run_dir: Path, backend, repo_root: Path, expected_root: str,
-                 forbidden_parents: list[str], manifest_path: Path | None = None, environ: dict | None = None,
-                 heartbeat_path: Path | None = None):
+                 forbidden_parents: list[str], code: dict, lock_reader, manifest_path: Path | None = None,
+                 environ: dict | None = None, heartbeat_path: Path | None = None, disk_usage=shutil.disk_usage):
+        self.code, self.lock_reader, self.disk_usage = code, lock_reader, disk_usage
         self.p, self.p_sha, self.lock, self.lock_sha = protocol, protocol_sha256, lock, lock_sha256
         self.release, self.root, self.owner, self.run_dir = release, Path(root), owner, Path(run_dir)
         self.backend, self.repo_root = backend, Path(repo_root)
@@ -149,24 +132,34 @@ class Session:
     def _run(self):
         p, be = self.p, self.backend
         self.phase("preflight", p["guards"]["timeouts_s"]["preflight"])
-        self.context["release"] = validate_release(self.release, protocol=p, protocol_sha256=self.p_sha,
-                                                   lock_sha256=self.lock_sha, root=self.root, owner=self.owner)
-        validate_lock(self.lock)
+        self.context["code_identity"] = self.code
+        self.context["release"] = validate_release(self.release, stage="execute", owner=self.owner, protocol=p,
+                                                   protocol_sha256=self.p_sha, lock_sha256=self.lock_sha,
+                                                   root=self.root, code=self.code)
+        pkgs = validate_lock(self.lock, self.lock_reader)
+        self.context["lock_readiness"] = require_installable(pkgs, self.release)
 
         # 1. storage & environment isolation
         check_storage_root(self.root, expected_root=self.expected_root, forbidden_parents=self.forbidden_parents)
         check_run_dir(self.run_dir, self.root, self.owner)
         audit_child_env(dict(self.environ), root=self.root, owner=self.owner, run_dir=self.run_dir)
-        du = shutil.disk_usage(self.root)
+        du = self.disk_usage(str(self.root))
+        floor = p["storage"]["free_space"]["during_min_bytes"]
+        if du.free < floor:
+            raise Q0Failure("STORAGE_FLOOR", f"free {du.free} < during floor {floor}")
         self.checks["1_storage_isolation"] = {"status": "pass", "provenance": "direct",
                                              "root": str(self.root), "free_bytes": du.free, "total_bytes": du.total,
-                                             "hf_modules_cache": self.environ["HF_MODULES_CACHE"]}
+                                             "floor_bytes": floor, "hf_modules_cache": self.environ["HF_MODULES_CACHE"],
+                                             "limit": "pagefile/driver allocations outside the root are not bounded"}
 
         # 2. artifact & dependency lock
         plat = be.platform()
         self.context["platform"] = plat
         self._check_platform(plat)
-        inst = verify_installed(self.lock, be.installed(), be.importable)
+        inst = verify_installed(pkgs, self.lock, be.installed(), be.importable)
+        triton_absent = not be.importable("triton")
+        if not triton_absent:
+            raise Q0Failure("DEPENDENCY_MISMATCH", "triton is importable; the strict baseline requires find_spec('triton') is None")
         pdfium = be.pdfium()
         ident = renderer_identity(pdfium, be.dist_version)
         check_renderer(ident, p)
@@ -176,16 +169,21 @@ class Session:
             images = render_pdf_bytes(pdfium, data)
             pages = verify_rendered_pages(fx, raster_tuples(images))
             rendered[fx["fixture_id"]] = (images, pages)
-        model_dir = layout(self.root, self.owner)["models"] / p["model"]["revision"]
+        expected_model_dir = os.path.join(str(self.root), p["storage"]["subdirs"]["models"])
+        model_dir = normalize_model_dir(expected_model_dir, expected_model_dir)
         manifest = load_manifest(self.manifest_path)
         model_report = verify_model_dir(model_dir, manifest)
+        notice_report = verify_notices(Path(self.root, p["storage"]["subdirs"]["notices"]), manifest)
         facts = analyze_model_sources(model_dir, MODEL_DIR_NAMES)
         self.writer.write_json("model-files.json", model_report, cap_bytes=1 << 20)
         self.writer.write_json("static-safety.json", facts, cap_bytes=1 << 20)
         self.checks["2_artifact_dependency_lock"] = {
             "status": "pass", "provenance": "direct", "installed": inst, "renderer": ident,
+            "lock_counts": self.context["lock_readiness"]["counts"],
+            "triton_find_spec_none": triton_absent,
             "rendered_pages": {k: v[1] for k, v in rendered.items()},
-            "model_files_verified": len(model_report["files"])}
+            "model_runtime_objects_verified": model_report["runtime_objects"], "notices": notice_report["notices"]}
+        self.context["baseline_label"] = p["baseline_label"]
 
         # cold load
         self.phase("load", p["guards"]["timeouts_s"]["load"])
@@ -202,7 +200,7 @@ class Session:
 
         # 3. save path invariant (static facts + frozen kwargs; runtime tripwire below)
         resolved, unresolved = resolve_targets(sys.modules, prefix=pkg + ".")
-        self.observer = NativeObserver(resolved, unresolved).install()
+        self.observer = NativeObserver(resolved, unresolved, memory_probe=be.memory_probe).install()
 
         # 5. smoke execution
         for item in schedule(p):
@@ -220,7 +218,7 @@ class Session:
         if plat.get("os") != want["os"] or plat.get("machine") != want["machine"]: problems.append("os/machine")
         if plat.get("python") != want["python"]: problems.append("python")
         if not plat.get("cuda_available"): problems.append("cuda_available")
-        if plat.get("torch_cuda_version") != cuda["torch_cuda_version"]: problems.append("torch_cuda_version")
+        if plat.get("torch_cuda_version") != cuda["torch_cuda_version_expected"]: problems.append("torch_cuda_version")
         if plat.get("device_count") != 1: problems.append("device_count (CUDA_VISIBLE_DEVICES must expose one GPU)")
         if gpu["name_contains"] not in str(plat.get("device_name")): problems.append("device_name")
         if list(plat.get("device_capability") or []) != cuda["device_capability"]: problems.append("capability")
@@ -254,6 +252,7 @@ class Session:
                "page_count_in": fx["page_count"], "call_kwargs": kwargs,
                "timing": {"external_synchronized_wall_s": {"provenance": "direct", "value": (t1 - t0) / 1e9}},
                "cuda_memory": be.cuda_memory(), "host_memory": ps.result(),
+               "prefill_memory": win["prefill_memory"],
                "kernel_path": win["kernel_path"], "cache": win["cache"], "targets": win["targets"],
                "observer_overhead": win["observer_overhead"],
                "unresolved_optional_targets": win["unresolved_optional_targets"]}
@@ -329,9 +328,14 @@ class Session:
             "status": "pass", "provenance": "direct+source",
             "frozen_kwargs": {"save_results": False, "output_path": ""},
             "tripwire_entries": sum(len(o.get("safety_violations", [])) for o in obs)}
+        fallback = labels == {"triton_import_failed_dense_fallback"}
         self.checks["4_kernel_cache_telemetry"] = {
-            "status": "pass" if cache_ok and "mixed" not in labels else "fail", "provenance": "direct",
-            "kernel_path_labels": sorted(labels), "dynamic_cache_growth_observed": cache_ok}
+            "status": "pass" if cache_ok and fallback else "fail", "provenance": "direct",
+            "baseline_label": self.p["baseline_label"] if fallback else None,
+            "triton_find_spec_none": self.checks["2_artifact_dependency_lock"]["triton_find_spec_none"],
+            "kernel_path_labels": sorted(labels), "dynamic_cache_growth_observed": cache_ok,
+            "base_sparse_path_calls": sum(o["kernel_path"]["non_dash_attention_calls"] for o in obs),
+            "raw_logs": "child stdout/stderr preserved by the supervisor; log markers are supplementary"}
         if self.checks["4_kernel_cache_telemetry"]["status"] != "pass":
             self.fail(Q0Failure("TELEMETRY_UNSUPPORTED", "kernel/cache path not unambiguously observed"))
         self.checks["5_smoke_execution"] = {

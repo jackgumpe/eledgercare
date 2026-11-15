@@ -198,6 +198,29 @@ def validate_protocol(protocol: dict) -> None:
         fail("gpu uuid")
     if gpu["concurrency"] != 1:
         fail("concurrency must be 1")
+    obs = gpu["observer"]
+    if len(obs["commands"]) != 2 or any(c[0] != "nvidia-smi" or f"--id={gpu['uuid']}" not in c for c in obs["commands"]):
+        fail("observer must be two read-only nvidia-smi queries bound to the leased GPU uuid")
+    if any(sum(a.startswith(("--query-gpu", "--query-compute-apps")) for a in c) != 1 for c in obs["commands"]):
+        fail("each observer command must contain exactly one query mode")
+    if not any(a == "--query-gpu=" + ",".join(obs["gpu_fields"]) for a in obs["commands"][0]):
+        fail("observer gpu_fields must match the gpu query")
+
+    st = protocol["storage"]
+    leaf = PurePosixPath(st["subdirs"]["models"].replace("\\", "/")).name
+    if not leaf.isidentifier():
+        fail("model directory basename must be a Python identifier")
+    fs = st["free_space"]
+    if not (isinstance(fs["initial_min_bytes"], int) and isinstance(fs["during_min_bytes"], int)
+            and fs["initial_min_bytes"] > fs["during_min_bytes"] > 0):
+        fail("free-space floors")
+    if protocol.get("baseline_label") != "unmodified model on non-Triton fallback path":
+        fail("baseline label")
+
+
+def storage_path(protocol: dict, key: str):
+    import os
+    return os.path.join(protocol["storage"]["root"], protocol["storage"]["subdirs"][key])
 
 
 def fixture_by_id(protocol: dict, fixture_id: str) -> dict:

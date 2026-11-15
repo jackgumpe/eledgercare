@@ -9,7 +9,11 @@ from . import SCHEMA_VERSION
 
 # Every class is a runtime/qualification result, never an OCR quality result.
 FAILURE_CLASSES = {
-    "DEPENDENCY_LOCK_PENDING": "Exact dependency lock is not final (awaiting WP-0005 /001 and review).",
+    "DEPENDENCY_LOCK_PENDING": "Dependency lock is malformed, unbound or inconsistent with its pinned metadata source.",
+    "ACQUISITION_PROVENANCE_PENDING": "An artifact lacks an effective wheel SHA-256, or a local-digest (TOFU) exception "
+                                      "is used without being listed in the coordinator release record.",
+    "HOST_PRECHECK_FAILED": "Read-only host precondition (MSVC runtime, long paths, memory, observer command) not met.",
+    "STORAGE_FLOOR": "Free space on the storage volume fell below the frozen floor.",
     "EXECUTION_NOT_RELEASED": "No coordinator runtime/GPU-lease release record was supplied or it does not match.",
     "UNSUPPORTED_PLATFORM": "Host, interpreter, CUDA runtime, device or capability differs from the frozen lock.",
     "DEPENDENCY_MISMATCH": "Installed distributions differ from the lock, or a forbidden optional backend is importable.",

@@ -163,7 +163,13 @@ def summarize_native(res: dict) -> dict:
 
 
 class NativeObserver:
-    def __init__(self, resolved: dict, unresolved: list | None = None, clock=time.perf_counter_ns):
+    """memory_probe: optional zero-argument callable returning allocator statistics (for the
+    real backend torch.cuda.max_memory_allocated/max_memory_reserved; host-side counters, no
+    device synchronization). It is called once per window, at the first model-forward return
+    (end of prefill launch), giving the allocator peak reached through prefill."""
+
+    def __init__(self, resolved: dict, unresolved: list | None = None, clock=time.perf_counter_ns,
+                 memory_probe=None):
         if sys.version_info < (3, 12) or not hasattr(sys, "monitoring"):
             raise Q0Failure("TELEMETRY_UNSUPPORTED", "sys.monitoring (Python >= 3.12) is required")
         self.stats = {code: _Stat(spec) for code, spec in resolved.items()}
@@ -180,6 +186,9 @@ class NativeObserver:
         self.cache_types: set = set()
         self.ring_marker_seen = False
         self.installed = False
+        self.memory_probe = memory_probe
+        self._prefill_pending = False
+        self.prefill_memory = None
 
     # -- callbacks ---------------------------------------------------------
     def _on_start(self, code, offset):
@@ -210,6 +219,10 @@ class NativeObserver:
                 self.native_results.append(summarize_native(retval))
             elif cap == "cache_probe":
                 self.progress += 1
+                if self._prefill_pending:
+                    self._prefill_pending = False
+                    if self.memory_probe is not None:
+                        self.prefill_memory = self.memory_probe()
                 info = probe_cache(getattr(retval, "past_key_values", None))
                 if info is not None:
                     self.cache_seq.append(info["seq_len"] if info["seq_len"] is not None else -1)
@@ -280,6 +293,8 @@ class NativeObserver:
 
     # -- windows -----------------------------------------------------------
     def begin_window(self) -> dict:
+        self._prefill_pending = True
+        self.prefill_memory = None
         return {"counts": {code: st.counts() for code, st in self.stats.items()},
                 "exc_len": {code: len(st.exc_records) for code, st in self.stats.items()},
                 "native": len(self.native_results), "cache": len(self.cache_seq),
@@ -307,6 +322,9 @@ class NativeObserver:
                                   "note": "Self-timed callback cost only; interpreter dispatch and global exception-event "
                                           "filtering overhead are not included (lower bound)."},
             "kernel_path": classify_kernel_path(targets),
+            "prefill_memory": {"provenance": "direct", "value": self.prefill_memory,
+                               "note": "allocator peak since reset, read at the first model-forward return; "
+                                       "None when no probe or no forward occurred"},
         }
 
 

@@ -4,9 +4,11 @@ Author: `eld-q0-harness` (WP-0005 `/002`). This is a separate research qualifica
 
 Status: **prepared for independent `/003` review; not executable.**
 
-- The dependency lock is `PENDING_ASTRA_001`.
+- The dependency lock is bound to Astra `/007`'s exact 32-artifact metadata graph: Git blob `ec8c650e…` at `d666c416…`. 31 artifacts have publisher-declared hashes.
+- The **torchvision wheel digest is a declared gap**, so the harness reports `installable: false`. It waits for the independent reviewer's local-digest receipt; no hash is fabricated.
 - No storage root, wheel, model, venv or GPU lease exists for this work.
-- `q0.py execute` refuses before creating anything.
+- `q0.py execute` and the install-stage commands refuse with `ACQUISITION_PROVENANCE_PENDING` before creating anything.
+- Checkpoint-1 candidate `50157e6c…` and its 53-test evidence (`evidence/002-cpu/`) are immutable. They do not validate later code.
 
 ## Contents
 
@@ -14,10 +16,10 @@ Status: **prepared for independent `/003` review; not executable.**
 | --- | --- |
 | [PROTOCOL.md](PROTOCOL.md), [protocol.json](protocol.json) | Frozen protocol: inputs, render contract, native call, sequence, measurements, telemetry, safety, guards |
 | [ACQUISITION.md](ACQUISITION.md) | Staged, hash-verified acquisition, install and execution commands (not executed) |
-| [manifests/model-files.json](manifests/model-files.json) | 19 pinned model files with git-blob / LFS SHA-256, derived from the pinned HF tree |
-| [locks/dependency-lock.json](locks/dependency-lock.json) | PENDING lock: fixed pins, carried evidence, unresolved items, required final shape |
+| [manifests/model-files.json](manifests/model-files.json) | 18 pinned runtime objects (16 git-blob, 2 LFS SHA-256) plus the separate model-card notice, derived from the pinned HF tree |
+| [locks/dependency-lock.json](locks/dependency-lock.json) | `eldq0-lock/2`: binding to the Astra `/007` metadata Git blob, platform/marker environment, expectations, torchvision hash gap, local-digest records (empty until the receipt) |
 | `q0.py` | CLI (see its docstring) |
-| `q0harness/` | protocol, fixtures/rasters, model files, static source check, environment, telemetry, memory, writer, locks, render, preflight, session, supervisor, torch backend |
+| `q0harness/` | protocol, fixtures/rasters, model files, static source check, environment, telemetry, log scan, memory, host precheck, writer, locks, release records, render, preflight, session, supervisor, torch backend |
 | `tests/` | Stdlib `unittest` CPU checks; `tests/fakemodel/` is a test double mirroring the native call graph |
 | `evidence/` | Author CPU-check evidence for this candidate (committed after the candidate) |
 
@@ -31,7 +33,11 @@ python -I -B qualification/q0/harness/q0.py verify-snapshots
 python -I -B qualification/q0/harness/q0.py derive-rasters --check
 python -I -B qualification/q0/harness/q0.py build-model-manifest --check
 python -I -B qualification/q0/harness/q0.py check-protocol
+python -I -B qualification/q0/harness/q0.py lock-check
 python -I -B qualification/q0/harness/q0.py status
+python -I -B qualification/q0/harness/q0.py host-precheck --stage initial   # read-only host + nvidia-smi
 ```
+
+`lock-check` and the lock tests read Astra's metadata through `git cat-file blob ec8c650ed5fbeb0a754e4daee53aad53753a57a3`, so that object must be present in the local repository.
 
 Tests write only under `.scratch/q0-harness-tests/` and remove what they create. The supervisor tests start and terminate only their own child Python processes.

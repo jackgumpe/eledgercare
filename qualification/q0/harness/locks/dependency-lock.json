@@ -1,53 +1,65 @@
 {
-  "schema": "eldq0-lock/1",
-  "status": "PENDING_ASTRA_001",
-  "statement": "Not an executable lock. Final exact versions, wheel filenames, index URLs and SHA-256 values come only from the published WP-0005 /001 proposal and its /003 review. Nothing below is a guessed final pin.",
-  "provenance": {
-    "astra_001": null,
-    "review_003": null
+  "schema": "eldq0-lock/2",
+  "statement": "Bound, non-circular dependency lock. The 32 artifacts (names, versions, filenames, official URLs, sizes and the 31 publisher-declared SHA-256 values) are read from the exact Git blob named in `source`, never transcribed. The lock never names the review that accepts it; the coordinator release record binds accepted review, harness code, protocol and lock identities. Installation stays blocked while any artifact lacks an effective wheel SHA-256.",
+  "lineage": {
+    "astra_001": {"candidate": "95ce0a8df728ae2c41aaf9e09d1b97c7d990fe36", "report_publication": "2c32dde602b274251043bb216752f5d7fe9593be"},
+    "astra_007": {"candidate": "d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5", "evidence": "6cb6a258b9652b7becd3fca9c7cf2f04866c3ec3", "report_publication": "951d408aabf7bdad3602c0e7698869e2e2457aed"},
+    "reviewer_phase_a_findings": "b75011da408fed5d2cc4f9025416ead6c5632ceb:docs/reviews/WP-0005/eld-q0-reviewer/pre-execution/README.md (Q0R-01..09; interim, not acceptance)"
   },
-  "fixed_by_accepted_specification": {
-    "transformers": "4.52.1",
-    "pypdfium2": "5.15.2",
-    "model_revision": "0480966938291445591f69f08a13b041c073a96a",
-    "postprocessor_commit": "3de5de31a7e5c925e84af68ef12b1b8d7db9e24a"
+  "source": {
+    "commit": "d666c4163b8b6bdf5f6c69b455c30f3c377cbdc5",
+    "path": "qualification/q0/preflight/response/metadata-lock.json",
+    "git_blob": "ec8c650ed5fbeb0a754e4daee53aad53753a57a3",
+    "size": 123592,
+    "status": "metadata-closure-complete; NOT-installable-until-torchvision-hash"
   },
-  "carried_evidence_not_yet_a_lock": {
-    "pypdfium2": {
-      "wheel_filename": "pypdfium2-5.15.2-py3-none-win_amd64.whl",
-      "sha256": "74d1bace34fb01c660d0b64344d5a4b7d276942b7c6623c88ab59ea21c5acfbd",
-      "size_bytes": 4187589,
-      "source": "evaluation/manifests/tooling-provenance.json (accepted WP-0004 corpus tooling); index origin to be confirmed by /001"
-    },
-    "upstream_readme_tested_set": {
-      "source": "research/astra/sources/hf-README.md.txt lines 84-88 (Linux, Python 3.10, A800-80GB; not this host)",
-      "torch": "2.13.0",
-      "transformers": "4.52.1",
-      "huggingface-hub": "0.36.0",
-      "tokenizers": "0.21.4",
-      "addict": "2.4.0",
-      "einops": "0.8.2",
-      "easydict": "1.13",
-      "torchvision": "unpinned upstream",
-      "pillow": "unpinned upstream"
-    },
-    "provisional_astra_observation_not_accepted": "Official cu130 index lists torch 2.13.0+cu130 cp312 win_amd64 and torchvision 0.28.0+cu130; no executed import or CUDA proof. Transformers 4.52.1 remote-ID loading may trip unconditional triton imports; local hash-verified directory + local_files_only=True + owned HF_MODULES_CACHE to be validated."
+  "platform": {
+    "os": "Windows",
+    "machine": "AMD64",
+    "python": "3.12.10",
+    "interpreter": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "marker_environment": {
+      "implementation_name": "cpython",
+      "implementation_version": "3.12.10",
+      "os_name": "nt",
+      "platform_machine": "AMD64",
+      "platform_release": "11",
+      "platform_system": "Windows",
+      "platform_version": "10.0.26200",
+      "python_full_version": "3.12.10",
+      "platform_python_implementation": "CPython",
+      "python_version": "3.12",
+      "sys_platform": "win32",
+      "extra": ""
+    }
   },
-  "unresolved": [
-    "exact Python version for the venv (host observation: only Python 3.12.10 at C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312)",
-    "torch / torchvision CUDA wheel filenames, index URL, SHA-256, torch.version.cuda, sm_120 in arch list",
-    "triton_policy: absent (native import fallback to dense SDPA) or a locked Windows triton wheel",
-    "tokenizers, huggingface-hub, safetensors, numpy, pillow, einops, addict, easydict, requests, tqdm and every transitive dependency with SHA-256",
-    "imports of configuration_deepseek_v2.py, conversation.py, packing_patch.py (not in the committed snapshots; checked statically after acquisition)",
-    "allowed_unlocked_tooling (default: pip only)"
+  "expect": {
+    "artifact_count": 32,
+    "publisher_declared": 31,
+    "missing_publisher_hash": ["torchvision"],
+    "total_advertised_bytes": 1974477651
+  },
+  "cuda": {
+    "torch_cuda_version_expected": "13.0",
+    "torch_cuda_version_basis": "source inference from the +cu130 local version; must be observed as torch.version.cuda in the released runtime precheck",
+    "required_arch": "sm_120",
+    "device_capability": [12, 0]
+  },
+  "triton_policy": "absent",
+  "triton_policy_basis": "No triton/flash-attn/xformers artifact in the 32-artifact graph. The strict Q0 baseline is the unmodified model on its native non-Triton fallback path (Q0R-04): find_spec('triton') must be None and is recorded.",
+  "allowed_unlocked_tooling": ["pip"],
+  "bootstrap_tooling_note": "pip is the venv-bundled installer of the exact interpreter; its version is recorded at venv creation and never upgraded. It is outside the 32 runtime artifacts.",
+  "hash_gaps": [
+    {
+      "name": "torchvision",
+      "filename": "torchvision-0.28.0+cu130-cp312-cp312-win_amd64.whl",
+      "url": "https://download-r2.pytorch.org/whl/cu130/torchvision-0.28.0%2Bcu130-cp312-cp312-win_amd64.whl",
+      "size": 9091113,
+      "published_metadata_sha256": "f8e91ee987603053e2166e2e4063ddcfb533f266c88bae82b7f79119aadceb59",
+      "required_requires_dist": "torch (==2.13.0)",
+      "reason": "Neither official PyTorch index (combined /whl/torchvision/ or /whl/cu130/torchvision/) publishes a wheel SHA-256 (Astra /007 torchvision-alternate-indexes.json). The PEP 658 digest authenticates METADATA only; the multipart ETag is not a content digest.",
+      "resolution": "Bind exactly one published local-digest receipt (independent reviewer acquisition) as a local_hash_records entry with hash_kind local-sha256-TOFU. Never relabel it publisher-verified. Installation additionally requires the release record to list 'torchvision-local-sha256-TOFU' in accepted_provenance_exceptions."
+    }
   ],
-  "required_final_shape": {
-    "status": "final",
-    "provenance": {"astra_001": {"deliverable": "<40-hex>", "report": "<40-hex>"}, "review_003": {"deliverable": "<40-hex>", "report": "<40-hex>"}},
-    "platform": {"os": "Windows", "machine": "AMD64", "python": "3.X.Y"},
-    "cuda": {"torch_cuda_version": "<torch.version.cuda>", "required_arch": "sm_120", "device_capability": [12, 0]},
-    "triton_policy": "absent|present",
-    "packages": [{"name": "<dist>", "version": "<exact>", "filename": "<wheel>.whl", "sha256": "<64-hex>", "index_url": "https://...", "role": "<why>"}],
-    "allowed_unlocked_tooling": ["pip"]
-  }
+  "local_hash_records": []
 }

@@ -101,14 +101,20 @@ def build_child_env(parent_env: dict, *, root: Path, owner: str, run_dir: Path, 
         "VIRTUAL_ENV": str(p["venv"]),
         "TEMP": str(tmp), "TMP": str(tmp),
         "USERPROFILE": str(Path(run_dir) / "home"), "HOME": str(Path(run_dir) / "home"),
+        "TMPDIR": str(tmp),
         "HF_HOME": str(p["hf_home"]),
+        "HF_HUB_CACHE": str(p["hf_home"] / "hub"), "HUGGINGFACE_HUB_CACHE": str(p["hf_home"] / "hub"),
+        "TRANSFORMERS_CACHE": str(p["hf_home"] / "transformers"),
         "HF_MODULES_CACHE": str(Path(run_dir) / "hf-modules"),
-        "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1",
+        "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1", "HF_HUB_DISABLE_XET": "1",
         "HF_HUB_DISABLE_TELEMETRY": "1", "HF_HUB_DISABLE_PROGRESS_BARS": "1",
         "TORCH_HOME": str(Path(run_dir) / "torch-home"),
         "TRITON_CACHE_DIR": str(Path(run_dir) / "triton-cache"),
         "TORCHINDUCTOR_CACHE_DIR": str(Path(run_dir) / "inductor-cache"),
+        "CUDA_CACHE_PATH": str(Path(run_dir) / "cuda-cache"),
         "XDG_CACHE_HOME": str(Path(run_dir) / "xdg-cache"),
+        "PIP_NO_INDEX": "1", "PIP_CONFIG_FILE": "NUL",
+        "PIP_CACHE_DIR": str(Path(run_dir) / "pip-cache"), "UV_CACHE_DIR": str(Path(run_dir) / "uv-cache"),
         "CUDA_DEVICE_ORDER": "PCI_BUS_ID",
         "CUDA_VISIBLE_DEVICES": gpu_uuid,
         "PYTHONNOUSERSITE": "1", "PYTHONDONTWRITEBYTECODE": "1",
@@ -126,11 +132,45 @@ def audit_child_env(env: dict, *, root: Path, owner: str, run_dir: Path) -> None
             violations.append(k)
     if violations:
         raise Q0Failure("SAFETY_VIOLATION", "forbidden variables in child environment", sorted(violations))
-    for k in ("TEMP", "TMP", "HF_MODULES_CACHE", "TORCH_HOME", "TRITON_CACHE_DIR", "TORCHINDUCTOR_CACHE_DIR",
-              "XDG_CACHE_HOME", "USERPROFILE", "HOME"):
-        if not _inside(env[k], run_dir):
-            raise Q0Failure("STORAGE_NOT_OWNED", f"{k} not inside the owned run directory")
-    if not _inside(env["HF_HOME"], root):
-        raise Q0Failure("STORAGE_NOT_OWNED", "HF_HOME outside the owned root")
+    for k in RUN_LOCAL_VARS:
+        if k not in env or not _inside(env[k], run_dir):
+            raise Q0Failure("STORAGE_NOT_OWNED", f"{k} missing or not inside the owned run directory")
+    for k in ("HF_HOME", "HF_HUB_CACHE", "HUGGINGFACE_HUB_CACHE", "TRANSFORMERS_CACHE"):
+        if k not in env or not _inside(env[k], root):
+            raise Q0Failure("STORAGE_NOT_OWNED", f"{k} missing or outside the owned root")
     if env.get("HF_HUB_OFFLINE") != "1" or env.get("TRANSFORMERS_OFFLINE") != "1":
         raise Q0Failure("SAFETY_VIOLATION", "child must be offline (no Hub requests at runtime)")
+
+
+RUN_LOCAL_VARS = ("TEMP", "TMP", "TMPDIR", "HF_MODULES_CACHE", "TORCH_HOME", "TRITON_CACHE_DIR",
+                  "TORCHINDUCTOR_CACHE_DIR", "CUDA_CACHE_PATH", "XDG_CACHE_HOME", "PIP_CACHE_DIR", "UV_CACHE_DIR",
+                  "USERPROFILE", "HOME")
+STAGE_DIRS = ("stage_temp", "pip_cache", "uv_cache")
+
+
+def build_stage_env(parent_env: dict, *, root: Path, protocol: dict, network: bool) -> dict:
+    """Environment for an acquisition (network=True) or offline installation (network=False)
+    process: explicit allowlist, every cache/temp under the task root, no inherited
+    credentials or pip/HF configuration. Used only in separately released stages."""
+    root = Path(root)
+    sd = protocol["storage"]["subdirs"]
+    system_root = parent_env.get("SystemRoot") or parent_env.get("SYSTEMROOT") or r"C:\Windows"
+    env = {k: parent_env[k] for k in PASSTHROUGH if k in parent_env}
+    temp = root / sd["stage_temp"]
+    env.update({
+        "PATH": os.pathsep.join([str(root / sd["venv"] / "Scripts"), str(PureWindowsPath(system_root) / "System32"),
+                                 system_root]),
+        "TEMP": str(temp), "TMP": str(temp), "TMPDIR": str(temp),
+        "PIP_CACHE_DIR": str(root / sd["pip_cache"]), "UV_CACHE_DIR": str(root / sd["uv_cache"]),
+        "PIP_CONFIG_FILE": "NUL", "PIP_DISABLE_PIP_VERSION_CHECK": "1", "PIP_NO_INPUT": "1",
+        "HF_HOME": str(root / sd["hf_home"]), "HF_HUB_CACHE": str(root / sd["hf_home"] / "hub"),
+        "HUGGINGFACE_HUB_CACHE": str(root / sd["hf_home"] / "hub"),
+        "HF_HUB_DISABLE_TELEMETRY": "1", "HF_HUB_DISABLE_XET": "1", "HF_HUB_DISABLE_PROGRESS_BARS": "1",
+        "PYTHONNOUSERSITE": "1", "PYTHONUTF8": "1", "PYTHONDONTWRITEBYTECODE": "1",
+    })
+    if not network:
+        env.update({"PIP_NO_INDEX": "1", "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1"})
+    bad = [k for k in env if k in FORBIDDEN_EXACT or any(rx.search(k) for rx in FORBIDDEN_PATTERNS)]
+    if bad:
+        raise Q0Failure("SAFETY_VIOLATION", "forbidden variables in stage environment", bad)
+    return env
