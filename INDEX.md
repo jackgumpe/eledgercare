@@ -157,4 +157,12 @@ Authority: Jack's subsequent agreement to Q0 and explicit request for agent dele
 
 Dates will be reconciled to actual UTC publication dates before any rollover publication; sequences and authors stay fixed. Full runtime pins and later bases are explicitly unresolved, not fabricated. Prepared/dispatch-blocked/running/published/reviewed/accepted are separate states.
 
+### WP-0005 /007: first preflight review response
+
+| Packet / sequence | Owner / model / session | Branch / owned worktree | Full base | Exact report path | Release / next owner |
+| --- | --- | --- | --- | --- | --- |
+| WP-0005 /007 | eld-rd-astra / existing native gpt-6-astra high, /root/rd_astra | research/wp-0005-runtime-preflight; C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-q0-astra | 2c32dde602b274251043bb216752f5d7fe9593be | docs/agent-reports/eld-rd-astra/WP-0005/007_2026-11-15_research_eld-rd-astra.md | RELEASED first response to frozen interim review b75011da408fed5d2cc4f9025416ead6c5632ceb. Scope/provenance/source/metadata closure only; next harness author and same independent reviewer /003 |
+
+Independent reviewer phase A checkpoint b75011da408fed5d2cc4f9025416ead6c5632ceb is exact-origin verified and leaves a clean review branch. It preserves author source and reports confirmed source/metadata findings Q0R-01..09, not combined acceptance. Its Python, SHA-256, fresh host and external-directory checks were denied by Claude's command/path permissions and remain unreproduced; no substitute author's check counts as independent execution. A scoped permission question is pending with Jack; do not expand the denied Claude operations or perform them through another route while awaiting the answer. The author may continue its independently authorized implementation and preflight corrections; model/GPU execution remains held.
+
 Claude connection reconciliation: initial inherited-API-key probe failed HTTP 401. Without modifying stored authentication or user environment, a tool-disabled child process using the existing Claude Pro login successfully returned READY as actual claude-opus-5-5 with explicit high effort; probe session d251ed81-fbca-42a3-93e5-892661d6ca41, exit 0. This is availability proof only, not harness execution. Author /002 may now start in its separately reserved session. Its tools/effects remain limited by the kickoff; no bypass-permissions mode or global permission change is released.
