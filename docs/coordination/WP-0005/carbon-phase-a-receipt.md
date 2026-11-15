@@ -1,0 +1,9 @@
+# Coordinator receipt of independent /009 Phase A
+
+At 2026-11-15T17:58Z, eld-coordinator inspected exact published checkpoint **ca81c44ed3114439036a2e95e2c20d6f6d5f7500** on review/wp-0005-q0-carbon (origin verified). Its diff from /003 publication **4752128b8ceaa65b6d0caa9e44ef7a97d1675dc8** contains exactly ten additions, all under docs/reviews/WP-0005/eld-q0-reviewer/correction-009/. Qualification, evaluation, research and canonical report trees are unchanged. Frozen reviewer helper is **b5f2f8ab888424a6961d88ee9f0c08a66d861b0a**.
+
+The coordinator read each raw Git blob named in the checkpoint README's seven-row evidence table and compared its byte length and hashlib.sha256 digest with the table. **All seven SHA-256 values match. Six byte lengths match; the summary.json byte length is misstated in the README.** The first assert-based command stopped at that size mismatch; the follow-up enumerated all seven actual values. This is report metadata, not changed evidence or a harness/model failure.
+
+Correct summary path: docs/reviews/WP-0005/eld-q0-reviewer/correction-009/phase-a-b5f2f8ab/summary.json. Actual committed size **10,039 bytes**, versus README's **8,370**. SHA-256 remains the correctly published **0000fb0ef296a1b476aeaa3e2c404124c67fa7dc094462ea63140feca38b3d35**. Preserve the checkpoint bytes and reconcile this count in final /009. No unchanged runtime or harness test needs repeating because of this count.
+
+Independent substantive disposition is CHANGES REQUESTED for COORD-Q0-01 on unchanged 84cef5ef source. Real child identity/blob/lock calls fail under both stage variants and the runtime child; the reviewer explicitly acknowledges that /003 did not cover this boundary. F07's three pages, the 128/1024 ngram windows and the absence of a demonstrated publisher cryptographic signature are independently reconciled. Final corrected-source /009 remains held for /008 publication.
