@@ -16,6 +16,8 @@ committed=subprocess.check_output(['git','show',receipt['frozen_helper_commit']+
 assert committed==helper, 'Helper bytes differ from frozen producer commit'
 for rec in receipt['outputs']:
     data=(R/rec['path']).read_bytes()
+    committed_output=subprocess.check_output(['git','show','HEAD:qualification/q0/preflight/response/'+rec['path']])
+    assert committed_output==data, 'Committed output bytes differ: '+rec['path']
     assert len(data)==rec['size'] and sha(data)==rec['sha256'] and blob(data)==rec['git_blob'],rec['path']
 sources=read('source-closure.json');assert len(sources)==12
 for rec in sources:
