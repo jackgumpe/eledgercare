@@ -6,7 +6,7 @@ from pathlib import Path
 
 import support
 from q0harness import hostcheck, logscan, modelfiles
-from q0harness.environment import build_stage_env
+from q0harness.environment import GIT_EXECUTABLE_VAR, GIT_ISOLATION_ENV, audit_stage_env, build_stage_env
 from q0harness.outcome import Q0Failure
 from q0harness.protocol import HARNESS_DIR, load_protocol, validate_protocol
 
@@ -32,19 +32,26 @@ class HostPrecheck(unittest.TestCase):
     def tearDown(self):
         support.remove_scratch(self.d)
 
-    def run_check(self, protocol=None, registry=None, observe=None, stage="initial"):
+    def run_check(self, protocol=None, registry=None, observe=None, stage="initial", git_resolver=None):
         reg = registry or (lambda k, v: {"value": 0, "type": 4} if v == "LongPathsEnabled" else {"value": ["?:\\pagefile.sys"], "type": 7})
+        kw = {"git_resolver": git_resolver} if git_resolver is not None else {}
         return hostcheck.host_precheck(protocol or self.p, self.m, stage=stage, system32=self.d, registry=reg,
-                                       observe=observe or obs_ok(self.p))
+                                       observe=observe or obs_ok(self.p), **kw)
 
     def test_pass_and_records_limits(self):
         rec = self.run_check()
         self.assertEqual(rec["status"], "pass", rec["failures"])
+        self.assertTrue(rec["git_runtime"]["present"])
+        self.assertTrue(Path(rec["git_runtime"]["executable"]).is_file())
         self.assertTrue(all(r["present"] for r in rec["msvc_runtime"]))
         self.assertLess(rec["known_paths"]["max_len"], 240)
         self.assertTrue(any("WDDM" in s for s in rec["limits"]))
 
     def test_failures(self):
+        def no_git():
+            raise Q0Failure("HOST_PRECHECK_FAILED", "git absent")
+        rec_nogit = self.run_check(git_resolver=no_git)
+        self.assertEqual([f["failure_class"] for f in rec_nogit["failures"]], ["HOST_PRECHECK_FAILED"])
         os.remove(self.d / "vcruntime140_1.dll")
         rec = self.run_check()
         self.assertEqual([f["failure_class"] for f in rec["failures"]], ["HOST_PRECHECK_FAILED"])
@@ -162,11 +169,19 @@ class StageEnvironmentAndLogs(unittest.TestCase):
         for env in (on, off):
             self.assertNotIn("HF_TOKEN", env)
             self.assertNotIn("PIP_INDEX_URL", env)
+            self.assertNotIn(r"C:\evil", env["PATH"])
+            self.assertTrue(Path(env[GIT_EXECUTABLE_VAR]).is_file())
+            for k, want in GIT_ISOLATION_ENV.items():
+                self.assertEqual(env[k], want)
             self.assertTrue(env["PIP_CACHE_DIR"].startswith(str(root)))
             self.assertTrue(env["TEMP"].startswith(str(root)))
             self.assertEqual((env["PIP_CONFIG_FILE"], env["HF_HUB_DISABLE_XET"]), ("NUL", "1"))
         self.assertNotIn("PIP_NO_INDEX", on)
         self.assertEqual((off["PIP_NO_INDEX"], off["HF_HUB_OFFLINE"]), ("1", "1"))
+        for bad in ({GIT_EXECUTABLE_VAR: ""}, {"GIT_CONFIG_GLOBAL": "user"}, {"HF_TOKEN": "s"}, {"PIP_NO_INDEX": "0"}):
+            with self.subTest(bad=bad):
+                with self.assertRaises(Q0Failure):
+                    audit_stage_env(off | bad, root=root, network=False)
 
     def test_logscan(self):
         data = (b"[CodeStamp] warmup-window-page-switches-v4 sha256=x\n"

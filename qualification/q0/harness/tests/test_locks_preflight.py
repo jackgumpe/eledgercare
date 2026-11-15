@@ -9,6 +9,7 @@ import zipfile
 
 import support
 from q0harness import locks
+from q0harness.environment import run_git
 from q0harness.locks import (inspect_wheel_metadata, readiness, require_installable, requirements_text,
                              validate_lock, verify_installed, verify_wheel_metadata, verify_wheelhouse)
 from q0harness.outcome import Q0Failure
@@ -50,7 +51,7 @@ def synth_metadata(art: dict, *, raw_style: bool = False, drop: int | None = Non
 
 
 def cuda_records() -> dict:
-    data = subprocess.run(["git", "cat-file", "blob", CUDA_META], capture_output=True, cwd=str(support.REPO_ROOT)).stdout
+    data = run_git(("cat-file", "blob", CUDA_META), cwd=support.REPO_ROOT).stdout
     return {r["name"]: r for r in json.loads(data)}
 
 

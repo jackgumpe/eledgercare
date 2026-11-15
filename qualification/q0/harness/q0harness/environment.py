@@ -7,11 +7,21 @@ Nothing here changes user/global configuration; it only shapes the child's envir
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 import os
 import re
+import shutil
+import subprocess
 from pathlib import Path, PureWindowsPath
 
 from .outcome import Q0Failure
+
+GIT_EXECUTABLE_VAR = "Q0_GIT_EXECUTABLE"
+GIT_ISOLATION_ENV = {
+    "GIT_CONFIG_NOSYSTEM": "1",
+    "GIT_CONFIG_GLOBAL": "NUL" if os.name == "nt" else os.devnull,
+    "GIT_TERMINAL_PROMPT": "0",
+}
 
 SUBDIRS = {
     "hf_home": "hf-home",
@@ -89,15 +99,80 @@ def check_run_dir(run_dir: Path, root: Path, owner: str) -> None:
         raise Q0Failure("STORAGE_NOT_OWNED", f"run directory {run_dir} is not a new subdirectory of runs/{owner}")
 
 
-def build_child_env(parent_env: dict, *, root: Path, owner: str, run_dir: Path, gpu_uuid: str) -> dict:
+def validate_git_executable(path: str | os.PathLike) -> str:
+    """Require an existing absolute git(.exe) binary; reject relative paths or non-git tools."""
+    raw = str(path or "").strip()
+    if not raw or not os.path.isabs(raw):
+        raise Q0Failure("HOST_PRECHECK_FAILED", f"Git executable must be an absolute path, got {path!r}")
+    p = Path(raw)
+    if p.name.lower() not in ("git.exe", "git") or not p.is_file():
+        raise Q0Failure("HOST_PRECHECK_FAILED", f"Git executable is missing or not a git binary: {raw}")
+    return os.path.abspath(str(p))
+
+
+def resolve_host_git(parent_env: dict | None = None) -> str:
+    """Resolve and validate the host Git binary for explicit stage/child pinning without widening PATH."""
+    env = os.environ if parent_env is None else parent_env
+    if GIT_EXECUTABLE_VAR in env:
+        return validate_git_executable(env[GIT_EXECUTABLE_VAR])
+    candidates: list[Path] = []
+    if os.name == "nt":
+        for key in ("ProgramW6432", "ProgramFiles"):
+            base = env.get(key)
+            if base:
+                candidates.append(Path(base) / "Git" / "cmd" / "git.exe")
+        candidates.append(Path(r"C:\Program Files\Git\cmd\git.exe"))
+    for cand in candidates:
+        if os.path.isabs(str(cand)) and cand.is_file():
+            return validate_git_executable(cand)
+    path_val = env.get("PATH")
+    if path_val:
+        found = shutil.which("git", path=path_val)
+        if found:
+            return validate_git_executable(found)
+    raise Q0Failure("HOST_PRECHECK_FAILED", "Git executable not found for isolated Q0 environment")
+
+
+def resolve_runtime_git(environ: dict | None = None) -> str:
+    """Resolve Git strictly from the active process environment (Q0_GIT_EXECUTABLE, else PATH)."""
+    env = os.environ if environ is None else environ
+    if GIT_EXECUTABLE_VAR in env:
+        return validate_git_executable(env[GIT_EXECUTABLE_VAR])
+    path_val = env.get("PATH")
+    if path_val:
+        found = shutil.which("git", path=path_val)
+        if found:
+            return validate_git_executable(found)
+    raise Q0Failure("HOST_PRECHECK_FAILED",
+                    f"Git executable unavailable ({GIT_EXECUTABLE_VAR} unset and git not on PATH)")
+
+
+def run_git(args: Sequence[str], *, cwd: Path, environ: dict | None = None,
+            text: bool = False, timeout_s: int = 60) -> subprocess.CompletedProcess:
+    """Execute a read-only Git plumbing command with --no-optional-locks and scrubbed Git config."""
+    env = dict(os.environ if environ is None else environ)
+    git_exe = resolve_runtime_git(env)
+    env.update(GIT_ISOLATION_ENV)
+    try:
+        return subprocess.run([git_exe, "--no-optional-locks", *args], cwd=str(cwd), env=env,
+                              stdin=subprocess.DEVNULL, capture_output=True, text=text, timeout=timeout_s)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise Q0Failure("HOST_PRECHECK_FAILED", f"Git invocation failed ({list(args[:1])}): {exc}") from exc
+
+
+def build_child_env(parent_env: dict, *, root: Path, owner: str, run_dir: Path, gpu_uuid: str,
+                    git_executable: str | None = None) -> dict:
     p = layout(root, owner)
     check_run_dir(run_dir, root, owner)
+    git_exe = validate_git_executable(git_executable) if git_executable is not None else resolve_host_git(parent_env)
     system_root = parent_env.get("SystemRoot") or parent_env.get("SYSTEMROOT") or r"C:\Windows"
     env = {k: parent_env[k] for k in PASSTHROUGH if k in parent_env}
     tmp = Path(run_dir) / "tmp"
     scripts = p["venv"] / "Scripts"
     env.update({
         "PATH": os.pathsep.join([str(scripts), str(PureWindowsPath(system_root) / "System32"), system_root]),
+        GIT_EXECUTABLE_VAR: git_exe,
+        **GIT_ISOLATION_ENV,
         "VIRTUAL_ENV": str(p["venv"]),
         "TEMP": str(tmp), "TMP": str(tmp),
         "USERPROFILE": str(Path(run_dir) / "home"), "HOME": str(Path(run_dir) / "home"),
@@ -125,6 +200,15 @@ def build_child_env(parent_env: dict, *, root: Path, owner: str, run_dir: Path, 
     return env
 
 
+def _audit_git_pin(env: dict, *, root: Path, run_dir: Path | None = None) -> None:
+    git_exe = validate_git_executable(env.get(GIT_EXECUTABLE_VAR, ""))
+    if _inside(git_exe, root) or (run_dir is not None and _inside(git_exe, run_dir)):
+        raise Q0Failure("SAFETY_VIOLATION", f"{GIT_EXECUTABLE_VAR} must not lie inside the mutable task root")
+    for k, want in GIT_ISOLATION_ENV.items():
+        if env.get(k) != want:
+            raise Q0Failure("SAFETY_VIOLATION", f"{k} must be {want!r} in isolated environment")
+
+
 def audit_child_env(env: dict, *, root: Path, owner: str, run_dir: Path) -> None:
     violations = []
     for k in env:
@@ -132,6 +216,7 @@ def audit_child_env(env: dict, *, root: Path, owner: str, run_dir: Path) -> None
             violations.append(k)
     if violations:
         raise Q0Failure("SAFETY_VIOLATION", "forbidden variables in child environment", sorted(violations))
+    _audit_git_pin(env, root=root, run_dir=run_dir)
     for k in RUN_LOCAL_VARS:
         if k not in env or not _inside(env[k], run_dir):
             raise Q0Failure("STORAGE_NOT_OWNED", f"{k} missing or not inside the owned run directory")
@@ -146,20 +231,39 @@ RUN_LOCAL_VARS = ("TEMP", "TMP", "TMPDIR", "HF_MODULES_CACHE", "TORCH_HOME", "TR
                   "TORCHINDUCTOR_CACHE_DIR", "CUDA_CACHE_PATH", "XDG_CACHE_HOME", "PIP_CACHE_DIR", "UV_CACHE_DIR",
                   "USERPROFILE", "HOME")
 STAGE_DIRS = ("stage_temp", "pip_cache", "uv_cache")
+STAGE_ROOT_VARS = ("TEMP", "TMP", "TMPDIR", "PIP_CACHE_DIR", "UV_CACHE_DIR", "HF_HOME", "HF_HUB_CACHE",
+                   "HUGGINGFACE_HUB_CACHE")
 
 
-def build_stage_env(parent_env: dict, *, root: Path, protocol: dict, network: bool) -> dict:
+def audit_stage_env(env: dict, *, root: Path, network: bool) -> None:
+    bad = [k for k in env if k in FORBIDDEN_EXACT or any(rx.search(k) for rx in FORBIDDEN_PATTERNS)]
+    if bad:
+        raise Q0Failure("SAFETY_VIOLATION", "forbidden variables in stage environment", sorted(bad))
+    _audit_git_pin(env, root=root)
+    for k in STAGE_ROOT_VARS:
+        if k not in env or not _inside(env[k], root):
+            raise Q0Failure("STORAGE_NOT_OWNED", f"{k} missing or outside the owned root")
+    if not network and (env.get("PIP_NO_INDEX") != "1" or env.get("HF_HUB_OFFLINE") != "1"
+                        or env.get("TRANSFORMERS_OFFLINE") != "1"):
+        raise Q0Failure("SAFETY_VIOLATION", "offline stage environment lacks offline guards")
+
+
+def build_stage_env(parent_env: dict, *, root: Path, protocol: dict, network: bool,
+                    git_executable: str | None = None) -> dict:
     """Environment for an acquisition (network=True) or offline installation (network=False)
     process: explicit allowlist, every cache/temp under the task root, no inherited
-    credentials or pip/HF configuration. Used only in separately released stages."""
+    credentials or pip/HF/Git configuration. Used only in separately released stages."""
     root = Path(root)
     sd = protocol["storage"]["subdirs"]
+    git_exe = validate_git_executable(git_executable) if git_executable is not None else resolve_host_git(parent_env)
     system_root = parent_env.get("SystemRoot") or parent_env.get("SYSTEMROOT") or r"C:\Windows"
     env = {k: parent_env[k] for k in PASSTHROUGH if k in parent_env}
     temp = root / sd["stage_temp"]
     env.update({
         "PATH": os.pathsep.join([str(root / sd["venv"] / "Scripts"), str(PureWindowsPath(system_root) / "System32"),
                                  system_root]),
+        GIT_EXECUTABLE_VAR: git_exe,
+        **GIT_ISOLATION_ENV,
         "TEMP": str(temp), "TMP": str(temp), "TMPDIR": str(temp),
         "PIP_CACHE_DIR": str(root / sd["pip_cache"]), "UV_CACHE_DIR": str(root / sd["uv_cache"]),
         "PIP_CONFIG_FILE": "NUL", "PIP_DISABLE_PIP_VERSION_CHECK": "1", "PIP_NO_INPUT": "1",
@@ -170,7 +274,5 @@ def build_stage_env(parent_env: dict, *, root: Path, protocol: dict, network: bo
     })
     if not network:
         env.update({"PIP_NO_INDEX": "1", "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1"})
-    bad = [k for k in env if k in FORBIDDEN_EXACT or any(rx.search(k) for rx in FORBIDDEN_PATTERNS)]
-    if bad:
-        raise Q0Failure("SAFETY_VIOLATION", "forbidden variables in stage environment", bad)
+    audit_stage_env(env, root=root, network=network)
     return env

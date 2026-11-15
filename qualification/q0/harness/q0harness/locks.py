@@ -13,10 +13,10 @@ from __future__ import annotations
 import io
 import json
 import re
-import subprocess
 import zipfile
 from pathlib import Path
 
+from .environment import run_git
 from .hashing import file_digests, git_blob_sha1_bytes, is_hex, sha256_bytes
 from .outcome import Q0Failure
 
@@ -41,9 +41,13 @@ def load_lock(path: Path) -> dict:
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
-def git_blob_reader(repo_root: Path):
+def git_blob_reader(repo_root: Path, *, environ: dict | None = None):
     def read(oid: str) -> bytes:
-        cp = subprocess.run(["git", "cat-file", "blob", oid], cwd=str(repo_root), capture_output=True)
+        try:
+            cp = run_git(("cat-file", "blob", oid), cwd=repo_root, environ=environ, text=False)
+        except Q0Failure as exc:
+            raise Q0Failure("DEPENDENCY_LOCK_PENDING",
+                            f"Git unavailable while reading pinned object {oid}: {exc.detail}") from exc
         if cp.returncode != 0:
             raise Q0Failure("DEPENDENCY_LOCK_PENDING", f"pinned Git object {oid} unavailable: {cp.stderr[:200]!r}")
         return cp.stdout
