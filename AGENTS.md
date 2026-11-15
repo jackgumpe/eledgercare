@@ -6,7 +6,7 @@ This is a brand-new product repository. Read START_HERE.md, CURRENT.md, and your
 
 The only coordinator and writer of INDEX.md, CURRENT.md, shared assignments, and reporting rules is **eld-coordinator**, bound in docs/coordination/handoff-acceptance.md. This authority is limited to eLedgerCare. It grants no authority over Workspace Ledger, Unity, old Pop!_OS repositories, aspnet-ocr, or any existing product checkout. Do not discover, copy, migrate, or clean up those checkouts.
 
-Jack authorized the new repository, PostgreSQL, durable maintenance-document intake, synthetic/permitted public fixtures, scoped setup, normal commits/pushes on owned branches, and separate source-based R&D. Do not seek repeated approval for those choices. Customer data, public/intranet deployment, model downloads, GPU experiments, training, architecture modifications, and production integrations are not released.
+Jack authorized the new repository, PostgreSQL, durable maintenance-document intake, synthetic/permitted public fixtures, scoped setup, normal commits/pushes on owned branches, and separate source-based R&D. Do not seek repeated approval for those choices. Jack subsequently authorized Q0 trial of the unmodified model, delegated preparation/execution, and an Opus 5.5/high harness agent. WP-0005 in INDEX.md and its exact kickoffs govern that bounded extension, including staged isolated dependencies/model downloads and concurrency-1 GPU qualification. Customer data, public/intranet deployment, E1-E3 treatments, training, architecture modifications, and production OCR integrations remain unreleased.
 
 ## Roles and release gates
 
@@ -46,7 +46,7 @@ Separate worktrees do not isolate ports, databases, writable directories, or GPU
 
 Source research and CPU-side fixture work do not require a GPU lease. GPU execution requires a separate assignment, selected model/data storage, runtime qualification, and observed resource ownership. R&D promotion requires independent review and a bounded product change.
 
-Stop after the first independently accepted product feature and first independently reviewed R&D backlog/corpus milestone. Do not automatically expand into OCR implementation, search, training, deployment, or legacy migration.
+The first independently accepted product feature and first independently reviewed R&D backlog/corpus milestone are complete. The original bootstrap stop remains the historical boundary; Jack's subsequent Q0 authorization extends work only through WP-0005 qualification and independent disposition. Do not automatically expand into production OCR implementation, E1-E3 treatments, search, training, deployment, or legacy migration.
 
 ## Policy provenance
 
