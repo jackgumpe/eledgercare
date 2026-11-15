@@ -4,7 +4,7 @@ Sole writer: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba
 
 ## Active WP-0005: resumed installation and model staging
 
-**Metadata correction is independently ACCEPTED and MERGED; /004 Stage B.3 through D is RELEASED, dispatch PREPARED pending the exact new install record.** [Acceptance and historical report reconciliation](docs/coordination/WP-0005/metadata-correction-acceptance.md) and [resumption kickoff](docs/kickoffs/WP-0005-eld-q0-harness-runtime-resume.md) govern this continuation. No GPU lease, model import or inference yet.
+**Metadata correction is independently ACCEPTED and MERGED; /004 Stage B.3 through D is RELEASED, dispatch PREPARED with the validated new [install record](docs/coordination/WP-0005/releases/author-install-after-011.json).** [Acceptance and historical report reconciliation](docs/coordination/WP-0005/metadata-correction-acceptance.md) and [resumption kickoff](docs/kickoffs/WP-0005-eld-q0-harness-runtime-resume.md) govern this continuation. No GPU lease, model import or inference yet.
 
 Corrected source **41d6204648e4115ab197507d1a22f6d5c7f3e784**, author /010 evidence/report **6dc2d01c84da99d751994cce00a2c82df053c215 / 099a2fa74cdc2df6068c437edf3971eb37e9f07d**; independent /011 evidence/report **37836f6ce816218954a61c7137241790ce8055a2 / c8daa97c5be6bc67931b215652a7a0f6ced621ef**, exact origin verified. Integration **4317ea99bb85b96983c7dc3a0ed828a0a6a6ed1f** passed preservation: 322 protected base files and all 42 accepted core files identical. Author/reviewer each passed 22 relevant tests and all 32 actual wheel checks; independent positive/negative/malformed and wheel-mutation cases passed. This establishes verifier readiness, not model qualification.
 
