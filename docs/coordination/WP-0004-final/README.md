@@ -1,6 +1,6 @@
 # WP-0004 final coordinator disposition
 
-Status: ACCEPTED for the bounded synthetic corpus/backlog milestone on the published independent /009 verdict. Final integration verification is in progress. This acceptance releases only normal integration and final reporting, followed by the bootstrap stop boundary.
+Status: ACCEPTED and MERGED, with final integration verification PASSED. Independent /009 closes the bounded synthetic corpus/backlog milestone. Only final publication and user handoff remain; the bootstrap stop boundary applies.
 
 Owner: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba; actual model/effort not exposed. Execution base: 299d60480dd69d3632fdcc709ea3f4b6cb6abdd9. Binding: [coordinator kickoff](../../kickoffs/WP-0004-eld-coordinator-disposition.md) and INDEX WP-0004 /006. All author and reviewer publications remain immutable.
 
@@ -16,7 +16,7 @@ Owner: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba; actu
 | Final Carbon definition/documentation candidate /008 | 54c7f6fe062720cbdf92e6bcd7476b697fc4afe1 |
 | Author /008 evidence / report | fb2d8e616ad375ac7ccfa5f9000ba3340476c148 / f69c9e4fdec2e12f481e6131965b5e4e184e013f |
 | Independent /009 evidence / accepted report | a79fb29f3d89fde938ebfe92d7455a441bd5f4a6 / da58038960eb5c4cc83be76e26d917ee378b2f07 |
-| Actual coordinator integration | Not performed |
+| Actual coordinator integration | 13e3c47afb35e39d9e76054431ee9f23a12c4bb9 (after Astra merge f78feb094adf456b3ba5f3aaf3a8561b4093d8db) |
 
 The /009 evidence and canonical accepted report are published with exact origin verified. The coordinator executed [audit-closure-inputs.py](audit-closure-inputs.py) against evidence a79fb29f3d89fde938ebfe92d7455a441bd5f4a6 and author evidence fb2d8e616ad375ac7ccfa5f9000ba3340476c148. [All eight exact fixture mappings passed](closure-input-binding.json): rendered RGB SHA-256, dimensions, estimated/applied angles and trigger decisions agree. This is a comparison of published evidence, not a second CPU experiment.
 
@@ -44,10 +44,16 @@ The /005 header says 2026-11-14T23:50:00Z, while its actual Git report commit wa
 
 Likewise, /009 labels its 2026-11-15T01:40:00Z header as approximate; the actual Git report commit was 2026-11-15T01:39:08Z, with push output observed by 01:39:15Z. Root independently verified origin at da58038960eb5c4cc83be76e26d917ee378b2f07. The initial PowerShell publication command reported exit 1 despite successful push output; actual remote verification establishes publication. Preserve the report and use observed/Git times for chronology.
 
-## Verification and disposition to complete
+## Final integration verification and admission
 
-After published independent closure supports acceptance, record its exact pins and verdict, normally merge the unchanged Astra and accepted Carbon/reviewer lineages, and run verify-integration.py against the actual merge. Also run the existing WP-0003 integration verifier to establish that all 94 accepted candidate paths, 90 application inputs and 28 product evidence additions remain identical. Record all Git-object comparisons and the complete base-to-deliverable path inventory. The scoped R&D .gitattributes addition is only *.py text eol=lf; no global Git configuration change is involved.
+The exact published independent verdict was accepted and pinned in the coordinator kickoff/INDEX at 55688741a4c402e45502f9b39e1c208eed97c9df before integration. Normal no-ff merges of Astra c3215f75fc311c2e3c61a8ecc5da7d950f933157 and reviewer da58038960eb5c4cc83be76e26d917ee378b2f07 completed without conflicts, yielding final merge 13e3c47afb35e39d9e76054431ee9f23a12c4bb9. No author source was manually edited.
+
+The coordinator ran verify-integration.py against that actual merge: [all 135 compared R&D paths are identical](rd-integration-identity.json), comprising 26 Astra paths, 83 final Carbon candidate/prior-publication paths and 26 subsequent author/reviewer publication paths. No candidate entry changed in the reviewer publication and no unexpected R&D path appeared. The existing WP-0003 verifier separately confirms [all 94 product candidate paths, 90 application inputs and 28 product evidence additions remain identical](product-preservation.json), with no new application input. The historical-report modification/deletion check returned zero paths. The only root .gitattributes change is the accepted *.py text eol=lf addition; no global Git configuration change occurred. [The complete base-to-deliverable inventory](change-inventory.tsv) includes every path, including these coordinator records; the canonical /006 report is committed afterward.
+
+Admission is recorded in [evaluation/ADMISSION.md](../../../evaluation/ADMISSION.md). Frozen author manifests and README retain their original candidate/pending labels; the separate coordinator admission record governs current status without rewriting reviewed assets.
 
 The acceptance scope remains a fictional synthetic starter corpus: 26 PDFs /40 pages, eight families, dev F01/F02/F04/F07 (13 PDFs/19 pages), fixed eval_holdout F03/F05/F06/F08 (13 PDFs/21 pages). This is a fixed non-blind partition, with printed-font, small-sample, no-real-scan and no-handwriting limits. Both public candidates remain unadmitted and zero non-fixture PDFs are admitted. The three-card backlog is a set of proposals; Q0 qualification, model/OCR/GPU execution, throughput/quality claims, customer data and deployment remain unperformed and unreleased. Source assessment used pinned captured upstream files; the reviewer did not re-fetch upstream or give a legal license opinion.
 
-External effects of this coordinator assignment: own coordination records, read-only inspection of owned branches/logs, normal Git integration/publication when released, and ignored scratch preparation. No production implementation, packages, services/databases, authentication/global configuration or model execution. Stop after final admission/integration and user handoff; the accepted F1 product milestone is already complete.
+External effects of this coordinator assignment: own coordination records, read-only inspection of owned branches/logs, normal Git integration/publication and ignored scratch preparation. The initial push of 55688741a4c402e45502f9b39e1c208eed97c9df failed with a connection reset; its committed binding remained intact and is included in the subsequent normal integration publication. No force push or remote history rewrite is used. The reviewer continuation completed its canonical publication before ending with exit 3 and the terminal message "Your AI credits balance is too low to continue." No review deliverable remains missing; the canonical verdict, evidence and exact origin were independently verified, and no further reviewer turn was started.
+
+No production implementation, packages, services/databases, authentication/global configuration or model execution occurred in this coordinator assignment. Stop after final publication and user handoff; the accepted F1 product milestone is already complete. No additional experiment or feature is released.

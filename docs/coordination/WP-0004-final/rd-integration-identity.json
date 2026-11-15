@@ -1,0 +1,711 @@
+{
+  "revisions": {
+    "seed": "35f6090a9b2e16c7645b56f34b104eb3126d5c90",
+    "astra": "c3215f75fc311c2e3c61a8ecc5da7d950f933157",
+    "candidate": "54c7f6fe062720cbdf92e6bcd7476b697fc4afe1",
+    "review": "da58038960eb5c4cc83be76e26d917ee378b2f07",
+    "merged": "13e3c47afb35e39d9e76054431ee9f23a12c4bb9"
+  },
+  "checks": [
+    {
+      "label": "Astra initial proposal and exchange",
+      "path_count": 26,
+      "differences": [],
+      "expected_objects": {
+        "docs/agent-reports/eld-rd-astra/WP-0004/001_2026-11-14_research_eld-rd-astra.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "a2fc60f5d3d2d4da869e53f41c38c96d3ef71906"
+        },
+        "docs/agent-reports/eld-rd-astra/WP-0004/003_2026-11-14_research_eld-rd-astra.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "d64a7fa48c8c6d37744e8fb1a5eccac2b4a9adf3"
+        },
+        "research/astra/.gitattributes": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "4621712126b85b78506208f33263c1ae9da05273"
+        },
+        "research/astra/assessment.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "7824d9506ba1b9a3c8baa021778bbb499f44fb24"
+        },
+        "research/astra/corpus-proposal.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "83efd326fb3e19f66810a05e610bb6419e5a5dba"
+        },
+        "research/astra/exchange/decision-map.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "7fb409dfd044a56ca4815f2ced606f45a4db86a1"
+        },
+        "research/astra/exchange/source-checks.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "76f6d02977d082e433d2115a98936c2312bc7205"
+        },
+        "research/astra/hypotheses.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "0543f6c9f20fea76145fe2872198610fbb910a29"
+        },
+        "research/astra/source-manifest.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "3522b48fdc0614cf4152ae044a6038ecf77dbc16"
+        },
+        "research/astra/sources/github-LICENSE.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "890d455ae73d1d930eee703ce1e5478783ec9154"
+        },
+        "research/astra/sources/github-README.md.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "1bfe82efe3566e8315055e80806c9cd86f087c4a"
+        },
+        "research/astra/sources/github-infer.py.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "17b1e93f4e64a8a6924c8ee0e061e7a4837c8b43"
+        },
+        "research/astra/sources/github-utils-README.md.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "8293efce95a431d490fed11dc59205da1947f8c6"
+        },
+        "research/astra/sources/hf-README.md.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "c79e1e3362c8fd2f9193d79c1db80fbf7f041c45"
+        },
+        "research/astra/sources/hf-_sparse_base_impl.py.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "3291637638c1366b7b6cd20fd53b6efafcea8a65"
+        },
+        "research/astra/sources/hf-config.json.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "a1ea89c4c965d5c5bd5c77b21b928aa710aa7af6"
+        },
+        "research/astra/sources/hf-dash_attention.py.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "891d2ff7b5f9dc282cf702f34d7d2cfd69528011"
+        },
+        "research/astra/sources/hf-deepencoder.py.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "6b10ea1b896cffb8e6cfb4d799d4b11479d519b8"
+        },
+        "research/astra/sources/hf-generation_config.json.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "6f7f9313195af78c979fc889accc234edb6e0d3c"
+        },
+        "research/astra/sources/hf-modeling_deepseekv2.py.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "6cf69a31cbfb09f8d9d54fba51af21ebffc695dc"
+        },
+        "research/astra/sources/hf-modeling_unlimitedocr.py.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "2a717b55c0509995978d0a1e78802a997c26660e"
+        },
+        "research/astra/sources/hf-sparse_gather_e2e_triton.py.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "021575ce952bbded01bbfa99eb95641d271cad7d"
+        },
+        "research/astra/sources/hf-sparse_gather_triton.py.txt": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "6621872e78cd318e4bb55aa70c1c8813973c78e7"
+        },
+        "research/astra/sources/hf-tree.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "23b993ecb7a071ee2189540fd7b55598b5cdd3f2"
+        },
+        "research/astra/sources/public-candidate-metadata.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "accc48ade9d1800727eba40d8bcb62144ba483f5"
+        },
+        "research/astra/verify-sources.ps1": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "e68b1dbb0078148964041da4a27f76decffd231f"
+        }
+      }
+    },
+    {
+      "label": "Final Carbon candidate and prior publications",
+      "path_count": 83,
+      "differences": [],
+      "expected_objects": {
+        ".gitattributes": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "91517ab018a1b44713bf536c0bb04b7d128912b6"
+        },
+        "docs/agent-reports/eld-rd-carbon/WP-0004/002_2026-11-14_research_eld-rd-carbon.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "b424ea69729f0fcc1ec428612bcb2141f5b9416e"
+        },
+        "docs/agent-reports/eld-rd-carbon/WP-0004/004_2026-11-14_research_eld-rd-carbon.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "4a34724929d74745bb5d2a93b2a02617538df82a"
+        },
+        "docs/agent-reports/eld-rd-carbon/WP-0004/007_2026-11-14_research_eld-rd-carbon.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "cb2bad6b9c24ee25e8c2f40a15e4f16c1c1ec77e"
+        },
+        "evaluation/README.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "98ba33a1dcd1769a46214e11ee233455a1f6df9e"
+        },
+        "evaluation/generation/generate_corpus.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "484a77b1641d82efbcb0e30c172b6d220ec7394e"
+        },
+        "evaluation/generation/pdf_writer.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "3c50e6dff4bb47b4e20cf7119d957ebad474f184"
+        },
+        "evaluation/generation/verify_arithmetic_independent.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "9ca2593318040ada6033993af3df215cd2128c85"
+        },
+        "evaluation/generation/verify_corpus_integrity.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "2fb634c390f266f1e7d6f68da5a29aa438a1fc38"
+        },
+        "evaluation/manifests/corpus-manifest.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "57ec8a0de6a34c70510cb02d5b980ad5f5e2d305"
+        },
+        "evaluation/manifests/provenance-correction-verification.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "eefcad526eaffa271e33a9129c3ed0d774b68714"
+        },
+        "evaluation/manifests/public-candidates.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "feaf302dfc0bba46eed9967eec15669fe17afd72"
+        },
+        "evaluation/manifests/recovery-verification/frozen-candidate-verification.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "75ffb6a2320c56daf52135951be0a17c1c64572e"
+        },
+        "evaluation/manifests/tooling-provenance.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "4b521673baf0ee223b340f665763b8d1ced17677"
+        },
+        "evaluation/synthetic/expected/SYN-INV-01-v0-clean_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "9b59f6d3305b9fc164aa94c0e70e78cadf7878c3"
+        },
+        "evaluation/synthetic/expected/SYN-INV-01-v1-raster300_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "1eaa4f5b7900501df9cfe491f4186865d2c50340"
+        },
+        "evaluation/synthetic/expected/SYN-INV-01-v2-skew-neg3deg_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "fd716a95ccce52f9f008ff4b7cee5b07b95de6a8"
+        },
+        "evaluation/synthetic/expected/SYN-INV-02-v0-clean_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "7ce29ce0f98bbf59795300bca05c0aff79d5db5e"
+        },
+        "evaluation/synthetic/expected/SYN-INV-02-v1-raster300_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "7db6b09d0e35d850ee50eb1c1c16534f916586fc"
+        },
+        "evaluation/synthetic/expected/SYN-INV-02-v2-skew-pos4deg_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "6c37697d6914d505c45f717a40bd9c2c13ce9062"
+        },
+        "evaluation/synthetic/expected/SYN-INV-03-v0-clean_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "a284453d81c1a433d154c644693e4d000a9fcc9f"
+        },
+        "evaluation/synthetic/expected/SYN-INV-03-v1-raster300_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "22c4718b1721fbb70a00ed525b2dddfa4c355fda"
+        },
+        "evaluation/synthetic/expected/SYN-INV-03-v2-skew-neg3deg_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "e68decb762716458125c89ce8a0c102968f7356e"
+        },
+        "evaluation/synthetic/expected/SYN-MP-01-v0-clean_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "317f8efb9b31deafbe5fcd49a0f662071914d781"
+        },
+        "evaluation/synthetic/expected/SYN-MP-01-v1-raster300_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "37ae54da2d73d52a149ff0cd1b90221a3ca0c4d1"
+        },
+        "evaluation/synthetic/expected/SYN-MP-01-v2-skew-pos4deg_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "e78b63880a7da7b19406f8730ee0d544c1ce94b3"
+        },
+        "evaluation/synthetic/expected/SYN-MP-02-v0-clean_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "d7c5651b6c38cc6292718290aaf890702ca9fbc7"
+        },
+        "evaluation/synthetic/expected/SYN-MP-02-v1-raster300_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "f30d7440cea647a2609dbc45c803b71f862e29c2"
+        },
+        "evaluation/synthetic/expected/SYN-MP-02-v2-skew-neg3deg_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "0f4e04619d3e8733710bd98f820d02a30b248a66"
+        },
+        "evaluation/synthetic/expected/SYN-MP-02-v3-hybrid-stamp_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "ccccee796183c5e138f6451ba27b15f1e041eafc"
+        },
+        "evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "785d51b2edd889ec48c0cb1b66303e01f7957fc5"
+        },
+        "evaluation/synthetic/expected/SYN-WO-01-v1-raster300_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "963cefbf2e6c603af291b623078b534667b081d5"
+        },
+        "evaluation/synthetic/expected/SYN-WO-01-v2-skew-pos4deg_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "aea10a50259db6a8ff9ba64ed3ce8854f98cf5fa"
+        },
+        "evaluation/synthetic/expected/SYN-WO-02-v0-clean_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "42f292a9f006ecf5e349e2608ac9a9dac1d125bb"
+        },
+        "evaluation/synthetic/expected/SYN-WO-02-v1-raster300_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "60a1615c877745259f29f0da3fedd53cc80d0a7b"
+        },
+        "evaluation/synthetic/expected/SYN-WO-02-v2-skew-neg3deg_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "313d9e33c0b92e3cefa1210924e64e3b7bf25c8c"
+        },
+        "evaluation/synthetic/expected/SYN-WO-02-v3-hybrid-note_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "74f8dfcf2a052cba6956b01f4b4539f467d237b6"
+        },
+        "evaluation/synthetic/expected/SYN-WO-03-v0-clean_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "7cb5df26bd4a79b3e80f516d524ba375100f61ac"
+        },
+        "evaluation/synthetic/expected/SYN-WO-03-v1-raster300_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "856c65b2b885c33353e1d202d02de932c4aa97c7"
+        },
+        "evaluation/synthetic/expected/SYN-WO-03-v2-skew-pos4deg_expected.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "970d6e53b73dbd235f4b449d4d331ad849d8995c"
+        },
+        "evaluation/synthetic/pdfs/F01/SYN-WO-01-v0-clean.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "ec3dd81ac80ed0a27f846868884822e1de77ee6d"
+        },
+        "evaluation/synthetic/pdfs/F01/SYN-WO-01-v1-raster300.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "532f8edf85d04a4e8f81834bf9dd7753e5b4c8af"
+        },
+        "evaluation/synthetic/pdfs/F01/SYN-WO-01-v2-skew-pos4deg.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "a53b330201fc7219441867f53b34b3308b7a430e"
+        },
+        "evaluation/synthetic/pdfs/F02/SYN-WO-02-v0-clean.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "55b792e6bdc1c8870af8e653c1e2d1bd59822510"
+        },
+        "evaluation/synthetic/pdfs/F02/SYN-WO-02-v1-raster300.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "27555e2d1d6b9049f1a7b24644d0b87eb27c53a7"
+        },
+        "evaluation/synthetic/pdfs/F02/SYN-WO-02-v2-skew-neg3deg.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "fbde79685cb77cc904a7668e58ec210c1e9d9d6d"
+        },
+        "evaluation/synthetic/pdfs/F02/SYN-WO-02-v3-hybrid-note.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "f44ab889310e679d5869a46729b1d5aad5886ad9"
+        },
+        "evaluation/synthetic/pdfs/F03/SYN-WO-03-v0-clean.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "748eb046197e9bf9ffcb81a2f966ebf8f53dc53a"
+        },
+        "evaluation/synthetic/pdfs/F03/SYN-WO-03-v1-raster300.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "7263dba88d0737d155506da5249b8da0d7578170"
+        },
+        "evaluation/synthetic/pdfs/F03/SYN-WO-03-v2-skew-pos4deg.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "5878ea3314a5a007021f9af9dc02eeaa1e8f480e"
+        },
+        "evaluation/synthetic/pdfs/F04/SYN-INV-01-v0-clean.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "a8dd83477b10a79867dfaa4e9b72da8947f1acee"
+        },
+        "evaluation/synthetic/pdfs/F04/SYN-INV-01-v1-raster300.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "d5e8f8911a1b44f6992a24d5dc0514f3fda0131f"
+        },
+        "evaluation/synthetic/pdfs/F04/SYN-INV-01-v2-skew-neg3deg.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "bc0ccd83b3ec53a90c6d3a5c8636df506ff59b2a"
+        },
+        "evaluation/synthetic/pdfs/F05/SYN-INV-02-v0-clean.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "b356fd06179ea772b614ba096885b78c62d5abf5"
+        },
+        "evaluation/synthetic/pdfs/F05/SYN-INV-02-v1-raster300.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "478a1d0ca12117db1afdb6e50c303e8bf457601e"
+        },
+        "evaluation/synthetic/pdfs/F05/SYN-INV-02-v2-skew-pos4deg.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "009dab9477a81e2ff14b55192e313bac0039c06d"
+        },
+        "evaluation/synthetic/pdfs/F06/SYN-INV-03-v0-clean.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "71b2fe36a293aef133f44cb3b8c7cbcdc94f5b09"
+        },
+        "evaluation/synthetic/pdfs/F06/SYN-INV-03-v1-raster300.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "ec87b5bd2eac657a184b902fb8ab3f2425c66361"
+        },
+        "evaluation/synthetic/pdfs/F06/SYN-INV-03-v2-skew-neg3deg.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "d213d1d642fc08ef79e79c3cb12d0fd027858517"
+        },
+        "evaluation/synthetic/pdfs/F07/SYN-MP-01-v0-clean.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "63469e783b65f27893c9bfff94728a8feb44f12f"
+        },
+        "evaluation/synthetic/pdfs/F07/SYN-MP-01-v1-raster300.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "f902532aaf6f9f2d3bc1f5ef2bca00361aeb6856"
+        },
+        "evaluation/synthetic/pdfs/F07/SYN-MP-01-v2-skew-pos4deg.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "9697ca5fc2296d818c057024e28562738116e514"
+        },
+        "evaluation/synthetic/pdfs/F08/SYN-MP-02-v0-clean.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "07deb0007888b7c555b32e02fe668bdf9a6a53a0"
+        },
+        "evaluation/synthetic/pdfs/F08/SYN-MP-02-v1-raster300.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "89bd1a206f1bf7d1620771777151cb489ece2585"
+        },
+        "evaluation/synthetic/pdfs/F08/SYN-MP-02-v2-skew-neg3deg.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "c0ec102747ca3292b262e3365785de1aff91d104"
+        },
+        "evaluation/synthetic/pdfs/F08/SYN-MP-02-v3-hybrid-stamp.pdf": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "9a804dece74ec865894fecc6b788bd85fa69f4d5"
+        },
+        "evaluation/synthetic/sources/F01_SYN-WO-01_source.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "79d98e84f96bb158d3420e1d85b19c4d5e77913e"
+        },
+        "evaluation/synthetic/sources/F02_SYN-WO-02_source.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "ea18450b01e9d86f4b8e8032f03bc4b4229c8b32"
+        },
+        "evaluation/synthetic/sources/F03_SYN-WO-03_source.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "cf23d0f492015a694d42210a52d63a7624030338"
+        },
+        "evaluation/synthetic/sources/F04_SYN-INV-01_source.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "2da15eaf6edf5df701d4f27680e0eba5cec26e60"
+        },
+        "evaluation/synthetic/sources/F05_SYN-INV-02_source.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "1426c727c208f20bb0463cae0899b644d9899f26"
+        },
+        "evaluation/synthetic/sources/F06_SYN-INV-03_source.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "d1f8bb42c238333e8b4ca0cb478a371ad5905d29"
+        },
+        "evaluation/synthetic/sources/F07_SYN-MP-01_source.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "16df1f40caa554c7b1ba0f5af12d30d9f36f22bd"
+        },
+        "evaluation/synthetic/sources/F08_SYN-MP-02_source.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "50ece39244a6b950c9f5cef4d134177a6a051335"
+        },
+        "research/carbon/01-sources-and-qualification.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "3b945252e88e5d1c85b065fafe471b2e4d9934b4"
+        },
+        "research/carbon/02-hypotheses.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "f924a5fc4d76faf2d4770bea4eaa0265735a1194"
+        },
+        "research/carbon/03-corpus-and-candidates.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "e217b26e56c356aee4b9e15acbd6ebc26ad7a31e"
+        },
+        "research/carbon/README.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "be1c32c31f25ddbb38b1f311e60d2184f4a7e22e"
+        },
+        "research/carbon/reconciliation/01-exchange-disposition.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "85b50da73774d74043d91d8d31508a869e0d7def"
+        },
+        "research/carbon/reconciliation/02-ranked-experiment-backlog.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "28f7e3e8ae4d6dc9cfaacd8758c60e6a187ddd81"
+        },
+        "research/carbon/reconciliation/03-review-response.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "96a2ba5973acc44856298b799bdd5410fa42cdaa"
+        },
+        "research/carbon/reconciliation/README.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "21db85949773d4db88caab41798933e6e55738b0"
+        },
+        "research/carbon/reconciliation/verify_review_corrections.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "4be3d46316befbc0a8c0dbb4ba3e0d0f09fa317b"
+        }
+      }
+    },
+    {
+      "label": "Author and independent reviewer publications after candidate",
+      "path_count": 26,
+      "differences": [],
+      "expected_objects": {
+        "docs/agent-reports/eld-rd-carbon/WP-0004/008_2026-11-15_research_eld-rd-carbon.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "46997f8788386e006bdb6f41f914d471262a2838"
+        },
+        "docs/agent-reports/eld-rd-reviewer/WP-0004/005_2026-11-14_review_eld-rd-reviewer.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "c3b9761f6c34a9cbbaeba58de30c59bdd29be72d"
+        },
+        "docs/agent-reports/eld-rd-reviewer/WP-0004/009_2026-11-15_review_eld-rd-reviewer.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "56a98b8e55f0c1327f7b1d0b3ed0ba27bff30fa6"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/README.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "5628f112fcd4b45d796f74846c1ea13d438915ce"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/closure/README.md": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "f71ed0c9dc593b94b564e4af191543274eabeaae"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/closure/closure-check.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "e4138d9de7ae17b2bd8c394218876f8e5acd4d45"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/closure/closure_check.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "3a12979f4bf29e139b07c95e0de2b13a93a99186"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/arithmetic.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "eef44646949691eb817f57810481b328be64ff4c"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/display-faithfulness.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "c2c0f1e3d6d026005e3ad0c201c826ae3ee4d1fc"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/e2-diagnostic.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "0c46551cb3f4aed6cd5cd246c8326589983899cd"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/glyph-geometry.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "96b3384b6edba9828250f18399c944d748087034"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/inventory.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "0ce32d16e9e0f654b8f2cd936df5b3a7a0a923c0"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/pdf-structure.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "186b5560be639f90a6c922255ec533779862a065"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/regeneration-compare.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "b6d277aa5acc05f2148386204f1eea8054a33a48"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/render-index.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "2a3f0d23921923309ee3a04cdff6b723b03f8c29"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/report-claims.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "a3fc4f631d56b8fc84cc8ff4b4d6e926afe57e36"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/verify-summary.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "4f84a164f8ac9f54e4781edc9f6148c6765adae7"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/evidence/visual-coverage.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "cc325de37564951cbf64b8cf8ecce23f687036cb"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/helpers/e2_sign_diagnostic.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "9ff9fe30d4fff3772cbd49577034bb2a4cda3ee3"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_display_faithfulness.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "dc4a7633b94e153ddf3ddce4932b3321fd80c506"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_mutation_control.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "a6b1164b07cf15532fa9f603a62d766e4caf4b8f"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_regen_compare.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "daca8804ebb7c004b4770c0dbcb2a8aa38146940"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_render_pages.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "d32ccce285295518c90a57e9386eb02d73dee58d"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_report_claims.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "6c48ca3106e68524e96daafa5ab7cf0863a83ae3"
+        },
+        "docs/reviews/WP-0004/eld-rd-reviewer/helpers/rd005_verify.py": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "0c3e2c1482eacfa9c85a6a2e6c2c128878934dc5"
+        },
+        "evaluation/manifests/review-correction-verification.json": {
+          "mode": "100644",
+          "kind": "blob",
+          "oid": "103b630e7d99a4652fe49641370a14a672969f34"
+        }
+      }
+    }
+  ],
+  "candidate_entries_changed_by_review_publication": [],
+  "unexpected_rd_paths": [],
+  "all_compared_git_objects_identical": true,
+  "limits": "Compares exact Git modes and objects; runtime and visible-page checks remain attributed to the independent reviewer."
+}
