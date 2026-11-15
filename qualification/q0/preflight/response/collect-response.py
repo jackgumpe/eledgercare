@@ -24,7 +24,7 @@ PINS = {
 def now(): return datetime.datetime.now(datetime.timezone.utc).isoformat()
 def digest(data): return hashlib.sha256(data).hexdigest()
 def blob(data): return hashlib.sha1(f'blob {len(data)}\0'.encode()+data).hexdigest()
-def write(name, obj): (ROOT/name).write_text(json.dumps(obj, indent=2)+'\n', encoding='utf-8')
+def write(name, obj): (ROOT/name).write_text(json.dumps(obj, indent=2)+'\n', encoding='utf-8', newline='\n')
 def fetch(url, method='GET', accept=None):
     # Fail closed if a future edit accidentally tries a wheel/weight payload GET.
     if method!='HEAD' and urllib.parse.urlparse(url).path.endswith(('.whl','.safetensors')): raise ValueError('Payload GET forbidden')
