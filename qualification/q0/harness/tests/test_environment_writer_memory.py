@@ -1,11 +1,12 @@
 import os
+import sys
 import unittest
 from pathlib import Path
 
 import support
 from q0harness import procmem
-from q0harness.environment import (audit_child_env, build_child_env, check_run_dir, check_storage_root,
-                                   default_forbidden_parents, layout)
+from q0harness.environment import (GIT_EXECUTABLE_VAR, GIT_ISOLATION_ENV, audit_child_env, build_child_env,
+                                   check_run_dir, check_storage_root, default_forbidden_parents, layout)
 from q0harness.outcome import Q0Failure
 from q0harness.protocol import REPO_ROOT, load_protocol
 from q0harness.writer import BoundedJsonl, BoundedWriter, CapExceeded
@@ -28,13 +29,18 @@ class ChildEnvironment(unittest.TestCase):
             if k not in ("SystemRoot", "PATH", "HF_HOME", "TEMP"):
                 self.assertNotIn(k, env)
         self.assertNotIn(r"C:\evil", env["PATH"])
+        self.assertTrue(Path(env[GIT_EXECUTABLE_VAR]).is_file())
+        for k, want in GIT_ISOLATION_ENV.items():
+            self.assertEqual(env[k], want)
         self.assertTrue(env["HF_HOME"].startswith(str(self.root)))
         self.assertTrue(env["TEMP"].startswith(str(self.run)))
         self.assertTrue(env["HF_MODULES_CACHE"].startswith(str(self.run)))
         self.assertEqual((env["HF_HUB_OFFLINE"], env["TRANSFORMERS_OFFLINE"]), ("1", "1"))
         self.assertEqual(env["CUDA_VISIBLE_DEVICES"], self.gpu)
         for bad in ({"DASH_DEBUG_ANOMALY": "1"}, {"HF_TOKEN": "x"}, {"TIME_DIAG": "1"}, {"HF_HUB_OFFLINE": "0"},
-                    {"TEMP": r"C:\Windows\Temp"}):
+                    {"TEMP": r"C:\Windows\Temp"}, {GIT_EXECUTABLE_VAR: ""}, {GIT_EXECUTABLE_VAR: sys.executable},
+                    {"GIT_CONFIG_NOSYSTEM": "0"}, {"GIT_CONFIG_GLOBAL": r"C:\Users\x\.gitconfig"},
+                    {"GIT_TERMINAL_PROMPT": "1"}):
             with self.subTest(bad=bad):
                 with self.assertRaises(Q0Failure):
                     audit_child_env(env | bad, root=self.root, owner="author", run_dir=self.run)

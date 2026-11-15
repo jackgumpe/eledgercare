@@ -2,12 +2,16 @@
 real committed fixtures/raster contracts (no torch, no GPU)."""
 
 import json
+import os
 import shutil
+import threading
 import unittest
+from unittest.mock import patch
 
 import support
 from q0harness.outcome import BLOCKED, NOT_QUALIFIED, QUALIFIED
 from q0harness.protocol import REPO_ROOT
+from q0harness.session import Heartbeat
 
 
 class SessionBookkeeping(unittest.TestCase):
@@ -157,6 +161,49 @@ class SessionBookkeeping(unittest.TestCase):
         self.assertEqual(be.invocations, 3)
         self.assertEqual(out["observations"][-1]["safety_violations"][0]["target"],
                          "UnlimitedOCRForCausalLM._uocr_save_results")
+
+    def test_heartbeat_serializes_threads_and_retries_transient_replace_lock(self):
+        scratch = support.new_scratch("hb-lock")
+        self.scratches.append(scratch)
+        hb_path = scratch / "heartbeat.json"
+        hb = Heartbeat(hb_path, 0.01, lambda: 7)
+        real_replace = os.replace
+        calls = {"n": 0}
+
+        def flaky_replace(src, dst):
+            calls["n"] += 1
+            if calls["n"] <= 2:
+                raise PermissionError(5, "Access is denied")
+            return real_replace(src, dst)
+
+        with patch("q0harness.session.os.replace", side_effect=flaky_replace):
+            hb.set_phase("preflight", 60, False)
+        self.assertEqual(calls["n"], 3)
+        self.assertEqual(json.loads(hb_path.read_text(encoding="utf-8"))["phase"], "preflight")
+
+        with patch("q0harness.session.os.replace", side_effect=PermissionError(5, "Access is denied")):
+            with self.assertRaises(PermissionError):
+                hb.beat()
+
+        errors = []
+        hb.start()
+        try:
+            def worker():
+                try:
+                    for i in range(15):
+                        hb.set_phase(f"p{i}", 10, False)
+                except BaseException as exc:  # pragma: no cover
+                    errors.append(exc)
+
+            threads = [threading.Thread(target=worker) for _ in range(3)]
+            for t in threads:
+                t.start()
+            for t in threads:
+                t.join(timeout=5)
+        finally:
+            hb.stop()
+        self.assertEqual(errors, [])
+        self.assertTrue(hb_path.is_file())
 
 
 if __name__ == "__main__":

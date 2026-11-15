@@ -184,8 +184,8 @@ def cmd_execute(a):
     from q0harness.supervisor import supervise
     protocol, p_sha = load_protocol()
     root = Path(protocol["storage"]["root"])
-    code = code_identity(REPO_ROOT)
     try:
+        code = code_identity(REPO_ROOT)
         lock, lock_sha, pkgs = _lock()
         if not a.release:
             raise Q0Failure("EXECUTION_NOT_RELEASED", "no coordinator execute release record supplied (--release)")
@@ -229,10 +229,17 @@ def cmd_child(a):
     release = json.loads(Path(a.release).read_text(encoding="utf-8"))
     root = Path(protocol["storage"]["root"])
     ctx = json.loads((Path(a.run_dir) / "parent-context.json").read_text(encoding="utf-8"))
+    try:
+        child_code = code_identity(REPO_ROOT)
+        if child_code != ctx.get("code_identity"):
+            child_code = {**child_code, "harness_clean": False,
+                          "dirty": list(child_code.get("dirty", [])) + ["parent/child code_identity mismatch"]}
+    except Q0Failure as exc:
+        child_code = {"head": None, "harness_clean": False, "dirty": [str(exc)]}
     session = Session(protocol=protocol, protocol_sha256=p_sha, lock=json.loads(lock_raw), lock_sha256=sha256_bytes(lock_raw),
                       release=release, root=root, owner=a.owner, run_dir=Path(a.run_dir), backend=TorchBackend(),
                       repo_root=REPO_ROOT, expected_root=protocol["storage"]["root"],
-                      forbidden_parents=ctx["forbidden_parents"], code=ctx["code_identity"],
+                      forbidden_parents=ctx["forbidden_parents"], code=child_code,
                       lock_reader=locks.git_blob_reader(REPO_ROOT), manifest_path=MANIFEST_PATH)
     outcome = session.run()
     return 0 if outcome else 1

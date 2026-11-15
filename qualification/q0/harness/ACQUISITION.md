@@ -5,6 +5,7 @@
 Stage processes get the environment from `environment.build_stage_env`: an allowlist with no inherited credentials and no pip or HF configuration. It contains:
 
 - `PIP_CONFIG_FILE=NUL`;
+- `Q0_GIT_EXECUTABLE=<validated host git.exe>`, `GIT_CONFIG_NOSYSTEM=1`, `GIT_CONFIG_GLOBAL=NUL` and `GIT_TERMINAL_PROMPT=0` (read-only Git identity/blob checks invoke the pinned binary with `--no-optional-locks` without widening `PATH` or reading user/system Git config);
 - `PIP_CACHE_DIR`, `UV_CACHE_DIR` and `TEMP`/`TMP`/`TMPDIR` under the root;
 - `HF_HOME` and `HF_HUB_CACHE` under the root;
 - `HF_HUB_DISABLE_XET=1`, so downloads use plain HTTPS; final verification is transport-independent anyway;
@@ -23,6 +24,7 @@ $Py   = 'C:\Users\jackg\AppData\Local\Programs\Python\Python312\python.exe'   # 
 
 `& $Py -I -B $Q0 host-precheck --stage initial` records and checks:
 
+- Host Git executable resolution (`git_runtime`);
 - System32 `msvcp140.dll`, `vcruntime140.dll` and `vcruntime140_1.dll`: presence, size, SHA-256 and file version;
 - `LongPathsEnabled`, and the longest harness-known path, which must be below 240 characters while long paths are disabled;
 - paging-file configuration, commit limit and available commit, and physical memory;

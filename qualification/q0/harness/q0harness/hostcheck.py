@@ -16,6 +16,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .environment import resolve_host_git
 from .hashing import file_digests
 from .outcome import Q0Failure
 
@@ -158,12 +159,18 @@ def validate_gpu_observation(rows: list[dict], protocol: dict) -> list[str]:
 
 
 def host_precheck(protocol: dict, manifest: dict, *, stage: str, system32: Path | None = None,
-                  registry=read_registry, observe=run_observer) -> dict:
+                  registry=read_registry, observe=run_observer, git_resolver=resolve_host_git) -> dict:
     """stage: 'initial' (before any download; initial free-space floor) or 'during'."""
     system32 = Path(system32 or (Path(os.environ.get("SystemRoot", r"C:\Windows")) / "System32"))
     floors = protocol["storage"]["free_space"]
+    try:
+        git_exe = git_resolver()
+        git_rec = {"present": True, "executable": git_exe}
+    except Q0Failure as exc:
+        git_rec = {"present": False, "executable": None, "detail": exc.detail}
     rec = {"schema": "eldq0-host-precheck/1", "stage": stage, "started_utc": _utc(),
            "python": sys.version, "executable": sys.executable,
+           "git_runtime": git_rec,
            "msvc_runtime": msvc_runtime(system32),
            "long_paths_enabled": registry(FS_KEY, "LongPathsEnabled"),
            "paging_files": registry(MM_KEY, "PagingFiles"),
@@ -173,6 +180,8 @@ def host_precheck(protocol: dict, manifest: dict, *, stage: str, system32: Path 
            "known_paths": known_max_path(protocol, manifest),
            "gpu_observer": [observe(cmd) for cmd in protocol["gpu"]["observer"]["commands"]]}
     fails = []
+    if not git_rec["present"]:
+        fails.append(Q0Failure("HOST_PRECHECK_FAILED", "Git executable unavailable on host", git_rec).as_record())
     missing = [r["dll"] for r in rec["msvc_runtime"] if not r["present"]]
     if missing:
         fails.append(Q0Failure("HOST_PRECHECK_FAILED", "MSVC runtime DLLs absent from System32", missing).as_record())

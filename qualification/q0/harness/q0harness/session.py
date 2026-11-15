@@ -44,20 +44,33 @@ class Heartbeat:
         self.progress_fn = progress_fn
         self.phase = "starting"
         self.phase_timeout_s = None
+        self._lock = threading.Lock()
         self._stop = threading.Event()
         self._t = threading.Thread(target=self._run, name="q0-heartbeat", daemon=True)
 
     def set_phase(self, phase: str, timeout_s: int | None, stall_monitored: bool):
-        self.phase, self.phase_timeout_s, self.stall_monitored = phase, timeout_s, stall_monitored
-        self.beat()
+        with self._lock:
+            self.phase, self.phase_timeout_s, self.stall_monitored = phase, timeout_s, stall_monitored
+            self._beat_locked()
 
     def beat(self):
+        with self._lock:
+            self._beat_locked()
+
+    def _beat_locked(self):
         tmp = self.path.with_suffix(".tmp")
-        tmp.write_text(json.dumps({"phase": self.phase, "phase_timeout_s": self.phase_timeout_s,
-                                   "stall_monitored": getattr(self, "stall_monitored", False),
-                                   "progress": int(self.progress_fn()), "t": time.time(), "pid": os.getpid()}),
-                       encoding="utf-8")
-        os.replace(tmp, self.path)
+        payload = json.dumps({"phase": self.phase, "phase_timeout_s": self.phase_timeout_s,
+                              "stall_monitored": getattr(self, "stall_monitored", False),
+                              "progress": int(self.progress_fn()), "t": time.time(), "pid": os.getpid()})
+        for attempt in range(5):
+            try:
+                tmp.write_text(payload, encoding="utf-8")
+                os.replace(tmp, self.path)
+                return
+            except PermissionError:
+                if attempt == 4:
+                    raise
+                time.sleep(0.01 * (attempt + 1))
 
     def _run(self):
         while not self._stop.wait(self.interval):

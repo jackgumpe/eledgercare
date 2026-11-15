@@ -9,19 +9,19 @@ the review that reviews it (the /002 checkpoint's circular requirement is remove
 from __future__ import annotations
 
 import os
-import subprocess
 from pathlib import Path
 
+from .environment import run_git
 from .hashing import is_hex
 from .outcome import Q0Failure
 
 STAGES = {"install": None, "execute": {"author": "004", "reviewer": "005"}}
 
 
-def code_identity(repo_root: Path) -> dict:
+def code_identity(repo_root: Path, *, environ: dict | None = None) -> dict:
     """HEAD commit and cleanliness of the harness subtree in the executing worktree."""
     def git(*a):
-        cp = subprocess.run(["git", *a], cwd=str(repo_root), capture_output=True, text=True)
+        cp = run_git(a, cwd=repo_root, environ=environ, text=True)
         return cp.returncode, cp.stdout.strip()
     rc, head = git("rev-parse", "HEAD")
     rc2, dirty = git("status", "--porcelain=v1", "-uall", "--", "qualification/q0/harness/q0harness",
