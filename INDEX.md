@@ -288,3 +288,6 @@ Actual /010 dispatch after exact-origin verified **ce28aaf3819f95a508d9776b06454
 
 
 Actual /011 Phase B dispatch after exact-origin verified **dc4de891cc5b3dd59bb8330cda370b6d813a7eec**: SAME independent reviewer **0815536f-045a-4112-8a89-ebf0e0cc782f**, actual **gemini-4-carbon-high/high**, owned reviewer cwd, PID **30484**, RUNNING source/read-only checks on frozen **41d6204648e4115ab197507d1a22f6d5c7f3e784**. Final canonical review remains held for /010 publication pins. Requested accept-edits, inherited always-proceed disclosed; no bypass/global change. No installation/model/GPU release.
+
+
+/010 PUBLISHED: candidate **41d6204648e4115ab197507d1a22f6d5c7f3e784**, evidence **6dc2d01c84da99d751994cce00a2c82df053c215**, canonical report **099a2fa74cdc2df6068c437edf3971eb37e9f07d**, clean/exact-origin verified. Author 18 lock/preflight tests plus 4 Git subprocess tests pass; actual all-32-wheel checks pass in stage_offline and stdlib bootstrap. Root verified 7 raw outputs + 2 helper byte identities, 12 evidence-only additions, then report-only publication. /011 final review publication is fully RELEASED on these exact pins by updated kickoff. Reconcile /010's nonexistent helper-name and direct-URL prose against actual unchanged source; preserve historical report bytes. No install/model/GPU release until independent acceptance/new install record.
