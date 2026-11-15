@@ -1,0 +1,40 @@
+{
+  "bounded_permission_error_retry": {
+    "max_attempts": 5,
+    "persistent_5_failures_raised_permission_error": true,
+    "sleeps_ms_observed": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "total_max_sleep_ms": 100,
+    "transient_4_failures_recovered_on_attempt": 5
+  },
+  "status": "pass",
+  "supervised_reviewer_child": {
+    "artifacts_verified_in_child": 32,
+    "backend_kind": "synthetic_FakeBackend_no_torch_no_gpu",
+    "child_outcome_status": "QUALIFIED_RUNTIME_OBSERVATION",
+    "child_returncode": 0,
+    "child_still_running_after_supervise": false,
+    "live_code_identity": {
+      "dirty": [],
+      "harness_clean": true,
+      "head": "a996543ed533393dc9857eb16f255880c8e08f56"
+    },
+    "observations_recorded": 6,
+    "poll_s": 0.02,
+    "verdict": "CHILD_COMPLETED"
+  },
+  "thread_and_reader_stress": {
+    "reader_errors": [],
+    "reader_poll_s": 0.005,
+    "reader_threads": 1,
+    "tmp_leftover": false,
+    "valid_snapshots_observed": 115,
+    "writer_errors": [],
+    "writer_threads": 4,
+    "writes_per_thread": 100
+  }
+}

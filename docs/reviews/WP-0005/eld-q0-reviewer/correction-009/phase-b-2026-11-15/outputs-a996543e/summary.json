@@ -1,0 +1,101 @@
+{
+  "author_008_evidence_commit": "b70ff45f2c7aa4b2e454429e76a15fa09887fa9d",
+  "author_008_report_commit": "460e1d81de14c6f77ea4a026bc4b3ab36407bdf7",
+  "candidate_commit": "24a5866b505532fd03e7db62a4e57875e4c5a170",
+  "candidate_parent": "2a52ea58fae2badcb4e9ef47d1cb416c006edca4",
+  "checks": {
+    "01_diff_and_immutability": "pass",
+    "02_harness_unittests": {
+      "elapsed_s": 36.903,
+      "returncode": 0,
+      "status": "pass",
+      "tests_passed": 79,
+      "tests_ran": 80,
+      "tests_skipped": 1
+    },
+    "03_real_subprocess_git_matrix": {
+      "status": "pass",
+      "subprocesses_executed": 8
+    },
+    "04_cli_in_isolated_envs": {
+      "cli_invocations": 20,
+      "status": "pass"
+    },
+    "05_fail_closed_negative_git_probes": {
+      "audit_rejections": 5,
+      "cmd_child_direct_probes": 3,
+      "status": "pass",
+      "subprocess_negative_cases": 4
+    },
+    "06_heartbeat_and_supervised_child": {
+      "backend_kind": "synthetic_FakeBackend_no_torch_no_gpu",
+      "retry_sleeps_ms": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "status": "pass",
+      "supervised_child_verdict": "CHILD_COMPLETED",
+      "valid_heartbeat_snapshots_read": 115
+    },
+    "07_author_008_evidence_audit": {
+      "author_evidence_commands_verified": 12,
+      "status": "pass"
+    }
+  },
+  "continuation_base": "ca81c44ed3114439036a2e95e2c20d6f6d5f7500",
+  "evidence_files": [
+    {
+      "bytes": 2515,
+      "file": "01-diff-and-immutability.json",
+      "sha256": "3332f3a800b452d9bfbef8b89e89995bfe7000cc0f96fd278fb237a794024668"
+    },
+    {
+      "bytes": 10274,
+      "file": "02-unittest.txt",
+      "sha256": "e93734437655b92a6971bc372104f6fbae6ecdff7c8f8c1a75ebc0221d8a8bff"
+    },
+    {
+      "bytes": 11257,
+      "file": "03-real-subprocess-git-matrix.json",
+      "sha256": "000d6baa279db48122054170d91a8ce403c70ac8196bfabd96b3d33466e36b80"
+    },
+    {
+      "bytes": 5592,
+      "file": "04-cli-isolated-envs.json",
+      "sha256": "c9259274a6c4d0962042b3d01d7df49f4294ca66682559c80f94c89e62467c2b"
+    },
+    {
+      "bytes": 7091,
+      "file": "05-fail-closed-git-probes.json",
+      "sha256": "ca51d16e80e83d50b7d5d793cdd63b7f0f0f06fb24c3534bade2cc8e66cb37fa"
+    },
+    {
+      "bytes": 1063,
+      "file": "06-heartbeat-and-supervisor.json",
+      "sha256": "d5f4bb0f5a73d5e8cebe376d244eeb10476f34bdce251ca4a543d618554332e5"
+    },
+    {
+      "bytes": 2927,
+      "file": "07-author-008-evidence-audit.json",
+      "sha256": "091d2f4b5d5ae41422554ad90b22967c8f76e98775fc9a715d1917ba770317df"
+    }
+  ],
+  "external_runtime_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+  "external_runtime_root_exists_after": false,
+  "external_runtime_root_exists_before": false,
+  "finished_utc": "2026-11-15T18:34:33.821836Z",
+  "helper_path": "docs/reviews/WP-0005/eld-q0-reviewer/correction-009/phase-b-2026-11-15/verify_coord_q0_01_phase_b.py",
+  "helper_sha256": "4ce1272a404170352552430d6c2d0d86a7d2c7e7a217e0e32f1162b4fec24a23",
+  "model": "Gemini 4 Carbon (High)",
+  "python_executable": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "reviewer": "eld-q0-reviewer",
+  "schema": "eld-q0-reviewer-phase-b/1",
+  "session_id": "0815536f-045a-4112-8a89-ebf0e0cc782f",
+  "smoke_mode": false,
+  "started_utc": "2026-11-15T18:33:41.154376Z",
+  "worktree_head": "a996543ed533393dc9857eb16f255880c8e08f56",
+  "worktree_status_after": []
+}
