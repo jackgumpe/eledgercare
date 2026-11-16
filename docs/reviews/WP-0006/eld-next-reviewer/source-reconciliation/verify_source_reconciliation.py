@@ -697,7 +697,54 @@ CSHARP_PROBE_CSPROJ = """<Project Sdk="Microsoft.NET.Sdk">
 </Project>
 """
 
-CSHARP_PROBE_PROGRAM = r"""using System.Diagnostics;
+FAKE_GRANDCHILD_WORKER_PY = r'''import ctypes
+from ctypes import wintypes
+import json
+import pathlib
+import subprocess
+import sys
+import time
+
+
+def proc_ft(pid):
+    k32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    k32.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+    k32.OpenProcess.restype = wintypes.HANDLE
+    k32.GetProcessTimes.argtypes = [
+        wintypes.HANDLE,
+        ctypes.POINTER(wintypes.FILETIME),
+        ctypes.POINTER(wintypes.FILETIME),
+        ctypes.POINTER(wintypes.FILETIME),
+        ctypes.POINTER(wintypes.FILETIME),
+    ]
+    k32.GetProcessTimes.restype = wintypes.BOOL
+    k32.CloseHandle.argtypes = [wintypes.HANDLE]
+    h = k32.OpenProcess(0x1000, False, pid)
+    c, e, kt, ut = wintypes.FILETIME(), wintypes.FILETIME(), wintypes.FILETIME(), wintypes.FILETIME()
+    k32.GetProcessTimes(h, ctypes.byref(c), ctypes.byref(e), ctypes.byref(kt), ctypes.byref(ut))
+    k32.CloseHandle(h)
+    return (int(c.dwHighDateTime) << 32) | int(c.dwLowDateTime)
+
+
+gc = subprocess.Popen(
+    [sys.executable, "-I", "-c", "import time, sys; sys.stdout.write('gc-open\\n'); sys.stdout.flush(); time.sleep(60)"]
+)
+hb = {
+    "phase": "inferring",
+    "worker_pid": gc.pid,
+    "worker_create_filetime": proc_ft(gc.pid),
+    "phase_timeout_s": 600,
+    "stall_monitored": False,
+    "forward_progress": 1,
+}
+out_dir = pathlib.Path.cwd() / "output"
+(out_dir / "heartbeat.json").write_text(json.dumps(hb), encoding="utf-8")
+sys.stdout.write("launcher-open\n")
+sys.stdout.flush()
+time.sleep(60)
+'''
+
+CSHARP_PROBE_PROGRAM = r'''using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -712,6 +759,7 @@ using Npgsql;
 var repoRoot = args[0];
 var outputJsonPath = args[1];
 var expectedWorkerHex = args[2];
+var fakeWorkerTemplatePath = args[3];
 var hostPy = @"C:\Users\jackg\AppData\Local\Programs\Python\Python312\python.exe";
 
 var pgSettingsPath = Path.Combine(repoRoot, ".local", "secrets", "pg-local.json");
@@ -1022,46 +1070,9 @@ static async Task RunToolAsync(string fileName, params string[] arguments)
         Directory.CreateDirectory(Path.Combine(fakeQ0, "notices", "Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a"));
         await File.WriteAllTextAsync(Path.Combine(fakeWorkerRoot, "local_ocr", "__init__.py"), "");
 
-        // Fake run_worker.py spawns an additional grandchild python process inheriting stdout/stderr pipes for 60s
+        // Copy fake run_worker.py that spawns an additional grandchild python process inheriting stdout/stderr pipes for 60s
         // and writes grandchild (pid, create_filetime) into output/heartbeat.json!
-        var workerScriptBody = """
-import ctypes
-from ctypes import wintypes
-import json
-import pathlib
-import subprocess
-import sys
-import time
-
-def proc_ft(pid):
-    k32 = ctypes.WinDLL("kernel32", use_last_error=True)
-    k32.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
-    k32.OpenProcess.restype = wintypes.HANDLE
-    k32.GetProcessTimes.argtypes = [wintypes.HANDLE, ctypes.POINTER(wintypes.FILETIME), ctypes.POINTER(wintypes.FILETIME), ctypes.POINTER(wintypes.FILETIME), ctypes.POINTER(wintypes.FILETIME)]
-    k32.GetProcessTimes.restype = wintypes.BOOL
-    k32.CloseHandle.argtypes = [wintypes.HANDLE]
-    h = k32.OpenProcess(0x1000, False, pid)
-    c, e, kt, ut = wintypes.FILETIME(), wintypes.FILETIME(), wintypes.FILETIME(), wintypes.FILETIME()
-    k32.GetProcessTimes(h, ctypes.byref(c), ctypes.byref(e), ctypes.byref(kt), ctypes.byref(ut))
-    k32.CloseHandle(h)
-    return (int(c.dwHighDateTime) << 32) | int(c.dwLowDateTime)
-
-gc = subprocess.Popen([sys.executable, "-I", "-c", "import time, sys; sys.stdout.write('gc-open\\n'); sys.stdout.flush(); time.sleep(60)"])
-hb = {
-    "phase": "inferring",
-    "worker_pid": gc.pid,
-    "worker_create_filetime": proc_ft(gc.pid),
-    "phase_timeout_s": 600,
-    "stall_monitored": False,
-    "forward_progress": 1,
-}
-out_dir = pathlib.Path.cwd() / "output"
-(out_dir / "heartbeat.json").write_text(json.dumps(hb), encoding="utf-8")
-sys.stdout.write("launcher-open\n")
-sys.stdout.flush()
-time.sleep(60)
-""";
-        await File.WriteAllTextAsync(Path.Combine(fakeWorkerRoot, "run_worker.py"), workerScriptBody);
+        File.Copy(fakeWorkerTemplatePath, Path.Combine(fakeWorkerRoot, "run_worker.py"), overwrite: true);
 
         var fakeWorkerSha = ExtractionSettings.ComputeWorkerSourceSha256(fakeWorkerRoot);
         var settings = new ExtractionSettings(
@@ -1571,7 +1582,7 @@ sealed class GatedRunner(ILocalOcrWorkerRunner inner) : ILocalOcrWorkerRunner
         return new WorkerRunOutcome(null, null, 1, "worker_timeout", "Simulated gated attempt finished.");
     }
 }
-"""
+'''
 
 
 def parse_dotnet_test_counts(log_bytes: bytes) -> dict:
@@ -1597,6 +1608,8 @@ def run_csharp_reconciliation_probes(env: dict[str, str], logs_dir: Path, secret
             CSHARP_PROBE_CSPROJ.format(repo_root=str(REPO_ROOT)), encoding="utf-8"
         )
         (probe_dir / "Program.cs").write_text(CSHARP_PROBE_PROGRAM, encoding="utf-8")
+        fake_worker_tpl = probe_dir / "fake_run_worker.py"
+        fake_worker_tpl.write_text(FAKE_GRANDCHILD_WORKER_PY, encoding="utf-8")
         out_json_path = probe_dir / "reconciliation-probe-results.json"
 
         build_step = run_logged_step(
@@ -1614,7 +1627,7 @@ def run_csharp_reconciliation_probes(env: dict[str, str], logs_dir: Path, secret
         exe_path = probe_dir / "bin" / "Release" / "net10.0" / "ReviewerReconciliationProbes.exe"
         run_step = run_logged_step(
             "07-execute-reviewer-reconciliation-probes",
-            [str(exe_path), str(REPO_ROOT), str(out_json_path), EXPECTED_NEW_WORKER_SOURCE_SHA256],
+            [str(exe_path), str(REPO_ROOT), str(out_json_path), EXPECTED_NEW_WORKER_SOURCE_SHA256, str(fake_worker_tpl)],
             cwd=probe_dir,
             env=env,
             logs_dir=logs_dir,
