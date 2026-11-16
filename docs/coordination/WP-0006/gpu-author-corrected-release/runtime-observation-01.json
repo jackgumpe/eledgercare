@@ -1,0 +1,82 @@
+{
+  "observed_utc": "2026-11-16T15:53:46.002777+00:00",
+  "observer": "eld-coordinator",
+  "authority": "e28471997f425b0e074f65432dccc3abf2116490",
+  "lease": "WP-0006-author-corrected-20261116T154140Z",
+  "lease_state": "ACTIVE",
+  "first_document_api_snapshot": {
+    "documentId": "01a1e509-f496-737c-901f-2b6a8fb84094",
+    "jobId": "01a1e509-f496-78a6-b971-1345754d00ec",
+    "status": "completed",
+    "admittedPageCount": 1,
+    "originalByteLength": 372258,
+    "originalSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "originalUrl": "/api/documents/01a1e509-f496-737c-901f-2b6a8fb84094/original",
+    "submittedAtUtc": "2026-11-16T15:46:37.334233+00:00",
+    "queuedAtUtc": "2026-11-16T15:46:37.600805+00:00",
+    "updatedAtUtc": "2026-11-16T15:49:28.463519+00:00",
+    "workerEnabled": true,
+    "profileSupported": true,
+    "maxSupportedPages": 3,
+    "canRequestExtraction": false,
+    "canRetryExtraction": false,
+    "unavailableReason": null
+  },
+  "first_current_attempt": {
+    "attemptId": "01a1e509-f5d4-7a01-80f1-4f23fe282930",
+    "attemptNumber": 1,
+    "status": "completed",
+    "phase": "completed",
+    "startedAtUtc": "2026-11-16T15:46:37.652021+00:00",
+    "lastHeartbeatAtUtc": "2026-11-16T15:49:28.463519+00:00",
+    "endedAtUtc": "2026-11-16T15:49:28.463519+00:00",
+    "failureCode": null,
+    "failureMessage": null
+  },
+  "first_saved_result_identity": {
+    "resultId": "01a1e50c-910f-7de0-9ce7-21a709200e52",
+    "attemptId": "01a1e509-f5d4-7a01-80f1-4f23fe282930",
+    "reviewStatus": "unreviewed",
+    "completedAtUtc": "2026-11-16T15:49:26.634241+00:00",
+    "pageCount": 1,
+    "rawByteLength": 3236,
+    "rawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95"
+  },
+  "second_attempt_id": "01a1e50c-bdb9-7477-a96a-abb58323c615",
+  "actual_current_processes": [
+    {
+      "pid": 28180,
+      "parent_pid": 6916,
+      "created_utc": "2026-11-16T15:46:35.7979850Z",
+      "executable": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "command_line": "dotnet \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer\\src\\ELedgerCare.Api\\bin\\Release\\net10.0\\ELedgerCare.Api.dll\""
+    },
+    {
+      "pid": 22320,
+      "parent_pid": 28180,
+      "created_utc": "2026-11-16T15:49:39.9168830Z",
+      "executable": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+      "command_line": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe -I -B -X utf8 -u \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer\\workers\\local_ocr\\run_worker.py\" --request C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\author\\runs\\attempt-01a1e50c-bdb9-7477-a96a-abb58323c615\\request.json"
+    },
+    {
+      "pid": 16064,
+      "parent_pid": 22320,
+      "created_utc": "2026-11-16T15:49:39.9446260Z",
+      "executable": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "command_line": "\"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -I -B -X utf8 -u \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer\\workers\\local_ocr\\run_worker.py\" --request C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\author\\runs\\attempt-01a1e50c-bdb9-7477-a96a-abb58323c615\\request.json"
+    }
+  ],
+  "second_heartbeat": {
+    "attempt_id": "01a1e50c-bdb9-7477-a96a-abb58323c615",
+    "fencing_token": 2,
+    "forward_progress": 1823,
+    "parent_pid": 22320,
+    "phase": "inferring",
+    "phase_timeout_s": 3600,
+    "stall_monitored": true,
+    "timestamp_utc": "2026-11-16T15:53:41.429575+00:00",
+    "worker_create_filetime": 134393177799446262,
+    "worker_pid": 16064
+  },
+  "limits": "Read-only API snapshot and actual process observation; restart/recovery/browser acceptance remains with finite author trial and independent reviewer."
+}
