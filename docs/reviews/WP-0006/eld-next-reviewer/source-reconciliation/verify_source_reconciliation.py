@@ -1344,6 +1344,12 @@ try
     // Explicit retry with orphanClaim.AttemptId must then succeed cleanly!
     var explicitRetryOutcome = await extractionStore.QueueOrReconcileAsync(
         docOrphan.DocumentId, orphanClaim.AttemptId, 3, true, t0.AddSeconds(10), CancellationToken.None);
+    // Drain docOrphan's retried queue entry so subsequent R3 FIFO claims match docDiag1..docAccepted3 1-to-1!
+    var orphanRetryClaim = (await extractionStore.ClaimNextQueuedJobAsync(
+        Guid.NewGuid(), 8999, 133700000000008999L, t0.AddSeconds(11), CancellationToken.None))!;
+    await extractionStore.MarkAttemptFailedAsync(
+        orphanRetryClaim.AttemptId, orphanRetryClaim.JobId, orphanRetryClaim.FencingToken,
+        "worker_failed", "Drained explicit retry queue entry after R2c verification.", 1, null, null, t0.AddSeconds(12), CancellationToken.None);
 
     if (reconciledWhileActive != 0 ||
         reconciledLiveOtherSupervisor != 0 ||

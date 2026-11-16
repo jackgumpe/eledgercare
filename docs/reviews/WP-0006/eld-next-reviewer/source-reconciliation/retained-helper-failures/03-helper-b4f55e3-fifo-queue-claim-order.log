@@ -1,0 +1,5 @@
+$ python -B docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/verify_source_reconciliation.py
+Helper commit: b4f55e36ace36b7fddfbb2be71dc92a33f4ea607
+Exit code: 1 (Step 07-execute-reviewer-reconciliation-probes at Program.cs:line 755)
+Note: Steps 00..06 (including 9/9 Python tests and 74/74 .NET tests on owned PG 55435) and probes R1, R2a, R2b, R2c, R3a, R3b, and R3c-1p all passed; owned PostgreSQL stopped cleanly in finally.
+Reason: Reviewer helper-only FIFO queue ordering bug: R2c re-queued 1-page `docOrphan` at `t0+10s` to verify explicit retry after `interrupted` without draining that queued job, shifting subsequent R3 `ClaimNextQueuedJobAsync` calls by one position so `claimAcc3` claimed 1-page `docAccepted1` instead of 3-page `docAccepted3` (correctly rejected by `WorkerEnvelopeValidator`). Fixed in subsequent frozen helper commit by draining `docOrphan`'s queued retry entry at the end of R2c.
