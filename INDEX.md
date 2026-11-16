@@ -413,3 +413,19 @@ Actual native **/root/baseline_reviewer**, stable **eld-baseline-reviewer**, con
 The coordinator's reviewer reassignment arrived after /002/source freeze: immutable /002 next-owner prose and release.py still name eld-next-reviewer. Current owner is eld-baseline-reviewer. That runtime-path binding correction is a known gate pending the reviewer's single consolidated findings checkpoint, not authority to silently amend source or use the wrong review. No GPU lease/test access is released.
 
 F2 author planning checkpoint **56498bf28326a55054d4b83ab5bb9e73234deffb** is exact-origin verified and adds only docs/implementation/WP-0006/plan.md. Its CLI completed SUCCESS/exit0. Contract review remains RUNNING; implementation/GPU work is not yet released. The plan's Job Object design must satisfy the existing contract without a launcher/descendant startup race; implementation and independent verification must establish containment before any model child can escape supervision.
+
+
+### WP-0006 accepted design and Stage1 implementation release
+
+Independent /002 **e2452e1ab3d8937868c07ffb30ce430715b5be78** is exact-origin verified, accepted on root design **efa9cb986711f82a886f917e68142a7a59319bba**. Dossier/helper **7eae6de27d21bd41558611f95116e13cbd0f6b92**, evidence **dc296f3a3bc8041bc2eb62377c440a3879d1bcc8**, all15 design assertions pass. Four review-only additions and report-only publication verified. Review and attributed author planning checkpoint56498bf... normally integrated through **fbf6507b50a5ee1f5c8a3c3313e3c0b8d49e5362**. Acceptance is docs/coordination/WP-0006/design-acceptance.md; exact code/CPU/PostgreSQL/browser release docs/kickoffs/WP-0006-eld-f2-implementation.md resolves F2-KR-01 and carries F2-BIC-01..04. Same Carbon author receives it after published-tip binding; dispatch still PREPARED here. No GPU lease. F2 feature itself remains unimplemented/unaccepted at this receipt.
+
+### WP-0007 single CPU correction and metric-clarification reservations
+
+Independent initial findings/evidence **c4b0688604caa08a042f9629896b844e7258b50a**, branch review/wp-0007-baseline, are exact-origin verified. B0-R1..R4 require malformed grammar/accounting and current reviewer-path correction. Canonical /003 remains held for one response/reconciliation. Root selects dual separately labeled strict printed and typed normalized-value metrics in docs/coordination/WP-0007/scoring-disposition.md, reconciling the native reviewer's defensible printed-only interpretation with Carbon's PBIC01 gate before test access. This is scope clarification; historical reports/findings stay immutable.
+
+| Packet / sequence | Owner / category | Branch / worktree | Full base | Canonical report | State / next owner |
+| --- | --- | --- | --- | --- | --- |
+| WP-0007 /007 | eld-rd-astra / implementation | research/wp-0007-vanilla-baseline; eld-baseline-astra | 7abf4c1f6c3e6d8d92b6ddb8e45ec75e8daaf4d2 | docs/agent-reports/eld-rd-astra/WP-0007/007_2026-11-16_implementation_eld-rd-astra.md | PREPARED single consolidated CPU response; exact kickoff WP-0007-eld-rd-astra-correction.md; next independent /003 |
+| WP-0007 /008 | eld-coordinator / design | coordination/bootstrap; eledgercare | fbf6507b50a5ee1f5c8a3c3313e3c0b8d49e5362 | docs/agent-reports/eld-coordinator/WP-0007/008_2026-11-16_design_eld-coordinator.md | Prepared printed/typed metric clarification; next independent /003 on implemented meaning |
+
+Fixed sentinel selection remains a8fb2137e559bfeb453bc184c78fab4989c99ecf. All new work remains CPU/dev-only; no test-data/model/GPU release. Both independent reviewers' findings are attributable, and each now owns its own track. No blocking question requires user permission.
