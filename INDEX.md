@@ -718,3 +718,8 @@ WP-0009 reviewer008 finite execution COMPLETED:624.703s,2excluded warmups+fixed 
 
 
 Coordinator routing refresh: CURRENT.md now states only current WP-0008/WP-0009 states and links completed historical dispositions. Immutable reports/receipts remain in place; no acceptance or scope change. F3 independent004 and R&D independent008 remain running; all GPU leases returned.
+
+
+## WP-0009 final independent acceptance and integration (2026-11-16 UTC)
+
+Independent008 ACCEPTED/PUBLISHED187ca27ad2c6deb4a23b5fbecd47434ca286a829; deliverablead3181856b2e78f381739127d973e778bfccb1e4/inventory0e60ca0f2d27d20e0154807977aa83e825838998. Root verifies120 additions,57 original byte copies,2292 unchanged inputs, report-only publication/exact origin. All author4 scores reproduce; fixed actual sentinel raw/token/full-score/raster identities match. Both leases returned. Author007 and reviewer008 normally integrated32a129a2101d365243b43214217f00acbbf9c6dd. Final R&D disposition frozen next; coordinator009 follows integrated preservation audit. F3 independent004 continues separately; no mapper promotion or fresh benefit claimed.
