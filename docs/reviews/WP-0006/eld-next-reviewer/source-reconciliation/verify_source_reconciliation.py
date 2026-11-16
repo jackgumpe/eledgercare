@@ -335,9 +335,18 @@ def verify_lineage_scope_and_author_publication() -> dict:
         if cand_oid != expected_oid:
             raise RuntimeError(f"Protected object {p} mismatch in {AUTHOR_SOURCE_RESPONSE_PUB_SHA}: {cand_oid} != {expected_oid}")
         head_oid = run_git(["rev-parse", f"HEAD:{p}"]).strip()
-        # docs/agent-reports may legitimately advance via coordinator merges on HEAD, whereas web/deploy/research/evaluation/qualification match
-        if p in ("web", "deploy", "research", "evaluation", "qualification") and head_oid != expected_oid:
+        # Per kickoff L9, qualification/baseline advances via coordinator authority 2ce3366d while qualification/q0 is unchanged;
+        # web, deploy, research, and evaluation must match identically at HEAD.
+        if p in ("web", "deploy", "research", "evaluation") and head_oid != expected_oid:
             raise RuntimeError(f"Protected tree {p} mutated at HEAD: {head_oid} != {expected_oid}")
+        if p == "qualification":
+            coord_qual_oid = run_git(["rev-parse", f"{COORDINATOR_AUTHORITY_SHA}:qualification"]).strip()
+            q0_prev_oid = run_git(["rev-parse", f"{PREVIOUS_AUTHOR_SOURCE_SHA}:qualification/q0"]).strip()
+            q0_head_oid = run_git(["rev-parse", "HEAD:qualification/q0"]).strip()
+            if head_oid != coord_qual_oid or q0_head_oid != q0_prev_oid:
+                raise RuntimeError(
+                    f"Unexpected qualification/q0 mutation: head={head_oid}, coord={coord_qual_oid}, q0_head={q0_head_oid}, q0_prev={q0_prev_oid}"
+                )
         protected_results.append({
             "path": p,
             "expected_in_author_pub": expected_oid,

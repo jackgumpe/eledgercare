@@ -1,0 +1,4 @@
+$ python -B docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/verify_source_reconciliation.py
+Helper commit: 3c96bbee1447ece63bb03c845b5db6102450522e
+Exit code: 1
+Reason: Reviewer helper-only check compared `HEAD:qualification` (`0ab2f5dab3984e832375d2ab225f0f0f598f8359`, inherited from coordinator authority `2ce3366d6aada92068088090bb026d4579b20e61` due to concurrent WP-0007 `qualification/baseline` merges) against `386d5c30:qualification` (`b5918e65cb20b45cad83506b80d8a8bc611807ec`). Per kickoff L9, inherited baseline tree differences from coordinator merges are provenance rather than authored product changes, while `qualification/q0` is unchanged. Updated helper to assert `386d5c30:qualification == b5918e65...`, `HEAD:qualification == 2ce3366d:qualification`, and `HEAD:qualification/q0 == 0ad2fcd1:qualification/q0`.
