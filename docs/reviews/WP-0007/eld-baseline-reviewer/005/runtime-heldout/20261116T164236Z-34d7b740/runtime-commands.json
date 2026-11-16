@@ -1,0 +1,35 @@
+{
+  "continuation_authority": "ffc502a406fb711da3cfbcb115fdf718dbc320a0",
+  "runtime_authority": "e135ef5b69a96d3f509e86171f70f4724fcc0695",
+  "executing_head": "7b4be52d51194e94ee0bd3b4137d4f36e4102d29",
+  "runtime_session": "/root/baseline_reviewer",
+  "continuation_session": "/root/baseline_review_continuation",
+  "continuation_requested_effort": "xhigh",
+  "actual_model_effort": "not independently exposed",
+  "execute_command": "python -I -B qualification/baseline/baseline.py execute --authority e135ef5b69a96d3f509e86171f70f4724fcc0695 --release-path docs/coordination/WP-0007/releases/reviewer-heldout.json --split eval_holdout --owner reviewer",
+  "execute_tool_exit_code": null,
+  "execute_tool_exit_limit": "Original tool return not accessible to continuation or coordinator. Retained run-result proves observed child exit0; no execute call or retry by continuation.",
+  "score_command_record": "reviewer-score-command.json",
+  "score_exit_code": 0,
+  "model_notice_verification": {
+    "command": "python -I -B -",
+    "source": "qualification/q0/harness/q0harness/modelfiles.py",
+    "functions": [
+      "load_manifest",
+      "verify_model_dir",
+      "verify_notices"
+    ],
+    "protocol": "qualification/baseline/protocol.json",
+    "exit_code": 0,
+    "model_objects": 18,
+    "notices": 1,
+    "all_match": true,
+    "evidence": "reviewer-model-after.json",
+    "no_model_import": true
+  },
+  "process_observation": "Get-CimInstance Win32_Process limited to recorded supervisor20824, launcher31296, worker19296: all absent; original creation/executable/parent/command identities retained.",
+  "lease_return": "reviewer-process-exit-and-lease-return.json",
+  "coordinator_acknowledgement": "Root acknowledged same lease RETURNED in collaboration message after its own current process and18modelobject/notice verification. New product lease is separately coordinated.",
+  "clean_head_preserved_through_scoring": true,
+  "no_new_model_calls_or_retries": true
+}

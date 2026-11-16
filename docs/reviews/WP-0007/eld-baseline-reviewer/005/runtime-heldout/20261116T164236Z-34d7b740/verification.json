@@ -1,0 +1,67 @@
+{
+  "continuation_session": "/root/baseline_review_continuation",
+  "predecessor_session": "/root/baseline_reviewer",
+  "continuation_authority": "ffc502a406fb711da3cfbcb115fdf718dbc320a0",
+  "clean_start": "7b4be52d51194e94ee0bd3b4137d4f36e4102d29",
+  "capture_helper_freeze": "b32f3a9362de70ad807f5f8c3e711165735a5b2f",
+  "commands": [
+    {
+      "helper_freeze": "8d6ba2e0daaa8b6e0723504332c732bc56e5e5d3",
+      "executing_head": "b32f3a9362de70ad807f5f8c3e711165735a5b2f",
+      "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/reproduce_v2.py --verification-authority ffc502a406fb711da3cfbcb115fdf718dbc320a0 --original-authority e135ef5b69a96d3f509e86171f70f4724fcc0695 --release-path docs/coordination/WP-0007/releases/reviewer-heldout.json --evidence-commit b32f3a9362de70ad807f5f8c3e711165735a5b2f --run-prefix docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740 --scores-path docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740/scores.json --split eval_holdout --owner reviewer --permit-holdout --output docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740/reproduction.json",
+      "exit_code": 0,
+      "stdout": {
+        "equal": true,
+        "documents": 2,
+        "source": "522f15f1f6e399c36b9c6c107fc08f51862f1fc1"
+      },
+      "evidence_commit": "2b657295916b01dd00815c37f9ddf8a89200f35d"
+    },
+    {
+      "helper_freeze": "b32f3a9362de70ad807f5f8c3e711165735a5b2f",
+      "executing_head": "2b657295916b01dd00815c37f9ddf8a89200f35d",
+      "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740/verify_sentinels.py --evidence-commit b32f3a9362de70ad807f5f8c3e711165735a5b2f --output docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740/comparison.json",
+      "exit_code": 0,
+      "stdout": {
+        "integrity_passed": true,
+        "captured_files": 60,
+        "raw_equal": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "tokens_equal": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "measured_scores_equal": [
+          true,
+          true
+        ]
+      }
+    }
+  ],
+  "failed_decisive_commands": [],
+  "publication_check_note": "Initial git diff --cached --check reported trailing whitespace on exact captured CRLF artifacts. Raw bytes are deliberately preserved under inherited * -text. No normalization or capture rewrite was performed. Scoped authored-metadata/helper/proof whitespace check exits0.",
+  "metadata_whitespace_check": {
+    "command": "git diff --check 7b4be52d51194e94ee0bd3b4137d4f36e4102d29 HEAD -- docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740/capture.json docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740/runtime-commands.json docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740/verify_sentinels.py docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-heldout/20261116T164236Z-34d7b740/reproduction.json",
+    "exit_code": 0
+  },
+  "output_sha256": {
+    "reproduction.json": "3efba3b1603c400cacae527e5d530f7f87bed42beb38efcaa837b7b46a46f1a9",
+    "comparison.json": "b9c69cd6d4a85307064d9cae3e3d6f0838297177fd31d2132ac72cd752f633a0"
+  },
+  "checks_not_run": [
+    "No model call or retry in continuation.",
+    "No replay of unchanged primary dev/recovery/heldout proofs or earlier dev sentinel.",
+    "No application tests or source suite reruns; source unchanged."
+  ],
+  "limits": [
+    "Original execute tool exit unavailable; child exit0 and finalization fields proven.",
+    "Same-code score reproduction plus independent numeric accounting, not a new scorer.",
+    "Root acknowledged the existing lease return; no new model ownership in this review."
+  ]
+}
