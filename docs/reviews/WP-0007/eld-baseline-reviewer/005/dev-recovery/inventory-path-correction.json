@@ -1,0 +1,10 @@
+{
+  "stage": "Publication inventory generation after both decisive checks passed",
+  "classification": "Reviewer metadata path mistake; no reviewed-source or result defect",
+  "attempted_git_command": "git rev-parse fddde41a4bf47941f1e8a207cbe961a180042f11:baseline",
+  "git_exit_code": 128,
+  "wrapper_exit_code": 1,
+  "stderr": "fatal: path 'baseline' does not exist in 'fddde41a4bf47941f1e8a207cbe961a180042f11'",
+  "wrapper_exception": "subprocess.CalledProcessError",
+  "correction": "Use the actual protected subtree qualification/baseline, already checked by frozen reproduce_v2.check_core and capture audit. Initial inventory attempt wrote no artifact; no helper or source changed."
+}
