@@ -1,0 +1,34 @@
+{
+  "reviewer": "eld-baseline-reviewer / /root/baseline_reviewer",
+  "actual_model_effort": "not exposed",
+  "verification_authority": "542bd4f0045adba256637d4b237dc92fc5cae7d4",
+  "clean_start": "e9427a0cae4367db8f06231e5c8dca87d6224ac0",
+  "author_raw_evidence": "a2fd6d872f973635e25be123da44a9e34ba029cd",
+  "author_consolidation": "9dd4d0d8317253e929c324201cc0760b75619fe4",
+  "author_canonical_004": "d1858bec883ab4066ae6a05096ed4bf3c85230e3",
+  "commands": [
+    {
+      "helper_freeze": "8d6ba2e0daaa8b6e0723504332c732bc56e5e5d3",
+      "executing_head": "e9427a0cae4367db8f06231e5c8dca87d6224ac0",
+      "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/reproduce_v2.py --verification-authority 542bd4f0045adba256637d4b237dc92fc5cae7d4 --original-authority 2ce3366d6aada92068088090bb026d4579b20e61 --release-path docs/coordination/WP-0007/releases/author-heldout.json --evidence-commit a2fd6d872f973635e25be123da44a9e34ba029cd --run-prefix docs/evidence/WP-0007/eld-rd-astra/runtime-heldout/20261116T145728Z-07a28a6d --scores-path docs/evidence/WP-0007/eld-rd-astra/runtime-heldout/20261116T145728Z-07a28a6d/scores.json --split eval_holdout --owner author --permit-holdout --output docs/reviews/WP-0007/eld-baseline-reviewer/005/heldout-primary/reproduction.json",
+      "exit_code": 0,
+      "result": {"equal": true, "documents": 13, "source": "522f15f1f6e399c36b9c6c107fc08f51862f1fc1"},
+      "evidence": "reproduction.json",
+      "evidence_commit": "1c3d5f571309f30900e04be72c30bcbc42f74026"
+    },
+    {
+      "helper_freeze": "f0a4f19411069bba3564a6cc27bba8be02135e12",
+      "executing_head": "f0a4f19411069bba3564a6cc27bba8be02135e12",
+      "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/heldout-primary/audit_primary.py --output docs/reviews/WP-0007/eld-baseline-reviewer/005/heldout-primary/capture-primary-audit.json",
+      "exit_code": 0,
+      "result": {"passed": true, "capture_copies": 161, "publication_files": 170, "primary_denominator": 26, "primary_completed": 25, "native_observations": 15, "typed_deltas": 6, "absence_violations": 0},
+      "evidence": "capture-primary-audit.json"
+    }
+  ],
+  "failed_decisive_commands": [],
+  "reused_proofs": [
+    {"packet": "original dev13", "proof": "b87728b5b3c10d4a5633a11ed8c1e1988e32c231", "source": "f807e0ac737df4e9e0aeeb96f716afec57f58ff6"},
+    {"packet": "separate dev recovery", "proof": "10d4f3ab350ac82487e46f815fdf82a8e842ed66", "checkpoint": "e9427a0cae4367db8f06231e5c8dca87d6224ac0", "source": "522f15f1f6e399c36b9c6c107fc08f51862f1fc1"}
+  ],
+  "scope": "Explicitly released completed heldout content for frozen CPU scoring, immutable capture and primary consolidation audit. No model/ML/GPU imports or queries, inference, external runtime, live process or service access. Canonical /005 remains held for three real-model sentinels."
+}
