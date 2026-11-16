@@ -50,9 +50,10 @@ def main():
             assert private==published==committed,item['published_path']
             attrs=git('check-attr','text','--',item['published_path']).decode();assert attrs.rstrip().endswith(': unset'),attrs
         output={'status':'VERIFIED_EXACT_GIT_BYTES','deliverable':args.revision,'verification_head':git('rev-parse','HEAD').decode().strip(),'timestamp_utc':started,'artifacts':32,'original_final_inventory_sha256':EXPECTED,'all_private_worktree_git_bytes_equal':True,'tracked_set_exact':True,'namespace_attributes_only':'preserved/** -text -whitespace','source_and_reports_unchanged':True}
-        for path in ['qualification','evaluation','src','tests','workers','web','research','docs/agent-reports','docs/reviews/WP-0009/eld-mapping-reviewer/004','docs/reviews/WP-0009/eld-mapping-reviewer/006','CURRENT.md','INDEX.md','AGENTS.md']:
+        protected=['qualification','evaluation','src','tests','workers','web','research','docs/agent-reports','docs/reviews/WP-0009/eld-mapping-reviewer/004','docs/reviews/WP-0009/eld-mapping-reviewer/006','CURRENT.md','INDEX.md','AGENTS.md']
+        for path in protected:
             assert git('rev-parse','c847e5e65da9b25dfcc0be690236460cff157189:'+path)==git('rev-parse',args.revision+':'+path),path
-        output['protected_identities']=14
+        output['protected_identities']=len(protected)
         write(OWN/'verification.json',output);print(json.dumps(output,indent=2))
 
 if __name__=='__main__':main()
