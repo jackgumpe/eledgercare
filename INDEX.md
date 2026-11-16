@@ -688,3 +688,6 @@ WP-0009 reviewer008 independent CPU comparison preparation is RELEASED under WP-
 
 
 WP-0009 reviewer008 CPU preparation PUBLISHED a72735e43ce081e65d7be994f9df29f72ef1b300; helpera6209b0d3262f524e963bbc24981112cd31c6ebf, deliverable7445421ec871ac281d3976ef99a8395872c135cc. All19 synthetic checks pass; root verified five deliverable entries,2277 preserved base paths and exact origin, normally integrated025216409699e127793c5367a11ab3f083495e26. Reviewer IDLE awaiting author007 and separate actual sentinel release; canonical008 remains held.
+
+
+WP-0009 author007 actual model run COMPLETED (911.344s,2 warmups+4 primaries,all completed,no failure,worker0,post observers0/0); author tool65622 reports exit0. Exact clean-head CPU score-run also exit0. Root independently acknowledged lease WP-0009-author-fresh-20261116T2052Z RETURNED after18-object/notice verification, qualified host pass and bound PID absence; docs/coordination/WP-0009/author-after/lease-return.json. Author provisional fresh structured field/cell scores are zero for both mappings; independent reproduction/publication remains pending. No model tuning/retry follows.
