@@ -679,3 +679,6 @@ Custodian010 PUBLISHED c723df666f9148747ff2d713867590789959b4a9, exact corpus c0
 ## WP-0009 author finite runtime release (2026-11-16 UTC)
 
 Author confirmed clean executing HEAD2a3781745cb120f6e3eb22b234c111241ba8d8c9 and accepted mapping tree. Root retained fresh GPU/process/loaded-model observations and explicit ownership review at13b8a6d8e7fb896fa9ea4d4e90a8a528cc3dd5d4. Lease WP-0009-author-fresh-20261116T2052Z is GRANTED under exact docs/coordination/WP-0009/releases/author.json,6h ceiling, two excluded warmups plus four fixed fresh primary calls. Actual dispatch PREPARED; no run claimed yet. Same source/scorer/model and first-failure stop; no retries.007 publication remains pending;008 held until observed author return and separate release.
+
+
+WP-0009 author007 actual start2026-11-16T20:53:18.6090134Z: RUNNING_CONFIRMED, wrapper19996/supervisor32624/worker23516, tool session65622, run20261116T205320Z-67b42d6e. Exact authority6343ded1cd79b7c5b67b34893fe4516dc6845eb9 and clean executing2a3781745cb120f6e3eb22b234c111241ba8d8c9. Lease ACTIVE; final outcomes pending. See docs/coordination/WP-0009/author-dispatch.json.
