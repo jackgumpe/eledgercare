@@ -1,0 +1,196 @@
+{
+  "all_assertions_passed": true,
+  "assertions": {
+    "clean_git_tree_before_and_after": true,
+    "cluster_bound_strictly_loopback_55435_during_run": true,
+    "cluster_stopped_cleanly_and_files_retained": true,
+    "external_f2_reviewer_runtime_root_not_created": true,
+    "no_premature_product_db_or_f2_migrations_applied": true,
+    "pg_core_binaries_authenticode_valid": true,
+    "pg_subset_1597_files_exact_hashes_and_no_reparse": true,
+    "ports_5290_4310_55435_free_before_start": true,
+    "roles_and_scram_logins_verified": true,
+    "server_durability_and_scram_settings_verified": true,
+    "toolchain_and_locked_caches_ready": true
+  },
+  "branch": "review/wp-0006-0007-next-tracks",
+  "executing_head": "91322f5f73581a3327ab180d9b3828fc22fbc666",
+  "external_f2_reviewer_runtime_root": {
+    "exists": false,
+    "path": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer"
+  },
+  "helper_path": "docs/reviews/WP-0006/eld-next-reviewer/preparation/verify_preparation.py",
+  "helper_sha256": "70b2d7aa9d561bf2b462a48d10259637abfbd2fe23b7addf64b0ccad7c5d5b06",
+  "observed_utc": "2026-11-16T04:59:28Z",
+  "owned_cluster": {
+    "config": {
+      "admin_role": "eledgercare_admin",
+      "app_role": "eledgercare_app",
+      "configured_dev_database": "eledgercare_product_dev",
+      "credentials_distinct_and_min_32_chars": true,
+      "host": "127.0.0.1",
+      "migrator_role": "eledgercare_migrator",
+      "port": 55435,
+      "secret_values_redacted": true
+    },
+    "non_template_databases": [
+      "postgres"
+    ],
+    "pg_ctl_status_rc_after_stop": 3,
+    "ports_after_stop": {
+      "4310": [],
+      "5290": [],
+      "55435": []
+    },
+    "ports_before_start": {
+      "4310": [],
+      "5290": [],
+      "55435": []
+    },
+    "ports_during_run": {
+      "4310": [],
+      "5290": [],
+      "55435": [
+        {
+          "localAddress": "127.0.0.1",
+          "localPort": 55435,
+          "owningPid": 3096
+        }
+      ]
+    },
+    "postmaster_alive_after_stop": false,
+    "retained_owned_paths": {
+      "dotnet_cli_home": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\.local\\dotnet-home",
+      "npm_cache": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\.local\\npm-cache",
+      "nuget_packages": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\.local\\nuget\\packages",
+      "pg_binaries": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\.local\\tools\\pgsql-18.7-1",
+      "pg_data_dir": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\.local\\postgres-data",
+      "pg_log": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\.local\\logs\\postgres.log",
+      "pg_secrets_file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\.local\\secrets\\pg-local.json",
+      "pg_subset_manifest": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\.local\\tools\\pgsql-18.7-1.subset-manifest.json",
+      "web_node_modules": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\web\\node_modules"
+    },
+    "roles": [
+      {
+        "can_login": true,
+        "create_db": true,
+        "create_role": true,
+        "has_scram_sha256_verifier": true,
+        "inherit": true,
+        "role": "eledgercare_admin",
+        "superuser": true
+      },
+      {
+        "can_login": true,
+        "create_db": false,
+        "create_role": false,
+        "has_scram_sha256_verifier": true,
+        "inherit": false,
+        "role": "eledgercare_app",
+        "superuser": false
+      },
+      {
+        "can_login": true,
+        "create_db": false,
+        "create_role": false,
+        "has_scram_sha256_verifier": true,
+        "inherit": false,
+        "role": "eledgercare_migrator",
+        "superuser": false
+      }
+    ],
+    "scram_role_login_probes": {
+      "eledgercare_app": {
+        "server_addr": "127.0.0.1",
+        "server_port": 55435
+      },
+      "eledgercare_migrator": {
+        "server_addr": "127.0.0.1",
+        "server_port": 55435
+      }
+    },
+    "server_settings": {
+      "data_checksums": "on",
+      "default_transaction_isolation": "read committed",
+      "fsync": "on",
+      "full_page_writes": "on",
+      "listen_addresses": "127.0.0.1",
+      "password_encryption": "scram-sha-256",
+      "port": "55435",
+      "server_version": "18.7",
+      "synchronous_commit": "on",
+      "wal_level": "replica"
+    },
+    "started_postmaster": {
+      "name": "postgres",
+      "pid": 3096,
+      "startUtc": "2026-11-16T04:59:22.7119110Z"
+    },
+    "stop_exit_code": 0
+  },
+  "postgres_binary_provenance": {
+    "archive_content_length": 389515503,
+    "authenticode_core_binaries": {
+      "initdb.exe": {
+        "signer": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+        "status": "Valid"
+      },
+      "pg_ctl.exe": {
+        "signer": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+        "status": "Valid"
+      },
+      "postgres.exe": {
+        "signer": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+        "status": "Valid"
+      },
+      "psql.exe": {
+        "signer": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+        "status": "Valid"
+      }
+    },
+    "binary_versions": {
+      "initdb.exe": "initdb (PostgreSQL) 18.7",
+      "pg_ctl.exe": "pg_ctl (PostgreSQL) 18.7",
+      "postgres.exe": "postgres (PostgreSQL) 18.7",
+      "psql.exe": "psql (PostgreSQL) 18.7"
+    },
+    "central_directory_sha256": "3132ca63b424f7ec371eabe50753ad7cd036278d942a6ea465547b17bf90a149",
+    "expected_central_directory_sha256_match": true,
+    "expected_subset_manifest_sha256_match": true,
+    "extra_files": [],
+    "hash_or_crc_mismatches": [],
+    "missing_files": [],
+    "reparse_points": [],
+    "source_url": "https://get.enterprisedb.com/postgresql/postgresql-18.7-1-windows-x64-binaries.zip",
+    "subset_manifest_sha256": "47c3deb9c917f79c353b3683b2c2611ee975285ea06226c8f72444c96ce9051f",
+    "verified_file_count": 1597,
+    "verified_total_bytes": 151078582
+  },
+  "schema": "eld-wp0006-reviewer-preparation-receipt/1",
+  "scope_note": "Isolated reviewer resource preparation only at pre-F2 application base; not canonical WP-0006 /004 acceptance.",
+  "toolchain_and_caches": {
+    "angular_cli_local": "22.2.7",
+    "dotnet_ef_local_tool": "10.0.15",
+    "dotnet_runtimes": [
+      "Microsoft.AspNetCore.App 10.0.9 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]",
+      "Microsoft.AspNetCore.App 10.0.14 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]",
+      "Microsoft.NETCore.App 10.0.9 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]",
+      "Microsoft.NETCore.App 10.0.14 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]",
+      "Microsoft.WindowsDesktop.App 10.0.9 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]",
+      "Microsoft.WindowsDesktop.App 10.0.14 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]"
+    ],
+    "dotnet_sdk": "10.0.403",
+    "msedge_path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "msedge_version": "157.0.4341.60",
+    "nodejs": "v24.18.0",
+    "npm": "11.16.0",
+    "nuget_lock_audit": {
+      "content_hash_mismatches": [],
+      "lockfile_count": 7,
+      "missing_cached_packages": [],
+      "package_entries_checked": 126,
+      "unique_packages_verified": 53
+    },
+    "playwright_cli_local": "Version 1.65.1"
+  }
+}
