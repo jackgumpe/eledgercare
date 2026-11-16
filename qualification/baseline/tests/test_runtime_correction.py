@@ -177,4 +177,103 @@ class SupervisorTests(unittest.TestCase):
             self.assertEqual(error['active_phase'],'call:owned-stub');self.assertIn('PermissionError',error['traceback']);self.assertIn('denied scan',error['message'])
             self.assertTrue(result['failure'].startswith('SUPERVISOR_ERROR:'));self.assertEqual(len([c for c in result['calls'] if not c['excluded']]),13)
 
+class FinalizationTests(unittest.TestCase):
+    def run_case(self,case):
+        import q0harness.environment as env,q0harness.supervisor as observer,winjob
+        with tempfile.TemporaryDirectory() as tmp:
+            scratch=Path(tmp);base=scratch/'base';(base/'venv/Scripts').mkdir(parents=True);(base/'venv/Scripts/python.exe').write_bytes(b'not executed')
+            root=scratch/'runtime';r=original_tests.CorpusReleaseTests().release();r['runtime_root']=str(root)
+            p=release.protocol();p['read_only_q0_root']=str(base)
+            child_env={k:str(scratch/'cache'/k) for k in ['TEMP','TMP','TMPDIR','HF_HOME','HF_MODULES_CACHE','CUDA_CACHE_PATH','TORCH_HOME','TORCHINDUCTOR_CACHE_DIR','USERPROFILE']};child_env['PATH']=''
+            planned=release.released_schedule(p,r,'dev','author');active=planned[0]['fixture_id']+'.warmup'
+            interrupted=case in ('persistent_scan','combined','unwritable_destination')
+            class Process:
+                pid=321;returncode=None if interrupted else 0;kills=0;waits=0
+                def poll(self):return self.returncode
+                def kill(self):self.kills+=1;self.returncode=1
+                def wait(self,timeout):self.waits+=1;return self.returncode
+            proc=Process();original_load=runtime.load_json;original_write=runtime.write;original_disk=runtime.shutil.disk_usage;scans=[];disk_calls=[]
+            def spawn(*args,**kwargs):
+                run=next((root/'runs/author').iterdir());evidence=run/'evidence';evidence.mkdir()
+                for c in planned:
+                    (evidence/(c['fixture_id']+'.'+c['kind']+'.observation.json')).write_text(json.dumps({'flags':[]}),encoding='utf-8')
+                (evidence/'worker-outcome.json').write_text(json.dumps({'failure':None,'active_call':active}),encoding='utf-8')
+                return proc
+            def load(path):
+                name=Path(path).name
+                if name=='heartbeat.json':return {'phase':'call:'+active,'progress':1}
+                if name=='worker-outcome.json':
+                    if case in ('outcome_malformed','combined'):raise json.JSONDecodeError('broken outcome','{',1)
+                    if case=='outcome_unreadable':raise PermissionError(errno.EACCES,'outcome unreadable',str(path))
+                    if case=='outcome_structure':return []
+                if name==active+'.observation.json':
+                    if case=='record_malformed':raise json.JSONDecodeError('broken observation','{',1)
+                    if case in ('record_unreadable','combined'):raise PermissionError(errno.EACCES,'observation unreadable',str(path))
+                    if case=='record_structure':return {'flags':'not a list'}
+                return original_load(path)
+            def scan(path):
+                scans.append(str(path))
+                if case in ('persistent_scan','combined','unwritable_destination'):raise PermissionError(errno.EACCES,'persistent denied scan',str(Path(path)/'denied'))
+                if case=='final_scan':raise OSError(errno.EIO,'final scan failure',str(path))
+                return 1234
+            def observers(commands,run,tag):
+                if tag=='post' and case in ('post_observer','combined'):raise OSError(errno.EIO,'post observer failure',str(run/'observer-post.txt'))
+                return [{'tag':tag}]
+            def disk(path):
+                disk_calls.append(str(path))
+                if len(disk_calls)>1 and case in ('disk','combined'):raise OSError(errno.EIO,'final disk failure',str(path))
+                return original_disk(path)
+            def write(path,obj):
+                if Path(path).name=='run-result.json' and case=='unwritable_destination':raise PermissionError(errno.EACCES,'destination unwritable',str(path))
+                return original_write(path,obj)
+            with patch('runtime.read_release',return_value=r),patch('runtime.protocol',return_value=p),patch('runtime.git',return_value=b'cpu-finalization-head'),patch.object(env,'build_child_env',return_value=child_env),patch.object(env,'audit_child_env'),patch.object(env,'resolve_host_git',return_value='git'),patch.object(observer,'run_observers',side_effect=observers),patch.object(winjob,'create',return_value=42),patch.object(winjob,'close') as close,patch('runtime.subprocess.Popen',side_effect=spawn),patch('runtime.load_json',side_effect=load),patch('runtime.directory_size',side_effect=scan),patch('runtime.shutil.disk_usage',side_effect=disk),patch('runtime.write',side_effect=write):
+                if case=='unwritable_destination':
+                    with self.assertRaisesRegex(PermissionError,'destination unwritable'):runtime.execute('mock','mock','dev','author')
+                    self.assertEqual(proc.kills,1);self.assertEqual(proc.waits,1);close.assert_called_once_with(42)
+                    self.assertFalse(list(root.rglob('run-result.json')));return
+                code=runtime.execute('mock','mock','dev','author')
+            close.assert_called_once_with(42);self.assertEqual(proc.kills,int(interrupted));self.assertEqual(proc.waits,1)
+            result=json.loads(next(root.rglob('run-result.json')).read_text(encoding='utf-8'))
+            self.assertEqual(len(result['calls']),15);self.assertEqual(sum(not c['excluded'] for c in result['calls']),13)
+            self.assertTrue(result['observed_child_exit']);self.assertEqual(result['executing_head'],'cpu-finalization-head')
+            self.assertEqual(code,0 if case=='normal' else 1)
+            if case=='normal':
+                self.assertIsNone(result['failure']);self.assertIsNone(result['supervisor_error']);self.assertEqual(result['secondary_errors'],[])
+                self.assertEqual(result['owned_bytes_after'],1234);self.assertEqual(result['final_observation_status']['owned_bytes_after'],'available')
+                self.assertTrue(all(c['status']=='completed' for c in result['calls']))
+            else:
+                self.assertTrue(result['failure']);self.assertTrue(result['supervisor_error']['traceback'])
+                self.assertTrue(result['supervisor_error']['message']);self.assertIsNotNone(result['supervisor_error']['filename'] if case not in ('outcome_malformed','outcome_structure','record_malformed','record_structure') else True)
+            if case in ('persistent_scan','combined'):
+                self.assertEqual(len(scans),2);self.assertEqual(result['supervisor_error']['stage'],'supervision')
+                self.assertEqual(result['supervisor_error']['type'],'PermissionError');self.assertIn('persistent denied scan',result['supervisor_error']['message'])
+                self.assertEqual(result['supervisor_error']['active_phase'],'call:'+active)
+                self.assertTrue(any(x['stage']=='owned_bytes_after' for x in result['secondary_errors']))
+                self.assertEqual(result['calls'][0]['status'],'failed')
+            if case in ('persistent_scan','final_scan','combined'):
+                self.assertIsNone(result['owned_bytes_after']);self.assertEqual(result['final_observation_status']['owned_bytes_after'],'unavailable')
+            if case in ('post_observer','combined'):
+                self.assertEqual(result['final_observation_status']['post_observers'],'unavailable');self.assertEqual(result['observers'],[{'tag':'pre'}])
+            if case.startswith('outcome_') or case=='combined':self.assertEqual(result['final_observation_status']['worker_outcome'],'unavailable')
+            if case.startswith('record_') or case=='combined':
+                self.assertEqual(result['calls'][0]['observation_status'],'unavailable');self.assertIsNone(result['calls'][0]['observation']);self.assertEqual(result['calls'][0]['status'],'failed')
+            if case in ('disk','combined'):
+                self.assertIsNone(result['free_bytes_after']);self.assertEqual(result['final_observation_status']['free_bytes_after'],'unavailable')
+            if case=='combined':
+                self.assertEqual([x['stage'] for x in result['secondary_errors']],['post_observers','worker_outcome','call_observation:'+active,'free_bytes_after','owned_bytes_after'])
+            print(json.dumps({'finalization_case':case,'exit_code':code,'primary':result['supervisor_error'],'secondary':result['secondary_errors'],'observations':result['final_observation_status'],'planned':len(result['calls']),'measured':13,'job_closes':close.call_count,'child_kills':proc.kills,'child_waits':proc.waits}))
+    def test_normal_successful_finalization(self):self.run_case('normal')
+    def test_persistent_loop_and_final_scan(self):self.run_case('persistent_scan')
+    def test_final_scan_only(self):self.run_case('final_scan')
+    def test_post_observer_failure(self):self.run_case('post_observer')
+    def test_worker_outcome_failures(self):
+        for case in ('outcome_malformed','outcome_unreadable','outcome_structure'):
+            with self.subTest(case=case):self.run_case(case)
+    def test_call_observation_failures(self):
+        for case in ('record_malformed','record_unreadable','record_structure'):
+            with self.subTest(case=case):self.run_case(case)
+    def test_final_disk_failure(self):self.run_case('disk')
+    def test_primary_and_all_secondary_failures(self):self.run_case('combined')
+    def test_unwritable_destination_limitation_keeps_cleanup(self):self.run_case('unwritable_destination')
+
 if __name__=='__main__':unittest.main()
