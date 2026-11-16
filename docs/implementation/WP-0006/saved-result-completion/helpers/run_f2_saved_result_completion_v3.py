@@ -437,11 +437,12 @@ class ReadOnlyPostgresSession:
     def select_json_readonly(self, select_sql: str) -> list[dict]:
         if not select_sql.lstrip().upper().startswith("SELECT "):
             raise ValueError("Only read-only SELECT queries are permitted.")
-        env = dict(os.environ, PGPASSWORD=self.settings["appPassword"])
-        wrapped = (
-            "SET TRANSACTION READ ONLY; "
-            f"SELECT COALESCE(json_agg(t), '[]'::json)::text FROM ({select_sql}) t;"
+        env = dict(
+            os.environ,
+            PGPASSWORD=self.settings["appPassword"],
+            PGOPTIONS="-c default_transaction_read_only=on",
         )
+        wrapped = f"SELECT COALESCE(json_agg(t), '[]'::json)::text FROM ({select_sql}) t;"
         out = subprocess.check_output(
             [
                 str(self.psql),
@@ -465,8 +466,7 @@ class ReadOnlyPostgresSession:
             env=env,
             text=True,
         ).strip()
-        lines = [ln.strip() for ln in out.splitlines() if ln.strip() and ln.strip() != "SET"]
-        return json.loads(lines[-1]) if lines else []
+        return json.loads(out) if out else []
 
     def app_connection_string(self) -> str:
         s = self.settings
