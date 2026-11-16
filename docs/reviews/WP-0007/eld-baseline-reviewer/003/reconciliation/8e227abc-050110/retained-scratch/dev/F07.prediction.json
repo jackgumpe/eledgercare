@@ -1,0 +1,3034 @@
+{
+  "schema": "eld-baseline-prediction/1",
+  "fields": [
+    {
+      "field_id": "invoice_number",
+      "label": "Invoice No",
+      "page": 1,
+      "value": "INV-008810",
+      "location": [
+        2
+      ]
+    },
+    {
+      "field_id": "contract_id",
+      "label": "Contract ID",
+      "page": 1,
+      "value": "CTR-008840",
+      "location": [
+        3
+      ]
+    },
+    {
+      "field_id": "address_bill_to",
+      "label": "BILL TO",
+      "page": 1,
+      "value": "Maple Ridge Commons Asset Operations",
+      "location": [
+        6
+      ]
+    },
+    {
+      "field_id": "address_contract_scope",
+      "label": "CONTRACT & COVERAGE",
+      "page": 1,
+      "value": "Master Service Agreement CTR-008840",
+      "location": [
+        10
+      ]
+    },
+    {
+      "field_id": "invoice_number",
+      "label": "Invoice No",
+      "page": 1,
+      "value": "INV-008810",
+      "location": [
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "field_id": "contract_id",
+      "label": "Contract ID",
+      "page": 1,
+      "value": "CTR-008840",
+      "location": [
+        14,
+        0,
+        1
+      ]
+    },
+    {
+      "field_id": "invoice_date",
+      "label": "Statement Date",
+      "page": 1,
+      "value": "2026-10-31",
+      "location": [
+        14,
+        0,
+        2
+      ]
+    },
+    {
+      "field_id": "due_date",
+      "label": "Due Date",
+      "page": 1,
+      "value": "2026-11-30",
+      "location": [
+        14,
+        2,
+        0
+      ]
+    },
+    {
+      "field_id": "payment_terms",
+      "label": "Terms",
+      "page": 1,
+      "value": "Net 30 Consolidated",
+      "location": [
+        14,
+        2,
+        1
+      ]
+    },
+    {
+      "field_id": "lender_draw_ref",
+      "label": "Escrow / Lender Draw Ref",
+      "page": 1,
+      "value": "",
+      "location": [
+        14,
+        2,
+        2
+      ]
+    },
+    {
+      "field_id": "invoice_number",
+      "label": "Invoice No",
+      "page": 2,
+      "value": "INV-008810 |",
+      "location": [
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "field_id": "contract_id",
+      "label": "Contract ID",
+      "page": 2,
+      "value": "CTR-008840 | Page 2 of 3 | PG-ANCHOR: MP01-P2",
+      "location": [
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "field_id": "invoice_number",
+      "label": "Invoice No",
+      "page": 3,
+      "value": "INV-008810 |",
+      "location": [
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "field_id": "contract_id",
+      "label": "Contract ID",
+      "page": 3,
+      "value": "CTR-008840 | Page 3 of 3 | PG-ANCHOR: MP01-P3",
+      "location": [
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "field_id": "subtotal",
+      "label": "Line Net Subtotal",
+      "page": 3,
+      "value": "$1,478.19",
+      "location": [
+        2,
+        8,
+        1
+      ]
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "label": "Taxable Subtotal (Tax=T Rows)",
+      "page": 3,
+      "value": "$562.19",
+      "location": [
+        2,
+        9,
+        1
+      ]
+    },
+    {
+      "field_id": "tax_amount",
+      "label": "Sales Tax (7.50% on Taxable Subtotal)",
+      "page": 3,
+      "value": "$42.16",
+      "location": [
+        2,
+        9,
+        1
+      ]
+    },
+    {
+      "field_id": "fee_fee_manifest_01",
+      "label": "Non-Taxable Hazmat Lamp Recycling Manifest Fee",
+      "page": 3,
+      "value": "$15.00",
+      "location": [
+        2,
+        9,
+        1
+      ]
+    },
+    {
+      "field_id": "invoice_total",
+      "label": "CURRENT INVOICE TOTAL",
+      "page": 3,
+      "value": "$1,535.35",
+      "location": [
+        2,
+        9,
+        1
+      ]
+    },
+    {
+      "field_id": "previous_balance",
+      "label": "Prior Unpaid Balance",
+      "page": 3,
+      "value": "$240.00",
+      "location": [
+        2,
+        9,
+        1
+      ]
+    },
+    {
+      "field_id": "payments_credits_applied",
+      "label": "Payments / Credits Applied",
+      "page": 3,
+      "value": "$240.00",
+      "location": [
+        2,
+        9,
+        1
+      ]
+    },
+    {
+      "field_id": "amount_due",
+      "label": "TOTAL AMOUNT DUE",
+      "page": 3,
+      "value": "$1,535.35",
+      "location": [
+        2,
+        9,
+        1
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "line_items",
+      "columns": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "page": 1,
+      "rows": [
+        {
+          "values": [
+            "L01",
+            "WO-004701",
+            "Unit 02A - Replace Leaking Tub Diverter Spout",
+            "1.00 EA",
+            "$28.50",
+            "0.00%",
+            "$0.00",
+            "T",
+            "$28.50"
+          ],
+          "physical_values": [
+            "L01",
+            "WO-004701",
+            "Unit 02A - Replace Leaking Tub Diverter Spout",
+            "1.00 EA",
+            "$28.50",
+            "0.00%",
+            "$0.00",
+            "T",
+            "$28.50"
+          ],
+          "cells": [
+            {
+              "text": "L01",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "WO-004701",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Unit 02A - Replace Leaking Tub Diverter Spout",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.00 EA",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$28.50",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "0.00%",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$0.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "T",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$28.50",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 1,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "L02",
+            "LAB-004701",
+            "Unit 02A - Plumbing Repair Labor",
+            "1.25 HR",
+            "$76.00",
+            "0.00%",
+            "$0.00",
+            "N",
+            "$95.00"
+          ],
+          "physical_values": [
+            "L02",
+            "LAB-004701",
+            "Unit 02A - Plumbing Repair Labor",
+            "1.25 HR",
+            "$76.00",
+            "0.00%",
+            "$0.00",
+            "N",
+            "$95.00"
+          ],
+          "cells": [
+            {
+              "text": "L02",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "LAB-004701",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Unit 02A - Plumbing Repair Labor",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.25 HR",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$76.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "0.00%",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$0.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "N",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$95.00",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 2,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "L03",
+            "WO-004705",
+            "Bldg A Hall - Emergency Exit Sign NiCd Battery",
+            "3.00 EA",
+            "$19.20",
+            "10.00%",
+            "$5.76",
+            "T",
+            "$51.84"
+          ],
+          "physical_values": [
+            "L03",
+            "WO-004705",
+            "Bldg A Hall - Emergency Exit Sign NiCd Battery",
+            "3.00 EA",
+            "$19.20",
+            "10.00%",
+            "$5.76",
+            "T",
+            "$51.84"
+          ],
+          "cells": [
+            {
+              "text": "L03",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "WO-004705",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Bldg A Hall - Emergency Exit Sign NiCd Battery",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "3.00 EA",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$19.20",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "10.00%",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$5.76",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "T",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$51.84",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 3,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "L04",
+            "LAB-004705",
+            "Bldg A Hall - Life-Safety Load Test Labor",
+            "1.00 HR",
+            "$82.00",
+            "0.00%",
+            "$0.00",
+            "N",
+            "$82.00"
+          ],
+          "physical_values": [
+            "L04",
+            "LAB-004705",
+            "Bldg A Hall - Life-Safety Load Test Labor",
+            "1.00 HR",
+            "$82.00",
+            "0.00%",
+            "$0.00",
+            "N",
+            "$82.00"
+          ],
+          "cells": [
+            {
+              "text": "L04",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "LAB-004705",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Bldg A Hall - Life-Safety Load Test Labor",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.00 HR",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$82.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "0.00%",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$0.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "N",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$82.00",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 4,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "L05",
+            "WO-004712",
+            "Unit 08C - Patio Sliding Door Tandem Roller Kit",
+            "2.00 KT",
+            "$22.40",
+            "0.00%",
+            "$0.00",
+            "T",
+            "$44.80"
+          ],
+          "physical_values": [
+            "L05",
+            "WO-004712",
+            "Unit 08C - Patio Sliding Door Tandem Roller Kit",
+            "2.00 KT",
+            "$22.40",
+            "0.00%",
+            "$0.00",
+            "T",
+            "$44.80"
+          ],
+          "cells": [
+            {
+              "text": "L05",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "WO-004712",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Unit 08C - Patio Sliding Door Tandem Roller Kit",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "2.00 KT",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$22.40",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "0.00%",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$0.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "T",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$44.80",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 5,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "L06",
+            "LAB-004712",
+            "Unit 08C - Carpentry Track Alignment Labor",
+            "1.50 HR",
+            "$72.00",
+            "0.00%",
+            "$0.00",
+            "N",
+            "$108.00"
+          ],
+          "physical_values": [
+            "L06",
+            "LAB-004712",
+            "Unit 08C - Carpentry Track Alignment Labor",
+            "1.50 HR",
+            "$72.00",
+            "0.00%",
+            "$0.00",
+            "N",
+            "$108.00"
+          ],
+          "cells": [
+            {
+              "text": "L06",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "LAB-004712",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Unit 08C - Carpentry Track Alignment Labor",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.50 HR",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$72.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "0.00%",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$0.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "N",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$108.00",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 6,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "L07",
+            "WO-004719",
+            "Clubhouse - Commercial Entry Closer Hydraulic Unit",
+            "1.00 EA",
+            "$134.00",
+            "5.00%",
+            "$6.70",
+            "T",
+            "$127.30"
+          ],
+          "physical_values": [
+            "L07",
+            "WO-004719",
+            "Clubhouse - Commercial Entry Closer Hydraulic Unit",
+            "1.00 EA",
+            "$134.00",
+            "5.00%",
+            "$6.70",
+            "T",
+            "$127.30"
+          ],
+          "cells": [
+            {
+              "text": "L07",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "WO-004719",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Clubhouse - Commercial Entry Closer Hydraulic Unit",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.00 EA",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$134.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "5.00%",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$6.70",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "T",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$127.30",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 7,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "L08",
+            "LAB-004719",
+            "Clubhouse - Door Closer Install & Sweep Adjust",
+            "1.00 HR",
+            "$72.00",
+            "0.00%",
+            "$0.00",
+            "N",
+            "$72.00"
+          ],
+          "physical_values": [
+            "L08",
+            "LAB-004719",
+            "Clubhouse - Door Closer Install & Sweep Adjust",
+            "1.00 HR",
+            "$72.00",
+            "0.00%",
+            "$0.00",
+            "N",
+            "$72.00"
+          ],
+          "cells": [
+            {
+              "text": "L08",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "LAB-004719",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Clubhouse - Door Closer Install & Sweep Adjust",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.00 HR",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$72.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "0.00%",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$0.00",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "N",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "$72.00",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 8,
+          "mapping_status": "mapped"
+        }
+      ],
+      "block": 16
+    }
+  ],
+  "anchors": [
+    {
+      "page": 1,
+      "value": "MP01-P1"
+    },
+    {
+      "page": 2,
+      "value": "MP01-P2"
+    },
+    {
+      "page": 3,
+      "value": "MP01-P3"
+    }
+  ],
+  "unmapped": [
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "APEX FACILITY MAINTENANCE PARTNERS LLC",
+      "location": [
+        0
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE",
+      "location": [
+        1
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Page 1 of 3",
+      "location": [
+        4
+      ]
+    },
+    {
+      "page": 1,
+      "text": "PG-ANCHOR: MP01-P1",
+      "kind": "unknown_label",
+      "location": [
+        5
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "PG-ANCHOR: MP01-P1",
+      "location": [
+        5
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Maple Ridge Commons Asset Operations",
+      "location": [
+        7
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Consolidated AP Ledger Desk",
+      "location": [
+        8
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "815 Maple Ridge Dr, Downers Grove, IL 60515",
+      "location": [
+        9
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Master Service Agreement CTR-008840",
+      "location": [
+        11
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Buildings A, B, C & Clubhouse",
+      "location": [
+        12
+      ]
+    },
+    {
+      "page": 1,
+      "text": "Billing Period: 2026-10-01 through 2026-10-31",
+      "kind": "unknown_label",
+      "location": [
+        13
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Billing Period: 2026-10-01 through 2026-10-31",
+      "location": [
+        13
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_table_row",
+      "values": [
+        "Invoice No:",
+        "Contract ID:",
+        "Statement Date:"
+      ],
+      "location": [
+        14,
+        0
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_table_row",
+      "values": [
+        "INV-008810",
+        "CTR-008840",
+        "2026-10-31"
+      ],
+      "location": [
+        14,
+        1
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_table_row",
+      "values": [
+        "Due Date:",
+        "Terms:",
+        "Escrow / Lender Draw Ref:"
+      ],
+      "location": [
+        14,
+        2
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_table_row",
+      "values": [
+        "2026-11-30",
+        "Net 30 Consolidated",
+        ""
+      ],
+      "location": [
+        14,
+        3
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Continued 20-row table across Pages 1-3 (repeated headers on Pages 2 & 3 are NOT line items). Summary totals appear ONLY on Page 3. Tax (7.50%) applies strictly to Net rows marked Tax=T.",
+      "location": [
+        15
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "[Line items continue on Page 2; Invoice Summary Totals appear ONLY on Page 3]",
+      "location": [
+        17
+      ]
+    },
+    {
+      "page": 1,
+      "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60563 | Tel: 555-0129 | statements@apexfacility.example",
+      "kind": "unknown_label",
+      "location": [
+        18
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60563 | Tel: 555-0129 | statements@apexfacility.example",
+      "location": [
+        18
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_text",
+      "text": "APEX FACILITY MAINTENANCE PARTNERS LLC",
+      "location": [
+        0
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_text",
+      "text": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE (CONTINUED)",
+      "location": [
+        1
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "Invoice No: INV-008810 | Contract ID: CTR-008840 | Page 2 of 3 | PG-ANCHOR: MP01-P2"
+      ],
+      "location": [
+        2,
+        0
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        ""
+      ],
+      "location": [
+        2,
+        1
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "Row",
+        "SKU / Ref",
+        "Description",
+        "Qty",
+        "Unit Price",
+        "Disc%",
+        "Disc Amt",
+        "Tax",
+        "Net Liner"
+      ],
+      "location": [
+        2,
+        2
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L09",
+        "WO-004724",
+        "Unit 11A - Refrigerator Evaporator Fan Motor",
+        "1.00 EA",
+        "$54.80",
+        "0.00%",
+        "$0.00",
+        "T",
+        "$54.80"
+      ],
+      "location": [
+        2,
+        3
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L10",
+        "LAB-004724",
+        "Unit 11A - Appliance Diagnostic & Install Labor",
+        "1.25 HR",
+        "$80.00",
+        "0.00%",
+        "$0.00",
+        "N",
+        "$100.00"
+      ],
+      "location": [
+        2,
+        4
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L11",
+        "WO-004731",
+        "Bldg B Boiler - Brass Auto Air Vent Valve 1/8 NPT",
+        "4.00 EA",
+        "$16.75",
+        "0.00%",
+        "$0.00",
+        "T",
+        "$67.00"
+      ],
+      "location": [
+        2,
+        5
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L12",
+        "LAB-004731",
+        "Bldg B Boiler - Hydronic Loop Purge Labor",
+        "2.00 HR",
+        "$88.00",
+        "0.00%",
+        "$0.00",
+        "N",
+        "$176.00"
+      ],
+      "location": [
+        2,
+        6
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L13",
+        "WO-004738",
+        "Unit 14D - Dual-Flush Toilet Flapper Seal Assembly",
+        "2.00 EA",
+        "$11.60",
+        "0.00%",
+        "$0.00",
+        "T",
+        "$23.20"
+      ],
+      "location": [
+        2,
+        7
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L14",
+        "LAB-004738",
+        "Unit 14D - Tank Rebuild & Fill Calibration Labor",
+        "0.75 HR",
+        "$76.00",
+        "0.00%",
+        "$0.00",
+        "N",
+        "$57.00"
+      ],
+      "location": [
+        2,
+        8
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L15",
+        "WO-004744",
+        "Bldg C Exterior - Photocell Dusk-to-Dawn Sensor",
+        "3.00 EA",
+        "$24.50",
+        "10.00%",
+        "$7.35",
+        "T",
+        "$66.15"
+      ],
+      "location": [
+        2,
+        9
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L16",
+        "LAB-004744",
+        "Bldg C Exterior - Wallpack Sensor Wiring Labor",
+        "1.50 HR",
+        "$82.00",
+        "0.00%",
+        "$0.00",
+        "N",
+        "$123.00"
+      ],
+      "location": [
+        2,
+        10
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_text",
+      "text": "[Line items continue on Page 3; Invoice Summary Totals appear ONLY on Page 3]",
+      "location": [
+        3
+      ]
+    },
+    {
+      "page": 2,
+      "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60563 | Tel: $55-0129 | statements@apexfacility.example",
+      "kind": "unknown_label",
+      "location": [
+        4
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "unmapped_text",
+      "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60563 | Tel: $55-0129 | statements@apexfacility.example",
+      "location": [
+        4
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_text",
+      "text": "APEX FACILITY MAINTENANCE PARTNERS LLC",
+      "location": [
+        0
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_text",
+      "text": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE (CONTINUED)",
+      "location": [
+        1
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        "Invoice No: INV-008810 | Contract ID: CTR-008840 | Page 3 of 3 | PG-ANCHOR: MP01-P3"
+      ],
+      "location": [
+        2,
+        0
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        ""
+      ],
+      "location": [
+        2,
+        1
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        "Row",
+        "SKU / Ref",
+        "Description",
+        "Qty",
+        "Unit Price",
+        "Disc%*",
+        "Disc Amt",
+        "Tax",
+        "Net Line"
+      ],
+      "location": [
+        2,
+        2
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L17",
+        "WO-004752",
+        "Unit 19B - Range Hood Aluminum Grease Filter Pair",
+        "2.00 PR",
+        "$15.30",
+        "0.00%",
+        "$0.00",
+        "T",
+        "$30.60"
+      ],
+      "location": [
+        2,
+        3
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L18",
+        "WO-004759",
+        "Laundry Rm B - T8 Ballast Bypass LED Tube 4ft Box",
+        "1.00 BX",
+        "$68.00",
+        "0.00%",
+        "$0.00",
+        "T",
+        "$68.00"
+      ],
+      "location": [
+        2,
+        4
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L19",
+        "LAB-004759",
+        "Laundry Rm B - Tombstone Rewire & Lamp Retrofit",
+        "1.50 HR",
+        "$82.00",
+        "0.00%",
+        "$0.00",
+        "N",
+        "$123.00",
+        ""
+      ],
+      "location": [
+        2,
+        5
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        "L20",
+        "CRD-008840",
+        "SLA Response Credit - Late Callback Ticket WO-004690",
+        "1.00 EA",
+        "-$20.00",
+        "0.00%",
+        "$0.00",
+        "N",
+        "-$20.00",
+        ""
+      ],
+      "location": [
+        2,
+        6
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        ""
+      ],
+      "location": [
+        2,
+        7
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        "REMITTANCE & ACCOUNT NOTES",
+        "Line Net Subtotal: $1,478.19"
+      ],
+      "location": [
+        2,
+        8
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_table_row",
+      "values": [
+        "Remit to Apex Facility Maintenance Partners LLC; cite INV-008810 and CTR-008840. Prior balance ($240.00) cleared by payment ($240.00).",
+        "Taxable Subtotal (Tax=T Rows): $562.19Sales Tax (7.50% on Taxable Subtotal): $42.16Non-Taxable Hazmat Lamp Recycling Manifest Fee: $15.00CURRENT INVOICE TOTAL: $1,535.35Prior Unpaid Balance: $240.00Payments / Credits Applied: $240.00TOTAL AMOUNT DUE: $1,535.35"
+      ],
+      "location": [
+        2,
+        9
+      ]
+    },
+    {
+      "page": 3,
+      "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60553 | Tel: 555-0129 | statements@apexfacility.example",
+      "kind": "unknown_label",
+      "location": [
+        3
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "unmapped_text",
+      "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60553 | Tel: 555-0129 | statements@apexfacility.example",
+      "location": [
+        3
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "blocks": [
+        {
+          "kind": "title",
+          "bbox": [
+            75,
+            45,
+            478,
+            60
+          ],
+          "text": "APEX FACILITY MAINTENANCE PARTNERS LLC",
+          "rows": [],
+          "native_body": "APEX FACILITY MAINTENANCE PARTNERS LLC"
+        },
+        {
+          "kind": "title",
+          "bbox": [
+            75,
+            68,
+            667,
+            83
+          ],
+          "text": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE",
+          "rows": [],
+          "native_body": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            75,
+            109,
+            242,
+            120
+          ],
+          "text": "Invoice No: INV-008810",
+          "rows": [],
+          "native_body": "Invoice No: INV-008810"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            288,
+            110,
+            474,
+            120
+          ],
+          "text": "Contract ID: CTR-008840",
+          "rows": [],
+          "native_body": "Contract ID: CTR-008840"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            521,
+            110,
+            614,
+            120
+          ],
+          "text": "Page 1 of 3",
+          "rows": [],
+          "native_body": "Page 1 of 3"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            657,
+            110,
+            802,
+            120
+          ],
+          "text": "PG-ANCHOR: MP01-P1",
+          "rows": [],
+          "native_body": "PG-ANCHOR: MP01-P1"
+        },
+        {
+          "kind": "title",
+          "bbox": [
+            69,
+            137,
+            118,
+            148
+          ],
+          "text": "BILL TO",
+          "rows": [],
+          "native_body": "BILL TO"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            69,
+            151,
+            277,
+            162
+          ],
+          "text": "Maple Ridge Commons Asset Operations",
+          "rows": [],
+          "native_body": "Maple Ridge Commons Asset Operations"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            69,
+            163,
+            223,
+            174
+          ],
+          "text": "Consolidated AP Ledger Desk",
+          "rows": [],
+          "native_body": "Consolidated AP Ledger Desk"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            69,
+            176,
+            303,
+            187
+          ],
+          "text": "815 Maple Ridge Dr, Downers Grove, IL 60515",
+          "rows": [],
+          "native_body": "815 Maple Ridge Dr, Downers Grove, IL 60515"
+        },
+        {
+          "kind": "title",
+          "bbox": [
+            510,
+            137,
+            664,
+            148
+          ],
+          "text": "CONTRACT & COVERAGE",
+          "rows": [],
+          "native_body": "CONTRACT & COVERAGE"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            510,
+            151,
+            710,
+            161
+          ],
+          "text": "Master Service Agreement CTR-008840",
+          "rows": [],
+          "native_body": "Master Service Agreement CTR-008840"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            510,
+            163,
+            666,
+            174
+          ],
+          "text": "Buildings A, B, C & Clubhouse",
+          "rows": [],
+          "native_body": "Buildings A, B, C & Clubhouse"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            510,
+            176,
+            743,
+            187
+          ],
+          "text": "Billing Period: 2026-10-01 through 2026-10-31",
+          "rows": [],
+          "native_body": "Billing Period: 2026-10-01 through 2026-10-31"
+        },
+        {
+          "kind": "table",
+          "bbox": [
+            62,
+            206,
+            936,
+            268
+          ],
+          "text": "Invoice No: Contract ID: Statement Date:\nINV-008810 CTR-008840 2026-10-31\nDue Date: Terms: Escrow / Lender Draw Ref:\n2026-11-30 Net 30 Consolidated ",
+          "rows": [
+            [
+              {
+                "text": "Invoice No:",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Contract ID:",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Statement Date:",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "INV-008810",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "CTR-008840",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "2026-10-31",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "Due Date:",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Terms:",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Escrow / Lender Draw Ref:",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "2026-11-30",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Net 30 Consolidated",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ]
+          ],
+          "native_body": "<table><tr><td>Invoice No:</td><td>Contract ID:</td><td>Statement Date:</td></tr><tr><td>INV-008810</td><td>CTR-008840</td><td>2026-10-31</td></tr><tr><td>Due Date:</td><td>Terms:</td><td>Escrow / Lender Draw Ref:</td></tr><tr><td>2026-11-30</td><td>Net 30 Consolidated</td><td></td></tr></table>"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            72,
+            276,
+            903,
+            300
+          ],
+          "text": "Continued 20-row table across Pages 1-3 (repeated headers on Pages 2 & 3 are NOT line items). Summary totals appear ONLY on Page 3. Tax (7.50%) applies strictly to Net rows marked Tax=T.",
+          "rows": [],
+          "native_body": "Continued 20-row table across Pages 1-3 (repeated headers on Pages 2 & 3 are NOT line items). Summary totals appear ONLY on Page 3. Tax (7.50%) applies strictly to Net rows marked Tax=T."
+        },
+        {
+          "kind": "table",
+          "bbox": [
+            62,
+            310,
+            937,
+            552
+          ],
+          "text": "Row SKU / Ref Description Qty Unit Price Disc% Disc Amt Tax Net Line\nL01 WO-004701 Unit 02A - Replace Leaking Tub Diverter Spout 1.00 EA $28.50 0.00% $0.00 T $28.50\nL02 LAB-004701 Unit 02A - Plumbing Repair Labor 1.25 HR $76.00 0.00% $0.00 N $95.00\nL03 WO-004705 Bldg A Hall - Emergency Exit Sign NiCd Battery 3.00 EA $19.20 10.00% $5.76 T $51.84\nL04 LAB-004705 Bldg A Hall - Life-Safety Load Test Labor 1.00 HR $82.00 0.00% $0.00 N $82.00\nL05 WO-004712 Unit 08C - Patio Sliding Door Tandem Roller Kit 2.00 KT $22.40 0.00% $0.00 T $44.80\nL06 LAB-004712 Unit 08C - Carpentry Track Alignment Labor 1.50 HR $72.00 0.00% $0.00 N $108.00\nL07 WO-004719 Clubhouse - Commercial Entry Closer Hydraulic Unit 1.00 EA $134.00 5.00% $6.70 T $127.30\nL08 LAB-004719 Clubhouse - Door Closer Install & Sweep Adjust 1.00 HR $72.00 0.00% $0.00 N $72.00",
+          "rows": [
+            [
+              {
+                "text": "Row",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "SKU / Ref",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Description",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Qty",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit Price",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Disc%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Disc Amt",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Tax",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Net Line",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L01",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004701",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 02A - Replace Leaking Tub Diverter Spout",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00 EA",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$28.50",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$28.50",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L02",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004701",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 02A - Plumbing Repair Labor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.25 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$76.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$95.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L03",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004705",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Bldg A Hall - Emergency Exit Sign NiCd Battery",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "3.00 EA",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$19.20",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "10.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$5.76",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$51.84",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L04",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004705",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Bldg A Hall - Life-Safety Load Test Labor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$82.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$82.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L05",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004712",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 08C - Patio Sliding Door Tandem Roller Kit",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "2.00 KT",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$22.40",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$44.80",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L06",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004712",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 08C - Carpentry Track Alignment Labor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.50 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$72.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$108.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L07",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004719",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Clubhouse - Commercial Entry Closer Hydraulic Unit",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00 EA",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$134.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "5.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$6.70",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$127.30",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L08",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004719",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Clubhouse - Door Closer Install & Sweep Adjust",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$72.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$72.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ]
+          ],
+          "native_body": "<table><tr><td>Row</td><td>SKU / Ref</td><td>Description</td><td>Qty</td><td>Unit Price</td><td>Disc%</td><td>Disc Amt</td><td>Tax</td><td>Net Line</td></tr><tr><td>L01</td><td>WO-004701</td><td>Unit 02A - Replace Leaking Tub Diverter Spout</td><td>1.00 EA</td><td>$28.50</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$28.50</td></tr><tr><td>L02</td><td>LAB-004701</td><td>Unit 02A - Plumbing Repair Labor</td><td>1.25 HR</td><td>$76.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$95.00</td></tr><tr><td>L03</td><td>WO-004705</td><td>Bldg A Hall - Emergency Exit Sign NiCd Battery</td><td>3.00 EA</td><td>$19.20</td><td>10.00%</td><td>$5.76</td><td>T</td><td>$51.84</td></tr><tr><td>L04</td><td>LAB-004705</td><td>Bldg A Hall - Life-Safety Load Test Labor</td><td>1.00 HR</td><td>$82.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$82.00</td></tr><tr><td>L05</td><td>WO-004712</td><td>Unit 08C - Patio Sliding Door Tandem Roller Kit</td><td>2.00 KT</td><td>$22.40</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$44.80</td></tr><tr><td>L06</td><td>LAB-004712</td><td>Unit 08C - Carpentry Track Alignment Labor</td><td>1.50 HR</td><td>$72.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$108.00</td></tr><tr><td>L07</td><td>WO-004719</td><td>Clubhouse - Commercial Entry Closer Hydraulic Unit</td><td>1.00 EA</td><td>$134.00</td><td>5.00%</td><td>$6.70</td><td>T</td><td>$127.30</td></tr><tr><td>L08</td><td>LAB-004719</td><td>Clubhouse - Door Closer Install &amp; Sweep Adjust</td><td>1.00 HR</td><td>$72.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$72.00</td></tr></table>"
+        },
+        {
+          "kind": "other",
+          "bbox": [
+            64,
+            559,
+            617,
+            571
+          ],
+          "text": "[Line items continue on Page 2; Invoice Summary Totals appear ONLY on Page 3]",
+          "rows": [],
+          "native_body": "[Line items continue on Page 2; Invoice Summary Totals appear ONLY on Page 3]"
+        },
+        {
+          "kind": "footer",
+          "bbox": [
+            227,
+            958,
+            754,
+            970
+          ],
+          "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60563 | Tel: 555-0129 | statements@apexfacility.example",
+          "rows": [],
+          "native_body": "3100 Apex Pkwy, Suite 400, Naperville, IL 60563 | Tel: 555-0129 | statements@apexfacility.example"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "blocks": [
+        {
+          "kind": "other",
+          "bbox": [
+            76,
+            44,
+            414,
+            56
+          ],
+          "text": "APEX FACILITY MAINTENANCE PARTNERS LLC",
+          "rows": [],
+          "native_body": "APEX FACILITY MAINTENANCE PARTNERS LLC"
+        },
+        {
+          "kind": "other",
+          "bbox": [
+            76,
+            58,
+            593,
+            71
+          ],
+          "text": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE (CONTINUED)",
+          "rows": [],
+          "native_body": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE (CONTINUED)"
+        },
+        {
+          "kind": "table",
+          "bbox": [
+            67,
+            83,
+            936,
+            364
+          ],
+          "text": "Invoice No: INV-008810 | Contract ID: CTR-008840 | Page 2 of 3 | PG-ANCHOR: MP01-P2\n\nRow SKU / Ref Description Qty Unit Price Disc% Disc Amt Tax Net Liner\nL09 WO-004724 Unit 11A - Refrigerator Evaporator Fan Motor 1.00 EA $54.80 0.00% $0.00 T $54.80\nL10 LAB-004724 Unit 11A - Appliance Diagnostic & Install Labor 1.25 HR $80.00 0.00% $0.00 N $100.00\nL11 WO-004731 Bldg B Boiler - Brass Auto Air Vent Valve 1/8 NPT 4.00 EA $16.75 0.00% $0.00 T $67.00\nL12 LAB-004731 Bldg B Boiler - Hydronic Loop Purge Labor 2.00 HR $88.00 0.00% $0.00 N $176.00\nL13 WO-004738 Unit 14D - Dual-Flush Toilet Flapper Seal Assembly 2.00 EA $11.60 0.00% $0.00 T $23.20\nL14 LAB-004738 Unit 14D - Tank Rebuild & Fill Calibration Labor 0.75 HR $76.00 0.00% $0.00 N $57.00\nL15 WO-004744 Bldg C Exterior - Photocell Dusk-to-Dawn Sensor 3.00 EA $24.50 10.00% $7.35 T $66.15\nL16 LAB-004744 Bldg C Exterior - Wallpack Sensor Wiring Labor 1.50 HR $82.00 0.00% $0.00 N $123.00",
+          "rows": [
+            [
+              {
+                "text": "Invoice No: INV-008810 | Contract ID: CTR-008840 | Page 2 of 3 | PG-ANCHOR: MP01-P2",
+                "colspan": 9,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "",
+                "colspan": 9,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "Row",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "SKU / Ref",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Description",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Qty",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit Price",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Disc%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Disc Amt",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Tax",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Net Liner",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L09",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004724",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 11A - Refrigerator Evaporator Fan Motor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00 EA",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$54.80",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$54.80",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L10",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004724",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 11A - Appliance Diagnostic & Install Labor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.25 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$80.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$100.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L11",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004731",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Bldg B Boiler - Brass Auto Air Vent Valve 1/8 NPT",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "4.00 EA",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$16.75",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$67.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L12",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004731",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Bldg B Boiler - Hydronic Loop Purge Labor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "2.00 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$88.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$176.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L13",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004738",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 14D - Dual-Flush Toilet Flapper Seal Assembly",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "2.00 EA",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$11.60",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$23.20",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L14",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004738",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 14D - Tank Rebuild & Fill Calibration Labor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.75 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$76.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$57.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L15",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004744",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Bldg C Exterior - Photocell Dusk-to-Dawn Sensor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "3.00 EA",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$24.50",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "10.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$7.35",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$66.15",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L16",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004744",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Bldg C Exterior - Wallpack Sensor Wiring Labor",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.50 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$82.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$123.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ]
+          ],
+          "native_body": "<table><tr><td colspan=\"9\">Invoice No: INV-008810 | Contract ID: CTR-008840 | Page 2 of 3 | PG-ANCHOR: MP01-P2</td></tr><tr><td colspan=\"9\"></td></tr><tr><td>Row</td><td>SKU / Ref</td><td>Description</td><td>Qty</td><td>Unit Price</td><td>Disc%</td><td>Disc Amt</td><td>Tax</td><td>Net Liner</td></tr><tr><td>L09</td><td>WO-004724</td><td>Unit 11A - Refrigerator Evaporator Fan Motor</td><td>1.00 EA</td><td>$54.80</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$54.80</td></tr><tr><td>L10</td><td>LAB-004724</td><td>Unit 11A - Appliance Diagnostic &amp; Install Labor</td><td>1.25 HR</td><td>$80.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$100.00</td></tr><tr><td>L11</td><td>WO-004731</td><td>Bldg B Boiler - Brass Auto Air Vent Valve 1/8 NPT</td><td>4.00 EA</td><td>$16.75</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$67.00</td></tr><tr><td>L12</td><td>LAB-004731</td><td>Bldg B Boiler - Hydronic Loop Purge Labor</td><td>2.00 HR</td><td>$88.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$176.00</td></tr><tr><td>L13</td><td>WO-004738</td><td>Unit 14D - Dual-Flush Toilet Flapper Seal Assembly</td><td>2.00 EA</td><td>$11.60</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$23.20</td></tr><tr><td>L14</td><td>LAB-004738</td><td>Unit 14D - Tank Rebuild &amp; Fill Calibration Labor</td><td>0.75 HR</td><td>$76.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$57.00</td></tr><tr><td>L15</td><td>WO-004744</td><td>Bldg C Exterior - Photocell Dusk-to-Dawn Sensor</td><td>3.00 EA</td><td>$24.50</td><td>10.00%</td><td>$7.35</td><td>T</td><td>$66.15</td></tr><tr><td>L16</td><td>LAB-004744</td><td>Bldg C Exterior - Wallpack Sensor Wiring Labor</td><td>1.50 HR</td><td>$82.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$123.00</td></tr></table>"
+        },
+        {
+          "kind": "other",
+          "bbox": [
+            64,
+            370,
+            615,
+            382
+          ],
+          "text": "[Line items continue on Page 3; Invoice Summary Totals appear ONLY on Page 3]",
+          "rows": [],
+          "native_body": "[Line items continue on Page 3; Invoice Summary Totals appear ONLY on Page 3]"
+        },
+        {
+          "kind": "footer",
+          "bbox": [
+            228,
+            958,
+            754,
+            970
+          ],
+          "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60563 | Tel: $55-0129 | statements@apexfacility.example",
+          "rows": [],
+          "native_body": "3100 Apex Pkwy, Suite 400, Naperville, IL 60563 | Tel: $55-0129 | statements@apexfacility.example"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "blocks": [
+        {
+          "kind": "other",
+          "bbox": [
+            76,
+            44,
+            414,
+            57
+          ],
+          "text": "APEX FACILITY MAINTENANCE PARTNERS LLC",
+          "rows": [],
+          "native_body": "APEX FACILITY MAINTENANCE PARTNERS LLC"
+        },
+        {
+          "kind": "other",
+          "bbox": [
+            76,
+            59,
+            593,
+            72
+          ],
+          "text": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE (CONTINUED)",
+          "rows": [],
+          "native_body": "CONSOLIDATED MONTHLY MAINTENANCE STATEMENT & INVOICE (CONTINUED)"
+        },
+        {
+          "kind": "table",
+          "bbox": [
+            62,
+            81,
+            937,
+            429
+          ],
+          "text": "Invoice No: INV-008810 | Contract ID: CTR-008840 | Page 3 of 3 | PG-ANCHOR: MP01-P3\n\nRow SKU / Ref Description Qty Unit Price Disc%* Disc Amt Tax Net Line\nL17 WO-004752 Unit 19B - Range Hood Aluminum Grease Filter Pair 2.00 PR $15.30 0.00% $0.00 T $30.60\nL18 WO-004759 Laundry Rm B - T8 Ballast Bypass LED Tube 4ft Box 1.00 BX $68.00 0.00% $0.00 T $68.00\nL19 LAB-004759 Laundry Rm B - Tombstone Rewire & Lamp Retrofit 1.50 HR $82.00 0.00% $0.00 N $123.00 \nL20 CRD-008840 SLA Response Credit - Late Callback Ticket WO-004690 1.00 EA -$20.00 0.00% $0.00 N -$20.00 \n\nREMITTANCE & ACCOUNT NOTES Line Net Subtotal: $1,478.19\nRemit to Apex Facility Maintenance Partners LLC; cite INV-008810 and CTR-008840. Prior balance ($240.00) cleared by payment ($240.00). Taxable Subtotal (Tax=T Rows): $562.19Sales Tax (7.50% on Taxable Subtotal): $42.16Non-Taxable Hazmat Lamp Recycling Manifest Fee: $15.00CURRENT INVOICE TOTAL: $1,535.35Prior Unpaid Balance: $240.00Payments / Credits Applied: $240.00TOTAL AMOUNT DUE: $1,535.35",
+          "rows": [
+            [
+              {
+                "text": "Invoice No: INV-008810 | Contract ID: CTR-008840 | Page 3 of 3 | PG-ANCHOR: MP01-P3",
+                "colspan": 9,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "",
+                "colspan": 9,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "Row",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "SKU / Ref",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Description",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Qty",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit Price",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Disc%*",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Disc Amt",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Tax",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Net Line",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L17",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004752",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Unit 19B - Range Hood Aluminum Grease Filter Pair",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "2.00 PR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$15.30",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$30.60",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L18",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "WO-004759",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Laundry Rm B - T8 Ballast Bypass LED Tube 4ft Box",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00 BX",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$68.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "T",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$68.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L19",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "LAB-004759",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Laundry Rm B - Tombstone Rewire & Lamp Retrofit",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.50 HR",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$82.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$123.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "L20",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "CRD-008840",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "SLA Response Credit - Late Callback Ticket WO-004690",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00 EA",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "-$20.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "0.00%",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "$0.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "N",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "-$20.00",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "",
+                "colspan": 9,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "REMITTANCE & ACCOUNT NOTES",
+                "colspan": 4,
+                "rowspan": 1
+              },
+              {
+                "text": "Line Net Subtotal: $1,478.19",
+                "colspan": 5,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "Remit to Apex Facility Maintenance Partners LLC; cite INV-008810 and CTR-008840. Prior balance ($240.00) cleared by payment ($240.00).",
+                "colspan": 4,
+                "rowspan": 1
+              },
+              {
+                "text": "Taxable Subtotal (Tax=T Rows): $562.19Sales Tax (7.50% on Taxable Subtotal): $42.16Non-Taxable Hazmat Lamp Recycling Manifest Fee: $15.00CURRENT INVOICE TOTAL: $1,535.35Prior Unpaid Balance: $240.00Payments / Credits Applied: $240.00TOTAL AMOUNT DUE: $1,535.35",
+                "colspan": 5,
+                "rowspan": 1
+              }
+            ]
+          ],
+          "native_body": "<table><tr><td colspan=\"9\">Invoice No: INV-008810 | Contract ID: CTR-008840 | Page 3 of 3 | PG-ANCHOR: MP01-P3</td></tr><tr><td colspan=\"9\"></td></tr><tr><td>Row</td><td>SKU / Ref</td><td>Description</td><td>Qty</td><td>Unit Price</td><td>Disc%*</td><td>Disc Amt</td><td>Tax</td><td>Net Line</td></tr><tr><td>L17</td><td>WO-004752</td><td>Unit 19B - Range Hood Aluminum Grease Filter Pair</td><td>2.00 PR</td><td>$15.30</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$30.60</td></tr><tr><td>L18</td><td>WO-004759</td><td>Laundry Rm B - T8 Ballast Bypass LED Tube 4ft Box</td><td>1.00 BX</td><td>$68.00</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$68.00</td></tr><tr><td>L19</td><td>LAB-004759</td><td>Laundry Rm B - Tombstone Rewire &amp; Lamp Retrofit</td><td>1.50 HR</td><td>$82.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>$123.00</td><td></td></tr><tr><td>L20</td><td>CRD-008840</td><td>SLA Response Credit - Late Callback Ticket WO-004690</td><td>1.00 EA</td><td>-$20.00</td><td>0.00%</td><td>$0.00</td><td>N</td><td>-$20.00</td><td></td></tr><tr><td colspan=\"9\"></td></tr><tr><td colspan=\"4\">REMITTANCE &amp; ACCOUNT NOTES</td><td colspan=\"5\">Line Net Subtotal: $1,478.19</td></tr><tr><td colspan=\"4\">Remit to Apex Facility Maintenance Partners LLC; cite INV-008810 and CTR-008840. Prior balance ($240.00) cleared by payment ($240.00).</td><td colspan=\"5\">Taxable Subtotal (Tax=T Rows): $562.19Sales Tax (7.50% on Taxable Subtotal): $42.16Non-Taxable Hazmat Lamp Recycling Manifest Fee: $15.00CURRENT INVOICE TOTAL: $1,535.35Prior Unpaid Balance: $240.00Payments / Credits Applied: $240.00TOTAL AMOUNT DUE: $1,535.35</td></tr></table>"
+        },
+        {
+          "kind": "footer",
+          "bbox": [
+            228,
+            958,
+            754,
+            970
+          ],
+          "text": "3100 Apex Pkwy, Suite 400, Naperville, IL 60553 | Tel: 555-0129 | statements@apexfacility.example",
+          "rows": [],
+          "native_body": "3100 Apex Pkwy, Suite 400, Naperville, IL 60553 | Tel: 555-0129 | statements@apexfacility.example"
+        }
+      ]
+    }
+  ],
+  "parse_errors": []
+}
