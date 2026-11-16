@@ -19,7 +19,7 @@ def main():
     read = GitBlobs(EVIDENCE)
     artifact = {path[len(PREFIX):]: read(path) for path in read.files if path.startswith(PREFIX)}
     def obj(name):
-        return json.loads(artifact[name])
+        return json.loads(artifact[name.replace('\\', '/')])
     capture = obj('capture.json')
     inventory = capture['files']
     require(len({r['relative_path'] for r in inventory}) == len(inventory), 'Duplicate inventory entries')
