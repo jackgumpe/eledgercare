@@ -1,0 +1,43 @@
+{
+  "uiPort": 4210,
+  "apiPort": 5190,
+  "documents": [
+    {
+      "label": "Reopened Doc 1: SYN-WO-01 (1p) after API+PG restart with OCR disabled",
+      "documentId": "01a1e509-f496-737c-901f-2b6a8fb84094",
+      "expectedPages": 1,
+      "expectedRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "expectedAttemptCount": 1,
+      "expectedAttemptStatuses": [
+        "Completed"
+      ],
+      "expectedOriginalSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "expectedOriginalBytes": 372258
+    },
+    {
+      "label": "Reopened Doc 2: SYN-MP-01 (3p) after API+PG restart with OCR disabled",
+      "documentId": "01a1e50c-bd99-775e-8748-dc55022f4b04",
+      "expectedPages": 3,
+      "expectedRawSha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+      "expectedAttemptCount": 1,
+      "expectedAttemptStatuses": [
+        "Completed"
+      ],
+      "expectedOriginalSha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "expectedOriginalBytes": 8422
+    },
+    {
+      "label": "Reopened Doc 3: SYN-WO-01 (interrupted + retried) after API+PG restart with OCR disabled",
+      "documentId": "01a1e511-ae58-72ad-a79e-0b359340f539",
+      "expectedPages": 1,
+      "expectedRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "expectedAttemptCount": 2,
+      "expectedAttemptStatuses": [
+        "Interrupted",
+        "Completed"
+      ],
+      "expectedOriginalSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "expectedOriginalBytes": 372258
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[SavedResultCompletion-v3] 1. Starting owned PostgreSQL 18.7 cluster & capturing BEFORE snapshot...
+Owned cluster started: postmaster PID 18544, started 2026-11-16T16:23:38.9458866Z, data C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\.local\postgres-data
+waiting for server to shut down.... done
+server stopped
+[SavedResultCompletion-v3] Finalized completion-summary-v3.json (FAILED); ports_after={'5190': False, '4210': False, '55434': False}.
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 952, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 948, in main
+    return execute_completion(scratch_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 797, in execute_completion
+    snap_before = capture_readonly_db_snapshot(pg, "db-before")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 480, in capture_readonly_db_snapshot
+    docs = pg.select_json_readonly(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 469, in select_json_readonly
+    return json.loads(lines[-1]) if lines else []
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 341, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 402 (char 401)

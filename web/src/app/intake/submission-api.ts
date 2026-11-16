@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, timeout } from 'rxjs';
-import { SubmissionReceipt } from './receipt';
+import { DocumentDetail, DocumentExtractionView, SubmissionReceipt } from './receipt';
 
 /**
  * One pending business submission. The key is created and stored before the first upload attempt
@@ -66,8 +66,23 @@ export class SubmissionApi {
     return this.http.get<SubmissionReceipt>(`/api/submissions/${encodeURIComponent(key)}`);
   }
 
-  document(documentId: string): Observable<SubmissionReceipt> {
-    return this.http.get<SubmissionReceipt>(`/api/documents/${encodeURIComponent(documentId)}`);
+  document(documentId: string): Observable<DocumentDetail> {
+    return this.http.get<DocumentDetail>(`/api/documents/${encodeURIComponent(documentId)}`);
+  }
+
+  extraction(documentId: string): Observable<DocumentExtractionView> {
+    return this.http.get<DocumentExtractionView>(`/api/documents/${encodeURIComponent(documentId)}/extraction`);
+  }
+
+  requestExtraction(documentId: string, retryAttemptId?: string): Observable<HttpResponse<DocumentExtractionView>> {
+    const url = `/api/documents/${encodeURIComponent(documentId)}/extraction`;
+    const body = retryAttemptId ? { retryAttemptId } : {};
+    return this.http
+      .post<DocumentExtractionView>(url, body, {
+        headers: { 'Content-Type': 'application/json' },
+        observe: 'response',
+      })
+      .pipe(timeout({ first: submitTimeoutMs }));
   }
 }
 

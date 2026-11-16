@@ -18,7 +18,7 @@
 #>
 [CmdletBinding()]
 param(
-    [int] $Port = 55432
+    [int] $Port = 55434
 )
 
 $ErrorActionPreference = 'Stop'

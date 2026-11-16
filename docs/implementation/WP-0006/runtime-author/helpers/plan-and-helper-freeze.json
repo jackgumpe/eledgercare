@@ -1,0 +1,58 @@
+{
+  "schema": "eledgercare.wp-0006.author-runtime-helper-freeze/1",
+  "frozen_utc": "2026-11-16T06:40:13.201026+00:00",
+  "owner": "eld-f2-implementer",
+  "conversation_id": "2b6861af-031b-4e8b-9ce9-2a6d476f9da0",
+  "release_authority_commit": "717a768994bbbabf75b8ee96b3b1aadca1bc5df3",
+  "lease_id": "WP-0006-author-runtime-20261116T062318Z",
+  "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "executing_head": "6faec9bf6eccc297a548523dbb52ae9262b25152",
+  "source_commit": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+  "writable_runtime_root": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\author",
+  "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+  "database": "eledgercare_f2_runtime_author",
+  "ports": {
+    "api": 5190,
+    "ui": 4210,
+    "postgres": 55434
+  },
+  "max_model_attempts": 4,
+  "planned_matrix": [
+    {
+      "attempt": 1,
+      "fixture": "SYN-WO-01-v1-raster300.pdf",
+      "pages": 1,
+      "action": "complete + API & Edge verify"
+    },
+    {
+      "attempt": 2,
+      "fixture": "SYN-MP-01-v0-clean.pdf",
+      "pages": 3,
+      "action": "complete + ordered 1..3 verify"
+    },
+    {
+      "attempt": 3,
+      "fixture": "SYN-WO-01-v1-raster300.pdf",
+      "pages": 1,
+      "action": "single-process TerminateProcess on API supervisor during active inference (forward_progress>=1), verify Job Object child exit + interrupted reconciliation + 409 on empty replay"
+    },
+    {
+      "attempt": 4,
+      "fixture": "SYN-WO-01-v1-raster300.pdf",
+      "pages": 1,
+      "action": "explicit retryAttemptId retry to completion, then stop model work, fast restart PG+API with LocalOcr:Enabled=false, reopen all 3 saved results in API & Edge"
+    }
+  ],
+  "frozen_helpers": [
+    {
+      "relative_path": ".scratch/stage2-runtime/helpers/run_f2_author_runtime.py",
+      "byte_length": 54060,
+      "sha256": "9881e5be6b99f4cef075430e43b56c1bbd71fcd6571158602862b0bd024fe463"
+    },
+    {
+      "relative_path": ".scratch/stage2-runtime/helpers/verify_ui_real_results.mjs",
+      "byte_length": 9018,
+      "sha256": "13ec7fc83b1f17783413e493b9b6e70a72405add1e818ce5fe5450e0aef8b7e1"
+    }
+  ]
+}

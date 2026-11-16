@@ -1,0 +1,94 @@
+{
+  "uiPort": 4210,
+  "apiPort": 5190,
+  "documents": [
+    {
+      "label": "Doc 1: SYN-WO-01-v1-raster300 (1 page)",
+      "documentId": "01a1e509-f496-737c-901f-2b6a8fb84094",
+      "expectedJobId": "01a1e509-f496-78a6-b971-1345754d00ec",
+      "expectedResultId": "01a1e50c-910f-7de0-9ce7-21a709200e52",
+      "expectedWinningAttemptId": "01a1e509-f5d4-7a01-80f1-4f23fe282930",
+      "expectedPages": 1,
+      "expectedOriginalBytes": 372258,
+      "expectedOriginalSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "expectedRawBytes": 3236,
+      "expectedRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "expectedWorkerConfigSha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+      "committedRawFileRel": "docs/implementation/WP-0006/runtime-author-v2/runs/attempt-01a1e509-f5d4-7a01-80f1-4f23fe282930/output/raw_output.utf8.bin",
+      "expectedAttempts": [
+        {
+          "attemptNumber": 1,
+          "attemptId": "01a1e509-f5d4-7a01-80f1-4f23fe282930",
+          "fencingToken": 1,
+          "apiStatus": "completed",
+          "expectedUiLabel": "Completed (unreviewed)",
+          "phase": "completed",
+          "retriedFromAttemptId": null,
+          "failureCode": null
+        }
+      ]
+    },
+    {
+      "label": "Doc 2: SYN-MP-01-v0-clean (3 pages)",
+      "documentId": "01a1e50c-bd99-775e-8748-dc55022f4b04",
+      "expectedJobId": "01a1e50c-bd99-7b98-985f-41ecaf9b2609",
+      "expectedResultId": "01a1e511-aab6-71ae-bb23-1f7a9cdb4f8b",
+      "expectedWinningAttemptId": "01a1e50c-bdb9-7477-a96a-abb58323c615",
+      "expectedPages": 3,
+      "expectedOriginalBytes": 8422,
+      "expectedOriginalSha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "expectedRawBytes": 7511,
+      "expectedRawSha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+      "expectedWorkerConfigSha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+      "committedRawFileRel": "docs/implementation/WP-0006/runtime-author-v2/runs/attempt-01a1e50c-bdb9-7477-a96a-abb58323c615/output/raw_output.utf8.bin",
+      "expectedAttempts": [
+        {
+          "attemptNumber": 1,
+          "attemptId": "01a1e50c-bdb9-7477-a96a-abb58323c615",
+          "fencingToken": 2,
+          "apiStatus": "completed",
+          "expectedUiLabel": "Completed (unreviewed)",
+          "phase": "completed",
+          "retriedFromAttemptId": null,
+          "failureCode": null
+        }
+      ]
+    },
+    {
+      "label": "Doc 3: SYN-WO-01-v1-raster300 (interrupted + explicit retry completed)",
+      "documentId": "01a1e511-ae58-72ad-a79e-0b359340f539",
+      "expectedJobId": "01a1e511-ae58-787c-96a3-5f082e019140",
+      "expectedResultId": "01a1e514-f736-732b-a901-b75406b5d076",
+      "expectedWinningAttemptId": "01a1e512-6a6d-7554-a1b6-352f03223bda",
+      "expectedPages": 1,
+      "expectedOriginalBytes": 372258,
+      "expectedOriginalSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "expectedRawBytes": 3236,
+      "expectedRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "expectedWorkerConfigSha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+      "committedRawFileRel": "docs/implementation/WP-0006/runtime-author-v2/runs/attempt-01a1e512-6a6d-7554-a1b6-352f03223bda/output/raw_output.utf8.bin",
+      "expectedAttempts": [
+        {
+          "attemptNumber": 1,
+          "attemptId": "01a1e511-ae6a-74cf-b0c9-d6e5933a22ea",
+          "fencingToken": 3,
+          "apiStatus": "interrupted",
+          "expectedUiLabel": "Extraction interrupted",
+          "phase": "interrupted",
+          "retriedFromAttemptId": null,
+          "failureCode": "supervisor_interrupted"
+        },
+        {
+          "attemptNumber": 2,
+          "attemptId": "01a1e512-6a6d-7554-a1b6-352f03223bda",
+          "fencingToken": 4,
+          "apiStatus": "completed",
+          "expectedUiLabel": "Completed (unreviewed)",
+          "phase": "completed",
+          "retriedFromAttemptId": "01a1e511-ae6a-74cf-b0c9-d6e5933a22ea",
+          "failureCode": null
+        }
+      ]
+    }
+  ]
+}

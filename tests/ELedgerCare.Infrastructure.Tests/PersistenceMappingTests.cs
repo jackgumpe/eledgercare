@@ -42,12 +42,27 @@ public sealed class PersistenceMappingTests
     }
 
     [Fact]
-    public void Artifact_and_job_foreign_keys_restrict_deletes()
+    public void Document_summary_projection_never_selects_original_or_raw_output_bytes()
+    {
+        using var db = CreateContext();
+        var id = Guid.NewGuid();
+
+        var sql = ExtractionStore.ProjectDocumentSummary(db, db.Documents.Where(d => d.DocumentId == id)).ToQueryString();
+
+        Assert.Contains("byte_length", sql, StringComparison.Ordinal);
+        Assert.Contains("sha256", sql, StringComparison.Ordinal);
+        Assert.Contains("page_count", sql, StringComparison.Ordinal);
+        Assert.DoesNotContain(".bytes", sql, StringComparison.Ordinal);
+        Assert.DoesNotContain("raw_output_bytes", sql, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void All_foreign_keys_restrict_deletes()
     {
         using var db = CreateContext();
         var foreignKeys = db.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()).ToList();
 
-        Assert.Equal(2, foreignKeys.Count);
+        Assert.Equal(9, foreignKeys.Count);
         Assert.All(foreignKeys, fk => Assert.Equal(DeleteBehavior.Restrict, fk.DeleteBehavior));
     }
 }

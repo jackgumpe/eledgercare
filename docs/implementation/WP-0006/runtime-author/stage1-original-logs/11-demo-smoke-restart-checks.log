@@ -1,0 +1,59 @@
+$ pwsh -NoProfile -File deploy/dev/smoke/run-demo-smoke.ps1 -ReceiptPath C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\.scratch\stage1-decisive\demo-smoke-receipt.json
+--- STDOUT ---
+waiting for server to shut down.... done
+server stopped
+Owned cluster started: postmaster PID 32964, started 2026-11-16T05:59:33.2115575Z, data C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\.local\postgres-data
+{
+  "fixtureId": "F1-SWO-001",
+  "fixtureSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+  "fixtureBytes": 887,
+  "apiPort": 5190,
+  "database": "eledgercare_product_dev",
+  "submit": {
+    "status": 201,
+    "documentId": "01a1e2f0-6d2c-7cdb-b38a-3bd310982341",
+    "jobId": "01a1e2f0-6d2c-7eba-b785-0220a884c5e2",
+    "receiptStatus": "awaiting_extraction",
+    "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "disabledByDefaultExtraction": {
+    "workerEnabled": false,
+    "postStatus": 503,
+    "statusAfter503": "awaiting_extraction"
+  },
+  "apiProcesses": [
+    {
+      "pid": 32040,
+      "startUtc": "2026-11-16T05:59:28.1250224Z",
+      "role": "submit + disabled-worker check, then terminated"
+    },
+    {
+      "pid": 14704,
+      "startUtc": "2026-11-16T05:59:30.4198205Z",
+      "role": "after API restart"
+    },
+    {
+      "pid": 16308,
+      "startUtc": "2026-11-16T05:59:33.7430058Z",
+      "role": "after PostgreSQL fast restart"
+    }
+  ],
+  "afterApiRestart": {
+    "documentId": "01a1e2f0-6d2c-7cdb-b38a-3bd310982341",
+    "admittedPageCount": 1,
+    "status": "awaiting_extraction",
+    "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "afterPostgresRestart": {
+    "postmasterPid": 32964,
+    "documentId": "01a1e2f0-6d2c-7cdb-b38a-3bd310982341",
+    "status": "awaiting_extraction",
+    "extractionStatus": "awaiting_extraction",
+    "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "allMatch": true,
+  "limits": "Stage 1 CPU/DB restart smoke with LocalOcr:Enabled=false default; not a GPU run or power-loss test."
+}
+
+--- STDERR ---
+

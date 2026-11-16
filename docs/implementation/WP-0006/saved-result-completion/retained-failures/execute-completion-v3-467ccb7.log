@@ -1,0 +1,30 @@
+[SavedResultCompletion-v3] 1. Starting owned PostgreSQL 18.7 cluster & capturing BEFORE snapshot...
+Owned cluster started: postmaster PID 22712, started 2026-11-16T16:20:35.4199128Z, data C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\.local\postgres-data
+ERROR:  column d.admitted_page_count does not exist
+LINE 1: ...t), '[]'::json)::text FROM (SELECT d.document_id, d.admitted...
+                                                             ^
+waiting for server to shut down.... done
+server stopped
+[SavedResultCompletion-v3] Finalized completion-summary-v3.json (FAILED); ports_after={'5190': False, '4210': False, '55434': False}.
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 951, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 947, in main
+    return execute_completion(scratch_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 796, in execute_completion
+    snap_before = capture_readonly_db_snapshot(pg, "db-before")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 480, in capture_readonly_db_snapshot
+    docs = pg.select_json_readonly(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\saved-result-completion\helpers\run_f2_saved_result_completion_v3.py", line 445, in select_json_readonly
+    out = subprocess.check_output(
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer\\.local\\tools\\pgsql-18.7-1\\bin\\psql.exe', '-X', '-q', '-A', '-t', '-v', 'ON_ERROR_STOP=1', '-h', '127.0.0.1', '-p', '55434', '-U', 'eledgercare_app', '-d', 'eledgercare_f2_runtime_author_v2', '-c', "SET TRANSACTION READ ONLY; SELECT COALESCE(json_agg(t), '[]'::json)::text FROM (SELECT d.document_id, d.admitted_page_count, d.byte_length, encode(d.sha256, 'hex') AS sha256_hex, d.submitted_at, octet_length(o.bytes) AS artifact_byte_length, encode(sha256(o.bytes), 'hex') AS artifact_computed_sha256 FROM eledgercare.documents d JOIN eledgercare.original_artifacts o ON o.document_id = d.document_id ORDER BY d.submitted_at ASC, d.document_id ASC) t;"]' returned non-zero exit status 1.

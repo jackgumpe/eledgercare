@@ -1,0 +1,413 @@
+{
+  "schema": "eledgercare.wp-0006.stage1-decisive-summary/1",
+  "candidate_sha": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+  "pre_git": {
+    "head": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+    "porcelain": "",
+    "clean": true
+  },
+  "post_git": {
+    "head": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+    "porcelain": "",
+    "clean": true
+  },
+  "ports_before": {
+    "5190_bound": false,
+    "4210_bound": false,
+    "55434_bound": true
+  },
+  "ports_after": {
+    "5190_bound": false,
+    "4210_bound": false,
+    "55434_bound": true
+  },
+  "external_f2_runtime_root_exists": false,
+  "q0_root_exists_untouched": true,
+  "pinned_digests": {
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+    "worker_source_sha256": "01ad2fa1d6dcf8643ecb5801a934b37bae4630faca2f70959b4a85cc4480eb01",
+    "worker_config_1p_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+    "worker_config_2p_sha256": "e4df504ddb51dcc8fb137e97f5af97c735252374738b1a1754a88b16a05de5df",
+    "worker_config_3p_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+    "f1_swo_001_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "syn_wo_01_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "syn_mp_01_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+  },
+  "steps": [
+    {
+      "step_id": "01-dotnet-tool-restore",
+      "command": [
+        "dotnet",
+        "tool",
+        "restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:56:37.774781+00:00",
+      "ended_utc": "2026-11-16T05:56:38.021397+00:00",
+      "duration_ms": 246,
+      "exit_code": 0,
+      "log_sha256": "0a1b2fb037b313e51b853a0f0fb535ef32eac3f91ef4d09b59dfdb0bb4f482b7"
+    },
+    {
+      "step_id": "02-dotnet-restore-locked",
+      "command": [
+        "dotnet",
+        "restore",
+        "ELedgerCare.slnx",
+        "--locked-mode",
+        "--packages",
+        "<worktree>\\.local\\nuget"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:56:38.022119+00:00",
+      "ended_utc": "2026-11-16T05:56:55.689993+00:00",
+      "duration_ms": 17668,
+      "exit_code": 0,
+      "log_sha256": "cd54ef56d800120b13716831a0167d2b2d4dd63f9dae7a83a7006f76a6ec0cc6"
+    },
+    {
+      "step_id": "03-dotnet-build-release",
+      "command": [
+        "dotnet",
+        "build",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:56:55.691221+00:00",
+      "ended_utc": "2026-11-16T05:57:00.673927+00:00",
+      "duration_ms": 4984,
+      "exit_code": 0,
+      "log_sha256": "444c6284bda28f89528cf6cf2263e9a9c78084533555242b6e941d4002fd42f8"
+    },
+    {
+      "step_id": "04-dotnet-publish-api",
+      "command": [
+        "dotnet",
+        "publish",
+        "src/ELedgerCare.Api/ELedgerCare.Api.csproj",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:57:00.676493+00:00",
+      "ended_utc": "2026-11-16T05:57:02.324975+00:00",
+      "duration_ms": 1650,
+      "exit_code": 0,
+      "log_sha256": "66a6e41f4f9ec5828b0ad62179df45f2c9e1cc9df231faeee560aace08872491"
+    },
+    {
+      "step_id": "05-python-worker-cpu-tests",
+      "command": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "workers/local_ocr/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:57:02.327541+00:00",
+      "ended_utc": "2026-11-16T05:57:02.816831+00:00",
+      "duration_ms": 490,
+      "exit_code": 0,
+      "log_sha256": "5c2d4f3fa304e83b09bfa1788b94f16823590a3c2586894e93caa3549cccffb3"
+    },
+    {
+      "step_id": "06-npm-ci-offline",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "npm",
+        "ci",
+        "--prefer-offline",
+        "--no-audit",
+        "--cache",
+        "<worktree>\\.local\\npm-cache"
+      ],
+      "cwd": "web",
+      "started_utc": "2026-11-16T05:57:02.818543+00:00",
+      "ended_utc": "2026-11-16T05:57:17.926361+00:00",
+      "duration_ms": 15109,
+      "exit_code": 0,
+      "log_sha256": "8eb271334c1d1e889544b5e0bf0f2d319889c692cc3febf1226959dd7c9c88a9"
+    },
+    {
+      "step_id": "07-angular-build",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "npx",
+        "ng",
+        "build"
+      ],
+      "cwd": "web",
+      "started_utc": "2026-11-16T05:57:17.928373+00:00",
+      "ended_utc": "2026-11-16T05:57:22.579211+00:00",
+      "duration_ms": 4654,
+      "exit_code": 0,
+      "log_sha256": "b1ca86aa7d1c70d0683b0d0f669c8dffdbdc18795437daae1bb14d3474597d39"
+    },
+    {
+      "step_id": "08-prepare-database-stage1",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1",
+        "-Database",
+        "eledgercare_stage1_0ad2fcd"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:57:22.583697+00:00",
+      "ended_utc": "2026-11-16T05:57:29.559749+00:00",
+      "duration_ms": 6978,
+      "exit_code": 0,
+      "log_sha256": "e4a42878fa66fec7389a2f4db22fed6ff56e457ff59a6df2bf21924bb3a99820"
+    },
+    {
+      "step_id": "09-dotnet-test-solution",
+      "command": [
+        "dotnet",
+        "test",
+        "--solution",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:57:29.562982+00:00",
+      "ended_utc": "2026-11-16T05:58:50.292905+00:00",
+      "duration_ms": 80731,
+      "exit_code": 0,
+      "log_sha256": "18c55089a492e21e6f2b30ed3d0ec8983f2ed5d7d710d05f951bcd1ec6c4bb77"
+    },
+    {
+      "step_id": "10-playwright-browser-checks",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-browser-checks.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:58:50.294908+00:00",
+      "ended_utc": "2026-11-16T05:59:27.060637+00:00",
+      "duration_ms": 36766,
+      "exit_code": 0,
+      "log_sha256": "2ee8215f9a680fd284779b9c93bcb439f4702de3dbe3ab5b5bf330c654ecd993"
+    },
+    {
+      "step_id": "11-demo-smoke-restart-checks",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-demo-smoke.ps1",
+        "-ReceiptPath",
+        "<worktree>\\.scratch\\stage1-decisive\\demo-smoke-receipt.json"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T05:59:27.062002+00:00",
+      "ended_utc": "2026-11-16T05:59:35.246222+00:00",
+      "duration_ms": 8184,
+      "exit_code": 0,
+      "log_sha256": "93d4c3c5187f500c185745b88513ea83db497c15723e5875099c20fb7ae5a883"
+    }
+  ],
+  "test_totals": {
+    "dotnet_domain_tests": 11,
+    "dotnet_infrastructure_tests": 39,
+    "dotnet_acceptance_tests": 19,
+    "dotnet_total": 69,
+    "python_worker_cpu_tests": 7,
+    "playwright_f1_e2e_tests": 6,
+    "playwright_f2_e2e_tests": 4,
+    "playwright_total": 10,
+    "grand_total_passed": 86,
+    "grand_total_failed": 0,
+    "grand_total_skipped": 0
+  },
+  "demo_smoke_receipt": {
+    "fixtureId": "F1-SWO-001",
+    "fixtureSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "fixtureBytes": 887,
+    "apiPort": 5190,
+    "database": "eledgercare_product_dev",
+    "submit": {
+      "status": 201,
+      "documentId": "01a1e2f0-6d2c-7cdb-b38a-3bd310982341",
+      "jobId": "01a1e2f0-6d2c-7eba-b785-0220a884c5e2",
+      "receiptStatus": "awaiting_extraction",
+      "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "disabledByDefaultExtraction": {
+      "workerEnabled": false,
+      "postStatus": 503,
+      "statusAfter503": "awaiting_extraction"
+    },
+    "apiProcesses": [
+      {
+        "pid": 32040,
+        "startUtc": "2026-11-16T05:59:28.1250224Z",
+        "role": "submit + disabled-worker check, then terminated"
+      },
+      {
+        "pid": 14704,
+        "startUtc": "2026-11-16T05:59:30.4198205Z",
+        "role": "after API restart"
+      },
+      {
+        "pid": 16308,
+        "startUtc": "2026-11-16T05:59:33.7430058Z",
+        "role": "after PostgreSQL fast restart"
+      }
+    ],
+    "afterApiRestart": {
+      "documentId": "01a1e2f0-6d2c-7cdb-b38a-3bd310982341",
+      "admittedPageCount": 1,
+      "status": "awaiting_extraction",
+      "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "afterPostgresRestart": {
+      "postmasterPid": 32964,
+      "documentId": "01a1e2f0-6d2c-7cdb-b38a-3bd310982341",
+      "status": "awaiting_extraction",
+      "extractionStatus": "awaiting_extraction",
+      "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "allMatch": true,
+    "limits": "Stage 1 CPU/DB restart smoke with LocalOcr:Enabled=false default; not a GPU run or power-loss test."
+  },
+  "f2_browser_evidence": {
+    "f01Sha": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "f07Sha": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+    "apiProcesses": [
+      {
+        "pid": 32668,
+        "port": "5190",
+        "startedUtc": "2026-11-16T05:59:04.533Z",
+        "stoppedUtc": "2026-11-16T05:59:08.697Z"
+      },
+      {
+        "pid": 29632,
+        "port": "5190",
+        "startedUtc": "2026-11-16T05:59:08.993Z",
+        "stoppedUtc": "2026-11-16T05:59:13.023Z"
+      },
+      {
+        "pid": 5200,
+        "port": "5190",
+        "startedUtc": "2026-11-16T05:59:13.312Z",
+        "stoppedUtc": "2026-11-16T05:59:15.772Z"
+      },
+      {
+        "pid": 33648,
+        "port": "5190",
+        "startedUtc": "2026-11-16T05:59:16.081Z",
+        "stoppedUtc": "2026-11-16T05:59:17.919Z"
+      }
+    ],
+    "checks": [
+      {
+        "check": "F2-06 disabled-by-default UI",
+        "documentId": "01a1e2f0-10c2-7832-902f-6e731288b705",
+        "admittedPages": 1,
+        "requestExtractionDisabled": true
+      },
+      {
+        "check": "F2-06 unsupported 4-page profile UI",
+        "documentId": "01a1e2f0-16f6-7775-be01-858c01729e01",
+        "admittedPages": 4,
+        "requestExtractionDisabled": true
+      },
+      {
+        "check": "F2-03 explicit retry UI + history retention",
+        "documentId": "01a1e2f0-19c8-75a3-acac-f33bba0c486b",
+        "retriedAttemptId": "d7db4bff-218e-462e-87a6-f49baedfbb1b",
+        "observedAttemptRows": 2
+      },
+      {
+        "check": "F2-05 / F2-BIC-04 3-page saved result + XSS inertness + API restart reopen",
+        "documentId": "01a1e2f0-322e-7b60-9c83-e58e3dbc3df2",
+        "resultId": "707661b1-1704-4ecf-8a87-6b4a19747fa5",
+        "rawSha256": "47856360c07f512c84177ae1d8fb2a1db078a12430a5083f1e8b09862d384c57",
+        "xssExecuted": false,
+        "apiPidBefore": 5200,
+        "apiPidAfter": 33648,
+        "originalBytesEqualAfterRestart": true
+      }
+    ]
+  },
+  "f1_browser_evidence": {
+    "fixtureSha": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "apiProcesses": [
+      {
+        "pid": 19988,
+        "port": "5190",
+        "startedUtc": "2026-11-16T05:59:18.214Z",
+        "stoppedUtc": "2026-11-16T05:59:20.344Z"
+      },
+      {
+        "pid": 18528,
+        "port": "5190",
+        "startedUtc": "2026-11-16T05:59:20.614Z",
+        "stoppedUtc": "2026-11-16T05:59:26.512Z"
+      }
+    ],
+    "checks": [
+      {
+        "check": "DI-01/02/03/04 browser",
+        "postStatus": 201,
+        "documentId": "01a1e2f0-4519-7e01-9044-193ba2b404f0",
+        "status": "Awaiting extraction",
+        "downloadedSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+        "downloadName": "document-01a1e2f0-4519-7e01-9044-193ba2b404f0.pdf",
+        "apiPidBeforeRestart": 19988,
+        "apiPidAfterRestart": 18528,
+        "reopenedAfterRestartSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+      },
+      {
+        "check": "DI-06 browser 5xx",
+        "serverCommitStatus": 201,
+        "shownToUser": 500,
+        "keyRetainedAcrossReload": true,
+        "reconciledBy": "GET /api/submissions/{key}",
+        "key": "f798e207-1493-4bb2-bc3a-ac198b7733df"
+      },
+      {
+        "check": "DI-06 browser 429",
+        "keys": [
+          "409e7fd1-319c-47fb-af7a-42de348e6851",
+          "409e7fd1-319c-47fb-af7a-42de348e6851"
+        ],
+        "sameKeyRetried": true
+      },
+      {
+        "check": "DI-06 browser uncertainty then 429",
+        "attempts": 3,
+        "singleKey": true
+      },
+      {
+        "check": "double click / explicit new submission",
+        "keys": [
+          "312d760c-6924-49b4-b2ab-c9b084379deb",
+          "c9c4119a-227a-4b9c-9698-f9a3ff925c9e"
+        ]
+      },
+      {
+        "check": "browser 422 rejection",
+        "receiptShown": false
+      }
+    ]
+  }
+}
