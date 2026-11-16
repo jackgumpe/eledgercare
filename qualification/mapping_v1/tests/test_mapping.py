@@ -1,6 +1,9 @@
 import copy
 import html
 import unittest
+from unittest.mock import patch
+from qualification.mapping_v1.common import ROOT,load_json,score_document
+from qualification.mapping_v1.scoring import paired
 from qualification.mapping_v1.common import parse_native,baseline_prediction,mapping
 from qualification.mapping_v1.mapper import extract_prediction
 
@@ -74,6 +77,26 @@ class MappingTests(unittest.TestCase):
     def test_unknown_label_and_inline_blocks_are_untouched(self):
         self.unchanged(table([['Unseen Identifier:','ONE']]))
         self.unchanged('<PAGE><BLOCK>text[0,0,900,900]<FORK>Invoice No: ONE')
+
+    def test_actual_parser_limit_retains_identical_ineligible_denominators(self):
+        from baseline import prediction
+        raw='<PAGE>'+('<BLOCK>text[0,0,10,10]<FORK>x'*10001)
+        expected=load_json(ROOT/'evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json')
+        reference={'pages':['CPU test reference'],'coverage':{}}
+        actual=paired(raw,expected,reference,'completed')
+        original=score_document(prediction(raw,mapping()),expected,reference,'completed')
+        self.assertEqual(actual['scores']['b0'],original);self.assertEqual(actual['scores']['mapping_v1'],original)
+        self.assertEqual(original['parse_errors'],['block_limit']);self.assertFalse(original['eligible_for_exact_credit'])
+        self.assertEqual(original['fields']['total'],15);self.assertEqual(original['cells']['total'],19)
+
+    def test_candidate_exception_does_not_change_baseline_comparator(self):
+        expected=load_json(ROOT/'evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json')
+        raw='<PAGE><BLOCK>text[0,0,900,900]<FORK>Work Order ID: '+expected['expected_fields'][0]['printed_text']
+        with patch('qualification.mapping_v1.scoring.extract_prediction',side_effect=ValueError('CPU candidate fault')):
+            actual=paired(raw,expected,{'pages':['CPU reference'],'coverage':{}},'completed')
+        self.assertEqual(actual['scores']['b0']['fields']['correct'],1)
+        self.assertEqual(actual['scores']['mapping_v1']['fields']['correct'],0)
+        self.assertEqual(actual['scores']['mapping_v1']['fields']['total'],15)
 
 
 if __name__=='__main__':unittest.main()

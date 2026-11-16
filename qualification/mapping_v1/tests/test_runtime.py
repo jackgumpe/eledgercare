@@ -1,5 +1,7 @@
 """CPU-owned process tests and fault injection; never calls a model or real observer."""
 import contextlib
+import csv
+import io
 import json
 import os
 from pathlib import Path
@@ -30,17 +32,31 @@ class RuntimeTests(unittest.TestCase):
           ('root_bytes',p['storage_cap_bytes']+1,'STORAGE_CAP'),('free_bytes',p['free_floor_bytes']-1,'FREE_SPACE_FLOOR')]:
             with self.subTest(key=key):self.assertEqual(runtime.guard_reason(**{**base,key:value}),want)
 
-    def test_gpu_observation_unavailable_busy_or_wrong_device_rejected(self):
+    def test_gpu_observation_unavailable_or_wrong_device_rejected(self):
         with tempfile.TemporaryDirectory(dir=SCRATCH) as tmp:
-            root=Path(tmp);p=protocol();a=root/'a';b=root/'b';a.write_text(p['gpu']['uuid']);b.write_text('')
+            root=Path(tmp);p=protocol();a=root/'a';b=root/'b';a.write_text('timestamp, '+p['gpu']['uuid']);b.write_text('')
             observed=[{'returncode':0,'bytes':10,'path':str(a)},{'returncode':0,'bytes':0,'path':str(b)}]
-            runtime.verify_idle_observation(observed,p)
-            for text in ['123, unrelated.exe, 1','--- stderr --- warning']:
-                b.write_text(text)
-                with self.assertRaises(PermissionError):runtime.verify_idle_observation(observed,p)
+            runtime.verify_device_observation(observed,p)
+            b.write_text('123, unrelated.exe, [N/A]')
+            self.assertIn('unrelated.exe',runtime.verify_device_observation(observed,p)['process_observation_text'])
+            b.write_text('--- stderr --- warning')
+            with self.assertRaises(PermissionError):runtime.verify_device_observation(observed,p)
             b.write_text('');a.write_text('wrong device')
-            with self.assertRaises(PermissionError):runtime.verify_idle_observation(observed,p)
-            with self.assertRaises(PermissionError):runtime.verify_idle_observation([],p)
+            with self.assertRaises(PermissionError):runtime.verify_device_observation(observed,p)
+            with self.assertRaises(PermissionError):runtime.verify_device_observation([],p)
+
+    def test_retained_wddm_and_new_desktop_rows_are_preserved_not_classified(self):
+        retained=json.loads((ROOT/'docs/coordination/WP-0007/gpu-reviewer-heldout-release/host-before.json').read_text())
+        p=protocol()
+        with tempfile.TemporaryDirectory(dir=SCRATCH) as tmp:
+            paths=[Path(tmp)/str(i) for i in range(2)]
+            for path,capture in zip(paths,retained['gpu_observer']):path.write_text(capture['stdout'],newline='')
+            observed=[{'returncode':0,'bytes':path.stat().st_size,'path':str(path)} for path in paths]
+            outcome=runtime.verify_device_observation(observed,p)
+            self.assertEqual(len(list(csv.reader(io.StringIO(outcome['process_observation_text'])))),22)
+            paths[1].write_text(retained['gpu_observer'][1]['stdout']+'42, C:/Edge/msedge.exe, [N/A]\n',newline='')
+            self.assertIn('42, C:/Edge/msedge.exe',runtime.verify_device_observation(observed,p)['process_observation_text'])
+            self.assertIn('without automatic classification',outcome['limit'])
 
     def supervisor_case(self,case):
         runtime.q0_imports()
@@ -73,7 +89,7 @@ class RuntimeTests(unittest.TestCase):
             def observe(commands,run,tag):
                 if tag=='post' and case=='post_failure':raise OSError('CPU injected post-observer failure')
                 paths=[run/('cpu-observer-'+tag+'-'+str(i)+'.txt') for i in range(2)]
-                paths[0].write_text(p['gpu']['uuid']);paths[1].write_text('')
+                paths[0].write_text('timestamp, '+p['gpu']['uuid']);paths[1].write_text('')
                 return [{'returncode':0,'bytes':x.stat().st_size,'path':str(x)} for x in paths]
             environment={k:str(scratch/'cache'/k) for k in ['TEMP','TMP','TMPDIR','HF_HOME','HF_MODULES_CACHE','CUDA_CACHE_PATH','TORCH_HOME','TORCHINDUCTOR_CACHE_DIR','USERPROFILE']};environment['PATH']=''
             with contextlib.ExitStack() as stack:

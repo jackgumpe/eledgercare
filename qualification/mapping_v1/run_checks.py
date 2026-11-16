@@ -90,6 +90,7 @@ def main():
             path=Path(filename).resolve()
             if path.is_relative_to(ROOT) and path.is_file() and path.suffix=='.py':read(path.relative_to(ROOT))
     for name in ('protocol.json','README.md'):read(Path('qualification/mapping_v1')/name)
+    read('docs/coordination/WP-0007/gpu-reviewer-heldout-release/host-before.json')
     payload={'schema':'eld-mapping-v1-regression/1','source_commit':head,'source_tree':git('rev-parse','HEAD:qualification/mapping_v1').decode().strip(),
              'comparator_source':'522f15f1f6e399c36b9c6c107fc08f51862f1fc1','comparator_tree':'deae8e826f4770e880374c68e6a56c8c65b6f8a3',
              'primary_documents':26,'primary_completed':25,'field_gains':gain_count,'field_losses':loss_count,

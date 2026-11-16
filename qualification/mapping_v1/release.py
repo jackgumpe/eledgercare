@@ -57,7 +57,8 @@ def validate_release(r,p,owner,*,head,source_tree,protocol_digest,clean,now=None
         require(r['unseal']['path'].startswith('docs/coordination/WP-0009/'),'Coordinator unseal required')
         lease=r['lease']
         require(lease['id'] and lease['owner']==owner and lease['gpu_uuid']==p['gpu']['uuid'] and
-                lease['sole_lease'] is True and len(lease['observations'])>=1,'Sole GPU lease/evidence missing')
+                lease['sole_lease'] is True and lease['scope']=='sole_model_job' and
+                len(lease['observations'])>=1,'Sole model-job lease/evidence missing')
         now=now or datetime.datetime.now(datetime.timezone.utc)
         issued=datetime.datetime.fromisoformat(r['issued_utc'].replace('Z','+00:00'))
         expiry=datetime.datetime.fromisoformat(r['expires_utc'].replace('Z','+00:00'))

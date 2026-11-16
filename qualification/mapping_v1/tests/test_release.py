@@ -18,7 +18,7 @@ def valid_release(p,owner='author'):
             'schedule':release.schedule(p,owner),'source_review':{**proof,'path':p['source_review_path']},
             'admission_review':{'commit':p['admission_review_commit'],'path':p['admission_review_path'],'sha256':p['admission_review_sha256']},
             'unseal':{**proof,'path':'docs/coordination/WP-0009/unseal.json'},
-            'lease':{'id':'CPU-ONLY-TEST','owner':owner,'gpu_uuid':p['gpu']['uuid'],'sole_lease':True,'observations':[proof]},
+            'lease':{'id':'CPU-ONLY-TEST','owner':owner,'gpu_uuid':p['gpu']['uuid'],'sole_lease':True,'scope':'sole_model_job','observations':[proof]},
             'torchvision_local_sha256_TOFU_accepted':True}
 
 
@@ -49,7 +49,7 @@ class ReleaseTests(unittest.TestCase):
         for k in ('source_review','admission_review','unseal'):
             bad=copy.deepcopy(r);bad[k]['path']='wrong'
             with self.subTest(key=k),self.assertRaises(PermissionError):self.validate(bad)
-        for k,v in [('sole_lease',False),('owner','reviewer'),('gpu_uuid','other'),('observations',[])]:
+        for k,v in [('sole_lease',False),('scope','hardware_exclusive'),('owner','reviewer'),('gpu_uuid','other'),('observations',[])]:
             bad=copy.deepcopy(r);bad['lease'][k]=v
             with self.subTest(key=k),self.assertRaises(PermissionError):self.validate(bad)
 

@@ -1,6 +1,6 @@
 """Reference-side loader and paired comparison; exact unchanged B0 comparator."""
 import json
-from .common import baseline_prediction,parse_native,score_document,summarize,mapping,sha,load_json,write
+from .common import baseline_prediction,parse_native,ParseError,score_document,summarize,mapping,sha,load_json,write
 from .mapper import extract_prediction
 from .release import read_release,protocol,schedule,fixture,read_artifact,require
 
@@ -23,8 +23,17 @@ def validate_expected_reference(expected,reference,fx):
 
 def paired(raw,expected,reference,completion,rules=None):
     rules=mapping() if rules is None else rules
-    parsed=parse_native(raw)
-    b0=baseline_prediction(parsed,rules);v1=extract_prediction(parsed,rules)
+    # Identical failure representation to frozen baseline.py:prediction, separately
+    # for each extractor so a v1 exception cannot change the B0 comparator result.
+    def unavailable(exc):return {'fields':[],'tables':[],'anchors':[],
+        'unmapped':[{'kind':'parse_failure','detail':str(exc)}],'pages':[],'parse_errors':[str(exc)]}
+    try:parsed=parse_native(raw)
+    except (ParseError,ValueError,TypeError) as exc:b0=unavailable(exc);v1=unavailable(exc)
+    else:
+        def extract(mapper):
+            try:return mapper(parsed,rules)
+            except (ParseError,ValueError,TypeError) as exc:return unavailable(exc)
+        b0=extract(baseline_prediction);v1=extract(extract_prediction)
     scores={key:score_document(pred,expected,reference,completion) for key,pred in [('b0',b0),('mapping_v1',v1)]}
     return {'raw_sha256':sha(raw.encode('utf-8')),'completion':completion,'predictions':{'b0':b0,'mapping_v1':v1},'scores':scores}
 

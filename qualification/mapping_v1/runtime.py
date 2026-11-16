@@ -3,20 +3,24 @@ Q0 model/session/render/observation code is reused unchanged, imported only afte
 New finite input/release binding, owned job prefix, fail-closed preflight/record accounting.
 """
 from __future__ import annotations
-import datetime,json,os,shutil,subprocess,sys,time,traceback,uuid
+import csv,datetime,io,json,os,shutil,subprocess,sys,time,traceback,uuid
 from pathlib import Path
 from .common import ROOT,HERE,sha,load_json,write,protocol,git
 from .release import read_release,schedule,fixture,pdf_bytes
 from qualification.baseline.runtime import directory_size,guard_reason,supervisor_diagnostic,q0_imports
 
 
-def verify_idle_observation(observed,p):
+def verify_device_observation(observed,p):
+    """Verify successful device capture, not an empty desktop or automatic lease proof."""
     if len(observed)!=2 or any(x.get('returncode')!=0 or x.get('bytes',65536)>=65536 for x in observed):
-        raise PermissionError('GPU ownership observation unavailable/truncated')
+        raise PermissionError('GPU observation unavailable/truncated')
     first=Path(observed[0]['path']).read_text(encoding='utf-8')
     second=Path(observed[1]['path']).read_text(encoding='utf-8')
-    if p['gpu']['uuid'] not in first or '--- stderr ---' in first or second.strip():
-        raise PermissionError('GPU observation does not establish idle expected device; no other process is stopped')
+    device=list(csv.reader(io.StringIO(first),skipinitialspace=True))
+    if len(device)!=1 or len(device[0])<2 or device[0][1]!=p['gpu']['uuid'] or '--- stderr ---' in first or '--- stderr ---' in second:
+        raise PermissionError('Expected GPU observation unavailable')
+    return {'expected_device_observed':True,'process_observation_text':second,
+            'limit':'Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance.'}
 
 
 def execute(authority,release_path,owner):
@@ -46,7 +50,7 @@ def execute(authority,release_path,owner):
     write(run/'plan.json',{'release':r,'authority_commit':authority,'release_path':release_path,'executing_head':executing_head,'calls':plan,'job_name':jobname,'supervisor_pid':os.getpid()})
     job=None
     cmd=[str(python),'-I','-B',str(HERE/'cli.py'),'worker','--authority',authority,'--release-path',release_path,'--owner',owner,'--run-dir',str(run),'--job',jobname]
-    observed=[];proc=None;failure=None;failure_detail=None;start=time.monotonic();last_phase=None;phase_start=start;progress_start=start;last_progress=None;next_obs=start+60
+    observed=[];process_checks=[];proc=None;failure=None;failure_detail=None;start=time.monotonic();last_phase=None;phase_start=start;progress_start=start;last_progress=None;next_obs=start+60
     secondary_errors=[];finalization_errors=[]
     def finish(stage,action,unavailable=None):
         # Bounded best-effort finalization, never a successful zero for a failed observation.
@@ -72,7 +76,7 @@ def execute(authority,release_path,owner):
     try:
         job=winjob.create(jobname)
         observed=run_observers(p['gpu']['observer']['commands'],run,'pre')
-        verify_idle_observation(observed,p)
+        process_checks.append({'stage':'pre',**verify_device_observation(observed,p)})
         with (run/'stdout.txt').open('xb') as stdout,(run/'stderr.txt').open('xb') as stderr:
             proc=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=stdout,stderr=stderr,stdin=subprocess.DEVNULL,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
             while proc.poll() is None:
@@ -86,7 +90,10 @@ def execute(authority,release_path,owner):
                   log_bytes=(run/'stdout.txt').stat().st_size+(run/'stderr.txt').stat().st_size,root_bytes=directory_size(root),free_bytes=shutil.disk_usage(root).free,p=p)
                 if datetime.datetime.now(datetime.timezone.utc)>=datetime.datetime.fromisoformat(r['expires_utc'].replace('Z','+00:00')):failure=failure or 'LEASE_EXPIRED'
                 if failure:break
-                if now>=next_obs:observed+=run_observers(p['gpu']['observer']['commands'],run,f'during-{int(now-start)}');next_obs=now+60
+                if now>=next_obs:
+                    capture=run_observers(p['gpu']['observer']['commands'],run,f'during-{int(now-start)}');observed+=capture
+                    process_checks.append({'stage':'during','elapsed_s':now-start,**verify_device_observation(capture,p)})
+                    next_obs=now+60
                 time.sleep(1)
             if failure:winjob.close(job);job=None;proc.kill()
             proc.wait(timeout=60)
@@ -135,7 +142,7 @@ def execute(authority,release_path,owner):
          'free_bytes_after':'available' if free_after is not None else 'unavailable','owned_bytes_after':'available' if owned_after is not None else 'unavailable'},
       'child_launcher_pid':None if proc is None else proc.pid,'child_returncode':None if proc is None else proc.returncode,
       'observed_child_exit':None if any(x['stage']=='child_exit_observation' for x in finalization_errors) else proc is not None and child_exit is not None,
-      'elapsed_s':time.monotonic()-start,'observers':observed,'free_bytes_after':free_after,'owned_bytes_after':owned_after}
+      'elapsed_s':time.monotonic()-start,'observers':observed,'gpu_process_checks':process_checks,'free_bytes_after':free_after,'owned_bytes_after':owned_after}
     write(run/'run-result.json',result);print(str(run));return 0 if not failure and all(x['status']=='completed' for x in records) else 1
 
 def worker(authority,release_path,owner,run_dir,job):

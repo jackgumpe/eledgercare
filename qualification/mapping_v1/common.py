@@ -16,7 +16,7 @@ for name in ('native','score','typed_values','corpus','release','runtime','winjo
     if loaded and Path(loaded.__file__).resolve() != BASELINE/(name+'.py'):
         raise ImportError('Conflicting B0 module: '+name)
 sys.path.insert(0,str(BASELINE))
-from native import norm, parse_native, extract_prediction as baseline_prediction
+from native import norm, parse_native, ParseError, extract_prediction as baseline_prediction
 from score import score_document, summarize
 
 
