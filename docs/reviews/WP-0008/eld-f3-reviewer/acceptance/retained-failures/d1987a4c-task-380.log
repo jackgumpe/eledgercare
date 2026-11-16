@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f3-reviewer\docs\reviews\WP-0008\eld-f3-reviewer\acceptance\helpers\run_f3_independent_acceptance.py", line 1208, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f3-reviewer\docs\reviews\WP-0008\eld-f3-reviewer\acceptance\helpers\run_f3_independent_acceptance.py", line 1036, in main
+    direct_probes = run_direct_api_and_concurrency_probes_on_seed_db()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f3-reviewer\docs\reviews\WP-0008\eld-f3-reviewer\acceptance\helpers\run_f3_independent_acceptance.py", line 775, in run_direct_api_and_concurrency_probes_on_seed_db
+    assert st_sur == 422 and json.loads(b_sur.decode("utf-8"))["code"] == "invalid_field_value"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

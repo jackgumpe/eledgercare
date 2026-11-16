@@ -3,6 +3,7 @@ using System.Threading.RateLimiting;
 using ELedgerCare.Api;
 using ELedgerCare.Application.Extraction;
 using ELedgerCare.Application.Intake;
+using ELedgerCare.Application.Review;
 using ELedgerCare.Infrastructure;
 using Microsoft.AspNetCore.RateLimiting;
 
@@ -17,7 +18,7 @@ var localOcrOptions = builder.Configuration.GetSection(LocalOcrOptions.Section).
 var extractionSettings = localOcrOptions.BuildValidatedSettings(builder.Environment.ContentRootPath);
 
 // Local-only binding: loopback IPv4 only. Port 0 lets a test harness obtain an ephemeral owned port.
-var port = builder.Configuration.GetValue("Api:Port", 5190);
+var port = builder.Configuration.GetValue("Api:Port", 5390);
 if (port is < 0 or > 65535)
 {
     throw new InvalidOperationException("Api:Port must be within 0..65535.");
@@ -43,6 +44,7 @@ builder.Services.AddSingleton(extractionSettings);
 builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddSingleton<SubmitDocument>();
 builder.Services.AddSingleton<RequestExtraction>();
+builder.Services.AddSingleton<SaveWorkOrderReviewRevision>();
 builder.Services.AddSingleton<ExtractionAttemptCoordinator>();
 builder.Services.AddSingleton<ExtractionSupervisorService>();
 builder.Services.AddSingleton<IExtractionWakeSignal>(sp => sp.GetRequiredService<ExtractionSupervisorService>());
@@ -70,5 +72,6 @@ app.UseExceptionHandler();
 app.Use(LocalOnlyGuard.InvokeAsync);
 app.UseRateLimiter();
 app.MapDocumentEndpoints();
+app.MapReviewEndpoints();
 
 app.Run();

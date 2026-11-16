@@ -1,6 +1,7 @@
 using System.Data;
 using System.Globalization;
 using ELedgerCare.Application.Extraction;
+using ELedgerCare.Application.Review;
 using ELedgerCare.Domain.Documents;
 using ELedgerCare.Domain.Processing;
 using Microsoft.EntityFrameworkCore;
@@ -634,7 +635,19 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
             db.ExtractionResults
                 .Where(r => r.DocumentId == d.DocumentId)
                 .Select(r => (Guid?)r.ResultId)
-                .SingleOrDefault()));
+                .SingleOrDefault(),
+            (from h in db.WorkOrderReviewHeads
+             join rev in db.WorkOrderReviewRevisions on h.CurrentRevisionId equals rev.RevisionId
+             where h.DocumentId == d.DocumentId
+             select new WorkOrderReviewHeadSummary(
+                 h.ProfileId,
+                 h.CurrentStatus,
+                 h.CurrentRevisionNumber,
+                 rev.AcceptedFieldCount,
+                 rev.EditedFieldCount,
+                 rev.UnknownFieldCount,
+                 rev.UnreviewedFieldCount,
+                 h.UpdatedAtUtc)).SingleOrDefault()));
 
     private static async Task<DocumentExtractionSnapshot?> ReadSnapshotCoreAsync(
         ELedgerCareDbContext db,
@@ -683,6 +696,22 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
                 .SingleOrDefaultAsync(r => r.DocumentId == documentId, cancellationToken)
             : null;
 
+        var reviewHeadSummary = acceptedResult is not null
+            ? await (from h in db.WorkOrderReviewHeads.AsNoTracking()
+                     join rev in db.WorkOrderReviewRevisions.AsNoTracking() on h.CurrentRevisionId equals rev.RevisionId
+                     where h.DocumentId == documentId
+                     select new WorkOrderReviewHeadSummary(
+                         h.ProfileId,
+                         h.CurrentStatus,
+                         h.CurrentRevisionNumber,
+                         rev.AcceptedFieldCount,
+                         rev.EditedFieldCount,
+                         rev.UnknownFieldCount,
+                         rev.UnreviewedFieldCount,
+                         h.UpdatedAtUtc))
+                .SingleOrDefaultAsync(cancellationToken)
+            : null;
+
         return new DocumentExtractionSnapshot(
             head.DocumentId,
             head.JobId,
@@ -695,6 +724,7 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
             head.UpdatedAtUtc,
             head.RetriedFromAttemptId,
             attempts,
-            acceptedResult);
+            acceptedResult,
+            reviewHeadSummary);
     }
 }

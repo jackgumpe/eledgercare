@@ -9,12 +9,27 @@ export interface SubmissionReceipt {
   originalUrl: string;
 }
 
+export interface WorkOrderReviewSummary {
+  profileId: string;
+  status: 'draft' | 'reviewed';
+  currentRevisionNumber: number;
+  acceptedFieldCount: number;
+  editedFieldCount: number;
+  unknownFieldCount: number;
+  unreviewedFieldCount: number;
+  updatedAtUtc: string;
+  reviewUrl: string;
+}
+
 /** Extended document metadata returned by GET /api/documents/{documentId}. */
 export interface DocumentDetail extends SubmissionReceipt {
+  previewUrl?: string;
   admittedPageCount: number;
   extractionUrl: string;
+  reviewUrl?: string;
   currentAttemptId: string | null;
   acceptedResultId: string | null;
+  workOrderReview?: WorkOrderReviewSummary | null;
 }
 
 export interface AttemptSummary {
@@ -81,6 +96,8 @@ export interface DocumentExtractionView {
   originalByteLength: number;
   originalSha256: string;
   originalUrl: string;
+  previewUrl?: string;
+  reviewUrl?: string;
   submittedAtUtc: string;
   queuedAtUtc: string | null;
   updatedAtUtc: string;
@@ -93,6 +110,7 @@ export interface DocumentExtractionView {
   currentAttempt: AttemptSummary | null;
   attempts: AttemptSummary[];
   result: AcceptedExtractionResult | null;
+  workOrderReview?: WorkOrderReviewSummary | null;
 }
 
 export interface ProblemBody {

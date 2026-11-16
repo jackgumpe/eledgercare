@@ -1,0 +1,5 @@
+Candidate: c5c285d1c9e47b501930e47c21e9681369d5e297
+Command: python -B docs/implementation/WP-0008/eld-f3-implementer/scripts/run_f3_decisive_verification.py
+ExitCode: 1 (after steps 01..13 all exited 0)
+Traceback: RuntimeError: Unexpected local_ocr worker process observed during F3 verification.
+Cause: pwsh Get-CimInstance Win32_Process matched its own pwsh -Command line.

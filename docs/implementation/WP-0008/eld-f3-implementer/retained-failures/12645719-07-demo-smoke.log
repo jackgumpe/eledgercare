@@ -1,0 +1,11 @@
+$ pwsh -NoProfile -File deploy/dev/smoke/run-demo-smoke.ps1 -ApiPort 5390 -ReceiptPath C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f3-implementer\docs\implementation\WP-0008\eld-f3-implementer\evidence\demo-smoke-receipt.json
+[exit=1, elapsed_ms=1379.8]
+--- STDOUT ---
+
+--- STDERR ---
+Start-Process: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f3-implementer\deploy\dev\smoke\run-demo-smoke.ps1:36
+Line |
+  36 |  …  $process = Start-Process -FilePath dotnet -ArgumentList "`"$apiDir/E …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Could not find a part of the path 'C:\Users\jackg\Asp.net
+     | Projects\eledgercare-worktrees\eld-f3-implementer\.scratch\demo-api.log'.

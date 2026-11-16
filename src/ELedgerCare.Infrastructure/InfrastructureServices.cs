@@ -1,5 +1,6 @@
 using ELedgerCare.Application.Extraction;
 using ELedgerCare.Application.Intake;
+using ELedgerCare.Application.Review;
 using ELedgerCare.Infrastructure.Extraction;
 using ELedgerCare.Infrastructure.Pdf;
 using ELedgerCare.Infrastructure.Persistence;
@@ -20,6 +21,7 @@ public static class InfrastructureServices
                 npgsql.MigrationsHistoryTable("__ef_migrations_history", ELedgerCareDbContext.Schema)));
         services.AddSingleton<IIntakeStore, IntakeStore>();
         services.AddSingleton<IExtractionStore, ExtractionStore>();
+        services.AddSingleton<IWorkOrderReviewStore, WorkOrderReviewStore>();
         services.AddSingleton<IPdfAdmission, PdfPigAdmission>();
         services.AddSingleton<IProcessIdentityProbe, WindowsProcessIdentityProbe>();
         services.AddSingleton<ILocalOcrWorkerRunner, LocalPythonOcrWorkerRunner>();

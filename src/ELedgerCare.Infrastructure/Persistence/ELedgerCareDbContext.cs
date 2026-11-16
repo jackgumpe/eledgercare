@@ -1,6 +1,7 @@
 using ELedgerCare.Domain.Documents;
 using ELedgerCare.Domain.Intake;
 using ELedgerCare.Domain.Processing;
+using ELedgerCare.Domain.Review;
 using Microsoft.EntityFrameworkCore;
 
 namespace ELedgerCare.Infrastructure.Persistence;
@@ -11,6 +12,10 @@ public sealed class ELedgerCareDbContext(DbContextOptions<ELedgerCareDbContext> 
     public const string IdempotencyKeyUniqueIndex = "ux_documents_idempotency_key";
     public const string OneRunningAttemptIndex = "ux_execution_attempts_one_running_per_job";
     public const string AcceptedResultDocumentIndex = "ux_extraction_results_document_id";
+    public const string ReviewRevisionIdempotencyKeyIndex = "ux_work_order_review_revisions_idempotency_key";
+    public const string ReviewRevisionDocNumberIndex = "ux_work_order_review_revisions_document_revision";
+    public const string ReviewRevisionResultNumberIndex = "ux_work_order_review_revisions_result_revision";
+    public const string ReviewHeadResultIndex = "ux_work_order_review_heads_result_id";
 
     public DbSet<Document> Documents => Set<Document>();
 
@@ -21,6 +26,12 @@ public sealed class ELedgerCareDbContext(DbContextOptions<ELedgerCareDbContext> 
     public DbSet<ExecutionAttempt> ExecutionAttempts => Set<ExecutionAttempt>();
 
     public DbSet<ExtractionResult> ExtractionResults => Set<ExtractionResult>();
+
+    public DbSet<WorkOrderReviewHead> WorkOrderReviewHeads => Set<WorkOrderReviewHead>();
+
+    public DbSet<WorkOrderReviewRevision> WorkOrderReviewRevisions => Set<WorkOrderReviewRevision>();
+
+    public DbSet<WorkOrderReviewField> WorkOrderReviewFields => Set<WorkOrderReviewField>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -262,6 +273,187 @@ public sealed class ELedgerCareDbContext(DbContextOptions<ELedgerCareDbContext> 
             result.HasIndex(r => r.JobId).IsUnique().HasDatabaseName("ux_extraction_results_job_id");
             result.HasIndex(r => r.AttemptId).IsUnique().HasDatabaseName("ux_extraction_results_attempt_id");
             result.HasIndex(r => r.FencingToken).IsUnique().HasDatabaseName("ux_extraction_results_fencing_token");
+        });
+
+        modelBuilder.Entity<WorkOrderReviewRevision>(revision =>
+        {
+            revision.ToTable("work_order_review_revisions", table =>
+            {
+                table.HasCheckConstraint("ck_work_order_review_revisions_bounds",
+                    $"revision_number BETWEEN 1 AND {WorkOrderReviewSchema.MaxRevisionsPerResult} AND " +
+                    "((revision_number = 1 AND previous_revision_number IS NULL) OR " +
+                    "(revision_number > 1 AND previous_revision_number = revision_number - 1))");
+                table.HasCheckConstraint("ck_work_order_review_revisions_status",
+                    "status IN ('draft', 'reviewed')");
+                table.HasCheckConstraint("ck_work_order_review_revisions_digests",
+                    "octet_length(request_sha256) = 32 AND octet_length(input_sha256) = 32 AND octet_length(raw_output_sha256) = 32");
+                table.HasCheckConstraint("ck_work_order_review_revisions_profile",
+                    $"profile_id = '{WorkOrderReviewSchema.ProfileId}' AND " +
+                    $"field_schema_version = '{WorkOrderReviewSchema.FieldSchemaVersion}' AND " +
+                    $"suggestion_policy_version = '{WorkOrderReviewSchema.SuggestionPolicyVersion}'");
+                table.HasCheckConstraint("ck_work_order_review_revisions_operator_label",
+                    $"operator_display_label IS NULL OR (char_length(btrim(operator_display_label)) >= 1 AND char_length(operator_display_label) <= {WorkOrderReviewSchema.MaxOperatorDisplayLabelChars})");
+                table.HasCheckConstraint("ck_work_order_review_revisions_field_counts",
+                    "accepted_field_count >= 0 AND edited_field_count >= 0 AND unknown_field_count >= 0 AND unreviewed_field_count >= 0 AND " +
+                    $"accepted_field_count + edited_field_count + unknown_field_count + unreviewed_field_count = {WorkOrderReviewSchema.FieldCount} AND " +
+                    "(status = 'draft' OR unreviewed_field_count = 0)");
+            });
+            revision.HasKey(r => r.RevisionId).HasName("pk_work_order_review_revisions");
+            revision.Property(r => r.RevisionId).HasColumnName("revision_id").ValueGeneratedNever();
+            revision.Property(r => r.DocumentId).HasColumnName("document_id").IsRequired();
+            revision.Property(r => r.ResultId).HasColumnName("result_id").IsRequired();
+            revision.Property(r => r.RevisionNumber).HasColumnName("revision_number").IsRequired();
+            revision.Property(r => r.PreviousRevisionNumber).HasColumnName("previous_revision_number");
+            revision.Property(r => r.Status)
+                .HasColumnName("status")
+                .HasColumnType("text")
+                .HasConversion(s => s.ToWire(), v => ReviewRevisionStatusNames.FromWire(v))
+                .IsRequired();
+            revision.Property(r => r.IdempotencyKey).HasColumnName("idempotency_key").IsRequired();
+            revision.Property(r => r.RequestSha256).HasColumnName("request_sha256").HasColumnType("bytea").IsRequired();
+            revision.Property(r => r.InputSha256).HasColumnName("input_sha256").HasColumnType("bytea").IsRequired();
+            revision.Property(r => r.RawOutputSha256).HasColumnName("raw_output_sha256").HasColumnType("bytea").IsRequired();
+            revision.Property(r => r.ProfileId).HasColumnName("profile_id").HasColumnType("text").IsRequired();
+            revision.Property(r => r.FieldSchemaVersion).HasColumnName("field_schema_version").HasColumnType("text").IsRequired();
+            revision.Property(r => r.SuggestionPolicyVersion).HasColumnName("suggestion_policy_version").HasColumnType("text").IsRequired();
+            revision.Property(r => r.OperatorDisplayLabel).HasColumnName("operator_display_label").HasColumnType("text");
+            revision.Property(r => r.AcceptedFieldCount).HasColumnName("accepted_field_count").IsRequired();
+            revision.Property(r => r.EditedFieldCount).HasColumnName("edited_field_count").IsRequired();
+            revision.Property(r => r.UnknownFieldCount).HasColumnName("unknown_field_count").IsRequired();
+            revision.Property(r => r.UnreviewedFieldCount).HasColumnName("unreviewed_field_count").IsRequired();
+            revision.Property(r => r.SavedAtUtc).HasColumnName("saved_at").HasColumnType("timestamptz").IsRequired();
+
+            revision.HasOne<Document>()
+                .WithMany()
+                .HasForeignKey(r => r.DocumentId)
+                .HasConstraintName("fk_work_order_review_revisions_documents")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            revision.HasOne<ExtractionResult>()
+                .WithMany()
+                .HasForeignKey(r => r.ResultId)
+                .HasConstraintName("fk_work_order_review_revisions_extraction_results")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            revision.HasMany(r => r.Fields)
+                .WithOne()
+                .HasForeignKey(f => f.RevisionId)
+                .HasConstraintName("fk_work_order_review_fields_revisions")
+                .OnDelete(DeleteBehavior.Restrict);
+            revision.Navigation(r => r.Fields).UsePropertyAccessMode(PropertyAccessMode.Field);
+
+            revision.HasIndex(r => r.IdempotencyKey).IsUnique().HasDatabaseName(ReviewRevisionIdempotencyKeyIndex);
+            revision.HasIndex(r => new { r.DocumentId, r.RevisionNumber }).IsUnique().HasDatabaseName(ReviewRevisionDocNumberIndex);
+            revision.HasIndex(r => new { r.ResultId, r.RevisionNumber }).IsUnique().HasDatabaseName(ReviewRevisionResultNumberIndex);
+        });
+
+        modelBuilder.Entity<WorkOrderReviewField>(field =>
+        {
+            field.ToTable("work_order_review_fields", table =>
+            {
+                table.HasCheckConstraint("ck_work_order_review_fields_key_ordinal",
+                    "(field_ordinal = 0 AND field_key = 'work_order_id') OR " +
+                    "(field_ordinal = 1 AND field_key = 'property_name') OR " +
+                    "(field_ordinal = 2 AND field_key = 'building_unit') OR " +
+                    "(field_ordinal = 3 AND field_key = 'requested_date') OR " +
+                    "(field_ordinal = 4 AND field_key = 'issue_and_resolution')");
+                table.HasCheckConstraint("ck_work_order_review_fields_decision",
+                    "decision IN ('unreviewed', 'accepted', 'edited', 'unknown')");
+                table.HasCheckConstraint("ck_work_order_review_fields_value_consistency",
+                    "(decision IN ('accepted', 'edited') AND human_value IS NOT NULL AND char_length(btrim(human_value)) >= 1) OR " +
+                    "(decision = 'unknown' AND human_value IS NULL) OR " +
+                    "(decision = 'unreviewed' AND (human_value IS NULL OR char_length(btrim(human_value)) >= 1))");
+                table.HasCheckConstraint("ck_work_order_review_fields_value_lengths",
+                    "human_value IS NULL OR (" +
+                    "(field_key = 'work_order_id' AND char_length(human_value) <= 64) OR " +
+                    "(field_key = 'property_name' AND char_length(human_value) <= 200) OR " +
+                    "(field_key = 'building_unit' AND char_length(human_value) <= 120) OR " +
+                    "(field_key = 'requested_date' AND char_length(human_value) <= 64) OR " +
+                    "(field_key = 'issue_and_resolution' AND char_length(human_value) <= 4000))");
+                table.HasCheckConstraint("ck_work_order_review_fields_unknown_reason",
+                    "(decision = 'unknown' AND (unknown_reason IS NULL OR (char_length(btrim(unknown_reason)) >= 1 AND char_length(unknown_reason) <= 500))) OR " +
+                    "(decision <> 'unknown' AND unknown_reason IS NULL)");
+                table.HasCheckConstraint("ck_work_order_review_fields_source_coords",
+                    "(consulted_page_number IS NULL AND consulted_block_ordinal IS NULL AND consulted_table_row IS NULL AND consulted_table_column IS NULL AND consulted_quote IS NULL) OR " +
+                    "(consulted_page_number BETWEEN 1 AND 3 AND consulted_block_ordinal >= 0 AND consulted_quote IS NOT NULL AND " +
+                    "((consulted_table_row IS NULL AND consulted_table_column IS NULL) OR (consulted_table_row >= 0 AND consulted_table_column >= 0)))");
+            });
+            field.HasKey(f => new { f.RevisionId, f.FieldOrdinal }).HasName("pk_work_order_review_fields");
+            field.Property(f => f.RevisionId).HasColumnName("revision_id").ValueGeneratedNever();
+            field.Property(f => f.FieldOrdinal).HasColumnName("field_ordinal").ValueGeneratedNever();
+            field.Property(f => f.FieldKey).HasColumnName("field_key").HasColumnType("text").IsRequired();
+            field.Property(f => f.Decision)
+                .HasColumnName("decision")
+                .HasColumnType("text")
+                .HasConversion(d => d.ToWire(), v => ReviewFieldDecisionNames.FromWire(v))
+                .IsRequired();
+            field.Property(f => f.HumanValue).HasColumnName("human_value").HasColumnType("text");
+            field.Property(f => f.UnknownReason).HasColumnName("unknown_reason").HasColumnType("text");
+            field.Property(f => f.ConsultedPageNumber).HasColumnName("consulted_page_number");
+            field.Property(f => f.ConsultedBlockOrdinal).HasColumnName("consulted_block_ordinal");
+            field.Property(f => f.ConsultedTableRow).HasColumnName("consulted_table_row");
+            field.Property(f => f.ConsultedTableColumn).HasColumnName("consulted_table_column");
+            field.Property(f => f.ConsultedQuote).HasColumnName("consulted_quote").HasColumnType("text");
+
+            field.HasIndex(f => new { f.RevisionId, f.FieldKey })
+                .IsUnique()
+                .HasDatabaseName("ux_work_order_review_fields_revision_key");
+        });
+
+        modelBuilder.Entity<WorkOrderReviewHead>(head =>
+        {
+            head.ToTable("work_order_review_heads", table =>
+            {
+                table.HasCheckConstraint("ck_work_order_review_heads_revision_bounds",
+                    $"current_revision_number BETWEEN 1 AND {WorkOrderReviewSchema.MaxRevisionsPerResult}");
+                table.HasCheckConstraint("ck_work_order_review_heads_status",
+                    "current_status IN ('draft', 'reviewed')");
+                table.HasCheckConstraint("ck_work_order_review_heads_digests",
+                    "octet_length(input_sha256) = 32 AND octet_length(raw_output_sha256) = 32");
+                table.HasCheckConstraint("ck_work_order_review_heads_profile",
+                    $"profile_id = '{WorkOrderReviewSchema.ProfileId}' AND " +
+                    $"field_schema_version = '{WorkOrderReviewSchema.FieldSchemaVersion}' AND " +
+                    $"suggestion_policy_version = '{WorkOrderReviewSchema.SuggestionPolicyVersion}'");
+            });
+            head.HasKey(h => h.DocumentId).HasName("pk_work_order_review_heads");
+            head.Property(h => h.DocumentId).HasColumnName("document_id").ValueGeneratedNever();
+            head.Property(h => h.ResultId).HasColumnName("result_id").IsRequired();
+            head.Property(h => h.InputSha256).HasColumnName("input_sha256").HasColumnType("bytea").IsRequired();
+            head.Property(h => h.RawOutputSha256).HasColumnName("raw_output_sha256").HasColumnType("bytea").IsRequired();
+            head.Property(h => h.ProfileId).HasColumnName("profile_id").HasColumnType("text").IsRequired();
+            head.Property(h => h.FieldSchemaVersion).HasColumnName("field_schema_version").HasColumnType("text").IsRequired();
+            head.Property(h => h.SuggestionPolicyVersion).HasColumnName("suggestion_policy_version").HasColumnType("text").IsRequired();
+            head.Property(h => h.MachineSnapshotJson).HasColumnName("machine_snapshot_json").HasColumnType("jsonb").IsRequired();
+            head.Property(h => h.CurrentRevisionNumber).HasColumnName("current_revision_number").IsRequired();
+            head.Property(h => h.CurrentRevisionId).HasColumnName("current_revision_id").IsRequired();
+            head.Property(h => h.CurrentStatus)
+                .HasColumnName("current_status")
+                .HasColumnType("text")
+                .HasConversion(s => s.ToWire(), v => ReviewRevisionStatusNames.FromWire(v))
+                .IsRequired();
+            head.Property(h => h.CreatedAtUtc).HasColumnName("created_at").HasColumnType("timestamptz").IsRequired();
+            head.Property(h => h.UpdatedAtUtc).HasColumnName("updated_at").HasColumnType("timestamptz").IsRequired();
+
+            head.HasOne<Document>()
+                .WithOne()
+                .HasForeignKey<WorkOrderReviewHead>(h => h.DocumentId)
+                .HasConstraintName("fk_work_order_review_heads_documents")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            head.HasOne<ExtractionResult>()
+                .WithOne()
+                .HasForeignKey<WorkOrderReviewHead>(h => h.ResultId)
+                .HasConstraintName("fk_work_order_review_heads_extraction_results")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            head.HasOne<WorkOrderReviewRevision>()
+                .WithMany()
+                .HasForeignKey(h => h.CurrentRevisionId)
+                .HasConstraintName("fk_work_order_review_heads_current_revision")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            head.HasIndex(h => h.ResultId).IsUnique().HasDatabaseName(ReviewHeadResultIndex);
+            head.HasIndex(h => h.CurrentRevisionId).IsUnique().HasDatabaseName("ux_work_order_review_heads_current_revision_id");
         });
     }
 }
