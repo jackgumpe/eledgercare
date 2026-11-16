@@ -53,3 +53,10 @@ The first independently accepted product feature and first independently reviewe
 ## Policy provenance
 
 This is a product-scoped adaptation of Workspace Ledger reporting/ownership rules at `7462b744689adba897730ff4b9e35f2194b60950`, particularly AGENTS.md and docs/agent-reports/README.md. Those pinned sources were inspected read-only. No source-project assignments, index ownership, runtime helpers, or unaccepted capabilities are imported. See docs/inputs/bootstrap-kit/05-SOURCES-AND-LIMITS.md.
+
+
+## Subsequent two-track authority (2026-11-16 UTC)
+
+Jack explicitly said "Authority to proceed" to the compared two-track plan: (1) F2 durable real local extraction and a saved result screen, and (2) a vanilla accuracy baseline, with independent contract/scorer review, separate authors, and serialized GPU use. This supersedes earlier WP-0005-only and F2/baseline holds only within new WP-0006 and WP-0007 assignments. It does not release E1-E3 improvements, field correction/approval (F3), search (F4), training, customer data, deployment or migration. Do not ask again for this authorized work.
+
+Root remains the sole coordinator. Carbon is selected for the new product implementer and separate independent reviewer, using the established available CLI route; native Astra continues as baseline author. The earlier planned Opus assignment and Q0-only handoff labels do not require waiting on unavailable Claude for these newly bound roles. Record actual session/model on dispatch; no impersonation or billing/configuration changes. Reviewers author no reviewed production/scoring code. Product and R&D imports remain separate; they may use the same verified external unmodified model and read-only pinned Python environment under sequential GPU releases. Contracts/designs require independent review before product implementation; baseline CPU development on dev-only inputs may proceed pending scorer review. No model run occurs until the coordinator binds its exact candidate, input matrix, guards and sole lease. Normal owned commits/pushes and local isolated PostgreSQL setup/tests are authorized.

@@ -2,6 +2,12 @@
 
 Sole writer: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba. Actual coordinator model/effort: not exposed. Repository https://github.com/jackgumpe/eledgercare is PRIVATE; default/integration branch coordination/bootstrap. Normal scoped commits and pushes are active. INDEX.md and immutable reports retain historical reservations, receipts and corrected findings.
 
+## Active: WP-0006 F2 and WP-0007 vanilla accuracy baseline
+
+Jack authorized both bounded tracks on 2026-11-16 UTC. [F2 contract](docs/design/F2-local-extraction.md) covers real local extraction, durable attempts/recovery, saved raw output/provenance and result screen. [B0 contract](docs/design/B0-vanilla-accuracy-baseline.md) covers deterministic dev-only scorer preparation, frozen test evaluation, honest quality/failure denominators and latency/memory observations.
+
+Carbon product author and separate Carbon reviewer are PREPARED for dispatch; existing native Astra is PREPARED for baseline CPU work. Exact assignments/reservations are in INDEX.md. Product implementation follows independent design acceptance. Baseline CPU development is released on dev only; test data and all model runs await accepted exact candidates and coordinator releases. Both tracks use the same verified model/environment read-only and separate writable state. GPU leases are serialized; none is active. Normal scoped commits/pushes and isolated local PostgreSQL work are authorized. Prior milestones below remain accepted.
+
 ## WP-0005: accepted, integrated and published
 
 **The unmodified Q0 trial and independent reproduction are ACCEPTED.** Both returned QUALIFIED_RUNTIME_OBSERVATION: all six checks passed in each run, and all twelve calls stopped normally with expected page counts. All four measured outputs match within and across sessions in token IDs and raw text bytes. The [final disposition](docs/coordination/WP-0005/final-disposition/README.md) records exact revisions, evidence corrections and limits.
@@ -22,4 +28,4 @@ The R&D corpus/backlog is independently ACCEPTED and MERGED at 13e3c47afb35e39d9
 
 ## Boundary
 
-The completed bootstrap base is df9a2b50894f01987d779d7f9ae805794503ce6f. Jack's later authorization extends work only through WP-0005 Q0. F2/production OCR integration, E1-E3 treatments, training, customer data, deployment and legacy migration are unreleased. Preserve accepted application/corpus inputs by exact identity. Root coordinates and integrates; it does not substitute for the harness author. Only root writes shared assignments, INDEX.md and CURRENT.md.
+The latest explicit two-track authority extends accepted base `8e80a42c29c0fc27a4af6348cfb1ec22cab3764d` through independently accepted WP-0006 F2 and WP-0007 vanilla baseline. No E1-E3 treatment, F3 correction/approval, F4 search, training, customer data, deployment or legacy migration is released. Preserve historical reports, admitted corpus and qualified Q0 source exactly. Root coordinates/designs/integrates; assigned authors implement. Only root writes shared assignments, INDEX.md and CURRENT.md.
