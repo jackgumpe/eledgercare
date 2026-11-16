@@ -1,0 +1,55 @@
+{
+  "authority": "7d8a9d1052caca53312db76aa54b09a6182a9e4a",
+  "reviewer": "eld-baseline-reviewer",
+  "actual_model_effort": "not exposed",
+  "helper_head": "eefdcb3b8218c1d36a4b1f4399a1ff6e0ff74f32",
+  "source": "f807e0ac737df4e9e0aeeb96f716afec57f58ff6",
+  "source_tree": "df44162c62641596032df04bc834754da38a5f7b",
+  "timestamp_utc": "2026-11-16T06:01:51.909227+00:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "scratch": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb",
+  "stable_file_bytes": 9,
+  "stable_count_passed": true,
+  "after_enumeration": {
+    "reproduced": true,
+    "injection": "after enumeration",
+    "exception": {
+      "type": "FileNotFoundError",
+      "repr": "FileNotFoundError(2, 'The system cannot find the file specified')",
+      "str": "[WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\\\enumeration\\\\heartbeat.tmp'",
+      "filename": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\enumeration\\heartbeat.tmp",
+      "errno": 2,
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-incident\\probe.py\", line 53, in deterministic\n    size = directory_size(root)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 14, in directory_size\n    if p.is_symlink() or (p.stat().st_file_attributes & 0x400):raise RuntimeError('Reparse path in owned runtime root')\n                          ^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 840, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\\\enumeration\\\\heartbeat.tmp'\n"
+    }
+  },
+  "after_is_file": {
+    "reproduced": true,
+    "injection": "after is_file",
+    "exception": {
+      "type": "FileNotFoundError",
+      "repr": "FileNotFoundError(2, 'The system cannot find the file specified')",
+      "str": "[WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\\\final-stat\\\\heartbeat.tmp'",
+      "filename": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\final-stat\\heartbeat.tmp",
+      "errno": 2,
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-incident\\probe.py\", line 53, in deterministic\n    size = directory_size(root)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 15, in directory_size\n    if p.is_file():total+=p.stat().st_size\n                          ^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 840, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\\\final-stat\\\\heartbeat.tmp'\n"
+    }
+  },
+  "concurrent_heartbeat": {
+    "reproduced": true,
+    "successful_scans": 0,
+    "beats": 3,
+    "writer_error": null,
+    "elapsed_s": 0.0,
+    "exception": {
+      "type": "FileNotFoundError",
+      "repr": "FileNotFoundError(2, 'The system cannot find the file specified')",
+      "str": "[WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\\\concurrent\\\\heartbeat.tmp'",
+      "filename": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\concurrent\\heartbeat.tmp",
+      "errno": 2,
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-incident\\probe.py\", line 84, in concurrent\n    directory_size(root)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 14, in directory_size\n    if p.is_symlink() or (p.stat().st_file_attributes & 0x400):raise RuntimeError('Reparse path in owned runtime root')\n                          ^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 840, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\runtime-incident-6dce054f9dfb4eeb8aeb5d30c30041eb\\\\concurrent\\\\heartbeat.tmp'\n"
+    },
+    "method": "Unpatched source; tight CPU-only Heartbeat.beat loop versus directory_size. Accelerated overlap, not the original five-second cadence."
+  },
+  "limits": "Confirms only a latent source defect if reproduced. The original supervisor error lacks filename/traceback, so its call stack remains unproven. No external runtime, model/GPU or heldout content access.",
+  "blocked_modules_loaded": []
+}

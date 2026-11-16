@@ -1,0 +1,16 @@
+Reviewer helper failure retained; accepted baseline/Q0/scorer source was unchanged.
+Frozen helper: eefdcb3b8218c1d36a4b1f4399a1ff6e0ff74f32
+Command: python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/dev-first-run/audit_capture.py --output docs/reviews/WP-0007/eld-baseline-reviewer/005/dev-first-run/capture-audit.json
+Exit code: 1
+The capture audit produced no output file. Git paths use '/', while the original Windows run-result observation paths contain '\'. The reviewer-only object lookup was corrected to normalize those separators. The prior frozen score reproduction already handled this correctly and passed.
+
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-reviewer\docs\reviews\WP-0007\eld-baseline-reviewer\005\dev-first-run\audit_capture.py", line 121, in <module>
+    main()
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-reviewer\docs\reviews\WP-0007\eld-baseline-reviewer\005\dev-first-run\audit_capture.py", line 65, in main
+    obs = obj(call['observation'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-reviewer\docs\reviews\WP-0007\eld-baseline-reviewer\005\dev-first-run\audit_capture.py", line 22, in obj
+    return json.loads(artifact[name])
+                      ~~~~~~~~^^^^^^
+KeyError: 'evidence\\SYN-WO-01-v0-clean.warmup.observation.json'
