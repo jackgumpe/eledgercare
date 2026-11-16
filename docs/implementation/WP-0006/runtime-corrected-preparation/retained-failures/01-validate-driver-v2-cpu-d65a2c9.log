@@ -1,0 +1,13 @@
+$ python -B docs/implementation/WP-0006/runtime-corrected-preparation/helpers/validate_driver_v2_cpu.py
+frozen_head=d65a2c99447bd10ee7699190e62f6852d1238a38
+exit_code=1
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\runtime-corrected-preparation\helpers\validate_driver_v2_cpu.py", line 535, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\runtime-corrected-preparation\helpers\validate_driver_v2_cpu.py", line 437, in main
+    rc1, out1 = check_ast_and_digests()
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\runtime-corrected-preparation\helpers\validate_driver_v2_cpu.py", line 397, in check_ast_and_digests
+    raise RuntimeError("Driver code still references HEAD~1!")
+RuntimeError: Driver code still references HEAD~1!
