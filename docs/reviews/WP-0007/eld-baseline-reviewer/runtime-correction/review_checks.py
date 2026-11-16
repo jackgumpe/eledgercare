@@ -41,6 +41,9 @@ def directory_checks(scratch):
         def __init__(self, entry, action): self.entry, self.action, self.path = entry, action, entry.path
         def stat(self, *, follow_symlinks):
             assert follow_symlinks is False
+            if self.action == 'missing_metadata':
+                Path(self.path).unlink()
+                raise FileNotFoundError(errno.ENOENT, 'enumerated child vanished before metadata', self.path)
             if self.action == 'before': Path(self.path).unlink()
             result = self.entry.stat(follow_symlinks=False)
             if self.action == 'after': Path(self.path).unlink()
@@ -56,14 +59,15 @@ def directory_checks(scratch):
         def __next__(self):
             entry = next(self.inner)
             return Wrapped(entry, self.action) if Path(entry.path) == self.target else entry
-    for action, extra, expected in [('before', 3, 10), ('after', 3, 13), ('directory', 0, 10), ('permission', 3, None), ('reparse', 3, None)]:
+    for action, extra, expected in [('before', 3, (10, 13)), ('missing_metadata', 3, 10), ('after', 3, 13), ('directory', 0, 10), ('permission', 3, None), ('reparse', 3, None)]:
         target = root / ('transient-' + action)
         if action == 'directory': target.mkdir()
         else: target.write_bytes(b'xyz')
         with patch('runtime.os.scandir', side_effect=lambda d: Scan(d, target, action)):
             result = caught(lambda: runtime.directory_size(root))
         expected_error = {'permission': 'PermissionError', 'reparse': 'RuntimeError'}.get(action)
-        passed = result['exception']['type'] == expected_error if expected_error and result['exception'] else result['returned'] == expected and not result['exception']
+        value_ok = result['returned'] in expected if isinstance(expected, tuple) else result['returned'] == expected
+        passed = result['exception']['type'] == expected_error if expected_error and result['exception'] else value_ok and not result['exception']
         checks.append({'case': action, 'passed': passed, **result})
         if target.exists(): target.unlink()
     for case, path, error in [('missing root', root / 'absent', 'FileNotFoundError'), ('file root', root / 'root.bin', 'NotADirectoryError')]:
@@ -185,12 +189,18 @@ def recovery_checks(scratch):
     return checks
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__); parser.add_argument('--output', required=True); args = parser.parse_args()
+    parser = argparse.ArgumentParser(description=__doc__); parser.add_argument('--output', required=True); parser.add_argument('--directory-only', action='store_true'); args = parser.parse_args()
     assert git('rev-parse', 'HEAD:qualification/baseline').decode().strip() == TREE
     assert not git('status', '--porcelain').strip(), 'Freeze reviewer helper first'
     scratch = ROOT / '.scratch' / ('review-runtime-correction-' + uuid.uuid4().hex); scratch.mkdir(parents=True)
     report = {'authority': AUTHORITY, 'helper_head': git('rev-parse', 'HEAD').decode().strip(), 'source': SOURCE, 'source_tree': TREE,
         'timestamp_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'python': sys.version, 'scratch': str(scratch)}
+    if args.directory_only:
+        report['directory'] = directory_checks(scratch)
+        report['limit'] = 'Focused reviewer expectation correction only. Windows DirEntry may retain enumeration metadata after removal; counting that cached snapshot is allowed. A separate missing_metadata injection exercises genuine FileNotFoundError tolerance. Initial results remain immutable.'
+        with Path(args.output).open('x', encoding='utf-8', newline='\n') as out: json.dump(report, out, indent=2); out.write('\n')
+        print(json.dumps({'directory': all(x['passed'] for x in report['directory']), 'cases': len(report['directory'])}))
+        return
     protected = ['qualification/baseline/' + x for x in ['native.py','score.py','typed_values.py','corpus.py','mapping.json','protocol.json','winjob.py']] + ['qualification/q0','evaluation']
     report['protected'] = [{'path': path, 'old': git('rev-parse', ORIGINAL + ':' + path).decode().strip(), 'current': git('rev-parse', 'HEAD:' + path).decode().strip()} for path in protected]
     evidence_path = 'docs/evidence/WP-0007/eld-rd-astra/runtime-dev'
