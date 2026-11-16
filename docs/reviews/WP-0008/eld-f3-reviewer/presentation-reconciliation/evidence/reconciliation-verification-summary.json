@@ -1,0 +1,348 @@
+{
+  "schema": "eledgercare.wp-0008.f3-reviewer-p007-summary/1",
+  "reviewer": "eld-f3-reviewer",
+  "started_utc": "2026-11-16T22:54:47.865261+00:00",
+  "completed_utc": "2026-11-16T22:56:18.542808+00:00",
+  "outcome": "PASSED_ALL_INDEPENDENT_PRESENTATION_RECONCILIATION_CHECKS",
+  "static_and_author_audit": {
+    "frozen_reviewer_helper_sha": "c014e5a8ea44298235d4818db6d73cdc2977fb9f",
+    "author_final_candidate_sha": "dda4b4d5856ac45105c31ba1d6d6813debdab8a7",
+    "web_tree_oid": "381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd",
+    "product_diff_files_vs_62e8666a": [
+      "web/e2e/review.spec.ts",
+      "web/src/app/review/work-order-review-page.ts",
+      "web/src/styles.css"
+    ],
+    "unchanged_product_oids_vs_62e8666a": {
+      "src": "e0dc8651c9fefb228ad26e17f62da6c20fd59ae0",
+      "tests": "838979ed5f81050c2cc7b7938aa9ae5eb641bbbb",
+      "deploy": "4c410b6cff7575a522d38e3c191db33924214841",
+      "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+      "workers": "9b548ddcc73cfba8e7683d132840b08afa5a67a3",
+      "Directory.Build.props": "abc535eeaea0896c860984c7359a66c33ec30cf4",
+      "Directory.Packages.props": "95976cb437a7a7747d38df3d6b2a0b5ca94bf2fc",
+      "web/package.json": "4fc692ff2baad941390e616fcebb4fd748507b1a",
+      "web/package-lock.json": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+      "web/angular.json": "2a7c87fb81befe8647e7beef48dc29712e861bc7",
+      "web/playwright.config.ts": "c4599cd2470feac57dca73a0c65c504bed19aa18",
+      "web/src/app/review/pdf-preview-url.ts": "ce1bd41aa4cc1ba1a802aa8cc3f02196dd45b191",
+      "web/src/app/review/review-api.ts": "d406979137ff7cdfd9c5200dcdc127c96209629b",
+      "web/src/app/review/review-models.ts": "bc86883a06999af787d2bf28899938886395dbf0",
+      "web/src/app/intake/document-page.ts": "e16febe191e60f2d88f39c035640a65aadd14b6e"
+    },
+    "protected_checks_all_true": true,
+    "angular_cli_version_verified": "22.2.7",
+    "package_lock_sha256": "93cc7b29d66ebfbe00437c886e57118bf455052def3e8acff08e7cb382ad0f53",
+    "author_evidence_manifest_files_verified": 15,
+    "author_retained_failure_log_bytes": 664,
+    "author_retained_failure_log_sha256": "8c75e17102a16c83c64e82ebba52a7b112fe87fac7c73c740d6a7a1849cff4c0"
+  },
+  "reused_accepted_004_backend_evidence": {
+    "accepted_004_report_sha": "99bc14b29dd433d7328c0b9c43dc0a6ea0c79f28",
+    "accepted_004_evidence_sha": "7675ba2494fb951252bdcfb52661572e0f822c56",
+    "accepted_004_helper_sha": "4a00f1a41588b54b4cd36d7c10d42550f59a0f19",
+    "checks_reused_without_rerun_because_backend_trees_identical": [
+      "workers/local_ocr CPU unit suite (9/9 passed in /004; workers/ tree 9b548ddcc73cfba8e7683d132840b08afa5a67a3 unchanged)",
+      "dotnet test ELedgerCare.slnx -c Release (85/85 passed in /004; src/ e0dc8651..., tests/ 838979ed..., deploy/ 4c410b6c... unchanged)",
+      "Forward F2->F3 migration & least-privilege/FK catalog audit & PG+API full restart reopen (verified in /004; schema & migrations unchanged)"
+    ]
+  },
+  "preserved_seed_db_invariance": {
+    "database": "eledgercare_f3_reviewer_seed_f2",
+    "core_state_sha256": "734cc7eee1f8477dc41676382157039a405bb7b20faec2c24841a9409aab4a2f",
+    "f1_f2_rows_and_seq_sha256": "b903028ae3ad1c163aa614455b606a845639ebba1060d1e79571cf2afbce8305",
+    "full_8_table_sha256_before": "7c58687b30bf60f0f4a8a27f5f5248f21fb9f3872bad970253a6221a4e134f5f",
+    "full_8_table_sha256_after": "7c58687b30bf60f0f4a8a27f5f5248f21fb9f3872bad970253a6221a4e134f5f",
+    "zero_mutation_verified": true,
+    "counts": {
+      "documents": 4,
+      "attempts": 4,
+      "results": 3,
+      "heads": 2,
+      "revisions": 132,
+      "fields": 660
+    },
+    "seed1_head": {
+      "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+      "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+      "input_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "raw_output_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "profile_id": "maintenance-work-order/1",
+      "field_schema_version": "maintenance-work-order-fields/1",
+      "suggestion_policy_version": "work-order-suggestions/1",
+      "machine_snapshot_json": {
+        "fields": [
+          {
+            "value": "WO-004192",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "WO-004192",
+              "tableColumn": null,
+              "blockOrdinal": 4
+            },
+            "status": "suggested",
+            "fieldKey": "work_order_id",
+            "competingSources": []
+          },
+          {
+            "value": "Cedar Hollow Apartments",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "Cedar Hollow Apartments",
+              "tableColumn": null,
+              "blockOrdinal": 6
+            },
+            "status": "suggested",
+            "fieldKey": "property_name",
+            "competingSources": []
+          },
+          {
+            "value": "Bldg B - Unit 204",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "Bldg B - Unit 204",
+              "tableColumn": null,
+              "blockOrdinal": 8
+            },
+            "status": "suggested",
+            "fieldKey": "building_unit",
+            "competingSources": []
+          },
+          {
+            "value": "2026-10-16",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "2026-10-16",
+              "tableColumn": null,
+              "blockOrdinal": 10
+            },
+            "status": "suggested",
+            "fieldKey": "requested_date",
+            "competingSources": []
+          },
+          {
+            "value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+              "tableColumn": null,
+              "blockOrdinal": 24
+            },
+            "status": "suggested",
+            "fieldKey": "issue_and_resolution",
+            "competingSources": []
+          }
+        ],
+        "schema": "eledgercare.work-order-machine-snapshot/1",
+        "resultId": "01a1e573-a855-7735-96e1-f5d14cada602",
+        "profileId": "maintenance-work-order/1",
+        "rawOutputSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "fieldSchemaVersion": "maintenance-work-order-fields/1",
+        "suggestionPolicyVersion": "work-order-suggestions/1"
+      },
+      "current_revision_number": 4,
+      "current_revision_id": "01a1e670-c6bf-7f1b-97ff-9d72031ceb16",
+      "current_status": "reviewed",
+      "created_at": "2026-11-16T17:18:25.902066-05:00",
+      "updated_at": "2026-11-16T17:18:33.02392-05:00"
+    },
+    "seed3_head": {
+      "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+      "result_id": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+      "input_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "raw_output_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "profile_id": "maintenance-work-order/1",
+      "field_schema_version": "maintenance-work-order-fields/1",
+      "suggestion_policy_version": "work-order-suggestions/1",
+      "machine_snapshot_json": {
+        "fields": [
+          {
+            "value": "WO-004192",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "WO-004192",
+              "tableColumn": null,
+              "blockOrdinal": 4
+            },
+            "status": "suggested",
+            "fieldKey": "work_order_id",
+            "competingSources": []
+          },
+          {
+            "value": "Cedar Hollow Apartments",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "Cedar Hollow Apartments",
+              "tableColumn": null,
+              "blockOrdinal": 6
+            },
+            "status": "suggested",
+            "fieldKey": "property_name",
+            "competingSources": []
+          },
+          {
+            "value": "Bldg B - Unit 204",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "Bldg B - Unit 204",
+              "tableColumn": null,
+              "blockOrdinal": 8
+            },
+            "status": "suggested",
+            "fieldKey": "building_unit",
+            "competingSources": []
+          },
+          {
+            "value": "2026-10-16",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "2026-10-16",
+              "tableColumn": null,
+              "blockOrdinal": 10
+            },
+            "status": "suggested",
+            "fieldKey": "requested_date",
+            "competingSources": []
+          },
+          {
+            "value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+            "source": {
+              "tableRow": null,
+              "pageNumber": 1,
+              "sourceQuote": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+              "tableColumn": null,
+              "blockOrdinal": 24
+            },
+            "status": "suggested",
+            "fieldKey": "issue_and_resolution",
+            "competingSources": []
+          }
+        ],
+        "schema": "eledgercare.work-order-machine-snapshot/1",
+        "resultId": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+        "profileId": "maintenance-work-order/1",
+        "rawOutputSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "fieldSchemaVersion": "maintenance-work-order-fields/1",
+        "suggestionPolicyVersion": "work-order-suggestions/1"
+      },
+      "current_revision_number": 128,
+      "current_revision_id": "01a1e670-9811-7b1b-9ffb-114ed8fc3e1e",
+      "current_status": "draft",
+      "created_at": "2026-11-16T17:18:18.863062-05:00",
+      "updated_at": "2026-11-16T17:18:21.073914-05:00"
+    },
+    "observed_owned_local_ocr_workers": 0
+  },
+  "service_ledger": [
+    {
+      "service": "postgresql-55437-start",
+      "identity": {
+        "pid": 33956,
+        "name": "postgres",
+        "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\tools\\pgsql-18.7-1\\bin\\postgres.exe",
+        "startUtc": "2026-11-16T22:54:53.0530154Z"
+      }
+    },
+    {
+      "service": "api-5490-p007",
+      "identity": {
+        "pid": 19580,
+        "name": "dotnet",
+        "path": "C:\\Program Files\\dotnet\\dotnet.exe",
+        "startUtc": "2026-11-16T22:55:56.3415099Z"
+      }
+    },
+    {
+      "service": "ui-4510-p007",
+      "identity": {
+        "pid": 19236,
+        "name": "node",
+        "path": "C:\\Program Files\\nodejs\\node.exe",
+        "startUtc": "2026-11-16T22:55:57.7224775Z"
+      }
+    },
+    {
+      "service": "ui-4510-p007-stop",
+      "stop": {
+        "pid": 19236,
+        "verified_start_utc": "2026-11-16T22:55:57.7224775Z",
+        "stopped_utc": "2026-11-16T22:56:13.371138+00:00",
+        "exit_code": 1
+      }
+    },
+    {
+      "service": "api-5490-p007-stop",
+      "stop": {
+        "pid": 19580,
+        "verified_start_utc": "2026-11-16T22:55:56.3415099Z",
+        "stopped_utc": "2026-11-16T22:56:13.735680+00:00",
+        "exit_code": 1
+      }
+    }
+  ],
+  "final_stopped_state": {
+    "pg_ctl_status_exit_code": 3,
+    "pg_ctl_status_output": "pg_ctl: no server running",
+    "port_listeners": {
+      "55437": [],
+      "5490": [],
+      "4510": []
+    }
+  },
+  "steps": [
+    {
+      "step": "01-pg-cluster-start",
+      "command": "pwsh -NoProfile -File deploy/dev/postgres/start-cluster.ps1",
+      "exit_code": 0,
+      "elapsed_ms": 1303.5,
+      "log_file": "docs/reviews/WP-0008/eld-f3-reviewer/presentation-reconciliation/evidence/logs/01-pg-cluster-start.log",
+      "log_bytes": 385,
+      "log_sha256": "4a928573147dc1f74fc90b6a30aa1e9fa07cd9421c793f58f9591d549faa85cb"
+    },
+    {
+      "step": "02-ng-build-production",
+      "command": "node node_modules/@angular/cli/bin/ng.js build",
+      "exit_code": 0,
+      "elapsed_ms": 4235.8,
+      "log_file": "docs/reviews/WP-0008/eld-f3-reviewer/presentation-reconciliation/evidence/logs/02-ng-build-production.log",
+      "log_bytes": 735,
+      "log_sha256": "a719652a895d333976e6348cb7a94f0b1e5e8d16c5f7438b433239ea6682e37a"
+    },
+    {
+      "step": "03-playwright-edge-e2e-5490-4510",
+      "command": "pwsh -NoProfile -File deploy/dev/smoke/run-browser-checks.ps1 -Database eledgercare_f3_rev_p007_e2e -ApiPort 5490 -UiPort 4510",
+      "exit_code": 0,
+      "elapsed_ms": 57104.4,
+      "log_file": "docs/reviews/WP-0008/eld-f3-reviewer/presentation-reconciliation/evidence/logs/03-playwright-edge-e2e-5490-4510.log",
+      "log_bytes": 5666,
+      "log_sha256": "3855e67decca9220798e93bea329378a7de0b490353dd1cb8bf22fc54ac8139b"
+    },
+    {
+      "step": "04-edge-reviewer-seed-db-presentation",
+      "command": "node docs/reviews/WP-0008/eld-f3-reviewer/presentation-reconciliation/helpers/verify_f3_presentation_reviewer.mjs --config C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.scratch\\edge-reviewer-p007-cfg.json",
+      "exit_code": 0,
+      "elapsed_ms": 11104.3,
+      "log_file": "docs/reviews/WP-0008/eld-f3-reviewer/presentation-reconciliation/evidence/logs/04-edge-reviewer-seed-db-presentation.log",
+      "log_bytes": 376,
+      "log_sha256": "24c11205581e0fc241136161bf5d49b79a7ef7d2b71cbc0fcd7974f36c0bd303"
+    },
+    {
+      "step": "05-pg-cluster-stop",
+      "command": "pwsh -NoProfile -File deploy/dev/postgres/stop-cluster.ps1",
+      "exit_code": 0,
+      "elapsed_ms": 1326.9,
+      "log_file": "docs/reviews/WP-0008/eld-f3-reviewer/presentation-reconciliation/evidence/logs/05-pg-cluster-stop.log",
+      "log_bytes": 262,
+      "log_sha256": "a54acd27271b07f0d042ef0cfa63ab1df9b5ee56f3654960ce58f41933a0befa"
+    }
+  ]
+}
