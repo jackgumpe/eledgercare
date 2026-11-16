@@ -390,12 +390,18 @@ def check_ast_and_digests() -> tuple[int, str]:
         buf.write(f"[PASS] py_compile + AST import safety verified: {py_file.relative_to(ROOT).as_posix()}\n")
 
     drv_src = (HELPERS_DIR / "run_f2_author_runtime_v2.py").read_text(encoding="utf-8")
-    code_non_comment = "\n".join(
-        ln for ln in drv_src.splitlines() if not ln.lstrip().startswith("#") and '"""' not in ln
-    )
-    if "HEAD~1" in code_non_comment:
-        raise RuntimeError("Driver code still references HEAD~1!")
-    buf.write("[PASS] Confirmed zero HEAD~1 immediate-parent assumptions in run_f2_author_runtime_v2.py\n")
+    drv_tree = ast.parse(drv_src, filename=str(HELPERS_DIR / "run_f2_author_runtime_v2.py"))
+    docstring_expr_values: set[int] = set()
+    for parent in ast.walk(drv_tree):
+        if isinstance(parent, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and parent.body:
+            first_stmt = parent.body[0]
+            if isinstance(first_stmt, ast.Expr) and isinstance(first_stmt.value, ast.Constant) and isinstance(first_stmt.value.value, str):
+                docstring_expr_values.add(id(first_stmt.value))
+    for node in ast.walk(drv_tree):
+        if isinstance(node, ast.Constant) and isinstance(node.value, str) and id(node) not in docstring_expr_values:
+            if "HEAD~1" in node.value:
+                raise RuntimeError("Driver executable string constant still references HEAD~1!")
+    buf.write("[PASS] Confirmed zero HEAD~1 immediate-parent assumptions in executable AST of run_f2_author_runtime_v2.py\n")
 
     local_digests = drv.compute_local_worktree_digests(ROOT)
     for k, want in drv.EXPECTED_PINNED_DIGESTS.items():
