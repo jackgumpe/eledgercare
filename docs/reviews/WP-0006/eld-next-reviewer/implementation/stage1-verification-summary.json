@@ -1,0 +1,706 @@
+{
+  "schema": "eledgercare.wp-0006.reviewer-stage1-verification/1",
+  "reviewer": "eld-next-reviewer",
+  "conversation_id": "101b19cf-3133-4ead-91cb-9ca6068e3e72",
+  "started_utc": "2026-11-16T06:43:28.684067+00:00",
+  "completed_utc": "2026-11-16T06:46:29.134811+00:00",
+  "stage1_disposition": "changes_requested",
+  "runtime_acceptance_status": "pending_stage2_gpu_and_recovery_release",
+  "lineage": {
+    "reviewer_frozen_helper_head": "7cd33c003a35f16c5168085de1093666c21d8662",
+    "author_source_sha": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+    "author_checkpoint_sha": "6faec9bf6eccc297a548523dbb52ae9262b25152",
+    "coordinator_release_sha": "97e65bed170ad0be705347791a830d860a6a38fe",
+    "verified_candidate_file_count": 69,
+    "all_69_candidate_blobs_identical_at_head": true,
+    "protected_trees": [
+      {
+        "path": "qualification",
+        "release_oid": "6431623c50b181edffb974c18d7a5f6b92f15f18",
+        "author_candidate_oid": "6431623c50b181edffb974c18d7a5f6b92f15f18",
+        "reviewer_head_oid": "b5918e65cb20b45cad83506b80d8a8bc611807ec",
+        "unchanged_in_author_candidate": true
+      },
+      {
+        "path": "evaluation",
+        "release_oid": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+        "author_candidate_oid": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+        "reviewer_head_oid": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+        "unchanged_in_author_candidate": true
+      },
+      {
+        "path": "research",
+        "release_oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+        "author_candidate_oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+        "reviewer_head_oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+        "unchanged_in_author_candidate": true
+      },
+      {
+        "path": "web/package-lock.json",
+        "release_oid": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+        "author_candidate_oid": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+        "reviewer_head_oid": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+        "unchanged_in_author_candidate": true
+      },
+      {
+        "path": "ELedgerCare.slnx",
+        "release_oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+        "author_candidate_oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+        "reviewer_head_oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+        "unchanged_in_author_candidate": true
+      }
+    ]
+  },
+  "host_snapshots": {
+    "before": {
+      "observed_utc": "2026-11-16T06:43:29.444509+00:00",
+      "logical_cpu_count": 12,
+      "memory_load_percent": 46,
+      "total_phys_bytes": 34264649728,
+      "avail_phys_bytes": 18490376192,
+      "c_drive_free_bytes": 52919816192,
+      "reviewer_ports_bound": {
+        "5290": false,
+        "4310": false,
+        "55435": false
+      },
+      "author_ports_bound_readonly_observation": {
+        "5190": false,
+        "4210": false,
+        "55434": false
+      },
+      "shared_host_confounder_note": "Loopback CPU/PostgreSQL/Edge verification shares physical host CPU/RAM/disk I/O; no other owner's ports, clusters, or processes were touched."
+    },
+    "after": {
+      "observed_utc": "2026-11-16T06:46:27.569969+00:00",
+      "logical_cpu_count": 12,
+      "memory_load_percent": 48,
+      "total_phys_bytes": 34264649728,
+      "avail_phys_bytes": 17816006656,
+      "c_drive_free_bytes": 52831727616,
+      "reviewer_ports_bound": {
+        "5290": false,
+        "4310": false,
+        "55435": false
+      },
+      "author_ports_bound_readonly_observation": {
+        "5190": false,
+        "4210": false,
+        "55434": false
+      },
+      "shared_host_confounder_note": "Loopback CPU/PostgreSQL/Edge verification shares physical host CPU/RAM/disk I/O; no other owner's ports, clusters, or processes were touched."
+    }
+  },
+  "external_roots": {
+    "f2_reviewer_root_path": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer",
+    "f2_reviewer_root_exists_before": false,
+    "f2_reviewer_root_exists_after": false,
+    "f2_parent_root_exists": true
+  },
+  "owned_postgres_cluster": {
+    "port": 55435,
+    "postmaster_identities": [
+      {
+        "event": "initial_start",
+        "pid": 25536,
+        "create_filetime": 134392850174524449,
+        "port": 55435
+      },
+      {
+        "event": "after_demo_smoke_restart",
+        "pid": 29428,
+        "create_filetime": 134392851746492258,
+        "port": 55435
+      }
+    ],
+    "cleaned_databases_before_stop": [
+      "eledgercare_reviewer_stage1",
+      "eledgercare_reviewer_e2e",
+      "eledgercare_product_dev"
+    ],
+    "stopped_cleanly_at_end": true
+  },
+  "author_scratch_log_audit": {
+    "available": true,
+    "verified_count": 11,
+    "all_11_raw_and_lf_digests_verified": true,
+    "logs": [
+      {
+        "step_id": "01-dotnet-tool-restore",
+        "raw_bytes": 168,
+        "raw_file_sha256": "d30d76d565b0283223c398fe1641293eb804aa196795ea44f95bd16acc7b49d2",
+        "lf_normalized_sha256": "0a1b2fb037b313e51b853a0f0fb535ef32eac3f91ef4d09b59dfdb0bb4f482b7",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "02-dotnet-restore-locked",
+        "raw_bytes": 1343,
+        "raw_file_sha256": "be60b1baa19dd0c573a0605de6c4192f26401b602a4d3df5ae366de75561a32d",
+        "lf_normalized_sha256": "cd54ef56d800120b13716831a0167d2b2d4dd63f9dae7a83a7006f76a6ec0cc6",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "03-dotnet-build-release",
+        "raw_bytes": 1449,
+        "raw_file_sha256": "1d16ce3ecd398bd395d398fdb00a8c8d7cc790d79ea56bcd9325e4c84913c9e9",
+        "lf_normalized_sha256": "444c6284bda28f89528cf6cf2263e9a9c78084533555242b6e941d4002fd42f8",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "04-dotnet-publish-api",
+        "raw_bytes": 951,
+        "raw_file_sha256": "ff35da0011efed6482143db85870b36946e28fed0477eb74a03aabb799b81943",
+        "lf_normalized_sha256": "66a6e41f4f9ec5828b0ad62179df45f2c9e1cc9df231faeee560aace08872491",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "05-python-worker-cpu-tests",
+        "raw_bytes": 1368,
+        "raw_file_sha256": "33c968c76c331dc7add16f949f5e18faa1e7f459986806dd3d9f2445e3d5eae5",
+        "lf_normalized_sha256": "5c2d4f3fa304e83b09bfa1788b94f16823590a3c2586894e93caa3549cccffb3",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "06-npm-ci-offline",
+        "raw_bytes": 790,
+        "raw_file_sha256": "fdb1540a0e3b0cfcc257be498da5bb213de7c63219f629978e17a57473b77e0d",
+        "lf_normalized_sha256": "8eb271334c1d1e889544b5e0bf0f2d319889c692cc3febf1226959dd7c9c88a9",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "07-angular-build",
+        "raw_bytes": 605,
+        "raw_file_sha256": "a4c6cdda2e983a8358c24af71b5e3b19f75e889227f0ecaefed3c0e6ff2dec4b",
+        "lf_normalized_sha256": "b1ca86aa7d1c70d0683b0d0f669c8dffdbdc18795437daae1bb14d3474597d39",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "08-prepare-database-stage1",
+        "raw_bytes": 1407,
+        "raw_file_sha256": "a5411247bacea82468fc7b2a210fd2ab5e5217ef9dac944e547964fe5f218d90",
+        "lf_normalized_sha256": "e4a42878fa66fec7389a2f4db22fed6ff56e457ff59a6df2bf21924bb3a99820",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "09-dotnet-test-solution",
+        "raw_bytes": 1972,
+        "raw_file_sha256": "5fc6113bd3d463fd7c36dbca481c3051a4a1cb9a775d82e3af073f66137fde69",
+        "lf_normalized_sha256": "18c55089a492e21e6f2b30ed3d0ec8983f2ed5d7d710d05f951bcd1ec6c4bb77",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "10-playwright-browser-checks",
+        "raw_bytes": 4348,
+        "raw_file_sha256": "45ba3bcc9402b6283fc8283efe2ea0779f474b78b3ed44a6cc5fb622e6078eaa",
+        "lf_normalized_sha256": "2ee8215f9a680fd284779b9c93bcb439f4702de3dbe3ab5b5bf330c654ecd993",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      },
+      {
+        "step_id": "11-demo-smoke-restart-checks",
+        "raw_bytes": 2219,
+        "raw_file_sha256": "f968381654c6cd1e23a1e0faae6b8478565ab6504f1bb12f1976d40fd8f1f911",
+        "lf_normalized_sha256": "93d4c3c5187f500c185745b88513ea83db497c15723e5875099c20fb7ae5a883",
+        "matches_coordinator_raw_sha256": true,
+        "matches_author_published_lf_sha256": true,
+        "raw_equals_published_without_normalization": false
+      }
+    ]
+  },
+  "static_provenance_and_isolation": {
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+    "model_objects_verified": 18,
+    "locked_distributions_verified": 32,
+    "f01_fixture_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "f07_fixture_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+    "scanned_production_files": 86,
+    "cross_boundary_reference_violations": 0,
+    "angular_unsafe_dom_sink_violations": 0,
+    "holdout_files_accessed": 0
+  },
+  "python_heartbeat_guard_probe": {
+    "rapid_heartbeat_and_directory_size_iterations": 200,
+    "exceptions": 0,
+    "heavy_modules_imported": []
+  },
+  "independent_csharp_probes": {
+    "P1_real_q0_native_output_parse_and_validate": {
+      "f01_parsed_pages": 1,
+      "f01_tables_parsed": 2,
+      "f07_parsed_pages": 3,
+      "f07_page1_first_block_kind": "title",
+      "f07_envelope_accepted": true
+    },
+    "P2_F2_S1_01_isolated_mode_import_crash": {
+      "reproduced": true,
+      "child_exit_code": 1,
+      "envelope_written": false,
+      "validator_failure_code": "worker_missing_envelope",
+      "stderr_excerpt": "Traceback (most recent call last):\r\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\workers\\local_ocr\\run_worker.py\", line 9, in <module>\r\n    from local_ocr.worker import execute_request_file\r\nModuleNotFoundError: No module named 'local_ocr'"
+    },
+    "P3_F2_S1_02_storage_guard_and_finally_containment": {
+      "transient_subdir_exception_in_CheckStorageBounds": "System.UnauthorizedAccessException",
+      "transient_subdir_iterations_until_throw": 85,
+      "finally_skipped_TerminateAllInJob_on_exception": true,
+      "execute_task_blocked_waiting_on_pipe": true,
+      "child_still_alive_1200ms_after_loop_exception": true
+    },
+    "P4_F2_S1_03_and_same_instance_wedge": {
+      "nul_byte_in_diagnostic_raw_sqlstate": "22021",
+      "surrogate_split_at_65536_exception": "System.Text.EncoderFallbackException",
+      "reconciled_by_same_live_coordinator_after_failure": 0,
+      "job_status_stuck_running": true,
+      "observed_job_status": "running"
+    }
+  },
+  "reviewer_demo_smoke_receipt": {
+    "fixtureId": "F1-SWO-001",
+    "fixtureSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "fixtureBytes": 887,
+    "apiPort": 5290,
+    "database": "eledgercare_product_dev",
+    "submit": {
+      "status": 201,
+      "documentId": "01a1e31b-2ba8-7109-ab8d-b40512d736c5",
+      "jobId": "01a1e31b-2ba8-7d0e-9937-c6c77f941b4a",
+      "receiptStatus": "awaiting_extraction",
+      "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "disabledByDefaultExtraction": {
+      "workerEnabled": false,
+      "postStatus": 503,
+      "statusAfter503": "awaiting_extraction"
+    },
+    "apiProcesses": [
+      {
+        "pid": 28700,
+        "startUtc": "2026-11-16T06:46:09.4039610Z",
+        "role": "submit + disabled-worker check, then terminated"
+      },
+      {
+        "pid": 8100,
+        "startUtc": "2026-11-16T06:46:11.6904836Z",
+        "role": "after API restart"
+      },
+      {
+        "pid": 24160,
+        "startUtc": "2026-11-16T06:46:15.1849640Z",
+        "role": "after PostgreSQL fast restart"
+      }
+    ],
+    "afterApiRestart": {
+      "documentId": "01a1e31b-2ba8-7109-ab8d-b40512d736c5",
+      "admittedPageCount": 1,
+      "status": "awaiting_extraction",
+      "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "afterPostgresRestart": {
+      "postmasterPid": 29428,
+      "documentId": "01a1e31b-2ba8-7109-ab8d-b40512d736c5",
+      "status": "awaiting_extraction",
+      "extractionStatus": "awaiting_extraction",
+      "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    "allMatch": true,
+    "limits": "Stage 1 CPU/DB restart smoke with LocalOcr:Enabled=false default; not a GPU run or power-loss test."
+  },
+  "reviewer_f2_browser_evidence": {
+    "f01Sha": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "f07Sha": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+    "apiProcesses": [
+      {
+        "pid": 24444,
+        "port": "5290",
+        "startedUtc": "2026-11-16T06:45:46.394Z",
+        "stoppedUtc": "2026-11-16T06:45:50.021Z"
+      },
+      {
+        "pid": 29080,
+        "port": "5290",
+        "startedUtc": "2026-11-16T06:45:50.330Z",
+        "stoppedUtc": "2026-11-16T06:45:54.332Z"
+      },
+      {
+        "pid": 21880,
+        "port": "5290",
+        "startedUtc": "2026-11-16T06:45:54.611Z",
+        "stoppedUtc": "2026-11-16T06:45:57.115Z"
+      },
+      {
+        "pid": 30936,
+        "port": "5290",
+        "startedUtc": "2026-11-16T06:45:57.394Z",
+        "stoppedUtc": "2026-11-16T06:45:59.251Z"
+      }
+    ],
+    "checks": [
+      {
+        "check": "F2-06 disabled-by-default UI",
+        "documentId": "01a1e31a-d133-7a31-aa01-822e8c495545",
+        "admittedPages": 1,
+        "requestExtractionDisabled": true
+      },
+      {
+        "check": "F2-06 unsupported 4-page profile UI",
+        "documentId": "01a1e31a-d5bd-7fd5-8c9d-f6f3cfcaa6b5",
+        "admittedPages": 4,
+        "requestExtractionDisabled": true
+      },
+      {
+        "check": "F2-03 explicit retry UI + history retention",
+        "documentId": "01a1e31a-d877-7500-bc26-4e3e9e2f42b7",
+        "retriedAttemptId": "b5debee4-db4a-4e0f-9805-f2ab92737df5",
+        "observedAttemptRows": 2
+      },
+      {
+        "check": "F2-05 / F2-BIC-04 3-page saved result + XSS inertness + API restart reopen",
+        "documentId": "01a1e31a-f065-7270-85cf-2a27a8e6f40b",
+        "resultId": "74a647a3-580b-49b2-ae22-3ac33737b42e",
+        "rawSha256": "47856360c07f512c84177ae1d8fb2a1db078a12430a5083f1e8b09862d384c57",
+        "xssExecuted": false,
+        "apiPidBefore": 21880,
+        "apiPidAfter": 30936,
+        "originalBytesEqualAfterRestart": true
+      }
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "00-start-owned-postgres",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "<worktree>\\deploy\\dev\\postgres\\start-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:43:36.252064+00:00",
+      "ended_utc": "2026-11-16T06:43:37.699979+00:00",
+      "duration_ms": 1449,
+      "exit_code": 0,
+      "raw_bytes": 182,
+      "raw_file_sha256": "6ffbfcd8270a64cdc14aea5e59b7d007f42286efac9504a7243dd195b0bfe91e",
+      "lf_bytes": 181,
+      "lf_normalized_sha256": "bafbfc0bdf6b99bd954f15001c104af33170fd72b897d0326f0e9a031c40d32a",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "01-dotnet-tool-restore",
+      "command": [
+        "dotnet",
+        "tool",
+        "restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:43:37.699979+00:00",
+      "ended_utc": "2026-11-16T06:43:37.944722+00:00",
+      "duration_ms": 241,
+      "exit_code": 0,
+      "raw_bytes": 109,
+      "raw_file_sha256": "bad99012de27a8c58d698c001052e7f196799330831c235c60750ca4edd386b5",
+      "lf_bytes": 106,
+      "lf_normalized_sha256": "1e14680040b26815d4baaac4ca1b2d501435a49cc8870ad5e0eb05a5715cb092",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "02-dotnet-restore-locked",
+      "command": [
+        "dotnet",
+        "restore",
+        "ELedgerCare.slnx",
+        "--locked-mode",
+        "--packages",
+        "<worktree>\\.local\\nuget\\packages"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:43:37.945267+00:00",
+      "ended_utc": "2026-11-16T06:43:39.495184+00:00",
+      "duration_ms": 1551,
+      "exit_code": 0,
+      "raw_bytes": 82,
+      "raw_file_sha256": "2ad9967f2280d0195ad457a92fe6a353a8492625846632386df6dfc446efe4bc",
+      "lf_bytes": 80,
+      "lf_normalized_sha256": "40d104602671164ab3958225da3e1c8cabd55f0251d6df6bc911d9d5a24f44ce",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "03-dotnet-build-release",
+      "command": [
+        "dotnet",
+        "build",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:43:39.497748+00:00",
+      "ended_utc": "2026-11-16T06:43:46.175501+00:00",
+      "duration_ms": 6678,
+      "exit_code": 0,
+      "raw_bytes": 1349,
+      "raw_file_sha256": "6f27561a8037049979023126638f1f9eebd0d4f4008020c016c07a7c538fd46b",
+      "lf_bytes": 1336,
+      "lf_normalized_sha256": "052e1f0d1264e0a912c637b931e6eef47eb3c855679f48593cf55bf5cf218821",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "04-dotnet-publish-api",
+      "command": [
+        "dotnet",
+        "publish",
+        "src/ELedgerCare.Api/ELedgerCare.Api.csproj",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:43:46.176079+00:00",
+      "ended_utc": "2026-11-16T06:43:47.960802+00:00",
+      "duration_ms": 1784,
+      "exit_code": 0,
+      "raw_bytes": 825,
+      "raw_file_sha256": "4cf613b3dd36a9778b3639dada6391071744e4530a15ac4c9d0400b7edce4142",
+      "lf_bytes": 820,
+      "lf_normalized_sha256": "33c0b6c1a74ae00800a69d56ae9172d20de34e7a71398b49def8d7381f813afc",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "05-python-worker-cpu-tests",
+      "command": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "workers/local_ocr/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:43:47.961340+00:00",
+      "ended_utc": "2026-11-16T06:43:48.620247+00:00",
+      "duration_ms": 659,
+      "exit_code": 0,
+      "raw_bytes": 1196,
+      "raw_file_sha256": "fb2b4b81b77a8c3f4a00cb41b6a079e4dcf2bd68bce801c242a5dbd267ecbc2a",
+      "lf_bytes": 1184,
+      "lf_normalized_sha256": "e10b84ad00ac53b2fa2f96fae8f8a4e5af51ccf85fa07b936289e19103506a92",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "06-angular-build",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "npx",
+        "ng",
+        "build"
+      ],
+      "cwd": "web",
+      "started_utc": "2026-11-16T06:43:48.620806+00:00",
+      "ended_utc": "2026-11-16T06:43:54.613066+00:00",
+      "duration_ms": 5996,
+      "exit_code": 0,
+      "raw_bytes": 531,
+      "raw_file_sha256": "dc35788ab0bdec1a946c072ed9394b2078d1667d1aad62145c200417938ca5fc",
+      "lf_bytes": 529,
+      "lf_normalized_sha256": "d9122eec5663db2f16b35535dbdd41b7d8db572f2e6305a1963043bea08d0937",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "07-prepare-database-stage1",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1",
+        "-Database",
+        "eledgercare_reviewer_stage1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:43:54.613066+00:00",
+      "ended_utc": "2026-11-16T06:44:01.564285+00:00",
+      "duration_ms": 6947,
+      "exit_code": 0,
+      "raw_bytes": 1269,
+      "raw_file_sha256": "58275740e3688a61cfe85f824b5e0d67936b9401d83729a3a6f4b92d2e99e3f7",
+      "lf_bytes": 1248,
+      "lf_normalized_sha256": "ee850800685df66b857d74cae72dcd6a869f12b4d1af84fbdcfe0963a5f97d27",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "08-prepare-dev-database",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1",
+        "-Database",
+        "eledgercare_product_dev"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:44:01.566018+00:00",
+      "ended_utc": "2026-11-16T06:44:07.230593+00:00",
+      "duration_ms": 5666,
+      "exit_code": 0,
+      "raw_bytes": 1265,
+      "raw_file_sha256": "a81beedb5e8f4675303185c7461bb159397ce15d840d2014ef5bfb6843fa6007",
+      "lf_bytes": 1244,
+      "lf_normalized_sha256": "049cac10b265c034ddd6c978d1bbbd28cd5384a356270496e66492ded69f4872",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "09-dotnet-test-solution",
+      "command": [
+        "dotnet",
+        "test",
+        "--solution",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:44:07.232133+00:00",
+      "ended_utc": "2026-11-16T06:45:30.786113+00:00",
+      "duration_ms": 83558,
+      "exit_code": 0,
+      "raw_bytes": 1862,
+      "raw_file_sha256": "1c7fa780b32e4c6d6b2c03f64fa8d989c34b339bbd79954a44bde6f0356cb82a",
+      "lf_bytes": 1845,
+      "lf_normalized_sha256": "27898d2c1aa7ab521281392de02fbc3aa5f66d5ed1d68864a0bfd5a8ef2d960d",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "10-playwright-browser-checks-5290-4310",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-browser-checks.ps1",
+        "-Database",
+        "eledgercare_reviewer_e2e",
+        "-ApiPort",
+        "5290",
+        "-UiPort",
+        "4310"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:45:30.791124+00:00",
+      "ended_utc": "2026-11-16T06:46:08.297382+00:00",
+      "duration_ms": 37509,
+      "exit_code": 0,
+      "raw_bytes": 4310,
+      "raw_file_sha256": "da6ae56e08c40c241d42cb7fdc3523aa415c6c85d08153b963acda94d3f22393",
+      "lf_bytes": 4286,
+      "lf_normalized_sha256": "60c448979cee0984c098980c89b1fade7423cc2a489bbdc5d1008da6fd8bb5e4",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "11-demo-smoke-restart-checks-5290",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-demo-smoke.ps1",
+        "-ApiPort",
+        "5290",
+        "-ReceiptPath",
+        "<worktree>\\.scratch\\stage1-review-logs\\reviewer-demo-smoke-receipt.json"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:46:08.297382+00:00",
+      "ended_utc": "2026-11-16T06:46:16.679841+00:00",
+      "duration_ms": 8379,
+      "exit_code": 0,
+      "raw_bytes": 1985,
+      "raw_file_sha256": "3f31d20e744490be61ba5fa30cc1871d951ae3d395a8a8401a6e2546df51fc59",
+      "lf_bytes": 1931,
+      "lf_normalized_sha256": "7088c0907d21c1e5b49af0561d547c40ddef9a4b4398cc54e9028e4f440b8316",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "12-build-reviewer-probes",
+      "command": [
+        "dotnet",
+        "build",
+        "<worktree>\\.scratch\\reviewer-probes\\ReviewerProbes.csproj",
+        "-c",
+        "Release",
+        "--source",
+        "<worktree>\\.local\\nuget\\packages"
+      ],
+      "cwd": ".scratch/reviewer-probes",
+      "started_utc": "2026-11-16T06:46:17.051658+00:00",
+      "ended_utc": "2026-11-16T06:46:19.247192+00:00",
+      "duration_ms": 2194,
+      "exit_code": 0,
+      "raw_bytes": 1412,
+      "raw_file_sha256": "4d71333763f5b1aa5dac811425eea2e7891d0b764fa4313b899b1dabcf2687f2",
+      "lf_bytes": 1397,
+      "lf_normalized_sha256": "5d35a135147d8c7451d045f036c0e6cc7b8744c4baae2e2d148cfbe9ed1460e3",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "13-execute-reviewer-probes",
+      "command": [
+        "<worktree>\\.scratch\\reviewer-probes\\bin\\Release\\net10.0\\ReviewerProbes.exe",
+        "<worktree>",
+        "<worktree>\\.scratch\\reviewer-probes\\probe-results.json"
+      ],
+      "cwd": ".scratch/reviewer-probes",
+      "started_utc": "2026-11-16T06:46:19.247192+00:00",
+      "ended_utc": "2026-11-16T06:46:25.905300+00:00",
+      "duration_ms": 6657,
+      "exit_code": 0,
+      "raw_bytes": 26,
+      "raw_file_sha256": "5ff8779f787abeaa8e90b472f8200d7d3224f3ec4eea05396195dc302e6c9128",
+      "lf_bytes": 25,
+      "lf_normalized_sha256": "1e6edb6e68f3352ab20bf991dd7244406437d7b64fcfba130cdf90c609ab3c96",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "14-stop-owned-postgres",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "<worktree>\\deploy\\dev\\postgres\\stop-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T06:46:26.313807+00:00",
+      "ended_utc": "2026-11-16T06:46:26.812553+00:00",
+      "duration_ms": 497,
+      "exit_code": 0,
+      "raw_bytes": 58,
+      "raw_file_sha256": "3589d2bd01f8295cc7c9ec3f5e07625fcd347ccb6f33f2d80edafe5f5217c1fb",
+      "lf_bytes": 56,
+      "lf_normalized_sha256": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d",
+      "contains_crlf": true
+    }
+  ],
+  "post_git_porcelain_before_evidence_write": ""
+}
