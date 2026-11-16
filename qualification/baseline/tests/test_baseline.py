@@ -65,7 +65,7 @@ class ParserScorerTests(unittest.TestCase):
         self.assertEqual(token_errors('a b','a b c')['insertions'],1)
         self.assertEqual(token_errors('a b','a')['deletions'],1)
     def test_nfc_outer_only(self):
-        self.assertEqual(norm(' e\u0301\r\n'),'Ã©');self.assertNotEqual(norm('A  B'),'A B')
+        self.assertEqual(norm(' e\u0301\r\n'),'\u00e9');self.assertNotEqual(norm('A  B'),'A B')
     def test_table_duplicate_missing_extra_cells(self):
         e=truth();e['expected_fields']=[];e['expected_tables']=[{'table_id':'lines','rows':[{'row_id':'r1','page_number':1,'cells':{'code':{'printed_text':'A'},'price':{'printed_text':'$1.00'}}}]}]
         row='<tr><td>A</td><td>$1.00</td></tr>'
