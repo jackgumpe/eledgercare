@@ -1,0 +1,647 @@
+{
+  "schema": "eledgercare.wp-0008.f3-author-change-inventory/1",
+  "author": "eld-f3-implementer",
+  "branch": "feature/wp-0008-f3-review",
+  "packet_base": "5e1241d6d365d664f12619d415f48ec3d3b7ddca",
+  "dispatch_base": "715d62533cdf69ee3f144ac8bbf5184bc0d78ad3",
+  "deliverable_lineage": [
+    {
+      "commit": "1264571906d04b2edb2470682e457ebf8b50e565",
+      "summary": "Initial full F3 source, migration, tests, and verification helpers (`85/85` .NET tests passed; `07-demo-smoke` failed on missing `.scratch` directory, retained in `12645719-07-demo-smoke.log`)."
+    },
+    {
+      "commit": "c5c285d1c9e47b501930e47c21e9681369d5e297",
+      "summary": "Added `New-Item -ItemType Directory -Force (Split-Path $log)` in `deploy/dev/smoke/run-demo-smoke.ps1` (`src/`, `web/`, `tests/` unchanged; all 13 steps passed before helper self-matched its own `pwsh` command line, retained in `c5c285d1-helper-self-match.txt`)."
+    },
+    {
+      "commit": "62e8666af747c0040942cee20c0ed34f4d747e93",
+      "summary": "Excluded self `pwsh` PID in `run_f3_decisive_verification.py` (`src/`, `web/`, `tests/`, `deploy/` unchanged; all 13 decisive verification steps exited 0)."
+    }
+  ],
+  "frozen_deliverable_head": "62e8666af747c0040942cee20c0ed34f4d747e93",
+  "product_trees_at_deliverable": {
+    "src": "e0dc8651c9fefb228ad26e17f62da6c20fd59ae0",
+    "web": "b5b8515603a87f382ddc859b480467be52a69e5c",
+    "tests": "838979ed5f81050c2cc7b7938aa9ae5eb641bbbb",
+    "deploy": "4c410b6cff7575a522d38e3c191db33924214841"
+  },
+  "protected_identities_unchanged_from_dispatch_base": {
+    "AGENTS.md": "7134becfcd29d0c8171e7cede82ca388a40269f8",
+    "START_HERE.md": "422e7540fc1f0bd4c57aeb621c67e26f94b756ef",
+    "CURRENT.md": "013ab56d0ddd76e360200adad24e684689f8cfe0",
+    "INDEX.md": "1c5c8c5d8491d47ce92c461f5b15c289349d49c5",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "Directory.Build.props": "abc535eeaea0896c860984c7359a66c33ec30cf4",
+    "Directory.Packages.props": "95976cb437a7a7747d38df3d6b2a0b5ca94bf2fc",
+    "web/package-lock.json": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+    "docs/design": "6c1ed2c0f9ef400c3bd7f84bdf4b2229b9d6f6dc",
+    "docs/coordination": "1a822174c6a7169903b3392a7de7c0a63b6c9534",
+    "docs/kickoffs": "33c3290c18c8489c52be3c105400cd9004783fab",
+    "docs/reviews": "30aac8d60b5399366f589cc22e1a1f20f4b978e3",
+    "docs/agent-reports": "ace595efe10c7647e5274273753bfe1a6826cae8",
+    "workers/local_ocr": "dc9b69e480f93db1e73ebdd65719efaa9aeab298",
+    "workers/local_ocr/README.md": "83ed6624f95c48bfbae4c466201774824f63ef5e",
+    "evaluation": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+    "qualification": "0ab2f5dab3984e832375d2ab225f0f0f598f8359",
+    "research": "5036d17e55f96af3bdeea82a20a32eb54a26ddca"
+  },
+  "deliverable_diff_count": 51,
+  "deliverable_diff_entries": [
+    {
+      "action": "M",
+      "path": "deploy/dev/database/grant-runtime.sql",
+      "category": "product_deploy",
+      "git_blob_oid_at_deliverable": "57f0aa1e77fe51138d7b22b030eb8296f94af35d",
+      "bytes_at_deliverable": 1765,
+      "sha256_at_deliverable": "066a60e5a7b496b0f4ee44b921e2eec6e125b65ffc597bd751782c8b51bd05ec"
+    },
+    {
+      "action": "M",
+      "path": "deploy/dev/postgres/setup-cluster.ps1",
+      "category": "product_deploy",
+      "git_blob_oid_at_deliverable": "4d2a0cc6e5aa15ac75353d3a0dbe8e44ed318b6c",
+      "bytes_at_deliverable": 5470,
+      "sha256_at_deliverable": "9d23799500ab5fa726f6823ae40075a14c73baae833974d5a2a71da09fb76293"
+    },
+    {
+      "action": "M",
+      "path": "deploy/dev/smoke/run-browser-checks.ps1",
+      "category": "product_deploy",
+      "git_blob_oid_at_deliverable": "58e8360d5731192bdb75091273b6d51b7cca8946",
+      "bytes_at_deliverable": 2069,
+      "sha256_at_deliverable": "0223d3bad06e830c23ea5b5971112e779964fb0ee5e7597137b1db4e159bf5cf"
+    },
+    {
+      "action": "M",
+      "path": "deploy/dev/smoke/run-demo-smoke.ps1",
+      "category": "product_deploy",
+      "git_blob_oid_at_deliverable": "92f0c60aebbe67a6f680a1d4ce64e282aba7026b",
+      "bytes_at_deliverable": 7394,
+      "sha256_at_deliverable": "2c2b487e6f6b760112472ec51715832455761fc950900eda6516a880ee3028ce"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/contract-freeze.md",
+      "category": "author_helper_or_doc",
+      "git_blob_oid_at_deliverable": "95cc0ef683c8000e6c569c9368af938d349e5390",
+      "bytes_at_deliverable": 4736,
+      "sha256_at_deliverable": "cbda1625f4edf37fd50233b80d87598b6248d52223e83e01bbacfce2432c7b2c"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/resource-ledger.md",
+      "category": "author_helper_or_doc",
+      "git_blob_oid_at_deliverable": "67360ddbd7c318893be80a08f088697b2b7a9c3c",
+      "bytes_at_deliverable": 4549,
+      "sha256_at_deliverable": "a6895a23f3860eb66bb1e91b159bae5f2dc36b5d0337d64192a93fdb809ad25c"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/retained-failures/12645719-07-demo-smoke.log",
+      "category": "author_helper_or_doc",
+      "git_blob_oid_at_deliverable": "2881978553e69dc133cedfaeee8359d04df49f5b",
+      "bytes_at_deliverable": 745,
+      "sha256_at_deliverable": "74703d6732b4d2d7cc98dc1eb9e4a20089a10efc6760cf483840212041a826ca"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/retained-failures/README.md",
+      "category": "author_helper_or_doc",
+      "git_blob_oid_at_deliverable": "ccfe66005102b7fa012590a98ed41eeb68a6dbf7",
+      "bytes_at_deliverable": 1948,
+      "sha256_at_deliverable": "bfabb9ebfc9a97984d6936cdd2bde9ef73c24ea1d43f80ae8f0e87e9869bb08b"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/retained-failures/c5c285d1-helper-self-match.txt",
+      "category": "author_helper_or_doc",
+      "git_blob_oid_at_deliverable": "7bb8e5a2b571c9b52f2294cf4d1237d2f55e03b3",
+      "bytes_at_deliverable": 376,
+      "sha256_at_deliverable": "3617e7fd78fbf815abe98f80a41c3591da0341054a108d7d46b789ead361df07"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/scripts/run_f3_decisive_verification.py",
+      "category": "author_helper_or_doc",
+      "git_blob_oid_at_deliverable": "264f690b876593459b1f86098584ec35ad8bf87f",
+      "bytes_at_deliverable": 29104,
+      "sha256_at_deliverable": "932954d0dcf9c304922c9c729aa41a78e8ad365d8430fcea243dc41e1fb2c964"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/scripts/verify_f3_restart_edge.mjs",
+      "category": "author_helper_or_doc",
+      "git_blob_oid_at_deliverable": "b45025656db0fe72b62e4a09a7fea3b6b0e56e73",
+      "bytes_at_deliverable": 10916,
+      "sha256_at_deliverable": "071944e196763e01a38c829865c3f384215bff27ee7e9729f3e45b9dca5424c8"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Api/DocumentResponses.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "a7acc3741e2896dc96632120eb06db89beb9c1df",
+      "bytes_at_deliverable": 9273,
+      "sha256_at_deliverable": "d00df8eba6683395160bdbf1a9c1598d181b70c2a844c92541a7ff6240a97cde"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Api/Problems.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "8cfa2538891a34f8fbaf8774409861f7c3af36eb",
+      "bytes_at_deliverable": 950,
+      "sha256_at_deliverable": "17a67ecf994acd3e6124761f079670600380c476184e7139c93b66f9bc42aaf1"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Api/Program.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "8ad597818b74fbfef272b5f71cb6a92867bd6d9b",
+      "bytes_at_deliverable": 3449,
+      "sha256_at_deliverable": "4cf0ad879be5ca993fb9f31cab583a69c42920a88568ad922c56a73faaac8108"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Api/ReviewEndpoints.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "d39cb354ce0afefe52dcb5a9c63cc6ed525070c7",
+      "bytes_at_deliverable": 31730,
+      "sha256_at_deliverable": "4d1a78ffa2ae357b74fee86aafc5fbae4928bac7264aa51b22827a181b8d6a5e"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Api/ReviewResponses.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "0bb012c593f96f0b80d51c58a24da5b64ccc2b98",
+      "bytes_at_deliverable": 12124,
+      "sha256_at_deliverable": "7768fc3aa33d14427362649a598ef0befbfdd83b063959c985bb9a5f513dddf5"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Application/Extraction/IExtractionStore.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "4a0c45cdd3b97ebddcc9f75bfdfd920f34234000",
+      "bytes_at_deliverable": 4752,
+      "sha256_at_deliverable": "3af0d3707cf56e498e961962b28802d44508f5507dba4aa58def71f728fc32b3"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Application/Review/IWorkOrderReviewStore.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "5a295fbbf5f7b8d3dd4d9289c8a6c94d6fcb2bb1",
+      "bytes_at_deliverable": 5538,
+      "sha256_at_deliverable": "8d8a030f9ef9a2b5d1eca156d11246567856fff30a3a32c1edd9a910abe09e3d"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Application/Review/SaveWorkOrderReviewRevision.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "6dda82907525223691304b8905a4c6afb2998450",
+      "bytes_at_deliverable": 9517,
+      "sha256_at_deliverable": "fd00860a0db85bfc385568764cc1bbfc3e96918f84c95036e35872aafd3f1137"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "da177263e75c2d801289be0c37af27b32a9dc56b",
+      "bytes_at_deliverable": 16608,
+      "sha256_at_deliverable": "4ebe87d02da9e48ea12c66b3d740efdee5970816141a6b765821259389412813"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Review/ReviewTextValidator.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "fcb0e2d5ee13b56fefcf0044434cdd3760fc5865",
+      "bytes_at_deliverable": 3549,
+      "sha256_at_deliverable": "d9a51bbc4dd24951e9b792d48375c620216c23cefaf6a593528ed51c9a0edc3e"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Review/WorkOrderReviewEntities.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "c8d766c67a5da9fe85169bb7f504287bce6c75a0",
+      "bytes_at_deliverable": 17971,
+      "sha256_at_deliverable": "cc3a88fb7ea66ef389d02dbb54adb9adbfcb5a32ee3d6b3358b42ef455dd3bb6"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Review/WorkOrderReviewSchema.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "b1122f40b397c58db8ec143f6dae4eea4ffcd511",
+      "bytes_at_deliverable": 7299,
+      "sha256_at_deliverable": "b62d2dfc715a82f167356b961d5fc04cd37e265091bd45c4a09f91b4d152ded1"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Review/WorkOrderReviewSuggestions.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "7d45769e391ace66fa657d91c270380efa0ebdf6",
+      "bytes_at_deliverable": 18951,
+      "sha256_at_deliverable": "9dd30b9a16f44c13efd44667d9e1e94a60b14646f734f5f9eaa46c70a0f5bfdc"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Infrastructure/InfrastructureServices.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "c2944c206b4872f5ebd19dbab77daeaa1a405bf1",
+      "bytes_at_deliverable": 1369,
+      "sha256_at_deliverable": "9085f93afd11340c1fbbbadd0602fa3200d9e8d567fa28161620aa9c6f5b1607"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "9857512e6f2cdf5ace98bb021b299d0e55d68bc6",
+      "bytes_at_deliverable": 32346,
+      "sha256_at_deliverable": "c5a6c6a63972239cdf586a50e40fde5e6e4c1f1fa7129a3fa074edb289d0b6fb"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "5a31b91b8b14a1a9cc66bce0a12bf787f7cb1aeb",
+      "bytes_at_deliverable": 31128,
+      "sha256_at_deliverable": "e538d55cb224d20b31372c6f7804e6fd8d743c344454fa33b12d83ec8588d34a"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/Migrations/20261116200918_AddWorkOrderReview.Designer.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "7694ab05d894a09fcdd64b49f8ca82e5e0730031",
+      "bytes_at_deliverable": 41695,
+      "sha256_at_deliverable": "0abad1a92f64d271dac4c4ccdeb3f1e6882e5a0230033b2dcea8e8607f009c6a"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/Migrations/20261116200918_AddWorkOrderReview.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "440001d648c57a58fdff4e5663d50424a9c7814e",
+      "bytes_at_deliverable": 14294,
+      "sha256_at_deliverable": "39aae777145b8067fbff9a068bc22d2a75f20e17d0e26cdd40cfb404e3aa8ae9"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/Migrations/ELedgerCareDbContextModelSnapshot.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "4eaea3925227fc0eb46d0445c53c18207cb96a0b",
+      "bytes_at_deliverable": 41592,
+      "sha256_at_deliverable": "32b75bfc65963a362b1bf4c05f2a3b232ee68a912861b60cd1ecf21e3e499d41"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/WorkOrderReviewStore.cs",
+      "category": "product_src",
+      "git_blob_oid_at_deliverable": "05bad5f173f5ed4f17995bc026d5b0feb50c6036",
+      "bytes_at_deliverable": 26086,
+      "sha256_at_deliverable": "b1c902cbffa878b6dfe45c9788e905152792002d279758fce1603c06d299ae92"
+    },
+    {
+      "action": "M",
+      "path": "tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs",
+      "category": "product_tests",
+      "git_blob_oid_at_deliverable": "7657982467ca6c4c3e86509867ea051811c70c5d",
+      "bytes_at_deliverable": 49569,
+      "sha256_at_deliverable": "fe3ab38bb9550ee5973b83ff90cb3acc67cfe3841fd8dc8f62818049d4cdf193"
+    },
+    {
+      "action": "A",
+      "path": "tests/ELedgerCare.Acceptance.Tests/Harness/GenuineF2Seeds.cs",
+      "category": "product_tests",
+      "git_blob_oid_at_deliverable": "a53db0b0a8a3f15dddcedb844e6cf36c3e903263",
+      "bytes_at_deliverable": 13276,
+      "sha256_at_deliverable": "fdd069304a3f14d28ad0224e7e382d77111a3e1c022741b1daaded073e2f7420"
+    },
+    {
+      "action": "A",
+      "path": "tests/ELedgerCare.Acceptance.Tests/WorkOrderReviewAcceptanceTests.cs",
+      "category": "product_tests",
+      "git_blob_oid_at_deliverable": "da6c8b8d2b47f8b2a9289a04e0935422c43601e4",
+      "bytes_at_deliverable": 54204,
+      "sha256_at_deliverable": "6810e524db5df7e7ca233f964889bdd9db8d772d05ca9d8b9534d9cc6617e08b"
+    },
+    {
+      "action": "A",
+      "path": "tests/ELedgerCare.Domain.Tests/WorkOrderReviewDomainTests.cs",
+      "category": "product_tests",
+      "git_blob_oid_at_deliverable": "db01438e9f0c3c5d0c8b502fff7611c99d5fef13",
+      "bytes_at_deliverable": 14321,
+      "sha256_at_deliverable": "56ef4f8f4aea286ceed0db0518c46eb57ade5cfa09051790b2fbd8a0fbf0fdcc"
+    },
+    {
+      "action": "M",
+      "path": "tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs",
+      "category": "product_tests",
+      "git_blob_oid_at_deliverable": "b711a5d5e917014a45e6323eb3c8fc7ad02eb300",
+      "bytes_at_deliverable": 3350,
+      "sha256_at_deliverable": "b190c88291b91da4aa53c065600b6c8aa88862ad716f3a23d16b5ad420409abb"
+    },
+    {
+      "action": "M",
+      "path": "web/angular.json",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "2a7c87fb81befe8647e7beef48dc29712e861bc7",
+      "bytes_at_deliverable": 1627,
+      "sha256_at_deliverable": "3411ad23917aad4c28222c9091c2bac23000713f6bdf0f0a76fa57fa3babdb76"
+    },
+    {
+      "action": "M",
+      "path": "web/e2e/owned-api.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "324a27bacaff3b289fc74830909e67d4d8f083d0",
+      "bytes_at_deliverable": 3272,
+      "sha256_at_deliverable": "068a6c2519afd94a96f8fad358ae3f50c28f33a582ff3dcad499d8beaf38213f"
+    },
+    {
+      "action": "A",
+      "path": "web/e2e/review.spec.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "6bc792d27642415080a084b36ce30b271980bd43",
+      "bytes_at_deliverable": 26643,
+      "sha256_at_deliverable": "0bc65bbd4a0bc9997588d829e154869a58e55c1c87ab3f53bc847eada3d69d9c"
+    },
+    {
+      "action": "M",
+      "path": "web/package.json",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "4fc692ff2baad941390e616fcebb4fd748507b1a",
+      "bytes_at_deliverable": 884,
+      "sha256_at_deliverable": "3088cc939be11d096cd9f1304a1a523475ffc03448bbd050fe76831d33eadf86"
+    },
+    {
+      "action": "M",
+      "path": "web/playwright.config.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "c4599cd2470feac57dca73a0c65c504bed19aa18",
+      "bytes_at_deliverable": 1293,
+      "sha256_at_deliverable": "8c9d66644432f299fc417c6288b0477446c8b2a56b1b3fd93f89e33b7aba7d70"
+    },
+    {
+      "action": "M",
+      "path": "web/proxy.conf.json",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "9a28afe560b5f62363b700f6bca095d568f52430",
+      "bytes_at_deliverable": 105,
+      "sha256_at_deliverable": "1f96fe3cbb884df5106c48539ccbb0f5890357d02f0718a4078922e84720a006"
+    },
+    {
+      "action": "M",
+      "path": "web/proxy.conf.mjs",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "d908eeee38c36cb8ed2c57a781e0aea9479d11fb",
+      "bytes_at_deliverable": 187,
+      "sha256_at_deliverable": "e1abd24fbfda58128c3d0cdbb0b3859f252d3c38fae0e42cf2493942f4d3ee3d"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/app.routes.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "9dab35f4228805581a7bc3fcfb74868df0f38441",
+      "bytes_at_deliverable": 895,
+      "sha256_at_deliverable": "b79dab309036e2b0c631b0f8d9b9dd4fae252d0c0775837e5f6905df29fc4aa2"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/intake/document-page.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "e16febe191e60f2d88f39c035640a65aadd14b6e",
+      "bytes_at_deliverable": 15551,
+      "sha256_at_deliverable": "53218b04814ca8c5bc4016ba8ac5d257141a38f3b64ed53adf385586c1be283d"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/intake/receipt.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "0d1371e4f3f20a68d4101555b9c169f85798ed06",
+      "bytes_at_deliverable": 3465,
+      "sha256_at_deliverable": "bdba977d29b789377bce7cd3b6d8904213a3b5db9e86ae1dde073c735070b815"
+    },
+    {
+      "action": "A",
+      "path": "web/src/app/review/pdf-preview-url.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "ce1bd41aa4cc1ba1a802aa8cc3f02196dd45b191",
+      "bytes_at_deliverable": 1738,
+      "sha256_at_deliverable": "76d51050fe08d572bbd2d974d7823b98ca6a7c5bbe4a56ba9353e0568b39132b"
+    },
+    {
+      "action": "A",
+      "path": "web/src/app/review/review-api.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "d406979137ff7cdfd9c5200dcdc127c96209629b",
+      "bytes_at_deliverable": 1726,
+      "sha256_at_deliverable": "07fcfa85810d1d51681cf33c1b683dbd877c02ec964f9c68d133fa10ee406c3f"
+    },
+    {
+      "action": "A",
+      "path": "web/src/app/review/review-models.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "bc86883a06999af787d2bf28899938886395dbf0",
+      "bytes_at_deliverable": 4801,
+      "sha256_at_deliverable": "e9d6530f68028ff23b8ca0a1e6bbe0a382ac8e081544b580e84d2ea39b34d5d8"
+    },
+    {
+      "action": "A",
+      "path": "web/src/app/review/work-order-review-page.ts",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "a09281a0a1b563b08b6469ef395bb5237393e9fb",
+      "bytes_at_deliverable": 53237,
+      "sha256_at_deliverable": "323c9afee3268732fb67982d91695d7d0fac534902ee4d106b1f063f47f19d6f"
+    },
+    {
+      "action": "M",
+      "path": "web/src/styles.css",
+      "category": "product_web",
+      "git_blob_oid_at_deliverable": "b8a327c2e196a9e3de815c3ec3d3a2e93fb699e7",
+      "bytes_at_deliverable": 5777,
+      "sha256_at_deliverable": "114f15a8ef323a33ba707b6e6793a37943e5de6609d7857a586181859727de55"
+    }
+  ],
+  "post_deliverable_evidence_count": 30,
+  "post_deliverable_evidence_entries": [
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/README.md",
+      "bytes": 15909,
+      "sha256": "935c8d66aed3e1abb5ff281be205c8e52160dc373858dde1d16fe614d0921c4e"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/change-inventory.json",
+      "self_referential": true,
+      "note": "Contains SHA-256 digests for all 51 deliverable paths and the other 29 post-deliverable evidence/doc paths."
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/demo-smoke-receipt.json",
+      "bytes": 1695,
+      "sha256": "79f0e3acb074bc543848d35a3de6a0263c9fdb90538ee80e5ec3c8ee3c98d821"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/evidence-manifest.json",
+      "bytes": 5738,
+      "sha256": "a5cae0064c283d240b0be2b94e5a664778586099423ff7d04a263ab7fcd4b413"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/01-worker-cpu-tests.log",
+      "bytes": 284,
+      "sha256": "267df303e276f9604cb750d647a31a2fbcede1502d607b0d7d82b74f1f799b3c"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/02-dotnet-restore-locked.log",
+      "bytes": 654,
+      "sha256": "029fd60fe84e211fff4db105c4f4dc4f35fc292255c4c3cc6c90aaaa8a5fc521"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/03-dotnet-build-release.log",
+      "bytes": 1458,
+      "sha256": "80599e2eef7fa54a06244b23300f3c6af2d4a7f6cdd65c1e3052bf3e627af724"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/04-dotnet-test-release.log",
+      "bytes": 1976,
+      "sha256": "f9352f5a59540ed4ed1e3172cad25e120dd527e62646625cc9b1cd21bc8e6c8e"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/05-ng-build-production.log",
+      "bytes": 638,
+      "sha256": "8072a60bbb51bb393022b46651a9f62ce3baba1a4e61508d4f3f2133e8795967"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/06-prepare-dev-db.log",
+      "bytes": 1192,
+      "sha256": "bd82ec87903045f3037a9d42616084e4d2a87a5754e8f69609eb491570889bbd"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/07-demo-smoke.log",
+      "bytes": 2233,
+      "sha256": "bf83a61c14bf6580a5a92b7d36b33b0e9982feb7f5a2c91bee2b43e6411d65d5"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/08-playwright-edge-e2e.log",
+      "bytes": 5408,
+      "sha256": "30f75e2727ac0813993caff59cb2d5bf64fae7a89c79e5e05bd19d11adf2768f"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/09-prepare-f3-acceptance-db.log",
+      "bytes": 1839,
+      "sha256": "f9e19f8c430fee7d95963a50ad690a6b9e47e177389807dad19d7609119132a0"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/10-edge-f3-before-restart.log",
+      "bytes": 1908,
+      "sha256": "617ddd9112f44b0e7949986eca55ca03daab207dac6961a75fade25f1b169fbc"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/11-pg-cluster-stop.log",
+      "bytes": 176,
+      "sha256": "592f307ca58dfa838ebbeeeaf3f26c763a270910d06b3cccff186b4676ea7a3f"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/12-pg-cluster-start.log",
+      "bytes": 303,
+      "sha256": "f300ca73aa560085054600a3f4ed822c6d484de3b874d8c9031ae020dfa8e8b7"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/13-edge-f3-after-restart-reopen.log",
+      "bytes": 1621,
+      "sha256": "ac961210cb6e6de5b284a92c295964250f382b3dc7f1520557982356858d1ca3"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/owned-api-phase1.log",
+      "bytes": 421,
+      "sha256": "0512b8b1ab1be822575060494f532c5aae468ad8ebd31d45c81a11f042111158"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/owned-api-phase2.log",
+      "bytes": 421,
+      "sha256": "0512b8b1ab1be822575060494f532c5aae468ad8ebd31d45c81a11f042111158"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/owned-ui-phase1.log",
+      "bytes": 488,
+      "sha256": "2b9bb5fe0b8fe46981c5ed9dd91f853a7f216460d98d8f8a78363b4c9962e700"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/logs/owned-ui-phase2.log",
+      "bytes": 488,
+      "sha256": "35e7ae77b1db4e56dd4d25ae96bfe883bf33086f6fe3f32566d167ae51a0ce36"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/screenshots/after-pg-and-api-restart-wo01-reopen.png",
+      "bytes": 278241,
+      "sha256": "babbd29b41b9411d4422c50750b018d631906df0a6d541fc33bc0ce971cc3122"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/screenshots/before-restart-wo01-reviewed.png",
+      "bytes": 210977,
+      "sha256": "f8d7ee67fe49a15159dd0acca51e570e1c18d30b5cfc5fccc8ac6ae8adc6b1d3"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/screenshots/edge-after-restart.json",
+      "bytes": 1333,
+      "sha256": "130db98e2ff085e8d9643ea4c1249639eb15e980488ccbb5ec09038a70b7c8aa"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/screenshots/edge-before-restart.json",
+      "bytes": 1691,
+      "sha256": "3dac5c0a96d7abbab47ee2e10ebaee8b74f6ba24ca776e461d70d4f178cb8a5b"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/screenshots/two-pane-mp01-page2-navigation.png",
+      "bytes": 150832,
+      "sha256": "37d63aa2e5854585f9ae57a18a2bc86354b9b1b5c3acae30d0ee8749f8e8ec65"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/screenshots/two-pane-wo01-source-comparison.png",
+      "bytes": 278367,
+      "sha256": "51e4b2406104b916e8f6cee12c5e4e9b8dfd005175d3ce92279a8fe4222c16b4"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/evidence/verification-summary.json",
+      "bytes": 23625,
+      "sha256": "cac2e936177008d00bdaf4401e8f4a93be43df4ad32cd2232088fb40c64ffd63"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/resource-return.json",
+      "bytes": 1538,
+      "sha256": "dfd30db2cd4909daa29653e822ed23730ab707d743ec026e8e1780b46345c137"
+    },
+    {
+      "action": "M",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/retained-failures/README.md",
+      "bytes": 2227,
+      "sha256": "b8fabf97b5b42abe8bf01bf75d92d3bb7a672fcfaa900d0b0e8ffd8c9707e703"
+    }
+  ],
+  "reserved_canonical_report_commit_after_evidence": {
+    "action": "A",
+    "path": "docs/agent-reports/eld-f3-implementer/WP-0008/003_2026-11-16_implementation_eld-f3-implementer.md",
+    "note": "Committed separately as a single-file report-only commit after the post-deliverable evidence commit."
+  }
+}

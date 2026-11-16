@@ -1,0 +1,51 @@
+{
+  "fixtureId": "F1-SWO-001",
+  "fixtureSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+  "fixtureBytes": 887,
+  "apiPort": 5390,
+  "database": "eledgercare_product_dev",
+  "submit": {
+    "status": 201,
+    "documentId": "01a1e626-55c5-7855-913b-43d91aa7ed18",
+    "jobId": "01a1e626-55c5-7781-8b31-6ba8e7edec1a",
+    "receiptStatus": "awaiting_extraction",
+    "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "disabledByDefaultExtraction": {
+    "workerEnabled": false,
+    "postStatus": 503,
+    "statusAfter503": "awaiting_extraction"
+  },
+  "apiProcesses": [
+    {
+      "pid": 13612,
+      "startUtc": "2026-11-16T20:57:12.2856410Z",
+      "role": "submit + disabled-worker check, then terminated"
+    },
+    {
+      "pid": 30048,
+      "startUtc": "2026-11-16T20:57:15.3514151Z",
+      "role": "after API restart"
+    },
+    {
+      "pid": 32504,
+      "startUtc": "2026-11-16T20:57:18.8087832Z",
+      "role": "after PostgreSQL fast restart"
+    }
+  ],
+  "afterApiRestart": {
+    "documentId": "01a1e626-55c5-7855-913b-43d91aa7ed18",
+    "admittedPageCount": 1,
+    "status": "awaiting_extraction",
+    "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "afterPostgresRestart": {
+    "postmasterPid": 21760,
+    "documentId": "01a1e626-55c5-7855-913b-43d91aa7ed18",
+    "status": "awaiting_extraction",
+    "extractionStatus": "awaiting_extraction",
+    "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "allMatch": true,
+  "limits": "Stage 1 CPU/DB restart smoke with LocalOcr:Enabled=false default; not a GPU run or power-loss test."
+}
