@@ -198,4 +198,38 @@ public sealed class ExtractionDomainAndParserTests
 
         Assert.Equal("Inspector Sign-off: Complete", Assert.Single(pages[2].Blocks).Text);
     }
+
+    [Fact]
+    public void F2_S1_03_DiagnosticTextSanitizer_replaces_nul_and_unpaired_surrogates_without_splitting_astral_scalars()
+    {
+        var strictUtf8 = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false, throwOnInvalidBytes: true);
+
+        // 1. NUL bytes and unpaired high/low surrogates become U+FFFD.
+        var dirty = "ab\0cd" + '\uD83D' + "ef" + '\uDE00' + "gh";
+        var cleaned = DiagnosticTextSanitizer.SanitizeForPostgresText(dirty, maxChars: 100)!;
+        Assert.DoesNotContain('\0', cleaned);
+        Assert.Equal("ab\uFFFDcd\uFFFDef\uFFFDgh", cleaned);
+        _ = strictUtf8.GetBytes(cleaned); // Never throws EncoderFallbackException.
+
+        // 2. Surrogate pair straddling index 65,535 / 65,536 is never split across truncation cap.
+        var boundaryInput = new string('A', ExecutionAttempt.MaxDiagnosticOutputChars - 1) + "\U0001F600";
+        var truncated = DiagnosticTextSanitizer.SanitizeForPostgresText(
+            boundaryInput, ExecutionAttempt.MaxDiagnosticOutputChars)!;
+        Assert.Equal(ExecutionAttempt.MaxDiagnosticOutputChars - 1, truncated.Length);
+        Assert.False(char.IsSurrogate(truncated[^1]));
+        _ = strictUtf8.GetBytes(truncated);
+
+        // 3. Raw byte preview trims incomplete trailing UTF-8 sequence and replaces 0x00 with U+FFFD.
+        byte[] rawPreviewBytes = [(byte)'<', (byte)'P', (byte)'A', (byte)'G', (byte)'E', (byte)'>', 0x00, 0xF0, 0x9F];
+        var preview = DiagnosticTextSanitizer.DecodeBoundedPreview(rawPreviewBytes, maxChars: 64)!;
+        Assert.Equal("<PAGE>\uFFFD", preview);
+        _ = strictUtf8.GetBytes(preview);
+
+        // 4. Diagnostic JSON containing \u0000 is sanitized for PostgreSQL jsonb.
+        var jsonSanitized = DiagnosticTextSanitizer.SanitizeDiagnosticJsonOrNull("{\"msg\":\"bad\\u0000val\",\"n\":1}")!;
+        Assert.DoesNotContain("\\u0000", jsonSanitized, StringComparison.OrdinalIgnoreCase);
+        Assert.DoesNotContain('\0', jsonSanitized);
+        using var parsedJson = System.Text.Json.JsonDocument.Parse(jsonSanitized);
+        Assert.Equal("bad\uFFFDval", parsedJson.RootElement.GetProperty("msg").GetString());
+    }
 }

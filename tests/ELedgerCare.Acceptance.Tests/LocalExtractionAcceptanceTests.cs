@@ -521,6 +521,143 @@ public sealed class LocalExtractionAcceptanceTests(PostgresFixture fixture)
         });
     }
 
+    /// <summary>
+    /// F2-S1-02 &amp; F2-S1-03: verifies against real PostgreSQL 18.7 and ELedgerCare.Api that:
+    ///   1. Rejected diagnostic previews containing 0x00 NUL bytes, \u0000 JSON escapes, unpaired UTF-16
+    ///      surrogates, and astral surrogate pairs straddling index 65,535/65,536 persist cleanly to terminal
+    ///      'failed' rows (never throwing SQLSTATE 22021 / 22P02 / EncoderFallbackException) while leaving
+    ///      original PDF bytes untouched;
+    ///   2. Same-instance ReconcileAbandonedAttemptsAsync protects an actively executing attempt, refuses
+    ///      to interrupt while launcher/worker PIDs remain alive, and recovers an orphaned same-instance
+    ///      'running' row to 'interrupted' without an API restart and without auto-launching a retry.
+    /// </summary>
+    [Fact]
+    public async Task F2_S1_02_F2_S1_03_postgres_diagnostic_sanitization_and_same_instance_orphaned_attempt_recovery()
+    {
+        await using var db = await fixture.CreateDatabaseAsync();
+        await using var api = await ApiProcess.StartAsync(db.AppConnectionString);
+        using var client = api.CreateClient();
+
+        var docNul = await SubmitDocumentAsync(client, SyntheticPdf.CanonicalFixture());
+        var docSurrogate = await SubmitDocumentAsync(client, SyntheticPdf.CanonicalFixture());
+        var docActive = await SubmitDocumentAsync(client, SyntheticPdf.CanonicalFixture());
+        var docOrphan = await SubmitDocumentAsync(client, SyntheticPdf.CanonicalFixture());
+
+        var store = CreateAppExtractionStore(db.AppConnectionString);
+        var settings = CreateEnabledTestSettings();
+        var t0 = new DateTimeOffset(2026, 11, 16, 9, 0, 0, TimeSpan.Zero);
+
+        // --- Part 1 (F2-S1-03): NUL byte in raw preview + \u0000 in diagnostics JSON ---
+        await store.QueueOrReconcileAsync(docNul, null, 3, workerEnabled: true, t0, Cancel);
+        var claimedNul = (await store.ClaimNextQueuedJobAsync(Guid.NewGuid(), 7001, 133700000000007001L, t0.AddSeconds(1), Cancel))!;
+        byte[] rawWithNulAndInvalidUtf8 = [(byte)'<', (byte)'P', (byte)'A', (byte)'G', (byte)'E', (byte)'>', 0x00, 0xFF, (byte)'Z'];
+        var nulOutcome = new WorkerRunOutcome(
+            JsonSerializer.SerializeToUtf8Bytes(new
+            {
+                schema = ExtractionCeilings.EnvelopeSchema,
+                status = "failed",
+                failure = new { code = "bad\0code", message = "detail\0with\0nul", diagnostic_raw_output_utf8 = "raw\0preview" },
+                diagnostics = new { note = "json\0nul" },
+            }),
+            rawWithNulAndInvalidUtf8,
+            ExitCode: 2,
+            null,
+            null);
+        var nulRejected = Assert.IsType<EnvelopeValidationOutcome.Rejected>(
+            WorkerEnvelopeValidator.Validate(claimedNul, settings, nulOutcome, t0.AddSeconds(2)));
+        Assert.True(await store.MarkAttemptFailedAsync(
+            claimedNul.AttemptId, claimedNul.JobId, claimedNul.FencingToken,
+            nulRejected.FailureCode, nulRejected.SafeDetail, 2,
+            nulRejected.DiagnosticRawOutputUtf8, nulRejected.DiagnosticMetadataJson,
+            t0.AddSeconds(2), Cancel));
+
+        // Also test direct raw byte preview via supervisor abort path + surrogate pair straddling 65,535/65,536!
+        await store.QueueOrReconcileAsync(docSurrogate, null, 3, workerEnabled: true, t0.AddSeconds(3), Cancel);
+        var claimedSur = (await store.ClaimNextQueuedJobAsync(Guid.NewGuid(), 7002, 133700000000007002L, t0.AddSeconds(4), Cancel))!;
+        var boundaryDiagnostic = new string('A', ExecutionAttempt.MaxDiagnosticOutputChars - 1) + "\U0001F600";
+        Assert.True(await store.MarkAttemptFailedAsync(
+            claimedSur.AttemptId, claimedSur.JobId, claimedSur.FencingToken,
+            "output_cap_exceeded",
+            "Failure\0detail with unpaired " + '\uD800',
+            1,
+            boundaryDiagnostic,
+            "{\"bad\":\"val\\u0000here\"}",
+            t0.AddSeconds(5),
+            Cancel));
+
+        Assert.Equal("failed", await ScalarTextAsync(db, "SELECT status FROM eledgercare.processing_jobs WHERE document_id = @id", ("id", docNul)));
+        Assert.Equal("failed", await ScalarTextAsync(db, "SELECT status FROM eledgercare.processing_jobs WHERE document_id = @id", ("id", docSurrogate)));
+        Assert.Equal("65535", await ScalarTextAsync(
+            db,
+            "SELECT char_length(diagnostic_raw_output_utf8)::text FROM eledgercare.execution_attempts WHERE attempt_id = @id",
+            ("id", claimedSur.AttemptId)));
+
+        // Verify real API serializes both sanitized failed attempts cleanly over HTTP.
+        var nulExtHttp = await client.GetFromJsonAsync<JsonElement>($"/api/documents/{docNul:D}/extraction", Cancel);
+        Assert.Equal("failed", nulExtHttp.GetProperty("status").GetString());
+        Assert.True(nulExtHttp.GetProperty("canRetryExtraction").GetBoolean());
+
+        // --- Part 2 (F2-S1-02): Same-instance active protection + orphaned 'running' recovery without API restart ---
+        var probe = new FakeProcessIdentityProbe(new OsProcessIdentity(8800, 133700000000008800L));
+        probe.SetAlive(8800, 133700000000008800L, alive: true);
+        var runner = new ScriptedWorkerRunner();
+        var coordinator = new ExtractionAttemptCoordinator(store, runner, probe, settings, TimeProvider.System);
+
+        // 2a. Actively executing attempt on this coordinator MUST NOT be stolen by concurrent ReconcileAbandonedAttemptsAsync!
+        await store.QueueOrReconcileAsync(docActive, null, 3, workerEnabled: true, t0.AddSeconds(10), Cancel);
+        var inWorkerTcs = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var finishWorkerTcs = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        runner.NextHandler = async (_, onLauncher, _) =>
+        {
+            await onLauncher(8801, 133700000000008801L, Cancel);
+            inWorkerTcs.TrySetResult();
+            await finishWorkerTcs.Task.WaitAsync(Cancel);
+            return new WorkerRunOutcome(null, null, 1, "worker_timeout", "Done");
+        };
+
+        var activeExecTask = coordinator.ExecuteNextQueuedAttemptAsync(Cancel);
+        await inWorkerTcs.Task.WaitAsync(TimeSpan.FromSeconds(10), Cancel);
+        Assert.Equal(0, await coordinator.ReconcileAbandonedAttemptsAsync(Cancel));
+        Assert.Equal("running", await ScalarTextAsync(db, "SELECT status FROM eledgercare.processing_jobs WHERE document_id = @id", ("id", docActive)));
+        finishWorkerTcs.TrySetResult();
+        Assert.True(await activeExecTask);
+        Assert.Equal("failed", await ScalarTextAsync(db, "SELECT status FROM eledgercare.processing_jobs WHERE document_id = @id", ("id", docActive)));
+
+        // 2b. Orphaned 'running' row under the SAME coordinator.SupervisorInstanceId (e.g. after a transient DB error):
+        await store.QueueOrReconcileAsync(docOrphan, null, 3, workerEnabled: true, t0.AddSeconds(20), Cancel);
+        var orphanClaim = (await store.ClaimNextQueuedJobAsync(
+            coordinator.SupervisorInstanceId,
+            coordinator.SupervisorIdentity.Pid,
+            coordinator.SupervisorIdentity.CreateFileTime,
+            t0.AddSeconds(21),
+            Cancel))!;
+        await store.RecordLauncherProcessAsync(orphanClaim.AttemptId, orphanClaim.FencingToken, 8810, 133700000000008810L, t0.AddSeconds(22), Cancel);
+        await store.RecordHeartbeatAsync(orphanClaim.AttemptId, orphanClaim.FencingToken, "inferring", 8811, 133700000000008811L, t0.AddSeconds(23), Cancel);
+
+        // While worker child 8811 is still alive, same-instance reconciliation refuses to mark interrupted.
+        probe.SetAlive(8811, 133700000000008811L, alive: true);
+        Assert.Equal(0, await coordinator.ReconcileAbandonedAttemptsAsync(Cancel));
+
+        // Once launcher & worker are gone, the SAME coordinator reconciles the orphaned row to 'interrupted' without an API restart!
+        probe.SetAlive(8811, 133700000000008811L, alive: false);
+        Assert.Equal(1, await coordinator.ReconcileAbandonedAttemptsAsync(Cancel));
+        Assert.Equal("interrupted", await ScalarTextAsync(db, "SELECT status FROM eledgercare.processing_jobs WHERE document_id = @id", ("id", docOrphan)));
+
+        // Recovery to 'interrupted' must NOT automatically launch another attempt; retry stays explicit.
+        Assert.False(await coordinator.ExecuteNextQueuedAttemptAsync(Cancel));
+        Assert.Equal(1L, await db.ScalarAsync("SELECT count(*) FROM eledgercare.execution_attempts WHERE document_id = @id", ("id", docOrphan)));
+
+        Evidence.Record("F2-S1-02 and F2-S1-03 regressions", new
+        {
+            database = db.Name,
+            nulDiagnosticPersistedAsFailed = true,
+            surrogateBoundaryTruncatedLength = 65535,
+            activeAttemptProtectedOnSameCoordinator = true,
+            orphanedSameInstanceAttemptReconciledWithoutRestart = true,
+            noAutomaticRetryAfterReconcile = true,
+        });
+    }
+
     private static ExtractionStore CreateAppExtractionStore(string appConnectionString)
     {
         var options = new DbContextOptionsBuilder<ELedgerCareDbContext>()

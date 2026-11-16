@@ -259,6 +259,11 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
             }
         }
 
+        var safeCode = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+            failureCode, DiagnosticTextSanitizer.MaxFailureCodeChars, "supervisor_interrupted");
+        var safeDetail = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+            failureDetail, ExecutionAttempt.MaxFailureDetailLength, "Local extraction was interrupted.");
+
         const string attemptSql = """
             UPDATE eledgercare.execution_attempts
             SET status = 'interrupted',
@@ -272,8 +277,8 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
         await using (var attCmd = new NpgsqlCommand(attemptSql, conn, npgsqlTx))
         {
             attCmd.Parameters.AddWithValue("now", endedAtUtc);
-            attCmd.Parameters.AddWithValue("code", failureCode);
-            attCmd.Parameters.AddWithValue("detail", failureDetail);
+            attCmd.Parameters.AddWithValue("code", safeCode);
+            attCmd.Parameters.AddWithValue("detail", safeDetail);
             attCmd.Parameters.AddWithValue("attemptId", attemptId);
             attCmd.Parameters.AddWithValue("jobId", jobId);
             attCmd.Parameters.AddWithValue("token", fencingToken);
@@ -451,8 +456,9 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
                 last_heartbeat_at = @now
             WHERE attempt_id = @attemptId AND status = 'running' AND fencing_token = @token
             """;
+        var safePhase = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(phase, 64, "running");
         await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("phase", phase);
+        cmd.Parameters.AddWithValue("phase", safePhase);
         cmd.Parameters.Add(new NpgsqlParameter("wPid", NpgsqlDbType.Integer) { Value = workerPid is { } p ? p : DBNull.Value });
         cmd.Parameters.Add(new NpgsqlParameter("wFt", NpgsqlDbType.Bigint) { Value = workerCreateFileTime is { } f ? f : DBNull.Value });
         cmd.Parameters.AddWithValue("now", nowUtc);
@@ -565,14 +571,13 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
             }
         }
 
-        var boundedDetail = failureDetail.Length <= ExecutionAttempt.MaxFailureDetailLength
-            ? failureDetail
-            : failureDetail[..ExecutionAttempt.MaxFailureDetailLength];
-        var boundedDiagRaw = diagnosticRawOutputUtf8 is null
-            ? null
-            : (diagnosticRawOutputUtf8.Length <= ExecutionAttempt.MaxDiagnosticOutputChars
-                ? diagnosticRawOutputUtf8
-                : diagnosticRawOutputUtf8[..ExecutionAttempt.MaxDiagnosticOutputChars]);
+        var safeCode = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+            failureCode, DiagnosticTextSanitizer.MaxFailureCodeChars, "worker_failed");
+        var boundedDetail = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+            failureDetail, ExecutionAttempt.MaxFailureDetailLength, "Local OCR execution failed.");
+        var boundedDiagRaw = DiagnosticTextSanitizer.SanitizeForPostgresText(
+            diagnosticRawOutputUtf8, ExecutionAttempt.MaxDiagnosticOutputChars);
+        var sanitizedDiagJson = DiagnosticTextSanitizer.SanitizeDiagnosticJsonOrNull(diagnosticMetadataJson);
 
         const string attSql = """
             UPDATE eledgercare.execution_attempts
@@ -591,10 +596,10 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
         {
             attCmd.Parameters.AddWithValue("now", endedAtUtc);
             attCmd.Parameters.Add(new NpgsqlParameter("exitCode", NpgsqlDbType.Integer) { Value = exitCode is { } e ? e : DBNull.Value });
-            attCmd.Parameters.AddWithValue("code", failureCode);
+            attCmd.Parameters.AddWithValue("code", safeCode);
             attCmd.Parameters.AddWithValue("detail", boundedDetail);
             attCmd.Parameters.Add(new NpgsqlParameter("diagRaw", NpgsqlDbType.Text) { Value = boundedDiagRaw is not null ? boundedDiagRaw : DBNull.Value });
-            attCmd.Parameters.Add(new NpgsqlParameter("diagJson", NpgsqlDbType.Jsonb) { Value = diagnosticMetadataJson is not null ? diagnosticMetadataJson : DBNull.Value });
+            attCmd.Parameters.Add(new NpgsqlParameter("diagJson", NpgsqlDbType.Jsonb) { Value = sanitizedDiagJson is not null ? sanitizedDiagJson : DBNull.Value });
             attCmd.Parameters.AddWithValue("attemptId", attemptId);
             attCmd.Parameters.AddWithValue("jobId", jobId);
             attCmd.Parameters.AddWithValue("token", fencingToken);

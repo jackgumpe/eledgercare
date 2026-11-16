@@ -27,8 +27,11 @@ public static class WorkerEnvelopeValidator
         if (!string.IsNullOrWhiteSpace(outcome.SupervisorFailureCode))
         {
             return new EnvelopeValidationOutcome.Rejected(
-                outcome.SupervisorFailureCode,
-                outcome.SupervisorFailureDetail ?? "The local OCR worker attempt did not complete within configured guards.",
+                DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+                    outcome.SupervisorFailureCode, DiagnosticTextSanitizer.MaxFailureCodeChars, "worker_failed"),
+                DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+                    outcome.SupervisorFailureDetail, ExecutionAttempt.MaxFailureDetailLength,
+                    "The local OCR worker attempt did not complete within configured guards."),
                 TryExtractPreview(outcome.RawOutputBytes),
                 null);
         }
@@ -78,9 +81,10 @@ public static class WorkerEnvelopeValidator
             }
 
             var status = GetString(root, "status");
-            var diagnosticsJson = root.TryGetProperty("diagnostics", out var diagEl) && diagEl.ValueKind == JsonValueKind.Object
+            var rawDiagnosticsJson = root.TryGetProperty("diagnostics", out var diagEl) && diagEl.ValueKind == JsonValueKind.Object
                 ? diagEl.GetRawText()
                 : "{}";
+            var diagnosticsJson = DiagnosticTextSanitizer.SanitizeDiagnosticJsonOrNull(rawDiagnosticsJson) ?? "{}";
 
             if (status == "failed")
             {
@@ -96,7 +100,11 @@ public static class WorkerEnvelopeValidator
                 var diagRaw = failureEl.ValueKind == JsonValueKind.Object
                     ? GetString(failureEl, "diagnostic_raw_output_utf8")
                     : null;
-                return new EnvelopeValidationOutcome.Rejected(code, safeMsg, diagRaw, diagnosticsJson);
+                return new EnvelopeValidationOutcome.Rejected(
+                    DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(code, DiagnosticTextSanitizer.MaxFailureCodeChars, "worker_failed"),
+                    DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(safeMsg, ExecutionAttempt.MaxFailureDetailLength, "Local OCR execution failed."),
+                    DiagnosticTextSanitizer.SanitizeForPostgresText(diagRaw, ExecutionAttempt.MaxDiagnosticOutputChars),
+                    diagnosticsJson);
             }
 
             if (status != "completed")
@@ -338,16 +346,8 @@ public static class WorkerEnvelopeValidator
         }
     }
 
-    private static string? TryExtractPreview(byte[]? raw)
-    {
-        if (raw is null || raw.Length == 0)
-        {
-            return null;
-        }
-
-        var slice = raw.AsSpan(0, Math.Min(raw.Length, ExecutionAttempt.MaxDiagnosticOutputChars));
-        return Encoding.UTF8.GetString(slice);
-    }
+    private static string? TryExtractPreview(byte[]? raw) =>
+        DiagnosticTextSanitizer.DecodeBoundedPreview(raw, ExecutionAttempt.MaxDiagnosticOutputChars);
 
     private static string? GetString(JsonElement obj, string prop) =>
         obj.ValueKind == JsonValueKind.Object && obj.TryGetProperty(prop, out var val) && val.ValueKind == JsonValueKind.String
