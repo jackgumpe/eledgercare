@@ -1,0 +1,21 @@
+Build started...
+Build succeeded.
+Failed executing DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM eledgercare.__ef_migrations_history
+ORDER BY "MigrationId";
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Applying migration '20261114182147_InitialDurableIntake'.
+Applying migration '20261116052029_AddLocalExtraction'.
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Done.
+Runtime privilege matrix for eledgercare_app on eledgercare_f2_runtime_author (table: select insert table_update col_update delete truncate):
+__ef_migrations_history: false false false false false false
+documents: true true false false false false
+execution_attempts: true true false true false false
+extraction_results: true true false false false false
+original_artifacts: true true false false false false
+processing_jobs: true true false true false false
+fencing_seq usage/select: true true
+schema create for app: false
+migrations: 20261114182147_InitialDurableIntake, 20261116052029_AddLocalExtraction

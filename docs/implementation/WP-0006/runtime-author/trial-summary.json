@@ -1,0 +1,190 @@
+{
+  "schema": "eledgercare.wp-0006.author-runtime-summary/1",
+  "release_authority_commit": "717a768994bbbabf75b8ee96b3b1aadca1bc5df3",
+  "lease_id": "WP-0006-author-runtime-20261116T062318Z",
+  "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "source_commit": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+  "executing_head": "6faec9bf6eccc297a548523dbb52ae9262b25152",
+  "writable_runtime_root": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\author",
+  "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+  "database": "eledgercare_f2_runtime_author",
+  "worker_allowed_environment_names_only": [
+    "CUDA_CACHE_PATH",
+    "CUDA_DEVICE_ORDER",
+    "CUDA_VISIBLE_DEVICES",
+    "ComSpec",
+    "HF_HOME",
+    "HF_HUB_CACHE",
+    "HF_HUB_DISABLE_PROGRESS_BARS",
+    "HF_HUB_DISABLE_TELEMETRY",
+    "HF_HUB_DISABLE_XET",
+    "HF_HUB_OFFLINE",
+    "HF_MODULES_CACHE",
+    "HOME",
+    "HUGGINGFACE_HUB_CACHE",
+    "NUMBER_OF_PROCESSORS",
+    "OS",
+    "PATH",
+    "PATHEXT",
+    "PIP_CACHE_DIR",
+    "PIP_CONFIG_FILE",
+    "PIP_NO_INDEX",
+    "PROCESSOR_ARCHITECTURE",
+    "PROCESSOR_IDENTIFIER",
+    "PROCESSOR_LEVEL",
+    "PROCESSOR_REVISION",
+    "SYSTEMROOT",
+    "SystemRoot",
+    "TEMP",
+    "TMP",
+    "TMPDIR",
+    "TORCHINDUCTOR_CACHE_DIR",
+    "TORCH_HOME",
+    "TRANSFORMERS_CACHE",
+    "TRANSFORMERS_OFFLINE",
+    "TRITON_CACHE_DIR",
+    "USERPROFILE",
+    "UV_CACHE_DIR",
+    "VIRTUAL_ENV",
+    "XDG_CACHE_HOME",
+    "windir"
+  ],
+  "started_utc": "2026-11-16T06:40:45.387931+00:00",
+  "scenarios": {},
+  "git_and_freeze_before": {
+    "head": "6faec9bf6eccc297a548523dbb52ae9262b25152",
+    "source_commit": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+    "clean": true,
+    "freeze_verified": true
+  },
+  "host_before": {
+    "label": "host-before",
+    "observed_utc": "2026-11-16T06:40:46.904684+00:00",
+    "logical_cpus": 12,
+    "ram_total_bytes": 34264649728,
+    "ram_avail_bytes": 18877706240,
+    "memory_load_pct": 44,
+    "disk_c_free_bytes": 52975566848,
+    "runtime_root_used_bytes": 0,
+    "ports_bound": {
+      "5190": false,
+      "4210": false,
+      "55434": false
+    },
+    "nvidia_smi_gpu": "0, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, P8, 16303 MiB, 1353 MiB, 14645 MiB, 1 %",
+    "cuda_compute_apps": [],
+    "wddm_desktop_app_count": 22,
+    "host_confounders_note": "Windows 11 WDDM desktop session shares the RTX 5070 Ti (~1.35 GiB baseline VRAM across desktop apps) and independent CPU/PostgreSQL/Edge review (eld-next-reviewer) plus WP-0007 CPU correction work may contend for host CPU/RAM; timings are operational product observations, not isolated benchmarks.",
+    "active_python_dotnet_postgres_node_processes": [
+      {
+        "Id": 30844,
+        "ProcessName": "python"
+      },
+      {
+        "Id": 32276,
+        "ProcessName": "python"
+      }
+    ]
+  },
+  "model_before": {
+    "label": "model-before",
+    "observed_utc": "2026-11-16T06:40:53.761896+00:00",
+    "q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "runtime_objects_verified": 18,
+    "notice_readme_verified": true,
+    "static_ast_safety_verified": true
+  },
+  "postgres_initial": {
+    "postmaster_pid": 15440,
+    "postmaster_create_filetime": 134392848549629600,
+    "started_utc": "2026-11-16T06:40:55.217615+00:00"
+  },
+  "api_1_start": {
+    "label": "run1-ocr-enabled",
+    "pid": 21268,
+    "create_filetime": 134392848651100851,
+    "ocr_enabled": true,
+    "started_utc": "2026-11-16T06:41:05.112524+00:00"
+  },
+  "outcome": "FAILED",
+  "error": "RuntimeError: Model attempt for document 01a1e316-866e-7b80-bc30-991e2ac465ef ended with unexpected status 'failed': {\n  \"view\": {\n    \"documentId\": \"01a1e316-866e-7b80-bc30-991e2ac465ef\",\n    \"jobId\": \"01a1e316-866e-7e4c-bcf5-408043f07150\",\n    \"status\": \"failed\",\n    \"admittedPageCount\": 1,\n    \"originalByteLength\": 372258,\n    \"originalSha256\": \"47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd\",\n    \"originalUrl\": \"/api/documents/01a1e316-866e-7b80-bc30-991e2ac465ef/original\",\n    \"submittedAtUtc\": \"2026-11-16T06:41:06.670258+00:00\",\n    \"queuedAtUtc\": \"2026-11-16T06:41:06.924838+00:00\",\n    \"updatedAtUtc\": \"2026-11-16T06:41:08.102803+00:00\",\n    \"workerEnabled\": true,\n    \"profileSupported\": true,\n    \"maxSupportedPages\": 3,\n    \"canRequestExtraction\": false,\n    \"canRetryExtraction\": true,\n    \"unavailableReason\": null,\n    \"currentAttempt\": {\n      \"attemptId\": \"01a1e316-879e-737e-b222-cf9ebea58b09\",\n      \"attemptNumber\": 1,\n      \"status\": \"failed\",\n      \"phase\": \"failed\",\n      \"startedAtUtc\": \"2026-11-16T06:41:06.974237+00:00\",\n      \"lastHeartbeatAtUtc\": \"2026-11-16T06:41:08.102803+00:00\",\n      \"endedAtUtc\": \"2026-11-16T06:41:08.102803+00:00\",\n      \"failureCode\": \"worker_missing_envelope\",\n      \"failureMessage\": \"The local OCR worker exited (code 1) without writing a result envelope.\"\n    },\n    \"attempts\": [\n      {\n        \"attemptId\": \"01a1e316-879e-737e-b222-cf9ebea58b09\",\n        \"attemptNumber\": 1,\n        \"status\": \"failed\",\n        \"phase\": \"failed\",\n        \"startedAtUtc\": \"2026-11-16T06:41:06.974237+00:00\",\n        \"lastHeartbeatAtUtc\": \"2026-11-16T06:41:08.102803+00:00\",\n        \"endedAtUtc\": \"2026-11-16T06:41:08.102803+00:00\",\n        \"failureCode\": \"worker_missing_envelope\",\n        \"failureMessage\": \"The local OCR worker exited (code 1) without writing a result envelope.\"\n      }\n    ],\n    \"result\": null\n  },\n  \"db_attempts\": [\n    {\n      \"attempt_id\": \"01a1e316-879e-737e-b222-cf9ebea58b09\",\n      \"attempt_number\": 1,\n      \"fencing_token\": 1,\n      \"retried_from_attempt_id\": null,\n      \"status\": \"failed\",\n      \"phase\": \"failed\",\n      \"run_directory_name\": \"attempt-01a1e316-879e-737e-b222-cf9ebea58b09\",\n      \"supervisor_pid\": 21268,\n      \"supervisor_create_filetime\": 134392848651100851,\n      \"launcher_pid\": 33412,\n      \"launcher_create_filetime\": 134392848670691163,\n      \"worker_pid\": 19996,\n      \"worker_create_filetime\": 134392848670834387,\n      \"started_at\": \"2026-11-16T01:41:06.974237-05:00\",\n      \"ended_at\": \"2026-11-16T01:41:08.102803-05:00\",\n      \"exit_code\": 1,\n      \"failure_code\": \"worker_missing_envelope\",\n      \"failure_detail\": \"The local OCR worker exited (code 1) without writing a result envelope.\"\n    }\n  ]\n}",
+  "cleanup_api_stop": {
+    "label": "run1-ocr-enabled",
+    "pid": 21268,
+    "create_filetime": 134392848651100851,
+    "termination": {
+      "pid": 21268,
+      "create_filetime": 134392848651100851,
+      "method": "Win32 TerminateProcess (single process only, non-recursive)",
+      "terminated_utc": "2026-11-16T06:41:09.098442+00:00"
+    },
+    "stopped_utc": "2026-11-16T06:41:09.428437+00:00",
+    "port_5190_bound_after": false
+  },
+  "postgres_final_stop": {
+    "stopped_postmaster_pid": 15440,
+    "stopped_utc": "2026-11-16T06:41:10.992953+00:00",
+    "port_55434_bound": false
+  },
+  "completed_utc": "2026-11-16T06:41:18.798639+00:00",
+  "git_and_freeze_after": {
+    "head": "6faec9bf6eccc297a548523dbb52ae9262b25152",
+    "source_commit": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+    "clean": true,
+    "freeze_verified": true
+  },
+  "model_after": {
+    "label": "model-after",
+    "observed_utc": "2026-11-16T06:41:17.324555+00:00",
+    "q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "runtime_objects_verified": 18,
+    "notice_readme_verified": true,
+    "static_ast_safety_verified": true
+  },
+  "host_after": {
+    "label": "host-after",
+    "observed_utc": "2026-11-16T06:41:17.747459+00:00",
+    "logical_cpus": 12,
+    "ram_total_bytes": 34264649728,
+    "ram_avail_bytes": 18369466368,
+    "memory_load_pct": 46,
+    "disk_c_free_bytes": 52951449600,
+    "runtime_root_used_bytes": 374331,
+    "ports_bound": {
+      "5190": false,
+      "4210": false,
+      "55434": false
+    },
+    "nvidia_smi_gpu": "0, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, P8, 16303 MiB, 1353 MiB, 14645 MiB, 1 %",
+    "cuda_compute_apps": [],
+    "wddm_desktop_app_count": 22,
+    "host_confounders_note": "Windows 11 WDDM desktop session shares the RTX 5070 Ti (~1.35 GiB baseline VRAM across desktop apps) and independent CPU/PostgreSQL/Edge review (eld-next-reviewer) plus WP-0007 CPU correction work may contend for host CPU/RAM; timings are operational product observations, not isolated benchmarks.",
+    "active_python_dotnet_postgres_node_processes": [
+      {
+        "Id": 30676,
+        "ProcessName": "dotnet"
+      },
+      {
+        "Id": 30844,
+        "ProcessName": "python"
+      },
+      {
+        "Id": 32276,
+        "ProcessName": "python"
+      }
+    ]
+  },
+  "observed_model_process_identities": [
+    {
+      "attempt_id": "01a1e316-879e-737e-b222-cf9ebea58b09",
+      "launcher_pid": 33412,
+      "launcher_create_filetime": 134392848670691163,
+      "worker_pid": 19996,
+      "worker_create_filetime": 134392848670834387,
+      "launcher_alive_at_return": false,
+      "worker_alive_at_return": false
+    }
+  ]
+}
