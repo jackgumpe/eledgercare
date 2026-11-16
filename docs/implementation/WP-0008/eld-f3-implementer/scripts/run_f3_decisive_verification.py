@@ -345,7 +345,7 @@ def check_zero_ocr_workers() -> int:
             "pwsh",
             "-NoProfile",
             "-Command",
-            "@(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like '*run_worker.py*' }).Count",
+            "@(Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -ne $PID -and $_.Name -like 'python*' -and $_.CommandLine -like '*run_worker.py*' }).Count",
         ],
         capture_output=True,
         text=True,
