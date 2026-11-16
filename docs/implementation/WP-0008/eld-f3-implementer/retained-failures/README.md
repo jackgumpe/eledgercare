@@ -1,0 +1,5 @@
+# Retained Pre-Completion Failures (`WP-0008` `eld-f3-implementer`)
+
+| Candidate SHA | Step / Artifact | Bytes | SHA-256 | Cause & Resolution |
+| --- | --- | --- | --- | --- |
+| `1264571906d04b2edb2470682e457ebf8b50e565` | [`12645719-07-demo-smoke.log`](12645719-07-demo-smoke.log) | `745` | `74703d6732b4d2d7cc98dc1eb9e4a20089a10efc6760cf483840212041a826ca` | After passing `9/9` worker CPU tests and `85/85` `.NET` Domain/Infrastructure/PostgreSQL `18.7` tests, `deploy/dev/smoke/run-demo-smoke.ps1` failed before starting `ELedgerCare.Api` (`Could not find a part of the path '...\.scratch\demo-api.log'`) because `.scratch/` had been cleaned prior to freeze and `run-demo-smoke.ps1` only created `(Split-Path $ReceiptPath)` at the end of the script rather than `(Split-Path $log)` before `Start-Process`. Resolved by adding `New-Item -ItemType Directory -Force (Split-Path $log) \| Out-Null` in `deploy/dev/smoke/run-demo-smoke.ps1`, freezing the new candidate, and rerunning the full decisive verification suite. (`src/`, `web/`, and `tests/` trees remained unchanged.) |

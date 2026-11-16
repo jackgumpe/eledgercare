@@ -24,6 +24,7 @@ $fixtureBytes = [IO.File]::ReadAllBytes($fixture)
 $fixtureSha = [Convert]::ToHexStringLower([Security.Cryptography.SHA256]::HashData($fixtureBytes))
 $base = "http://127.0.0.1:$ApiPort"
 $log = Join-Path $root '.scratch/demo-api.log'
+New-Item -ItemType Directory -Force (Split-Path $log) | Out-Null
 
 function Start-OwnedApi {
     if (Get-NetTCPConnection -State Listen -LocalPort $ApiPort -ErrorAction SilentlyContinue) {
