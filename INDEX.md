@@ -685,3 +685,14 @@ WP-0009 author007 actual start2026-11-16T20:53:18.6090134Z: RUNNING_CONFIRMED, w
 
 
 WP-0009 reviewer008 independent CPU comparison preparation is RELEASED under WP-0009-eld-mapping-reviewer-comparison-preparation.md, actual dispatch PREPARED. Own new008/preparation helpers only; no current author-output reads, no GPU/model or canonical008 publication until separate final release. Fixed WP09-F04-v0 sentinel unchanged.
+
+
+WP-0009 reviewer008 CPU preparation PUBLISHED a72735e43ce081e65d7be994f9df29f72ef1b300; helpera6209b0d3262f524e963bbc24981112cd31c6ebf, deliverable7445421ec871ac281d3976ef99a8395872c135cc. All19 synthetic checks pass; root verified five deliverable entries,2277 preserved base paths and exact origin, normally integrated025216409699e127793c5367a11ab3f083495e26. Reviewer IDLE awaiting author007 and separate actual sentinel release; canonical008 remains held.
+
+
+WP-0009 author007 actual model run COMPLETED (911.344s,2 warmups+4 primaries,all completed,no failure,worker0,post observers0/0); author tool65622 reports exit0. Exact clean-head CPU score-run also exit0. Root independently acknowledged lease WP-0009-author-fresh-20261116T2052Z RETURNED after18-object/notice verification, qualified host pass and bound PID absence; docs/coordination/WP-0009/author-after/lease-return.json. Author provisional fresh structured field/cell scores are zero for both mappings; independent reproduction/publication remains pending. No model tuning/retry follows.
+
+
+## WP-0009 independent sentinel sequencing clarification (2026-11-16 UTC)
+
+Root has independently acknowledged author lease return70d45a144f44b74e562c1dbe8fdcea16662e970b. Accepted source006, exact corpus010 and fixed pre-result WP09-F04-v0 sentinel are already bound. To overlap publication with independent runtime, reviewer008 sentinel preparation is RELEASED under WP-0009-eld-mapping-reviewer-execution.md while author007 packages evidence. This supersedes only earlier wording requiring author007 publication before sentinel execution:007 publication remains mandatory for independent CPU comparison/final008 acceptance. No source, schedule, selection, scope or lease condition changes. Actual sentinel inference awaits confirmed clean reviewer HEAD and a new exact observed reviewer.json lease. Actual dispatch PREPARED.
