@@ -30,6 +30,7 @@ API_PORT = 5490
 UI_PORT = 4510
 PG_PORT = 55437
 SEED_DB = "eledgercare_f3_reviewer_seed_f2"
+FWD_REPRO_DB = "eledgercare_f3_reviewer_fwd_repro"
 E2E_DB = "eledgercare_f3_rev_e2e"
 
 AUTHOR_CANDIDATE_SHA = "62e8666af747c0040942cee20c0ed34f4d747e93"
@@ -41,6 +42,8 @@ PRIOR_DESIGN_002_SHA = "bff139bcdf55df77a821b858513b7e6bf5d96b87"
 PREPARATION_PUB_SHA = "9d99c3f42dda42ab691583f5b0c221b7be0bf5b6"
 
 EXPECTED_PRE_MIGRATION_SEED_STATE_SHA256 = "77f301d929fd920d74cc2490dd47a7434a1ad386527ff84bec7804f11303ba81"
+EXPECTED_POST_MIGRATION_SEED_CORE_SHA256 = "734cc7eee1f8477dc41676382157039a405bb7b20faec2c24841a9409aab4a2f"
+EXPECTED_F1_F2_ROWS_AND_SEQ_SHA256 = "b903028ae3ad1c163aa614455b606a845639ebba1060d1e79571cf2afbce8305"
 EXPECTED_WORKER_README_BLOB = "83ed6624f95c48bfbae4c466201774824f63ef5e"
 EXPECTED_WORKER_README_SHA256 = "0b4d2604b95e90d083aeb5465690880550b99d6ae8c417769e25328244c22341"
 EXPECTED_WORKER_SOURCE_SHA256 = "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54"
@@ -764,7 +767,7 @@ def run_direct_api_and_concurrency_probes_on_seed_db() -> dict:
         '{"fieldKey":"property_name","decision":"unreviewed","value":null},'
         '{"fieldKey":"building_unit","decision":"unreviewed","value":null},'
         '{"fieldKey":"requested_date","decision":"unreviewed","value":null},'
-        '{"fieldKey":"issue_and_resolution","decision":"unreviewed","value":null}]}}'
+        '{"fieldKey":"issue_and_resolution","decision":"unreviewed","value":null}]}'
     ).encode("utf-8")
     st_sur, _, b_sur = http_request(
         "POST",
@@ -772,7 +775,23 @@ def run_direct_api_and_concurrency_probes_on_seed_db() -> dict:
         headers={"Content-Type": "application/json", "Idempotency-Key": str(uuid.uuid4())},
         raw_body=raw_surrogate,
     )
-    assert st_sur == 422 and json.loads(b_sur.decode("utf-8"))["code"] == "invalid_field_value"
+    assert st_sur == 422 and json.loads(b_sur.decode("utf-8"))["code"] == "invalid_field_value", f"Surrogate probe returned {st_sur}: {b_sur!r}"
+
+    raw_nul = (
+        f'{{"resultId":"{SEED1_RES_ID}","expectedRevision":0,"status":"draft","fields":['
+        '{"fieldKey":"work_order_id","decision":"edited","value":"BAD\\u0000"},'
+        '{"fieldKey":"property_name","decision":"unreviewed","value":null},'
+        '{"fieldKey":"building_unit","decision":"unreviewed","value":null},'
+        '{"fieldKey":"requested_date","decision":"unreviewed","value":null},'
+        '{"fieldKey":"issue_and_resolution","decision":"unreviewed","value":null}]}'
+    ).encode("utf-8")
+    st_nul, _, b_nul = http_request(
+        "POST",
+        f"/api/documents/{SEED1_DOC_ID}/review/revisions",
+        headers={"Content-Type": "application/json", "Idempotency-Key": str(uuid.uuid4())},
+        raw_body=raw_nul,
+    )
+    assert st_nul == 422 and json.loads(b_nul.decode("utf-8"))["code"] == "invalid_field_value", f"NUL probe returned {st_nul}: {b_nul!r}"
 
     raw_prov_forbid = (
         f'{{"resultId":"{SEED1_RES_ID}","expectedRevision":0,"status":"draft","sourceQuote":"invented","fields":[]}}'
@@ -960,21 +979,83 @@ def main() -> int:
         if post_build_dirty:
             raise RuntimeError(f"Build mutated files outside acceptance/evidence: {post_build_dirty}")
 
-        # 3. Start reviewer PG 55437 and verify PRE-MIGRATION eledgercare_f3_reviewer_seed_f2 state SHA-256!
+        # 3. Start reviewer PG 55437, verify preserved eledgercare_f3_reviewer_seed_f2 invariants, AND execute live
+        #    77f301d9... (F2-only) -> 734cc7ee... (F3 forward-migrated) verification on eledgercare_f3_reviewer_fwd_repro!
         steps.append(run_logged("05-pg-start-initial", ["pwsh", "-NoProfile", "-File", "deploy/dev/postgres/start-cluster.ps1"], REPO_ROOT, settings))
         pm_pid_initial = int((pg_data / "postmaster.pid").read_text(encoding="utf-8").splitlines()[0].strip())
         pm_ident_initial = get_process_identity(pm_pid_initial)
         service_ledger.append({"service": "postgresql-55437-initial", "identity": pm_ident_initial})
 
-        pre_mig_seed = query_f2_seed_core_snapshot(SEED_DB)
-        if pre_mig_seed["state_sha256"] != EXPECTED_PRE_MIGRATION_SEED_STATE_SHA256:
-            raise RuntimeError(
-                f"Pre-migration {SEED_DB} state_sha256 mismatch: got {pre_mig_seed['state_sha256']}, "
-                f"expected {EXPECTED_PRE_MIGRATION_SEED_STATE_SHA256}"
-            )
+        # 3a. Live clean reproduction of 20261116052029_AddLocalExtraction (77f301d9...) -> 20261116200918_AddWorkOrderReview (734cc7ee...).
+        prep_helper_dir = REPO_ROOT / "docs" / "reviews" / "WP-0008" / "eld-f3-reviewer" / "preparation" / "helpers"
+        sys.path.insert(0, str(prep_helper_dir))
+        import prepare_and_verify_f2_seed as prep_mod  # type: ignore
+        seed_sql, _ = prep_mod.build_seed_sql(REPO_ROOT)
 
-        # 4. Apply F3 forward migration (20261116200918_AddWorkOrderReview) + grant-runtime.sql to eledgercare_f3_reviewer_seed_f2,
-        #    and prepare eledgercare_product_dev for demo smoke.
+        invoke_psql(str(settings["adminUser"]), str(settings["adminPassword"]), "postgres", f"DROP DATABASE IF EXISTS {FWD_REPRO_DB} WITH (FORCE);")
+        invoke_psql(
+            str(settings["adminUser"]),
+            str(settings["adminPassword"]),
+            "postgres",
+            f"CREATE DATABASE {FWD_REPRO_DB} OWNER {settings['migratorUser']} ENCODING 'UTF8' TEMPLATE template0; "
+            f"REVOKE ALL ON DATABASE {FWD_REPRO_DB} FROM PUBLIC; "
+            f"GRANT CONNECT ON DATABASE {FWD_REPRO_DB} TO {settings['appUser']};",
+        )
+        invoke_psql(str(settings["adminUser"]), str(settings["adminPassword"]), FWD_REPRO_DB, "REVOKE ALL ON SCHEMA public FROM PUBLIC;")
+        mig_conn_repro = (
+            f"Host={settings['host']};Port={settings['port']};Database={FWD_REPRO_DB};"
+            f"Username={settings['migratorUser']};Password={settings['migratorPassword']}"
+        )
+        steps.append(
+            run_logged(
+                "05b-repro-migrate-to-f2-only",
+                [
+                    "dotnet",
+                    "tool",
+                    "run",
+                    "dotnet-ef",
+                    "database",
+                    "update",
+                    "20261116052029_AddLocalExtraction",
+                    "--project",
+                    "src/ELedgerCare.Infrastructure",
+                    "--startup-project",
+                    "src/ELedgerCare.Infrastructure",
+                    "--configuration",
+                    "Release",
+                ],
+                REPO_ROOT,
+                settings,
+                extra_env={"ELEDGERCARE_MIGRATION_CONNECTION": mig_conn_repro},
+            )
+        )
+        f2_only_grants = """
+GRANT USAGE ON SCHEMA eledgercare TO eledgercare_app;
+GRANT USAGE, SELECT ON SEQUENCE eledgercare.extraction_fencing_seq TO eledgercare_app;
+GRANT SELECT, INSERT ON TABLE eledgercare.documents, eledgercare.original_artifacts, eledgercare.processing_jobs, eledgercare.execution_attempts, eledgercare.extraction_results TO eledgercare_app;
+GRANT UPDATE (status, queued_at, updated_at, attempt_count, latest_fencing_token, retried_from_attempt_id) ON TABLE eledgercare.processing_jobs TO eledgercare_app;
+GRANT UPDATE (status, phase, launcher_pid, launcher_create_filetime, worker_pid, worker_create_filetime, last_heartbeat_at, ended_at, exit_code, failure_code, failure_detail, diagnostic_raw_output_utf8, diagnostic_metadata_json) ON TABLE eledgercare.execution_attempts TO eledgercare_app;
+"""
+        invoke_psql(str(settings["migratorUser"]), str(settings["migratorPassword"]), FWD_REPRO_DB, f2_only_grants)
+        invoke_psql(str(settings["appUser"]), str(settings["appPassword"]), FWD_REPRO_DB, seed_sql)
+        repro_pre_mig = query_f2_seed_core_snapshot(FWD_REPRO_DB)
+        if repro_pre_mig["state_sha256"] != EXPECTED_PRE_MIGRATION_SEED_STATE_SHA256:
+            raise RuntimeError(f"Repro pre-migration state_sha256 mismatch: {repro_pre_mig['state_sha256']}")
+
+        steps.append(run_logged("05c-repro-forward-migrate-to-f3", ["pwsh", "-NoProfile", "-File", "deploy/dev/database/prepare-database.ps1", "-Database", FWD_REPRO_DB], REPO_ROOT, settings))
+        repro_post_mig = query_f2_seed_core_snapshot(FWD_REPRO_DB)
+        assert repro_post_mig["state_sha256"] == EXPECTED_POST_MIGRATION_SEED_CORE_SHA256
+        assert repro_post_mig["f1_f2_rows_and_seq_sha256"] == EXPECTED_F1_F2_ROWS_AND_SEQ_SHA256
+        invoke_psql(str(settings["adminUser"]), str(settings["adminPassword"]), "postgres", f"DROP DATABASE IF EXISTS {FWD_REPRO_DB} WITH (FORCE);")
+
+        # 3b. Verify preserved eledgercare_f3_reviewer_seed_f2 (forward-migrated in retained d1987a4c-06-migrate-reviewer-f2-seed-db.log with 0 review rows)
+        #     and re-run idempotent prepare-database.ps1 on SEED_DB + dev DB.
+        initial_seed_check = query_f2_seed_core_snapshot(SEED_DB)
+        if initial_seed_check["f1_f2_rows_and_seq_sha256"] != EXPECTED_F1_F2_ROWS_AND_SEQ_SHA256:
+            raise RuntimeError(f"Preserved {SEED_DB} F1/F2 rows+seq digest mismatch: {initial_seed_check['f1_f2_rows_and_seq_sha256']}")
+        if initial_seed_check["state_sha256"] not in {EXPECTED_PRE_MIGRATION_SEED_STATE_SHA256, EXPECTED_POST_MIGRATION_SEED_CORE_SHA256}:
+            raise RuntimeError(f"Unexpected {SEED_DB} core state_sha256: {initial_seed_check['state_sha256']}")
+
         steps.append(run_logged("06-migrate-reviewer-f2-seed-db", ["pwsh", "-NoProfile", "-File", "deploy/dev/database/prepare-database.ps1", "-Database", SEED_DB], REPO_ROOT, settings))
         steps.append(run_logged("07-prepare-reviewer-dev-db", ["pwsh", "-NoProfile", "-File", "deploy/dev/database/prepare-database.ps1"], REPO_ROOT, settings))
 
@@ -986,7 +1067,9 @@ def main() -> int:
         ]
         if post_mig_seed["snapshot"]["migrations"] != expected_migrations:
             raise RuntimeError(f"Unexpected post-migration history: {post_mig_seed['snapshot']['migrations']}")
-        if post_mig_seed["f1_f2_rows_and_seq_sha256"] != pre_mig_seed["f1_f2_rows_and_seq_sha256"]:
+        if post_mig_seed["state_sha256"] != EXPECTED_POST_MIGRATION_SEED_CORE_SHA256:
+            raise RuntimeError(f"Unexpected post-migration {SEED_DB} core state_sha256: {post_mig_seed['state_sha256']}")
+        if post_mig_seed["f1_f2_rows_and_seq_sha256"] != EXPECTED_F1_F2_ROWS_AND_SEQ_SHA256:
             raise RuntimeError("Forward F3 migration altered pre-existing F1/F2 rows or extraction_fencing_seq!")
 
         priv_audit = verify_least_privilege_and_fks(SEED_DB)
@@ -1110,7 +1193,7 @@ def main() -> int:
         assert st_s3_after == 200 and j_s3_after["currentRevisionNumber"] == 128 and j_s3_after["canSaveRevision"] is False
 
         final_seed_snap = query_f2_seed_core_snapshot(SEED_DB)
-        if final_seed_snap["f1_f2_rows_and_seq_sha256"] != pre_mig_seed["f1_f2_rows_and_seq_sha256"]:
+        if final_seed_snap["f1_f2_rows_and_seq_sha256"] != EXPECTED_F1_F2_ROWS_AND_SEQ_SHA256:
             raise RuntimeError("F1/F2 rows or extraction_fencing_seq changed during F3 acceptance or restart!")
 
         review_counts_sql = """
@@ -1165,9 +1248,13 @@ SELECT json_build_object(
             "static_and_boundary_audit": static_audit,
             "seed_migration_verification": {
                 "database": SEED_DB,
-                "pre_migration_state_sha256": pre_mig_seed["state_sha256"],
+                "live_repro_database": FWD_REPRO_DB,
+                "live_repro_pre_migration_state_sha256": repro_pre_mig["state_sha256"],
+                "live_repro_post_migration_state_sha256": repro_post_mig["state_sha256"],
                 "expected_pre_migration_state_sha256": EXPECTED_PRE_MIGRATION_SEED_STATE_SHA256,
-                "pre_migration_f1_f2_rows_and_seq_sha256": pre_mig_seed["f1_f2_rows_and_seq_sha256"],
+                "expected_post_migration_core_state_sha256": EXPECTED_POST_MIGRATION_SEED_CORE_SHA256,
+                "preserved_seed_initial_core_state_sha256": initial_seed_check["state_sha256"],
+                "preserved_seed_f1_f2_rows_and_seq_sha256": initial_seed_check["f1_f2_rows_and_seq_sha256"],
                 "post_migration_f1_f2_rows_and_seq_sha256": post_mig_seed["f1_f2_rows_and_seq_sha256"],
                 "post_restart_f1_f2_rows_and_seq_sha256": final_seed_snap["f1_f2_rows_and_seq_sha256"],
                 "all_4_documents_4_attempts_3_results_and_seq4_untouched": True,
