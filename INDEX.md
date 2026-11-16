@@ -741,3 +741,6 @@ Root observed routine review controls expose schema/field identifiers and full h
 
 
 WP-0008 author006 actual same-Carbon dispatch RUNNING_CONFIRMED: ef53d3f3-ca53-482e-8fa7-a3cc1670564e/gemini-4-carbon-high/high, CLI25792/tool28678, exact authority3b225040475fe150956bc260d3584dfd0040d71b and clean prior publicationb77bc68a5b6878d2395cd76b0d0a858ae15cc249. Receipt docs/coordination/WP-0008/presentation-dispatch.json. Original-source independent004 remains running in its separate resources; final-source007 held until004 and006.
+
+
+WP-0008 independent004 runtime COMPLETED at frozen helper4a00f1a41588b54b4cd36d7c10d42550f59a0f19 on unchanged author source62e8666af747c0040942cee20c0ed34f4d747e93: all17 steps pass (9 workerCPU/85.NET/13Edge, direct API/concurrency/replay/cap, actual API+PG restart/reopen), unchanged F1/F2 digestb903028ae3ad1c163aa614455b606a845639ebba1060d1e79571cf2afbce8305. Two versioned reviewer-helper failures retained (extra JSON brace; immediate zoneless DOM assertion). Root independently observed seven bound service PIDs absent and5490/4510/55437 free at2026-11-16T22:19:51Z; docs/coordination/WP-0008/independent004-stopped-observation.json. CLI still packaging canonical004; no final product acceptance/integration yet. Author006 presentation correction continues; final007 reconciliation remains held.
