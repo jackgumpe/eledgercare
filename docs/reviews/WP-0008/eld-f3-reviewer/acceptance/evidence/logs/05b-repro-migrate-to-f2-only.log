@@ -1,0 +1,18 @@
+$ dotnet tool run dotnet-ef database update 20261116052029_AddLocalExtraction --project src/ELedgerCare.Infrastructure --startup-project src/ELedgerCare.Infrastructure --configuration Release
+[cwd=C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f3-reviewer]
+[exit=0, elapsed_ms=6936.7]
+--- STDOUT ---
+Build started...
+Build succeeded.
+Failed executing DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM eledgercare.__ef_migrations_history
+ORDER BY "MigrationId";
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Applying migration '20261114182147_InitialDurableIntake'.
+Applying migration '20261116052029_AddLocalExtraction'.
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Done.
+
+--- STDERR ---
+
