@@ -1,0 +1,7 @@
+# Fixed B0 heldout release
+
+Sole lease **WP-0007-author-heldout-20261116T145544Z** RESERVED for same eld-rd-astra at clean **9a8ae5293899d3f17b5cd240c29ce43270e93e2d**; actual dispatch PREPARED. Accepted source **522f15f1f6e399c36b9c6c107fc08f51862f1fc1**, tree **deae8e826f4770e880374c68e6a56c8c65b6f8a3**, independent /010 **b9dc09fa3dc6838c59f519063bb38d2c2a7f44f0** remain unchanged. [Release](../releases/author-heldout.json) binds two excluded warmups plus all13 fixed heldout documents/21pages; [assignment](../../../kickoffs/WP-0007-eld-rd-astra-heldout-runtime.md).
+
+Prior recovery lease is explicitly RETURNED and root acknowledged all children absent at14:44:08Z. All53 recovery artifact copies match original/Git bytes; original primary13 scores remain unchanged. Recovery runtime completed but page-three unsupported rowspan caused frozen exact-credit rejection; the supplement stays separate. Fresh host 2026-11-16T14:44:09.113543Z passes with 51582156800 bytes free; all18 model objects/notice verified unchanged, fresh process observation has no model child or active lease. Model-before is an exact copy of root's recovery model-after. Desktop WDDM and parallel CPU review are disclosed confounders.
+
+Same read-only Q0 model/venv, author root4GiB cap,20GiB free floor and original guards apply. Score at bound clean HEAD, preserve raw artifacts, explicitly return after observed child exit. No F2/reviewer model use overlaps. Independent supplemental reproduction and F2 source reconciliation are CPU only.
