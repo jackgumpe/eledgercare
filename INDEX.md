@@ -685,3 +685,6 @@ WP-0009 author007 actual start2026-11-16T20:53:18.6090134Z: RUNNING_CONFIRMED, w
 
 
 WP-0009 reviewer008 independent CPU comparison preparation is RELEASED under WP-0009-eld-mapping-reviewer-comparison-preparation.md, actual dispatch PREPARED. Own new008/preparation helpers only; no current author-output reads, no GPU/model or canonical008 publication until separate final release. Fixed WP09-F04-v0 sentinel unchanged.
+
+
+WP-0009 reviewer008 CPU preparation PUBLISHED a72735e43ce081e65d7be994f9df29f72ef1b300; helpera6209b0d3262f524e963bbc24981112cd31c6ebf, deliverable7445421ec871ac281d3976ef99a8395872c135cc. All19 synthetic checks pass; root verified five deliverable entries,2277 preserved base paths and exact origin, normally integrated025216409699e127793c5367a11ab3f083495e26. Reviewer IDLE awaiting author007 and separate actual sentinel release; canonical008 remains held.
