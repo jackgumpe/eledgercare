@@ -1,0 +1,78 @@
+test_actual_prior_git_binding_and_exact_schedule (__main__.RecoveryTests.test_actual_prior_git_binding_and_exact_schedule) ... ok
+test_normal_author_and_reviewer_schedules_unchanged (__main__.RecoveryTests.test_normal_author_and_reviewer_schedules_unchanged) ... ok
+test_old_review_route_rejected (__main__.RecoveryTests.test_old_review_route_rejected) ... ok
+test_prior_missing_changed_bytes_and_semantic_mismatch (__main__.RecoveryTests.test_prior_missing_changed_bytes_and_semantic_mismatch) ... ok
+test_recovery_shape_scope_and_identity_rejections (__main__.RecoveryTests.test_recovery_shape_scope_and_identity_rejections) ... ok
+test_supplemental_scoring_one_failed_denominator_no_original_rewrite (__main__.RecoveryTests.test_supplemental_scoring_one_failed_denominator_no_original_rewrite) ... ok
+test_actual_concurrent_unmodified_heartbeat (__main__.SizeTests.test_actual_concurrent_unmodified_heartbeat) ... ok
+test_child_reparse_and_non_disappearance_errors_propagate (__main__.SizeTests.test_child_reparse_and_non_disappearance_errors_propagate) ... ERROR
+test_disappearance_after_snapshot_needs_no_second_stat (__main__.SizeTests.test_disappearance_after_snapshot_needs_no_second_stat) ... ERROR
+test_disappearing_enumerated_file_and_directory (__main__.SizeTests.test_disappearing_enumerated_file_and_directory) ... ERROR
+test_missing_non_directory_and_reparse_roots_rejected (__main__.SizeTests.test_missing_non_directory_and_reparse_roots_rejected) ... ok
+test_stable_nested_empty_and_one_metadata_read (__main__.SizeTests.test_stable_nested_empty_and_one_metadata_read) ... ERROR
+test_structured_error_retains_cleanup (__main__.SupervisorTests.test_structured_error_retains_cleanup) ... ok
+
+======================================================================
+ERROR: test_child_reparse_and_non_disappearance_errors_propagate (__main__.SizeTests.test_child_reparse_and_non_disappearance_errors_propagate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\tests\test_runtime_correction.py", line 69, in test_child_reparse_and_non_disappearance_errors_propagate
+    with self.assertRaises(error):runtime.directory_size(root)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\runtime.py", line 33, in directory_size
+    return walk(root,is_root=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\runtime.py", line 25, in walk
+    for entry in entries:
+                 ^^^^^^^
+TypeError: '_GeneratorContextManager' object is not iterable
+
+======================================================================
+ERROR: test_disappearance_after_snapshot_needs_no_second_stat (__main__.SizeTests.test_disappearance_after_snapshot_needs_no_second_stat)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\tests\test_runtime_correction.py", line 51, in test_disappearance_after_snapshot_needs_no_second_stat
+    with patch('runtime.os.scandir',return_value=entries([entry])):self.assertEqual(runtime.directory_size(root),3)
+                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\runtime.py", line 33, in directory_size
+    return walk(root,is_root=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\runtime.py", line 25, in walk
+    for entry in entries:
+                 ^^^^^^^
+TypeError: '_GeneratorContextManager' object is not iterable
+
+======================================================================
+ERROR: test_disappearing_enumerated_file_and_directory (__main__.SizeTests.test_disappearing_enumerated_file_and_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\tests\test_runtime_correction.py", line 46, in test_disappearing_enumerated_file_and_directory
+    with patch('runtime.os.scandir',side_effect=scan):self.assertEqual(runtime.directory_size(root),9)
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\runtime.py", line 33, in directory_size
+    return walk(root,is_root=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\runtime.py", line 25, in walk
+    for entry in entries:
+                 ^^^^^^^
+TypeError: '_GeneratorContextManager' object is not iterable
+
+======================================================================
+ERROR: test_stable_nested_empty_and_one_metadata_read (__main__.SizeTests.test_stable_nested_empty_and_one_metadata_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\tests\test_runtime_correction.py", line 37, in test_stable_nested_empty_and_one_metadata_read
+    with patch('runtime.os.scandir',return_value=entries([entry])):self.assertEqual(runtime.directory_size(root),7)
+                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\runtime.py", line 33, in directory_size
+    return walk(root,is_root=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-baseline-astra\qualification\baseline\runtime.py", line 25, in walk
+    for entry in entries:
+                 ^^^^^^^
+TypeError: '_GeneratorContextManager' object is not iterable
+
+----------------------------------------------------------------------
+Ran 13 tests in 3.286s
+
+FAILED (errors=4)
