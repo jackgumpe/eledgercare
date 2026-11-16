@@ -14,8 +14,13 @@ from q0harness.session import Heartbeat
 import test_baseline as original_tests
 truth=original_tests.truth
 
-@contextlib.contextmanager
-def entries(items):yield iter(items)
+class Entries:
+    def __init__(self,items):self.items=iter(items)
+    def __enter__(self):return self
+    def __exit__(self,*args):return False
+    def __iter__(self):return self
+    def __next__(self):return next(self.items)
+def entries(items):return Entries(items)
 
 def info(mode,size=0,attrs=0):return types.SimpleNamespace(st_mode=mode,st_size=size,st_file_attributes=attrs)
 
