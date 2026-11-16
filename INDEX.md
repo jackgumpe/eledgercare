@@ -715,3 +715,6 @@ WP-0008 independent004 actual Carbon acceptance RUNNING_CONFIRMED, same conversa
 
 
 WP-0009 reviewer008 finite execution COMPLETED:624.703s,2excluded warmups+fixed WP09-F04-v0 all completed,actual tool96218 reports0,worker0,all24 observer commands0,no finalization error,CPU score-run0 at unchanged69f7a79677b43228869d7c35bb5fb6d3e12e9291. Root independently acknowledges lease WP-0009-reviewer-sentinel-20261116T2114Z RETURNED after18-object/notice/qualified host and scoped bound PID absence; docs/coordination/WP-0009/reviewer-after/lease-return.json. All task GPU leases returned; actual independent comparison/evidence publication008 still pending.
+
+
+Coordinator routing refresh: CURRENT.md now states only current WP-0008/WP-0009 states and links completed historical dispositions. Immutable reports/receipts remain in place; no acceptance or scope change. F3 independent004 and R&D independent008 remain running; all GPU leases returned.
