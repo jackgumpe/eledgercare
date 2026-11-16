@@ -165,7 +165,7 @@ EXPECTED_IMMUTABLE_TREES_AND_BLOBS: dict[str, str] = {
     "docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation": "49318ac139f771339b787fc9c83d26d87c8a2488",
 }
 
-FORBIDDEN_DIFF_PREFIXES = (
+FORBIDDEN_DIFF_FROM_SOURCE_PREFIXES = (
     "src/",
     "workers/",
     "web/",
@@ -174,6 +174,9 @@ FORBIDDEN_DIFF_PREFIXES = (
     "qualification/q0/",
     "research/",
     "evaluation/",
+)
+
+FORBIDDEN_DIFF_FROM_SOURCE_REVIEW_PREFIXES = (
     "docs/reviews/WP-0006/eld-next-reviewer/design/",
     "docs/reviews/WP-0006/eld-next-reviewer/preparation/",
     "docs/reviews/WP-0006/eld-next-reviewer/implementation/",
@@ -519,21 +522,35 @@ def validate_reviewer_release_contract(
         for ln in git_stdout(root, ["diff", "--name-only", EXPECTED_SOURCE_COMMIT, actual_head]).splitlines()
         if ln.strip()
     ]
-    forbidden_touched = [
+    forbidden_from_source = [
         p
         for p in changed_since_source
         if p == "ELedgerCare.slnx"
-        or any(p.startswith(pref) for pref in FORBIDDEN_DIFF_PREFIXES)
+        or any(p.startswith(pref) for pref in FORBIDDEN_DIFF_FROM_SOURCE_PREFIXES)
         or not (
             p.startswith("docs/")
             or p.startswith("qualification/baseline/")
             or p in ("CURRENT.md", "INDEX.md")
         )
     ]
-    if forbidden_touched:
+    if forbidden_from_source:
         raise ReleaseValidationError(
-            f"Forbidden product/Q0/corpus/immutable-review paths changed between {EXPECTED_SOURCE_COMMIT} "
-            f"and {actual_head}: {forbidden_touched}"
+            f"Forbidden product/Q0/corpus paths changed between {EXPECTED_SOURCE_COMMIT} "
+            f"and {actual_head}: {forbidden_from_source}"
+        )
+
+    changed_since_source_review = [
+        ln.strip()
+        for ln in git_stdout(root, ["diff", "--name-only", EXPECTED_ACCEPTED_SOURCE_REVIEW, actual_head]).splitlines()
+        if ln.strip()
+    ]
+    forbidden_from_review = [
+        p for p in changed_since_source_review
+        if any(p.startswith(pref) for pref in FORBIDDEN_DIFF_FROM_SOURCE_REVIEW_PREFIXES)
+    ]
+    if forbidden_from_review:
+        raise ReleaseValidationError(
+            f"Immutable prior reviewer paths changed since {EXPECTED_ACCEPTED_SOURCE_REVIEW}: {forbidden_from_review}"
         )
 
     # Verify exact product Git tree OIDs at BOTH source_commit and executing_head
