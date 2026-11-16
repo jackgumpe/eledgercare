@@ -1,0 +1,595 @@
+{
+  "schema": "eledgercare.wp-0008.f3-reviewer-seed-preparation-receipt/1",
+  "generated_at_utc": "2026-11-16T20:05:26.911091+00:00",
+  "reviewer": "eld-f3-reviewer",
+  "branch": "review/wp-0008-f3",
+  "frozen_executing_head_sha": "3ad5bddd596443fa12b36bc91548fd59721be5da",
+  "authority_preparation_sha": "ef152e1cfcc57b1404aa242a3e96d18843c4c10c",
+  "prior_accepted_design_002_sha": "bff139bcdf55df77a821b858513b7e6bf5d96b87",
+  "helper_path": "docs/reviews/WP-0008/eld-f3-reviewer/preparation/helpers/prepare_and_verify_f2_seed.py",
+  "helper_sha256_raw": "49dc80699601cb849a03b65659147047a89a50f30861059f704ff197d94a0aeb",
+  "helper_sha256_lf": "49dc80699601cb849a03b65659147047a89a50f30861059f704ff197d94a0aeb",
+  "scope_disclosure": "Independent F2 durable seed preparation on owned reviewer PostgreSQL 18.7 (127.0.0.1:55437, database eledgercare_f3_reviewer_seed_f2) and brief LocalOcr:Enabled=false read-only API observation on 127.0.0.1:5490. Zero GPU/model/worker calls, zero network downloads, zero unfrozen author or sealed WP-0009 reads, and zero F3 acceptance claims.",
+  "retained_design_prefreeze_failure": {
+    "git_retained_path": "docs/reviews/WP-0008/eld-f3-reviewer/preparation/retained-failures/design-prefreeze-failure-01.txt",
+    "byte_length": 922,
+    "sha256": "43628a4f0b0b6f163ab652a5629c50be1873f2f06149b26cd9286f9d871c4779",
+    "matches_scratch_original_bytes": true,
+    "matches_committed_git_blob_bytes": true
+  },
+  "postgres_binary_provenance": {
+    "archive_content_length": 389515503,
+    "central_directory_sha256": "3132ca63b424f7ec371eabe50753ad7cd036278d942a6ea465547b17bf90a149",
+    "expected_central_directory_sha256_match": true,
+    "subset_manifest_sha256": "47c3deb9c917f79c353b3683b2c2611ee975285ea06226c8f72444c96ce9051f",
+    "expected_subset_manifest_sha256_match": true,
+    "verified_file_count": 1597,
+    "verified_total_bytes": 151078582,
+    "missing_files": [],
+    "extra_files": [],
+    "hash_or_crc_mismatches": [],
+    "reparse_points": [],
+    "binary_versions": {
+      "postgres.exe": "postgres (PostgreSQL) 18.7",
+      "pg_ctl.exe": "pg_ctl (PostgreSQL) 18.7",
+      "initdb.exe": "initdb (PostgreSQL) 18.7",
+      "psql.exe": "psql (PostgreSQL) 18.7"
+    },
+    "authenticode_core_binaries": {
+      "postgres.exe": {
+        "signer": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+        "status": "Valid"
+      },
+      "psql.exe": {
+        "signer": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+        "status": "Valid"
+      },
+      "initdb.exe": {
+        "signer": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+        "status": "Valid"
+      },
+      "pg_ctl.exe": {
+        "signer": "CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, L=Wilmington, S=Delaware, C=US",
+        "status": "Valid"
+      }
+    }
+  },
+  "owned_cluster_and_services": {
+    "host": "127.0.0.1",
+    "configured_ports": {
+      "api": 5490,
+      "ui": 4510,
+      "postgres": 55437
+    },
+    "seeded_database": "eledgercare_f3_reviewer_seed_f2",
+    "credentials_distinct_min_32_chars": true,
+    "secret_values_redacted": true,
+    "ports_before_start": {
+      "55437": [],
+      "5490": [],
+      "4510": []
+    },
+    "started_postmaster": {
+      "startUtc": "2026-11-16T20:05:06.4536465Z",
+      "pid": 33568,
+      "name": "postgres"
+    },
+    "ports_during_pg": {
+      "4510": [],
+      "5490": [],
+      "55437": [
+        {
+          "owningPid": 33568,
+          "localPort": 55437,
+          "localAddress": "127.0.0.1"
+        }
+      ]
+    },
+    "server_settings": {
+      "data_checksums": "on",
+      "default_transaction_isolation": "read committed",
+      "fsync": "on",
+      "full_page_writes": "on",
+      "listen_addresses": "127.0.0.1",
+      "password_encryption": "scram-sha-256",
+      "port": "55437",
+      "server_version": "18.7",
+      "synchronous_commit": "on",
+      "wal_level": "replica"
+    },
+    "privilege_matrix_summary": [
+      "Build started...",
+      "Build succeeded.",
+      "Failed executing DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']",
+      "SELECT \"MigrationId\", \"ProductVersion\"",
+      "FROM eledgercare.__ef_migrations_history",
+      "ORDER BY \"MigrationId\";",
+      "Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.",
+      "Applying migration '20261114182147_InitialDurableIntake'.",
+      "Applying migration '20261116052029_AddLocalExtraction'.",
+      "Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.",
+      "Done.",
+      "Runtime privilege matrix for eledgercare_app on eledgercare_f3_reviewer_seed_f2 (table: select insert table_update col_update delete truncate):",
+      "__ef_migrations_history: false false false false false false",
+      "documents: true true false false false false",
+      "execution_attempts: true true false true false false",
+      "extraction_results: true true false false false false",
+      "original_artifacts: true true false false false false",
+      "processing_jobs: true true false true false false",
+      "fencing_seq usage/select: true true",
+      "schema create for app: false",
+      "migrations: 20261114182147_InitialDurableIntake, 20261116052029_AddLocalExtraction"
+    ],
+    "negative_privilege_probes": {
+      "deny_update_original_artifacts": {
+        "rejected": true,
+        "exit_code": 3
+      },
+      "deny_update_extraction_results": {
+        "rejected": true,
+        "exit_code": 3
+      },
+      "deny_update_documents": {
+        "rejected": true,
+        "exit_code": 3
+      },
+      "deny_delete_extraction_results": {
+        "rejected": true,
+        "exit_code": 3
+      },
+      "deny_create_table": {
+        "rejected": true,
+        "exit_code": 3
+      }
+    },
+    "disabled_ocr_api_5490_observation": {
+      "api_process": {
+        "pid": 5340,
+        "name": "dotnet",
+        "startUtc": "2026-11-16T20:05:19.2468619Z"
+      },
+      "port": 5490,
+      "local_ocr_enabled": false,
+      "verified_documents": [
+        {
+          "seed_index": 1,
+          "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+          "get_document_status": 200,
+          "get_extraction_status": 200,
+          "get_submission_status": 200,
+          "get_original_status": 200,
+          "doc_wire_status": "completed",
+          "worker_enabled": false,
+          "can_request_extraction": false,
+          "can_retry_extraction": false,
+          "attempt_count_api": 1,
+          "accepted_result_id_api": "01a1e573-a855-7735-96e1-f5d14cada602",
+          "result_raw_sha256_api": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "result_review_status_api": "unreviewed",
+          "page_numbers_api": [
+            1
+          ],
+          "page_block_counts_api": [
+            36
+          ],
+          "original_download_bytes": 372258,
+          "original_download_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "original_nosniff": "nosniff",
+          "submission_matches_doc_id": true
+        },
+        {
+          "seed_index": 2,
+          "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+          "get_document_status": 200,
+          "get_extraction_status": 200,
+          "get_submission_status": 200,
+          "get_original_status": 200,
+          "doc_wire_status": "completed",
+          "worker_enabled": false,
+          "can_request_extraction": false,
+          "can_retry_extraction": false,
+          "attempt_count_api": 1,
+          "accepted_result_id_api": "01a1e578-8bfa-7bba-b104-ea8309dbfd9e",
+          "result_raw_sha256_api": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+          "result_review_status_api": "unreviewed",
+          "page_numbers_api": [
+            1,
+            2,
+            3
+          ],
+          "page_block_counts_api": [
+            16,
+            5,
+            4
+          ],
+          "original_download_bytes": 8422,
+          "original_download_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+          "original_nosniff": "nosniff",
+          "submission_matches_doc_id": true
+        },
+        {
+          "seed_index": 3,
+          "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+          "get_document_status": 200,
+          "get_extraction_status": 200,
+          "get_submission_status": 200,
+          "get_original_status": 200,
+          "doc_wire_status": "completed",
+          "worker_enabled": false,
+          "can_request_extraction": false,
+          "can_retry_extraction": false,
+          "attempt_count_api": 2,
+          "accepted_result_id_api": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+          "result_raw_sha256_api": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "result_review_status_api": "unreviewed",
+          "page_numbers_api": [
+            1
+          ],
+          "page_block_counts_api": [
+            36
+          ],
+          "original_download_bytes": 372258,
+          "original_download_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "original_nosniff": "nosniff",
+          "submission_matches_doc_id": true
+        },
+        {
+          "seed_index": 4,
+          "document_id": "01a1e580-0000-7000-8000-000000000001",
+          "get_document_status": 200,
+          "get_extraction_status": 200,
+          "get_submission_status": 200,
+          "get_original_status": 200,
+          "doc_wire_status": "awaiting_extraction",
+          "worker_enabled": false,
+          "can_request_extraction": false,
+          "can_retry_extraction": false,
+          "attempt_count_api": 0,
+          "accepted_result_id_api": null,
+          "result_raw_sha256_api": null,
+          "result_review_status_api": null,
+          "page_numbers_api": [],
+          "page_block_counts_api": [],
+          "original_download_bytes": 887,
+          "original_download_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+          "original_nosniff": "nosniff",
+          "submission_matches_doc_id": true
+        }
+      ]
+    },
+    "stop_exit_code": 0,
+    "pg_ctl_status_rc_after_stop": 3,
+    "postmaster_alive_after_stop": false,
+    "api_5490_alive_after_stop": false,
+    "ports_after_stop": {
+      "55437": [],
+      "5490": [],
+      "4510": []
+    },
+    "retained_local_paths": {
+      "pg_binaries": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\tools\\pgsql-18.7-1",
+      "pg_subset_manifest": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\tools\\pgsql-18.7-1.subset-manifest.json",
+      "pg_data_dir": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\postgres-data",
+      "pg_secrets_file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\secrets\\pg-local.json",
+      "nuget_packages": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\nuget\\packages",
+      "offline_nuget_config": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\nuget\\offline.nuget.config",
+      "dotnet_cli_home": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\dotnet-home",
+      "npm_cache": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\.local\\npm-cache",
+      "web_node_modules": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f3-reviewer\\web\\node_modules"
+    }
+  },
+  "seed_manifest": {
+    "attribution": {
+      "imported_seed_only_not_new_inference": true,
+      "f2_product_source_sha": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+      "f2_reviewer_executing_head_sha": "b343f6ff78aa41332ecbe957577b6776f8edc22f",
+      "f2_reviewer_runtime_evidence_sha": "7f0ec3a9338606ce54c4c6d2eeabab8a2c245e2a",
+      "f2_reviewer_report_004_sha": "c854a1d4c306c3b10d78df42a1a2552a06bb4a98",
+      "identity_remapping": {
+        "document_job_attempt_result_idempotency_ids": "exact_original_preserved_for_seeds_1_to_3",
+        "synthesized_internal_supervisor_instance_ids": {
+          "api_rev_run1_pid_18496": "01a1e571-0000-7000-8000-000000018496",
+          "api_rev_run2_pid_29208": "01a1e578-0000-7000-8000-000000029208",
+          "reason": "Internal ExtractionAttemptCoordinator.supervisorInstanceId was not projected into trial-summary-reviewer-v2.json; deterministic UUIDs bound per historical supervisor PID."
+        },
+        "seed_4_f1_awaiting_extraction_row": {
+          "document_id": "01a1e580-0000-7000-8000-000000000001",
+          "idempotency_key": "01a1e580-0000-7000-8000-000000000002",
+          "job_id": "01a1e580-0000-7000-8000-000000000003",
+          "fixture": "tests/fixtures/F1-SWO-001.pdf",
+          "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+          "purpose": "Pre-extraction F1 row to verify F3 forward migration and non-completed review rejection."
+        }
+      }
+    },
+    "seeded_documents": [
+      {
+        "seed_index": 1,
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "job_id": "01a1e571-2838-7b9d-858e-d6ff2b8bf757",
+        "idempotency_key": "43858522-5c3d-47d2-be8c-66f7162a190e",
+        "fixture": "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+        "input_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "input_bytes": 372258,
+        "pages": 1,
+        "status": "completed",
+        "attempt_ids": [
+          "01a1e571-297a-7f0e-a293-e9e1c0851cd4"
+        ],
+        "fencing_tokens": [
+          1
+        ],
+        "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+        "raw_output_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "raw_output_bytes": 3236
+      },
+      {
+        "seed_index": 2,
+        "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+        "job_id": "01a1e573-ca14-7b6b-ba54-691edb3c51f9",
+        "idempotency_key": "92f639e5-321d-464a-9628-f056251495cb",
+        "fixture": "tests/fixtures/SYN-MP-01-v0-clean.pdf",
+        "input_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "input_bytes": 8422,
+        "pages": 3,
+        "status": "completed",
+        "attempt_ids": [
+          "01a1e573-ca25-733e-b048-44c8ea2ac61d"
+        ],
+        "fencing_tokens": [
+          2
+        ],
+        "result_id": "01a1e578-8bfa-7bba-b104-ea8309dbfd9e",
+        "raw_output_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "raw_output_bytes": 7511
+      },
+      {
+        "seed_index": 3,
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "job_id": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+        "idempotency_key": "3e0e56be-5940-449c-9859-de4f022d4059",
+        "fixture": "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+        "input_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "input_bytes": 372258,
+        "pages": 1,
+        "status": "completed",
+        "attempt_ids": [
+          "01a1e578-8f49-75ab-89c7-4d184378bf28",
+          "01a1e579-4599-7bed-acdc-2863c448c6fa"
+        ],
+        "fencing_tokens": [
+          3,
+          4
+        ],
+        "result_id": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+        "raw_output_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "raw_output_bytes": 3236
+      },
+      {
+        "seed_index": 4,
+        "document_id": "01a1e580-0000-7000-8000-000000000001",
+        "job_id": "01a1e580-0000-7000-8000-000000000003",
+        "idempotency_key": "01a1e580-0000-7000-8000-000000000002",
+        "fixture": "tests/fixtures/F1-SWO-001.pdf",
+        "input_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+        "input_bytes": 887,
+        "pages": 1,
+        "status": "awaiting_extraction",
+        "attempt_ids": [],
+        "fencing_tokens": [],
+        "result_id": null,
+        "raw_output_sha256": null,
+        "raw_output_bytes": null
+      }
+    ]
+  },
+  "database_state": {
+    "state_sha256_before_api": "77f301d929fd920d74cc2490dd47a7434a1ad386527ff84bec7804f11303ba81",
+    "state_sha256_after_api": "77f301d929fd920d74cc2490dd47a7434a1ad386527ff84bec7804f11303ba81",
+    "snapshot": {
+      "migrations": [
+        "20261114182147_InitialDurableIntake",
+        "20261116052029_AddLocalExtraction"
+      ],
+      "sequence": {
+        "last_value": 4,
+        "is_called": true
+      },
+      "documents": [
+        {
+          "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+          "idempotency_key": "43858522-5c3d-47d2-be8c-66f7162a190e",
+          "submitted_at": "2026-11-16T12:39:20.760256-05:00",
+          "byte_length": 372258,
+          "octet_length": 372258,
+          "declared_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "computed_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "page_count": 1,
+          "job_id": "01a1e571-2838-7b9d-858e-d6ff2b8bf757",
+          "job_status": "completed",
+          "attempt_count": 1,
+          "latest_fencing_token": 1,
+          "retried_from_attempt_id": null
+        },
+        {
+          "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+          "idempotency_key": "92f639e5-321d-464a-9628-f056251495cb",
+          "submitted_at": "2026-11-16T12:42:13.268798-05:00",
+          "byte_length": 8422,
+          "octet_length": 8422,
+          "declared_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+          "computed_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+          "page_count": 3,
+          "job_id": "01a1e573-ca14-7b6b-ba54-691edb3c51f9",
+          "job_status": "completed",
+          "attempt_count": 1,
+          "latest_fencing_token": 2,
+          "retried_from_attempt_id": null
+        },
+        {
+          "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+          "idempotency_key": "3e0e56be-5940-449c-9859-de4f022d4059",
+          "submitted_at": "2026-11-16T12:47:25.882929-05:00",
+          "byte_length": 372258,
+          "octet_length": 372258,
+          "declared_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "computed_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "page_count": 1,
+          "job_id": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+          "job_status": "completed",
+          "attempt_count": 2,
+          "latest_fencing_token": 4,
+          "retried_from_attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28"
+        },
+        {
+          "document_id": "01a1e580-0000-7000-8000-000000000001",
+          "idempotency_key": "01a1e580-0000-7000-8000-000000000002",
+          "submitted_at": "2026-11-16T12:51:00-05:00",
+          "byte_length": 887,
+          "octet_length": 887,
+          "declared_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+          "computed_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+          "page_count": 1,
+          "job_id": "01a1e580-0000-7000-8000-000000000003",
+          "job_status": "awaiting_extraction",
+          "attempt_count": 0,
+          "latest_fencing_token": 0,
+          "retried_from_attempt_id": null
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+          "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+          "attempt_number": 1,
+          "fencing_token": 1,
+          "retried_from_attempt_id": null,
+          "status": "completed",
+          "phase": "completed",
+          "failure_code": null,
+          "exit_code": 0
+        },
+        {
+          "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+          "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+          "attempt_number": 1,
+          "fencing_token": 2,
+          "retried_from_attempt_id": null,
+          "status": "completed",
+          "phase": "completed",
+          "failure_code": null,
+          "exit_code": 0
+        },
+        {
+          "attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+          "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+          "attempt_number": 1,
+          "fencing_token": 3,
+          "retried_from_attempt_id": null,
+          "status": "interrupted",
+          "phase": "interrupted",
+          "failure_code": "supervisor_interrupted",
+          "exit_code": null
+        },
+        {
+          "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+          "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+          "attempt_number": 2,
+          "fencing_token": 4,
+          "retried_from_attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+          "status": "completed",
+          "phase": "completed",
+          "failure_code": null,
+          "exit_code": 0
+        }
+      ],
+      "results": [
+        {
+          "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+          "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+          "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+          "fencing_token": 1,
+          "schema_version": "eledgercare.local-extraction/1",
+          "input_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "page_count": 1,
+          "output_page_count": 1,
+          "raw_output_byte_length": 3236,
+          "raw_octet_length": 3236,
+          "declared_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "computed_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+          "worker_config_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+          "finish_reason": "stop"
+        },
+        {
+          "result_id": "01a1e578-8bfa-7bba-b104-ea8309dbfd9e",
+          "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+          "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+          "fencing_token": 2,
+          "schema_version": "eledgercare.local-extraction/1",
+          "input_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+          "page_count": 3,
+          "output_page_count": 3,
+          "raw_output_byte_length": 7511,
+          "raw_octet_length": 7511,
+          "declared_raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+          "computed_raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+          "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+          "worker_config_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+          "finish_reason": "stop"
+        },
+        {
+          "result_id": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+          "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+          "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+          "fencing_token": 4,
+          "schema_version": "eledgercare.local-extraction/1",
+          "input_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "page_count": 1,
+          "output_page_count": 1,
+          "raw_output_byte_length": 3236,
+          "raw_octet_length": 3236,
+          "declared_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "computed_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+          "worker_config_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+          "finish_reason": "stop"
+        }
+      ]
+    }
+  },
+  "toolchain_and_caches": {
+    "dotnet_sdk": "10.0.403",
+    "dotnet_ef_local_tool": "10.0.15",
+    "nuget_lock_audit": {
+      "lockfile_count": 7,
+      "package_entries_checked": 126,
+      "unique_packages_verified": 53,
+      "missing_cached_packages": [],
+      "content_hash_mismatches": []
+    },
+    "nodejs": "v24.18.0",
+    "npm": "11.16.0",
+    "angular_cli_local": "22.2.7",
+    "playwright_cli_local": "Version 1.65.1",
+    "msedge_path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "msedge_version": "157.0.4341.60"
+  },
+  "assertions": {
+    "clean_git_before_and_after_before_receipt_write": true,
+    "immutable_002_and_design_dossier_preserved": true,
+    "retained_design_prefreeze_failure_byte_exact": true,
+    "pg_subset_1597_files_and_authenticode_valid": true,
+    "ports_5490_4510_55437_free_before_start": true,
+    "pg_55437_durability_and_scram_verified": true,
+    "accepted_f1_f2_migrations_only": true,
+    "seed_row_counts_and_fencing_sequence_4": true,
+    "pg_bytea_sha256_exact_parity_all_originals_and_results": true,
+    "least_privilege_negative_probes_all_denied": true,
+    "disabled_ocr_api_5490_read_parity_and_zero_db_mutation": true,
+    "all_owned_services_stopped_and_ports_unbound_with_seed_retained": true,
+    "offline_toolchain_and_locked_caches_ready": true
+  },
+  "assertion_count": 13,
+  "all_assertions_passed": true
+}
