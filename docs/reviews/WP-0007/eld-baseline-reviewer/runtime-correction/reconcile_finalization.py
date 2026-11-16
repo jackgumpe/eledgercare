@@ -110,7 +110,8 @@ def main():
     assert not git('status','--porcelain').strip(), 'Freeze helper before reconciliation'
     helper_path = 'docs/reviews/WP-0007/eld-baseline-reviewer/runtime-correction/review_checks.py'
     assert git('rev-parse', OLD_HELPER + ':' + helper_path) == git('rev-parse', 'HEAD:' + helper_path)
-    scratch = ROOT / '.scratch' / ('finalization-reconcile-' + uuid.uuid4().hex); scratch.mkdir(parents=True)
+    # Keep the reviewer-only prefix short enough for native Windows evidence filenames.
+    scratch = ROOT / '.scratch' / ('fr-' + uuid.uuid4().hex[:8]); scratch.mkdir(parents=True)
     report = {'authority': AUTHORITY, 'source': SOURCE, 'source_tree': TREE, 'helper_head': git('rev-parse','HEAD').decode().strip(),
         'prior_probe_freeze': OLD_HELPER, 'timestamp_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'scratch': str(scratch), 'python': sys.version}
     protected = ['qualification/baseline/' + name for name in ['native.py','score.py','typed_values.py','corpus.py','mapping.json','protocol.json','winjob.py','release.py','baseline.py']] + ['qualification/q0','evaluation','docs/evidence/WP-0007/eld-rd-astra/runtime-dev']
