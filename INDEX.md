@@ -382,9 +382,9 @@ Jack's "Authority to proceed" explicitly releases the compared plan. Common base
 | WP-0006 /005 | eld-coordinator / verification | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0006/005_2026-11-16_verification_eld-coordinator.md | Reserved final disposition |
 | WP-0007 /001 | eld-coordinator / design | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0007/001_2026-11-16_design_eld-coordinator.md | Proposed B0 contract; reviewed with exact scorer in /003 |
 | WP-0007 /002 | eld-rd-astra / implementation | research/wp-0007-vanilla-baseline; eld-baseline-astra | docs/agent-reports/eld-rd-astra/WP-0007/002_2026-11-16_implementation_eld-rd-astra.md | PREPARED CPU dev-only author; next independent /003 |
-| WP-0007 /003 | eld-next-reviewer / review | review/wp-0006-0007-next-tracks; eld-next-reviewer | docs/agent-reports/eld-next-reviewer/WP-0007/003_2026-11-16_review_eld-next-reviewer.md | Reserved B0 design/scorer/runner review and freeze; no test access yet |
+| WP-0007 /003 | eld-baseline-reviewer / review | review/wp-0007-baseline; eld-baseline-reviewer | docs/agent-reports/eld-baseline-reviewer/WP-0007/003_2026-11-16_review_eld-baseline-reviewer.md | PREPARED independent B0 design/scorer/runner review; no test access yet |
 | WP-0007 /004 | eld-rd-astra / verification | research/wp-0007-vanilla-baseline; eld-baseline-astra | docs/agent-reports/eld-rd-astra/WP-0007/004_2026-11-16_verification_eld-rd-astra.md | Reserved actual baseline execution after exact release; next /005 |
-| WP-0007 /005 | eld-next-reviewer / review | review/wp-0006-0007-next-tracks; eld-next-reviewer | docs/agent-reports/eld-next-reviewer/WP-0007/005_2026-11-16_review_eld-next-reviewer.md | Reserved independent raw-score/sentinel verification; next /006 |
+| WP-0007 /005 | eld-baseline-reviewer / review | review/wp-0007-baseline; eld-baseline-reviewer | docs/agent-reports/eld-baseline-reviewer/WP-0007/005_2026-11-16_review_eld-baseline-reviewer.md | Reserved independent raw-score/sentinel verification; next coordinator /006 |
 | WP-0007 /006 | eld-coordinator / verification | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0007/006_2026-11-16_verification_eld-coordinator.md | Reserved final disposition |
 
 All assignments share the full base above and will receive the exact published root design/report tip at dispatch. Complete resource paths are in their kickoffs. Product acceptance is independent of baseline score; both retain the unchanged model and GPU serialization. Later treatments, customer data, field correction, search and deployment remain unreleased.
@@ -398,3 +398,8 @@ Root design candidate **efa9cb986711f82a886f917e68142a7a59319bba**, paired canon
 - Existing native **/root/rd_astra**, inherited gpt-6-astra/high, confirmed RUNNING new WP-0007 CPU dev-only author task. Earlier authorship preserved. Initial text-reference gap is being specified explicitly before frozen scoring review; no test content accessed.
 
 CLI requested accept-edits, inherited always-proceed was observed; no bypass/global setting change. No GPU lease, runtime result or independent acceptance is inferred from dispatch. F2 code release follows /002; baseline test access/model execution follows exact accepted scorer/protocol and coordinator lease. Normal owned pushes remain active.
+
+
+### WP-0007 independent review assignment split before publication
+
+Root assigns the still-unpublished /003 and /005 slots to new native **eld-baseline-reviewer /root/baseline_reviewer**, separate branch **review/wp-0007-baseline** and worktree **eld-baseline-reviewer**, actual model/effort to be disclosed at dispatch. No report or authorship is moved. Carbon **eld-next-reviewer 101b19cf-3133-4ead-91cb-9ca6068e3e72** retains F2 /002 and /004; any initial B0 contract observations remain attributable input. Exact new kickoff is docs/kickoffs/WP-0007-eld-baseline-reviewer.md. This reviewer owns no baseline/product source and gets its own runtime release later. No GPU lease or test-content access is granted by this routing update.
