@@ -1,0 +1,117 @@
+{
+  "authority": "4ffc38cf000639a759cd81f8f5afb3f0bfd4b399",
+  "helper_head": "19254515f7ee6b70fa36156a1035c554b6816ec0",
+  "source": "f11fcd1141c08d49ac538858354f3b5d87277038",
+  "source_tree": "21de152f436f76915855421feae486342860ed92",
+  "timestamp_utc": "2026-11-16T06:38:57.965403+00:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "scratch": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2",
+  "directory": [
+    {
+      "case": "stable nested full count",
+      "passed": true
+    },
+    {
+      "case": "before",
+      "passed": true,
+      "returned": 13,
+      "exception": null
+    },
+    {
+      "case": "missing_metadata",
+      "passed": true,
+      "returned": 10,
+      "exception": null
+    },
+    {
+      "case": "after",
+      "passed": true,
+      "returned": 13,
+      "exception": null
+    },
+    {
+      "case": "directory",
+      "passed": true,
+      "returned": 10,
+      "exception": null
+    },
+    {
+      "case": "permission",
+      "passed": true,
+      "returned": null,
+      "exception": {
+        "type": "PermissionError",
+        "message": "[Errno 13] owned denied child: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2\\\\directory\\\\transient-permission'",
+        "filename": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2\\directory\\transient-permission",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 29, in caught\n    return {'returned': fn(), 'exception': None}\n                        ^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 67, in <lambda>\n    result = caught(lambda: runtime.directory_size(root))\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 33, in directory_size\n    return walk(root,is_root=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 26, in walk\n    try:child=entry.stat(follow_symlinks=False)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 51, in stat\n    if self.action == 'permission': raise PermissionError(errno.EACCES, 'owned denied child', self.path)\n                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] owned denied child: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2\\\\directory\\\\transient-permission'\n"
+      }
+    },
+    {
+      "case": "reparse",
+      "passed": true,
+      "returned": null,
+      "exception": {
+        "type": "RuntimeError",
+        "message": "Reparse path in owned runtime root",
+        "filename": null,
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 29, in caught\n    return {'returned': fn(), 'exception': None}\n                        ^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 67, in <lambda>\n    result = caught(lambda: runtime.directory_size(root))\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 33, in directory_size\n    return walk(root,is_root=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 28, in walk\n    reject_reparse(child)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 15, in reject_reparse\n    raise RuntimeError('Reparse path in owned runtime root')\nRuntimeError: Reparse path in owned runtime root\n"
+      }
+    },
+    {
+      "case": "missing root",
+      "passed": true,
+      "returned": null,
+      "exception": {
+        "type": "FileNotFoundError",
+        "message": "[WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2\\\\directory\\\\absent'",
+        "filename": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2\\directory\\absent",
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 29, in caught\n    return {'returned': fn(), 'exception': None}\n                        ^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 74, in <lambda>\n    result = caught(lambda: runtime.directory_size(path))\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 16, in directory_size\n    root=Path(root);info=root.stat(follow_symlinks=False);reject_reparse(info)\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 840, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-baseline-reviewer\\\\.scratch\\\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2\\\\directory\\\\absent'\n"
+      }
+    },
+    {
+      "case": "file root",
+      "passed": true,
+      "returned": null,
+      "exception": {
+        "type": "NotADirectoryError",
+        "message": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2\\directory\\root.bin",
+        "filename": null,
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 29, in caught\n    return {'returned': fn(), 'exception': None}\n                        ^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 74, in <lambda>\n    result = caught(lambda: runtime.directory_size(path))\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 17, in directory_size\n    if not stat.S_ISDIR(info.st_mode):raise NotADirectoryError(str(root))\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nNotADirectoryError: C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\.scratch\\review-runtime-correction-f31fb67d84ac4a12970d98589796b0d2\\directory\\root.bin\n"
+      }
+    },
+    {
+      "case": "PermissionError root scan",
+      "passed": true,
+      "returned": null,
+      "exception": {
+        "type": "PermissionError",
+        "message": "[Errno 13] root scan denied",
+        "filename": null,
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 29, in caught\n    return {'returned': fn(), 'exception': None}\n                        ^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 77, in <lambda>\n    with patch('runtime.os.scandir', side_effect=error): result = caught(lambda: runtime.directory_size(root))\n                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 33, in directory_size\n    return walk(root,is_root=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 20, in walk\n    try:entries=os.scandir(directory)\n                ^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1139, in __call__\n    return self._mock_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1143, in _mock_call\n    return self._execute_mock_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1198, in _execute_mock_call\n    raise effect\nPermissionError: [Errno 13] root scan denied\n"
+      }
+    },
+    {
+      "case": "OSError root scan",
+      "passed": true,
+      "returned": null,
+      "exception": {
+        "type": "OSError",
+        "message": "[Errno 5] root scan io",
+        "filename": null,
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 29, in caught\n    return {'returned': fn(), 'exception': None}\n                        ^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 77, in <lambda>\n    with patch('runtime.os.scandir', side_effect=error): result = caught(lambda: runtime.directory_size(root))\n                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 33, in directory_size\n    return walk(root,is_root=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 20, in walk\n    try:entries=os.scandir(directory)\n                ^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1139, in __call__\n    return self._mock_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1143, in _mock_call\n    return self._execute_mock_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1198, in _execute_mock_call\n    raise effect\nOSError: [Errno 5] root scan io\n"
+      }
+    },
+    {
+      "case": "FileNotFoundError root scan",
+      "passed": true,
+      "returned": null,
+      "exception": {
+        "type": "FileNotFoundError",
+        "message": "[Errno 2] root vanished",
+        "filename": null,
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 29, in caught\n    return {'returned': fn(), 'exception': None}\n                        ^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\docs\\reviews\\WP-0007\\eld-baseline-reviewer\\runtime-correction\\review_checks.py\", line 77, in <lambda>\n    with patch('runtime.os.scandir', side_effect=error): result = caught(lambda: runtime.directory_size(root))\n                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 33, in directory_size\n    return walk(root,is_root=True)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-reviewer\\qualification\\baseline\\runtime.py\", line 20, in walk\n    try:entries=os.scandir(directory)\n                ^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1139, in __call__\n    return self._mock_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1143, in _mock_call\n    return self._execute_mock_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\unittest\\mock.py\", line 1198, in _execute_mock_call\n    raise effect\nFileNotFoundError: [Errno 2] root vanished\n"
+      }
+    }
+  ],
+  "limit": "Focused reviewer expectation correction only. Windows DirEntry may retain enumeration metadata after removal; counting that cached snapshot is allowed. A separate missing_metadata injection exercises genuine FileNotFoundError tolerance. Initial results remain immutable."
+}
