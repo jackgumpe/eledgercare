@@ -537,16 +537,37 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
         using var traversal = await client.GetAsync("/api/documents/..%2F..%2FWindows%2Fwin.ini/original", Cancel);
         Assert.Equal(HttpStatusCode.BadRequest, traversal.StatusCode);
 
-        // No filename column exists; the schema has exactly the designed columns.
+        // No filename column exists; the schema has exactly the designed F1+F2 columns.
         await using var admin = await db.OpenAdminAsync();
         await using var command = new NpgsqlCommand(
             "SELECT string_agg(table_name || '.' || column_name, ',' ORDER BY table_name, column_name) FROM information_schema.columns WHERE table_schema = 'eledgercare' AND table_name <> '__ef_migrations_history'",
             admin);
         var columns = (string)(await command.ExecuteScalarAsync(Cancel))!;
+        Assert.DoesNotContain("file_name", columns, StringComparison.OrdinalIgnoreCase);
+        Assert.DoesNotContain("filename", columns, StringComparison.OrdinalIgnoreCase);
         Assert.Equal(
             "documents.document_id,documents.idempotency_key,documents.submitted_at," +
+            "execution_attempts.attempt_id,execution_attempts.attempt_number,execution_attempts.diagnostic_metadata_json," +
+            "execution_attempts.diagnostic_raw_output_utf8,execution_attempts.document_id,execution_attempts.ended_at," +
+            "execution_attempts.exit_code,execution_attempts.failure_code,execution_attempts.failure_detail," +
+            "execution_attempts.fencing_token,execution_attempts.job_id,execution_attempts.last_heartbeat_at," +
+            "execution_attempts.launcher_create_filetime,execution_attempts.launcher_pid,execution_attempts.phase," +
+            "execution_attempts.retried_from_attempt_id,execution_attempts.run_directory_name,execution_attempts.started_at," +
+            "execution_attempts.status,execution_attempts.supervisor_create_filetime,execution_attempts.supervisor_instance_id," +
+            "execution_attempts.supervisor_pid,execution_attempts.worker_create_filetime,execution_attempts.worker_pid," +
+            "extraction_results.attempt_id,extraction_results.completed_at,extraction_results.dependency_lock_sha256," +
+            "extraction_results.diagnostic_metadata_json,extraction_results.document_id,extraction_results.fencing_token," +
+            "extraction_results.finish_reason,extraction_results.generation_settings_json,extraction_results.infer_duration_ms," +
+            "extraction_results.input_byte_length,extraction_results.input_sha256,extraction_results.job_id," +
+            "extraction_results.load_duration_ms,extraction_results.model_manifest_sha256,extraction_results.model_repo_id," +
+            "extraction_results.model_revision,extraction_results.output_page_count,extraction_results.page_count," +
+            "extraction_results.raw_output_byte_length,extraction_results.raw_output_bytes,extraction_results.raw_output_sha256," +
+            "extraction_results.render_duration_ms,extraction_results.renderer_identity,extraction_results.result_id," +
+            "extraction_results.schema_version,extraction_results.started_at,extraction_results.total_duration_ms," +
+            "extraction_results.worker_config_digest,extraction_results.worker_source_digest," +
             "original_artifacts.byte_length,original_artifacts.bytes,original_artifacts.document_id,original_artifacts.media_type,original_artifacts.page_count,original_artifacts.sha256," +
-            "processing_jobs.document_id,processing_jobs.job_id,processing_jobs.requested_at,processing_jobs.status",
+            "processing_jobs.attempt_count,processing_jobs.document_id,processing_jobs.job_id,processing_jobs.latest_fencing_token," +
+            "processing_jobs.queued_at,processing_jobs.requested_at,processing_jobs.retried_from_attempt_id,processing_jobs.status,processing_jobs.updated_at",
             columns);
 
         var filesAfter = Directory.GetFiles(apiDirectory, "*", SearchOption.AllDirectories).Order().ToArray();
@@ -612,7 +633,13 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
         foreach (var sql in new[]
                  {
                      "UPDATE eledgercare.original_artifacts SET media_type = media_type",
+                     "UPDATE eledgercare.documents SET submitted_at = submitted_at",
+                     "UPDATE eledgercare.extraction_results SET finish_reason = finish_reason",
+                     "UPDATE eledgercare.processing_jobs SET job_id = job_id",
+                     "UPDATE eledgercare.execution_attempts SET attempt_id = attempt_id",
                      "DELETE FROM eledgercare.documents",
+                     "DELETE FROM eledgercare.execution_attempts",
+                     "DELETE FROM eledgercare.extraction_results",
                      "TRUNCATE eledgercare.processing_jobs",
                      "CREATE TABLE eledgercare.not_allowed (id int)",
                      "SELECT count(*) FROM eledgercare.__ef_migrations_history",
@@ -701,11 +728,21 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
         var uniqueKey = await Text(
             "SELECT indexdef FROM pg_indexes WHERE schemaname = 'eledgercare' AND indexname = 'ux_documents_idempotency_key'");
 
-        Assert.Equal("documents=p,original_artifacts=p,processing_jobs=p", persistence);
-        Assert.Equal("fk_original_artifacts_documents:del=r,upd=a;fk_processing_jobs_documents:del=r,upd=a", foreignKeys);
+        Assert.Equal("documents=p,execution_attempts=p,extraction_results=p,original_artifacts=p,processing_jobs=p", persistence);
         Assert.Equal(
-            "ck_original_artifacts_byte_length_matches,ck_original_artifacts_byte_length_range,ck_original_artifacts_media_type," +
-            "ck_original_artifacts_page_count_range,ck_original_artifacts_sha256_length,ck_processing_jobs_status",
+            "fk_execution_attempts_documents:del=r,upd=a;fk_execution_attempts_processing_jobs:del=r,upd=a;" +
+            "fk_execution_attempts_retried_from:del=r,upd=a;fk_extraction_results_documents:del=r,upd=a;" +
+            "fk_extraction_results_execution_attempts:del=r,upd=a;fk_extraction_results_processing_jobs:del=r,upd=a;" +
+            "fk_original_artifacts_documents:del=r,upd=a;fk_processing_jobs_documents:del=r,upd=a;" +
+            "fk_processing_jobs_retried_from_attempt:del=r,upd=a",
+            foreignKeys);
+        Assert.Equal(
+            "ck_execution_attempts_ended_consistency,ck_execution_attempts_failure_consistency,ck_execution_attempts_positive_ids," +
+            "ck_execution_attempts_status,ck_extraction_results_digests,ck_extraction_results_durations," +
+            "ck_extraction_results_finish_reason,ck_extraction_results_page_bounds,ck_extraction_results_raw_length_matches," +
+            "ck_extraction_results_schema,ck_original_artifacts_byte_length_matches,ck_original_artifacts_byte_length_range," +
+            "ck_original_artifacts_media_type,ck_original_artifacts_page_count_range,ck_original_artifacts_sha256_length," +
+            "ck_processing_jobs_state_invariants,ck_processing_jobs_status",
             checks);
         Assert.Contains("UNIQUE INDEX ux_documents_idempotency_key", uniqueKey, StringComparison.Ordinal);
 

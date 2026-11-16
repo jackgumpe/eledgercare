@@ -3,33 +3,57 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 /**
- * Starts the built ELedgerCare API on 127.0.0.1:5180 as a child process owned by this test run.
- * Requires E2E_DATABASE (prepared by evaluation/product-smoke/run-browser-checks.ps1) and the
+ * Starts the built ELedgerCare API on loopback (default 127.0.0.1:5190, overridable via
+ * ELEDGERCARE_API_PORT) as a child process owned by this test run.
+ * Requires E2E_DATABASE (prepared by deploy/dev/smoke/run-browser-checks.ps1) and the
  * worktree's .local/secrets/pg-local.json. Only the spawned PID is ever terminated.
  */
 export class OwnedApi {
   private child: ChildProcessWithoutNullStreams | null = null;
-  readonly starts: { pid: number; startedUtc: string; stoppedUtc?: string }[] = [];
+  readonly starts: { pid: number; port: string; startedUtc: string; stoppedUtc?: string }[] = [];
 
-  async start(): Promise<void> {
+  get port(): string {
+    return process.env['ELEDGERCARE_API_PORT'] ?? '5190';
+  }
+
+  get settings(): Record<string, string | number> {
     const root = path.resolve(__dirname, '..', '..');
-    const settings = JSON.parse(readFileSync(path.join(root, '.local', 'secrets', 'pg-local.json'), 'utf8')) as Record<string, string | number>;
-    const database = process.env['E2E_DATABASE'];
-    if (!database) {
-      throw new Error('E2E_DATABASE is required (run evaluation/product-smoke/run-browser-checks.ps1).');
+    return JSON.parse(readFileSync(path.join(root, '.local', 'secrets', 'pg-local.json'), 'utf8')) as Record<string, string | number>;
+  }
+
+  get database(): string {
+    const db = process.env['E2E_DATABASE'];
+    if (!db) {
+      throw new Error('E2E_DATABASE is required (run deploy/dev/smoke/run-browser-checks.ps1).');
     }
+    return db;
+  }
+
+  async start(extraEnv: Record<string, string> = {}): Promise<void> {
+    const root = path.resolve(__dirname, '..', '..');
+    const settings = this.settings;
+    const database = this.database;
+    const apiPort = this.port;
     const apiDir = path.join(root, 'src', 'ELedgerCare.Api', 'bin', 'Release', 'net10.0');
     const connection = `Host=${settings['host']};Port=${settings['port']};Database=${database};Username=${settings['appUser']};Password=${settings['appPassword']}`;
 
     const child = spawn('dotnet', [path.join(apiDir, 'ELedgerCare.Api.dll')], {
       cwd: apiDir,
-      env: { ...process.env, ASPNETCORE_ENVIRONMENT: 'Production', ConnectionStrings__Runtime: connection, Api__Port: '5180', DOTNET_NOLOGO: '1' },
+      env: {
+        ...process.env,
+        ASPNETCORE_ENVIRONMENT: 'Production',
+        ConnectionStrings__Runtime: connection,
+        Api__Port: apiPort,
+        DOTNET_NOLOGO: '1',
+        ...extraEnv,
+      },
     });
     this.child = child;
+    const expectedBanner = `Now listening on: http://127.0.0.1:${apiPort}`;
     await new Promise<void>((resolve, reject) => {
-      const timer = setTimeout(() => reject(new Error('API did not start listening within 60 s')), 60_000);
+      const timer = setTimeout(() => reject(new Error(`API did not start listening on ${apiPort} within 60 s`)), 60_000);
       const onData = (chunk: Buffer) => {
-        if (chunk.toString().includes('Now listening on: http://127.0.0.1:5180')) {
+        if (chunk.toString().includes(expectedBanner)) {
           clearTimeout(timer);
           resolve();
         }
@@ -38,10 +62,10 @@ export class OwnedApi {
       child.stderr.on('data', onData);
       child.on('exit', (code) => {
         clearTimeout(timer);
-        reject(new Error(`API exited early with code ${code} (is port 5180 already in use?)`));
+        reject(new Error(`API exited early with code ${code} (is port ${apiPort} already in use?)`));
       });
     });
-    this.starts.push({ pid: child.pid!, startedUtc: new Date().toISOString() });
+    this.starts.push({ pid: child.pid!, port: apiPort, startedUtc: new Date().toISOString() });
   }
 
   /** Abruptly terminates exactly the spawned API process and waits for it to exit. */

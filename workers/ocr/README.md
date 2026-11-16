@@ -1,12 +1,11 @@
-# OCR worker boundary (not implemented)
+# OCR worker directory redirect
 
-This directory reserves the boundary for a future, separately qualified local OCR worker (feature F2).
-It intentionally contains **no code, no mock and no dependency set**.
+Feature F1's unimplemented OCR placeholder at `workers/ocr/` is superseded in WP-0006 (F2) by the
+self-contained production local extraction worker under [`../local_ocr/`](../local_ocr/README.md),
+governed by [`../../docs/design/F2-local-extraction.md`](../../docs/design/F2-local-extraction.md).
 
-- F1 (durable intake) never runs OCR. Every admitted document's processing job stays
-  `awaiting_extraction`; nothing in the product fabricates extracted fields or progress.
-- A worker will be added only after a separate assignment selects and qualifies an actual local runtime,
-  model/data storage and resource ownership. GPU use, model downloads and Python environments are not
-  part of F1.
-- Product projects do not reference research or evaluation code, and no OCR stand-in exists in the
-  production path.
+- Production local extraction code and self-contained runtime manifests live solely under
+  `workers/local_ocr/`.
+- No OCR mock or stand-in exists in `workers/ocr/` or `workers/local_ocr/`.
+- Product projects and workers never import, reference, or invoke `qualification/`, `research/`, or
+  `evaluation/` tooling.
