@@ -1,0 +1,103 @@
+{
+  "schema": "eledgercare.f2-reviewer-runtime-release/1",
+  "owner": "eld-next-reviewer",
+  "conversation_id": "101b19cf-3133-4ead-91cb-9ca6068e3e72",
+  "model": "gemini-4-carbon-high",
+  "effort": "high",
+  "source_commit": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+  "executing_head": "b343f6ff78aa41332ecbe957577b6776f8edc22f",
+  "accepted_design_review": "e2452e1ab3d8937868c07ffb30ce430715b5be78",
+  "product_tree_objects": {
+    "src": "73d0146b3624ab4928a4d2cda7806d7d6166906e",
+    "workers/local_ocr": "1ed609368ca4c6bff8b92231362be2d802ae8baf",
+    "web": "f0877a006922818bf731d5f87603a368ed782487",
+    "tests": "5ad9bd15f41ab24bd5851ca02bfa0d8054dc1453",
+    "deploy": "dade6a38e165b5cc2ba81ba895bd9d3c572d26f2"
+  },
+  "pinned_digests": {
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+    "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+    "worker_config_1p_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+    "worker_config_2p_sha256": "e4df504ddb51dcc8fb137e97f5af97c735252374738b1a1754a88b16a05de5df",
+    "worker_config_3p_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+    "f1_swo_001_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "syn_wo_01_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "syn_mp_01_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+  },
+  "lease_id": "WP-0006-reviewer-runtime-20261116T173239Z",
+  "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "released_utc": "2026-11-16T17:32:39.002835+00:00",
+  "expires_utc": "2026-11-16T23:32:39.002835+00:00",
+  "max_model_attempts": 4,
+  "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+  "runtime_root": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer",
+  "ports": {
+    "api": 5290,
+    "ui": 4310,
+    "postgres": 55435
+  },
+  "storage_cap_bytes": 4294967296,
+  "free_floor_bytes": 21474836480,
+  "allow_test_content": false,
+  "torchvision_local_sha256_TOFU_accepted": true,
+  "plan": [
+    {
+      "fixture_id": "SYN-WO-01-v1-raster300",
+      "expected": "completed persisted result and UI",
+      "model_attempts": 1
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "expected": "completed three ordered pages",
+      "model_attempts": 1
+    },
+    {
+      "fixture_id": "SYN-WO-01-v1-raster300",
+      "expected": "fresh job interrupted by owned supervisor single-process termination during inference, explicit retry completed",
+      "model_attempts": 2
+    },
+    {
+      "expected": "API and PostgreSQL restart, disabled-model saved result reopen",
+      "model_attempts": 0
+    }
+  ],
+  "observation_files": {
+    "host-before.json": {
+      "path": "docs/coordination/WP-0006/gpu-reviewer-release/host-before.json",
+      "sha256": "dc9bdeccb9dad8090bd3e846f8abee0959e81daa36eb430d1614010bb8fb2f78"
+    },
+    "processes-before.json": {
+      "path": "docs/coordination/WP-0006/gpu-reviewer-release/processes-before.json",
+      "sha256": "d76b370e67f12b7f720ac8dede05162c1e64f7605c791ce817448b83607dd368"
+    },
+    "model-before.json": {
+      "path": "docs/coordination/WP-0006/gpu-reviewer-release/model-before.json",
+      "sha256": "cca23b62fb8b22599caf77d08b9482fc467a189abf7babcc0ba1fc49fd270dac"
+    }
+  },
+  "lease_return_rule": "Explicit owner return and observed exit of all actual model launcher/worker identities, then root acknowledgement; expiry/VRAM alone insufficient.",
+  "scope": "Independent finite four-attempt product trial on unchanged accepted source, distinct reviewer database/root/processes. Original author failed browser assertion and separate successful CPU completion remain separately attributed. No model/scorer/source change or automatic retry.",
+  "accepted_source_review": "82e8f732afbf038bfb5b6c560f1b1219aaa4e40f",
+  "accepted_source_review_path": "docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/README.md",
+  "acceptance_helpers": {
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/helpers/run_f2_reviewer_runtime_v2.py": {
+      "git_blob": "3bc327fd109fca730e9bb805d1b88e4d74793d03",
+      "sha256": "7c3733561ab340e9b6fea7e3d87879cb321d494bca2681ba5778409a3ed35b45"
+    },
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/helpers/validate_reviewer_expectation_reconciliation_cpu.py": {
+      "git_blob": "afa95ac93f7df197cf582b29cfc63f5e743844b8",
+      "sha256": "e03b8c407e82eb6c3c424b0e18b0b0792f0afcd3ab6a6ba7288cf2879d5e53ca"
+    },
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/helpers/verify_ui_reviewer_real_results_v2.mjs": {
+      "git_blob": "fceb03c833df519fc8c60513d9171dc747dbe821",
+      "sha256": "b1733fe11c7bcaa7ed532c11dc9d99625088382f11b2e43b7bc509688dd6a277"
+    },
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/PROCEDURE.md": {
+      "git_blob": "cf9955c1bc6afc029ffdcd74205e2e0889419e62",
+      "sha256": "93e7d584d468b49571156d2f6c8dd0d972ceb8ad5da0d50081332821a7b3a372"
+    }
+  },
+  "author_runtime_evidence": "88f24fb2f08eeaa773d330ab0d8b1e7c74037d8f",
+  "author_003": "3ece293f4ea9b78f19dbfb7f95472b95d091d79e"
+}
