@@ -1,0 +1,587 @@
+{
+  "schema": "eledgercare.wp-0008.f3-design-review-receipt/1",
+  "generated_at_utc": "2026-11-16T19:42:48.451243+00:00",
+  "reviewer": "eld-f3-reviewer",
+  "branch": "review/wp-0008-f3",
+  "frozen_head_sha": "367b9fae0c0578d27a86c858b4a3f07c1d2ea284",
+  "packet_base_sha": "5e1241d6d365d664f12619d415f48ec3d3b7ddca",
+  "authority_sha": "22b88bc32d053231678aef88e6b7f76d3e61910a",
+  "reviewed_design_candidate_sha": "c5b5db3af96abf155c806082583b8a92c687f54d",
+  "reviewed_root_report_001_sha": "30bb49ed56c32bda61a6907d49bd183e7b292268",
+  "referenced_f2_source_sha": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+  "referenced_f2_review_004_sha": "c854a1d4c306c3b10d78df42a1a2552a06bb4a98",
+  "reviewed_blobs": {
+    "docs/design/F3-review-correction.md": "4d6b9770599087534ed11aadbec6510ed10c77c1",
+    "workers/local_ocr/README.md": "83ed6624f95c48bfbae4c466201774824f63ef5e",
+    "docs/kickoffs/WP-0008-eld-f3-reviewer-design.md": "9663964fe4d8e6a8a0c7398ea07dbc524abdaa11"
+  },
+  "helper_path": "docs/reviews/WP-0008/eld-f3-reviewer/design/verify_f3_design_and_readme.py",
+  "helper_sha256_raw": "72e7826d3d2781dbb44a9fe42a36a039784a7904bad163a860a3e7a0c65d74b1",
+  "helper_sha256_lf": "72e7826d3d2781dbb44a9fe42a36a039784a7904bad163a860a3e7a0c65d74b1",
+  "verdicts": {
+    "f3_design": "accepted",
+    "worker_readme_network_wording": "accepted",
+    "kickoff_bindings": [
+      "F3-KR-01"
+    ],
+    "implementation_checkpoints": [
+      "F3-BIC-01",
+      "F3-BIC-02",
+      "F3-BIC-03",
+      "F3-BIC-04",
+      "F3-BIC-05",
+      "F3-BIC-06"
+    ]
+  },
+  "preserved_tree_oids": {
+    "src": "73d0146b3624ab4928a4d2cda7806d7d6166906e",
+    "tests": "5ad9bd15f41ab24bd5851ca02bfa0d8054dc1453",
+    "web": "f0877a006922818bf731d5f87603a368ed782487",
+    "deploy": "dade6a38e165b5cc2ba81ba895bd9d3c572d26f2",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "workers/ocr": "493935fad8163ec9242b396232a55564446a52e6",
+    "workers/local_ocr/run_worker.py": "74470d69106792b398d6f4dccda7c361d549a758",
+    "workers/local_ocr/local_ocr": "765eaec4c88fe694c862f75ed6969553ebdf3444",
+    "workers/local_ocr/manifests": "7710a533e5627371bb09827a0e7246b795e7b5fd",
+    "workers/local_ocr/tests": "2568c5478d630c353b5c5859ab6cb54beaa4479e",
+    "evaluation": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+    "qualification": "0ab2f5dab3984e832375d2ab225f0f0f598f8359"
+  },
+  "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+  "f01_suggestion_preview": {
+    "work_order_id": {
+      "suggestion_status": "suggested",
+      "suggested_value": "WO-004192",
+      "source_ref": {
+        "page_number": 1,
+        "block_ordinal": 4,
+        "table_row": null,
+        "table_col": null,
+        "source_quote": "WO-004192"
+      },
+      "competing_refs": [],
+      "initial_human_decision": "unreviewed"
+    },
+    "property_name": {
+      "suggestion_status": "suggested",
+      "suggested_value": "Cedar Hollow Apartments",
+      "source_ref": {
+        "page_number": 1,
+        "block_ordinal": 6,
+        "table_row": null,
+        "table_col": null,
+        "source_quote": "Cedar Hollow Apartments"
+      },
+      "competing_refs": [],
+      "initial_human_decision": "unreviewed"
+    },
+    "building_unit": {
+      "suggestion_status": "suggested",
+      "suggested_value": "Bldg B - Unit 204",
+      "source_ref": {
+        "page_number": 1,
+        "block_ordinal": 8,
+        "table_row": null,
+        "table_col": null,
+        "source_quote": "Bldg B - Unit 204"
+      },
+      "competing_refs": [],
+      "initial_human_decision": "unreviewed"
+    },
+    "requested_date": {
+      "suggestion_status": "suggested",
+      "suggested_value": "2026-10-16",
+      "source_ref": {
+        "page_number": 1,
+        "block_ordinal": 10,
+        "table_row": null,
+        "table_col": null,
+        "source_quote": "2026-10-16"
+      },
+      "competing_refs": [],
+      "initial_human_decision": "unreviewed"
+    },
+    "issue_and_resolution": {
+      "suggestion_status": "suggested",
+      "suggested_value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+      "source_ref": {
+        "page_number": 1,
+        "block_ordinal": 24,
+        "table_row": null,
+        "table_col": null,
+        "source_quote": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil."
+      },
+      "competing_refs": [],
+      "initial_human_decision": "unreviewed"
+    }
+  },
+  "checked_markdown_links": [
+    {
+      "source": "docs/design/F3-review-correction.md",
+      "target": "../coordination/WP-0008-0009-authority.md",
+      "resolved": "docs/coordination/WP-0008-0009-authority.md"
+    },
+    {
+      "source": "workers/local_ocr/README.md",
+      "target": "../../docs/design/F2-local-extraction.md",
+      "resolved": "docs/design/F2-local-extraction.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-coordinator/WP-0008/001_2026-11-16_design_eld-coordinator.md",
+      "target": "../../../coordination/WP-0008-0009-authority.md",
+      "resolved": "docs/coordination/WP-0008-0009-authority.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-coordinator/WP-0008/001_2026-11-16_design_eld-coordinator.md",
+      "target": "../../../design/F3-review-correction.md",
+      "resolved": "docs/design/F3-review-correction.md"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../design/F3-review-correction.md",
+      "resolved": "docs/design/F3-review-correction.md"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../workers/local_ocr/README.md",
+      "resolved": "workers/local_ocr/README.md"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../agent-reports/eld-coordinator/WP-0008/001_2026-11-16_design_eld-coordinator.md",
+      "resolved": "docs/agent-reports/eld-coordinator/WP-0008/001_2026-11-16_design_eld-coordinator.md"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Extraction/LocalPythonOcrWorkerRunner.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Extraction/LocalPythonOcrWorkerRunner.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../workers/local_ocr/local_ocr/env_guard.py",
+      "resolved": "workers/local_ocr/local_ocr/env_guard.py"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../workers/local_ocr/local_ocr/worker.py",
+      "resolved": "workers/local_ocr/local_ocr/worker.py"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Extraction/WindowsJobProcess.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Extraction/WindowsJobProcess.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Application/Extraction/ExtractionSettings.cs",
+      "resolved": "src/ELedgerCare.Application/Extraction/ExtractionSettings.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../workers/local_ocr/local_ocr/protocol.py",
+      "resolved": "workers/local_ocr/local_ocr/protocol.py"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/raw_output.utf8.bin",
+      "resolved": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/raw_output.utf8.bin"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/raw_output.utf8.bin",
+      "resolved": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/raw_output.utf8.bin"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs",
+      "resolved": "src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../tests/fixtures/README.md",
+      "resolved": "tests/fixtures/README.md"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../tests/ELedgerCare.Acceptance.Tests/Harness/PostgresFixture.cs",
+      "resolved": "tests/ELedgerCare.Acceptance.Tests/Harness/PostgresFixture.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/database/prepare-database.ps1",
+      "resolved": "deploy/dev/database/prepare-database.ps1"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/smoke/run-browser-checks.ps1",
+      "resolved": "deploy/dev/smoke/run-browser-checks.ps1"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/smoke/run-demo-smoke.ps1",
+      "resolved": "deploy/dev/smoke/run-demo-smoke.ps1"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Domain/Processing/DiagnosticTextSanitizer.cs",
+      "resolved": "src/ELedgerCare.Domain/Processing/DiagnosticTextSanitizer.cs"
+    }
+  ],
+  "opened_repo_paths": [
+    "docs/agent-reports/eld-coordinator/WP-0008/001_2026-11-16_design_eld-coordinator.md",
+    "docs/coordination/WP-0008-0009-authority.md",
+    "docs/design/F3-review-correction.md",
+    "docs/implementation/WP-0006/runtime-author-v2/runs/attempt-01a1e509-f5d4-7a01-80f1-4f23fe282930/output/raw_output.utf8.bin",
+    "docs/implementation/WP-0006/runtime-author-v2/runs/attempt-01a1e50c-bdb9-7477-a96a-abb58323c615/output/raw_output.utf8.bin",
+    "docs/kickoffs/WP-0008-eld-f3-reviewer-design.md",
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/envelope.json",
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/raw_output.utf8.bin",
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/raw_output.utf8.bin",
+    "docs/reviews/WP-0008/eld-f3-reviewer/design/README.md",
+    "src/ELedgerCare.Infrastructure/Extraction/LocalPythonOcrWorkerRunner.cs",
+    "src/ELedgerCare.Infrastructure/Extraction/WindowsJobProcess.cs",
+    "tests/fixtures/F1-SWO-001.pdf",
+    "tests/fixtures/SYN-MP-01-v0-clean.pdf",
+    "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+    "workers/local_ocr/README.md",
+    "workers/local_ocr/local_ocr/__init__.py",
+    "workers/local_ocr/local_ocr/env_guard.py",
+    "workers/local_ocr/local_ocr/observer.py",
+    "workers/local_ocr/local_ocr/pdf_render.py",
+    "workers/local_ocr/local_ocr/protocol.py",
+    "workers/local_ocr/local_ocr/verify_runtime.py",
+    "workers/local_ocr/local_ocr/worker.py",
+    "workers/local_ocr/run_worker.py"
+  ],
+  "assertion_count": 37,
+  "all_assertions_passed": true,
+  "assertions": [
+    {
+      "check": "clean_worktree_before_execution",
+      "passed": true,
+      "detail": {
+        "status_porcelain": ""
+      }
+    },
+    {
+      "check": "owned_branch_identity",
+      "passed": true,
+      "detail": {
+        "branch": "review/wp-0008-f3",
+        "head": "367b9fae0c0578d27a86c858b4a3f07c1d2ea284"
+      }
+    },
+    {
+      "check": "dispatch_001_is_ancestor_of_head",
+      "passed": true,
+      "detail": {
+        "dispatch_001": "30bb49ed56c32bda61a6907d49bd183e7b292268",
+        "head": "367b9fae0c0578d27a86c858b4a3f07c1d2ea284"
+      }
+    },
+    {
+      "check": "exact_11_path_candidate_diff",
+      "passed": true,
+      "detail": {
+        "count": 11,
+        "paths": [
+          "AGENTS.md",
+          "CURRENT.md",
+          "INDEX.md",
+          "docs/coordination/WP-0008-0009-authority.md",
+          "docs/coordination/WP-0008/initial-native-dispatch.json",
+          "docs/design/F3-review-correction.md",
+          "docs/kickoffs/WP-0008-eld-f3-reviewer-design.md",
+          "docs/kickoffs/WP-0009-eld-eval-custodian.md",
+          "docs/kickoffs/WP-0009-eld-mapping-author-diagnosis.md",
+          "docs/kickoffs/WP-0009-eld-mapping-reviewer.md",
+          "workers/local_ocr/README.md"
+        ]
+      }
+    },
+    {
+      "check": "report_001_single_file_addition",
+      "passed": true,
+      "detail": {
+        "diff": [
+          "A\tdocs/agent-reports/eld-coordinator/WP-0008/001_2026-11-16_design_eld-coordinator.md"
+        ]
+      }
+    },
+    {
+      "check": "preserved_oid:src",
+      "passed": true,
+      "detail": {
+        "oid": "73d0146b3624ab4928a4d2cda7806d7d6166906e"
+      }
+    },
+    {
+      "check": "preserved_oid:tests",
+      "passed": true,
+      "detail": {
+        "oid": "5ad9bd15f41ab24bd5851ca02bfa0d8054dc1453"
+      }
+    },
+    {
+      "check": "preserved_oid:web",
+      "passed": true,
+      "detail": {
+        "oid": "f0877a006922818bf731d5f87603a368ed782487"
+      }
+    },
+    {
+      "check": "preserved_oid:deploy",
+      "passed": true,
+      "detail": {
+        "oid": "dade6a38e165b5cc2ba81ba895bd9d3c572d26f2"
+      }
+    },
+    {
+      "check": "preserved_oid:ELedgerCare.slnx",
+      "passed": true,
+      "detail": {
+        "oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976"
+      }
+    },
+    {
+      "check": "preserved_oid:workers/ocr",
+      "passed": true,
+      "detail": {
+        "oid": "493935fad8163ec9242b396232a55564446a52e6"
+      }
+    },
+    {
+      "check": "preserved_oid:workers/local_ocr/run_worker.py",
+      "passed": true,
+      "detail": {
+        "oid": "74470d69106792b398d6f4dccda7c361d549a758"
+      }
+    },
+    {
+      "check": "preserved_oid:workers/local_ocr/local_ocr",
+      "passed": true,
+      "detail": {
+        "oid": "765eaec4c88fe694c862f75ed6969553ebdf3444"
+      }
+    },
+    {
+      "check": "preserved_oid:workers/local_ocr/manifests",
+      "passed": true,
+      "detail": {
+        "oid": "7710a533e5627371bb09827a0e7246b795e7b5fd"
+      }
+    },
+    {
+      "check": "preserved_oid:workers/local_ocr/tests",
+      "passed": true,
+      "detail": {
+        "oid": "2568c5478d630c353b5c5859ab6cb54beaa4479e"
+      }
+    },
+    {
+      "check": "preserved_oid:evaluation",
+      "passed": true,
+      "detail": {
+        "oid": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019"
+      }
+    },
+    {
+      "check": "preserved_oid:qualification",
+      "passed": true,
+      "detail": {
+        "oid": "0ab2f5dab3984e832375d2ab225f0f0f598f8359"
+      }
+    },
+    {
+      "check": "zero_historical_reports_modified_or_deleted",
+      "passed": true,
+      "detail": {
+        "diff": ""
+      }
+    },
+    {
+      "check": "dossier_blob_and_report_count_parity",
+      "passed": true,
+      "detail": {
+        "base_report_file_count": 50,
+        "design_blob": "4d6b9770599087534ed11aadbec6510ed10c77c1",
+        "readme_blob": "83ed6624f95c48bfbae4c466201774824f63ef5e"
+      }
+    },
+    {
+      "check": "worker_readme_accurate_offline_wording",
+      "passed": true,
+      "detail": {
+        "readme_blob": "83ed6624f95c48bfbae4c466201774824f63ef5e"
+      }
+    },
+    {
+      "check": "runner_and_worker_match_readme_offline_flags",
+      "passed": true,
+      "detail": {
+        "local_files_only_calls": 2
+      }
+    },
+    {
+      "check": "worker_source_sha256_unchanged_by_readme_edit",
+      "passed": true,
+      "detail": {
+        "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54"
+      }
+    },
+    {
+      "check": "product_fixture_digests",
+      "passed": true,
+      "detail": {
+        "f01_bytes": 372258,
+        "f07_bytes": 8422,
+        "f1_bytes": 887
+      }
+    },
+    {
+      "check": "genuine_f2_seed_parity",
+      "passed": true,
+      "detail": {
+        "f01_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "f07_raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639"
+      }
+    },
+    {
+      "check": "f01_suggestion:work_order_id",
+      "passed": true,
+      "detail": {
+        "page": 1,
+        "block_ordinal": 4,
+        "utf16_len": 9
+      }
+    },
+    {
+      "check": "f01_suggestion:property_name",
+      "passed": true,
+      "detail": {
+        "page": 1,
+        "block_ordinal": 6,
+        "utf16_len": 23
+      }
+    },
+    {
+      "check": "f01_suggestion:building_unit",
+      "passed": true,
+      "detail": {
+        "page": 1,
+        "block_ordinal": 8,
+        "utf16_len": 17
+      }
+    },
+    {
+      "check": "f01_suggestion:requested_date",
+      "passed": true,
+      "detail": {
+        "page": 1,
+        "block_ordinal": 10,
+        "utf16_len": 10
+      }
+    },
+    {
+      "check": "f01_suggestion:issue_and_resolution",
+      "passed": true,
+      "detail": {
+        "page": 1,
+        "block_ordinal": 24,
+        "utf16_len": 298
+      }
+    },
+    {
+      "check": "f07_invoice_produces_zero_false_suggestions",
+      "passed": true,
+      "detail": {
+        "work_order_id": "missing",
+        "property_name": "missing",
+        "building_unit": "missing",
+        "requested_date": "missing",
+        "issue_and_resolution": "missing"
+      }
+    },
+    {
+      "check": "bic01_table_span_detection",
+      "passed": true,
+      "detail": {
+        "naive_cell_count_on_colspan": 2,
+        "strict_rows_on_colspan": 0
+      }
+    },
+    {
+      "check": "suggestion_edge_cases",
+      "passed": true,
+      "detail": {
+        "work_order_id": "suggested",
+        "property_name": "missing",
+        "building_unit": "missing",
+        "requested_date": "ambiguous",
+        "issue_and_resolution": "suggested"
+      }
+    },
+    {
+      "check": "utf16_and_surrogate_validation",
+      "passed": true,
+      "detail": {
+        "astral_wrench_utf16_units": 2
+      }
+    },
+    {
+      "check": "optimistic_concurrency_idempotency_and_128_cap",
+      "passed": true,
+      "detail": {
+        "total_revisions": 128,
+        "replay_128_status": 200,
+        "cap_129_status": 409
+      }
+    },
+    {
+      "check": "port_disjointness_across_f1_f2_f3",
+      "passed": true,
+      "detail": {
+        "distinct_port_count": 18,
+        "f3_reviewer": [
+          5490,
+          4510,
+          55437
+        ]
+      }
+    },
+    {
+      "check": "local_markdown_links_resolve",
+      "passed": true,
+      "detail": {
+        "checked_link_count": 26
+      }
+    },
+    {
+      "check": "zero_sealed_wp0009_paths_opened",
+      "passed": true,
+      "detail": {
+        "opened_file_count": 29
+      }
+    }
+  ]
+}
