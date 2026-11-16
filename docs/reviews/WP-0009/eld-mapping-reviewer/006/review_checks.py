@@ -1,6 +1,6 @@
 """Independent selected-source review. CPU only; no sealed/fresh inputs or model imports."""
 from pathlib import Path
-import ast,copy,datetime,hashlib,html,importlib.abc,io,json,os,subprocess,sys,tempfile,threading,time,unittest
+import argparse,ast,copy,datetime,hashlib,html,importlib.abc,io,json,os,subprocess,sys,tempfile,threading,time,unittest
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[5]
@@ -25,7 +25,8 @@ class IndependentTests(unittest.TestCase):
         before=next(x for x in ast.parse((ROOT/'qualification/baseline/native.py').read_text()).body if isinstance(x,ast.FunctionDef) and x.name=='extract_prediction')
         after=next(x for x in ast.parse((ROOT/'qualification/mapping_v1/mapper.py').read_text()).body if isinstance(x,ast.FunctionDef) and x.name=='extract_prediction')
         fields_index=next(i for i,x in enumerate(after.body) if isinstance(x,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='fields' for t in x.targets))
-        after.body=after.body[:3]+after.body[fields_index:]
+        # labels and by_label are two AST assignments despite sharing a physical line.
+        after.body=after.body[:4]+after.body[fields_index:]
         class StripTreatment(ast.NodeTransformer):
             def visit_For(self,node):
                 if ast.unparse(node.target)=='(ci, c)' and any(isinstance(x,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='adjacent' for t in x.targets) for x in node.body):
@@ -135,6 +136,27 @@ class IndependentTests(unittest.TestCase):
             self.assertEqual(len(read_calls),count)
         RESULTS['release_binding']={'success_artifact_gate_calls':20,'mismatched_review_unseal_observation_head_rejected_before_fresh_gate':True,'stubbed_git_objects':True,'real_fresh_reads':0}
 
+    def test_score_run_author_four_reviewer_one_denominator(self):
+        p=protocol();old=load_json(ROOT/'evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json');outcomes=[]
+        for owner,count in [('author',4),('reviewer',1)]:
+            with tempfile.TemporaryDirectory(dir=SCRATCH) as d:
+                root=Path(d);run=root/'runs'/owner/'cpu';run.mkdir(parents=True);r={'runtime_root':str(root)}
+                calls=[dict(c,status='failed' if not c['excluded'] else 'completed',observation=None) for c in release.schedule(p,owner)]
+                (run/'run-result.json').write_text(json.dumps({'release':r,'calls':calls}))
+                def artifact(r,p,a):
+                    f=next(f for f in p['fresh_fixtures'] if a in f['artifacts'])
+                    if a['role']=='expected':
+                        e=copy.deepcopy(old);e.update(fixture_id=f['fixture_id'],family_id=f['family_id'],split='CPU_REVIEW',page_count=f['page_count']);return json.dumps(e).encode()
+                    return json.dumps({'pages':['CPU historical reference']*f['page_count'],'coverage':{}}).encode()
+                with patch.object(scoring,'read_release',return_value=r),patch.object(scoring,'read_artifact',side_effect=artifact):
+                    scoring.score_run(run,root/'paired.json','CPU','CPU',owner)
+                result=load_json(root/'paired.json');self.assertEqual(len(result['records']),count)
+                self.assertEqual(result['summary']['b0']['CPU_REVIEW']['document_denominator'],count)
+                self.assertEqual(result['summary']['mapping_v1']['CPU_REVIEW']['document_denominator'],count)
+                self.assertEqual([x['fixture_id'] for x in result['records']],[c['fixture_id'] for c in calls if not c['excluded']])
+                outcomes.append({'owner':owner,'primary_denominator':count,'scored_ids':[x['fixture_id'] for x in result['records']],'unselected_rows_created':False})
+        RESULTS['score_run_denominators']=outcomes
+
 def regression():
     runs={'dev':ROOT/'docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6','eval_holdout':ROOT/'docs/evidence/WP-0007/eld-rd-astra/runtime-heldout/20261116T145728Z-07a28a6d','supplement':ROOT/'docs/evidence/WP-0007/eld-rd-astra/runtime-recovery/20261116T142841Z-284039ca'}
     fixtures={f['fixture_id']:f for f in load_json(ROOT/'evaluation/manifests/corpus-manifest.json')['fixtures']}
@@ -164,6 +186,9 @@ def regression():
     RESULTS['regression']={'primary':26,'completed':25,'separate_supplement':1,'printed_gains':gains,'printed_losses':losses,'typed_gains':tg,'typed_losses':tl,'fields':sum(s['fields']['total'] for s in old_scores),'cells':sum(s['cells']['total'] for s in old_scores),'documents':seen,'supplement_scores':supplements,'summaries':{'b0':summarize(old_scores),'mapping_v1':summarize(new_scores)},'initial_and_corrected_candidate_document_scores_identical':True}
 
 def main():
+    global SOURCE
+    parser=argparse.ArgumentParser();parser.add_argument('--source',default=SOURCE);parser.add_argument('--out',required=True);args=parser.parse_args()
+    SOURCE=args.source;output=(OWN/args.out).resolve();output.relative_to(OWN);assert not output.exists(),'Preserve all previous attempt results'
     assert MODULE_ROOT==ROOT and not git('status','--porcelain').strip()
     source_tree=git('rev-parse','HEAD:qualification/mapping_v1').decode().strip()
     assert source_tree==git('rev-parse',SOURCE+':qualification/mapping_v1').decode().strip()
@@ -173,7 +198,7 @@ def main():
     result=unittest.TextTestRunner(verbosity=2).run(suite)
     regression()
     RESULTS.update({'executing_head':git('rev-parse','HEAD').decode().strip(),'candidate_source':SOURCE,'source_tree':source_tree,'protocol_sha256':sha((ROOT/'qualification/mapping_v1/protocol.json').read_bytes()),'tests':{'run':result.testsRun,'failures':[(str(t),m) for t,m in result.failures],'errors':[(str(t),m) for t,m in result.errors],'skipped':result.skipped},'fresh_reads':0,'model_gpu_queries':0,'status':'PASS' if result.wasSuccessful() else 'FINDINGS'})
-    (OWN/'initial-results.json').write_text(json.dumps(RESULTS,indent=2)+'\n')
+    output.write_text(json.dumps(RESULTS,indent=2)+'\n')
     print(json.dumps({k:RESULTS[k] for k in ('executing_head','candidate_source','source_tree','protocol_sha256','tests','status')},indent=2))
     return 0 if result.wasSuccessful() else 1
 
