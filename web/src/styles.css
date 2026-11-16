@@ -122,3 +122,248 @@ button {
   word-break: break-word;
   font-size: 0.82rem;
 }
+
+main:has(.review-workspace) {
+  max-width: 102rem;
+  margin: 1rem auto;
+}
+
+.review-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.review-topbar h2 {
+  margin: 0 0 0.25rem;
+}
+
+.review-entry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  background: #1d4ed8;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.button-link:hover {
+  background: #1e40af;
+}
+
+.review-two-pane {
+  display: grid;
+  grid-template-columns: minmax(500px, 1.25fr) minmax(420px, 0.95fr);
+  gap: 1.15rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .review-two-pane {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pdf-pane {
+  margin-bottom: 0;
+}
+
+.fields-pane {
+  max-height: 82vh;
+  overflow-y: auto;
+  margin-bottom: 0;
+}
+
+.pdf-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.pdf-page-controls button {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+.pdf-page-controls button.active-page {
+  background: #1d4ed8;
+  color: #fff;
+  border-color: #1e40af;
+  font-weight: 600;
+}
+
+.pdf-frame-container {
+  height: 76vh;
+  min-height: 640px;
+  border: 1px solid #b8c4d4;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #323639;
+}
+
+.pdf-preview-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.field-card {
+  border: 1px solid #d5dfe9;
+  border-radius: 5px;
+  padding: 0.8rem 0.95rem;
+  margin-bottom: 0.85rem;
+  background: #fcfdff;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.machine-box {
+  background: #f2f6fb;
+  border: 1px solid #d9e3ef;
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.88rem;
+}
+
+.machine-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.machine-value {
+  font-family: ui-monospace, Consolas, monospace;
+  word-break: break-word;
+}
+
+.quote-line {
+  margin: 0.3rem 0 0;
+  color: #3b4a5a;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.82rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.decision-buttons {
+  margin-bottom: 0.5rem;
+}
+
+.small-btn {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.82rem;
+  margin-right: 0.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.selected-decision {
+  background: #1e293b;
+  color: #fff;
+  border-color: #0f172a;
+  font-weight: 600;
+}
+
+.field-input,
+.field-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.42rem 0.55rem;
+  border: 1px solid #b8c4d4;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+
+.field-input:disabled,
+.field-textarea:disabled {
+  background: #eef2f6;
+  color: #64748b;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.78rem;
+  margin-top: 0.15rem;
+}
+
+.unknown-reason-wrap {
+  margin-top: 0.45rem;
+}
+
+.save-panel {
+  border-top: 2px solid #e2e8f0;
+  padding-top: 0.85rem;
+  margin-top: 1rem;
+}
+
+.review-summary-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  padding: 0.75rem 0.9rem;
+  margin: 0.75rem 0;
+}
+
+.warning-inline {
+  color: #9a5b00;
+}
+
+.confirm-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: #1d4ed8;
+  color: #fff;
+  border: 1px solid #1e40af;
+  font-weight: 600;
+}
+
+.primary-btn:disabled {
+  background: #94a3b8;
+  border-color: #94a3b8;
+  color: #f8fafc;
+}
+
+.success-box {
+  border-left: 4px solid #15803d;
+}
+
+.compact-box {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.history-section {
+  margin-top: 1.25rem;
+}

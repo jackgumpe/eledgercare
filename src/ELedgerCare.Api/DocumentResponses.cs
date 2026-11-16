@@ -1,6 +1,8 @@
 using System.Globalization;
 using ELedgerCare.Application.Extraction;
+using ELedgerCare.Application.Review;
 using ELedgerCare.Domain.Processing;
+using ELedgerCare.Domain.Review;
 
 namespace ELedgerCare.Api;
 
@@ -13,10 +15,13 @@ public sealed record DocumentDetailResponse(
     int ByteLength,
     string Sha256,
     string OriginalUrl,
+    string PreviewUrl,
     int AdmittedPageCount,
     string ExtractionUrl,
+    string ReviewUrl,
     Guid? CurrentAttemptId,
-    Guid? AcceptedResultId)
+    Guid? AcceptedResultId,
+    WorkOrderReviewSummaryDto? WorkOrderReview)
 {
     public static DocumentDetailResponse From(DocumentSummaryProjection summary) => new(
         summary.DocumentId,
@@ -26,10 +31,15 @@ public sealed record DocumentDetailResponse(
         summary.ByteLength,
         Convert.ToHexStringLower(summary.Sha256),
         string.Create(CultureInfo.InvariantCulture, $"/api/documents/{summary.DocumentId:D}/original"),
+        string.Create(CultureInfo.InvariantCulture, $"/api/documents/{summary.DocumentId:D}/preview"),
         summary.AdmittedPageCount,
         string.Create(CultureInfo.InvariantCulture, $"/api/documents/{summary.DocumentId:D}/extraction"),
+        string.Create(CultureInfo.InvariantCulture, $"/api/documents/{summary.DocumentId:D}/review"),
         summary.CurrentAttemptId,
-        summary.AcceptedResultId);
+        summary.AcceptedResultId,
+        summary.WorkOrderReview is not null
+            ? WorkOrderReviewSummaryDto.From(summary.DocumentId, summary.WorkOrderReview)
+            : null);
 }
 
 public sealed record DocumentExtractionResponse(
@@ -40,6 +50,8 @@ public sealed record DocumentExtractionResponse(
     int OriginalByteLength,
     string OriginalSha256,
     string OriginalUrl,
+    string PreviewUrl,
+    string ReviewUrl,
     DateTimeOffset SubmittedAtUtc,
     DateTimeOffset? QueuedAtUtc,
     DateTimeOffset UpdatedAtUtc,
@@ -51,7 +63,8 @@ public sealed record DocumentExtractionResponse(
     string? UnavailableReason,
     AttemptSummaryDto? CurrentAttempt,
     IReadOnlyList<AttemptSummaryDto> Attempts,
-    AcceptedExtractionResultDto? Result)
+    AcceptedExtractionResultDto? Result,
+    WorkOrderReviewSummaryDto? WorkOrderReview)
 {
     public static DocumentExtractionResponse From(DocumentExtractionSnapshot snapshot, ExtractionSettings settings)
     {
@@ -77,6 +90,9 @@ public sealed record DocumentExtractionResponse(
         var result = snapshot.AcceptedResult is not null
             ? AcceptedExtractionResultDto.From(snapshot.AcceptedResult)
             : null;
+        var reviewSummary = snapshot.WorkOrderReview is not null
+            ? WorkOrderReviewSummaryDto.From(snapshot.DocumentId, snapshot.WorkOrderReview)
+            : null;
 
         return new DocumentExtractionResponse(
             snapshot.DocumentId,
@@ -86,6 +102,8 @@ public sealed record DocumentExtractionResponse(
             snapshot.OriginalByteLength,
             Convert.ToHexStringLower(snapshot.OriginalSha256),
             string.Create(CultureInfo.InvariantCulture, $"/api/documents/{snapshot.DocumentId:D}/original"),
+            string.Create(CultureInfo.InvariantCulture, $"/api/documents/{snapshot.DocumentId:D}/preview"),
+            string.Create(CultureInfo.InvariantCulture, $"/api/documents/{snapshot.DocumentId:D}/review"),
             snapshot.SubmittedAtUtc.ToUniversalTime(),
             snapshot.QueuedAtUtc?.ToUniversalTime(),
             snapshot.UpdatedAtUtc.ToUniversalTime(),
@@ -97,8 +115,32 @@ public sealed record DocumentExtractionResponse(
             unavailableReason,
             currentAttempt,
             attempts,
-            result);
+            result,
+            reviewSummary);
     }
+}
+
+public sealed record WorkOrderReviewSummaryDto(
+    string ProfileId,
+    string Status,
+    int CurrentRevisionNumber,
+    int AcceptedFieldCount,
+    int EditedFieldCount,
+    int UnknownFieldCount,
+    int UnreviewedFieldCount,
+    DateTimeOffset UpdatedAtUtc,
+    string ReviewUrl)
+{
+    public static WorkOrderReviewSummaryDto From(Guid documentId, WorkOrderReviewHeadSummary summary) => new(
+        summary.ProfileId,
+        summary.Status.ToWire(),
+        summary.CurrentRevisionNumber,
+        summary.AcceptedFieldCount,
+        summary.EditedFieldCount,
+        summary.UnknownFieldCount,
+        summary.UnreviewedFieldCount,
+        summary.UpdatedAtUtc.ToUniversalTime(),
+        string.Create(CultureInfo.InvariantCulture, $"/api/documents/{documentId:D}/review"));
 }
 
 public sealed record AttemptSummaryDto(

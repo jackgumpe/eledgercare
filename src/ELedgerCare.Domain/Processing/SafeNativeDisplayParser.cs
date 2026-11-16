@@ -247,6 +247,261 @@ public static class SafeNativeDisplayParser
         return rows;
     }
 
+    /// <summary>
+    /// Strict validator and parser for plain non-spanning tables used by conservative F3 suggestions (F3-BIC-01).
+    /// Unlike <see cref="ParsePlainTableRows"/> (which tolerates malformed/spanning tables for inert display),
+    /// this method inspects raw markup and rejects any colspan/rowspan/attributes on structural tags,
+    /// colgroup/col/caption elements, nested &lt;table&gt;, or unbalanced &lt;tr&gt;/&lt;td&gt;/&lt;th&gt; tags.
+    /// </summary>
+    public static bool TryParseStrictSimpleTableRows(
+        string tableMarkup,
+        out IReadOnlyList<IReadOnlyList<string>> rows)
+    {
+        rows = [];
+        if (string.IsNullOrWhiteSpace(tableMarkup))
+        {
+            return false;
+        }
+
+        var trimmed = tableMarkup.Trim();
+        var parsedRows = new List<IReadOnlyList<string>>();
+        var inTable = false;
+        var tableClosed = false;
+        string? sectionTag = null;
+        var inRow = false;
+        string? cellTag = null;
+        List<string>? currentRow = null;
+        StringBuilder? currentCell = null;
+
+        var i = 0;
+        while (i < trimmed.Length)
+        {
+            var lt = trimmed.IndexOf('<', i);
+            if (lt < 0)
+            {
+                if (cellTag is not null)
+                {
+                    return false;
+                }
+
+                if (!string.IsNullOrWhiteSpace(trimmed[i..]))
+                {
+                    return false;
+                }
+
+                break;
+            }
+
+            if (lt > i)
+            {
+                var between = trimmed[i..lt];
+                if (cellTag is not null)
+                {
+                    currentCell!.Append(DecodeBasicEntities(between));
+                }
+                else if (!string.IsNullOrWhiteSpace(between))
+                {
+                    return false;
+                }
+            }
+
+            var gt = trimmed.IndexOf('>', lt + 1);
+            if (gt < 0)
+            {
+                return false;
+            }
+
+            var rawTag = trimmed[(lt + 1)..gt].Trim();
+            if (rawTag.Length == 0)
+            {
+                return false;
+            }
+
+            var isClosing = rawTag.StartsWith('/');
+            var isSelfClosing = !isClosing && rawTag.EndsWith('/');
+            var tagBody = rawTag;
+            if (isClosing)
+            {
+                tagBody = tagBody[1..].Trim();
+            }
+            else if (isSelfClosing)
+            {
+                tagBody = tagBody[..^1].Trim();
+            }
+
+            var nameEnd = 0;
+            while (nameEnd < tagBody.Length && char.IsAsciiLetterOrDigit(tagBody[nameEnd]))
+            {
+                nameEnd++;
+            }
+
+            if (nameEnd == 0)
+            {
+                if (cellTag is null)
+                {
+                    return false;
+                }
+
+                currentCell!.Append(trimmed[lt..(gt + 1)]);
+                i = gt + 1;
+                continue;
+            }
+
+            var tagName = tagBody[..nameEnd].ToLowerInvariant();
+            var restOfTag = tagBody[nameEnd..].Trim();
+
+            switch (tagName)
+            {
+                case "table":
+                    if (isSelfClosing || restOfTag.Length > 0)
+                    {
+                        return false;
+                    }
+
+                    if (!isClosing)
+                    {
+                        if (inTable || tableClosed)
+                        {
+                            return false;
+                        }
+
+                        inTable = true;
+                    }
+                    else
+                    {
+                        if (!inTable || sectionTag is not null || inRow || cellTag is not null)
+                        {
+                            return false;
+                        }
+
+                        inTable = false;
+                        tableClosed = true;
+                    }
+
+                    break;
+
+                case "thead" or "tbody" or "tfoot":
+                    if (!inTable || isSelfClosing || restOfTag.Length > 0 || inRow || cellTag is not null)
+                    {
+                        return false;
+                    }
+
+                    if (!isClosing)
+                    {
+                        if (sectionTag is not null)
+                        {
+                            return false;
+                        }
+
+                        sectionTag = tagName;
+                    }
+                    else
+                    {
+                        if (sectionTag != tagName)
+                        {
+                            return false;
+                        }
+
+                        sectionTag = null;
+                    }
+
+                    break;
+
+                case "tr":
+                    if (!inTable || isSelfClosing || restOfTag.Length > 0 || cellTag is not null)
+                    {
+                        return false;
+                    }
+
+                    if (!isClosing)
+                    {
+                        if (inRow)
+                        {
+                            return false;
+                        }
+
+                        inRow = true;
+                        currentRow = [];
+                    }
+                    else
+                    {
+                        if (!inRow || currentRow is null || currentRow.Count == 0)
+                        {
+                            return false;
+                        }
+
+                        parsedRows.Add(currentRow);
+                        currentRow = null;
+                        inRow = false;
+                    }
+
+                    break;
+
+                case "td" or "th":
+                    // Reject any attribute (including colspan, rowspan, span, headers, etc.) or self-closing cell.
+                    if (!inTable || !inRow || isSelfClosing || restOfTag.Length > 0)
+                    {
+                        return false;
+                    }
+
+                    if (!isClosing)
+                    {
+                        if (cellTag is not null)
+                        {
+                            return false;
+                        }
+
+                        cellTag = tagName;
+                        currentCell = new StringBuilder();
+                    }
+                    else
+                    {
+                        if (cellTag != tagName || currentCell is null)
+                        {
+                            return false;
+                        }
+
+                        currentRow!.Add(currentCell.ToString().Trim());
+                        currentCell = null;
+                        cellTag = null;
+                    }
+
+                    break;
+
+                case "colgroup" or "col" or "caption":
+                    return false;
+
+                case "br":
+                    if (cellTag is null || isClosing || restOfTag.Length > 0)
+                    {
+                        return false;
+                    }
+
+                    currentCell!.Append('\n');
+                    break;
+
+                default:
+                    if (cellTag is null)
+                    {
+                        return false;
+                    }
+
+                    currentCell!.Append(trimmed[lt..(gt + 1)]);
+                    break;
+            }
+
+            i = gt + 1;
+        }
+
+        if (!tableClosed || inTable || sectionTag is not null || inRow || cellTag is not null || parsedRows.Count == 0)
+        {
+            return false;
+        }
+
+        rows = parsedRows;
+        return true;
+    }
+
     public static string DecodeBasicEntities(string value)
     {
         if (!value.Contains('&', StringComparison.Ordinal))

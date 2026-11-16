@@ -537,7 +537,7 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
         using var traversal = await client.GetAsync("/api/documents/..%2F..%2FWindows%2Fwin.ini/original", Cancel);
         Assert.Equal(HttpStatusCode.BadRequest, traversal.StatusCode);
 
-        // No filename column exists; the schema has exactly the designed F1+F2 columns.
+        // No filename column exists; the schema has exactly the designed F1+F2+F3 columns.
         await using var admin = await db.OpenAdminAsync();
         await using var command = new NpgsqlCommand(
             "SELECT string_agg(table_name || '.' || column_name, ',' ORDER BY table_name, column_name) FROM information_schema.columns WHERE table_schema = 'eledgercare' AND table_name <> '__ef_migrations_history'",
@@ -567,7 +567,23 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
             "extraction_results.worker_config_digest,extraction_results.worker_source_digest," +
             "original_artifacts.byte_length,original_artifacts.bytes,original_artifacts.document_id,original_artifacts.media_type,original_artifacts.page_count,original_artifacts.sha256," +
             "processing_jobs.attempt_count,processing_jobs.document_id,processing_jobs.job_id,processing_jobs.latest_fencing_token," +
-            "processing_jobs.queued_at,processing_jobs.requested_at,processing_jobs.retried_from_attempt_id,processing_jobs.status,processing_jobs.updated_at",
+            "processing_jobs.queued_at,processing_jobs.requested_at,processing_jobs.retried_from_attempt_id,processing_jobs.status,processing_jobs.updated_at," +
+            "work_order_review_fields.consulted_block_ordinal,work_order_review_fields.consulted_page_number,work_order_review_fields.consulted_quote," +
+            "work_order_review_fields.consulted_table_column,work_order_review_fields.consulted_table_row,work_order_review_fields.decision," +
+            "work_order_review_fields.field_key,work_order_review_fields.field_ordinal,work_order_review_fields.human_value," +
+            "work_order_review_fields.revision_id,work_order_review_fields.unknown_reason," +
+            "work_order_review_heads.created_at,work_order_review_heads.current_revision_id,work_order_review_heads.current_revision_number," +
+            "work_order_review_heads.current_status,work_order_review_heads.document_id,work_order_review_heads.field_schema_version," +
+            "work_order_review_heads.input_sha256,work_order_review_heads.machine_snapshot_json,work_order_review_heads.profile_id," +
+            "work_order_review_heads.raw_output_sha256,work_order_review_heads.result_id,work_order_review_heads.suggestion_policy_version," +
+            "work_order_review_heads.updated_at," +
+            "work_order_review_revisions.accepted_field_count,work_order_review_revisions.document_id,work_order_review_revisions.edited_field_count," +
+            "work_order_review_revisions.field_schema_version,work_order_review_revisions.idempotency_key,work_order_review_revisions.input_sha256," +
+            "work_order_review_revisions.operator_display_label,work_order_review_revisions.previous_revision_number,work_order_review_revisions.profile_id," +
+            "work_order_review_revisions.raw_output_sha256,work_order_review_revisions.request_sha256,work_order_review_revisions.result_id," +
+            "work_order_review_revisions.revision_id,work_order_review_revisions.revision_number,work_order_review_revisions.saved_at," +
+            "work_order_review_revisions.status,work_order_review_revisions.suggestion_policy_version,work_order_review_revisions.unknown_field_count," +
+            "work_order_review_revisions.unreviewed_field_count",
             columns);
 
         var filesAfter = Directory.GetFiles(apiDirectory, "*", SearchOption.AllDirectories).Order().ToArray();
@@ -728,13 +744,22 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
         var uniqueKey = await Text(
             "SELECT indexdef FROM pg_indexes WHERE schemaname = 'eledgercare' AND indexname = 'ux_documents_idempotency_key'");
 
-        Assert.Equal("documents=p,execution_attempts=p,extraction_results=p,original_artifacts=p,processing_jobs=p", persistence);
+        Assert.Equal(
+            "documents=p,execution_attempts=p,extraction_results=p,original_artifacts=p,processing_jobs=p," +
+            "work_order_review_fields=p,work_order_review_heads=p,work_order_review_revisions=p",
+            persistence);
         Assert.Equal(
             "fk_execution_attempts_documents:del=r,upd=a;fk_execution_attempts_processing_jobs:del=r,upd=a;" +
             "fk_execution_attempts_retried_from:del=r,upd=a;fk_extraction_results_documents:del=r,upd=a;" +
             "fk_extraction_results_execution_attempts:del=r,upd=a;fk_extraction_results_processing_jobs:del=r,upd=a;" +
             "fk_original_artifacts_documents:del=r,upd=a;fk_processing_jobs_documents:del=r,upd=a;" +
-            "fk_processing_jobs_retried_from_attempt:del=r,upd=a",
+            "fk_processing_jobs_retried_from_attempt:del=r,upd=a;" +
+            "fk_work_order_review_fields_revisions:del=r,upd=a;" +
+            "fk_work_order_review_heads_current_revision:del=r,upd=a;" +
+            "fk_work_order_review_heads_documents:del=r,upd=a;" +
+            "fk_work_order_review_heads_extraction_results:del=r,upd=a;" +
+            "fk_work_order_review_revisions_documents:del=r,upd=a;" +
+            "fk_work_order_review_revisions_extraction_results:del=r,upd=a",
             foreignKeys);
         Assert.Equal(
             "ck_execution_attempts_ended_consistency,ck_execution_attempts_failure_consistency,ck_execution_attempts_positive_ids," +
@@ -742,7 +767,13 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
             "ck_extraction_results_finish_reason,ck_extraction_results_page_bounds,ck_extraction_results_raw_length_matches," +
             "ck_extraction_results_schema,ck_original_artifacts_byte_length_matches,ck_original_artifacts_byte_length_range," +
             "ck_original_artifacts_media_type,ck_original_artifacts_page_count_range,ck_original_artifacts_sha256_length," +
-            "ck_processing_jobs_state_invariants,ck_processing_jobs_status",
+            "ck_processing_jobs_state_invariants,ck_processing_jobs_status," +
+            "ck_work_order_review_fields_decision,ck_work_order_review_fields_key_ordinal,ck_work_order_review_fields_source_coords," +
+            "ck_work_order_review_fields_unknown_reason,ck_work_order_review_fields_value_consistency,ck_work_order_review_fields_value_lengths," +
+            "ck_work_order_review_heads_digests,ck_work_order_review_heads_profile,ck_work_order_review_heads_revision_bounds," +
+            "ck_work_order_review_heads_status," +
+            "ck_work_order_review_revisions_bounds,ck_work_order_review_revisions_digests,ck_work_order_review_revisions_field_counts," +
+            "ck_work_order_review_revisions_operator_label,ck_work_order_review_revisions_profile,ck_work_order_review_revisions_status",
             checks);
         Assert.Contains("UNIQUE INDEX ux_documents_idempotency_key", uniqueKey, StringComparison.Ordinal);
 

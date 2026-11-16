@@ -1,0 +1,71 @@
+$ pwsh -NoProfile -File deploy/dev/smoke/run-browser-checks.ps1 -Database eledgercare_f3_e2e -ApiPort 5390 -UiPort 4410
+[exit=0, elapsed_ms=66967.3]
+--- STDOUT ---
+Build started...
+Build succeeded.
+Failed executing DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM eledgercare.__ef_migrations_history
+ORDER BY "MigrationId";
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Applying migration '20261114182147_InitialDurableIntake'.
+Applying migration '20261116052029_AddLocalExtraction'.
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Applying migration '20261116200918_AddWorkOrderReview'.
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Done.
+Runtime privilege matrix for eledgercare_app on eledgercare_f3_e2e (table: select insert table_update col_update delete truncate):
+__ef_migrations_history: false false false false false false
+documents: true true false false false false
+execution_attempts: true true false true false false
+extraction_results: true true false false false false
+original_artifacts: true true false false false false
+processing_jobs: true true false true false false
+work_order_review_fields: true true false false false false
+work_order_review_heads: true true false true false false
+work_order_review_revisions: true true false false false false
+fencing_seq usage/select: true true
+schema create for app: false
+migrations: 20261114182147_InitialDurableIntake, 20261116052029_AddLocalExtraction, 20261116200918_AddWorkOrderReview
+[WebServer] ❯ Building...
+[WebServer] ✔ Building...
+[WebServer] Initial chunk files | Names         |  Raw size
+[WebServer] main.js             | main          | 196.10 kB | 
+[WebServer] styles.css          | styles        |   5.87 kB | 
+[WebServer] 
+[WebServer]                     | Initial total | 201.97 kB
+[WebServer] 
+[WebServer] Application bundle generation complete. [2.734 seconds] - 2026-11-16T20:57:41.674Z
+[WebServer] 
+[WebServer] Watch mode enabled. Watching for file changes...
+[WebServer] NOTE: Raw file sizes do not reflect development server per-request transformations.
+[WebServer]   ➜  Local:   http://127.0.0.1:4410/
+
+Running 13 tests using 1 worker
+
+  ✓   1 e2e\extraction.spec.ts:111:1 › F2-06: disabled-by-default worker shows honest unavailable notice, disabled action, and zero fabricated progress (2.6s)
+  ✓   2 e2e\extraction.spec.ts:134:1 › F2-06: 4-page PDF is admitted at intake and shows honest unsupported 1..3 page extraction profile (916ms)
+  ✓   3 e2e\extraction.spec.ts:159:1 › F2-03: failed attempt displays failure details, attempt history, and sends explicit retryAttemptId on retry (6.1s)
+  ✓   4 e2e\extraction.spec.ts:242:1 › F2-05 / F2-BIC-04: saved 3-page unreviewed result renders in order with inert hostile markup and survives API restart (5.7s)
+  ✓   5 e2e\intake.spec.ts:35:1 › DI-01/02/03/04: receipt shows committed reference, honest status, exact download, reopen after API restart (4.8s)
+  ✓   6 e2e\intake.spec.ts:99:1 › DI-06: a 5xx after a real commit shows outcome unknown, keeps the key across reload, and reconciles (1.9s)
+  ✓   7 e2e\intake.spec.ts:132:1 › DI-06: a 429 keeps the pending key and the same-key retry succeeds (902ms)
+  ✓   8 e2e\intake.spec.ts:162:1 › DI-06: an earlier uncertain outcome is not resolved by a later 429 (1.1s)
+  ✓   9 e2e\intake.spec.ts:198:1 › double click cannot mint a second key and a new submission is explicit (887ms)
+  ✓  10 e2e\intake.spec.ts:220:1 › invalid file is rejected definitively without a fabricated receipt (734ms)
+  ✓  11 e2e\review.spec.ts:207:1 › F3-01 / F3-02 / F3-03 / F3-BIC-04: readable original PDF alongside five fields, correction + unknown + reviewed confirmation, post-review draft, historical reopen, and 3-page navigation (8.9s)
+  ✓  12 e2e\review.spec.ts:353:1 › F3-04 / F3-BIC-05: stale-tab 409 preserves unsaved edits, uncertain 5xx retries with same key, old replay never overwrites newer head, and zero browser storage writes occur (3.6s)
+  ✓  13 e2e\review.spec.ts:486:1 › F3-05 / F3-06: XSS-like quotes/values remain strictly inert and saved review survives API restart with OCR disabled (3.5s)
+
+  13 passed (53.7s)
+
+--- STDERR ---
+[WebServer] (node:24384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm warn allow-scripts .npmrc allow-scripts setting is being ignored because --allow-scripts was passed on the command line
+[WebServer] (node:33812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:33812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:29264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
