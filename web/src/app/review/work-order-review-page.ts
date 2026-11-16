@@ -48,6 +48,11 @@ interface StaleConflictInfo {
   fetchedServerHead: DocumentReviewView | null;
 }
 
+interface ReplayedHistoricalInfo {
+  message: string;
+  idempotencyKey: string;
+}
+
 /**
  * Two-pane work-order source comparison and human review screen (/documents/:documentId/review).
  * - Renders all model/human text exclusively via inert Angular text interpolation ({{ ... }});
@@ -65,7 +70,7 @@ interface StaleConflictInfo {
         <div>
           <h2>Work-order review &amp; source comparison</h2>
           <p class="note">
-            Profile <code>maintenance-work-order/1</code> · Local unauthenticated operator review.
+            Compare the original PDF beside the five work-order fields · Local unauthenticated operator review.
             Unsaved edits and pending retries remain in page memory only (never written to browser storage).
           </p>
         </div>
@@ -94,8 +99,6 @@ interface StaleConflictInfo {
               <span class="note">
                 · Head revision <strong data-testid="current-revision-number">#{{ head.currentRevisionNumber }}</strong>
                 (of {{ head.maxRevisions }} max)
-                · Result <code data-testid="review-result-id">{{ head.resultId }}</code>
-                · Raw SHA-256 <code data-testid="review-raw-sha256">{{ head.rawSha256 }}</code>
               </span>
             </div>
             @if (hasPriorReviewedWhileCurrentlyDraft()) {
@@ -105,6 +108,52 @@ interface StaleConflictInfo {
               </div>
             }
           </div>
+
+          <details class="technical-details" data-testid="review-provenance-details">
+            <summary data-testid="toggle-review-provenance">Provenance &amp; technical details</summary>
+            <dl class="compact-dl technical-dl">
+              <dt>Review profile</dt>
+              <dd><code data-testid="review-profile-id">{{ head.profileId }}</code></dd>
+              <dt>Field schema</dt>
+              <dd><code data-testid="review-field-schema">{{ head.fieldSchemaVersion }}</code></dd>
+              <dt>Suggestion policy</dt>
+              <dd><code data-testid="review-suggestion-policy">{{ head.suggestionPolicyVersion }}</code></dd>
+              <dt>Document ID</dt>
+              <dd><code data-testid="review-document-id">{{ head.documentId }}</code></dd>
+              <dt>Extraction result ID</dt>
+              <dd><code data-testid="review-result-id">{{ head.resultId }}</code></dd>
+              <dt>Original PDF SHA-256</dt>
+              <dd>
+                <code data-testid="review-original-sha256">{{ head.originalSha256 }}</code>
+                <span class="note">
+                  ({{ head.originalByteLength }} bytes · {{ head.pageCount }} page{{ head.pageCount === 1 ? '' : 's' }})
+                </span>
+              </dd>
+              <dt>Raw extraction SHA-256</dt>
+              <dd>
+                <code data-testid="review-raw-sha256">{{ head.rawSha256 }}</code>
+                <span class="note">
+                  ({{ head.rawByteLength }} bytes · completed {{ head.extractionCompletedAtUtc }})
+                </span>
+              </dd>
+              <dt>Model checkpoint</dt>
+              <dd><code data-testid="review-model-checkpoint">{{ head.modelRepoId }} &#64; {{ head.modelRevision }}</code></dd>
+              <dt>Schema field identifiers</dt>
+              <dd>
+                <ul class="technical-field-list">
+                  @for (tf of head.fields; track tf.fieldKey) {
+                    <li>
+                      {{ tf.label }}:
+                      <code [attr.data-testid]="'technical-field-key-' + tf.fieldKey">{{ tf.fieldKey }}</code>
+                      <span class="note">
+                        (max {{ tf.maxLength }} UTF-16 code units@if (tf.machineCandidate.source; as tsrc) { · page {{ tsrc.pageNumber }}, block {{ tsrc.blockOrdinal }}@if (tsrc.tableRow !== null) {, row {{ tsrc.tableRow }}, col {{ tsrc.tableColumn }}}})
+                      </span>
+                    </li>
+                  }
+                </ul>
+              </dd>
+            </dl>
+          </details>
 
           @if (selectedHistorical(); as histView) {
             <div class="warning note-box" data-testid="historical-revision-banner">
@@ -127,12 +176,21 @@ interface StaleConflictInfo {
             </div>
           }
 
-          @if (replayedHistoricalNotice(); as replayMsg) {
+          @if (replayedHistoricalNotice(); as replayInfo) {
             <div class="warning note-box" data-testid="replayed-historical-notice">
-              <p><strong>Earlier operation reconciled without overwriting newer head:</strong> {{ replayMsg }}</p>
-              <button type="button" data-testid="dismiss-replayed-notice" (click)="replayedHistoricalNotice.set(null)">
-                Dismiss notice
-              </button>
+              <p><strong>Earlier save reconciled without overwriting newer head:</strong> {{ replayInfo.message }}</p>
+              <details class="technical-details" data-testid="replayed-historical-details">
+                <summary data-testid="toggle-replayed-details">Technical replay details</summary>
+                <dl class="compact-dl technical-dl">
+                  <dt>Replayed operation key</dt>
+                  <dd><code data-testid="replayed-operation-key">{{ replayInfo.idempotencyKey }}</code></dd>
+                </dl>
+              </details>
+              <p class="compact-actions">
+                <button type="button" data-testid="dismiss-replayed-notice" (click)="replayedHistoricalNotice.set(null)">
+                  Dismiss notice
+                </button>
+              </p>
             </div>
           }
 
@@ -140,18 +198,18 @@ interface StaleConflictInfo {
             @if (pending.uncertain) {
               <div class="warning note-box" data-testid="uncertain-save-banner">
                 <p>
-                  <strong>Save outcome unknown (network error, timeout, or HTTP 5xx).</strong>
-                  Your operation key (<code data-testid="pending-review-key">{{ pending.idempotencyKey }}</code>)
-                  and exact five-field edits are retained in page memory. Do not assume failure: the revision may have committed.
+                  <strong>Save outcome uncertain — connection interrupted before confirmation.</strong>
+                  Do not re-enter or discard your changes: this revision may already be saved. Your five field decisions remain in page memory; use <strong>Retry pending save</strong> to safely confirm or complete this exact save without creating a duplicate revision.
                 </p>
                 <p>
                   <button
                     type="button"
+                    class="primary-btn"
                     data-testid="retry-uncertain-save"
                     [disabled]="saving()"
                     (click)="retryPendingUncertainSave()"
                   >
-                    {{ saving() ? 'Retrying…' : 'Retry save with same Idempotency-Key' }}
+                    {{ saving() ? 'Retrying…' : 'Retry pending save' }}
                   </button>
                   <button
                     type="button"
@@ -159,12 +217,23 @@ interface StaleConflictInfo {
                     [disabled]="saving()"
                     (click)="inspectServerDuringUncertainty()"
                   >
-                    Check committed server state
+                    Check saved state
                   </button>
                 </p>
                 @if (uncertaintyObservation(); as obs) {
                   <p class="note" data-testid="uncertainty-server-observation">{{ obs }}</p>
                 }
+                <details class="technical-details" data-testid="uncertain-save-details">
+                  <summary data-testid="toggle-uncertain-save-details">Technical save details</summary>
+                  <dl class="compact-dl technical-dl">
+                    <dt>Pending operation key</dt>
+                    <dd><code data-testid="pending-review-key">{{ pending.idempotencyKey }}</code></dd>
+                    <dt>Expected base revision</dt>
+                    <dd>#{{ pending.requestBody.expectedRevision }}</dd>
+                    <dt>Requested status</dt>
+                    <dd>{{ pending.requestBody.status }}</dd>
+                  </dl>
+                </details>
               </div>
             }
           }
@@ -172,7 +241,7 @@ interface StaleConflictInfo {
           @if (staleConflict(); as conflict) {
             <div class="error note-box" data-testid="stale-conflict-banner">
               <p>
-                <strong>Stale revision conflict (HTTP 409):</strong> {{ conflict.detail }}
+                <strong>Another revision was saved while you were editing:</strong> {{ conflict.detail }}
               </p>
               <p class="note">
                 Your unsaved edits based on Revision #{{ conflict.expectedRevision }} are preserved in page memory below.
@@ -213,7 +282,7 @@ interface StaleConflictInfo {
                   <ul>
                     @for (sf of conflict.fetchedServerHead!.fields; track sf.fieldKey) {
                       <li>
-                        <code>{{ sf.fieldKey }}</code>: <strong>{{ sf.decision }}</strong>
+                        <strong>{{ sf.label }}:</strong> {{ sf.decision }}
                         — {{ sf.value !== null ? sf.value : '(no value)' }}
                       </li>
                     }
@@ -285,9 +354,6 @@ interface StaleConflictInfo {
                 ></iframe>
               }
             </div>
-            <p class="note">
-              Original SHA-256: <code data-testid="review-original-sha256">{{ head.originalSha256 }}</code>
-            </p>
           </section>
 
           <!-- Right Pane: Five Work-Order Fields & Review Controls -->
@@ -301,15 +367,15 @@ interface StaleConflictInfo {
                     <span class="status" [attr.data-testid]="'historical-decision-' + hf.fieldKey">{{ hf.decision }}</span>
                   </div>
                   <div class="machine-box">
-                    <span class="note">Immutable machine candidate ({{ hf.machineCandidate.status }}): </span>
+                    <span class="note">Machine suggestion ({{ machineStatusLabel(hf.machineCandidate.status) }}): </span>
                     <code>{{ hf.machineCandidate.value ?? 'none' }}</code>
                     @if (hf.machineCandidate.source; as msrc) {
                       <button
                         type="button"
-                        class="link-btn"
+                        class="small-btn"
                         (click)="goToPage(msrc.pageNumber)"
                       >
-                        Page {{ msrc.pageNumber }}, Block {{ msrc.blockOrdinal }}
+                        View Page {{ msrc.pageNumber }}
                       </button>
                     }
                   </div>
@@ -323,21 +389,21 @@ interface StaleConflictInfo {
                     @if (hf.consultedSource; as csrc) {
                       <dt>Consulted source</dt>
                       <dd>
-                        Page {{ csrc.pageNumber }}, Block {{ csrc.blockOrdinal }} — quote: {{ csrc.sourceQuote }}
+                        Page {{ csrc.pageNumber }} — quote: {{ csrc.sourceQuote }}
                       </dd>
                     }
                   </dl>
                 </article>
               }
             } @else {
-              <h3>Five work-order fields (<code>{{ head.fieldSchemaVersion }}</code>)</h3>
+              <h3>Five work-order fields</h3>
 
               @for (f of editableFields(); track f.fieldKey) {
                 <article class="field-card" [attr.data-testid]="'review-field-' + f.fieldKey">
                   <div class="field-header">
                     <div>
                       <strong>{{ f.label }}</strong>
-                      <span class="note"> (<code>{{ f.fieldKey }}</code> · max {{ f.maxLength }} chars)</span>
+                      <span class="note"> · max {{ f.maxLength }} characters</span>
                     </div>
                     <span class="status" [attr.data-testid]="'field-decision-' + f.fieldKey">{{ f.decision }}</span>
                   </div>
@@ -346,11 +412,11 @@ interface StaleConflictInfo {
                   <div class="machine-box" [attr.data-testid]="'machine-candidate-' + f.fieldKey">
                     <div class="machine-row">
                       <span>
-                        <strong>Machine candidate ({{ f.machineCandidate.status }}): </strong>
+                        <strong>Machine suggestion ({{ machineStatusLabel(f.machineCandidate.status) }}): </strong>
                         @if (f.machineCandidate.value !== null) {
                           <span class="machine-value" [attr.data-testid]="'machine-value-' + f.fieldKey">{{ f.machineCandidate.value }}</span>
                         } @else {
-                          <em [attr.data-testid]="'machine-value-' + f.fieldKey">No suggestion ({{ f.machineCandidate.status }})</em>
+                          <em [attr.data-testid]="'machine-value-' + f.fieldKey">No suggestion ({{ machineStatusLabel(f.machineCandidate.status) }})</em>
                         }
                       </span>
                       @if (f.machineCandidate.source; as src) {
@@ -360,13 +426,13 @@ interface StaleConflictInfo {
                           [attr.data-testid]="'jump-source-' + f.fieldKey"
                           (click)="goToPage(src.pageNumber)"
                         >
-                          View Page {{ src.pageNumber }} (block {{ src.blockOrdinal }}@if (src.tableRow !== null) {, r{{ src.tableRow }}:c{{ src.tableColumn }}})
+                          View Page {{ src.pageNumber }}
                         </button>
                       }
                     </div>
                     @if (f.machineCandidate.source; as srcQuote) {
                       <p class="quote-line" [attr.data-testid]="'machine-quote-' + f.fieldKey">
-                        Source quote: {{ srcQuote.sourceQuote }}
+                        Source quote (Page {{ srcQuote.pageNumber }}): {{ srcQuote.sourceQuote }}
                       </p>
                     }
                     @if (f.machineCandidate.competingSources.length > 0) {
@@ -375,10 +441,10 @@ interface StaleConflictInfo {
                         <ul>
                           @for (comp of f.machineCandidate.competingSources; track $index) {
                             <li>
-                              Page {{ comp.pageNumber }}, Block {{ comp.blockOrdinal }}:
+                              Page {{ comp.pageNumber }}:
                               {{ comp.sourceQuote }}
                               <button type="button" class="small-btn" (click)="goToPage(comp.pageNumber)">
-                                Page {{ comp.pageNumber }}
+                                View Page {{ comp.pageNumber }}
                               </button>
                             </li>
                           }
@@ -457,14 +523,14 @@ interface StaleConflictInfo {
                       />
                     }
                     <div class="char-counter note">
-                      {{ f.editValue.length }} / {{ f.maxLength }} UTF-16 code units
+                      {{ f.editValue.length }} / {{ f.maxLength }} characters
                     </div>
                   </div>
 
                   @if (f.decision === 'unknown') {
                     <div class="unknown-reason-wrap">
                       <label class="note" [attr.for]="'reason-' + f.fieldKey">
-                        Unknown reason (optional, single-line, max 500 chars):
+                        Reason marked unknown (optional, single line, max 500 characters):
                       </label>
                       <input
                         [id]="'reason-' + f.fieldKey"
@@ -487,7 +553,7 @@ interface StaleConflictInfo {
                 <div class="operator-label-wrap">
                   <label for="operator-label-input">
                     <strong>Operator display label</strong>
-                    <span class="note"> (optional self-reported local note, max 80 chars — unauthenticated)</span>
+                    <span class="note"> (optional self-reported local note, max 80 characters — unauthenticated)</span>
                   </label>
                   <input
                     id="operator-label-input"
@@ -501,6 +567,12 @@ interface StaleConflictInfo {
                     (input)="onOperatorLabelInput($any($event.target).value)"
                   />
                 </div>
+
+                @if (hasUnsavedEdits()) {
+                  <p class="warning-inline" data-testid="unsaved-edits-warning">
+                    <strong>Unsaved edits in page memory:</strong> Save a draft or reviewed revision before closing or leaving this page.
+                  </p>
+                }
 
                 <div class="review-summary-box" data-testid="unknown-summary">
                   <p>
@@ -597,10 +669,7 @@ interface StaleConflictInfo {
                         </td>
                         <td [attr.data-testid]="'history-status-' + rev.revisionNumber">{{ rev.status }}</td>
                         <td>
-                          {{ rev.acceptedFieldCount }}A / {{ rev.editedFieldCount }}E / {{ rev.unknownFieldCount }}U
-                          @if (rev.unreviewedFieldCount > 0) {
-                            / {{ rev.unreviewedFieldCount }} unrev
-                          }
+                          {{ rev.acceptedFieldCount }} accepted, {{ rev.editedFieldCount }} edited, {{ rev.unknownFieldCount }} unknown@if (rev.unreviewedFieldCount > 0) {, {{ rev.unreviewedFieldCount }} unreviewed}
                         </td>
                         <td>{{ rev.operatorDisplayLabel ?? '—' }}</td>
                         <td>{{ rev.savedAtUtc }}</td>
@@ -668,7 +737,7 @@ export class WorkOrderReviewPage {
   protected readonly pendingSave = signal<PendingReviewSave | null>(null);
   protected readonly uncertaintyObservation = signal<string | null>(null);
   protected readonly staleConflict = signal<StaleConflictInfo | null>(null);
-  protected readonly replayedHistoricalNotice = signal<string | null>(null);
+  protected readonly replayedHistoricalNotice = signal<ReplayedHistoricalInfo | null>(null);
   protected readonly validationError = signal<string | null>(null);
   protected readonly saveSuccessMessage = signal<string | null>(null);
 
@@ -790,6 +859,10 @@ export class WorkOrderReviewPage {
 
   protected canAcceptCandidate(field: EditableFieldState): boolean {
     return field.machineCandidate.status === 'suggested' && field.machineCandidate.value !== null;
+  }
+
+  protected machineStatusLabel(status: MachineFieldCandidate['status']): string {
+    return status === 'invalid_text' ? 'invalid text' : status;
   }
 
   protected goToPage(page: number): void {
@@ -953,13 +1026,15 @@ export class WorkOrderReviewPage {
       };
     });
 
+    const labelByKey = new Map(this.editableFields().map((f) => [f.fieldKey, f.label]));
     for (const fp of fieldsPayload) {
+      const displayLabel = labelByKey.get(fp.fieldKey) ?? fp.fieldKey;
       if ((fp.decision === 'accepted' || fp.decision === 'edited') && (!fp.value || fp.value.trim().length === 0)) {
-        this.validationError.set(`Field '${fp.fieldKey}' requires a non-whitespace value when marked '${fp.decision}'.`);
+        this.validationError.set(`"${displayLabel}" requires a non-whitespace value when marked ${fp.decision}.`);
         return;
       }
       if (targetStatus === 'reviewed' && fp.decision === 'unreviewed') {
-        this.validationError.set(`Field '${fp.fieldKey}' is still unreviewed; resolve all five fields first.`);
+        this.validationError.set(`"${displayLabel}" is still unreviewed; resolve all five fields first.`);
         return;
       }
     }
@@ -1008,13 +1083,13 @@ export class WorkOrderReviewPage {
         this.uncertaintyObservation.set(null);
         this.applyHeadView(latest, true);
         this.saveSuccessMessage.set(
-          `Confirmed committed Revision #${latest.currentRevisionNumber} (${latest.reviewState}) for Idempotency-Key ${pending.idempotencyKey}.`,
+          `Confirmed saved Revision #${latest.currentRevisionNumber} (${latest.reviewState}).`,
         );
         return;
       }
       this.uncertaintyObservation.set(
         `Server head is currently Revision #${latest.currentRevisionNumber} (${latest.reviewState}). ` +
-          `Use "Retry save with same Idempotency-Key" to replay or complete your pending operation safely.`,
+          `Use "Retry pending save" to safely complete or confirm your pending changes.`,
       );
     } catch {
       this.uncertaintyObservation.set('Could not reach server yet; pending operation remains preserved in memory.');
@@ -1144,11 +1219,13 @@ export class WorkOrderReviewPage {
       if (!body.isCurrentHead) {
         // Replay of an older committed revision AFTER a newer revision was already committed!
         // Never silently overwrite client state with the older revision (Kickoff L9).
-        this.replayedHistoricalNotice.set(
-          `Your earlier operation (${operation.idempotencyKey}) had committed as Revision #${body.revision.revisionNumber} ` +
+        this.replayedHistoricalNotice.set({
+          message:
+            `Your earlier save had already recorded Revision #${body.revision.revisionNumber} ` +
             `(${body.revision.status}), while server head has since advanced to Revision #${body.currentRevisionNumber} ` +
             `(${body.currentReviewState}). Loaded current head Revision #${body.currentRevisionNumber}.`,
-        );
+          idempotencyKey: operation.idempotencyKey,
+        });
         const currentHeadView = await firstValueFrom(this.api.getReview(head.documentId));
         if (!this.destroyed) {
           this.applyHeadView(currentHeadView, true);
@@ -1170,7 +1247,7 @@ export class WorkOrderReviewPage {
       this.applyHeadView(updatedHead, true);
       this.saveSuccessMessage.set(
         body.replayed
-          ? `Reconciled existing Revision #${body.revision.revisionNumber} (${body.revision.status}) via idempotent replay.`
+          ? `Confirmed existing Revision #${body.revision.revisionNumber} (${body.revision.status}) — no duplicate revision created.`
           : `Saved Revision #${body.revision.revisionNumber} (${body.revision.status}).`,
       );
     } catch (error: unknown) {
@@ -1219,6 +1296,7 @@ export class WorkOrderReviewPage {
     this.selectedHistorical.set(null);
     this.pendingSave.set(null);
     this.staleConflict.set(null);
+    this.replayedHistoricalNotice.set(null);
     this.validationError.set(null);
     this.saveSuccessMessage.set(null);
 

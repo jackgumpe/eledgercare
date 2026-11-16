@@ -1,0 +1,227 @@
+{
+  "schema": "eledgercare.wp-0008.f3-presentation-change-inventory/1",
+  "author": "eld-f3-implementer",
+  "branch": "feature/wp-0008-f3-review",
+  "prior_author_publication_003": "b77bc68a5b6878d2395cd76b0d0a858ae15cc249",
+  "original_product_candidate": "62e8666af747c0040942cee20c0ed34f4d747e93",
+  "root_authority_merged": "3b225040475fe150956bc260d3584dfd0040d71b",
+  "merged_base": "af7160dc5b471fc855d7dc8d10bc0f63561294ca",
+  "deliverable_lineage": [
+    {
+      "commit": "bc82102bc5a59663942c717d31acbc02d32be2a2",
+      "summary": "Initial presentation-correction source & helpers (`13/13` Playwright Edge E2E specs passed; helper `verify_presentation_edge.mjs` display-label mismatch preserved in `bc82102b-04-edge-retained-db-presentation.log`)."
+    },
+    {
+      "commit": "dda4b4d5856ac45105c31ba1d6d6813debdab8a7",
+      "summary": "Aligned helper display-label check with `WorkOrderReviewSchema.Fields` (`web/` tree `381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd` unchanged from `bc82102b`); all 5 verification steps exited 0."
+    }
+  ],
+  "frozen_deliverable_head": "dda4b4d5856ac45105c31ba1d6d6813debdab8a7",
+  "web_tree_at_deliverable": "381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd",
+  "verified_unchanged_vs_original_62e8666a": {
+    "src": "e0dc8651c9fefb228ad26e17f62da6c20fd59ae0",
+    "tests": "838979ed5f81050c2cc7b7938aa9ae5eb641bbbb",
+    "deploy": "4c410b6cff7575a522d38e3c191db33924214841",
+    "workers/local_ocr": "dc9b69e480f93db1e73ebdd65719efaa9aeab298",
+    "workers/local_ocr/README.md": "83ed6624f95c48bfbae4c466201774824f63ef5e",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "Directory.Build.props": "abc535eeaea0896c860984c7359a66c33ec30cf4",
+    "Directory.Packages.props": "95976cb437a7a7747d38df3d6b2a0b5ca94bf2fc",
+    "web/package.json": "4fc692ff2baad941390e616fcebb4fd748507b1a",
+    "web/package-lock.json": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+    "web/angular.json": "2a7c87fb81befe8647e7beef48dc29712e861bc7",
+    "web/playwright.config.ts": "c4599cd2470feac57dca73a0c65c504bed19aa18",
+    "web/src/app/review/pdf-preview-url.ts": "ce1bd41aa4cc1ba1a802aa8cc3f02196dd45b191",
+    "web/src/app/review/review-api.ts": "d406979137ff7cdfd9c5200dcdc127c96209629b",
+    "web/src/app/review/review-models.ts": "bc86883a06999af787d2bf28899938886395dbf0",
+    "web/src/app/intake/document-page.ts": "e16febe191e60f2d88f39c035640a65aadd14b6e"
+  },
+  "verified_unchanged_vs_merged_base_af7160dc": {
+    "AGENTS.md": "7134becfcd29d0c8171e7cede82ca388a40269f8",
+    "START_HERE.md": "422e7540fc1f0bd4c57aeb621c67e26f94b756ef",
+    "CURRENT.md": "bbf12daf6c9e6d1ce563c40b50ebb625ce57ed5d",
+    "INDEX.md": "c7b2f6b594a9597a27453ce66bac98e4dc8df1a2",
+    "docs/design": "6c1ed2c0f9ef400c3bd7f84bdf4b2229b9d6f6dc",
+    "docs/coordination": "c169787531dccc21a5f00676f3a525c934b2fdd6",
+    "docs/kickoffs": "7325d9e211489a727d9b40dd267870f30e99d5a3",
+    "docs/reviews": "d43ccbcab963e505f7d252d5cd279d25005fa63c",
+    "docs/agent-reports": "639fccf4b83c6535857ac209fae8c60526e62ea4",
+    "docs/agent-reports/eld-f3-implementer/WP-0008/003_2026-11-16_implementation_eld-f3-implementer.md": "4582c30e48f9490fda57f468fcd4958e29c55a95",
+    "docs/implementation/WP-0008/eld-f3-implementer/evidence": "c3217fe29ee6f8731ada61f15317af64caa6df3d",
+    "docs/implementation/WP-0008/eld-f3-implementer/retained-failures": "044dd48b15b6f039e8a480d2c827bafbee69cdce",
+    "docs/implementation/WP-0008/eld-f3-implementer/scripts": "e92dff4efaad6fa7a6664f42da609a115b3bdf46",
+    "docs/implementation/WP-0008/eld-f3-implementer/README.md": "c7d276bd0cf26c724de3bbaf8223bcb5ee962aa8",
+    "docs/implementation/WP-0008/eld-f3-implementer/change-inventory.json": "82f5b6647f93515b57dcfc350638b6f8a7770cae",
+    "evaluation": "c9d3ff5a1f3f060169f1a8a0a6452827eae3e188",
+    "qualification": "9a98eaa342722eff675ff9948947d5f9be6d33b3",
+    "research": "5036d17e55f96af3bdeea82a20a32eb54a26ddca"
+  },
+  "deliverable_diff_count": 7,
+  "deliverable_diff_entries": [
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/retained-failures/README.md",
+      "git_blob_oid_at_deliverable": "4d659d668cf575938f2184ed3e2d5cbefe1f87ed",
+      "bytes_at_deliverable": 1548,
+      "sha256_at_deliverable": "8566a9d80e1b7fc5744b1a052f65dd4f9e4f1e5c7fa6209213cfa9c6e853bf7e"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/retained-failures/bc82102b-04-edge-retained-db-presentation.log",
+      "git_blob_oid_at_deliverable": "27118e5862fde93142c65bbb74c4a9dbd4192117",
+      "bytes_at_deliverable": 664,
+      "sha256_at_deliverable": "8c75e17102a16c83c64e82ebba52a7b112fe87fac7c73c740d6a7a1849cff4c0"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/scripts/run_presentation_verification.py",
+      "git_blob_oid_at_deliverable": "02edef9bb5ad07d987131243012aa6c0dc74c6cb",
+      "bytes_at_deliverable": 27547,
+      "sha256_at_deliverable": "cda6386badf73a61c58ba4b6b743b763f144cb9cc2ddce6854a33b943293147b"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/scripts/verify_presentation_edge.mjs",
+      "git_blob_oid_at_deliverable": "0d2b53317dd6b51a1be3094c61a46c5e8428a4ea",
+      "bytes_at_deliverable": 13862,
+      "sha256_at_deliverable": "b3c1da02633f42928cbf54e00ecd0d0f8c2b8696a7daebafcd499b07462db565"
+    },
+    {
+      "action": "M",
+      "path": "web/e2e/review.spec.ts",
+      "git_blob_oid_at_deliverable": "a21d6a41d6e21aef6590ffb964b176db3ae03bf3",
+      "bytes_at_deliverable": 30430,
+      "sha256_at_deliverable": "fb5eedddb34ef119600c5059cb7a7b37eac4c438fd898f318e7766611e4d6d35"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/review/work-order-review-page.ts",
+      "git_blob_oid_at_deliverable": "184982722fe88df00c6a824fac90d8ac9c06b437",
+      "bytes_at_deliverable": 57246,
+      "sha256_at_deliverable": "ec012b6052d87ce2cd94358060e5b0d28fd11f611c540409e76daafa84ad4c5e"
+    },
+    {
+      "action": "M",
+      "path": "web/src/styles.css",
+      "git_blob_oid_at_deliverable": "50280c4740ed34394905292a01034b17ed41c2ae",
+      "bytes_at_deliverable": 6323,
+      "sha256_at_deliverable": "7e7c079a40c42a797dc2ffd0c309d68880a452508d10deccf1768319815f8d1c"
+    }
+  ],
+  "post_deliverable_evidence_count": 18,
+  "post_deliverable_evidence_entries": [
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/README.md",
+      "bytes": 6836,
+      "sha256": "aa49ab908a8e4677dfc38b7e6884b5573c3c4116bdf395944022369f1106e13f"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/change-inventory.json",
+      "self_referential": true,
+      "note": "Inventories all 7 deliverable paths and the other 17 post-deliverable evidence/doc paths."
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/evidence-manifest.json",
+      "bytes": 3938,
+      "sha256": "1519c98d0e8aa0f84c4b79ed142d7e6b81a988a8af2451aee4c0cbeb34f2d8a1"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/logs/01-pg-cluster-start.log",
+      "bytes": 302,
+      "sha256": "852650337e09c1990a956e33b9796866e67be1f3d31e4b03dc6ee21da6f29d30"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/logs/02-ng-build-production.log",
+      "bytes": 638,
+      "sha256": "4385c435f4a4f2b1d78546d0cf2054d6340298e8b5f6dd3a5ff2731a133bd58c"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/logs/03-playwright-edge-e2e.log",
+      "bytes": 5409,
+      "sha256": "6a328ef5dc93e3324006c2d2e98f319afc5650ff3078f71249fb637a50b8f15c"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/logs/04-edge-retained-db-presentation.log",
+      "bytes": 3459,
+      "sha256": "743d64eb8c1083e0b8a4e248c71bd096b7272d32b057471c03d77999a584688f"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/logs/05-pg-cluster-stop.log",
+      "bytes": 176,
+      "sha256": "f33e689a0684f197994b8191591a1266688ab67e74f78bb749b40b4eee316b01"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/logs/owned-api-presentation.log",
+      "bytes": 421,
+      "sha256": "0512b8b1ab1be822575060494f532c5aae468ad8ebd31d45c81a11f042111158"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/logs/owned-ui-presentation.log",
+      "bytes": 488,
+      "sha256": "5fced076ddd34829f5d0bb50fc5aa5625886021e5b9eb4bffe234f0473ee13b5"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/resource-return.json",
+      "bytes": 1433,
+      "sha256": "5a18d6081232fae684c60781ea1c6ee3ab1e0a43ea29964b4dad1a3b9e1ab711"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/screenshots/01-default-operator-flow-wo01.png",
+      "bytes": 258673,
+      "sha256": "25f675e3f1d5898b34755c9dd86dd164a057a9f30c4d1ce03426a85de641445d"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/screenshots/02-expanded-provenance-wo01.png",
+      "bytes": 173911,
+      "sha256": "b74260cb63b54be78cccf0248fa126f0bd0314e6cedc24b62c7937bae527391e"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/screenshots/03-uncertain-save-default.png",
+      "bytes": 213481,
+      "sha256": "ab00e22300a0dff6a23757944c83381f94a0981cd99a9f9e1896a4cd8602eca9"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/screenshots/04-uncertain-save-expanded-details.png",
+      "bytes": 160067,
+      "sha256": "823baa775774f3a5a82062e85e0372a8c052f94779e64250f362931c8f139951"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/screenshots/05-default-operator-flow-mp01-page2.png",
+      "bytes": 158859,
+      "sha256": "cd5a4fc532c09a5329e99a55299139967ec98b231314ed04c56784017ee2204e"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/screenshots/edge-presentation-receipt.json",
+      "bytes": 3424,
+      "sha256": "e282338e74531d14ea3964e61f178c21463d42de9ceb62e1491c2ee03950ce3c"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0008/eld-f3-implementer/presentation-correction/evidence/verification-summary.json",
+      "bytes": 8348,
+      "sha256": "03ee2c428576492aa8d32a548c44e9a08060c3d1a0ad245b25160dd57e2ad40e"
+    }
+  ],
+  "reserved_canonical_report_commit_after_evidence": {
+    "action": "A",
+    "path": "docs/agent-reports/eld-f3-implementer/WP-0008/006_2026-11-16_implementation_eld-f3-implementer.md",
+    "note": "Committed separately as a single-file report-only commit after the post-deliverable evidence commit."
+  }
+}
