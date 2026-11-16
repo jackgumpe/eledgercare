@@ -1,0 +1,46 @@
+{
+  "schema": "eledgercare-next-tracks-dispatch/1",
+  "observed_utc": "2026-11-16T04:13:13.207Z",
+  "authority": "Jack: Authority to proceed with compared two-track plan",
+  "packet_base": "8e80a42c29c0fc27a4af6348cfb1ec22cab3764d",
+  "design_candidate": "efa9cb986711f82a886f917e68142a7a59319bba",
+  "published_design_and_dispatch_base": "c08d50e204395e60a88ce25f70e25bd29b97b8c6",
+  "gpu_lease": null,
+  "agents": [
+    {
+      "owner": "eld-f2-implementer",
+      "conversation": "2b6861af-031b-4e8b-9ce9-2a6d476f9da0",
+      "actual_model": "gemini-4-carbon-high",
+      "effort": "high (CLI explicit)",
+      "pid": 24340,
+      "branch": "feature/wp-0006-local-extraction",
+      "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer",
+      "phase": "RUNNING source inspection and plan; production code held for design acceptance",
+      "requested_permission_mode": "accept-edits",
+      "inherited_permission_mode": "always-proceed"
+    },
+    {
+      "owner": "eld-next-reviewer",
+      "conversation": "101b19cf-3133-4ead-91cb-9ca6068e3e72",
+      "actual_model": "gemini-4-carbon-high",
+      "effort": "high (CLI explicit)",
+      "pid": 25880,
+      "branch": "review/wp-0006-0007-next-tracks",
+      "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer",
+      "phase": "RUNNING independent F2 and B0 design review",
+      "requested_permission_mode": "accept-edits",
+      "inherited_permission_mode": "always-proceed"
+    },
+    {
+      "owner": "eld-rd-astra",
+      "conversation": "/root/rd_astra",
+      "actual_model": "gpt-6-astra",
+      "effort": "high (inherited prior assignment)",
+      "backend_checkpoint": "not exposed",
+      "branch": "research/wp-0007-vanilla-baseline",
+      "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-baseline-astra",
+      "phase": "RUNNING CPU dev-only baseline parser/scorer/runner/protocol implementation; no test content/model execution"
+    }
+  ],
+  "no_billing_global_or_permission_settings_changed": true
+}
