@@ -1,0 +1,74 @@
+{
+  "uiPort": 4310,
+  "apiPort": 5290,
+  "expectOcrDisabled": true,
+  "documents": [
+    {
+      "label": "Reopened Doc 1: SYN-WO-01 (1p) after API+PG restart with OCR disabled",
+      "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+      "expectedPages": 1,
+      "expectedResultId": "01a1e573-a855-7735-96e1-f5d14cada602",
+      "expectedWinningAttemptId": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+      "expectedRawByteLength": 3236,
+      "expectedRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "expectedOriginalSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "expectedOriginalBytes": 372258,
+      "expectedAttempts": [
+        {
+          "attemptNumber": 1,
+          "attemptId": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+          "apiStatus": "completed",
+          "expectedUiStatusLabel": "Completed (unreviewed)",
+          "expectedPhase": "completed"
+        }
+      ]
+    },
+    {
+      "label": "Reopened Doc 2: SYN-MP-01 (3p) after API+PG restart with OCR disabled",
+      "documentId": "01a1e573-ca14-72ba-a46a-c84690288e22",
+      "expectedPages": 3,
+      "expectedResultId": "01a1e578-8bfa-7bba-b104-ea8309dbfd9e",
+      "expectedWinningAttemptId": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+      "expectedRawByteLength": 7511,
+      "expectedRawSha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+      "expectedOriginalSha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "expectedOriginalBytes": 8422,
+      "expectedAttempts": [
+        {
+          "attemptNumber": 1,
+          "attemptId": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+          "apiStatus": "completed",
+          "expectedUiStatusLabel": "Completed (unreviewed)",
+          "expectedPhase": "completed"
+        }
+      ]
+    },
+    {
+      "label": "Reopened Doc 3: SYN-WO-01 (interrupted + retried) after API+PG restart with OCR disabled",
+      "documentId": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+      "expectedPages": 1,
+      "expectedResultId": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+      "expectedWinningAttemptId": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+      "expectedRawByteLength": 3236,
+      "expectedRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "expectedOriginalSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "expectedOriginalBytes": 372258,
+      "expectedAttempts": [
+        {
+          "attemptNumber": 1,
+          "attemptId": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+          "apiStatus": "interrupted",
+          "expectedUiStatusLabel": "Extraction interrupted",
+          "expectedPhase": "interrupted"
+        },
+        {
+          "attemptNumber": 2,
+          "attemptId": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+          "apiStatus": "completed",
+          "expectedUiStatusLabel": "Completed (unreviewed)",
+          "expectedPhase": "completed"
+        }
+      ]
+    }
+  ]
+}

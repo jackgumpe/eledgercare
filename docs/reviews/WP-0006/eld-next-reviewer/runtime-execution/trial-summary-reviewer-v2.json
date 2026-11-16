@@ -1,0 +1,1629 @@
+{
+  "schema": "eledgercare.wp-0006.reviewer-runtime-summary/2",
+  "reviewer": "eld-next-reviewer",
+  "driver_version": "v2",
+  "conversation_id": "101b19cf-3133-4ead-91cb-9ca6068e3e72",
+  "model": "gemini-4-carbon-high",
+  "effort": "high",
+  "release_authority_commit": "513da1a18c9b80ed99d56dd1ff7bf3bc1cb77905",
+  "release_path": "docs/coordination/WP-0006/releases/reviewer-runtime.json",
+  "release_blob": {
+    "raw_sha256": "e0ee61c5a6e34da6d5aa0b5ccdd2b85bffbf980f405b228ebae1194f429a342a",
+    "lf_normalized_sha256": "e0ee61c5a6e34da6d5aa0b5ccdd2b85bffbf980f405b228ebae1194f429a342a",
+    "byte_length": 5406
+  },
+  "lease_id": "WP-0006-reviewer-runtime-20261116T173239Z",
+  "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "source_commit": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+  "executing_head": "b343f6ff78aa41332ecbe957577b6776f8edc22f",
+  "prior_prep_v1_checkpoint": "bc91d331979ed5fbcf4f38b3f359a1cf71cd9960",
+  "accepted_design_review": "e2452e1ab3d8937868c07ffb30ce430715b5be78",
+  "accepted_source_review": "82e8f732afbf038bfb5b6c560f1b1219aaa4e40f",
+  "author_runtime_evidence_commit": "88f24fb2f08eeaa773d330ab0d8b1e7c74037d8f",
+  "author_003_commit": "3ece293f4ea9b78f19dbfb7f95472b95d091d79e",
+  "writable_runtime_root": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer",
+  "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+  "database": "eledgercare_f2_runtime_reviewer",
+  "ports": {
+    "api": 5290,
+    "ui": 4310,
+    "postgres": 55435
+  },
+  "pinned_digests": {
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+    "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+    "worker_config_1p_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+    "worker_config_2p_sha256": "e4df504ddb51dcc8fb137e97f5af97c735252374738b1a1754a88b16a05de5df",
+    "worker_config_3p_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+    "f1_swo_001_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "syn_wo_01_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "syn_mp_01_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+  },
+  "expected_ui_status_labels": {
+    "awaiting_extraction": "Awaiting extraction",
+    "queued": "Queued for extraction",
+    "running": "Extraction running",
+    "completed": "Completed (unreviewed)",
+    "failed": "Extraction failed",
+    "interrupted": "Extraction interrupted"
+  },
+  "started_utc": "2026-11-16T17:38:58.378402+00:00",
+  "scenarios": {
+    "1_f01_single_page_complete": {
+      "submission": {
+        "fixture_name": "SYN-WO-01-v1-raster300.pdf",
+        "idempotency_key": "43858522-5c3d-47d2-be8c-66f7162a190e",
+        "http_status": 201,
+        "location": "/api/documents/01a1e571-2838-714b-861b-bf0835d7c90a",
+        "receipt": {
+          "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+          "jobId": "01a1e571-2838-7b9d-858e-d6ff2b8bf757",
+          "status": "awaiting_extraction",
+          "submittedAtUtc": "2026-11-16T17:39:20.760256+00:00",
+          "byteLength": 372258,
+          "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "originalUrl": "/api/documents/01a1e571-2838-714b-861b-bf0835d7c90a/original"
+        },
+        "expected_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "expected_byte_length": 372258
+      },
+      "request_extraction_status": 202,
+      "completion": {
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "winning_attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+        "run_dir": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer\\runs\\attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+        "timeline": [
+          {
+            "observed_utc": "2026-11-16T17:39:21.106448+00:00",
+            "elapsed_s": 0.015,
+            "job_status": "queued",
+            "attempt_id": null,
+            "attempt_phase_db": null,
+            "heartbeat_phase": null,
+            "forward_progress": null
+          },
+          {
+            "observed_utc": "2026-11-16T17:39:22.120704+00:00",
+            "elapsed_s": 1.031,
+            "job_status": "running",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "starting",
+            "heartbeat_phase": "preflight",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:39:23.126327+00:00",
+            "elapsed_s": 2.031,
+            "job_status": "running",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "preflight",
+            "heartbeat_phase": "preflight",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:39:30.171188+00:00",
+            "elapsed_s": 9.078,
+            "job_status": "running",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "preflight",
+            "heartbeat_phase": "loading_model",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:39:31.233123+00:00",
+            "elapsed_s": 10.14,
+            "job_status": "running",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "loading_model",
+            "heartbeat_phase": "loading_model",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:39:44.363815+00:00",
+            "elapsed_s": 23.265,
+            "job_status": "running",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "inferring",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:40:06.600013+00:00",
+            "elapsed_s": 45.5,
+            "job_status": "running",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "inferring",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 39
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:03.583853+00:00",
+            "elapsed_s": 162.484,
+            "job_status": "running",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "inferring",
+            "heartbeat_phase": "completed",
+            "forward_progress": 1123
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:04.610270+00:00",
+            "elapsed_s": 163.515,
+            "job_status": "running",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "completed",
+            "heartbeat_phase": "completed",
+            "forward_progress": 1123
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:05.650067+00:00",
+            "elapsed_s": 164.562,
+            "job_status": "completed",
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_phase_db": "completed",
+            "heartbeat_phase": "completed",
+            "forward_progress": 1123
+          }
+        ],
+        "gpu_compute_samples": [
+          "2026-11-16T17:39:30.228490+00:00 | phase=loading_model | none",
+          "2026-11-16T17:39:31.276683+00:00 | phase=loading_model | none",
+          "2026-11-16T17:39:44.419145+00:00 | phase=inferring | none",
+          "2026-11-16T17:40:06.716977+00:00 | phase=inferring | none"
+        ],
+        "db_attempts": [
+          {
+            "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "attempt_number": 1,
+            "fencing_token": 1,
+            "retried_from_attempt_id": null,
+            "status": "completed",
+            "phase": "completed",
+            "run_directory_name": "attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "supervisor_pid": 18496,
+            "supervisor_create_filetime": 134393243591895019,
+            "launcher_pid": 31000,
+            "launcher_create_filetime": 134393243611803382,
+            "worker_pid": 31540,
+            "worker_create_filetime": 134393243612105369,
+            "started_at": "2026-11-16T12:39:21.082069-05:00",
+            "ended_at": "2026-11-16T12:42:04.629418-05:00",
+            "exit_code": 0,
+            "failure_code": null,
+            "failure_detail": null
+          }
+        ],
+        "db_result": {
+          "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+          "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+          "fencing_token": 1,
+          "schema_version": "eledgercare.local-extraction/1",
+          "input_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "input_byte_length": 372258,
+          "page_count": 1,
+          "raw_output_byte_length": 3236,
+          "raw_output_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "computed_pg_bytea_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "model_repo_id": "baidu/Unlimited-OCR-2",
+          "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+          "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+          "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+          "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+          "worker_config_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+          "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+          "finish_reason": "stop",
+          "output_page_count": 1,
+          "load_duration_ms": 11464,
+          "render_duration_ms": 155,
+          "infer_duration_ms": 139341,
+          "total_duration_ms": 161300,
+          "diagnostic_metadata_json": {
+            "kernel_path": "triton_import_failed_dense_fallback",
+            "rendered_pages": [
+              {
+                "width_px": 2550,
+                "height_px": 3301,
+                "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+                "page_number": 1
+              }
+            ],
+            "storage_before": {
+              "free_disk_bytes": 52175237120,
+              "runtime_root_used_bytes": 374369
+            },
+            "page_marker_count": 1,
+            "output_token_count": 1122,
+            "prompt_token_count": 279,
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "cuda_max_reserved_bytes": 7480541184,
+            "verified_cached_modules": 8,
+            "cuda_max_allocated_bytes": 7293321728
+          }
+        },
+        "envelope": {
+          "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+          "diagnostics": {
+            "cuda_max_allocated_bytes": 7293321728,
+            "cuda_max_reserved_bytes": 7480541184,
+            "kernel_path": "triton_import_failed_dense_fallback",
+            "output_token_count": 1122,
+            "page_marker_count": 1,
+            "prompt_token_count": 279,
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "rendered_pages": [
+              {
+                "height_px": 3301,
+                "page_number": 1,
+                "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+                "width_px": 2550
+              }
+            ],
+            "storage_before": {
+              "free_disk_bytes": 52175237120,
+              "runtime_root_used_bytes": 374369
+            },
+            "verified_cached_modules": 8
+          },
+          "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+          "failure": null,
+          "fencing_token": 1,
+          "input": {
+            "byte_length": 372258,
+            "page_count": 1,
+            "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+          },
+          "job_id": "01a1e571-2838-7b9d-858e-d6ff2b8bf757",
+          "output": {
+            "byte_length": 3236,
+            "finish_reason": "stop",
+            "output_page_count": 1,
+            "output_token_count": 1122,
+            "raw_file_name": "raw_output.utf8.bin",
+            "sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95"
+          },
+          "provenance": {
+            "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+            "generation_settings": {
+              "base_size": 1024,
+              "crop_mode": false,
+              "dash_topm": 16,
+              "eval_mode": false,
+              "image_size": 640,
+              "max_crops": 16,
+              "max_length": 131072,
+              "max_new_tokens": 8000,
+              "max_page_tokens": 20000,
+              "ngram_whitelist_token_ids": null,
+              "ngram_window": 128,
+              "no_repeat_ngram_size": 35,
+              "output_path": "",
+              "page_count_guard": true,
+              "save_results": false,
+              "temperature": 0.0,
+              "test_compress": false,
+              "tps_interval": 0
+            },
+            "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+            "model_repo_id": "baidu/Unlimited-OCR-2",
+            "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+            "worker_config_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+            "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54"
+          },
+          "schema": "eledgercare.local-extraction/1",
+          "status": "completed",
+          "timings": {
+            "completed_at_utc": "2026-11-16T17:42:02.710849+00:00",
+            "infer_duration_ms": 139341,
+            "load_duration_ms": 11464,
+            "render_duration_ms": 155,
+            "started_at_utc": "2026-11-16T17:39:21.409983+00:00",
+            "total_duration_ms": 161300
+          },
+          "worker_id": "eledgercare.local-ocr-worker/1"
+        },
+        "request_manifest_keys": [
+          "accepted_provenance_exceptions",
+          "attempt_id",
+          "document_id",
+          "expected_dependency_lock_sha256",
+          "expected_input_byte_length",
+          "expected_input_sha256",
+          "expected_model_manifest_sha256",
+          "expected_page_count",
+          "expected_worker_config_sha256",
+          "expected_worker_source_sha256",
+          "fencing_token",
+          "guards",
+          "input_pdf_path",
+          "job_id",
+          "leased_gpu_uuid",
+          "model_dir",
+          "notice_dir",
+          "readonly_q0_root",
+          "schema",
+          "writable_runtime_root"
+        ],
+        "api_page_numbers": [
+          1
+        ],
+        "api_page_block_counts": [
+          36
+        ],
+        "original_download_verified_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+      },
+      "edge_ui_verification": {
+        "schema": "eledgercare.wp-0006.reviewer-ui-verification/2",
+        "reviewer": "eld-next-reviewer",
+        "verifiedUtc": "2026-11-16T17:42:13.102Z",
+        "browserChannel": "msedge",
+        "browserVersion": "157.0.4341.60",
+        "ngServePid": 32680,
+        "ngServeStartedUtc": "2026-11-16T17:42:06.168Z",
+        "uiPort": 4310,
+        "apiPort": 5290,
+        "expectOcrDisabled": false,
+        "documentsVerified": [
+          {
+            "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+            "label": "Reviewer Scenario 1: SYN-WO-01-v1-raster300 (1 page)",
+            "expectOcrDisabled": false,
+            "statusText": "Completed (unreviewed)",
+            "unreviewedBannerStrongText": "Unreviewed raw extraction output (unreviewed)",
+            "actionButtonsCount": 0,
+            "resultId": "01a1e573-a855-7735-96e1-f5d14cada602",
+            "winningAttemptId": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "modelText": "baidu/Unlimited-OCR-2 @ 0480966938291445591f69f08a13b041c073a96a",
+            "rendererText": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+            "rawByteLengthText": "3236 bytes (1 page)",
+            "uiRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+            "rawPreElementSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+            "pageHeadings": [
+              "Page 1 of 1"
+            ],
+            "renderedBlockCount": 36,
+            "renderedTableCount": 2,
+            "forbiddenDomTagCount": 0,
+            "inlineEventAttrCount": 0,
+            "attemptHistorySummaryText": "Attempt history (1)",
+            "attemptHistoryRowCount": 1,
+            "verifiedAttempts": [
+              {
+                "attemptNumber": 1,
+                "attemptId": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+                "apiStatus": "completed",
+                "uiStatusLabel": "Completed (unreviewed)",
+                "phase": "completed",
+                "startedAtUtc": "2026-11-16T17:39:21.082069+00:00",
+                "endedAtUtc": "2026-11-16T17:42:04.629418+00:00"
+              }
+            ],
+            "downloadedFilename": "document-01a1e571-2838-714b-861b-bf0835d7c90a.pdf",
+            "downloadedByteLength": 372258,
+            "downloadedSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+          }
+        ]
+      }
+    },
+    "2_f07_three_page_complete": {
+      "submission": {
+        "fixture_name": "SYN-MP-01-v0-clean.pdf",
+        "idempotency_key": "92f639e5-321d-464a-9628-f056251495cb",
+        "http_status": 201,
+        "location": "/api/documents/01a1e573-ca14-72ba-a46a-c84690288e22",
+        "receipt": {
+          "documentId": "01a1e573-ca14-72ba-a46a-c84690288e22",
+          "jobId": "01a1e573-ca14-7b6b-ba54-691edb3c51f9",
+          "status": "awaiting_extraction",
+          "submittedAtUtc": "2026-11-16T17:42:13.268798+00:00",
+          "byteLength": 8422,
+          "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+          "originalUrl": "/api/documents/01a1e573-ca14-72ba-a46a-c84690288e22/original"
+        },
+        "expected_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "expected_byte_length": 8422
+      },
+      "request_extraction_status": 202,
+      "completion": {
+        "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+        "winning_attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+        "run_dir": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer\\runs\\attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d",
+        "timeline": [
+          {
+            "observed_utc": "2026-11-16T17:42:13.286495+00:00",
+            "elapsed_s": 0.0,
+            "job_status": "queued",
+            "attempt_id": null,
+            "attempt_phase_db": null,
+            "heartbeat_phase": null,
+            "forward_progress": null
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:14.290399+00:00",
+            "elapsed_s": 1.016,
+            "job_status": "running",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "starting",
+            "heartbeat_phase": "preflight",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:15.309621+00:00",
+            "elapsed_s": 2.031,
+            "job_status": "running",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "preflight",
+            "heartbeat_phase": "preflight",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:22.346294+00:00",
+            "elapsed_s": 9.063,
+            "job_status": "running",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "preflight",
+            "heartbeat_phase": "loading_model",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:23.406857+00:00",
+            "elapsed_s": 10.125,
+            "job_status": "running",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "loading_model",
+            "heartbeat_phase": "loading_model",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:35.536628+00:00",
+            "elapsed_s": 22.25,
+            "job_status": "running",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "loading_model",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:36.596286+00:00",
+            "elapsed_s": 23.313,
+            "job_status": "running",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "inferring",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:42:54.759297+00:00",
+            "elapsed_s": 41.484,
+            "job_status": "running",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "inferring",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 8
+          },
+          {
+            "observed_utc": "2026-11-16T17:47:24.730309+00:00",
+            "elapsed_s": 311.453,
+            "job_status": "running",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "completed",
+            "heartbeat_phase": "completed",
+            "forward_progress": 2514
+          },
+          {
+            "observed_utc": "2026-11-16T17:47:25.748112+00:00",
+            "elapsed_s": 312.469,
+            "job_status": "completed",
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_phase_db": "completed",
+            "heartbeat_phase": "completed",
+            "forward_progress": 2514
+          }
+        ],
+        "gpu_compute_samples": [
+          "2026-11-16T17:42:22.403686+00:00 | phase=loading_model | none",
+          "2026-11-16T17:42:23.456201+00:00 | phase=loading_model | none",
+          "2026-11-16T17:42:35.594481+00:00 | phase=inferring | none",
+          "2026-11-16T17:42:36.653748+00:00 | phase=inferring | none",
+          "2026-11-16T17:42:54.819016+00:00 | phase=inferring | none"
+        ],
+        "db_attempts": [
+          {
+            "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "attempt_number": 1,
+            "fencing_token": 2,
+            "retried_from_attempt_id": null,
+            "status": "completed",
+            "phase": "completed",
+            "run_directory_name": "attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "supervisor_pid": 18496,
+            "supervisor_create_filetime": 134393243591895019,
+            "launcher_pid": 29092,
+            "launcher_create_filetime": 134393245333046634,
+            "worker_pid": 32424,
+            "worker_create_filetime": 134393245333272975,
+            "started_at": "2026-11-16T12:42:13.285264-05:00",
+            "ended_at": "2026-11-16T12:47:25.05048-05:00",
+            "exit_code": 0,
+            "failure_code": null,
+            "failure_detail": null
+          }
+        ],
+        "db_result": {
+          "result_id": "01a1e578-8bfa-7bba-b104-ea8309dbfd9e",
+          "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+          "fencing_token": 2,
+          "schema_version": "eledgercare.local-extraction/1",
+          "input_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+          "input_byte_length": 8422,
+          "page_count": 3,
+          "raw_output_byte_length": 7511,
+          "raw_output_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+          "computed_pg_bytea_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+          "model_repo_id": "baidu/Unlimited-OCR-2",
+          "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+          "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+          "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+          "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+          "worker_config_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+          "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+          "finish_reason": "stop",
+          "output_page_count": 3,
+          "load_duration_ms": 10819,
+          "render_duration_ms": 302,
+          "infer_duration_ms": 288970,
+          "total_duration_ms": 310217,
+          "diagnostic_metadata_json": {
+            "kernel_path": "triton_import_failed_dense_fallback",
+            "rendered_pages": [
+              {
+                "width_px": 2550,
+                "height_px": 3301,
+                "rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+                "page_number": 1
+              },
+              {
+                "width_px": 2550,
+                "height_px": 3301,
+                "rgb_sha256": "df8a12ad0ccf3b6aa1b9724c469d00a00600f192334a05d6d1073cd2cedc70f7",
+                "page_number": 2
+              },
+              {
+                "width_px": 2550,
+                "height_px": 3301,
+                "rgb_sha256": "6b17c074e893f5152852c8119798a5f3edc1d6e1a40f36c0347e69be14f24ac8",
+                "page_number": 3
+              }
+            ],
+            "storage_before": {
+              "free_disk_bytes": 52113465344,
+              "runtime_root_used_bytes": 63053061
+            },
+            "page_marker_count": 3,
+            "output_token_count": 2513,
+            "prompt_token_count": 827,
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "cuda_max_reserved_bytes": 7461666816,
+            "verified_cached_modules": 8,
+            "cuda_max_allocated_bytes": 7310473216
+          }
+        },
+        "envelope": {
+          "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+          "diagnostics": {
+            "cuda_max_allocated_bytes": 7310473216,
+            "cuda_max_reserved_bytes": 7461666816,
+            "kernel_path": "triton_import_failed_dense_fallback",
+            "output_token_count": 2513,
+            "page_marker_count": 3,
+            "prompt_token_count": 827,
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "rendered_pages": [
+              {
+                "height_px": 3301,
+                "page_number": 1,
+                "rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+                "width_px": 2550
+              },
+              {
+                "height_px": 3301,
+                "page_number": 2,
+                "rgb_sha256": "df8a12ad0ccf3b6aa1b9724c469d00a00600f192334a05d6d1073cd2cedc70f7",
+                "width_px": 2550
+              },
+              {
+                "height_px": 3301,
+                "page_number": 3,
+                "rgb_sha256": "6b17c074e893f5152852c8119798a5f3edc1d6e1a40f36c0347e69be14f24ac8",
+                "width_px": 2550
+              }
+            ],
+            "storage_before": {
+              "free_disk_bytes": 52113465344,
+              "runtime_root_used_bytes": 63053061
+            },
+            "verified_cached_modules": 8
+          },
+          "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+          "failure": null,
+          "fencing_token": 2,
+          "input": {
+            "byte_length": 8422,
+            "page_count": 3,
+            "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+          },
+          "job_id": "01a1e573-ca14-7b6b-ba54-691edb3c51f9",
+          "output": {
+            "byte_length": 7511,
+            "finish_reason": "stop",
+            "output_page_count": 3,
+            "output_token_count": 2513,
+            "raw_file_name": "raw_output.utf8.bin",
+            "sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639"
+          },
+          "provenance": {
+            "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+            "generation_settings": {
+              "base_size": 1024,
+              "crop_mode": false,
+              "dash_topm": 16,
+              "eval_mode": false,
+              "image_size": 640,
+              "max_crops": 16,
+              "max_length": 131072,
+              "max_new_tokens": 24000,
+              "max_page_tokens": 20000,
+              "ngram_whitelist_token_ids": null,
+              "ngram_window": 1024,
+              "no_repeat_ngram_size": 35,
+              "output_path": "",
+              "page_count_guard": true,
+              "save_results": false,
+              "temperature": 0.0,
+              "test_compress": false,
+              "tps_interval": 0
+            },
+            "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+            "model_repo_id": "baidu/Unlimited-OCR-2",
+            "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+            "worker_config_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+            "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54"
+          },
+          "schema": "eledgercare.local-extraction/1",
+          "status": "completed",
+          "timings": {
+            "completed_at_utc": "2026-11-16T17:47:23.734758+00:00",
+            "infer_duration_ms": 288970,
+            "load_duration_ms": 10819,
+            "render_duration_ms": 302,
+            "started_at_utc": "2026-11-16T17:42:13.516939+00:00",
+            "total_duration_ms": 310217
+          },
+          "worker_id": "eledgercare.local-ocr-worker/1"
+        },
+        "request_manifest_keys": [
+          "accepted_provenance_exceptions",
+          "attempt_id",
+          "document_id",
+          "expected_dependency_lock_sha256",
+          "expected_input_byte_length",
+          "expected_input_sha256",
+          "expected_model_manifest_sha256",
+          "expected_page_count",
+          "expected_worker_config_sha256",
+          "expected_worker_source_sha256",
+          "fencing_token",
+          "guards",
+          "input_pdf_path",
+          "job_id",
+          "leased_gpu_uuid",
+          "model_dir",
+          "notice_dir",
+          "readonly_q0_root",
+          "schema",
+          "writable_runtime_root"
+        ],
+        "api_page_numbers": [
+          1,
+          2,
+          3
+        ],
+        "api_page_block_counts": [
+          16,
+          5,
+          4
+        ],
+        "original_download_verified_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+      },
+      "matches_q0_f07_warm1_raw_sha256": false
+    },
+    "3_live_supervisor_kill_and_explicit_retry": {
+      "submission": {
+        "fixture_name": "SYN-WO-01-v1-raster300.pdf",
+        "idempotency_key": "3e0e56be-5940-449c-9859-de4f022d4059",
+        "http_status": 201,
+        "location": "/api/documents/01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "receipt": {
+          "documentId": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+          "jobId": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+          "status": "awaiting_extraction",
+          "submittedAtUtc": "2026-11-16T17:47:25.882929+00:00",
+          "byteLength": 372258,
+          "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "originalUrl": "/api/documents/01a1e578-8f3a-7e0c-826b-a2c9dc066a8f/original"
+        },
+        "expected_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "expected_byte_length": 372258
+      },
+      "attempt3_observed_at_kill": {
+        "db_row": {
+          "attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+          "attempt_number": 1,
+          "fencing_token": 3,
+          "status": "running",
+          "phase": "inferring",
+          "run_directory_name": "attempt-01a1e578-8f49-75ab-89c7-4d184378bf28",
+          "supervisor_pid": 18496,
+          "supervisor_create_filetime": 134393243591895019,
+          "launcher_pid": 11796,
+          "launcher_create_filetime": 134393248459247034,
+          "worker_pid": 32708,
+          "worker_create_filetime": 134393248459491329
+        },
+        "heartbeat": {
+          "attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+          "fencing_token": 3,
+          "forward_progress": 11,
+          "parent_pid": 11796,
+          "phase": "inferring",
+          "phase_timeout_s": 1800,
+          "stall_monitored": true,
+          "timestamp_utc": "2026-11-16T17:48:07.036230+00:00",
+          "worker_create_filetime": 134393248459491329,
+          "worker_pid": 32708
+        },
+        "cuda_compute_apps_at_kill": []
+      },
+      "supervisor_single_process_kill": {
+        "label": "rev-run1-ocr-enabled",
+        "pid": 18496,
+        "create_filetime": 134393243591895019,
+        "termination": {
+          "pid": 18496,
+          "create_filetime": 134393243591895019,
+          "method": "Win32 TerminateProcess (single process only, non-recursive)",
+          "terminated_utc": "2026-11-16T17:48:07.414840+00:00"
+        },
+        "stopped_utc": "2026-11-16T17:48:07.713334+00:00",
+        "port_5290_bound_after": false
+      },
+      "job_object_containment_verification": {
+        "job_object_cleanup_ms": 547.2,
+        "launcher_alive_after": false,
+        "worker_alive_after": false,
+        "cuda_compute_apps_after_kill": [],
+        "db_state_before_api_restart": [
+          {
+            "job_status": "running",
+            "attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+            "attempt_status": "running",
+            "result_count": 0
+          }
+        ]
+      },
+      "api_2_start": {
+        "label": "rev-run2-recovery-and-retry",
+        "pid": 29208,
+        "create_filetime": 134393248883293427,
+        "port": 5290,
+        "ocr_enabled": true,
+        "started_utc": "2026-11-16T17:48:08.330789+00:00"
+      },
+      "reconciled_interrupted_view": {
+        "documentId": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "jobId": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+        "status": "interrupted",
+        "admittedPageCount": 1,
+        "originalByteLength": 372258,
+        "originalSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "originalUrl": "/api/documents/01a1e578-8f3a-7e0c-826b-a2c9dc066a8f/original",
+        "submittedAtUtc": "2026-11-16T17:47:25.882929+00:00",
+        "queuedAtUtc": "2026-11-16T17:47:25.894968+00:00",
+        "updatedAtUtc": "2026-11-16T17:48:09.538367+00:00",
+        "workerEnabled": true,
+        "profileSupported": true,
+        "maxSupportedPages": 3,
+        "canRequestExtraction": false,
+        "canRetryExtraction": true,
+        "unavailableReason": null,
+        "currentAttempt": {
+          "attemptId": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+          "attemptNumber": 1,
+          "status": "interrupted",
+          "phase": "interrupted",
+          "startedAtUtc": "2026-11-16T17:47:25.89755+00:00",
+          "lastHeartbeatAtUtc": "2026-11-16T17:48:09.538367+00:00",
+          "endedAtUtc": "2026-11-16T17:48:09.538367+00:00",
+          "failureCode": "supervisor_interrupted",
+          "failureMessage": "The previous extraction attempt was interrupted before completion. You can explicitly retry extraction."
+        },
+        "attempts": [
+          {
+            "attemptId": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+            "attemptNumber": 1,
+            "status": "interrupted",
+            "phase": "interrupted",
+            "startedAtUtc": "2026-11-16T17:47:25.89755+00:00",
+            "lastHeartbeatAtUtc": "2026-11-16T17:48:09.538367+00:00",
+            "endedAtUtc": "2026-11-16T17:48:09.538367+00:00",
+            "failureCode": "supervisor_interrupted",
+            "failureMessage": "The previous extraction attempt was interrupted before completion. You can explicitly retry extraction."
+          }
+        ],
+        "result": null
+      },
+      "no_automatic_retry_verified_attempt_count": 1,
+      "caller_empty_replay_guard": {
+        "http_status": 409,
+        "problem": {
+          "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
+          "title": "Explicit retry required",
+          "status": 409,
+          "detail": "The previous attempt (01a1e578-8f49-75ab-89c7-4d184378bf28) did not complete. Supply retryAttemptId to start a new attempt.",
+          "code": "retry_explicit_required",
+          "traceId": "00-9cd46a467b102d70ad69a2e73ebe3ec6-d841ed81b5c10b51-00"
+        }
+      },
+      "explicit_retry_status": 202,
+      "retry_completion": {
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "winning_attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+        "run_dir": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer\\runs\\attempt-01a1e579-4599-7bed-acdc-2863c448c6fa",
+        "timeline": [
+          {
+            "observed_utc": "2026-11-16T17:48:12.593363+00:00",
+            "elapsed_s": 0.032,
+            "job_status": "queued",
+            "attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+            "attempt_phase_db": "interrupted",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 11
+          },
+          {
+            "observed_utc": "2026-11-16T17:48:13.658768+00:00",
+            "elapsed_s": 1.094,
+            "job_status": "running",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "starting",
+            "heartbeat_phase": "preflight",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:48:14.683371+00:00",
+            "elapsed_s": 2.125,
+            "job_status": "running",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "preflight",
+            "heartbeat_phase": "preflight",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:48:21.726450+00:00",
+            "elapsed_s": 9.172,
+            "job_status": "running",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "preflight",
+            "heartbeat_phase": "loading_model",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:48:22.786609+00:00",
+            "elapsed_s": 10.219,
+            "job_status": "running",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "loading_model",
+            "heartbeat_phase": "loading_model",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:48:34.947989+00:00",
+            "elapsed_s": 22.391,
+            "job_status": "running",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "loading_model",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:48:36.021972+00:00",
+            "elapsed_s": 23.453,
+            "job_status": "running",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "inferring",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 0
+          },
+          {
+            "observed_utc": "2026-11-16T17:48:54.189915+00:00",
+            "elapsed_s": 41.625,
+            "job_status": "running",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "inferring",
+            "heartbeat_phase": "inferring",
+            "forward_progress": 10
+          },
+          {
+            "observed_utc": "2026-11-16T17:50:54.107322+00:00",
+            "elapsed_s": 161.547,
+            "job_status": "running",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "completed",
+            "heartbeat_phase": "completed",
+            "forward_progress": 1123
+          },
+          {
+            "observed_utc": "2026-11-16T17:50:55.163385+00:00",
+            "elapsed_s": 162.61,
+            "job_status": "completed",
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_phase_db": "completed",
+            "heartbeat_phase": "completed",
+            "forward_progress": 1123
+          }
+        ],
+        "gpu_compute_samples": [
+          "2026-11-16T17:48:12.648593+00:00 | phase=inferring | none",
+          "2026-11-16T17:48:21.780842+00:00 | phase=loading_model | none",
+          "2026-11-16T17:48:22.841008+00:00 | phase=loading_model | none",
+          "2026-11-16T17:48:34.997585+00:00 | phase=inferring | none",
+          "2026-11-16T17:48:36.081719+00:00 | phase=inferring | none",
+          "2026-11-16T17:48:54.289021+00:00 | phase=inferring | none"
+        ],
+        "db_attempts": [
+          {
+            "attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+            "attempt_number": 1,
+            "fencing_token": 3,
+            "retried_from_attempt_id": null,
+            "status": "interrupted",
+            "phase": "interrupted",
+            "run_directory_name": "attempt-01a1e578-8f49-75ab-89c7-4d184378bf28",
+            "supervisor_pid": 18496,
+            "supervisor_create_filetime": 134393243591895019,
+            "launcher_pid": 11796,
+            "launcher_create_filetime": 134393248459247034,
+            "worker_pid": 32708,
+            "worker_create_filetime": 134393248459491329,
+            "started_at": "2026-11-16T12:47:25.89755-05:00",
+            "ended_at": "2026-11-16T12:48:09.538367-05:00",
+            "exit_code": null,
+            "failure_code": "supervisor_interrupted",
+            "failure_detail": "The previous extraction attempt was interrupted before completion. You can explicitly retry extraction."
+          },
+          {
+            "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "attempt_number": 2,
+            "fencing_token": 4,
+            "retried_from_attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+            "status": "completed",
+            "phase": "completed",
+            "run_directory_name": "attempt-01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "supervisor_pid": 29208,
+            "supervisor_create_filetime": 134393248883293427,
+            "launcher_pid": 23028,
+            "launcher_create_filetime": 134393248927989245,
+            "worker_pid": 24048,
+            "worker_create_filetime": 134393248928264151,
+            "started_at": "2026-11-16T12:48:12.569418-05:00",
+            "ended_at": "2026-11-16T12:50:54.909012-05:00",
+            "exit_code": 0,
+            "failure_code": null,
+            "failure_detail": null
+          }
+        ],
+        "db_result": {
+          "result_id": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+          "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+          "fencing_token": 4,
+          "schema_version": "eledgercare.local-extraction/1",
+          "input_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "input_byte_length": 372258,
+          "page_count": 1,
+          "raw_output_byte_length": 3236,
+          "raw_output_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "computed_pg_bytea_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "model_repo_id": "baidu/Unlimited-OCR-2",
+          "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+          "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+          "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+          "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+          "worker_config_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+          "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+          "finish_reason": "stop",
+          "output_page_count": 1,
+          "load_duration_ms": 11121,
+          "render_duration_ms": 159,
+          "infer_duration_ms": 139094,
+          "total_duration_ms": 160468,
+          "diagnostic_metadata_json": {
+            "kernel_path": "triton_import_failed_dense_fallback",
+            "rendered_pages": [
+              {
+                "width_px": 2550,
+                "height_px": 3301,
+                "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+                "page_number": 1
+              }
+            ],
+            "storage_before": {
+              "free_disk_bytes": 51979857920,
+              "runtime_root_used_bytes": 196096517
+            },
+            "page_marker_count": 1,
+            "output_token_count": 1122,
+            "prompt_token_count": 279,
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "cuda_max_reserved_bytes": 7480541184,
+            "verified_cached_modules": 8,
+            "cuda_max_allocated_bytes": 7293321728
+          }
+        },
+        "envelope": {
+          "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+          "diagnostics": {
+            "cuda_max_allocated_bytes": 7293321728,
+            "cuda_max_reserved_bytes": 7480541184,
+            "kernel_path": "triton_import_failed_dense_fallback",
+            "output_token_count": 1122,
+            "page_marker_count": 1,
+            "prompt_token_count": 279,
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "rendered_pages": [
+              {
+                "height_px": 3301,
+                "page_number": 1,
+                "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+                "width_px": 2550
+              }
+            ],
+            "storage_before": {
+              "free_disk_bytes": 51979857920,
+              "runtime_root_used_bytes": 196096517
+            },
+            "verified_cached_modules": 8
+          },
+          "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+          "failure": null,
+          "fencing_token": 4,
+          "input": {
+            "byte_length": 372258,
+            "page_count": 1,
+            "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+          },
+          "job_id": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+          "output": {
+            "byte_length": 3236,
+            "finish_reason": "stop",
+            "output_page_count": 1,
+            "output_token_count": 1122,
+            "raw_file_name": "raw_output.utf8.bin",
+            "sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95"
+          },
+          "provenance": {
+            "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+            "generation_settings": {
+              "base_size": 1024,
+              "crop_mode": false,
+              "dash_topm": 16,
+              "eval_mode": false,
+              "image_size": 640,
+              "max_crops": 16,
+              "max_length": 131072,
+              "max_new_tokens": 8000,
+              "max_page_tokens": 20000,
+              "ngram_whitelist_token_ids": null,
+              "ngram_window": 128,
+              "no_repeat_ngram_size": 35,
+              "output_path": "",
+              "page_count_guard": true,
+              "save_results": false,
+              "temperature": 0.0,
+              "test_compress": false,
+              "tps_interval": 0
+            },
+            "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+            "model_repo_id": "baidu/Unlimited-OCR-2",
+            "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+            "provenance_exceptions": [
+              "torchvision-local-sha256-TOFU"
+            ],
+            "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+            "worker_config_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+            "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54"
+          },
+          "schema": "eledgercare.local-extraction/1",
+          "status": "completed",
+          "timings": {
+            "completed_at_utc": "2026-11-16T17:50:53.459528+00:00",
+            "infer_duration_ms": 139094,
+            "load_duration_ms": 11121,
+            "render_duration_ms": 159,
+            "started_at_utc": "2026-11-16T17:48:12.993594+00:00",
+            "total_duration_ms": 160468
+          },
+          "worker_id": "eledgercare.local-ocr-worker/1"
+        },
+        "request_manifest_keys": [
+          "accepted_provenance_exceptions",
+          "attempt_id",
+          "document_id",
+          "expected_dependency_lock_sha256",
+          "expected_input_byte_length",
+          "expected_input_sha256",
+          "expected_model_manifest_sha256",
+          "expected_page_count",
+          "expected_worker_config_sha256",
+          "expected_worker_source_sha256",
+          "fencing_token",
+          "guards",
+          "input_pdf_path",
+          "job_id",
+          "leased_gpu_uuid",
+          "model_dir",
+          "notice_dir",
+          "readonly_q0_root",
+          "schema",
+          "writable_runtime_root"
+        ],
+        "api_page_numbers": [
+          1
+        ],
+        "api_page_block_counts": [
+          36
+        ],
+        "original_download_verified_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+      },
+      "within_session_f01_exact_match": true
+    },
+    "4_api_and_postgres_restart_disabled_reopen": {
+      "api_2_stop": {
+        "label": "rev-run2-recovery-and-retry",
+        "pid": 29208,
+        "create_filetime": 134393248883293427,
+        "termination": {
+          "pid": 29208,
+          "create_filetime": 134393248883293427,
+          "method": "Win32 TerminateProcess (single process only, non-recursive)",
+          "terminated_utc": "2026-11-16T17:50:55.298304+00:00"
+        },
+        "stopped_utc": "2026-11-16T17:50:55.582192+00:00",
+        "port_5290_bound_after": false
+      },
+      "postgres_fast_restart": {
+        "stop": {
+          "stopped_postmaster_pid": 22360,
+          "stopped_utc": "2026-11-16T17:50:56.319088+00:00",
+          "port_55435_bound": false
+        },
+        "start": {
+          "postmaster_pid": 27172,
+          "postmaster_create_filetime": 134393250577770577,
+          "port": 55435,
+          "started_utc": "2026-11-16T17:50:58.030203+00:00"
+        },
+        "note": "Clean pg_ctl fast restart of owned reviewer cluster (55435); not a power-loss test."
+      },
+      "api_3_disabled_start": {
+        "label": "rev-run3-ocr-disabled-reopen",
+        "pid": 8172,
+        "create_filetime": 134393250582887160,
+        "port": 5290,
+        "ocr_enabled": false,
+        "started_utc": "2026-11-16T17:50:58.286231+00:00"
+      },
+      "api_3_disabled_stop": {
+        "label": "rev-run3-ocr-disabled-reopen",
+        "pid": 8172,
+        "create_filetime": 134393250582887160,
+        "termination": {
+          "pid": 8172,
+          "create_filetime": 134393250582887160,
+          "method": "Win32 TerminateProcess (single process only, non-recursive)",
+          "terminated_utc": "2026-11-16T17:51:06.109639+00:00"
+        },
+        "stopped_utc": "2026-11-16T17:51:06.381732+00:00",
+        "port_5290_bound_after": false
+      },
+      "reopened_api_checks": [
+        {
+          "label": "doc1_f01_1p",
+          "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+          "get_document_status": 200,
+          "get_extraction_status": 200,
+          "post_completed_replay_status": 200,
+          "worker_enabled": false,
+          "persisted_status": "completed",
+          "attempt_count": 1,
+          "attempt_statuses": [
+            "completed"
+          ],
+          "raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "original_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "page_numbers": [
+            1
+          ],
+          "model_checkpoint": "baidu/Unlimited-OCR-2@0480966938291445591f69f08a13b041c073a96a"
+        },
+        {
+          "label": "doc2_f07_3p",
+          "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+          "get_document_status": 200,
+          "get_extraction_status": 200,
+          "post_completed_replay_status": 200,
+          "worker_enabled": false,
+          "persisted_status": "completed",
+          "attempt_count": 1,
+          "attempt_statuses": [
+            "completed"
+          ],
+          "raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+          "original_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+          "page_numbers": [
+            1,
+            2,
+            3
+          ],
+          "model_checkpoint": "baidu/Unlimited-OCR-2@0480966938291445591f69f08a13b041c073a96a"
+        },
+        {
+          "label": "doc3_f01_interrupted_then_retried",
+          "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+          "get_document_status": 200,
+          "get_extraction_status": 200,
+          "post_completed_replay_status": 200,
+          "worker_enabled": false,
+          "persisted_status": "completed",
+          "attempt_count": 2,
+          "attempt_statuses": [
+            "interrupted",
+            "completed"
+          ],
+          "raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+          "original_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+          "page_numbers": [
+            1
+          ],
+          "model_checkpoint": "baidu/Unlimited-OCR-2@0480966938291445591f69f08a13b041c073a96a"
+        }
+      ],
+      "edge_ui_verification_all_three": {
+        "schema": "eledgercare.wp-0006.reviewer-ui-verification/2",
+        "reviewer": "eld-next-reviewer",
+        "verifiedUtc": "2026-11-16T17:51:06.021Z",
+        "browserChannel": "msedge",
+        "browserVersion": "157.0.4341.60",
+        "ngServePid": 26684,
+        "ngServeStartedUtc": "2026-11-16T17:51:00.115Z",
+        "uiPort": 4310,
+        "apiPort": 5290,
+        "expectOcrDisabled": true,
+        "documentsVerified": [
+          {
+            "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+            "label": "Reopened Doc 1: SYN-WO-01 (1p) after API+PG restart with OCR disabled",
+            "expectOcrDisabled": true,
+            "statusText": "Completed (unreviewed)",
+            "unreviewedBannerStrongText": "Unreviewed raw extraction output (unreviewed)",
+            "actionButtonsCount": 0,
+            "resultId": "01a1e573-a855-7735-96e1-f5d14cada602",
+            "winningAttemptId": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+            "modelText": "baidu/Unlimited-OCR-2 @ 0480966938291445591f69f08a13b041c073a96a",
+            "rendererText": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+            "rawByteLengthText": "3236 bytes (1 page)",
+            "uiRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+            "rawPreElementSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+            "pageHeadings": [
+              "Page 1 of 1"
+            ],
+            "renderedBlockCount": 36,
+            "renderedTableCount": 2,
+            "forbiddenDomTagCount": 0,
+            "inlineEventAttrCount": 0,
+            "attemptHistorySummaryText": "Attempt history (1)",
+            "attemptHistoryRowCount": 1,
+            "verifiedAttempts": [
+              {
+                "attemptNumber": 1,
+                "attemptId": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+                "apiStatus": "completed",
+                "uiStatusLabel": "Completed (unreviewed)",
+                "phase": "completed",
+                "startedAtUtc": "2026-11-16T17:39:21.082069+00:00",
+                "endedAtUtc": "2026-11-16T17:42:04.629418+00:00"
+              }
+            ],
+            "downloadedFilename": "document-01a1e571-2838-714b-861b-bf0835d7c90a.pdf",
+            "downloadedByteLength": 372258,
+            "downloadedSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+          },
+          {
+            "documentId": "01a1e573-ca14-72ba-a46a-c84690288e22",
+            "label": "Reopened Doc 2: SYN-MP-01 (3p) after API+PG restart with OCR disabled",
+            "expectOcrDisabled": true,
+            "statusText": "Completed (unreviewed)",
+            "unreviewedBannerStrongText": "Unreviewed raw extraction output (unreviewed)",
+            "actionButtonsCount": 0,
+            "resultId": "01a1e578-8bfa-7bba-b104-ea8309dbfd9e",
+            "winningAttemptId": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+            "modelText": "baidu/Unlimited-OCR-2 @ 0480966938291445591f69f08a13b041c073a96a",
+            "rendererText": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+            "rawByteLengthText": "7511 bytes (3 pages)",
+            "uiRawSha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+            "rawPreElementSha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+            "pageHeadings": [
+              "Page 1 of 3",
+              "Page 2 of 3",
+              "Page 3 of 3"
+            ],
+            "renderedBlockCount": 25,
+            "renderedTableCount": 4,
+            "forbiddenDomTagCount": 0,
+            "inlineEventAttrCount": 0,
+            "attemptHistorySummaryText": "Attempt history (1)",
+            "attemptHistoryRowCount": 1,
+            "verifiedAttempts": [
+              {
+                "attemptNumber": 1,
+                "attemptId": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+                "apiStatus": "completed",
+                "uiStatusLabel": "Completed (unreviewed)",
+                "phase": "completed",
+                "startedAtUtc": "2026-11-16T17:42:13.285264+00:00",
+                "endedAtUtc": "2026-11-16T17:47:25.05048+00:00"
+              }
+            ],
+            "downloadedFilename": "document-01a1e573-ca14-72ba-a46a-c84690288e22.pdf",
+            "downloadedByteLength": 8422,
+            "downloadedSha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+          },
+          {
+            "documentId": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+            "label": "Reopened Doc 3: SYN-WO-01 (interrupted + retried) after API+PG restart with OCR disabled",
+            "expectOcrDisabled": true,
+            "statusText": "Completed (unreviewed)",
+            "unreviewedBannerStrongText": "Unreviewed raw extraction output (unreviewed)",
+            "actionButtonsCount": 0,
+            "resultId": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+            "winningAttemptId": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+            "modelText": "baidu/Unlimited-OCR-2 @ 0480966938291445591f69f08a13b041c073a96a",
+            "rendererText": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+            "rawByteLengthText": "3236 bytes (1 page)",
+            "uiRawSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+            "rawPreElementSha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+            "pageHeadings": [
+              "Page 1 of 1"
+            ],
+            "renderedBlockCount": 36,
+            "renderedTableCount": 2,
+            "forbiddenDomTagCount": 0,
+            "inlineEventAttrCount": 0,
+            "attemptHistorySummaryText": "Attempt history (2)",
+            "attemptHistoryRowCount": 2,
+            "verifiedAttempts": [
+              {
+                "attemptNumber": 1,
+                "attemptId": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+                "apiStatus": "interrupted",
+                "uiStatusLabel": "Extraction interrupted",
+                "phase": "interrupted",
+                "startedAtUtc": "2026-11-16T17:47:25.89755+00:00",
+                "endedAtUtc": "2026-11-16T17:48:09.538367+00:00"
+              },
+              {
+                "attemptNumber": 2,
+                "attemptId": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+                "apiStatus": "completed",
+                "uiStatusLabel": "Completed (unreviewed)",
+                "phase": "completed",
+                "startedAtUtc": "2026-11-16T17:48:12.569418+00:00",
+                "endedAtUtc": "2026-11-16T17:50:54.909012+00:00"
+              }
+            ],
+            "downloadedFilename": "document-01a1e578-8f3a-7e0c-826b-a2c9dc066a8f.pdf",
+            "downloadedByteLength": 372258,
+            "downloadedSha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+          }
+        ]
+      },
+      "run_directories_unchanged": [
+        "attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+        "attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d",
+        "attempt-01a1e578-8f49-75ab-89c7-4d184378bf28",
+        "attempt-01a1e579-4599-7bed-acdc-2863c448c6fa"
+      ]
+    }
+  },
+  "host_before": {
+    "label": "host-before",
+    "observed_utc": "2026-11-16T17:38:59.246150+00:00",
+    "logical_cpus": 12,
+    "ram_total_bytes": 34264649728,
+    "ram_avail_bytes": 17975164928,
+    "memory_load_pct": 47,
+    "disk_c_free_bytes": 52183928832,
+    "runtime_root_used_bytes": 0,
+    "reviewer_ports_bound": {
+      "5290": false,
+      "4310": false,
+      "55435": false
+    },
+    "author_ports_bound_readonly": {
+      "5190": false,
+      "4210": false,
+      "55434": false
+    },
+    "nvidia_smi_gpu": "0, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, P8, 16303 MiB, 1587 MiB, 14411 MiB, 1 %",
+    "cuda_compute_apps": [],
+    "wddm_desktop_app_count": 22,
+    "host_confounders_note": "Windows 11 WDDM desktop session shares RTX 5070 Ti display VRAM across desktop processes, and shared host CPU/RAM load may exist; timings are descriptive operational observations, not isolated benchmark or model-accuracy claims."
+  },
+  "model_before": {
+    "label": "model-before",
+    "observed_utc": "2026-11-16T17:39:06.769826+00:00",
+    "q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "runtime_objects_verified": 18,
+    "notice_readme_verified": true,
+    "static_ast_safety_verified": true
+  },
+  "postgres_initial": {
+    "postmaster_pid": 22360,
+    "postmaster_create_filetime": 134393243478957370,
+    "port": 55435,
+    "started_utc": "2026-11-16T17:39:08.129591+00:00"
+  },
+  "api_1_start": {
+    "label": "rev-run1-ocr-enabled",
+    "pid": 18496,
+    "create_filetime": 134393243591895019,
+    "port": 5290,
+    "ocr_enabled": true,
+    "started_utc": "2026-11-16T17:39:19.193112+00:00"
+  },
+  "cross_session_output_comparison": {
+    "author_evidence_blob": "88f24fb2f08eeaa773d330ab0d8b1e7c74037d8f:docs/implementation/WP-0006/runtime-author-v2/trial-summary-v2.json",
+    "reviewer_f01_attempt1_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+    "reviewer_f01_attempt4_retry_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+    "author_f01_attempt1_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+    "reviewer_f07_3p_raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+    "author_f07_3p_raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+    "q0_f07_warm1_raw_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+    "matches_author_f01": true,
+    "matches_author_f07": true,
+    "matches_q0_f07": false
+  },
+  "outcome": "COMPLETED_ALL_4_SCENARIOS",
+  "postgres_final_stop": {
+    "stopped_postmaster_pid": 27172,
+    "stopped_utc": "2026-11-16T17:51:07.085061+00:00",
+    "port_55435_bound": false
+  },
+  "completed_utc": "2026-11-16T17:51:15.145246+00:00",
+  "git_clean_after": true,
+  "committed_helpers_verified_after": [
+    {
+      "relative_path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/helpers/run_f2_reviewer_runtime_v2.py",
+      "byte_length": 116398,
+      "sha256": "7c3733561ab340e9b6fea7e3d87879cb321d494bca2681ba5778409a3ed35b45",
+      "git_blob_sha1": "3bc327fd109fca730e9bb805d1b88e4d74793d03"
+    },
+    {
+      "relative_path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/helpers/verify_ui_reviewer_real_results_v2.mjs",
+      "byte_length": 26087,
+      "sha256": "b1733fe11c7bcaa7ed532c11dc9d99625088382f11b2e43b7bc509688dd6a277",
+      "git_blob_sha1": "fceb03c833df519fc8c60513d9171dc747dbe821"
+    },
+    {
+      "relative_path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/PROCEDURE.md",
+      "byte_length": 8442,
+      "sha256": "93e7d584d468b49571156d2f6c8dd0d972ceb8ad5da0d50081332821a7b3a372",
+      "git_blob_sha1": "cf9955c1bc6afc029ffdcd74205e2e0889419e62"
+    }
+  ],
+  "model_after": {
+    "label": "model-after",
+    "observed_utc": "2026-11-16T17:51:13.254804+00:00",
+    "q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "runtime_objects_verified": 18,
+    "notice_readme_verified": true,
+    "static_ast_safety_verified": true
+  },
+  "host_after": {
+    "label": "host-after",
+    "observed_utc": "2026-11-16T17:51:13.361106+00:00",
+    "logical_cpus": 12,
+    "ram_total_bytes": 34264649728,
+    "ram_avail_bytes": 18600341504,
+    "memory_load_pct": 45,
+    "disk_c_free_bytes": 51918110720,
+    "runtime_root_used_bytes": 261596673,
+    "reviewer_ports_bound": {
+      "5290": false,
+      "4310": false,
+      "55435": false
+    },
+    "author_ports_bound_readonly": {
+      "5190": false,
+      "4210": false,
+      "55434": false
+    },
+    "nvidia_smi_gpu": "0, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, P8, 16303 MiB, 1482 MiB, 14516 MiB, 0 %",
+    "cuda_compute_apps": [],
+    "wddm_desktop_app_count": 22,
+    "host_confounders_note": "Windows 11 WDDM desktop session shares RTX 5070 Ti display VRAM across desktop processes, and shared host CPU/RAM load may exist; timings are descriptive operational observations, not isolated benchmark or model-accuracy claims."
+  },
+  "observed_model_process_identities": [
+    {
+      "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+      "launcher_pid": 31000,
+      "launcher_create_filetime": 134393243611803382,
+      "worker_pid": 31540,
+      "worker_create_filetime": 134393243612105369,
+      "launcher_alive_at_return": false,
+      "worker_alive_at_return": false
+    },
+    {
+      "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+      "launcher_pid": 29092,
+      "launcher_create_filetime": 134393245333046634,
+      "worker_pid": 32424,
+      "worker_create_filetime": 134393245333272975,
+      "launcher_alive_at_return": false,
+      "worker_alive_at_return": false
+    },
+    {
+      "attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+      "launcher_pid": 11796,
+      "launcher_create_filetime": 134393248459247034,
+      "worker_pid": 32708,
+      "worker_create_filetime": 134393248459491329,
+      "launcher_alive_at_return": false,
+      "worker_alive_at_return": false
+    },
+    {
+      "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+      "launcher_pid": 23028,
+      "launcher_create_filetime": 134393248927989245,
+      "worker_pid": 24048,
+      "worker_create_filetime": 134393248928264151,
+      "launcher_alive_at_return": false,
+      "worker_alive_at_return": false
+    }
+  ],
+  "reviewer_run_directories": [
+    "attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+    "attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d",
+    "attempt-01a1e578-8f49-75ab-89c7-4d184378bf28",
+    "attempt-01a1e579-4599-7bed-acdc-2863c448c6fa"
+  ]
+}
