@@ -1,0 +1,81 @@
+{
+  "schema": "eledgercare.f2-runtime-release/1",
+  "owner": "eld-f2-implementer",
+  "conversation_id": "2b6861af-031b-4e8b-9ce9-2a6d476f9da0",
+  "model": "gemini-4-carbon-high",
+  "effort": "high",
+  "source_commit": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+  "executing_head": "6faec9bf6eccc297a548523dbb52ae9262b25152",
+  "accepted_design_review": "e2452e1ab3d8937868c07ffb30ce430715b5be78",
+  "product_tree_objects": {
+    "src": "16f3f14c623bd31eb4acbfec5f1809fea11fb9dc",
+    "workers/local_ocr": "304aed238813f5cf6d2c74f6565fc7a8b4c62a23",
+    "web": "f0877a006922818bf731d5f87603a368ed782487",
+    "tests": "8662569b021b170685a515fe5c017f8f68985ce0",
+    "deploy": "dade6a38e165b5cc2ba81ba895bd9d3c572d26f2"
+  },
+  "pinned_digests": {
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+    "worker_source_sha256": "01ad2fa1d6dcf8643ecb5801a934b37bae4630faca2f70959b4a85cc4480eb01",
+    "worker_config_1p_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+    "worker_config_2p_sha256": "e4df504ddb51dcc8fb137e97f5af97c735252374738b1a1754a88b16a05de5df",
+    "worker_config_3p_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+    "f1_swo_001_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "syn_wo_01_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "syn_mp_01_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+  },
+  "lease_id": "WP-0006-author-runtime-20261116T062318Z",
+  "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "released_utc": "2026-11-16T06:23:18.637631+00:00",
+  "expires_utc": "2026-11-16T12:23:18.637631+00:00",
+  "max_model_attempts": 4,
+  "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+  "runtime_root": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\author",
+  "ports": {
+    "api": 5190,
+    "ui": 4210,
+    "postgres": 55434
+  },
+  "storage_cap_bytes": 4294967296,
+  "free_floor_bytes": 21474836480,
+  "allow_test_content": false,
+  "torchvision_local_sha256_TOFU_accepted": true,
+  "plan": [
+    {
+      "fixture_id": "SYN-WO-01-v1-raster300",
+      "expected": "completed persisted result and UI",
+      "model_attempts": 1
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "expected": "completed three ordered pages",
+      "model_attempts": 1
+    },
+    {
+      "fixture_id": "SYN-WO-01-v1-raster300",
+      "expected": "fresh job interrupted by owned supervisor single-process termination during inference, explicit retry completed",
+      "model_attempts": 2
+    },
+    {
+      "expected": "API and PostgreSQL restart, disabled-model saved result reopen",
+      "model_attempts": 0
+    }
+  ],
+  "observation_files": {
+    "host-before.json": {
+      "path": "docs/coordination/WP-0006/gpu-author-release/host-before.json",
+      "sha256": "30d195bc8a785645661cffd036a57e50b8cb49f5d550ceea6843a3ec90930a4d"
+    },
+    "processes-before.json": {
+      "path": "docs/coordination/WP-0006/gpu-author-release/processes-before.json",
+      "sha256": "296b39ede9405ba629da380bffc4bc13c92842479fd4386e6f6ca7e76bcacf56"
+    },
+    "model-before.json": {
+      "path": "docs/coordination/WP-0006/gpu-author-release/model-before.json",
+      "sha256": "cca23b62fb8b22599caf77d08b9482fc467a189abf7babcc0ba1fc49fd270dac"
+    }
+  },
+  "lease_return_rule": "Explicit owner return and observed exit of all actual model launcher/worker identities, then root acknowledgement; expiry/VRAM alone insufficient.",
+  "scope": "Frozen product source only, no model or source modification, no extra attempts beyond finite matrix. CPU review may run concurrently; report host confounders."
+}

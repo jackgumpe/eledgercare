@@ -1,0 +1,245 @@
+{
+  "schema": "eledgercare.wp-0006.stage1-publication-audit/1",
+  "observed_utc": "2026-11-16T06:18:50.737437+00:00",
+  "author_source": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+  "author_checkpoint": "6faec9bf6eccc297a548523dbb52ae9262b25152",
+  "release_base": "d106db76de6dc8d9b52770d405ca95300b6dacd6",
+  "clean_author_head": "6faec9bf6eccc297a548523dbb52ae9262b25152",
+  "source_changed_files": [
+    "deploy/dev/database/grant-runtime.sql",
+    "deploy/dev/database/prepare-database.ps1",
+    "deploy/dev/postgres/setup-cluster.ps1",
+    "deploy/dev/smoke/run-browser-checks.ps1",
+    "deploy/dev/smoke/run-demo-smoke.ps1",
+    "docs/implementation/WP-0006/resource-ledger.md",
+    "src/ELedgerCare.Api/DocumentEndpoints.cs",
+    "src/ELedgerCare.Api/DocumentResponses.cs",
+    "src/ELedgerCare.Api/ExtractionSupervisorService.cs",
+    "src/ELedgerCare.Api/LocalOcrOptions.cs",
+    "src/ELedgerCare.Api/Program.cs",
+    "src/ELedgerCare.Api/appsettings.json",
+    "src/ELedgerCare.Application/Extraction/ExtractionAttemptCoordinator.cs",
+    "src/ELedgerCare.Application/Extraction/ExtractionSettings.cs",
+    "src/ELedgerCare.Application/Extraction/IExtractionStore.cs",
+    "src/ELedgerCare.Application/Extraction/ILocalOcrWorkerRunner.cs",
+    "src/ELedgerCare.Application/Extraction/RequestExtraction.cs",
+    "src/ELedgerCare.Application/Extraction/WorkerEnvelopeValidator.cs",
+    "src/ELedgerCare.Domain/Processing/AttemptStatus.cs",
+    "src/ELedgerCare.Domain/Processing/ExecutionAttempt.cs",
+    "src/ELedgerCare.Domain/Processing/ExtractionCeilings.cs",
+    "src/ELedgerCare.Domain/Processing/ExtractionResult.cs",
+    "src/ELedgerCare.Domain/Processing/ProcessingJob.cs",
+    "src/ELedgerCare.Domain/Processing/ProcessingStatus.cs",
+    "src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs",
+    "src/ELedgerCare.Infrastructure/Extraction/LocalPythonOcrWorkerRunner.cs",
+    "src/ELedgerCare.Infrastructure/Extraction/WindowsJobProcess.cs",
+    "src/ELedgerCare.Infrastructure/Extraction/WindowsProcessIdentityProbe.cs",
+    "src/ELedgerCare.Infrastructure/InfrastructureServices.cs",
+    "src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs",
+    "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+    "src/ELedgerCare.Infrastructure/Persistence/Migrations/20261116052029_AddLocalExtraction.Designer.cs",
+    "src/ELedgerCare.Infrastructure/Persistence/Migrations/20261116052029_AddLocalExtraction.cs",
+    "src/ELedgerCare.Infrastructure/Persistence/Migrations/ELedgerCareDbContextModelSnapshot.cs",
+    "tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs",
+    "tests/ELedgerCare.Acceptance.Tests/LocalExtractionAcceptanceTests.cs",
+    "tests/ELedgerCare.Domain.Tests/ExtractionDomainAndParserTests.cs",
+    "tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs",
+    "tests/ELedgerCare.Infrastructure.Tests/SyntheticFixtureTests.cs",
+    "tests/ELedgerCare.Infrastructure.Tests/WorkerEnvelopeAndJobObjectTests.cs",
+    "tests/fixtures/README.md",
+    "tests/fixtures/SYN-MP-01-v0-clean.pdf",
+    "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+    "web/angular.json",
+    "web/e2e/extraction.spec.ts",
+    "web/e2e/owned-api.ts",
+    "web/package.json",
+    "web/playwright.config.ts",
+    "web/proxy.conf.json",
+    "web/proxy.conf.mjs",
+    "web/src/app/intake/document-page.ts",
+    "web/src/app/intake/intake-page.ts",
+    "web/src/app/intake/receipt.ts",
+    "web/src/app/intake/submission-api.ts",
+    "web/src/styles.css",
+    "workers/local_ocr/README.md",
+    "workers/local_ocr/local_ocr/__init__.py",
+    "workers/local_ocr/local_ocr/env_guard.py",
+    "workers/local_ocr/local_ocr/observer.py",
+    "workers/local_ocr/local_ocr/pdf_render.py",
+    "workers/local_ocr/local_ocr/protocol.py",
+    "workers/local_ocr/local_ocr/verify_runtime.py",
+    "workers/local_ocr/local_ocr/worker.py",
+    "workers/local_ocr/manifests/PROVENANCE.md",
+    "workers/local_ocr/manifests/dependency-lock.json",
+    "workers/local_ocr/manifests/model-files.json",
+    "workers/local_ocr/run_worker.py",
+    "workers/local_ocr/tests/test_worker_cpu.py",
+    "workers/ocr/README.md"
+  ],
+  "metadata_only_additions": [
+    "docs/implementation/WP-0006/stage1-checkpoint/README.md",
+    "docs/implementation/WP-0006/stage1-checkpoint/decisive-summary.json"
+  ],
+  "protected": [
+    {
+      "path": "qualification",
+      "git_object": "6431623c50b181edffb974c18d7a5f6b92f15f18",
+      "unchanged_from_release": true
+    },
+    {
+      "path": "evaluation",
+      "git_object": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+      "unchanged_from_release": true
+    },
+    {
+      "path": "research",
+      "git_object": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+      "unchanged_from_release": true
+    },
+    {
+      "path": "AGENTS.md",
+      "git_object": "1a704a5bf0873e75fee95394e559a5236fc87e1b",
+      "unchanged_from_release": true
+    },
+    {
+      "path": "INDEX.md",
+      "git_object": "4a73cafc458142950934097782dceb97741d5975",
+      "unchanged_from_release": true
+    },
+    {
+      "path": "CURRENT.md",
+      "git_object": "c0c35e6ac3ad66a68d32d93c8b2eeaad75ac1f3b",
+      "unchanged_from_release": true
+    },
+    {
+      "path": "docs/agent-reports",
+      "git_object": "34f7c33c14f3618b149cde5acd8119bc620acadb",
+      "unchanged_from_release": true
+    },
+    {
+      "path": "web/package-lock.json",
+      "git_object": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+      "unchanged_from_release": true
+    },
+    {
+      "path": "ELedgerCare.slnx",
+      "git_object": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+      "unchanged_from_release": true
+    }
+  ],
+  "original_log_digests": [
+    {
+      "step_id": "01-dotnet-tool-restore",
+      "bytes": 168,
+      "sha256": "d30d76d565b0283223c398fe1641293eb804aa196795ea44f95bd16acc7b49d2",
+      "published_sha256": "0a1b2fb037b313e51b853a0f0fb535ef32eac3f91ef4d09b59dfdb0bb4f482b7",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "02-dotnet-restore-locked",
+      "bytes": 1343,
+      "sha256": "be60b1baa19dd0c573a0605de6c4192f26401b602a4d3df5ae366de75561a32d",
+      "published_sha256": "cd54ef56d800120b13716831a0167d2b2d4dd63f9dae7a83a7006f76a6ec0cc6",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "03-dotnet-build-release",
+      "bytes": 1449,
+      "sha256": "1d16ce3ecd398bd395d398fdb00a8c8d7cc790d79ea56bcd9325e4c84913c9e9",
+      "published_sha256": "444c6284bda28f89528cf6cf2263e9a9c78084533555242b6e941d4002fd42f8",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "04-dotnet-publish-api",
+      "bytes": 951,
+      "sha256": "ff35da0011efed6482143db85870b36946e28fed0477eb74a03aabb799b81943",
+      "published_sha256": "66a6e41f4f9ec5828b0ad62179df45f2c9e1cc9df231faeee560aace08872491",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "05-python-worker-cpu-tests",
+      "bytes": 1368,
+      "sha256": "33c968c76c331dc7add16f949f5e18faa1e7f459986806dd3d9f2445e3d5eae5",
+      "published_sha256": "5c2d4f3fa304e83b09bfa1788b94f16823590a3c2586894e93caa3549cccffb3",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "06-npm-ci-offline",
+      "bytes": 790,
+      "sha256": "fdb1540a0e3b0cfcc257be498da5bb213de7c63219f629978e17a57473b77e0d",
+      "published_sha256": "8eb271334c1d1e889544b5e0bf0f2d319889c692cc3febf1226959dd7c9c88a9",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "07-angular-build",
+      "bytes": 605,
+      "sha256": "a4c6cdda2e983a8358c24af71b5e3b19f75e889227f0ecaefed3c0e6ff2dec4b",
+      "published_sha256": "b1ca86aa7d1c70d0683b0d0f669c8dffdbdc18795437daae1bb14d3474597d39",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "08-prepare-database-stage1",
+      "bytes": 1407,
+      "sha256": "a5411247bacea82468fc7b2a210fd2ab5e5217ef9dac944e547964fe5f218d90",
+      "published_sha256": "e4a42878fa66fec7389a2f4db22fed6ff56e457ff59a6df2bf21924bb3a99820",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "09-dotnet-test-solution",
+      "bytes": 1972,
+      "sha256": "5fc6113bd3d463fd7c36dbca481c3051a4a1cb9a775d82e3af073f66137fde69",
+      "published_sha256": "18c55089a492e21e6f2b30ed3d0ec8983f2ed5d7d710d05f951bcd1ec6c4bb77",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "10-playwright-browser-checks",
+      "bytes": 4348,
+      "sha256": "45ba3bcc9402b6283fc8283efe2ea0779f474b78b3ed44a6cc5fb622e6078eaa",
+      "published_sha256": "2ee8215f9a680fd284779b9c93bcb439f4702de3dbe3ab5b5bf330c654ecd993",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    },
+    {
+      "step_id": "11-demo-smoke-restart-checks",
+      "bytes": 2219,
+      "sha256": "f968381654c6cd1e23a1e0faae6b8478565ab6504f1bb12f1976d40fd8f1f911",
+      "published_sha256": "93d4c3c5187f500c185745b88513ea83db497c15723e5875099c20fb7ae5a883",
+      "published_digest_matches_lf_normalized_text": true,
+      "file_byte_hash_matches_published": false,
+      "recorded_exit_code": 0
+    }
+  ],
+  "author_claimed_totals": {
+    "dotnet_domain_tests": 11,
+    "dotnet_infrastructure_tests": 39,
+    "dotnet_acceptance_tests": 19,
+    "dotnet_total": 69,
+    "python_worker_cpu_tests": 7,
+    "playwright_f1_e2e_tests": 6,
+    "playwright_f2_e2e_tests": 4,
+    "playwright_total": 10,
+    "grand_total_passed": 86,
+    "grand_total_failed": 0,
+    "grand_total_skipped": 0
+  },
+  "limit": "Coordinator verified publication scope, source preservation and all 11 original log digests after disclosed CRLF-to-LF normalization (the helper hashed text before Windows write); original file-byte hashes are retained separately; independent source/CPU review and genuine model/recovery acceptance remain outstanding. Public Carbon CLI ended ERROR: stream idle timeout (5m0s); wrapper exit0 is not success. Published source and checkpoint remain exact-origin verified."
+}

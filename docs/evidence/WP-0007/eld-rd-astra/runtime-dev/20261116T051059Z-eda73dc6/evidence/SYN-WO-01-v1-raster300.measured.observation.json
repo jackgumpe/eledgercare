@@ -1,0 +1,312 @@
+{
+  "cache": {
+    "cache_types": [
+      "DynamicCache"
+    ],
+    "dash_idx_bytes_final": 8607744,
+    "decode_steps_observed": 1122,
+    "final_seq_len": 1401,
+    "forward_returns": 1123,
+    "grows_by_one_each_decode_step": true,
+    "kv_bytes_after_prefill": 17141760,
+    "kv_bytes_final": 86077440,
+    "kv_bytes_max": 86077440,
+    "kv_bytes_per_token_derived": 61440.0,
+    "observed": true,
+    "prefill_seq_len": 279,
+    "provenance": "direct",
+    "ring_buffer_marker_seen": false,
+    "seq_len_samples_head": [
+      279,
+      280,
+      281,
+      282
+    ],
+    "seq_len_samples_tail": [
+      1398,
+      1399,
+      1400,
+      1401
+    ]
+  },
+  "call_kwargs": {
+    "base_size": 1024,
+    "crop_mode": false,
+    "dash_topm": 16,
+    "eval_mode": false,
+    "image_size": 640,
+    "max_crops": 16,
+    "max_length": 131072,
+    "max_new_tokens": 8000,
+    "max_page_tokens": 20000,
+    "ngram_whitelist_token_ids": null,
+    "ngram_window": 128,
+    "no_repeat_ngram_size": 35,
+    "output_path": "",
+    "page_count_guard": true,
+    "save_results": false,
+    "temperature": 0.0,
+    "test_compress": false,
+    "tps_interval": 0
+  },
+  "cuda_memory": {
+    "allocated": 6819691008,
+    "device_free": 8211398656,
+    "device_total": 17066360832,
+    "max_allocated": 7293326848,
+    "max_reserved": 7480541184,
+    "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+    "provenance": "direct",
+    "reserved": 7480541184
+  },
+  "excluded_from_warm_statistics": false,
+  "family_id": "F01",
+  "fixture_id": "SYN-WO-01-v1-raster300",
+  "flags": [],
+  "host_memory": {
+    "end": {
+      "page_faults": 6727198,
+      "peak_working_set_lifetime": 7223795712,
+      "private_bytes": 10805944320,
+      "working_set": 2331267072
+    },
+    "interval_s": 0.1,
+    "page_fault_delta": 23414,
+    "provenance": "direct_sampled",
+    "samples": 1132,
+    "start": {
+      "page_faults": 6703784,
+      "peak_working_set_lifetime": 7223795712,
+      "private_bytes": 10799083520,
+      "working_set": 2324877312
+    },
+    "time": 1794806570.5906346,
+    "window_peak_private_bytes_lower_bound": 10886868992,
+    "window_peak_working_set_lower_bound": 2389520384
+  },
+  "kernel_path": {
+    "decode_attend_fp32_calls": 13464,
+    "decode_forward_calls": 13464,
+    "dense_sdpa_calls": 12,
+    "label": "triton_import_failed_dense_fallback",
+    "non_dash_attention_calls": 0,
+    "prefill_attend_calls": 12,
+    "provenance": "direct",
+    "triton_attempts": 12,
+    "triton_import_exception_types": [],
+    "triton_kernel_entries": null,
+    "triton_non_null_returns": 0,
+    "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+  },
+  "kind": "measured",
+  "label": "SYN-WO-01-v1-raster300.measured",
+  "native": {
+    "expected_pages": 1,
+    "finish_reason": "stop",
+    "num_pages_out": 1,
+    "output_tokens": 1122,
+    "prefill_time_s": 0.34044337272644043,
+    "prompt": "<PAGE><image>Multi page parsing.",
+    "prompt_len": 279,
+    "provenance": "native",
+    "text_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+    "time_s": 123.8953115940094,
+    "token_ids_sha256": "a99dea6c8bed8e94b62306a2fb23f92c5c3dda4117efe3a2aafe37038bba0f1d"
+  },
+  "observer_overhead": {
+    "callback_ns": 331617300,
+    "events": 56194,
+    "note": "Self-timed callback cost only; interpreter dispatch and global exception-event filtering overhead are not included (lower bound).",
+    "provenance": "direct"
+  },
+  "page_count_in": 1,
+  "page_markers": {
+    "expected": 1,
+    "marker_token_positions": [
+      0
+    ],
+    "out": 1,
+    "provenance": "direct"
+  },
+  "prefill_memory": {
+    "note": "allocator peak since reset, read at the first model-forward return; None when no probe or no forward occurred",
+    "provenance": "direct",
+    "value": {
+      "max_allocated": 7293326848,
+      "max_reserved": 7480541184
+    }
+  },
+  "raw_output": {
+    "bytes_written": 3236,
+    "full_bytes": 3236,
+    "full_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+    "name": "SYN-WO-01-v1-raster300.measured.raw.txt",
+    "sha256_written": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+    "truncated_by_writer": false,
+    "utf8_lossless": true
+  },
+  "repeat": 1,
+  "targets": {
+    "dash_attention:DashAttention._forward_dense": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 12,
+      "returns_none": 0,
+      "role": "dense_sdpa_fallback",
+      "starts": 12,
+      "unwinds": 0
+    },
+    "dash_attention:DashAttention._forward_triton": {
+      "exceptions": [],
+      "handled_exceptions": 12,
+      "returns": 12,
+      "returns_none": 12,
+      "role": "triton_attempt",
+      "starts": 12,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:_dash_decode_forward": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 13464,
+      "returns_none": 0,
+      "role": "decode_forward",
+      "starts": 13464,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:_decode_attend": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 13464,
+      "returns_none": 0,
+      "role": "decode_attend_fp32",
+      "starts": 13464,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:_infer_prefill_attend": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 12,
+      "returns_none": 0,
+      "role": "prefill_attend",
+      "starts": 12,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:_orig_forward": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "non_dash_attention_forward",
+      "starts": 0,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:configure_dash_inference": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 2,
+      "returns_none": 1,
+      "role": "dash_infer_switch",
+      "starts": 2,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_generate": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 1,
+      "returns_none": 0,
+      "role": "native_generate",
+      "starts": 1,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_save_results": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "forbidden_save_path",
+      "starts": 0,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:UnlimitedOCRForCausalLM.infer": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 1,
+      "returns_none": 0,
+      "role": "native_infer",
+      "starts": 1,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:UnlimitedOCRModel.forward": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 1123,
+      "returns_none": 0,
+      "role": "model_forward",
+      "starts": 1123,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:draw_bounding_boxes": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "forbidden_save_path",
+      "starts": 0,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:extract_coordinates_and_label": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "forbidden_eval_site",
+      "starts": 0,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:process_image_with_refs": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "forbidden_save_path",
+      "starts": 0,
+      "unwinds": 0
+    }
+  },
+  "timing": {
+    "decode_s": {
+      "provenance": "derived",
+      "value": 123.55486822128296
+    },
+    "external_synchronized_wall_s": {
+      "provenance": "direct",
+      "value": 123.9698626
+    },
+    "native_generate_total_s": {
+      "provenance": "native",
+      "value": 123.8953115940094
+    },
+    "native_prefill_to_first_token_s": {
+      "note": "t_first - t0 in _uocr_generate; host-synchronized by int(argmax)",
+      "provenance": "native",
+      "value": 0.34044337272644043
+    },
+    "outside_generate_s": {
+      "note": "prompt build, _uocr_build_inputs preprocessing, observer overhead, final sync",
+      "provenance": "derived",
+      "value": 0.0745510059905996
+    }
+  },
+  "token_ids_file": {
+    "bytes_written": 8802,
+    "full_bytes": 8802,
+    "full_sha256": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+    "name": "SYN-WO-01-v1-raster300.measured.token_ids.json",
+    "sha256_written": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc",
+    "truncated_by_writer": false
+  },
+  "unresolved_optional_targets": [
+    "sparse_gather_e2e_triton:triton_gather_attention_e2e"
+  ]
+}
