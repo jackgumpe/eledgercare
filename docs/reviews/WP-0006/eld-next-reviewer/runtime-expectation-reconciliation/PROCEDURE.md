@@ -7,7 +7,7 @@
 ## 1. What Changed from `runtime-preparation` (`v1`) -> `runtime-expectation-reconciliation` (`v2`)
 
 1. **Exact Accepted Angular UI Label + API Status + Attempt-ID/Number Association**:
-   - In accepted Angular source [receipt.ts](../../../../../web/src/app/intake/receipt.ts) (`lines 105-112`) and [document-page.ts](../../../../../web/src/app/intake/document-page.ts) (`lines 130-140`), `<tr [attr.data-testid]="'attempt-row-' + att.attemptNumber">` renders 6 `<td>` columns (`attemptNumber`, `<code>attemptId</code>`, `statusLabel(att.status)`, `att.phase`, `att.startedAtUtc`, `att.endedAtUtc ?? '—'`), where `statusLabels` maps:
+   - In accepted Angular source [receipt.ts](../../../../../web/src/app/intake/receipt.ts) (`lines 105-116`) and [document-page.ts](../../../../../web/src/app/intake/document-page.ts) (`lines 130-140, 242-244`), `<tr [attr.data-testid]="'attempt-row-' + att.attemptNumber">` renders 6 `<td>` columns (`attemptNumber`, `<code>attemptId</code>`, `label(att.status)` -> `statusLabel(status)`, `att.phase`, `att.startedAtUtc`, `att.endedAtUtc ?? '—'`), where `statusLabels` maps:
      - `awaiting_extraction` -> `'Awaiting extraction'`
      - `queued` -> `'Queued for extraction'`
      - `running` -> `'Extraction running'`

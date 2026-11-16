@@ -106,7 +106,8 @@ def audit_document_page_template_selectors(root: Path = ROOT) -> dict:
         "[attr.data-testid]=\"'result-page-' + page.pageNumber\"",
         "<td>{{ att.attemptNumber }}</td>",
         "<td><code>{{ att.attemptId }}</code></td>",
-        "<td>{{ statusLabel(att.status) }}</td>",
+        "<td>{{ label(att.status) }}</td>",
+        "return statusLabel(status);",
         "<td>{{ att.phase }}</td>",
         "<td>{{ att.startedAtUtc }}</td>",
         "<td>{{ att.endedAtUtc ?? '—' }}</td>",
@@ -410,6 +411,7 @@ class ReviewerExpectationReconciliationValidationTests(unittest.TestCase):
             "82e8f732afbf038bfb5b6c560f1b1219aaa4e40f",
             "863fcd3a94188aa5a09b4e53f0f7192022950cbd",
             "bc91d331979ed5fbcf4f38b3f359a1cf71cd9960",
+            "3ebb727329bb7a67e59bfe5dc74434c5ec95d300",
             "6666666666666666666666666666666666666666",
         ):
             bad = copy.deepcopy(self.valid_rel)
@@ -1188,6 +1190,7 @@ def main() -> int:
         "accepted_design_review_002": rdrv.EXPECTED_ACCEPTED_DESIGN_REVIEW,
         "protected_source_commit": rdrv.EXPECTED_SOURCE_COMMIT,
         "observed_author_v2_gpu_evidence_commit": rdrv.AUTHOR_V2_GPU_EVIDENCE_COMMIT,
+        "superseded_initial_v2_validator_candidate": "3ebb727329bb7a67e59bfe5dc74434c5ec95d300",
         "frozen_reviewer_v2_helper_commit": head_sha,
         "canonical_004_status": "held_pending_released_independent_runtime_and_author_003_disposition",
         "git_clean_before_and_after": porcelain_after == "",

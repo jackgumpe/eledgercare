@@ -160,6 +160,7 @@ REJECTED_EXECUTING_HEADS = frozenset({
     "863fcd3a94188aa5a09b4e53f0f7192022950cbd",  # Superseded v1 helper freeze (stale 'Interrupted' UI substring)
     "e7733f9e8dde1a3db229bf9da5e0f5f90069c6f8",  # Superseded v1 validation evidence
     "bc91d331979ed5fbcf4f38b3f359a1cf71cd9960",  # Superseded v1 preparation checkpoint
+    "3ebb727329bb7a67e59bfe5dc74434c5ec95d300",  # Superseded initial v2 validator-audit candidate
 })
 
 REJECTED_AUTHOR_RUNTIME_EVIDENCE_COMMITS = frozenset({
