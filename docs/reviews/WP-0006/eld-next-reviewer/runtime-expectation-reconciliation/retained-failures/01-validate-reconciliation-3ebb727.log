@@ -1,0 +1,16 @@
+head=3ebb727329bb7a67e59bfe5dc74434c5ec95d300
+command=C:\Users\jackg\AppData\Local\Programs\Python\Python312\python.exe -B docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/helpers/validate_reviewer_expectation_reconciliation_cpu.py
+exit_code=1
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-next-reviewer\docs\reviews\WP-0006\eld-next-reviewer\runtime-expectation-reconciliation\helpers\validate_reviewer_expectation_reconciliation_cpu.py", line 1218, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-next-reviewer\docs\reviews\WP-0006\eld-next-reviewer\runtime-expectation-reconciliation\helpers\validate_reviewer_expectation_reconciliation_cpu.py", line 1108, in main
+    rc1, out1, parsed_labels, template_audit = check_ast_ui_source_and_digests()
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-next-reviewer\docs\reviews\WP-0006\eld-next-reviewer\runtime-expectation-reconciliation\helpers\validate_reviewer_expectation_reconciliation_cpu.py", line 691, in check_ast_ui_source_and_digests
+    template_audit = audit_document_page_template_selectors(ROOT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-next-reviewer\docs\reviews\WP-0006\eld-next-reviewer\runtime-expectation-reconciliation\helpers\validate_reviewer_expectation_reconciliation_cpu.py", line 118, in audit_document_page_template_selectors
+    raise RuntimeError(f"Missing expected template binding(s) in document-page.ts: {missing_bindings}")
+RuntimeError: Missing expected template binding(s) in document-page.ts: ['<td>{{ statusLabel(att.status) }}</td>']
