@@ -723,3 +723,8 @@ Coordinator routing refresh: CURRENT.md now states only current WP-0008/WP-0009 
 ## WP-0009 final independent acceptance and integration (2026-11-16 UTC)
 
 Independent008 ACCEPTED/PUBLISHED187ca27ad2c6deb4a23b5fbecd47434ca286a829; deliverablead3181856b2e78f381739127d973e778bfccb1e4/inventory0e60ca0f2d27d20e0154807977aa83e825838998. Root verifies120 additions,57 original byte copies,2292 unchanged inputs, report-only publication/exact origin. All author4 scores reproduce; fixed actual sentinel raw/token/full-score/raster identities match. Both leases returned. Author007 and reviewer008 normally integrated32a129a2101d365243b43214217f00acbbf9c6dd. Final R&D disposition frozen next; coordinator009 follows integrated preservation audit. F3 independent004 continues separately; no mapper promotion or fresh benefit claimed.
+
+
+## WP-0009 completed coordinator closure (2026-11-16 UTC)
+
+Coordinator /009 ACCEPTED/PUBLISHED fd7caba783ee2e92820b18ec26119c9617a237a8; frozen deliverable 1b372490d3aa3a9f50d613eea09ad115bac39307, preservation evidence 7427fee28cf03299a78041c502421710c8153599. Normal push and exact origin verified. Complete audit passes 1,922 protected historical paths, 506 changed paths, five accepted source trees and all 11 R&D publication ancestries. Final disposition and publication receipt are in docs/coordination/WP-0009/final-disposition/. Historical 27 unique field gains/zero losses; fresh four-family B0/v1 predictions identical at 0/39 fields and 0/90 cells, no fresh benefit or promotion claim. Both GPU leases returned. WP-0009 is complete; F3 independent /004 continues, with coordinator /005 still reserved.
