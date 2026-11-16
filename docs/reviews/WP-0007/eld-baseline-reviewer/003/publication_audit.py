@@ -14,15 +14,20 @@ def classify(path):
     return 'imported coordinator or other attributed publication'
 def main():
     p=argparse.ArgumentParser();p.add_argument('--revision',required=True);p.add_argument('--output',required=True);args=p.parse_args()
+    # Resolve by tree entries and blob IDs; git show rev:long/path can hit Windows stat limits.
+    blobs={}
+    for row in git('ls-tree','-rz',args.revision).split(b'\0'):
+        if row:
+            meta,name=row.split(b'\t',1);blobs[name.decode()]=meta.decode().split()[2]
     entries=[];mismatches=[]
-    for line in git('diff','--name-status',BASE,args.revision).decode().splitlines():
-        action,path=line.split('\t');data=git('show',args.revision+':'+path)
-        entries.append({'action':action,'path':path,'attribution':classify(path),'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'git_blob':object_id(args.revision,path)})
+    for line in git('diff','--no-renames','--name-status',BASE,args.revision).decode().splitlines():
+        action,path=line.split('\t');data=git('cat-file','blob',blobs[path])
+        entries.append({'action':action,'path':path,'attribution':classify(path),'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'git_blob':blobs[path]})
         if data!=(ROOT/path).read_bytes():mismatches.append(path)
     evidence=[]
     for manifest in [OWN/'evidence-inventory.json',OWN/'reconciliation/8e227abc-050110/inventory.json']:
         for item in json.loads(manifest.read_text())['entries']:
-            data=git('show',args.revision+':'+item['path'])
+            data=git('cat-file','blob',blobs[item['path']])
             ok=len(data)==item['bytes'] and hashlib.sha256(data).hexdigest()==item['sha256']
             evidence.append({'path':item['path'],'matches_manifest':ok})
     preserved=[]
