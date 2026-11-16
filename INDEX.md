@@ -728,3 +728,13 @@ Independent008 ACCEPTED/PUBLISHED187ca27ad2c6deb4a23b5fbecd47434ca286a829; deliv
 ## WP-0009 completed coordinator closure (2026-11-16 UTC)
 
 Coordinator /009 ACCEPTED/PUBLISHED fd7caba783ee2e92820b18ec26119c9617a237a8; frozen deliverable 1b372490d3aa3a9f50d613eea09ad115bac39307, preservation evidence 7427fee28cf03299a78041c502421710c8153599. Normal push and exact origin verified. Complete audit passes 1,922 protected historical paths, 506 changed paths, five accepted source trees and all 11 R&D publication ancestries. Final disposition and publication receipt are in docs/coordination/WP-0009/final-disposition/. Historical 27 unique field gains/zero losses; fresh four-family B0/v1 predictions identical at 0/39 fields and 0/90 cells, no fresh benefit or promotion claim. Both GPU leases returned. WP-0009 is complete; F3 independent /004 continues, with coordinator /005 still reserved.
+
+
+## WP-0008 bounded presentation correction reservations (2026-11-16 UTC)
+
+Root observed routine review controls expose schema/field identifiers and full hashes in the default flow at source62e8666af747c0040942cee20c0ed34f4d747e93; exact finding is docs/coordination/WP-0008/presentation-observation.md. This is an existing F3 usability correction, no new feature or backend behavior. Original-source independent004 continues; final005 awaits final-source acceptance.
+
+| Reservation | Owner / category | Canonical path | State |
+| --- | --- | --- | --- |
+| WP-0008 /006 | eld-f3-implementer / implementation | docs/agent-reports/eld-f3-implementer/WP-0008/006_2026-11-16_implementation_eld-f3-implementer.md | RELEASED presentation-only correction under WP-0008-eld-f3-presentation-correction.md; actual same-Carbon dispatch PREPARED. |
+| WP-0008 /007 | eld-f3-reviewer / review | docs/agent-reports/eld-f3-reviewer/WP-0008/007_2026-11-16_review_eld-f3-reviewer.md | RESERVED/HELD until004 and exact006 publication; inspect final source and execute affected browser checks. |
