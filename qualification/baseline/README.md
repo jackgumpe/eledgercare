@@ -38,7 +38,7 @@ Rules were frozen using only the 13 dev expected records and admitted schema sem
 
 The closed table grammar requires exactly one `table` root, properly nested optional `thead|tbody|tfoot`, `tr`, and `td|th`; `br`/`br/` is allowed only in a cell. Every tag except cells rejects all attributes; cells permit only unique, valued `colspan|rowspan` with ASCII positive integer syntax, colspan 1–100 and rowspan 1. Missing/mismatched closes, extra roots, self-closing structural tags, comments/declarations and unsupported tags fail. A malformed table retains its native body and per-page diagnostic; the document receives no exact credit, and subsequent documents still score.
 
-Runtime review identity now binds exactly `docs/agent-reports/eld-baseline-reviewer/WP-0007/003_2026-11-16_review_eld-baseline-reviewer.md`. Unchanged independent sentinel selection at `a8fb2137e559bfeb453bc184c78fab4989c99ecf`: `SYN-WO-02-v3-hybrid-note`, `SYN-INV-03-v1-raster300`, `SYN-MP-02-v0-clean`. Their content remains held; coordinator runtime release must carry this selection and the accepted source/review bindings.
+The /007 source originally bound canonical /003; after the separately authorized /009 runtime correction, new runtime releases bind exactly `docs/agent-reports/eld-baseline-reviewer/WP-0007/010_2026-11-16_review_eld-baseline-reviewer.md`. Original /003 remains valid for its original source. Unchanged independent sentinel selection at `a8fb2137e559bfeb453bc184c78fab4989c99ecf`: `SYN-WO-02-v3-hybrid-note`, `SYN-INV-03-v1-raster300`, `SYN-MP-02-v0-clean`. Their content remains held; coordinator runtime release must carry this selection and the accepted source/review bindings.
 
 ## Document-text reference and coverage
 
@@ -69,3 +69,33 @@ python -I -B qualification/baseline/baseline.py plan
 ```
 
 `dev-check` binds all 13 dev expected/reference records and scores only the two retained historical Q0 clean outputs. It does not claim a new 26-document result. New execution and test scoring require `--authority <full coordinator commit> --release-path <coordinator path> --split dev|eval_holdout --owner author|reviewer`; no runtime root is created by plan/dev-check/tests. Source is frozen before decisive CPU tests; results/report follow. Independent /003 owns acceptance and sentinel selection.
+
+## /009 bounded runtime correction and supplemental lineage
+
+The independent diagnosis at `03b9ed908f64e06e86e05397fd60275b7e3d4a10` reproduced a latent filesystem race with the unchanged Q0 heartbeat. It does not prove that this caused the original dev failure, which lacked filename/traceback. Coordinator authority `97e65bed170ad0be705347791a830d860a6a38fe` permits this CPU-only correction and no model run.
+
+`runtime.directory_size` validates the root with a non-following metadata read, requires a directory and rejects symlinks/reparse points. Each enumerated child receives exactly one non-following metadata read; its snapshot supplies both type and size. Only FileNotFoundError for an enumerated child (or opening that child's directory after it vanished) is tolerated. Root absence, non-directory root, reparse entries, permission/I/O errors and other unsupported entry types still fail. Stable full subtrees are counted. This is a live observation, not an atomic filesystem snapshot; temporary files can disappear or change between scans. Storage-cap/free-floor guards, session/call limits and owned-process cleanup remain unchanged.
+
+Caught supervisor exceptions retain the existing failure classification plus `supervisor_error`: type, message, filename, errno, traceback and active phase. The same finally block closes the job and waits/kills only its owned child. Pre-run release/root gates still fail before a run exists; they are not represented as a completed run. No blanket filesystem-error suppression is introduced.
+
+A new release may optionally include **exactly** this `supplemental_recovery` binding (no extra keys or arbitrary fixture list):
+
+```json
+{
+  "schema": "eld-baseline-single-failed-dev/1",
+  "fixture_id": "SYN-MP-01-v2-skew-pos4deg",
+  "prior_evidence_commit": "1d6a681f09b0eaf233f838c54465c36a042ec326",
+  "prior_run_result_path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/run-result.json",
+  "prior_run_result_sha256": "f6475d1bd2a40222ae2b3408360c7bf73542b164c2a9861c8dd5267b06540d5e",
+  "prior_authority_commit": "a6f8f2a17fc8f3db68e11d2971423f78b2dc7861",
+  "prior_release_path": "docs/coordination/WP-0007/releases/author-dev.json"
+}
+```
+
+Only owner author /split dev /allow_test_content false can use it. Validation reads the immutable Git blob, verifies the exact digest and original authority/release identity, original source/executing HEAD, complete ordered original matrix, its sole failed final measurement and every other completed record. Missing, changed, duplicate, completed, unknown or heldout selection/lineage rejects. This binding is not permission to run: a new coordinator lease, accepted /010, exact new source/tree and clean executing HEAD remain mandatory. No fictitious /010 publication SHA is embedded in source.
+
+Parent, worker and score orchestration use the same released schedule. Supplemental execution has the existing two excluded warmups followed by that one measured fixture. Supplemental scoring includes exactly that one expected document, including failure/missing-output denominators, uses the unchanged parser/mapping/reference/printed/typed scoring functions and adds explicit supplemental scope plus lineage. Ordinary author split matrices and reviewer sentinels still use their original scheduling rules.
+
+The original 13 dev scores, including the failed document's zero credit, are immutable primary results. Supplementary output cannot replace them, replay successes, choose the best attempt or change primary aggregates. Final primary corpus results combine original dev with the separately released heldout phase, disclosing the runtime revision boundary. The output path remains exclusive-create. Scorer/model/Q0/protocol bytes are protected; any later runtime invocation remains held until independent /010 and an exact lease.
+
+Focused CPU evidence uses owned worktree scratch, the real unmodified Q0 Heartbeat in an accelerated joined CPU thread, deterministic disappearing entries, propagation/root/reparse checks, supervisor diagnostic/cleanup injection, exact original Git recovery lineage and a one-document supplemental score. Synthetic injected prior-record mutations test the semantic checks separately after explicitly bypassing the independently tested digest gate; they are not accepted runtime evidence.

@@ -6,7 +6,7 @@ from corpus import ROOT,DEV,fixtures,expected_for,reference_for,load_json,sha
 from native import parse_native,extract_prediction,ParseError
 from score import score_document,summarize
 from typed_values import compare
-from release import protocol,read_release,HERE
+from release import protocol,read_release,HERE,released_schedule
 
 def prediction(raw,rules):
     try:return extract_prediction(parse_native(raw),rules)
@@ -43,8 +43,9 @@ def score_run(run,output,authority,path,split,owner):
     release=read_release(authority,path,split,owner);result=load_json(Path(run)/'run-result.json');rules=load_json(HERE/'mapping.json')
     if result['release']!=release:raise PermissionError('Run/release mismatch')
     records={x['fixture_id']:x for x in result['calls'] if not x['excluded']};scores=[]
+    selected={c['fixture_id'] for c in released_schedule(protocol(),release,split,owner) if not c['excluded']}
     for f in protocol()['fixtures']:
-        if f['split']!=split or (owner=='reviewer' and f['fixture_id'] not in release['sentinels']):continue
+        if f['fixture_id'] not in selected:continue
         rec=records.get(f['fixture_id'],{'status':'missing_run_record','observation':None});raw=b''
         if rec['observation']:
             obs_path=(Path(run)/rec['observation']).resolve();obs_path.relative_to(Path(run).resolve());obs=load_json(obs_path)
@@ -52,7 +53,11 @@ def score_run(run,output,authority,path,split,owner):
                 rawpath=obs_path.parent/obs['raw_output']['name'];raw=rawpath.read_bytes()
                 if sha(raw)!=obs['raw_output']['sha256_written']:raise ValueError('Retained raw hash mismatch')
         pred=prediction(raw.decode('utf-8'),rules);score=score_document(pred,expected_for(f,split=='eval_holdout'),reference_for(f,split=='eval_holdout'),rec['status']);score['raw_sha256']=sha(raw);scores.append(score)
-    dump(output,{'scores':scores,'summary':summarize(scores),'run_result_sha256':sha((Path(run)/'run-result.json').read_bytes())})
+    packet={'scores':scores,'summary':summarize(scores),'run_result_sha256':sha((Path(run)/'run-result.json').read_bytes())}
+    if 'supplemental_recovery' in release:
+        packet['scope']='supplemental_single_failed_dev; does not replace original primary scores'
+        packet['supplemental_recovery']=release['supplemental_recovery']
+    dump(output,packet)
 
 def main():
     parser=argparse.ArgumentParser();sub=parser.add_subparsers(dest='command',required=True)

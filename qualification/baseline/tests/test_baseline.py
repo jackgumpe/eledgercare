@@ -189,7 +189,7 @@ class CorrectionTests(unittest.TestCase):
                 (root/(name+'.json')).write_text(json.dumps({'raw_output':{'name':name+'.txt','sha256_written':sha(data)}}))
                 calls.append({'fixture_id':name,'excluded':False,'status':'completed','observation':name+'.json'})
             (root/'run-result.json').write_text(json.dumps({'release':{},'calls':calls}))
-            with patch('baseline.read_release',return_value={}),patch('baseline.protocol',return_value={'fixtures':selected}),patch('baseline.expected_for',return_value=self.table_truth()),patch('baseline.reference_for',return_value={'pages':['A $1.00'],'coverage':{}}),patch('baseline.load_json',side_effect=lambda p: RULES if p==HERE/'mapping.json' else json.loads(Path(p).read_text())):
+            with patch('baseline.read_release',return_value={}),patch('baseline.protocol',return_value={'fixtures':selected,'warmups':[]}),patch('baseline.expected_for',return_value=self.table_truth()),patch('baseline.reference_for',return_value={'pages':['A $1.00'],'coverage':{}}),patch('baseline.load_json',side_effect=lambda p: RULES if p==HERE/'mapping.json' else json.loads(Path(p).read_text())):
                 baseline.score_run(root,root/'scores.json','mock','mock','dev','author')
             result=json.loads((root/'scores.json').read_text())
             self.assertEqual(len(result['scores']),2);self.assertEqual([x['cells']['total'] for x in result['scores']],[2,2])
@@ -217,7 +217,7 @@ class CorrectionTests(unittest.TestCase):
     def test_actual_reviewer_identity_only(self):
         r=CorpusReleaseTests().release();p=protocol()
         validate_release(r,p,'dev','author',tree='2'*40)
-        for old in ['docs/agent-reports/eld-next-reviewer/WP-0007/003_test.md',REVIEW_PATH.replace('/003_','/005_'),REVIEW_PATH+'.bak']:
+        for old in ['docs/agent-reports/eld-next-reviewer/WP-0007/003_test.md',REVIEW_PATH.replace('/010_','/005_'),REVIEW_PATH+'.bak']:
             with self.assertRaises(PermissionError):validate_release({**r,'accepted_review_path':old},p,'dev','author',tree='2'*40)
     def test_typed_positive_exact_grammar(self):
         from typed_values import convert

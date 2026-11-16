@@ -3,7 +3,7 @@ import datetime,json,re,subprocess,os
 from pathlib import Path
 from corpus import ROOT,load_json,sha
 HERE=Path(__file__).resolve().parent
-REVIEW_PATH='docs/agent-reports/eld-baseline-reviewer/WP-0007/003_2026-11-16_review_eld-baseline-reviewer.md'
+REVIEW_PATH='docs/agent-reports/eld-baseline-reviewer/WP-0007/010_2026-11-16_review_eld-baseline-reviewer.md'
 
 def git(*args):return subprocess.check_output([os.environ.get('Q0_GIT_EXECUTABLE','git'),*args],cwd=ROOT)
 def protocol():return load_json(HERE/'protocol.json')
@@ -13,6 +13,53 @@ def schedule(p,split,sentinels=None):
     measured=[f for f in p['fixtures'] if f['split']==split]
     if sentinels is not None:measured=[f for f in measured if f['fixture_id'] in sentinels]
     return [{'fixture_id':f,'kind':'warmup','excluded':True} for f in p['warmups']]+[{'fixture_id':f['fixture_id'],'kind':'measured','excluded':False} for f in measured]
+
+# This is the only supplemental selection supported, not a retry/subset API.
+RECOVERY_BINDING={
+    'schema':'eld-baseline-single-failed-dev/1',
+    'fixture_id':'SYN-MP-01-v2-skew-pos4deg',
+    'prior_evidence_commit':'1d6a681f09b0eaf233f838c54465c36a042ec326',
+    'prior_run_result_path':'docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/run-result.json',
+    'prior_run_result_sha256':'f6475d1bd2a40222ae2b3408360c7bf73542b164c2a9861c8dd5267b06540d5e',
+    'prior_authority_commit':'a6f8f2a17fc8f3db68e11d2971423f78b2dc7861',
+    'prior_release_path':'docs/coordination/WP-0007/releases/author-dev.json'}
+
+def recovery_binding(r,split,owner):
+    if 'supplemental_recovery' not in r:return None
+    binding=r['supplemental_recovery']
+    if split!='dev' or owner!='author' or r.get('allow_test_content') is not False or binding!=RECOVERY_BINDING:
+        raise PermissionError('Only the exact bound failed-dev supplement is permitted')
+    return binding
+
+def validate_recovery(r,p,split,owner):
+    binding=recovery_binding(r,split,owner)
+    if binding is None:return
+    try:
+        raw=git('show',binding['prior_evidence_commit']+':'+binding['prior_run_result_path'])
+        if sha(raw)!=binding['prior_run_result_sha256']:raise PermissionError('Prior run-result byte mismatch')
+        prior=json.loads(raw)
+        prior_release=json.loads(git('show',binding['prior_authority_commit']+':'+binding['prior_release_path']))
+        if prior['release']!=prior_release or prior_release['owner']!='author' or prior_release['split']!='dev':
+            raise PermissionError('Prior authority/release mismatch')
+        if prior['executing_head']!='e22c6730d19a6d616f0e7afb00b9416635799c16' or prior_release['source_commit']!='f807e0ac737df4e9e0aeeb96f716afec57f58ff6':
+            raise PermissionError('Wrong original execution/source')
+        if not prior['failure']:raise PermissionError('Prior run was not failed')
+        planned=schedule(p,'dev');calls=prior['calls']
+        if len(calls)!=len(planned) or any(any(c[k]!=want[k] for k in ('fixture_id','kind','excluded')) for c,want in zip(calls,planned)):
+            raise PermissionError('Prior matrix/duplicate mismatch')
+        for call in calls:
+            selected=call['fixture_id']==binding['fixture_id'] and not call['excluded']
+            if call['status']!=('failed' if selected else 'completed'):
+                raise PermissionError('Prior selected record is not the sole failed measurement')
+    except (KeyError,TypeError,ValueError,subprocess.CalledProcessError) as e:
+        raise PermissionError('Missing or invalid bound prior evidence') from e
+
+def released_schedule(p,r,split,owner):
+    binding=recovery_binding(r,split,owner)
+    if binding is not None:
+        plan=schedule(p,'dev')
+        return [c for c in plan if c['excluded'] or c['fixture_id']==binding['fixture_id']]
+    return schedule(p,split,r['sentinels'] if owner=='reviewer' else None)
 
 def validate_release(r,p,split,owner,*,tree,now=None):
     now=now or datetime.datetime.now(datetime.timezone.utc)
@@ -35,6 +82,7 @@ def validate_release(r,p,split,owner,*,tree,now=None):
     chosen=[ids[x] for x in sent]
     if not (any(f['page_count']==1 for f in chosen) and any(f['page_count']==3 for f in chosen) and any(f['variant_kind'] in ('v1_raster300','v2_skew','v3_hybrid') for f in chosen)):
         raise PermissionError('Reviewer sentinel categories missing')
+    validate_recovery(r,p,split,owner)
     return r
 
 def read_release(authority,path,split,owner):
