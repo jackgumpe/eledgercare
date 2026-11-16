@@ -702,3 +702,10 @@ WP-0009 reviewer008 confirmed/pushed clean executing HEAD69f7a79677b43228869d7c3
 
 
 WP-0009 reviewer008 actual sentinel run RUNNING_CONFIRMED at2026-11-16T21:15:36.0831908Z, shell27828/supervisor33568/worker10708, tool96218/run20261116T211537Z-074ec88b. Bound clean executing69f7a79677b43228869d7c35bb5fb6d3e12e9291 and authoritye339bd4c8322a14fbff98d9299acede4b92c911f. Lease ACTIVE; final outcomes pending.
+
+
+## WP-0008 author003 published; independent004 released (2026-11-16 UTC)
+
+Carbon author ef53d3f3-ca53-482e-8fa7-a3cc1670564e completed SUCCESS/exit0. Source62e8666af747c0040942cee20c0ed34f4d747e93, evidence724e3b601e40a7dd102d486043dec555d508b466, report-only publicationb77bc68a5b6878d2395cd76b0d0a858ae15cc249 exact-origin verified. Root verified51 source inventory paths,18 protected identities,29 post-deliverable artifacts plus self-inventory,25 evidence files and stopped services. All author13 steps pass:9 worker CPU/85.NET/13Edge; actual PG+API restart/durable reopen. AngularCLI prose discrepancy22.0.5 versus actual pinned/installed22.2.7 explicitly routed for independent reconciliation.004 RELEASED under WP-0008-eld-f3-reviewer-acceptance.md to same independent Carbon reviewer025f1605-d7e3-4fea-8255-907c2b07b55f/high, actual dispatch PREPARED. Product not accepted/integrated yet.
+
+WP-0009 author007 PUBLISHED73b5c5d3ce123adc33ba0397dcc74029208606c5, evidence8372aa9d1d9304f19fe973d61485f04838ce42b9, inventorycd5a8873a5fb16cf7d5bc73ca3f22d7f650882c1. Root verified100 additions,91 copied original bytes,2272 unchanged prior files, report-only publication/exact origin. Exact independent comparison input is docs/coordination/WP-0009/author-comparison-input.json. Author outcome0/39 fields,0/90 cells,zero gains/losses remains pending008 independent acceptance; actual reviewer sentinel already running.
