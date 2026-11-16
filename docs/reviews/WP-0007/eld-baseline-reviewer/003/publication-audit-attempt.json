@@ -1,0 +1,10 @@
+{
+  "kind": "tool-observed reviewer metadata audit failure summary; not raw subprocess bytes",
+  "helper_revision": "517018a8c98af8ca893481ddf87181444c99948b",
+  "target_revision": "517018a8c98af8ca893481ddf87181444c99948b",
+  "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/003/publication_audit.py --revision 517018a8c98af8ca893481ddf87181444c99948b --output docs/reviews/WP-0007/eld-baseline-reviewer/003/publication-audit.json",
+  "observed_failure": "git show revision:path failed to stat a long retained-scratch evidence path: Filename too long; subprocess exit 128",
+  "failed_git_argument": "517018a8c98af8ca893481ddf87181444c99948b:docs/reviews/WP-0007/eld-baseline-reviewer/003/evidence/97249fa6-043410/retained-scratch/supervisor-root/runs/author/20261116T043411Z-de91eb7e/plan.json",
+  "audit_json_created": false,
+  "disposition": "Reviewer audit helper changed to enumerate Git tree entries and read exact blob IDs with git cat-file. No repository/global Git setting, source candidate or evidence bytes changed. Rerun only the publication audit."
+}

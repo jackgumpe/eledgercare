@@ -1,0 +1,1216 @@
+{
+  "timestamp_utc": "2026-11-16T05:49:02.482999+00:00",
+  "author": "eld-rd-astra",
+  "actual_model_effort": "inherited dispatched gpt-6-astra/high; backend checkpoint/session UUID not exposed",
+  "authority": "a6f8f2a17fc8f3db68e11d2971423f78b2dc7861",
+  "executing_head": "e22c6730d19a6d616f0e7afb00b9416635799c16",
+  "source": "f807e0ac737df4e9e0aeeb96f716afec57f58ff6",
+  "accepted_review": "8c208273c2524b0253b046159178a9f5e6788049",
+  "protected_git_objects": {
+    "qualification/baseline": "df44162c62641596032df04bc834754da38a5f7b",
+    "qualification/q0": "5ca1507d0fb3f5905c9af1cb358642972e9c15dc",
+    "evaluation": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+    "src": "c1fd96aaff25f6e6a5f1ca0fa30531cdeb01fe18",
+    "tests": "627f3c741e2cd43bb68b76ccb9ce74ff7cdac898",
+    "web": "db6feb034a6c5bfd17003c808af57f1b7f81a414",
+    "workers": "92dfb61d7c6eacd7b3593ce51e788b13a2598545",
+    "deploy": "2416e1dd6e87525360e5c2c63de4af2827effe20"
+  },
+  "run": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6",
+  "execute_exit_code": 1,
+  "score_exit_code": 0,
+  "failure": "SUPERVISOR_ERROR:FileNotFoundError(2, 'The system cannot find the file specified')",
+  "completed_warmups": 2,
+  "measured_document_denominator": 13,
+  "completed_measured": 12,
+  "failed_measured": 1,
+  "no_retry": true,
+  "source_changes": false,
+  "heldout_content_access": false,
+  "lease_return_receipt": "author-process-exit-and-lease-return.json",
+  "worker_outcome_present": false,
+  "last_call_partial_stdout_retained": true,
+  "last_call_completed_observation_present": false,
+  "observations": [
+    {
+      "observation": "SYN-INV-01-v0-clean.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-INV-01-v0-clean",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 2846,
+      "raw_sha256": "d2704369010a83134c9445559715d387a3648b57effaa2b64c323cf6c4258958",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 108.7640478,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-INV-01-v1-raster300.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-INV-01-v1-raster300",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 2846,
+      "raw_sha256": "d2704369010a83134c9445559715d387a3648b57effaa2b64c323cf6c4258958",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 108.2932905,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-INV-01-v2-skew-neg3deg.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-INV-01-v2-skew-neg3deg",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 2190,
+      "raw_sha256": "fdccf142eda8314d9dd06170fa0708abef0345e22e5c0fa611b19956b33fa4e2",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 77.9050087,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-MP-01-v0-clean.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 7617,
+      "raw_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 291.0587787,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-MP-01-v0-clean.warmup.observation.json",
+      "kind": "warmup",
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 7617,
+      "raw_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 288.4164021,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-MP-01-v1-raster300.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-MP-01-v1-raster300",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 7617,
+      "raw_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 280.823111,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-WO-01-v0-clean.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 3236,
+      "raw_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 126.1718464,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-WO-01-v0-clean.warmup.observation.json",
+      "kind": "warmup",
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 3236,
+      "raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 146.4464515,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-WO-01-v1-raster300.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-WO-01-v1-raster300",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 3236,
+      "raw_sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 123.9698626,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-WO-01-v2-skew-pos4deg.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-WO-01-v2-skew-pos4deg",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 2753,
+      "raw_sha256": "9e32c7f965007e79aeca66bad4e5cc5c8bc94ba6381d8dd5020caa681b48abea",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 96.1362597,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-WO-02-v0-clean.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-WO-02-v0-clean",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 2770,
+      "raw_sha256": "3b6fa17ec83c09d5a680357d94f7a09094a9c1f7c58bd002b6a16a8ff7248a16",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 101.8111739,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-WO-02-v1-raster300.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-WO-02-v1-raster300",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 2770,
+      "raw_sha256": "3b6fa17ec83c09d5a680357d94f7a09094a9c1f7c58bd002b6a16a8ff7248a16",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 104.3515378,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-WO-02-v2-skew-neg3deg.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-WO-02-v2-skew-neg3deg",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 2619,
+      "raw_sha256": "86fa657fd8d01c03e4928293abe7354a3f6b9e32af7645521ea2341d9ca191d9",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 88.9335993,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    },
+    {
+      "observation": "SYN-WO-02-v3-hybrid-note.measured.observation.json",
+      "kind": "measured",
+      "fixture_id": "SYN-WO-02-v3-hybrid-note",
+      "flags": [],
+      "error": null,
+      "raw_bytes": 2918,
+      "raw_sha256": "6762f485061326a009514215807ac218c65064fcf23c45df8a28d14aef3d613a",
+      "raw_hash_matches_observation": true,
+      "external_synchronized_wall_s": 109.3323962,
+      "kernel_path": "triton_import_failed_dense_fallback"
+    }
+  ],
+  "files": [
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\author-process-exit-and-lease-return.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/author-process-exit-and-lease-return.json",
+      "relative_path": "author-process-exit-and-lease-return.json",
+      "bytes": 511,
+      "sha256": "cb54ed01f8ed6558d8506831603f43ea12e89b7c7c8b3d8626f3e1bde2696ae7"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\author-process-start.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/author-process-start.json",
+      "relative_path": "author-process-start.json",
+      "bytes": 2378,
+      "sha256": "a1f542783558444027474b0f606a7683b49d9b892b89444bb71cbf9044978829"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\heartbeat.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/heartbeat.json",
+      "relative_path": "heartbeat.json",
+      "bytes": 159,
+      "sha256": "13ed422eb020b80ae8173a46a557b0ed7c3aa1a6150687b6bb1e564082c87e4f"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1027-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1027-0.txt",
+      "relative_path": "observer-during-1027-0.txt",
+      "bytes": 136,
+      "sha256": "13092ab02169ce291de6f55b8a0306db685c912950adf5592560339bc52dfe0e"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1027-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1027-1.txt",
+      "relative_path": "observer-during-1027-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1087-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1087-0.txt",
+      "relative_path": "observer-during-1087-0.txt",
+      "bytes": 136,
+      "sha256": "bae14d18914b6cc2b17f1917a35b3c9f3ae6eddb80e6e6dec64c6dbf708c276d"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1087-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1087-1.txt",
+      "relative_path": "observer-during-1087-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1148-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1148-0.txt",
+      "relative_path": "observer-during-1148-0.txt",
+      "bytes": 136,
+      "sha256": "0cfb03571b00853d66d280c4612b3766c96581000d68b2c5dd9c71d46182dfd7"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1148-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1148-1.txt",
+      "relative_path": "observer-during-1148-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-120-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-120-0.txt",
+      "relative_path": "observer-during-120-0.txt",
+      "bytes": 136,
+      "sha256": "1a581c5ada7fe43d657d6d04ba5e44392cd5cee3e47ff3a4b3e3d4f9f8f21d74"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-120-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-120-1.txt",
+      "relative_path": "observer-during-120-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1208-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1208-0.txt",
+      "relative_path": "observer-during-1208-0.txt",
+      "bytes": 136,
+      "sha256": "5f4ba909900bec0e90722eb2fbdb18bb9217fc26404eae622fda376b3d6b6a87"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1208-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1208-1.txt",
+      "relative_path": "observer-during-1208-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1268-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1268-0.txt",
+      "relative_path": "observer-during-1268-0.txt",
+      "bytes": 136,
+      "sha256": "f90733337bf91e0eff8929e0aeb5a520329a6caeeda71413f208577460cb4275"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1268-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1268-1.txt",
+      "relative_path": "observer-during-1268-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1329-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1329-0.txt",
+      "relative_path": "observer-during-1329-0.txt",
+      "bytes": 136,
+      "sha256": "441a7b66b588766d59f74af3b4fbe4295e728c8105de4fadb626fe3144ec544a"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1329-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1329-1.txt",
+      "relative_path": "observer-during-1329-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1390-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1390-0.txt",
+      "relative_path": "observer-during-1390-0.txt",
+      "bytes": 136,
+      "sha256": "b649a21a638b9cf485b356cf6e25b61c850b3caee867e826f883bf298a3fe463"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1390-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1390-1.txt",
+      "relative_path": "observer-during-1390-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1450-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1450-0.txt",
+      "relative_path": "observer-during-1450-0.txt",
+      "bytes": 136,
+      "sha256": "11dce19bb10404afa57ebfbee6b900db8182aea3c3feb9b1c7457585a5aae338"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1450-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1450-1.txt",
+      "relative_path": "observer-during-1450-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1511-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1511-0.txt",
+      "relative_path": "observer-during-1511-0.txt",
+      "bytes": 136,
+      "sha256": "300e7aaf3fab54d8f5e1380da5bbd91e3a37f0b918cc83d9ee650daee3d1130a"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1511-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1511-1.txt",
+      "relative_path": "observer-during-1511-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1571-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1571-0.txt",
+      "relative_path": "observer-during-1571-0.txt",
+      "bytes": 136,
+      "sha256": "16a684aaeea411dad722123f443694f6ac9642a8b3970894d745756c45681d35"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1571-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1571-1.txt",
+      "relative_path": "observer-during-1571-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1631-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1631-0.txt",
+      "relative_path": "observer-during-1631-0.txt",
+      "bytes": 136,
+      "sha256": "17f90af359e34d805e4e9ab34719edbbc77e94848ae5c80adc31269f72ec10fc"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1631-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1631-1.txt",
+      "relative_path": "observer-during-1631-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1692-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1692-0.txt",
+      "relative_path": "observer-during-1692-0.txt",
+      "bytes": 136,
+      "sha256": "f1197194e681e1252b6883fd96282e0a68fa89b1309f679f9d3d5e351ff62296"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1692-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1692-1.txt",
+      "relative_path": "observer-during-1692-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1752-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1752-0.txt",
+      "relative_path": "observer-during-1752-0.txt",
+      "bytes": 136,
+      "sha256": "0b322cdbbcb8301d3d72eb6f263c09324ae3b42a3ece565d19a78e9c84d32791"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1752-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1752-1.txt",
+      "relative_path": "observer-during-1752-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-180-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-180-0.txt",
+      "relative_path": "observer-during-180-0.txt",
+      "bytes": 136,
+      "sha256": "1402fa6f77af3e7b5f8ea4e511948f6afdb922ba34cc19e20aef684a65e5bb62"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-180-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-180-1.txt",
+      "relative_path": "observer-during-180-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1813-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1813-0.txt",
+      "relative_path": "observer-during-1813-0.txt",
+      "bytes": 135,
+      "sha256": "4327e7f36784d5c19b2f8f036e9c699f7c5437620ed6617470d5824b28f66441"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1813-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1813-1.txt",
+      "relative_path": "observer-during-1813-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1873-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1873-0.txt",
+      "relative_path": "observer-during-1873-0.txt",
+      "bytes": 135,
+      "sha256": "0c120a1a5ebfc3fcceab9101572e1809b014ebe46c00f1eec264300025669106"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1873-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1873-1.txt",
+      "relative_path": "observer-during-1873-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1934-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1934-0.txt",
+      "relative_path": "observer-during-1934-0.txt",
+      "bytes": 136,
+      "sha256": "6fa6275bb8dbb0ce21143c40555c9f944584656b61f9c76546de7f46aaac40df"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1934-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1934-1.txt",
+      "relative_path": "observer-during-1934-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1995-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1995-0.txt",
+      "relative_path": "observer-during-1995-0.txt",
+      "bytes": 136,
+      "sha256": "37f0315cc446f1fbca77041587bc3fac3eb3f0b2bec05de6d223cd5caba6cb11"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-1995-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-1995-1.txt",
+      "relative_path": "observer-during-1995-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-2056-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-2056-0.txt",
+      "relative_path": "observer-during-2056-0.txt",
+      "bytes": 136,
+      "sha256": "42dddfdc11005c98e9f6f2b8f88071db36203bb5f48f94d7a66c55282d5461ab"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-2056-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-2056-1.txt",
+      "relative_path": "observer-during-2056-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-2117-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-2117-0.txt",
+      "relative_path": "observer-during-2117-0.txt",
+      "bytes": 136,
+      "sha256": "c140222f234354e83c78f401385ac940b4895bfdd19568c0ecc527505cbf4c4d"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-2117-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-2117-1.txt",
+      "relative_path": "observer-during-2117-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-240-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-240-0.txt",
+      "relative_path": "observer-during-240-0.txt",
+      "bytes": 136,
+      "sha256": "48d1b82d3005af509bf672fd324837be01b51864e5a41f054ea37d218078f926"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-240-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-240-1.txt",
+      "relative_path": "observer-during-240-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-301-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-301-0.txt",
+      "relative_path": "observer-during-301-0.txt",
+      "bytes": 136,
+      "sha256": "43bd003d93aa376cc417d44ddb9d45e390fc130c1f6edc5d16579133bb2cd2e5"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-301-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-301-1.txt",
+      "relative_path": "observer-during-301-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-361-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-361-0.txt",
+      "relative_path": "observer-during-361-0.txt",
+      "bytes": 136,
+      "sha256": "c16caa5645f6079ac6ee35036e3cc3568b1bd2de55c20dda194f871b374fca06"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-361-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-361-1.txt",
+      "relative_path": "observer-during-361-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-422-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-422-0.txt",
+      "relative_path": "observer-during-422-0.txt",
+      "bytes": 136,
+      "sha256": "6ca49e60984624d2d8ba4747988b8255cea7f8864d1e4ace7608df53c0f44924"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-422-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-422-1.txt",
+      "relative_path": "observer-during-422-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-482-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-482-0.txt",
+      "relative_path": "observer-during-482-0.txt",
+      "bytes": 136,
+      "sha256": "885830216d1bcc615ed33c17258114b8d2bdd52f6d016ca28160f4e8a5127d8c"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-482-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-482-1.txt",
+      "relative_path": "observer-during-482-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-543-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-543-0.txt",
+      "relative_path": "observer-during-543-0.txt",
+      "bytes": 136,
+      "sha256": "2522b4dd71bad98059a4e16956a3d319a0175a9cb9a34cd5240827269b4335d4"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-543-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-543-1.txt",
+      "relative_path": "observer-during-543-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-60-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-60-0.txt",
+      "relative_path": "observer-during-60-0.txt",
+      "bytes": 136,
+      "sha256": "8692a493978882f701bc983fe8963ada83b77df8d26610218a8b4a6d68d0ac62"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-60-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-60-1.txt",
+      "relative_path": "observer-during-60-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-604-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-604-0.txt",
+      "relative_path": "observer-during-604-0.txt",
+      "bytes": 136,
+      "sha256": "c342d68dac7a1787ab9808bd13abb35d2ff22122565780e8c6ee1d64e9e835c3"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-604-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-604-1.txt",
+      "relative_path": "observer-during-604-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-665-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-665-0.txt",
+      "relative_path": "observer-during-665-0.txt",
+      "bytes": 136,
+      "sha256": "f9d731a32dff3e241acfd937e1c022ee5c6d233772cf8803024f450e47f1e664"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-665-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-665-1.txt",
+      "relative_path": "observer-during-665-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-725-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-725-0.txt",
+      "relative_path": "observer-during-725-0.txt",
+      "bytes": 136,
+      "sha256": "ca3f142fa54132bc85667c52b34bb5c64caac97df4ebdaeb5c2befe213270afc"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-725-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-725-1.txt",
+      "relative_path": "observer-during-725-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-785-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-785-0.txt",
+      "relative_path": "observer-during-785-0.txt",
+      "bytes": 136,
+      "sha256": "9b38dfaaee2e6398a2c98651e90d1028d8eda14df3cdb94a6ba4a9f6c8e56eb0"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-785-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-785-1.txt",
+      "relative_path": "observer-during-785-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-845-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-845-0.txt",
+      "relative_path": "observer-during-845-0.txt",
+      "bytes": 136,
+      "sha256": "082d7567637b52928ed26349dd9195c22d7f80f030c03ffb67f0c0d2133a169c"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-845-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-845-1.txt",
+      "relative_path": "observer-during-845-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-906-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-906-0.txt",
+      "relative_path": "observer-during-906-0.txt",
+      "bytes": 136,
+      "sha256": "8a44b9d1ff3b3dd35167a53c140f94646edd501ad2e90bff060922ec89d03dd0"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-906-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-906-1.txt",
+      "relative_path": "observer-during-906-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-967-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-967-0.txt",
+      "relative_path": "observer-during-967-0.txt",
+      "bytes": 135,
+      "sha256": "2312002d6d56a4f3aa9d861ea6be0d6f25bff2a4c6bcd1b7de336a01a04a9f4f"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-during-967-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-during-967-1.txt",
+      "relative_path": "observer-during-967-1.txt",
+      "bytes": 1956,
+      "sha256": "353247b1c2b8d40e97d645a4cdcf38e48882be7f3427d09e2d224229e943eb46"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-post-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-post-0.txt",
+      "relative_path": "observer-post-0.txt",
+      "bytes": 137,
+      "sha256": "eeb91f2f20c4145b6096acdd93969eb1e82338617753bc2ac62e7b94294eccd9"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-post-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-post-1.txt",
+      "relative_path": "observer-post-1.txt",
+      "bytes": 1876,
+      "sha256": "23a06d8b12f20a2c8ff2c2970413de7809f1a64345194fd1aaad5712db5aa9eb"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-pre-0.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-pre-0.txt",
+      "relative_path": "observer-pre-0.txt",
+      "bytes": 136,
+      "sha256": "9af3872d78742bcdbdda81ff780f9e13f60ba68c8bf42854f538c940a899e6c8"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\observer-pre-1.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/observer-pre-1.txt",
+      "relative_path": "observer-pre-1.txt",
+      "bytes": 1876,
+      "sha256": "23a06d8b12f20a2c8ff2c2970413de7809f1a64345194fd1aaad5712db5aa9eb"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\plan.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/plan.json",
+      "relative_path": "plan.json",
+      "bytes": 4230,
+      "sha256": "d13d4139579af99eba14a990793f682468d5d5c36acd2d69e9a5c7d8aaf512cd"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\run-result.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/run-result.json",
+      "relative_path": "run-result.json",
+      "bytes": 26318,
+      "sha256": "f6475d1bd2a40222ae2b3408360c7bf73542b164c2a9861c8dd5267b06540d5e"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\scores.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/scores.json",
+      "relative_path": "scores.json",
+      "bytes": 971953,
+      "sha256": "8cc924888baf65ebcb3ee867891402ede6dd0b0224768c6931592a9a3cce710e"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\stderr.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/stderr.txt",
+      "relative_path": "stderr.txt",
+      "bytes": 376,
+      "sha256": "4642f92e8f27080d4fa51d3de92cbe172f4a65e58d6c44ad4f47c744118cd6cb"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\stdout.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/stdout.txt",
+      "relative_path": "stdout.txt",
+      "bytes": 63047,
+      "sha256": "40bf481a6638eca620402aa8695cb745ff8a6f27b62ceb17a4da42f968260ded"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\events.jsonl",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/events.jsonl",
+      "relative_path": "evidence/events.jsonl",
+      "bytes": 2782,
+      "sha256": "b3f22a42f54fdb2b46252b9bf07cb702f36a2f4d73bf710ab343639ce129baf3"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\load.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/load.json",
+      "relative_path": "evidence/load.json",
+      "bytes": 4129,
+      "sha256": "d9790fffc57c8f2451a340ce00194e72c6512ca0735846bc576b8be7dcadf52c"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\preflight.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/preflight.json",
+      "relative_path": "evidence/preflight.json",
+      "bytes": 30511,
+      "sha256": "31c556de13799e34425063cc675a70d3eae3c123efa0a7e16d54d26ce22296b8"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v0-clean.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v0-clean.measured.observation.json",
+      "relative_path": "evidence/SYN-INV-01-v0-clean.measured.observation.json",
+      "bytes": 8836,
+      "sha256": "9dc745f56835485fa72218fd883e082a78242b11cad460de7caf24d5c103b317"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v0-clean.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v0-clean.measured.raw.txt",
+      "relative_path": "evidence/SYN-INV-01-v0-clean.measured.raw.txt",
+      "bytes": 2846,
+      "sha256": "d2704369010a83134c9445559715d387a3648b57effaa2b64c323cf6c4258958"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v0-clean.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v0-clean.measured.render.json",
+      "relative_path": "evidence/SYN-INV-01-v0-clean.measured.render.json",
+      "bytes": 300,
+      "sha256": "f56d694cbc3c6ce3a23f894d0faae9089b33d2b3178db61ddaf76eae010359cb"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v0-clean.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v0-clean.measured.token_ids.json",
+      "relative_path": "evidence/SYN-INV-01-v0-clean.measured.token_ids.json",
+      "bytes": 7703,
+      "sha256": "1bec8a401630a9d67ed6d53bb9014160a4293001c7a6a21104ec784fed250d25"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v1-raster300.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v1-raster300.measured.observation.json",
+      "relative_path": "evidence/SYN-INV-01-v1-raster300.measured.observation.json",
+      "bytes": 8852,
+      "sha256": "f1f7063f043a7024384b5b35469833d8f9e24fba50d119178c1c799cc4e3eedf"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v1-raster300.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v1-raster300.measured.raw.txt",
+      "relative_path": "evidence/SYN-INV-01-v1-raster300.measured.raw.txt",
+      "bytes": 2846,
+      "sha256": "d2704369010a83134c9445559715d387a3648b57effaa2b64c323cf6c4258958"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v1-raster300.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v1-raster300.measured.render.json",
+      "relative_path": "evidence/SYN-INV-01-v1-raster300.measured.render.json",
+      "bytes": 300,
+      "sha256": "5c16d49049e9d000818221b30e5584f78857bcbbf06876158f0dd8b1c67352af"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v1-raster300.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v1-raster300.measured.token_ids.json",
+      "relative_path": "evidence/SYN-INV-01-v1-raster300.measured.token_ids.json",
+      "bytes": 7703,
+      "sha256": "1bec8a401630a9d67ed6d53bb9014160a4293001c7a6a21104ec784fed250d25"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v2-skew-neg3deg.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v2-skew-neg3deg.measured.observation.json",
+      "relative_path": "evidence/SYN-INV-01-v2-skew-neg3deg.measured.observation.json",
+      "bytes": 8849,
+      "sha256": "69ad3a8db437cbb764540385271316d5b589c2dc710e710f9c7aa9fa410df845"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v2-skew-neg3deg.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v2-skew-neg3deg.measured.raw.txt",
+      "relative_path": "evidence/SYN-INV-01-v2-skew-neg3deg.measured.raw.txt",
+      "bytes": 2190,
+      "sha256": "fdccf142eda8314d9dd06170fa0708abef0345e22e5c0fa611b19956b33fa4e2"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v2-skew-neg3deg.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v2-skew-neg3deg.measured.render.json",
+      "relative_path": "evidence/SYN-INV-01-v2-skew-neg3deg.measured.render.json",
+      "bytes": 300,
+      "sha256": "79d06bfb938f0a1893ba5a8964ca7340dd1f8ebd3c34691ef3267b89d5ff9956"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-INV-01-v2-skew-neg3deg.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-INV-01-v2-skew-neg3deg.measured.token_ids.json",
+      "relative_path": "evidence/SYN-INV-01-v2-skew-neg3deg.measured.token_ids.json",
+      "bytes": 5660,
+      "sha256": "4ecc6ff85c1fd33b2301cb0ee18b187f80b8fb853abdb8323306ac3a203d5db9"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v0-clean.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v0-clean.measured.observation.json",
+      "relative_path": "evidence/SYN-MP-01-v0-clean.measured.observation.json",
+      "bytes": 8892,
+      "sha256": "3eb569aa3693697268b885153dd346d10b0a4783786f5bb91e7dac946ba33c4a"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v0-clean.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v0-clean.measured.raw.txt",
+      "relative_path": "evidence/SYN-MP-01-v0-clean.measured.raw.txt",
+      "bytes": 7617,
+      "sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v0-clean.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v0-clean.measured.render.json",
+      "relative_path": "evidence/SYN-MP-01-v0-clean.measured.render.json",
+      "bytes": 620,
+      "sha256": "a1a9eeff2e7f53839e8ab0adf9cb105af21421b5a224a519435642147d3c1c40"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v0-clean.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v0-clean.measured.token_ids.json",
+      "relative_path": "evidence/SYN-MP-01-v0-clean.measured.token_ids.json",
+      "bytes": 20504,
+      "sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v0-clean.warmup.observation.json",
+      "relative_path": "evidence/SYN-MP-01-v0-clean.warmup.observation.json",
+      "bytes": 9523,
+      "sha256": "864e50098a7f3f3c41fafd1d132cf2eca1700d9982b306dfb64eb1649a7068cb"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v0-clean.warmup.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v0-clean.warmup.raw.txt",
+      "relative_path": "evidence/SYN-MP-01-v0-clean.warmup.raw.txt",
+      "bytes": 7617,
+      "sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v0-clean.warmup.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v0-clean.warmup.render.json",
+      "relative_path": "evidence/SYN-MP-01-v0-clean.warmup.render.json",
+      "bytes": 619,
+      "sha256": "268f37855aca02b1e49306217b4ec684e3ab07bfb73e69bc807e20f4b13f1516"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v0-clean.warmup.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v0-clean.warmup.token_ids.json",
+      "relative_path": "evidence/SYN-MP-01-v0-clean.warmup.token_ids.json",
+      "bytes": 20504,
+      "sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v1-raster300.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v1-raster300.measured.observation.json",
+      "relative_path": "evidence/SYN-MP-01-v1-raster300.measured.observation.json",
+      "bytes": 8907,
+      "sha256": "63f2051159278e225a504e8574bd5749bbe77085f346dbb2ec70ed7946a4b5b2"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v1-raster300.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v1-raster300.measured.raw.txt",
+      "relative_path": "evidence/SYN-MP-01-v1-raster300.measured.raw.txt",
+      "bytes": 7617,
+      "sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v1-raster300.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v1-raster300.measured.render.json",
+      "relative_path": "evidence/SYN-MP-01-v1-raster300.measured.render.json",
+      "bytes": 619,
+      "sha256": "b95f7d9815135f0fc08f20816afb3dd54fa0fff2eb761d087947682ca957e388"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v1-raster300.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v1-raster300.measured.token_ids.json",
+      "relative_path": "evidence/SYN-MP-01-v1-raster300.measured.token_ids.json",
+      "bytes": 20504,
+      "sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-MP-01-v2-skew-pos4deg.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-MP-01-v2-skew-pos4deg.measured.render.json",
+      "relative_path": "evidence/SYN-MP-01-v2-skew-pos4deg.measured.render.json",
+      "bytes": 620,
+      "sha256": "e934a0f3294eca6fff45af8b28e9aaa79dafcb6f2312bbaf5797c0a0ef6afa1b"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v0-clean.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v0-clean.measured.observation.json",
+      "relative_path": "evidence/SYN-WO-01-v0-clean.measured.observation.json",
+      "bytes": 8835,
+      "sha256": "cf4942aa3522186dca9904e4a03de21d4488b0b4cc2c9907540d8c3e121fe8cc"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v0-clean.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v0-clean.measured.raw.txt",
+      "relative_path": "evidence/SYN-WO-01-v0-clean.measured.raw.txt",
+      "bytes": 3236,
+      "sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v0-clean.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v0-clean.measured.render.json",
+      "relative_path": "evidence/SYN-WO-01-v0-clean.measured.render.json",
+      "bytes": 300,
+      "sha256": "62dae9fda1dd096d7827710ce938c1dcea88855e51c1be7a319db104fa2842d4"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v0-clean.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v0-clean.measured.token_ids.json",
+      "relative_path": "evidence/SYN-WO-01-v0-clean.measured.token_ids.json",
+      "bytes": 8802,
+      "sha256": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v0-clean.warmup.observation.json",
+      "relative_path": "evidence/SYN-WO-01-v0-clean.warmup.observation.json",
+      "bytes": 10651,
+      "sha256": "770ba1ef3949112ae55d4e905e403f45266bfcdf74135da1b3832635c71f6af8"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v0-clean.warmup.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v0-clean.warmup.raw.txt",
+      "relative_path": "evidence/SYN-WO-01-v0-clean.warmup.raw.txt",
+      "bytes": 3236,
+      "sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v0-clean.warmup.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v0-clean.warmup.render.json",
+      "relative_path": "evidence/SYN-WO-01-v0-clean.warmup.render.json",
+      "bytes": 300,
+      "sha256": "f46389b4cf4e3f712809a6f80bc48e4cadaf8d4dffadea7f0491d5478b726932"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v0-clean.warmup.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v0-clean.warmup.token_ids.json",
+      "relative_path": "evidence/SYN-WO-01-v0-clean.warmup.token_ids.json",
+      "bytes": 8802,
+      "sha256": "923eff30d3d7ecd6f694134992a0e71244d45ed7d5a1de1460da3f89f2ba268f"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v1-raster300.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v1-raster300.measured.observation.json",
+      "relative_path": "evidence/SYN-WO-01-v1-raster300.measured.observation.json",
+      "bytes": 8851,
+      "sha256": "04b16d30df6f93d7364a0ba81073a8d1532e704b5a1d2f431b3b95d6dc4a2cbb"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v1-raster300.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v1-raster300.measured.raw.txt",
+      "relative_path": "evidence/SYN-WO-01-v1-raster300.measured.raw.txt",
+      "bytes": 3236,
+      "sha256": "4f8fc55103423af08720e9ab55461d3796e96583a3cef1bd2587598d832e5c24"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v1-raster300.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v1-raster300.measured.render.json",
+      "relative_path": "evidence/SYN-WO-01-v1-raster300.measured.render.json",
+      "bytes": 300,
+      "sha256": "0cc215a7fbce842bfa816abe3d4eb87882f4784342f446eec846c400609e1cd6"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v1-raster300.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v1-raster300.measured.token_ids.json",
+      "relative_path": "evidence/SYN-WO-01-v1-raster300.measured.token_ids.json",
+      "bytes": 8802,
+      "sha256": "35c10437e662c5ec78be196468eeac9de92cae99ac1f5ef139f8f0bd4e03d4fc"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v2-skew-pos4deg.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v2-skew-pos4deg.measured.observation.json",
+      "relative_path": "evidence/SYN-WO-01-v2-skew-pos4deg.measured.observation.json",
+      "bytes": 8853,
+      "sha256": "5c58966ae2b160e84aab21436a23f77a9c77bbc75a613cccded026b54cc6217e"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v2-skew-pos4deg.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v2-skew-pos4deg.measured.raw.txt",
+      "relative_path": "evidence/SYN-WO-01-v2-skew-pos4deg.measured.raw.txt",
+      "bytes": 2753,
+      "sha256": "9e32c7f965007e79aeca66bad4e5cc5c8bc94ba6381d8dd5020caa681b48abea"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v2-skew-pos4deg.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v2-skew-pos4deg.measured.render.json",
+      "relative_path": "evidence/SYN-WO-01-v2-skew-pos4deg.measured.render.json",
+      "bytes": 300,
+      "sha256": "d4b9eb5721bb2ac6fbce8c74e8ae1e16e60662ecc8c34fb91d3bb9f3f0e00ebe"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-01-v2-skew-pos4deg.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-01-v2-skew-pos4deg.measured.token_ids.json",
+      "relative_path": "evidence/SYN-WO-01-v2-skew-pos4deg.measured.token_ids.json",
+      "bytes": 7051,
+      "sha256": "1b3f92dd2a0ddaa2490a001a902359e9ab958a5975eb520a93ae1ee600d40b65"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v0-clean.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v0-clean.measured.observation.json",
+      "relative_path": "evidence/SYN-WO-02-v0-clean.measured.observation.json",
+      "bytes": 8832,
+      "sha256": "c3d90683227363da72461eacc1758310533b2fd9380c02cf7c21706a90f067bc"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v0-clean.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v0-clean.measured.raw.txt",
+      "relative_path": "evidence/SYN-WO-02-v0-clean.measured.raw.txt",
+      "bytes": 2770,
+      "sha256": "3b6fa17ec83c09d5a680357d94f7a09094a9c1f7c58bd002b6a16a8ff7248a16"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v0-clean.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v0-clean.measured.render.json",
+      "relative_path": "evidence/SYN-WO-02-v0-clean.measured.render.json",
+      "bytes": 300,
+      "sha256": "8bbe1bfef4e5088c9ed009ef2a02f7fe0882049cf6b6e5e004ab91568dc33cc7"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v0-clean.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v0-clean.measured.token_ids.json",
+      "relative_path": "evidence/SYN-WO-02-v0-clean.measured.token_ids.json",
+      "bytes": 7198,
+      "sha256": "2eab40b562afb7c23795f214f78282231a0e25f3ed45915585de55ccb681f8b8"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v1-raster300.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v1-raster300.measured.observation.json",
+      "relative_path": "evidence/SYN-WO-02-v1-raster300.measured.observation.json",
+      "bytes": 8845,
+      "sha256": "9bbfb16f7062b11e400ca98d04f53e1fab53311519997654e709978342c2821f"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v1-raster300.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v1-raster300.measured.raw.txt",
+      "relative_path": "evidence/SYN-WO-02-v1-raster300.measured.raw.txt",
+      "bytes": 2770,
+      "sha256": "3b6fa17ec83c09d5a680357d94f7a09094a9c1f7c58bd002b6a16a8ff7248a16"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v1-raster300.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v1-raster300.measured.render.json",
+      "relative_path": "evidence/SYN-WO-02-v1-raster300.measured.render.json",
+      "bytes": 299,
+      "sha256": "a2f9e9bdb2183bfabc6e2676af4f3bfb7fda3f72ce3338eebc6aeaa3b18ea1be"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v1-raster300.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v1-raster300.measured.token_ids.json",
+      "relative_path": "evidence/SYN-WO-02-v1-raster300.measured.token_ids.json",
+      "bytes": 7198,
+      "sha256": "2eab40b562afb7c23795f214f78282231a0e25f3ed45915585de55ccb681f8b8"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v2-skew-neg3deg.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v2-skew-neg3deg.measured.observation.json",
+      "relative_path": "evidence/SYN-WO-02-v2-skew-neg3deg.measured.observation.json",
+      "bytes": 8846,
+      "sha256": "f5514c2190ac39f65558692e95fe2c85d4f6936a010e9e37efa3aab2b9f0413c"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v2-skew-neg3deg.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v2-skew-neg3deg.measured.raw.txt",
+      "relative_path": "evidence/SYN-WO-02-v2-skew-neg3deg.measured.raw.txt",
+      "bytes": 2619,
+      "sha256": "86fa657fd8d01c03e4928293abe7354a3f6b9e32af7645521ea2341d9ca191d9"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v2-skew-neg3deg.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v2-skew-neg3deg.measured.render.json",
+      "relative_path": "evidence/SYN-WO-02-v2-skew-neg3deg.measured.render.json",
+      "bytes": 300,
+      "sha256": "1f90479ac13b11127613d4f7a7b57d65408b690aed7a0e8c3be26053521ccf48"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v2-skew-neg3deg.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v2-skew-neg3deg.measured.token_ids.json",
+      "relative_path": "evidence/SYN-WO-02-v2-skew-neg3deg.measured.token_ids.json",
+      "bytes": 6498,
+      "sha256": "b5c4025c0b30e8c23f3c829264a652f5de662f0b25b1680f3806db283850bd49"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v3-hybrid-note.measured.observation.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v3-hybrid-note.measured.observation.json",
+      "relative_path": "evidence/SYN-WO-02-v3-hybrid-note.measured.observation.json",
+      "bytes": 8853,
+      "sha256": "dab87547c0d9d63629f48c2b206f9b24865bf0dbf12cbdcb82fe74d995b38f41"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v3-hybrid-note.measured.raw.txt",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v3-hybrid-note.measured.raw.txt",
+      "relative_path": "evidence/SYN-WO-02-v3-hybrid-note.measured.raw.txt",
+      "bytes": 2918,
+      "sha256": "6762f485061326a009514215807ac218c65064fcf23c45df8a28d14aef3d613a"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v3-hybrid-note.measured.render.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v3-hybrid-note.measured.render.json",
+      "relative_path": "evidence/SYN-WO-02-v3-hybrid-note.measured.render.json",
+      "bytes": 300,
+      "sha256": "74f4cba77b22f77bd487f409efad887bc3b9257a16a7c477c2349fbd75f8d9c3"
+    },
+    {
+      "source": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T051059Z-eda73dc6\\evidence\\SYN-WO-02-v3-hybrid-note.measured.token_ids.json",
+      "path": "docs/evidence/WP-0007/eld-rd-astra/runtime-dev/20261116T051059Z-eda73dc6/evidence/SYN-WO-02-v3-hybrid-note.measured.token_ids.json",
+      "relative_path": "evidence/SYN-WO-02-v3-hybrid-note.measured.token_ids.json",
+      "bytes": 7679,
+      "sha256": "c7bfd0430e65739bf25bafe1ef14c8086bc8aaf287dc2fcb576227ab774ed27c"
+    }
+  ],
+  "excluded_from_git": [
+    "cuda-cache",
+    "hf-home",
+    "hf-modules",
+    "home",
+    "inductor-cache",
+    "tmp",
+    "torch-home"
+  ],
+  "limitations": [
+    "Failed final call remains in every expected denominator; no replacement/retry",
+    "Last partial stdout is preserved but not promoted to a completed native observation or repaired/scored as if complete",
+    "Concurrent F2 CPU/RAM work and desktop WDDM confound timing/memory; descriptive measurements only",
+    "No heldout content/model/library/source changes; canonical004 and independent005 remain outstanding",
+    "A live directory-size/atomic heartbeat.tmp rename race is a source-based hypothesis only; original supervisor exception contains neither missing path nor traceback"
+  ]
+}

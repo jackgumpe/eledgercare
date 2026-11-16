@@ -1,0 +1,1120 @@
+{
+  "schema": "eld-baseline-prediction/1",
+  "fields": [
+    {
+      "field_id": "work_order_id",
+      "label": "Work Order ID",
+      "page": 1,
+      "value": "WO-004192",
+      "location": [
+        3
+      ]
+    },
+    {
+      "field_id": "property_name",
+      "label": "Property",
+      "page": 1,
+      "value": "Cedar Hollow Apartments",
+      "location": [
+        5
+      ]
+    },
+    {
+      "field_id": "building_unit",
+      "label": "Building / Unit",
+      "page": 1,
+      "value": "Bldg B - Unit 204",
+      "location": [
+        7
+      ]
+    },
+    {
+      "field_id": "requested_date",
+      "label": "Requested Date",
+      "page": 1,
+      "value": "2026-10-16",
+      "location": [
+        9
+      ]
+    },
+    {
+      "field_id": "trade_category",
+      "label": "Trade Category",
+      "page": 1,
+      "value": "HVAC - Cooling / Heat Pump",
+      "location": [
+        12
+      ]
+    },
+    {
+      "field_id": "assigned_tech",
+      "label": "Assigned Technician",
+      "page": 1,
+      "value": "Marcus Vance (Tech #0087)",
+      "location": [
+        14
+      ]
+    },
+    {
+      "field_id": "resident_contact",
+      "label": "Resident Contact",
+      "page": 1,
+      "value": "Elena Rostova (555-0184)",
+      "location": [
+        16
+      ]
+    },
+    {
+      "field_id": "tenant_callback_notes",
+      "label": "Tenant Callback Notes",
+      "page": 1,
+      "value": "",
+      "location": [
+        18
+      ]
+    },
+    {
+      "field_id": "priority_urgent",
+      "label": "Priority: Urgent",
+      "page": 1,
+      "value": "[X]",
+      "location": [
+        19
+      ]
+    },
+    {
+      "field_id": "permission_to_enter",
+      "label": "Permission to Enter: Yes",
+      "page": 1,
+      "value": "[X]",
+      "location": [
+        20
+      ]
+    },
+    {
+      "field_id": "pets_on_premises",
+      "label": "Pets on Premises: No",
+      "page": 1,
+      "value": "[ ]",
+      "location": [
+        21
+      ]
+    },
+    {
+      "field_id": "utility_shutoff_req",
+      "label": "Main Utility Shutoff",
+      "page": 1,
+      "value": "[ ]",
+      "location": [
+        22
+      ]
+    },
+    {
+      "field_id": "reported_issue_and_resolution",
+      "label": "REPORTED SYMPTOM & TECHNICIAN RESOLUTION SUMMARY",
+      "page": 1,
+      "value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+      "location": [
+        23
+      ]
+    },
+    {
+      "field_id": "completion_status",
+      "label": "Work Order Status",
+      "page": 1,
+      "value": "COMPLETED - VERIFIED",
+      "location": [
+        29
+      ]
+    },
+    {
+      "field_id": "completed_timestamp",
+      "label": "Completed Timestamp",
+      "page": 1,
+      "value": "2026-10-16 10:45",
+      "location": [
+        31
+      ]
+    },
+    {
+      "field_id": "supervisor_signoff",
+      "label": "Supervisor Review",
+      "page": 1,
+      "value": "D. Callahan",
+      "location": [
+        33
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "labor_log",
+      "columns": [
+        "log_id",
+        "tech_id",
+        "work_date",
+        "time_in",
+        "time_out",
+        "hours",
+        "activity"
+      ],
+      "page": 1,
+      "rows": [
+        {
+          "values": [
+            "LB-01",
+            "TECH-0087",
+            "2026-10-16",
+            "09:15",
+            "10:45",
+            "1.50",
+            "HVAC-DIAG-RPR"
+          ],
+          "physical_values": [
+            "LB-01",
+            "TECH-0087",
+            "2026-10-16",
+            "09:15",
+            "10:45",
+            "1.50",
+            "HVAC-DIAG-RPR"
+          ],
+          "cells": [
+            {
+              "text": "LB-01",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "TECH-0087",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "2026-10-16",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "09:15",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "10:45",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.50",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "HVAC-DIAG-RPR",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 1,
+          "mapping_status": "mapped"
+        }
+      ],
+      "block": 26
+    },
+    {
+      "table_id": "stock_parts",
+      "columns": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "page": 1,
+      "rows": [
+        {
+          "values": [
+            "CAP-45-SMFD-440V",
+            "Oval Dual Run Capacitor 45/5 uF 440VAC",
+            "VAN-03-B2",
+            "1.00"
+          ],
+          "physical_values": [
+            "CAP-45-SMFD-440V",
+            "Oval Dual Run Capacitor 45/5 uF 440VAC",
+            "VAN-03-B2",
+            "1.00"
+          ],
+          "cells": [
+            {
+              "text": "CAP-45-SMFD-440V",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "Oval Dual Run Capacitor 45/5 uF 440VAC",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "VAN-03-B2",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.00",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 1,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "CONT-24V-2P30A",
+            "24V Coil Definite Purpose Contactor 2P 30A",
+            "VAN-03-C4",
+            "1.00"
+          ],
+          "physical_values": [
+            "CONT-24V-2P30A",
+            "24V Coil Definite Purpose Contactor 2P 30A",
+            "VAN-03-C4",
+            "1.00"
+          ],
+          "cells": [
+            {
+              "text": "CONT-24V-2P30A",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "24V Coil Definite Purpose Contactor 2P 30A",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "VAN-03-C4",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "1.00",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 2,
+          "mapping_status": "mapped"
+        },
+        {
+          "values": [
+            "0018-TERM-QC",
+            "High-Temp Flag Quick-Disconnect Terminal Pack",
+            "VAN-03-A1",
+            "4.00"
+          ],
+          "physical_values": [
+            "0018-TERM-QC",
+            "High-Temp Flag Quick-Disconnect Terminal Pack",
+            "VAN-03-A1",
+            "4.00"
+          ],
+          "cells": [
+            {
+              "text": "0018-TERM-QC",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "High-Temp Flag Quick-Disconnect Terminal Pack",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "VAN-03-A1",
+              "colspan": 1,
+              "rowspan": 1
+            },
+            {
+              "text": "4.00",
+              "colspan": 1,
+              "rowspan": 1
+            }
+          ],
+          "native_row": 3,
+          "mapping_status": "mapped"
+        }
+      ],
+      "block": 28
+    }
+  ],
+  "anchors": [],
+  "unmapped": [
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "CEDAR HOLLOW PROPERTY MANAGEMENT LLC\nCORRECTIVE MAINTENANCE WORK ORDER",
+      "location": [
+        0
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Dispatch & Field Completion Record (Internal Stock - Non-Billing)",
+      "location": [
+        1
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "DISPATCH & LOCATION METADATA",
+      "location": [
+        2
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "WO-004192",
+      "location": [
+        4
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Cedar Hollow Apartments",
+      "location": [
+        6
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Bldg B - Unit 204",
+      "location": [
+        8
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "2026-10-16",
+      "location": [
+        10
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "ASSIGNMENT & ACCESS DETAILS",
+      "location": [
+        11
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "HVAC - Cooling / Heat Pump",
+      "location": [
+        13
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Marcus Vance (Tech #0087)",
+      "location": [
+        15
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Elena Rostova (555-0184)",
+      "location": [
+        17
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+      "location": [
+        24
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "TECHNICIAN LABOR TIME LOG",
+      "location": [
+        25
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "INTERNAL MAINTENANCE STOCK PARTS USED (NO TENANT CHARGE)",
+      "location": [
+        27
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "COMPLETED - VERIFIED",
+      "location": [
+        30
+      ]
+    },
+    {
+      "page": 1,
+      "text": "2026-10-16 10:45",
+      "kind": "unknown_label",
+      "location": [
+        32
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "2026-10-16 10:45",
+      "location": [
+        32
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "D. Callahan",
+      "location": [
+        34
+      ]
+    },
+    {
+      "page": 1,
+      "text": "2400 Cedar Hollow Pkwy, Suite 110, Oakbrook, IL 60523 | Tel: 555-0141 | dispatch@cedarhollow.example",
+      "kind": "unknown_label",
+      "location": [
+        35
+      ]
+    },
+    {
+      "page": 1,
+      "kind": "unmapped_text",
+      "text": "2400 Cedar Hollow Pkwy, Suite 110, Oakbrook, IL 60523 | Tel: 555-0141 | dispatch@cedarhollow.example",
+      "location": [
+        35
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "blocks": [
+        {
+          "kind": "title",
+          "bbox": [
+            75,
+            45,
+            486,
+            78
+          ],
+          "text": "CEDAR HOLLOW PROPERTY MANAGEMENT LLC\nCORRECTIVE MAINTENANCE WORK ORDER",
+          "rows": [],
+          "native_body": "CEDAR HOLLOW PROPERTY MANAGEMENT LLC\nCORRECTIVE MAINTENANCE WORK ORDER"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            75,
+            83,
+            458,
+            97
+          ],
+          "text": "Dispatch & Field Completion Record (Internal Stock - Non-Billing)",
+          "rows": [],
+          "native_body": "Dispatch & Field Completion Record (Internal Stock - Non-Billing)"
+        },
+        {
+          "kind": "title",
+          "bbox": [
+            72,
+            118,
+            306,
+            131
+          ],
+          "text": "DISPATCH & LOCATION METADATA",
+          "rows": [],
+          "native_body": "DISPATCH & LOCATION METADATA"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            72,
+            141,
+            160,
+            153
+          ],
+          "text": "Work Order ID:",
+          "rows": [],
+          "native_body": "Work Order ID:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            247,
+            141,
+            324,
+            153
+          ],
+          "text": "WO-004192",
+          "rows": [],
+          "native_body": "WO-004192"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            72,
+            163,
+            135,
+            176
+          ],
+          "text": "Property:",
+          "rows": [],
+          "native_body": "Property:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            247,
+            163,
+            402,
+            176
+          ],
+          "text": "Cedar Hollow Apartments",
+          "rows": [],
+          "native_body": "Cedar Hollow Apartments"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            72,
+            185,
+            167,
+            198
+          ],
+          "text": "Building / Unit:",
+          "rows": [],
+          "native_body": "Building / Unit:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            247,
+            185,
+            355,
+            198
+          ],
+          "text": "Bldg B - Unit 204",
+          "rows": [],
+          "native_body": "Bldg B - Unit 204"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            72,
+            206,
+            177,
+            219
+          ],
+          "text": "Requested Date:",
+          "rows": [],
+          "native_body": "Requested Date:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            247,
+            206,
+            320,
+            218
+          ],
+          "text": "2026-10-16",
+          "rows": [],
+          "native_body": "2026-10-16"
+        },
+        {
+          "kind": "title",
+          "bbox": [
+            516,
+            118,
+            746,
+            131
+          ],
+          "text": "ASSIGNMENT & ACCESS DETAILS",
+          "rows": [],
+          "native_body": "ASSIGNMENT & ACCESS DETAILS"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            516,
+            141,
+            619,
+            155
+          ],
+          "text": "Trade Category:",
+          "rows": [],
+          "native_body": "Trade Category:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            693,
+            141,
+            871,
+            155
+          ],
+          "text": "HVAC - Cooling / Heat Pump",
+          "rows": [],
+          "native_body": "HVAC - Cooling / Heat Pump"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            516,
+            163,
+            653,
+            176
+          ],
+          "text": "Assigned Technician:",
+          "rows": [],
+          "native_body": "Assigned Technician:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            693,
+            163,
+            865,
+            176
+          ],
+          "text": "Marcus Vance (Tech #0087)",
+          "rows": [],
+          "native_body": "Marcus Vance (Tech #0087)"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            516,
+            185,
+            630,
+            197
+          ],
+          "text": "Resident Contact:",
+          "rows": [],
+          "native_body": "Resident Contact:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            693,
+            185,
+            852,
+            197
+          ],
+          "text": "Elena Rostova (555-0184)",
+          "rows": [],
+          "native_body": "Elena Rostova (555-0184)"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            516,
+            206,
+            662,
+            218
+          ],
+          "text": "Tenant Callback Notes:",
+          "rows": [],
+          "native_body": "Tenant Callback Notes:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            69,
+            247,
+            210,
+            258
+          ],
+          "text": "Priority: Urgent [X]",
+          "rows": [],
+          "native_body": "Priority: Urgent [X]"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            285,
+            247,
+            472,
+            258
+          ],
+          "text": "Permission to Enter: Yes [X]",
+          "rows": [],
+          "native_body": "Permission to Enter: Yes [X]"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            498,
+            247,
+            663,
+            258
+          ],
+          "text": "Pets on Premises: No [ ]",
+          "rows": [],
+          "native_body": "Pets on Premises: No [ ]"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            706,
+            247,
+            882,
+            258
+          ],
+          "text": "Main Utility Shutoff [ ]",
+          "rows": [],
+          "native_body": "Main Utility Shutoff [ ]"
+        },
+        {
+          "kind": "title",
+          "bbox": [
+            72,
+            276,
+            467,
+            289
+          ],
+          "text": "REPORTED SYMPTOM & TECHNICIAN RESOLUTION SUMMARY",
+          "rows": [],
+          "native_body": "REPORTED SYMPTOM & TECHNICIAN RESOLUTION SUMMARY"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            73,
+            295,
+            877,
+            336
+          ],
+          "text": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+          "rows": [],
+          "native_body": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil."
+        },
+        {
+          "kind": "other",
+          "bbox": [
+            62,
+            355,
+            272,
+            367
+          ],
+          "text": "TECHNICIAN LABOR TIME LOG",
+          "rows": [],
+          "native_body": "TECHNICIAN LABOR TIME LOG"
+        },
+        {
+          "kind": "table",
+          "bbox": [
+            62,
+            368,
+            937,
+            410
+          ],
+          "text": "Entry Tech ID Date Time In Time Out Hours Activity Code\nLB-01 TECH-0087 2026-10-16 09:15 10:45 1.50 HVAC-DIAG-RPR",
+          "rows": [
+            [
+              {
+                "text": "Entry",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Tech ID",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Date",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Time In",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Time Out",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Hours",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Activity Code",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "LB-01",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "TECH-0087",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "2026-10-16",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "09:15",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "10:45",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.50",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "HVAC-DIAG-RPR",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ]
+          ],
+          "native_body": "<table><tr><td>Entry</td><td>Tech ID</td><td>Date</td><td>Time In</td><td>Time Out</td><td>Hours</td><td>Activity Code</td></tr><tr><td>LB-01</td><td>TECH-0087</td><td>2026-10-16</td><td>09:15</td><td>10:45</td><td>1.50</td><td>HVAC-DIAG-RPR</td></tr></table>"
+        },
+        {
+          "kind": "other",
+          "bbox": [
+            62,
+            426,
+            536,
+            439
+          ],
+          "text": "INTERNAL MAINTENANCE STOCK PARTS USED (NO TENANT CHARGE)",
+          "rows": [],
+          "native_body": "INTERNAL MAINTENANCE STOCK PARTS USED (NO TENANT CHARGE)"
+        },
+        {
+          "kind": "table",
+          "bbox": [
+            62,
+            440,
+            937,
+            526
+          ],
+          "text": "Part SKU Part Description Bin Qty Used\nCAP-45-SMFD-440V Oval Dual Run Capacitor 45/5 uF 440VAC VAN-03-B2 1.00\nCONT-24V-2P30A 24V Coil Definite Purpose Contactor 2P 30A VAN-03-C4 1.00\n0018-TERM-QC High-Temp Flag Quick-Disconnect Terminal Pack VAN-03-A1 4.00",
+          "rows": [
+            [
+              {
+                "text": "Part SKU",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Part Description",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Bin",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Qty Used",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "CAP-45-SMFD-440V",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "Oval Dual Run Capacitor 45/5 uF 440VAC",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "VAN-03-B2",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "CONT-24V-2P30A",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "24V Coil Definite Purpose Contactor 2P 30A",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "VAN-03-C4",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "1.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ],
+            [
+              {
+                "text": "0018-TERM-QC",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "High-Temp Flag Quick-Disconnect Terminal Pack",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "VAN-03-A1",
+                "colspan": 1,
+                "rowspan": 1
+              },
+              {
+                "text": "4.00",
+                "colspan": 1,
+                "rowspan": 1
+              }
+            ]
+          ],
+          "native_body": "<table><tr><td>Part SKU</td><td>Part Description</td><td>Bin</td><td>Qty Used</td></tr><tr><td>CAP-45-SMFD-440V</td><td>Oval Dual Run Capacitor 45/5 uF 440VAC</td><td>VAN-03-B2</td><td>1.00</td></tr><tr><td>CONT-24V-2P30A</td><td>24V Coil Definite Purpose Contactor 2P 30A</td><td>VAN-03-C4</td><td>1.00</td></tr><tr><td>0018-TERM-QC</td><td>High-Temp Flag Quick-Disconnect Terminal Pack</td><td>VAN-03-A1</td><td>4.00</td></tr></table>"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            72,
+            542,
+            184,
+            553
+          ],
+          "text": "Work Order Status:",
+          "rows": [],
+          "native_body": "Work Order Status:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            72,
+            556,
+            214,
+            567
+          ],
+          "text": "COMPLETED - VERIFIED",
+          "rows": [],
+          "native_body": "COMPLETED - VERIFIED"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            356,
+            542,
+            489,
+            554
+          ],
+          "text": "Completed Timestamp:",
+          "rows": [],
+          "native_body": "Completed Timestamp:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            356,
+            556,
+            454,
+            567
+          ],
+          "text": "2026-10-16 10:45",
+          "rows": [],
+          "native_body": "2026-10-16 10:45"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            640,
+            542,
+            752,
+            554
+          ],
+          "text": "Supervisor Review:",
+          "rows": [],
+          "native_body": "Supervisor Review:"
+        },
+        {
+          "kind": "text",
+          "bbox": [
+            640,
+            556,
+            705,
+            567
+          ],
+          "text": "D. Callahan",
+          "rows": [],
+          "native_body": "D. Callahan"
+        },
+        {
+          "kind": "footer",
+          "bbox": [
+            212,
+            958,
+            771,
+            970
+          ],
+          "text": "2400 Cedar Hollow Pkwy, Suite 110, Oakbrook, IL 60523 | Tel: 555-0141 | dispatch@cedarhollow.example",
+          "rows": [],
+          "native_body": "2400 Cedar Hollow Pkwy, Suite 110, Oakbrook, IL 60523 | Tel: 555-0141 | dispatch@cedarhollow.example"
+        }
+      ]
+    }
+  ],
+  "parse_errors": []
+}
