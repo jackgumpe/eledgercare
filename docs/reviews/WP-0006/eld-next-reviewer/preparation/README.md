@@ -1,8 +1,8 @@
 # WP-0006 F2 Independent Reviewer Resource Preparation Checkpoint
 
-- **Owner / Session:** `eld-next-reviewer` — continued independent Google DeepMind Gemini 4 Carbon (High) conversation `101b19cf-3133-4ead-91cb-9ca6068e3e72` (high effort; owns `WP-0006` F2 review only; `WP-0007` `/003` and `/005` reassigned to `eld-baseline-reviewer` at [AGENTS.md](../../../../AGENTS.md) L64)
+- **Owner / Session:** `eld-next-reviewer` — continued independent Google DeepMind Gemini 4 Carbon (High) conversation `101b19cf-3133-4ead-91cb-9ca6068e3e72` (high effort; owns `WP-0006` F2 review only; `WP-0007` `/003` and `/005` reassigned to `eld-baseline-reviewer` at [AGENTS.md](../../../../../AGENTS.md) L64)
 - **Branch / Worktree:** `review/wp-0006-0007-next-tracks` (`C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-next-reviewer`)
-- **Phase Scope:** **Isolated resource preparation checkpoint only** under [WP-0006-eld-next-reviewer-preparation.md](../../../kickoffs/WP-0006-eld-next-reviewer-preparation.md) (merged coordinator release `9ae311e3d0f4e4a75a596ddb538a802cd92869eb` at `7903bf509d54d8767fdb21ab4b11f01bb573e939` atop accepted `/002` `e2452e1ab3d8937868c07ffb30ce430715b5be78`). **This is NOT canonical `WP-0006 /004` and claims zero F2 feature/migration/GPU acceptance.**
+- **Phase Scope:** **Isolated resource preparation checkpoint only** under [WP-0006-eld-next-reviewer-preparation.md](../../../../kickoffs/WP-0006-eld-next-reviewer-preparation.md) (merged coordinator release `9ae311e3d0f4e4a75a596ddb538a802cd92869eb` at `7903bf509d54d8767fdb21ab4b11f01bb573e939` atop accepted `/002` `e2452e1ab3d8937868c07ffb30ce430715b5be78`). **This is NOT canonical `WP-0006 /004` and claims zero F2 feature/migration/GPU acceptance.**
 - **Frozen Helper / Receipt:** [verify_preparation.py](verify_preparation.py) frozen at `91322f5f73581a3327ab180d9b3828fc22fbc666` (SHA-256 `70b2d7aa9d561bf2b462a48d10259637abfbd2fe23b7addf64b0ccad7c5d5b06`) prior to decisive execution -> [preparation-receipt.json](preparation-receipt.json) (`11/11` assertions passed, zero secret values printed or committed).
 
 ## 1. Binary, Cache, and Toolchain Provenance
