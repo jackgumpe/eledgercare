@@ -1,0 +1,45 @@
+{
+  "authority": "6dec634c81a4b2cbc1b492541697958cc0f76232",
+  "executing_head": "f992377bad443f3c89075ed188958ac948be9d73",
+  "source": "522f15f1f6e399c36b9c6c107fc08f51862f1fc1",
+  "actual_model_effort": "not exposed",
+  "release_precheck": {
+    "method": "Host python -I -B; accepted release.read_release(authority, release_path, dev, reviewer), followed by SHA-256 of each exact authority Git observation blob",
+    "read_release": "PASS",
+    "observation_sha256": {
+      "host-before.json": "6e7f332f18e774fee4ebccaeb02a5417d0dadffe5a9dcb2fd454310aad3c3be0",
+      "model-before.json": "cca23b62fb8b22599caf77d08b9482fc467a189abf7babcc0ba1fc49fd270dac",
+      "processes-before.json": "b8296c608f3fc78866e3fa422c686a109b455c29db6fa6e2f6a9fc5bd81947ef"
+    },
+    "exit_code": 0
+  },
+  "commands": [
+    {
+      "command": "python -I -B qualification/baseline/baseline.py execute --authority 6dec634c81a4b2cbc1b492541697958cc0f76232 --release-path docs/coordination/WP-0007/releases/reviewer-dev.json --split dev --owner reviewer",
+      "exit_code": 0,
+      "stdout": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\reviewer\\runs\\reviewer\\20261116T161308Z-473d9f70"
+    },
+    {
+      "command": "python -I -B qualification/baseline/baseline.py score-run --authority 6dec634c81a4b2cbc1b492541697958cc0f76232 --release-path docs/coordination/WP-0007/releases/reviewer-dev.json --split dev --owner reviewer --run-dir 'C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\reviewer\\runs\\reviewer\\20261116T161308Z-473d9f70' --output 'C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\reviewer\\runs\\reviewer\\20261116T161308Z-473d9f70\\scores.json'",
+      "exit_code": 0,
+      "stdout": ""
+    }
+  ],
+  "post_model_verification": {
+    "command": "python -I -B -",
+    "functions": "qualification/q0/harness/q0harness/modelfiles.py load_manifest, verify_model_dir and verify_notices using unchanged qualification/baseline/protocol.json model_manifest_path, read_only_q0_root/model_relative and read_only_q0_root/notice_relative",
+    "exit_code": 0,
+    "result": {"model_objects": 18, "notices": 1, "all_model_ok": true, "all_notice_ok": true},
+    "evidence": "reviewer-model-after.json",
+    "model_or_ml_import_or_inference": false
+  },
+  "process_observation": "Get-CimInstance Win32_Process, limited to actual owned PIDs and Python command lines carrying the exact authority; actual executable, PID/parent and UTC creation records retained. All three owned PIDs and authority-matching processes absent before lease return.",
+  "lease_return_timestamp_utc": "2026-11-16T16:23:27.3352969Z",
+  "lease_return_evidence": "reviewer-process-exit-and-lease-return.json",
+  "clean_head_retained_through_score_and_post_verification": true,
+  "runtime_attempts": 1,
+  "excluded_warmups": 2,
+  "measured_documents": 1,
+  "no_retry": true,
+  "interruption_note": "Usage interruption occurred after run, scoring and explicit lease return. Same reviewer resumed CPU publication only; no additional model call."
+}

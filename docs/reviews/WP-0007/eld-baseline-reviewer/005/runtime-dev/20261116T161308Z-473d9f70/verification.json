@@ -1,0 +1,45 @@
+{
+  "verification_authority": "6dec634c81a4b2cbc1b492541697958cc0f76232",
+  "reviewer": "eld-baseline-reviewer / /root/baseline_reviewer",
+  "actual_model_effort": "not exposed",
+  "raw_and_helper_freeze": "e860f9fe1ed441e74efe4905bcf1b80bb1d1d3e6",
+  "commands": [
+    {
+      "helper_freeze": "8d6ba2e0daaa8b6e0723504332c732bc56e5e5d3",
+      "executing_head": "e860f9fe1ed441e74efe4905bcf1b80bb1d1d3e6",
+      "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/reproduce_v2.py --verification-authority 6dec634c81a4b2cbc1b492541697958cc0f76232 --original-authority 6dec634c81a4b2cbc1b492541697958cc0f76232 --release-path docs/coordination/WP-0007/releases/reviewer-dev.json --evidence-commit e860f9fe1ed441e74efe4905bcf1b80bb1d1d3e6 --run-prefix docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-dev/20261116T161308Z-473d9f70 --scores-path docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-dev/20261116T161308Z-473d9f70/scores.json --split dev --owner reviewer --output docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-dev/20261116T161308Z-473d9f70/reproduction.json",
+      "exit_code": 0,
+      "result": {
+        "equal": true,
+        "documents": 1,
+        "source": "522f15f1f6e399c36b9c6c107fc08f51862f1fc1"
+      },
+      "evidence": "reproduction.json",
+      "evidence_commit": "beddecc9378a1aaf3b3e6d29b9e2462c2b250302"
+    },
+    {
+      "helper_freeze": "e860f9fe1ed441e74efe4905bcf1b80bb1d1d3e6",
+      "executing_head": "beddecc9378a1aaf3b3e6d29b9e2462c2b250302",
+      "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-dev/20261116T161308Z-473d9f70/verify_sentinel.py --evidence-commit e860f9fe1ed441e74efe4905bcf1b80bb1d1d3e6 --output docs/reviews/WP-0007/eld-baseline-reviewer/005/runtime-dev/20261116T161308Z-473d9f70/comparison.json",
+      "exit_code": 0,
+      "result": {
+        "integrity_passed": true,
+        "captured_files": 47,
+        "raw_equal": [
+          true,
+          true,
+          true
+        ],
+        "tokens_equal": [
+          true,
+          true,
+          true
+        ],
+        "measured_score_equal": true
+      },
+      "evidence": "comparison.json"
+    }
+  ],
+  "failed_decisive_commands": [],
+  "limits": "CPU/Git-only verification after actual runtime lease return. Equality is specific to these fixed calls; no source edits, retry, selected attempt, new inference or author primary replacement."
+}
