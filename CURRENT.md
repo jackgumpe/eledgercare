@@ -2,6 +2,12 @@
 
 Sole writer: eld-coordinator, Codex session 01a1d895-c605-7ab2-b7ec-c3159c0634ba. Actual coordinator model/effort: not exposed. Repository https://github.com/jackgumpe/eledgercare is PRIVATE; default/integration branch coordination/bootstrap. Normal scoped commits and pushes are active. INDEX.md and immutable reports retain historical reservations, receipts and corrected findings.
 
+## Active: WP-0008 F3 and WP-0009 diagnosis-led mapping
+
+Jack authorized the reconciled next bounded lane. Base5e1241d6d365d664f12619d415f48ec3d3b7ddca; exact authority docs/coordination/WP-0008-0009-authority.md, reservations in INDEX.md. Root is drafting a five-field work-order review/correction design and the network-assurance wording correction. Independent Carbon design review precedes product implementation. Native xhigh mapping author is prepared for CPU-only saved-output diagnosis; separate xhigh evaluation custodian is prepared to seal four new families/four PDFs/six pages before mapper tuning. Independent native reviewer follows exact candidate binding. Actual dispatch is not yet confirmed.
+
+F3 preserves original/raw/provenance and adds separate human review revisions, unknowns and stale-edit protection. R&D proceeds diagnosis -> independently reviewed single-change selection -> separately versioned mapper/scorer -> protected fresh-family check. Original B0/Q0/corpus/accepted reports remain unchanged. No GPU lease is active or released. Product/R&D acceptance are independent; no further user permission is pending for this authorized lane.
+
 ## Complete: WP-0006 F2 and WP-0007 vanilla baseline
 
 **Both authorized tracks are independently ACCEPTED, MERGED and PUBLISHED. No implementation, execution, review, integration or report work remains.** Final coordinator reports share report-only publication **43140c06fd734ec41a43b8ee219950386be55359**, exact-origin verified:
