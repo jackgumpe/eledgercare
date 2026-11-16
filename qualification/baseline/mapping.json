@@ -1,0 +1,358 @@
+{
+  "schema": "eld-baseline-mapping/1",
+  "labels": [
+    {
+      "label": "Assigned Technician",
+      "field_id": "assigned_tech"
+    },
+    {
+      "label": "BILL TO",
+      "field_id": "address_bill_to"
+    },
+    {
+      "label": "Branch Isolation Tested",
+      "field_id": "water_isolated"
+    },
+    {
+      "label": "Building / Unit",
+      "field_id": "building_unit"
+    },
+    {
+      "label": "CONTRACT & COVERAGE",
+      "field_id": "address_contract_scope"
+    },
+    {
+      "label": "CORRECTIVE WORK PERFORMED",
+      "field_id": "corrective_resolution"
+    },
+    {
+      "label": "CURRENT INVOICE TOTAL",
+      "field_id": "invoice_total"
+    },
+    {
+      "label": "Completed Timestamp",
+      "field_id": "completed_timestamp"
+    },
+    {
+      "label": "Completed UTC",
+      "field_id": "completed_at"
+    },
+    {
+      "label": "Contract ID",
+      "field_id": "contract_id"
+    },
+    {
+      "label": "Customer PO / CapEx Code",
+      "field_id": "customer_po_code"
+    },
+    {
+      "label": "Dispatched UTC",
+      "field_id": "dispatched_at"
+    },
+    {
+      "label": "Disposition",
+      "field_id": "ticket_disposition"
+    },
+    {
+      "label": "Due Date",
+      "field_id": "due_date"
+    },
+    {
+      "label": "Escrow / Lender Draw Ref",
+      "field_id": "lender_draw_ref"
+    },
+    {
+      "label": "Invoice Date",
+      "field_id": "invoice_date"
+    },
+    {
+      "label": "Invoice No",
+      "field_id": "invoice_number"
+    },
+    {
+      "label": "Lead Plumber",
+      "field_id": "technician_name"
+    },
+    {
+      "label": "Line Net Subtotal",
+      "field_id": "subtotal"
+    },
+    {
+      "label": "Lockbox / Key Code",
+      "field_id": "lockbox_key_code"
+    },
+    {
+      "label": "Main Utility Shutoff",
+      "field_id": "utility_shutoff_req"
+    },
+    {
+      "label": "Non-Taxable Fees",
+      "field_id": "non_taxable_fees"
+    },
+    {
+      "label": "Non-Taxable Hazmat Lamp Recycling Manifest Fee",
+      "field_id": "fee_fee_manifest_01"
+    },
+    {
+      "label": "Occupancy: Vacant",
+      "field_id": "unit_vacant"
+    },
+    {
+      "label": "Payments / Credits Applied",
+      "field_id": "payments_credits_applied"
+    },
+    {
+      "label": "Permission to Enter: Yes",
+      "field_id": "permission_to_enter"
+    },
+    {
+      "label": "Pets on Premises: No",
+      "field_id": "pets_on_premises"
+    },
+    {
+      "label": "Prior Unpaid Balance",
+      "field_id": "previous_balance"
+    },
+    {
+      "label": "Priority: Urgent",
+      "field_id": "priority_urgent"
+    },
+    {
+      "label": "Property",
+      "field_id": "property_name"
+    },
+    {
+      "label": "Property / Unit",
+      "field_id": "property_unit"
+    },
+    {
+      "label": "RASTER FIELD ADDENDUM",
+      "field_id": "hybrid_field_addendum"
+    },
+    {
+      "label": "REPORTED SYMPTOM & TECHNICIAN RESOLUTION SUMMARY",
+      "field_id": "reported_issue_and_resolution"
+    },
+    {
+      "label": "ROOT CAUSE DIAGNOSTIC NOTES",
+      "field_id": "root_cause_findings"
+    },
+    {
+      "label": "Reported UTC",
+      "field_id": "reported_at"
+    },
+    {
+      "label": "Requested Date",
+      "field_id": "requested_date"
+    },
+    {
+      "label": "Resident Contact",
+      "field_id": "resident_contact"
+    },
+    {
+      "label": "SERVICE LOCATION",
+      "field_id": "address_service_location"
+    },
+    {
+      "label": "Sales Tax (6.25% on Taxable Subtotal)",
+      "field_id": "tax_amount"
+    },
+    {
+      "label": "Sales Tax (7.50% on Taxable Subtotal)",
+      "field_id": "tax_amount"
+    },
+    {
+      "label": "Secondary Vendor PO",
+      "field_id": "secondary_vendor_po"
+    },
+    {
+      "label": "Statement Date",
+      "field_id": "invoice_date"
+    },
+    {
+      "label": "Subfloor / Drywall Wet",
+      "field_id": "drywall_damage"
+    },
+    {
+      "label": "Supervisor Review",
+      "field_id": "supervisor_signoff"
+    },
+    {
+      "label": "TOTAL AMOUNT DUE",
+      "field_id": "amount_due"
+    },
+    {
+      "label": "Taxable Subtotal (Tax=T Rows)",
+      "field_id": "taxable_subtotal"
+    },
+    {
+      "label": "Tenant Callback Notes",
+      "field_id": "tenant_callback_notes"
+    },
+    {
+      "label": "Terms",
+      "field_id": "payment_terms"
+    },
+    {
+      "label": "Ticket Number",
+      "field_id": "work_order_id"
+    },
+    {
+      "label": "Trade Category",
+      "field_id": "trade_category"
+    },
+    {
+      "label": "Turnover Supervisor",
+      "field_id": "supervisor_name"
+    },
+    {
+      "label": "Water Heater Asset Tag",
+      "field_id": "equipment_asset_tag"
+    },
+    {
+      "label": "Work Order ID",
+      "field_id": "work_order_id"
+    },
+    {
+      "label": "Work Order Ref",
+      "field_id": "work_order_ref"
+    },
+    {
+      "label": "Work Order Status",
+      "field_id": "completion_status"
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "labor_log",
+      "headers": [
+        "Entry",
+        "Tech ID",
+        "Date",
+        "Time In",
+        "Time Out",
+        "Hours",
+        "Activity Code"
+      ],
+      "columns": [
+        "log_id",
+        "tech_id",
+        "work_date",
+        "time_in",
+        "time_out",
+        "hours",
+        "activity"
+      ]
+    },
+    {
+      "table_id": "stock_parts",
+      "headers": [
+        "Part SKU",
+        "Part Description",
+        "Bin",
+        "Qty Used"
+      ],
+      "columns": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ]
+    },
+    {
+      "table_id": "turnover_tasks",
+      "headers": [
+        "Task Code",
+        "Fixture / Area",
+        "Action Performed",
+        "Test PSI"
+      ],
+      "columns": [
+        "task_code",
+        "fixture_area",
+        "action_taken",
+        "pressure_psi"
+      ]
+    },
+    {
+      "table_id": "line_items",
+      "headers": [
+        "Row",
+        "SKU / Ref",
+        "Description",
+        "Qty",
+        "Unit Price",
+        "Disc%",
+        "Disc Amt",
+        "Tax",
+        "Net Line"
+      ],
+      "columns": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ]
+    }
+  ],
+  "dev_provenance": [
+    {
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "expected_sha256": "2299f16b53ab01d7b2078439f81de2dba260de803393ae39fba7e28b5faa4b71"
+    },
+    {
+      "fixture_id": "SYN-WO-01-v1-raster300",
+      "expected_sha256": "e5cfb3665ef9903b820e2ec2159a1f90da8163a3b00a73e29ce2f0c40f5e9a27"
+    },
+    {
+      "fixture_id": "SYN-WO-01-v2-skew-pos4deg",
+      "expected_sha256": "d06e26849235bff82c62e53f62e76d14d3c7abfc7878a7414fe36a24e5501d63"
+    },
+    {
+      "fixture_id": "SYN-WO-02-v0-clean",
+      "expected_sha256": "10b7b56bd4c8b063e5b6c49d8d119e75c0091647ebc2ee29b73af3c9cf29ea4e"
+    },
+    {
+      "fixture_id": "SYN-WO-02-v1-raster300",
+      "expected_sha256": "ff5edd73d43d1479c5b5f5feae6374f646d3511e18edddebeea1049f6a7e91c4"
+    },
+    {
+      "fixture_id": "SYN-WO-02-v2-skew-neg3deg",
+      "expected_sha256": "08331c60939d72a3271674b852bd8a80965eb0aa0a21555ecdbf7d73cd2cbc9b"
+    },
+    {
+      "fixture_id": "SYN-WO-02-v3-hybrid-note",
+      "expected_sha256": "3431c700ac9eb785b45254207141917e7c8b37c20fa07470edf38307e00a8e5d"
+    },
+    {
+      "fixture_id": "SYN-INV-01-v0-clean",
+      "expected_sha256": "5d5e5ffde340f17c08ad863876b86e7fb3b9cd0503967a135cd2cf08a15c2570"
+    },
+    {
+      "fixture_id": "SYN-INV-01-v1-raster300",
+      "expected_sha256": "5cd2220653f92211e7c2a74afd3cd04e1eeea6375f5e13e7a992b302a724179f"
+    },
+    {
+      "fixture_id": "SYN-INV-01-v2-skew-neg3deg",
+      "expected_sha256": "53688532b025742ce791a6cb90ba9f03bc4e0b54ddd1b25caa26900ff59d6c27"
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "expected_sha256": "ba7852dd2c4bd26d1dd213e4a1ebad8170f35a6d200861c54b4af0efb74945e6"
+    },
+    {
+      "fixture_id": "SYN-MP-01-v1-raster300",
+      "expected_sha256": "74fa4dabec5def2460160ab4cac42372ce47e588764b67462be728fbeb3f14f5"
+    },
+    {
+      "fixture_id": "SYN-MP-01-v2-skew-pos4deg",
+      "expected_sha256": "c750bfefbd99174210302719c4932fe69ef0616ee901c326bcdfe6c0492bab62"
+    }
+  ],
+  "limit": "Only dev labels/headers; no known values, fixture IDs or expected boxes are used by extraction. Unseen labels/headers remain unsupported."
+}
