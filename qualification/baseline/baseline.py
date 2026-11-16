@@ -5,21 +5,28 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from corpus import ROOT,DEV,fixtures,expected_for,reference_for,load_json,sha
 from native import parse_native,extract_prediction,ParseError
 from score import score_document,summarize
+from typed_values import compare
 from release import protocol,read_release,HERE
 
 def prediction(raw,rules):
     try:return extract_prediction(parse_native(raw),rules)
-    except (ParseError,ValueError) as e:return {'fields':[],'tables':[],'anchors':[],'unmapped':[{'kind':'parse_failure','detail':str(e)}],'pages':[],'parse_errors':[str(e)]}
+    except (ParseError,ValueError,TypeError) as e:return {'fields':[],'tables':[],'anchors':[],'unmapped':[{'kind':'parse_failure','detail':str(e)}],'pages':[],'parse_errors':[str(e)]}
 def dump(path,obj):
     p=Path(path);p.parent.mkdir(parents=True,exist_ok=True)
     with p.open('x',encoding='utf-8',newline='\n') as f:json.dump(obj,f,indent=2,ensure_ascii=False);f.write('\n')
 
 def dev_check(out):
-    out=Path(out);out.mkdir(parents=True,exist_ok=False);rules=load_json(HERE/'mapping.json');inventory=[];scores=[]
+    out=Path(out);out.mkdir(parents=True,exist_ok=False);rules=load_json(HERE/'mapping.json');inventory=[];scores=[];type_coverage={}
     rawroot=ROOT/'qualification/q0/harness/evidence/004-gpu-trial/9e73ef86/run-20261115T202627Z-eb5bf7da/evidence'
     for f in fixtures():
         if f['family_id'] not in DEV:continue
         expected=expected_for(f);reference=reference_for(f)
+        typed_items=[(x['field_id'],x) for x in expected['expected_fields']]+[(k,x) for t in expected['expected_tables'] for r in t['rows'] for k,x in r['cells'].items()]
+        for slot,item in typed_items:
+            record=type_coverage.setdefault(item.get('value_type','missing'),{'expected_items':0,'printed_form_parses_and_matches':0,'mutation_rejected':0})
+            record['expected_items']+=1
+            record['printed_form_parses_and_matches']+=int(compare(item['printed_text'],item,True,slot)['credited_exact'])
+            record['mutation_rejected']+=int(not compare(item['printed_text']+'?',item,True,slot)['credited_exact'])
         inventory.append({'fixture_id':f['fixture_id'],'expected_sha256':f['expected_ground_truth_sha256'],'reference_tokens':len('\n'.join(reference['pages']).split()),'reference_coverage':reference['coverage'],
                           'fields':len(expected['expected_fields']),'cells':sum(len(r['cells']) for t in expected['expected_tables'] for r in t['rows'])})
         if f['family_id'] in ('F01','F07') and f['variant_kind']=='v0_clean':
@@ -29,6 +36,7 @@ def dev_check(out):
             dump(out/(f['family_id']+'.prediction.json'),pred);dump(out/(f['family_id']+'.score.json'),score);dump(out/(f['family_id']+'.reference.json'),reference);scores.append(score)
     result={'schema':'eld-baseline-cpu-dev/1','dev_inventory':inventory,'q0_retrospective_summary':summarize(scores),'holdout_content_reads':0,'no_model_execution':True,
       'limit':'Two historical clean dev outputs test the parser/scorer. This is not the 26-document vanilla accuracy baseline.'}
+    dump(out/'typed-dev-coverage.json',{'scope':'dev reference grammar audit, not model predictions','by_type':type_coverage,'mutation':'append ? to each printed form; no expected value enters conversion'})
     dump(out/'summary.json',result);print(json.dumps({'dev_documents':len(inventory),'q0_outputs_scored':len(scores),'holdout_content_reads':0}))
 
 def score_run(run,output,authority,path,split,owner):

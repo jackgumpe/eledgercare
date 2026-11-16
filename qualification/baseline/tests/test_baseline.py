@@ -5,7 +5,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from native import parse_native,extract_prediction,ParseError,norm
 from score import score_document,token_errors,summarize
 from corpus import fixtures,expected_for,reference_for,DEV
-from release import protocol,schedule,validate_release,read_release,HERE
+from release import protocol,schedule,validate_release,read_release,HERE,REVIEW_PATH
 from runtime import guard_reason
 from corpus import sha
 
@@ -65,7 +65,7 @@ class ParserScorerTests(unittest.TestCase):
         self.assertEqual(token_errors('a b','a b c')['insertions'],1)
         self.assertEqual(token_errors('a b','a')['deletions'],1)
     def test_nfc_outer_only(self):
-        self.assertEqual(norm(' e\u0301\r\n'),'é');self.assertNotEqual(norm('A  B'),'A B')
+        self.assertEqual(norm(' e\u0301\r\n'),'Ã©');self.assertNotEqual(norm('A  B'),'A B')
     def test_table_duplicate_missing_extra_cells(self):
         e=truth();e['expected_fields']=[];e['expected_tables']=[{'table_id':'lines','rows':[{'row_id':'r1','page_number':1,'cells':{'code':{'printed_text':'A'},'price':{'printed_text':'$1.00'}}}]}]
         row='<tr><td>A</td><td>$1.00</td></tr>'
@@ -111,7 +111,7 @@ class CorpusReleaseTests(unittest.TestCase):
     def release(self):
         p=protocol();return {'schema':'eld-baseline-release/1','owner':'author','source_commit':'1'*40,'executing_head':'4'*40,'source_tree':'2'*40,
          'protocol_sha256':sha((HERE/'protocol.json').read_bytes()),'mapping_sha256':sha((HERE/'mapping.json').read_bytes()),'lock_sha256':p['dependency_lock_sha256'],
-         'accepted_review_commit':'3'*40,'accepted_review_path':'docs/agent-reports/eld-next-reviewer/WP-0007/003_test.md','split':'dev','runtime_root':p['runtime_roots']['author'],
+         'accepted_review_commit':'3'*40,'accepted_review_path':REVIEW_PATH,'split':'dev','runtime_root':p['runtime_roots']['author'],
          'lease_id':'test-only','gpu_uuid':p['gpu']['uuid'],'expires_utc':'2099-01-01T00:00:00Z','allow_test_content':False,
          'sentinels':['SYN-WO-01-v0-clean','SYN-MP-01-v0-clean','SYN-WO-02-v3-hybrid-note'],'observed_gpu_state':{'test':True},'torchvision_local_sha256_TOFU_accepted':True}
     def test_release_missing_changed_expired_and_test_refused(self):
@@ -147,4 +147,114 @@ class CorpusReleaseTests(unittest.TestCase):
             if proc and proc.poll() is None:proc.kill();proc.wait(timeout=5)
             if proc:
                 proc.stdout.close();proc.stderr.close()
+class CorrectionTests(unittest.TestCase):
+    def table_truth(self):
+        e=truth();e['expected_fields']=[]
+        e['expected_tables']=[{'table_id':'lines','rows':[{'row_id':'r1','page_number':1,'cells':{
+            'code':{'printed_text':'A','normalized_value':'A','value_type':'identifier'},
+            'price':{'printed_text':'$1.00','normalized_value':'1.00','value_type':'currency_usd'}}}]}]
+        return e
+    def table_raw(self,tail='',row='<tr><td>A</td><td>$1.00</td></tr>'):
+        return '<PAGE>'+block('<table><tr><td>Code</td><td>Price</td></tr>'+row+tail+'</table>','table')
+    def test_malformed_closed_grammar_retained_without_credit(self):
+        from baseline import prediction
+        cases=['<table><tr><td colspan>A</td></tr></table>',
+               '<table><tr><td rowspan>A</td></tr></table>',
+               '<table><tr><td>A</td></tr>', '<table strange="x"><tr><td>A</td></tr></table>',
+               '<table><tr><td colspan="1" colspan="2">A</td></tr></table>',
+               '<table><tr><td>A</th></tr></table>', '<table><tr/><td>A</td></table>',
+               '<table><tr><td>A</td></tr></table></table>', '<table><!--ignored--></table>']
+        for html in cases:
+            with self.subTest(html=html):
+                raw='<PAGE>'+block('Ticket: 0007')+block(html,'table')
+                p=prediction(raw,RULES);self.assertTrue(p['parse_errors'])
+                a=score_document(p,truth(),{'pages':['Ticket: 0007'],'coverage':{}})
+                self.assertEqual(a['fields']['total'],2);self.assertEqual(a['fields']['correct'],0)
+                self.assertTrue(any(b.get('native_body')==html for page in p['pages'] for b in page['blocks']))
+        self.assertEqual(score('<PAGE>'+block('Ticket: 0007'))['fields']['correct'],1)
+    def test_prediction_boundary_catches_typeerror(self):
+        from baseline import prediction
+        with patch('baseline.parse_native',side_effect=TypeError('malformed')):
+            p=prediction('bad',RULES)
+        self.assertEqual(p['parse_errors'],['malformed'])
+    def test_score_run_continues_after_malformed_document(self):
+        import baseline
+        selected=[{'fixture_id':'a','split':'dev'},{'fixture_id':'b','split':'dev'}]
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            calls=[]
+            for f,raw in zip(selected,[self.table_raw().replace('<td>A','<td colspan>A'),self.table_raw()]):
+                name=f['fixture_id'];(root/(name+'.txt')).write_text(raw,encoding='utf-8')
+                data=(root/(name+'.txt')).read_bytes()
+                (root/(name+'.json')).write_text(json.dumps({'raw_output':{'name':name+'.txt','sha256_written':sha(data)}}))
+                calls.append({'fixture_id':name,'excluded':False,'status':'completed','observation':name+'.json'})
+            (root/'run-result.json').write_text(json.dumps({'release':{},'calls':calls}))
+            with patch('baseline.read_release',return_value={}),patch('baseline.protocol',return_value={'fixtures':selected}),patch('baseline.expected_for',return_value=self.table_truth()),patch('baseline.reference_for',return_value={'pages':['A $1.00'],'coverage':{}}),patch('baseline.load_json',side_effect=lambda p: RULES if p==HERE/'mapping.json' else json.loads(Path(p).read_text())):
+                baseline.score_run(root,root/'scores.json','mock','mock','dev','author')
+            result=json.loads((root/'scores.json').read_text())
+            self.assertEqual(len(result['scores']),2);self.assertEqual([x['cells']['total'] for x in result['scores']],[2,2])
+            self.assertEqual([x['cells']['correct'] for x in result['scores']],[0,2])
+    def test_short_and_spanning_excess_rows_preserved(self):
+        for tail,kind in [('<tr><td>EXTRA</td></tr>','short_table_row'),('<tr><td colspan="2">EXTRA</td></tr>','unsupported_spanning_row')]:
+            with self.subTest(kind=kind):
+                a=score(self.table_raw(tail),e=self.table_truth())
+                self.assertEqual(a['cells']['correct'],2);self.assertEqual(a['cells']['extra_rows'],1);self.assertEqual(a['cells']['extra_cells'],1)
+                self.assertTrue(any(x['kind']==kind for x in a['unmapped_content']))
+    def test_short_and_spanning_expected_slots_not_shifted(self):
+        short=score(self.table_raw(row='<tr><td>A</td></tr>'),e=self.table_truth())
+        self.assertEqual(short['cells']['total'],2);self.assertEqual(short['cells']['correct'],1)
+        span=score(self.table_raw(row='<tr><td colspan="2">A</td></tr>'),e=self.table_truth())
+        self.assertEqual(span['cells']['total'],2);self.assertEqual(span['cells']['correct'],0)
+        self.assertEqual(span['mapping_coverage']['unmapped_table_physical_cells'],1)
+        self.assertEqual(span['normalized_cells']['total'],2)
+    def test_absence_surplus_nonempty_and_empty(self):
+        for values in [('EXTRA','EXTRA'),('',''),('','EXTRA')]:
+            p=pred('<PAGE>');p['fields']=[{'page':1,'field_id':'optional','value':v} for v in values]
+            a=score_document(p,truth(),{'pages':[],'coverage':{}})
+            self.assertEqual(a['fields']['unmatched_candidates'],1)
+            self.assertEqual(a['expected_absences']['surplus_candidates'],1)
+            self.assertEqual(a['expected_absences']['violations'],int(any(values)))
+    def test_actual_reviewer_identity_only(self):
+        r=CorpusReleaseTests().release();p=protocol()
+        validate_release(r,p,'dev','author',tree='2'*40)
+        for old in ['docs/agent-reports/eld-next-reviewer/WP-0007/003_test.md',REVIEW_PATH.replace('/003_','/005_'),REVIEW_PATH+'.bak']:
+            with self.assertRaises(PermissionError):validate_release({**r,'accepted_review_path':old},p,'dev','author',tree='2'*40)
+    def test_typed_positive_exact_grammar(self):
+        from typed_values import convert
+        for raw,kind,slot,want in [('1,234.5','currency_usd',None,'1234.50'),('-$2.000','currency_usd',None,'-2.00'),('7.50%','rate_percent',None,'0.0750'),('1.5','decimal_2',None,'1.50'),('1.50 HR','decimal_2','qty_unit','1.50'),('[X]','boolean_mark',None,'true'),('[ ]','boolean_mark',None,'false'),('0007','identifier',None,'0007'),('2024-02-29','date_iso',None,'2024-02-29')]:
+            with self.subTest(raw=raw):self.assertEqual(convert(raw,kind,slot)['canonical'],want)
+    def test_typed_invalid_ambiguous_unsupported(self):
+        from typed_values import convert
+        for raw,kind,slot in [('01.00','currency_usd',None),('$1,23.00','currency_usd',None),('$-1.00','currency_usd',None),('1e2','decimal_2',None),('NaN','decimal_2',None),('1.001','currency_usd',None),('7.501%','rate_percent',None),('0.075','rate_percent',None),('1.00 ZZ','decimal_2','qty_unit'),('1.00','decimal_2','qty_unit'),('1.00 HR','decimal_2','hours'),('[x]','boolean_mark',None),('true','boolean_mark',None),('2026-02-29','date_iso',None),('-0.00','currency_usd',None),('1','unknown',None),({'x':1},'text',None),('１.00','decimal_2',None)]:
+            with self.subTest(raw=raw):self.assertNotEqual(convert(raw,kind,slot)['status'],'parsed')
+    def test_typed_separate_printed_wrong_sign_digit_identifier(self):
+        e=truth();e['expected_fields'][0]['value_type']='identifier';e['expected_fields'][1]['value_type']='currency_usd'
+        raw='<PAGE>'+block('Ticket: 0007')+block('Total: -20.0')
+        a=score(raw,e=e);self.assertEqual(a['fields']['correct'],1);self.assertEqual(a['normalized_fields']['correct'],2)
+        for mutation in [raw.replace('-20.0','20.0'),raw.replace('-20.0','-21.0'),raw.replace('0007','7')]:
+            self.assertEqual(score(mutation,e=e)['normalized_fields']['correct'],1)
+        a=score(raw,'timeout',e);self.assertEqual(a['normalized_fields']['total'],2);self.assertEqual(a['normalized_fields']['correct'],0)
+        self.assertEqual(score('<PAGE>',e=e)['normalized_fields']['total'],2)
+        e['expected_fields'][1]['value_type']='unsupported';a=score(raw,e=e)
+        self.assertEqual(a['normalized_fields']['total'],2);self.assertEqual(a['normalized_fields']['uncredited_reasons'],{'unsupported_type':1})
+    def test_typed_conversion_has_no_expected_answer_input(self):
+        from typed_values import compare
+        meta={'value_type':'currency_usd','normalized_value':'2.00'}
+        a=compare('$2.00',meta,True);b=compare('$2.00',{**meta,'normalized_value':'999.00'},True)
+        self.assertEqual(a['canonical'],b['canonical']);self.assertTrue(a['credited_exact']);self.assertFalse(b['credited_exact'])
+        self.assertEqual(pred('<PAGE>'+block('Total: $2.00')),pred('<PAGE>'+block('Total: $2.00')))
+    def test_all_dev_printed_types_and_mutations(self):
+        from typed_values import compare
+        n=0
+        for f in fixtures():
+            if f['split']!='dev':continue
+            e=expected_for(f);items=[(x['field_id'],x) for x in e['expected_fields']]
+            items += [(k,x) for t in e['expected_tables'] for r in t['rows'] for k,x in r['cells'].items()]
+            for slot,x in items:
+                n+=1
+                with self.subTest(fixture=f['fixture_id'],slot=slot):
+                    self.assertTrue(compare(x['printed_text'],x,True,slot)['credited_exact'])
+                    self.assertFalse(compare(x['printed_text']+'?',x,True,slot)['credited_exact'])
+        self.assertGreater(n,500)
+
 if __name__=='__main__':unittest.main()

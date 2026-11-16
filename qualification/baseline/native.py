@@ -14,45 +14,58 @@ def norm(value):
 class ParseError(ValueError): pass
 
 class TableParser(HTMLParser):
+    """Closed table grammar; no browser-style error recovery or ignored attributes."""
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.rows=[]; self.row=None; self.cell=None; self.count=0; self.events=0; self.errors=[]
+        self.rows=[];self.row=None;self.cell=None;self.count=0;self.events=0
+        self.stack=[];self.seen_table=False
     def event(self):
         self.events+=1
         if self.events>100000:raise ParseError('html_event_limit')
-    def handle_starttag(self, tag, attrs):
-        self.event()
-        if tag not in {'table','thead','tbody','tfoot','tr','td','th','br'}:
-            self.errors.append('unsupported_html_tag:'+tag)
-        if tag=='tr':
-            if self.row is not None: self.errors.append('nested_row')
-            self.row=[]
-        if tag in ('td','th'):
-            if self.cell is not None or self.row is None: self.errors.append('cell_outside_row_or_nested')
-            spans=dict(attrs)
-            if set(spans)-{'colspan','rowspan'}: self.errors.append('unsupported_cell_attributes')
-            try: col,row=int(spans.get('colspan','1')),int(spans.get('rowspan','1'))
-            except ValueError: raise ParseError('invalid_span')
-            if not 1<=col<=100 or row!=1: self.errors.append('unsupported_span')
-            self.cell={'text':'','colspan':col,'rowspan':row}
-        if tag=='br' and self.cell is not None: self.cell['text']+='\n'
+    def handle_starttag(self,tag,attrs):
+        self.event();parent=self.stack[-1] if self.stack else None
+        parents={'table':{None},'thead':{'table'},'tbody':{'table'},'tfoot':{'table'},
+                 'tr':{'table','thead','tbody','tfoot'},'td':{'tr'},'th':{'tr'},'br':{'td','th'}}
+        if tag not in parents:raise ParseError('unsupported_html_tag:'+tag)
+        if parent not in parents[tag]:raise ParseError('invalid_table_nesting:'+tag)
+        if tag=='table':
+            if self.seen_table:raise ParseError('multiple_table_roots')
+            self.seen_table=True
+        allowed={'colspan','rowspan'} if tag in ('td','th') else set()
+        names=[k for k,v in attrs]
+        if len(names)!=len(set(names)) or any(k not in allowed or v is None for k,v in attrs):
+            raise ParseError('unsupported_or_valueless_attributes:'+tag)
+        spans=dict(attrs)
+        if any(not re.fullmatch(r'[1-9][0-9]{0,2}',v) for v in spans.values()):raise ParseError('invalid_span')
+        col=int(spans.get('colspan','1'));row=int(spans.get('rowspan','1'))
+        if col>100 or row!=1:raise ParseError('unsupported_span')
+        if tag=='br':self.cell['text']+='\n';return
+        self.stack.append(tag)
+        if tag=='tr':self.row=[]
+        if tag in ('td','th'):self.cell={'text':'','colspan':col,'rowspan':row}
+    def handle_startendtag(self,tag,attrs):
+        if tag!='br':raise ParseError('unsupported_self_closing_tag:'+tag)
+        self.handle_starttag(tag,attrs)
     def handle_endtag(self,tag):
         self.event()
+        if not self.stack or self.stack[-1]!=tag:raise ParseError('unmatched_table_end:'+tag)
+        self.stack.pop()
         if tag in ('td','th'):
-            if self.cell is None or self.row is None: self.errors.append('unmatched_cell_end');return
-            self.cell['text']=norm(self.cell['text']); self.row.append(self.cell); self.cell=None
+            self.cell['text']=norm(self.cell['text']);self.row.append(self.cell);self.cell=None
             self.count+=1
-            if self.count>MAX_CELLS: raise ParseError('cell_limit')
-        if tag=='tr':
-            if self.row is None: self.errors.append('unmatched_row_end');return
-            self.rows.append(self.row);self.row=None
+            if self.count>MAX_CELLS:raise ParseError('cell_limit')
+        if tag=='tr':self.rows.append(self.row);self.row=None
     def handle_data(self,data):
         self.event()
         if self.cell is not None:self.cell['text']+=data
-        elif data.strip():self.errors.append('text_outside_cell')
+        elif data.strip():raise ParseError('text_outside_cell')
+    def handle_comment(self,data):raise ParseError('unsupported_html_comment')
+    def handle_decl(self,decl):raise ParseError('unsupported_html_declaration')
+    def handle_pi(self,data):raise ParseError('unsupported_html_instruction')
+    def unknown_decl(self,data):raise ParseError('unsupported_html_declaration')
     def result(self):
-        if self.row is not None or self.cell is not None:self.errors.append('unclosed_table')
-        return self.rows,self.errors
+        if self.stack or not self.seen_table:raise ParseError('unclosed_or_missing_table')
+        return self.rows,[]
 
 HEADER=re.compile(r'([A-Za-z_][A-Za-z_0-9-]*)(?:<LEVEL([1-9][0-9]?)>)?\[([0-9]{1,4}),\s*([0-9]{1,4}),\s*([0-9]{1,4}),\s*([0-9]{1,4})\]<FORK>')
 def parse_native(raw):
@@ -74,8 +87,11 @@ def parse_native(raw):
             if not (0<=box[0]<=box[2]<=1000 and 0<=box[1]<=box[3]<=1000):errors.append('invalid_coordinates')
             rows=[]
             if kind=='table':
-                parser=TableParser();parser.feed(body);parser.close();rows,errs=parser.result();errors.extend(errs)
-                text='\n'.join(' '.join(c['text'] for c in row) for row in rows)
+                try:
+                    parser=TableParser();parser.feed(body);parser.close();rows,errs=parser.result();errors.extend(errs)
+                    text='\n'.join(' '.join(c['text'] for c in row) for row in rows)
+                except (ParseError,ValueError,TypeError) as e:
+                    errors.append(f'page_{pn}:table:{e}');rows=[];text=body
             else:text=body
             blocks.append({'kind':kind,'bbox':box,'text':text,'rows':rows,'native_body':body})
         pages.append({'page':pn,'blocks':blocks})
@@ -106,12 +122,16 @@ def extract_prediction(parsed, rules):
                 active=None
                 for ri,row in enumerate(b['rows']):
                     vals=[c['text'] for c in row]
-                    matched=next((t for t in rules['tables'] if vals==t['headers']),None)
+                    matched=next((t for t in rules['tables'] if vals==t['headers'] and all(c['colspan']==1 for c in row)),None)
                     if matched:
                         active={'table_id':matched['table_id'],'columns':matched['columns'],'page':pn,'rows':[],'block':bi};tables.append(active);continue
                     # Any header-like row is retained, never treated as perfect/repaired header.
-                    if active is not None and len(vals)>=len(active['columns']) and all(c['colspan']==1 for c in row):
-                        active['rows'].append({'values':vals,'native_row':ri});continue
+                    if active is not None:
+                        mappable=all(c['colspan']==1 for c in row)
+                        reason='unsupported_spanning_row' if not mappable else 'short_table_row' if len(vals)<len(active['columns']) else None
+                        active['rows'].append({'values':vals if mappable else [],'physical_values':vals,'cells':row,'native_row':ri,'mapping_status':reason or 'mapped'})
+                        if reason:unmapped.append({'page':pn,'kind':reason,'values':vals,'cells':row,'location':[bi,ri]})
+                        continue
                     for ci,c in enumerate(row):
                         text=c['text'];key=text.rstrip(':')
                         if key in by_label and ri+1<len(b['rows']) and len(b['rows'][ri+1])==len(row):
