@@ -712,3 +712,6 @@ WP-0009 author007 PUBLISHED73b5c5d3ce123adc33ba0397dcc74029208606c5, evidence837
 
 
 WP-0008 independent004 actual Carbon acceptance RUNNING_CONFIRMED, same conversation025f1605-d7e3-4fea-8255-907c2b07b55f/modelgemini-4-carbon-high/high, CLI25360/tool85242. Exact authorityd38eca6b55b49a71f2bced304a486d9cf562487b and source62e8666af747c0040942cee20c0ed34f4d747e93; docs/coordination/WP-0008/acceptance-dispatch.json records init. Prior prep session ended before resume. Result pending; no author acceptance inferred.
+
+
+WP-0009 reviewer008 finite execution COMPLETED:624.703s,2excluded warmups+fixed WP09-F04-v0 all completed,actual tool96218 reports0,worker0,all24 observer commands0,no finalization error,CPU score-run0 at unchanged69f7a79677b43228869d7c35bb5fb6d3e12e9291. Root independently acknowledges lease WP-0009-reviewer-sentinel-20261116T2114Z RETURNED after18-object/notice/qualified host and scoped bound PID absence; docs/coordination/WP-0009/reviewer-after/lease-return.json. All task GPU leases returned; actual independent comparison/evidence publication008 still pending.
