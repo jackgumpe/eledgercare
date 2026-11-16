@@ -1,0 +1,29 @@
+{
+  "reviewer": "eld-baseline-reviewer / /root/baseline_reviewer",
+  "actual_model_effort": "not exposed",
+  "verification_authority": "2ce3366d6aada92068088090bb026d4579b20e61",
+  "clean_start": "fddde41a4bf47941f1e8a207cbe961a180042f11",
+  "author_evidence": "414b24d7a1752698fc9bb3bd95e06715b8ebb677",
+  "author_checkpoint": "9a8ae5293899d3f17b5cd240c29ce43270e93e2d",
+  "commands": [
+    {
+      "helper_freeze": "8d6ba2e0daaa8b6e0723504332c732bc56e5e5d3",
+      "executing_head": "fddde41a4bf47941f1e8a207cbe961a180042f11",
+      "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/reproduce_v2.py --verification-authority 2ce3366d6aada92068088090bb026d4579b20e61 --original-authority 934d6a204bea0a61eb30c33a395b5c616dd00063 --release-path docs/coordination/WP-0007/releases/author-dev-recovery.json --evidence-commit 414b24d7a1752698fc9bb3bd95e06715b8ebb677 --run-prefix docs/evidence/WP-0007/eld-rd-astra/runtime-recovery/20261116T142841Z-284039ca --scores-path docs/evidence/WP-0007/eld-rd-astra/runtime-recovery/20261116T142841Z-284039ca/scores.json --split dev --owner author --output docs/reviews/WP-0007/eld-baseline-reviewer/005/dev-recovery/reproduction.json",
+      "exit_code": 0,
+      "result": {"equal": true, "documents": 1, "source": "522f15f1f6e399c36b9c6c107fc08f51862f1fc1"},
+      "evidence": "reproduction.json",
+      "evidence_commit": "10d4f3ab350ac82487e46f815fdf82a8e842ed66"
+    },
+    {
+      "helper_freeze": "84a547781816e18b02964bf9009f5c6c0b6da2ee",
+      "executing_head": "84a547781816e18b02964bf9009f5c6c0b6da2ee",
+      "command": "python -I -B docs/reviews/WP-0007/eld-baseline-reviewer/005/dev-recovery/audit_capture.py --output docs/reviews/WP-0007/eld-baseline-reviewer/005/dev-recovery/capture-audit.json",
+      "exit_code": 0,
+      "result": {"passed": true, "capture_entries": 53, "files": 54, "environment_keys": [], "observed_exact_uncredited": {"fields": 5, "cells": 70, "normalized_fields": 5, "normalized_cells": 70}},
+      "evidence": "capture-audit.json"
+    }
+  ],
+  "failed_decisive_commands": [],
+  "scope": "Completed immutable dev recovery only; no heldout, model/GPU, external runtime or live process access. Same-code pure-function reproduction with independent numeric accounting is not an independently implemented scorer or fresh inference."
+}
