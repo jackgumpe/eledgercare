@@ -412,6 +412,8 @@ class ReviewerExpectationReconciliationValidationTests(unittest.TestCase):
             "863fcd3a94188aa5a09b4e53f0f7192022950cbd",
             "bc91d331979ed5fbcf4f38b3f359a1cf71cd9960",
             "3ebb727329bb7a67e59bfe5dc74434c5ec95d300",
+            "e16ff5a0ab44698d9a60963be94f6712b75244d5",
+            "fe3afba3d80bb94dce492e45f01aab373d072867",
             "6666666666666666666666666666666666666666",
         ):
             bad = copy.deepcopy(self.valid_rel)
@@ -520,7 +522,10 @@ class ReviewerExpectationReconciliationValidationTests(unittest.TestCase):
             fake_repo = td / "fake_repo"
             src_scratch = td / "scratch_in"
             src_scratch.mkdir(parents=True)
-            (src_scratch / "trial-summary-reviewer-v2.json").write_bytes(b'{"test_fixture": true, "ok": 1}\n')
+            (src_scratch / "trial-summary-reviewer-v2.json").write_bytes(
+                b'{"test_fixture": true, "web_oid": "f0877a006922818bf731d5f87603a368ed782487", '
+                b'"uuid": "01a1ef03-f05a-7f06-8f08-000000000001"}\n'
+            )
 
             for protected_dir in (
                 "source-reconciliation",
@@ -551,6 +556,13 @@ class ReviewerExpectationReconciliationValidationTests(unittest.TestCase):
                 rdrv.package_runtime_evidence(
                     src_scratch,
                     fake_repo / "docs" / "reviews" / "WP-0006" / "eld-next-reviewer" / "runtime-execution-3",
+                    root=fake_repo,
+                )
+            (src_scratch / "holdout.log").write_bytes(b"read F08_warm1.txt unexpectedly\n")
+            with self.assertRaisesRegex(rdrv.ReleaseValidationError, "Forbidden holdout token"):
+                rdrv.package_runtime_evidence(
+                    src_scratch,
+                    fake_repo / "docs" / "reviews" / "WP-0006" / "eld-next-reviewer" / "runtime-execution-4",
                     root=fake_repo,
                 )
         finally:

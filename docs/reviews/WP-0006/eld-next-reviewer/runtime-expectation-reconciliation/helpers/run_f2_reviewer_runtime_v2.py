@@ -161,6 +161,8 @@ REJECTED_EXECUTING_HEADS = frozenset({
     "e7733f9e8dde1a3db229bf9da5e0f5f90069c6f8",  # Superseded v1 validation evidence
     "bc91d331979ed5fbcf4f38b3f359a1cf71cd9960",  # Superseded v1 preparation checkpoint
     "3ebb727329bb7a67e59bfe5dc74434c5ec95d300",  # Superseded initial v2 validator-audit candidate
+    "e16ff5a0ab44698d9a60963be94f6712b75244d5",  # Superseded v2 candidate before hex-safe F03..F08 holdout regex
+    "fe3afba3d80bb94dce492e45f01aab373d072867",  # Validation evidence on e16ff5a0 before hex-safe holdout regex
 })
 
 REJECTED_AUTHOR_RUNTIME_EVIDENCE_COMMITS = frozenset({
@@ -250,8 +252,21 @@ MIN_LEASE_REMAINING_SECONDS = 300
 
 HOLDOUT_SUBSTRINGS = (
     "WO-03", "PM-02", "CAL-02", "INV-02", "INV-03", "MP-02",
-    "F03", "F05", "F06", "F08", "heldout", "holdout",
+    "heldout", "holdout",
 )
+HOLDOUT_FIXTURE_ID_RE = re.compile(r"(?<![0-9a-fA-F])(F03|F05|F06|F08)(?![0-9a-fA-F])", re.IGNORECASE)
+
+
+def find_holdout_token(text: str) -> str | None:
+    """Detects forbidden holdout family/split tokens without false-positiving on >=4-hex UUID/SHA substrings."""
+    lower = text.lower()
+    for htok in HOLDOUT_SUBSTRINGS:
+        if htok.lower() in lower:
+            return htok
+    m = HOLDOUT_FIXTURE_ID_RE.search(text)
+    if m:
+        return m.group(1).upper()
+    return None
 
 PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
 PROCESS_TERMINATE = 0x0001
@@ -831,7 +846,7 @@ def validate_reviewer_release_contract(
     if not isinstance(plan, list) or len(plan) != 4:
         raise ReleaseValidationError("Release plan must contain exactly the 4 bounded scenarios.")
     plan_json_str = json.dumps(plan)
-    if any(tok.lower() in plan_json_str.lower() for tok in (*HOLDOUT_SUBSTRINGS, "warmup")):
+    if "warmup" in plan_json_str.lower() or find_holdout_token(plan_json_str) is not None:
         raise ReleaseValidationError("Release plan references forbidden holdout or warmup work.")
     step_attempts = [s.get("model_attempts") for s in plan if isinstance(s, dict)]
     if step_attempts != [1, 1, 2, 0] or sum(step_attempts) != EXPECTED_MAX_MODEL_ATTEMPTS:
@@ -2411,9 +2426,9 @@ def package_runtime_evidence(
         for sec in secrets:
             if sec in text_probe:
                 raise ReleaseValidationError(f"Secret value detected in {rel}; refusing to package evidence!")
-        for htok in HOLDOUT_SUBSTRINGS:
-            if htok.lower() in text_probe.lower():
-                raise ReleaseValidationError(f"Forbidden holdout token {htok!r} detected in {rel}; refusing to package!")
+        htok = find_holdout_token(text_probe)
+        if htok is not None:
+            raise ReleaseValidationError(f"Forbidden holdout token {htok!r} detected in {rel}; refusing to package!")
         staged_files.append((fp, rel, raw))
 
     dest_resolved.mkdir(parents=True, exist_ok=True)
