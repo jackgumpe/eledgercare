@@ -1,3 +1,4 @@
+using ELedgerCare.Application.Review;
 using ELedgerCare.Domain.Processing;
 
 namespace ELedgerCare.Application.Extraction;
@@ -80,7 +81,8 @@ public sealed record DocumentSummaryProjection(
     byte[] Sha256,
     int AdmittedPageCount,
     Guid? CurrentAttemptId,
-    Guid? AcceptedResultId);
+    Guid? AcceptedResultId,
+    WorkOrderReviewHeadSummary? WorkOrderReview = null);
 
 public sealed record AttemptSummaryProjection(
     Guid AttemptId,
@@ -105,7 +107,8 @@ public sealed record DocumentExtractionSnapshot(
     DateTimeOffset UpdatedAtUtc,
     Guid? RetriedFromAttemptId,
     IReadOnlyList<AttemptSummaryProjection> Attempts,
-    ExtractionResult? AcceptedResult);
+    ExtractionResult? AcceptedResult,
+    WorkOrderReviewHeadSummary? WorkOrderReview = null);
 
 public sealed record RunningAttemptRecord(
     Guid AttemptId,

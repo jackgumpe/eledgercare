@@ -1,17 +1,17 @@
 #Requires -Version 7.0
 <#
 .SYNOPSIS
-  Runs the Playwright F1 + F2 browser checks against a freshly prepared owned database.
+  Runs the Playwright F1 + F2 + F3 browser checks against a freshly prepared owned database.
 .DESCRIPTION
-  Product-owned F1 + F2 browser runner (F2-KR-01 / F2-BIC-01), self-contained within deploy/dev.
-  Defaults to author loopback ports (API 5190, UI 4210) and honors -ApiPort / -UiPort so
-  independent review (5290 / 4310) runs the exact frozen candidate without source edits.
+  Product-owned F1 + F2 + F3 browser runner (F3-KR-01), self-contained within deploy/dev.
+  Defaults to author loopback ports (API 5390, UI 4410) and honors -ApiPort / -UiPort so
+  independent review (5490 / 4510) runs the exact frozen candidate without source edits.
 #>
 [CmdletBinding()]
 param(
     [string] $Database = 'eledgercare_e2e',
-    [int] $ApiPort = 5190,
-    [int] $UiPort = 4210
+    [int] $ApiPort = 5390,
+    [int] $UiPort = 4410
 )
 
 $ErrorActionPreference = 'Stop'

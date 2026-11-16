@@ -54,6 +54,22 @@ public sealed class PersistenceMappingTests
         Assert.Contains("page_count", sql, StringComparison.Ordinal);
         Assert.DoesNotContain(".bytes", sql, StringComparison.Ordinal);
         Assert.DoesNotContain("raw_output_bytes", sql, StringComparison.Ordinal);
+        Assert.DoesNotContain("machine_snapshot_json", sql, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void Review_history_summary_projection_never_selects_field_values_or_blob_bytes()
+    {
+        using var db = CreateContext();
+        var id = Guid.NewGuid();
+
+        var sql = WorkOrderReviewStore.ProjectHistorySummaries(db, id).ToQueryString();
+
+        Assert.Contains("revision_number", sql, StringComparison.Ordinal);
+        Assert.Contains("unknown_field_count", sql, StringComparison.Ordinal);
+        Assert.DoesNotContain("human_value", sql, StringComparison.Ordinal);
+        Assert.DoesNotContain("machine_snapshot_json", sql, StringComparison.Ordinal);
+        Assert.DoesNotContain("raw_output_bytes", sql, StringComparison.Ordinal);
     }
 
     [Fact]
@@ -62,7 +78,7 @@ public sealed class PersistenceMappingTests
         using var db = CreateContext();
         var foreignKeys = db.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()).ToList();
 
-        Assert.Equal(9, foreignKeys.Count);
+        Assert.Equal(15, foreignKeys.Count);
         Assert.All(foreignKeys, fk => Assert.Equal(DeleteBehavior.Restrict, fk.DeleteBehavior));
     }
 }

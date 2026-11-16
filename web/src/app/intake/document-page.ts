@@ -153,6 +153,42 @@ const pollIntervalMs = 2_000;
             </p>
           </div>
 
+          <div class="note-box review-entry-panel" data-testid="work-order-review-summary">
+            <div class="review-entry-row">
+              <div>
+                <strong>Human work-order review (<code>maintenance-work-order/1</code>): </strong>
+                @if (ext.workOrderReview; as rev) {
+                  <span class="status" data-testid="document-review-status">
+                    @if (rev.status === 'reviewed') {
+                      Reviewed (Revision #{{ rev.currentRevisionNumber }} · {{ rev.unknownFieldCount }} unknown)
+                    } @else {
+                      Draft (Revision #{{ rev.currentRevisionNumber }})
+                    }
+                  </span>
+                  <p class="note">
+                    {{ rev.acceptedFieldCount }} accepted · {{ rev.editedFieldCount }} edited ·
+                    {{ rev.unknownFieldCount }} unknown · {{ rev.unreviewedFieldCount }} unreviewed
+                    (updated UTC: {{ rev.updatedAtUtc }}). Raw extraction output below remains untouched.
+                  </p>
+                } @else {
+                  <span class="status" data-testid="document-review-status">Not started</span>
+                  <p class="note">
+                    Optional operator action: compare the original PDF beside five work-order fields without classifying other document types automatically.
+                  </p>
+                }
+              </div>
+              <div>
+                <a
+                  class="button-link"
+                  [routerLink]="['/documents', ext.documentId, 'review']"
+                  data-testid="open-work-order-review"
+                >
+                  {{ ext.workOrderReview ? 'Open work-order review' : 'Review as maintenance work order' }}
+                </a>
+              </div>
+            </div>
+          </div>
+
           <h3>Provenance &amp; run summary</h3>
           <dl data-testid="result-provenance">
             <dt>Result ID</dt>
