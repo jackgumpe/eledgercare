@@ -1,0 +1,45 @@
+Helper commit: 0de423c66b9af041f2211cfeeebc6e996961da8f
+Exit code: 1
+Reason: Helper-only diff base in validate_reviewer_release_contract checked immutable reviewer paths (implementation/, source-reconciliation/) against author source_commit 8a73b7a5dab51e3ccf803aceedded4929529dd35 (which predated merging reviewer branch commits) instead of accepted_source_review 82e8f732afbf038bfb5b6c560f1b1219aaa4e40f. Split forbidden diff check into product/Q0/corpus from 8a73b7a5 and immutable reviewer paths from 82e8f732.
+--- SUMMARY ---
+test_01_cli_rejects_missing_release_args (__main__.ReviewerRuntimePrepValidationTests.test_01_cli_rejects_missing_release_args) ... ok
+test_02_cli_rejects_returned_author_release_717a7689 (__main__.ReviewerRuntimePrepValidationTests.test_02_cli_rejects_returned_author_release_717a7689) ... ok
+test_03_cli_rejects_preparation_only_0e16cfd4_and_35e2f44d_authorities (__main__.ReviewerRuntimePrepValidationTests.test_03_cli_rejects_preparation_only_0e16cfd4_and_35e2f44d_authorities) ... ok
+test_04_accepts_valid_synthetic_future_reviewer_release_with_ancestry (__main__.ReviewerRuntimePrepValidationTests.test_04_accepts_valid_synthetic_future_reviewer_release_with_ancestry) ... ERROR
+test_05_supports_flexible_source_review_and_author_handoff_shapes (__main__.ReviewerRuntimePrepValidationTests.test_05_supports_flexible_source_review_and_author_handoff_shapes) ... ERROR
+test_06_rejects_missing_or_unverified_author_003_unless_explicitly_bounded (__main__.ReviewerRuntimePrepValidationTests.test_06_rejects_missing_or_unverified_author_003_unless_explicitly_bounded) ... FAIL
+test_07_rejects_missing_or_historical_author_runtime_evidence (__main__.ReviewerRuntimePrepValidationTests.test_07_rejects_missing_or_historical_author_runtime_evidence) ... FAIL
+test_08_rejects_wrong_owner_session_or_author_release_path (__main__.ReviewerRuntimePrepValidationTests.test_08_rejects_wrong_owner_session_or_author_release_path) ... ok
+test_09_rejects_unaccepted_or_wrong_source_review_binding (__main__.ReviewerRuntimePrepValidationTests.test_09_rejects_unaccepted_or_wrong_source_review_binding) ... FAIL
+test_10_rejects_old_source_commit_and_pre_prep_or_mismatched_executing_head (__main__.ReviewerRuntimePrepValidationTests.test_10_rejects_old_source_commit_and_pre_prep_or_mismatched_executing_head) ... ok
+test_11_rejects_tampered_product_tree_oid_and_old_worker_digest (__main__.ReviewerRuntimePrepValidationTests.test_11_rejects_tampered_product_tree_oid_and_old_worker_digest) ... FAIL
+test_12_rejects_author_leases_wp0007_leases_expired_premature_and_over_6h_window (__main__.ReviewerRuntimePrepValidationTests.test_12_rejects_author_leases_wp0007_leases_expired_premature_and_over_6h_window) ... FAIL
+test_13_rejects_author_ports_author_runtime_root_and_author_db_names (__main__.ReviewerRuntimePrepValidationTests.test_13_rejects_author_ports_author_runtime_root_and_author_db_names) ... FAIL
+test_14_rejects_warmups_holdouts_and_non_4_attempt_matrix (__main__.ReviewerRuntimePrepValidationTests.test_14_rejects_warmups_holdouts_and_non_4_attempt_matrix) ... FAIL
+test_15_clean_runtime_root_checker_rejects_nonempty_or_unexpected_entries (__main__.ReviewerRuntimePrepValidationTests.test_15_clean_runtime_root_checker_rejects_nonempty_or_unexpected_entries) ... ok
+test_16_safe_evidence_packager_blocks_secrets_holdouts_and_immutable_dirs (__main__.ReviewerRuntimePrepValidationTests.test_16_safe_evidence_packager_blocks_secrets_holdouts_and_immutable_dirs) ... ok
+test_17_zero_ml_cuda_imports_zero_external_reviewer_root_and_ports_unbound (__main__.ReviewerRuntimePrepValidationTests.test_17_zero_ml_cuda_imports_zero_external_reviewer_root_and_ports_unbound) ... ok
+
+======================================================================
+ERROR: test_04_accepts_valid_synthetic_future_reviewer_release_with_ancestry (__main__.ReviewerRuntimePrepValidationTests.test_04_accepts_valid_synthetic_future_reviewer_release_with_ancestry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-next-reviewer\docs\reviews\WP-0006\eld-next-reviewer\runtime-preparation\helpers\validate_reviewer_runtime_prep_cpu.py", line 241, in test_04_accepts_valid_synthetic_future_reviewer_release_with_ancestry
+    out = self._validate(self.valid_rel)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-next-reviewer\docs\reviews\WP-0006\eld-next-reviewer\runtime-preparation\helpers\validate_reviewer_runtime_prep_cpu.py", line 167, in _validate
+    return rdrv.validate_reviewer_release_contract(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-next-reviewer\docs\reviews\WP-0006\eld-next-reviewer\runtime-preparation\helpers\run_f2_reviewer_runtime.py", line 534, in validate_reviewer_release_contract
+    raise ReleaseValidationError(
+run_f2_reviewer_runtime.ReleaseValidationError: Forbidden product/Q0/corpus/immutable-review paths changed between 8a73b7a5dab51e3ccf803aceedded4929529dd35 and 0de423c66b9af041f2211cfeeebc6e996961da8f: ['docs/reviews/WP-0006/eld-next-reviewer/implementation/README.md', 'docs/reviews/WP-0006/eld-next-reviewer/implementation/stage1-verification-summary.json', 'docs/reviews/WP-0006/eld-next-reviewer/implementation/verify_stage1_review.py', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/README.md', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/reconciliation-verification-summary.json', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/retained-helper-failures/00-helper-085b5f3-string-delimiter.log', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/retained-helper-failures/01-helper-2b65aa1-merge-base-pathspec.log', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/retained-helper-failures/02-helper-3c96bbe-inherited-qualification-tree.log', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/retained-helper-failures/03-helper-b4f55e3-fifo-queue-claim-order.log', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/verify_source_reconciliation.py']
+
+...
+    with self.assertRaisesRegex(rdrv.ReleaseValidationError, "warmup"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "warmup" does not match "Forbidden product/Q0/corpus/immutable-review paths changed between 8a73b7a5dab51e3ccf803aceedded4929529dd35 and 0de423c66b9af041f2211cfeeebc6e996961da8f: ['docs/reviews/WP-0006/eld-next-reviewer/implementation/README.md', 'docs/reviews/WP-0006/eld-next-reviewer/implementation/stage1-verification-summary.json', 'docs/reviews/WP-0006/eld-next-reviewer/implementation/verify_stage1_review.py', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/README.md', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/reconciliation-verification-summary.json', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/retained-helper-failures/00-helper-085b5f3-string-delimiter.log', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/retained-helper-failures/01-helper-2b65aa1-merge-base-pathspec.log', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/retained-helper-failures/02-helper-3c96bbe-inherited-qualification-tree.log', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/retained-helper-failures/03-helper-b4f55e3-fifo-queue-claim-order.log', 'docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/verify_source_reconciliation.py']"
+
+----------------------------------------------------------------------
+Ran 17 tests in 6.121s
+
+FAILED (failures=7, errors=2)

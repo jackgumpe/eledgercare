@@ -1,0 +1,17 @@
+$ node --check docs/reviews/WP-0006/eld-next-reviewer/runtime-expectation-reconciliation/helpers/verify_ui_reviewer_real_results_v2.mjs
+exit_code=0
+$ node --input-type=module <12_deterministic_ui_expectation_cases>
+exit_code=0
+NODE_UI_DETERMINISTIC_CASES_PASSED=12
+[PASS] case_01_status_labels_match_accepted_receipt_ts_6_of_6
+[PASS] case_02_single_page_completed_1_attempt_passes
+[PASS] case_03_three_page_completed_reopen_ocr_disabled_passes
+[PASS] case_04_two_attempt_interrupted_plus_completed_history_passes
+[PASS] case_05_stale_capital_Interrupted_spec_expectation_rejected
+[PASS] case_06_wrong_dom_status_cell_label_rejected
+[PASS] case_07_attempt_id_swap_or_mismatch_rejected
+[PASS] case_08_underlying_api_status_drift_rejected
+[PASS] case_09_wrong_winning_result_attempt_id_rejected
+[PASS] case_10_unexpected_action_button_or_worker_enabled_rejected
+[PASS] case_11_unsafe_dom_tag_or_inline_handler_rejected
+[PASS] case_12_raw_pre_or_original_download_sha256_mismatch_rejected

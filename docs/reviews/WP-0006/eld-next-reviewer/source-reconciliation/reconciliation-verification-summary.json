@@ -1,0 +1,569 @@
+{
+  "schema": "eledgercare.wp-0006.reviewer-source-reconciliation/1",
+  "reviewer": "eld-next-reviewer",
+  "conversation_id": "101b19cf-3133-4ead-91cb-9ca6068e3e72",
+  "model": "gemini-4-carbon-high",
+  "effort": "high",
+  "started_utc": "2026-11-16T15:28:39.725909+00:00",
+  "completed_utc": "2026-11-16T15:31:43.779890+00:00",
+  "source_reconciliation_disposition": "accepted_stage1_source_pending_runtime",
+  "canonical_004_status": "held_pending_stage2_gpu_and_recovery_release",
+  "findings_reconciled": {
+    "F2-S1-01": {
+      "prior_status": "open_blocking",
+      "reconciled_status": "resolved",
+      "verified_in_candidate": "8a73b7a5dab51e3ccf803aceedded4929529dd35"
+    },
+    "F2-S1-02": {
+      "prior_status": "open_blocking",
+      "reconciled_status": "resolved",
+      "verified_in_candidate": "8a73b7a5dab51e3ccf803aceedded4929529dd35"
+    },
+    "F2-S1-03": {
+      "prior_status": "open_blocking",
+      "reconciled_status": "resolved",
+      "verified_in_candidate": "8a73b7a5dab51e3ccf803aceedded4929529dd35"
+    }
+  },
+  "new_findings_count": 0,
+  "lineage_and_scope": {
+    "reviewer_frozen_helper_head": "e30a9219205287d9d40abd4f37b5e7396dfedaba",
+    "prior_reviewer_findings_sha": "10193e2c904f99cfc23c97367f1e5d881b0630f2",
+    "coordinator_authority_sha": "2ce3366d6aada92068088090bb026d4579b20e61",
+    "author_source_response_publication_sha": "386d5c30809c3c04d6640d9433eb4263306ac126",
+    "author_candidate_sha": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+    "author_retained_intermediate_sha": "850d20063f09f0564a1008da20f09ff185fd0dfb",
+    "previous_author_source_sha": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+    "authorized_merge_base_sha": "3d12dcdc7735b48053f2a56a95c4247c49168786",
+    "changed_source_and_test_count": 12,
+    "changed_blobs_verified_at_head": [
+      {
+        "path": "src/ELedgerCare.Application/Extraction/ExtractionAttemptCoordinator.cs",
+        "blob_oid": "1fef5def8226358806543b444c8d4e618ac4b907"
+      },
+      {
+        "path": "src/ELedgerCare.Application/Extraction/WorkerEnvelopeValidator.cs",
+        "blob_oid": "5d67112c2c757b24dcb833d8364c4b8db601bf4b"
+      },
+      {
+        "path": "src/ELedgerCare.Domain/Processing/DiagnosticTextSanitizer.cs",
+        "blob_oid": "042c03fd73a89c933d1061df0e6d5b41a0c89ead"
+      },
+      {
+        "path": "src/ELedgerCare.Domain/Processing/ExecutionAttempt.cs",
+        "blob_oid": "b87aa8e61288cd0b78b2b678239133caf437be32"
+      },
+      {
+        "path": "src/ELedgerCare.Infrastructure/Extraction/LocalPythonOcrWorkerRunner.cs",
+        "blob_oid": "a84e44626b8eff4b4fb2360f8655bbb0af0293b3"
+      },
+      {
+        "path": "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+        "blob_oid": "214f8dbbdb5cd8e51be918b49f29fa30702f4130"
+      },
+      {
+        "path": "tests/ELedgerCare.Acceptance.Tests/LocalExtractionAcceptanceTests.cs",
+        "blob_oid": "98b30bed49de05f7442f1818739371df8f60738f"
+      },
+      {
+        "path": "tests/ELedgerCare.Domain.Tests/ExtractionDomainAndParserTests.cs",
+        "blob_oid": "4a9bdf4816bf99ee1c1bda45eac3cebbadc083dc"
+      },
+      {
+        "path": "tests/ELedgerCare.Infrastructure.Tests/WorkerEnvelopeAndJobObjectTests.cs",
+        "blob_oid": "5d8abcb497c8f64d6e37e834e17fa9ed31888dd9"
+      },
+      {
+        "path": "workers/local_ocr/local_ocr/env_guard.py",
+        "blob_oid": "e14ba19684b5defa0c1b114708402df1f8b45102"
+      },
+      {
+        "path": "workers/local_ocr/run_worker.py",
+        "blob_oid": "74470d69106792b398d6f4dccda7c361d549a758"
+      },
+      {
+        "path": "workers/local_ocr/tests/test_worker_cpu.py",
+        "blob_oid": "35f6c1fa2334a59ea393efd4c8b0b07219189c76"
+      }
+    ],
+    "unchanged_other_stage1_files_verified": 58,
+    "protected_objects": [
+      {
+        "path": "web",
+        "expected_in_author_pub": "f0877a006922818bf731d5f87603a368ed782487",
+        "author_pub_oid": "f0877a006922818bf731d5f87603a368ed782487",
+        "reviewer_head_oid": "f0877a006922818bf731d5f87603a368ed782487"
+      },
+      {
+        "path": "deploy",
+        "expected_in_author_pub": "dade6a38e165b5cc2ba81ba895bd9d3c572d26f2",
+        "author_pub_oid": "dade6a38e165b5cc2ba81ba895bd9d3c572d26f2",
+        "reviewer_head_oid": "dade6a38e165b5cc2ba81ba895bd9d3c572d26f2"
+      },
+      {
+        "path": "qualification",
+        "expected_in_author_pub": "b5918e65cb20b45cad83506b80d8a8bc611807ec",
+        "author_pub_oid": "b5918e65cb20b45cad83506b80d8a8bc611807ec",
+        "reviewer_head_oid": "0ab2f5dab3984e832375d2ab225f0f0f598f8359"
+      },
+      {
+        "path": "research",
+        "expected_in_author_pub": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+        "author_pub_oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+        "reviewer_head_oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca"
+      },
+      {
+        "path": "evaluation",
+        "expected_in_author_pub": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+        "author_pub_oid": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019",
+        "reviewer_head_oid": "60fcc7fa1741b6c44489bb9cf8484e03a4cbf019"
+      },
+      {
+        "path": "docs/agent-reports",
+        "expected_in_author_pub": "189807c0e6bd8ab4cc9b2dcd048db21afc51cdfd",
+        "author_pub_oid": "189807c0e6bd8ab4cc9b2dcd048db21afc51cdfd",
+        "reviewer_head_oid": "5621bd094120e34b10f7222d23491696129e8e7f"
+      },
+      {
+        "path": "docs/implementation/WP-0006/runtime-author",
+        "expected_in_author_pub": "72bb71576a88506d486c78d6ce0d3e0b4f66ebf0",
+        "author_pub_oid": "72bb71576a88506d486c78d6ce0d3e0b4f66ebf0",
+        "reviewer_head_oid": "72bb71576a88506d486c78d6ce0d3e0b4f66ebf0"
+      },
+      {
+        "path": "docs/implementation/WP-0006/stage1-checkpoint",
+        "expected_in_author_pub": "4acac7f102826f445687693190a34098d640bb6c",
+        "author_pub_oid": "4acac7f102826f445687693190a34098d640bb6c",
+        "reviewer_head_oid": "4acac7f102826f445687693190a34098d640bb6c"
+      }
+    ],
+    "immutable_prior_reviewer_trees_intact": true,
+    "author_evidence_inventory_verified_count": 10,
+    "author_evidence_entries": [
+      {
+        "path": "docs/implementation/WP-0006/source-response/.gitattributes",
+        "raw_bytes": 118,
+        "raw_file_sha256": "09725e80ea4fbf5a8b363d7b960330e3f46c7fc7ab8451c47612b44c18f28993",
+        "lf_normalized_sha256": "09725e80ea4fbf5a8b363d7b960330e3f46c7fc7ab8451c47612b44c18f28993",
+        "matches_author_scratch_raw_bytes": null
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/decisive-summary.json",
+        "raw_bytes": 6344,
+        "raw_file_sha256": "43920a415b02e5ee743036fae1ddb3dcbaba31fc1c7ce88cd69b60acbc56ddcb",
+        "lf_normalized_sha256": "43920a415b02e5ee743036fae1ddb3dcbaba31fc1c7ce88cd69b60acbc56ddcb",
+        "matches_author_scratch_raw_bytes": null
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/helpers/run_source_response_decisive.py",
+        "raw_bytes": 8953,
+        "raw_file_sha256": "920b26d345e5cf4fd3636e6078fe270509b6daa29498f753af0bb3824a18571b",
+        "lf_normalized_sha256": "920b26d345e5cf4fd3636e6078fe270509b6daa29498f753af0bb3824a18571b",
+        "matches_author_scratch_raw_bytes": null
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/logs/01-dotnet-restore-locked.log",
+        "raw_bytes": 259,
+        "raw_file_sha256": "b033b9e34c75fc824bf6bd71da4ad128c4bddc6eae5ec34d3f56e5b1f74e283e",
+        "lf_normalized_sha256": "09ff6bd20eda39a3b2a666b7b779e4c43b34f8bdd5b71e983e99d5317ef633aa",
+        "matches_author_scratch_raw_bytes": true
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/logs/02-dotnet-build-release.log",
+        "raw_bytes": 1444,
+        "raw_file_sha256": "07e302991f5119e7e25a1ff96be203d9642b9a5d9d690c61577433e26345ed57",
+        "lf_normalized_sha256": "3102e49e2fffbd4d9b59c865a0c6519fe6019b7a1524478885ae40f0976bbbd4",
+        "matches_author_scratch_raw_bytes": true
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/logs/03-dotnet-publish-api.log",
+        "raw_bytes": 946,
+        "raw_file_sha256": "2ed0b9a9cbe51dd2de36d97b96616421780e7e0cbf0f2a3a255ae4cceb209dda",
+        "lf_normalized_sha256": "66a6e41f4f9ec5828b0ad62179df45f2c9e1cc9df231faeee560aace08872491",
+        "matches_author_scratch_raw_bytes": true
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/logs/04-python-worker-cpu-tests.log",
+        "raw_bytes": 1819,
+        "raw_file_sha256": "e197f628641fac52a31b4f46a439f96b43acf786a816a61c20de89678940610d",
+        "lf_normalized_sha256": "a072a9cb2b13a5f3c28ec3efb1f49ae6dfe0c46e2431ae8fe9168482981dcc01",
+        "matches_author_scratch_raw_bytes": true
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/logs/05-dotnet-test-solution.log",
+        "raw_bytes": 1967,
+        "raw_file_sha256": "719b57ae7a3779d2ae7140f26d491e51aa9ecc6856b9862e7e98d5e998d50b90",
+        "lf_normalized_sha256": "c7e0ebadd40f67d7b76cde423f5cd357416a2947a382f7160591c790dcc211a7",
+        "matches_author_scratch_raw_bytes": true
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/README.md",
+        "raw_bytes": 10557,
+        "raw_file_sha256": "c94b58b14253bd39c521fd92bf2b69d181a826aea9305982116c174a2525dcc0",
+        "lf_normalized_sha256": "c94b58b14253bd39c521fd92bf2b69d181a826aea9305982116c174a2525dcc0",
+        "matches_author_scratch_raw_bytes": null
+      },
+      {
+        "path": "docs/implementation/WP-0006/source-response/retained-failures/05-dotnet-test-solution-850d200.log",
+        "raw_bytes": 3529,
+        "raw_file_sha256": "3a842eba449d30f351ae38e28bafb99a6f0a9d5abeee0078a3c8cd2592e68539",
+        "lf_normalized_sha256": "16e0d0ba657b0c766ff87a388cd14d62afbe3307714b04028aa564d69d4e1ea4",
+        "matches_author_scratch_raw_bytes": null
+      }
+    ],
+    "reused_ui_browser_evidence": {
+      "web_tree_oid": "f0877a006922818bf731d5f87603a368ed782487",
+      "deploy_tree_oid": "dade6a38e165b5cc2ba81ba895bd9d3c572d26f2",
+      "unchanged_from_stage1_0ad2fcd1": true,
+      "prior_verified_reviewer_checkpoint": "10193e2c904f99cfc23c97367f1e5d881b0630f2",
+      "prior_playwright_edge_passed": "10/10 on loopback API 5290 / UI 4310 / PG 55435"
+    }
+  },
+  "static_digests_and_boundaries": {
+    "python_worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+    "worker_config_sha256_by_pages": {
+      "1": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+      "2": "e4df504ddb51dcc8fb137e97f5af97c735252374738b1a1754a88b16a05de5df",
+      "3": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86"
+    },
+    "admitted_dev_fixtures_identical": true,
+    "scanned_production_files": 85,
+    "cross_boundary_reference_violations": 0,
+    "holdout_files_accessed": 0,
+    "heavy_modules_imported": []
+  },
+  "host_snapshots": {
+    "before": {
+      "observed_utc": "2026-11-16T15:28:40.493721+00:00",
+      "logical_cpu_count": 12,
+      "memory_load_percent": 50,
+      "total_phys_bytes": 34264649728,
+      "avail_phys_bytes": 16866717696,
+      "c_drive_free_bytes": 50740314112,
+      "reviewer_ports_bound": {
+        "5290": false,
+        "4310": false,
+        "55435": false
+      },
+      "author_ports_bound_readonly_observation": {
+        "5190": false,
+        "4210": false,
+        "55434": false
+      },
+      "shared_host_confounder_note": "Loopback CPU/child-process/PostgreSQL reconciliation shares physical host CPU/RAM/SSD I/O with concurrent WP-0007 B0 fixed heldout GPU inference under sole lease WP-0007-author-heldout-20261116T145544Z; zero GPU queries, zero ML imports, and zero other-owner processes, ports, or paths were touched."
+    },
+    "after": {
+      "observed_utc": "2026-11-16T15:31:42.137849+00:00",
+      "logical_cpu_count": 12,
+      "memory_load_percent": 52,
+      "total_phys_bytes": 34264649728,
+      "avail_phys_bytes": 16375836672,
+      "c_drive_free_bytes": 53109530624,
+      "reviewer_ports_bound": {
+        "5290": false,
+        "4310": false,
+        "55435": false
+      },
+      "author_ports_bound_readonly_observation": {
+        "5190": false,
+        "4210": false,
+        "55434": false
+      },
+      "shared_host_confounder_note": "Loopback CPU/child-process/PostgreSQL reconciliation shares physical host CPU/RAM/SSD I/O with concurrent WP-0007 B0 fixed heldout GPU inference under sole lease WP-0007-author-heldout-20261116T145544Z; zero GPU queries, zero ML imports, and zero other-owner processes, ports, or paths were touched."
+    }
+  },
+  "external_roots": {
+    "f2_reviewer_root_path": "C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer",
+    "f2_reviewer_root_exists_before": false,
+    "f2_reviewer_root_exists_after": false,
+    "f2_parent_root_exists_readonly": true
+  },
+  "owned_postgres_cluster": {
+    "port": 55435,
+    "postmaster_identity": {
+      "pid": 19252,
+      "create_filetime": 134393165711514343,
+      "port": 55435,
+      "roles_configured": [
+        "eledgercare_admin",
+        "eledgercare_migrator",
+        "eledgercare_app"
+      ]
+    },
+    "stopped_cleanly_at_end": true
+  },
+  "regression_test_totals": {
+    "python_worker_cpu_passed": 9,
+    "dotnet_succeeded_matches": [
+      74
+    ],
+    "dotnet_total_passed": 74,
+    "combined_passed": 83,
+    "combined_failed": 0,
+    "reused_stage1_playwright_edge_passed": 10
+  },
+  "independent_python_boundary_probes": {
+    "transient_churn_iterations_without_error": 400,
+    "nested_ntfs_junction_rejected": true,
+    "root_ntfs_junction_rejected": true,
+    "persistent_acl_rd_denied_rejected": true,
+    "persistent_acl_rd_rea_ra_denied_rejected": true,
+    "depth_over_32_rejected": true,
+    "sparse_over_4gib_ceiling_rejected": true,
+    "heavy_modules_imported": []
+  },
+  "independent_csharp_and_postgres_boundary_probes": {
+    "csharp_worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+    "R1_F2_S1_01_isolated_entrypoint_and_cwd_poison_resistance": {
+      "reconciled": true,
+      "child_exit_code": 2,
+      "heartbeat_json_written": true,
+      "envelope_schema": "eledgercare.local-extraction/1",
+      "envelope_status": "failed",
+      "validator_failure_code": "dependency_lock_mismatch",
+      "module_not_found_error_absent": true,
+      "cwd_poison_local_ocr_ignored": true,
+      "parent_pythonpath_poison_ignored": true
+    },
+    "R2a_F2_S1_02_csharp_storage_bounds": {
+      "reconciled": true,
+      "transient_churn_iterations_passed": 800,
+      "transient_churn_exceptions": 0,
+      "nested_ntfs_junction_rejected": true,
+      "root_ntfs_junction_rejected": true,
+      "persistent_cache_acl_rd_denied_rejected": true,
+      "persistent_cache_acl_rd_rea_ra_denied_rejected": true,
+      "depth_over_32_rejected": true,
+      "sparse_over_4gib_rejected": true
+    },
+    "R2b_F2_S1_02_finally_job_termination_and_pipe_unblock": {
+      "reconciled": true,
+      "pre_resume_throw_unmasked_and_launcher_dead": true,
+      "pre_resume_cleanup_ms": 65,
+      "heartbeat_throw_unmasked_and_launcher_plus_grandchild_dead": true,
+      "heartbeat_throw_cleanup_ms": 1097,
+      "cancellation_propagated_and_launcher_plus_grandchild_dead": true,
+      "cancellation_cleanup_ms": 1091
+    },
+    "R2c_F2_S1_02_same_and_cross_instance_reconciliation_real_pg": {
+      "reconciled": true,
+      "reconciled_while_same_coordinator_in_flight": 0,
+      "reconciled_while_other_live_supervisor_owns": 0,
+      "reconciled_while_real_heartbeat_worker_alive": 0,
+      "reconciled_by_same_live_coordinator_once_children_exited": 1,
+      "reconciled_status": "interrupted",
+      "automatic_retry_triggered": false,
+      "explicit_retry_allowed_after_interrupted": true
+    },
+    "R3_F2_S1_03_postgres_diagnostic_sanitization_and_exact_bytea": {
+      "reconciled": true,
+      "heartbeat_phase_nul_and_surrogate_persisted": true,
+      "nul_and_truncated_utf8_tail_failed_persisted": true,
+      "failure_code_surrogate_boundary_char_len": 99,
+      "failure_detail_surrogate_boundary_char_len": 499,
+      "diagnostic_jsonb_nul_sanitized_type": "object",
+      "unpaired_surrogates_and_65536_boundary_persisted": true,
+      "diagnostic_raw_65536_boundary_char_len": 65535,
+      "malformed_diagnostic_json_coerced_to_null": true,
+      "accepted_multibyte_utf8_with_nul_in_diagnostics_published": true,
+      "accepted_multibyte_raw_bytea_100pct_exact": true,
+      "accepted_q0_f07_3page_raw_bytea_100pct_exact": true,
+      "original_artifact_pdf_bytea_100pct_exact": true
+    }
+  },
+  "steps": [
+    {
+      "step_id": "00-start-owned-postgres",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "<worktree>\\deploy\\dev\\postgres\\start-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T15:29:29.544555+00:00",
+      "ended_utc": "2026-11-16T15:29:31.510756+00:00",
+      "duration_ms": 1966,
+      "exit_code": 0,
+      "raw_bytes": 182,
+      "raw_file_sha256": "fa722fda53de64494e25e83d647ed09f868d0745b77336578289ca560dd1f2c8",
+      "lf_bytes": 181,
+      "lf_normalized_sha256": "2203118d812740afcd54083bbd317d2a00e32618847a9604c1227b33972ce8ba",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "01-dotnet-restore-locked",
+      "command": [
+        "dotnet",
+        "restore",
+        "ELedgerCare.slnx",
+        "--locked-mode",
+        "--packages",
+        "<worktree>\\.local\\nuget\\packages"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T15:29:31.510756+00:00",
+      "ended_utc": "2026-11-16T15:29:33.914464+00:00",
+      "duration_ms": 2406,
+      "exit_code": 0,
+      "raw_bytes": 549,
+      "raw_file_sha256": "a14814c085e8d4a23c5267f9f0a29a7441287f242cbbbd908ddae84459a591e8",
+      "lf_bytes": 544,
+      "lf_normalized_sha256": "e39e5945da504fbf2a51327c5e387dba73d232a0f51523a7c28017b46a42ad4a",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "02-dotnet-build-release",
+      "command": [
+        "dotnet",
+        "build",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T15:29:33.914464+00:00",
+      "ended_utc": "2026-11-16T15:29:42.793683+00:00",
+      "duration_ms": 8875,
+      "exit_code": 0,
+      "raw_bytes": 1349,
+      "raw_file_sha256": "8c2850a0df64da7f86cb8fcaef5725ae41ab668975bdac77fde115778d0156a6",
+      "lf_bytes": 1336,
+      "lf_normalized_sha256": "619195c98df8597168b4c199b80af22f3d8f419367288d37f0b951ea7aa7dff9",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "03-dotnet-publish-api",
+      "command": [
+        "dotnet",
+        "publish",
+        "src/ELedgerCare.Api/ELedgerCare.Api.csproj",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T15:29:42.795686+00:00",
+      "ended_utc": "2026-11-16T15:29:44.624062+00:00",
+      "duration_ms": 1829,
+      "exit_code": 0,
+      "raw_bytes": 825,
+      "raw_file_sha256": "4cf613b3dd36a9778b3639dada6391071744e4530a15ac4c9d0400b7edce4142",
+      "lf_bytes": 820,
+      "lf_normalized_sha256": "33c0b6c1a74ae00800a69d56ae9172d20de34e7a71398b49def8d7381f813afc",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "04-python-worker-cpu-tests",
+      "command": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "workers/local_ocr/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T15:29:44.626567+00:00",
+      "ended_utc": "2026-11-16T15:29:45.593789+00:00",
+      "duration_ms": 968,
+      "exit_code": 0,
+      "raw_bytes": 1652,
+      "raw_file_sha256": "f75ce689b72fd0c91c00056d86bb8c825eac0d9e5a0400e6fd694b51644f5ba6",
+      "lf_bytes": 1638,
+      "lf_normalized_sha256": "c9320eea39dc34a3dd24420e7dcb1f6ffec69faabee36600044e546a7108471b",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "05-dotnet-test-solution",
+      "command": [
+        "dotnet",
+        "test",
+        "--solution",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T15:29:45.593789+00:00",
+      "ended_utc": "2026-11-16T15:31:25.914742+00:00",
+      "duration_ms": 100323,
+      "exit_code": 0,
+      "raw_bytes": 1862,
+      "raw_file_sha256": "aa011dd7a964d032bbdc29de6a48b7ef4257edfb482e96ac1326a3a458bd6243",
+      "lf_bytes": 1845,
+      "lf_normalized_sha256": "7239a15b85f855917b84a74a1a0709761c61bb28ed33e46c1b8aee1b3c6dd0da",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "06-build-reviewer-reconciliation-probes",
+      "command": [
+        "dotnet",
+        "build",
+        "<worktree>\\.scratch\\reconciliation-probes\\ReviewerReconciliationProbes.csproj",
+        "-c",
+        "Release",
+        "--source",
+        "<worktree>\\.local\\nuget\\packages"
+      ],
+      "cwd": ".scratch/reconciliation-probes",
+      "started_utc": "2026-11-16T15:31:25.921484+00:00",
+      "ended_utc": "2026-11-16T15:31:29.132264+00:00",
+      "duration_ms": 3212,
+      "exit_code": 0,
+      "raw_bytes": 1467,
+      "raw_file_sha256": "5a661ef6505060e4209ebdd5d321d75aad0a14452270a455b7c74624106f3084",
+      "lf_bytes": 1452,
+      "lf_normalized_sha256": "c453f5fb7da2961fd23d98b0636a3d099c77be4eac8c7a44505dd816b2df82a8",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "07-execute-reviewer-reconciliation-probes",
+      "command": [
+        "<worktree>\\.scratch\\reconciliation-probes\\bin\\Release\\net10.0\\ReviewerReconciliationProbes.exe",
+        "<worktree>",
+        "<worktree>\\.scratch\\reconciliation-probes\\reconciliation-probe-results.json",
+        "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "<worktree>\\.scratch\\reconciliation-probes\\fake_run_worker.py"
+      ],
+      "cwd": ".scratch/reconciliation-probes",
+      "started_utc": "2026-11-16T15:31:29.134280+00:00",
+      "ended_utc": "2026-11-16T15:31:40.758689+00:00",
+      "duration_ms": 11625,
+      "exit_code": 0,
+      "raw_bytes": 42,
+      "raw_file_sha256": "b0e379de091c190bbf817441f0e59e533c501d4f731ff243e76885e6870047c8",
+      "lf_bytes": 41,
+      "lf_normalized_sha256": "7789182cc38d381fc20d35e0e4951c6c34ab0a4cf360348af418de9c7720783d",
+      "contains_crlf": true
+    },
+    {
+      "step_id": "08-stop-owned-postgres",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "<worktree>\\deploy\\dev\\postgres\\stop-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T15:31:40.777212+00:00",
+      "ended_utc": "2026-11-16T15:31:41.340480+00:00",
+      "duration_ms": 563,
+      "exit_code": 0,
+      "raw_bytes": 58,
+      "raw_file_sha256": "3589d2bd01f8295cc7c9ec3f5e07625fcd347ccb6f33f2d80edafe5f5217c1fb",
+      "lf_bytes": 56,
+      "lf_normalized_sha256": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d",
+      "contains_crlf": true
+    }
+  ],
+  "post_git_porcelain_before_evidence_write": ""
+}

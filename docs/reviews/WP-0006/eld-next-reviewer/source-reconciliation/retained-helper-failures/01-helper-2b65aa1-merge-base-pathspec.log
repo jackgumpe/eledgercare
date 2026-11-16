@@ -1,0 +1,4 @@
+$ python -B docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/verify_source_reconciliation.py
+Helper commit: 2b65aa124f6726873ae8e67a3710c6a127bcf3fd
+Exit code: 1
+Reason: Reviewer helper-only git diff check compared `0ad2fcd1..8a73b7a5` without scoping to product/test paths (`-- src web workers tests deploy ELedgerCare.slnx`), picking up inherited coordinator merge `3d12dcdc7735b48053f2a56a95c4247c49168786` (`docs/**`, `CURRENT.md`, `INDEX.md`, `qualification/baseline/**`). Repo-wide diff from authorized merge base `3d12dcdc..8a73b7a5` already matched the exact 12 paths. Scoped `0ad2fcd1..8a73b7a5` to product/worker/test/deploy paths in subsequent frozen helper commit.

@@ -1,0 +1,16 @@
+$ python -B docs/reviews/WP-0006/eld-next-reviewer/source-reconciliation/verify_source_reconciliation.py
+Helper commit: 085b5f33148f3018bb65b24c84a8dfa8c0f098d3
+Exit code: 1
+Reason: Reviewer helper-only Python raw triple-double-quote delimiter collision (`CSHARP_PROBE_PROGRAM = r"""..."""` contained a C# raw string `"""..."""`), terminating the outer Python string early at module load before `main()`. Zero product source defects involved; fixed in subsequent frozen helper commit by extracting `FAKE_GRANDCHILD_WORKER_PY` and using `r'''...'''`.
+--- OUTPUT ---
+Traceback (most recent call last):
+  File "<worktree>\docs\reviews\WP-0006\eld-next-reviewer\source-reconciliation\verify_source_reconciliation.py", line 1059, in <module>
+    (out_dir / "heartbeat.json").write_text(json.dumps(hb), encoding="utf-8")
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1047, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<worktree>\output\heartbeat.json'
+gc-open
