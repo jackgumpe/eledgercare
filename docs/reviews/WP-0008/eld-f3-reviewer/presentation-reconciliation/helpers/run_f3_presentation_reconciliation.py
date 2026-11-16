@@ -309,29 +309,38 @@ SELECT json_build_object(
   'heads', COALESCE((
     SELECT json_agg(row_to_json(h) ORDER BY h.document_id, h.profile_id)
     FROM (
-      SELECT document_id::text, profile_id, result_id::text, current_revision_id::text,
-             current_revision_number, current_status, created_at, updated_at
+      SELECT document_id::text, result_id::text,
+             encode(input_sha256, 'hex') AS input_sha256,
+             encode(raw_output_sha256, 'hex') AS raw_output_sha256,
+             profile_id, field_schema_version, suggestion_policy_version,
+             machine_snapshot_json, current_revision_number,
+             current_revision_id::text, current_status, created_at, updated_at
       FROM eledgercare.work_order_review_heads
     ) h
   ), '[]'::json),
   'revisions', COALESCE((
     SELECT json_agg(row_to_json(rv) ORDER BY rv.document_id, rv.revision_number)
     FROM (
-      SELECT revision_id::text, document_id::text, profile_id, result_id::text,
-             revision_number, previous_revision_id::text, previous_revision_number,
-             status, idempotency_key::text, encode(request_sha256, 'hex') AS request_sha256,
-             field_schema_version, suggestion_policy_version, operator_display_label,
+      SELECT revision_id::text, document_id::text, result_id::text,
+             revision_number, previous_revision_number,
+             status, idempotency_key::text,
+             encode(request_sha256, 'hex') AS request_sha256,
+             encode(input_sha256, 'hex') AS input_sha256,
+             encode(raw_output_sha256, 'hex') AS raw_output_sha256,
+             profile_id, field_schema_version, suggestion_policy_version,
+             operator_display_label,
              accepted_field_count, edited_field_count, unknown_field_count, unreviewed_field_count,
              saved_at
       FROM eledgercare.work_order_review_revisions
     ) rv
   ), '[]'::json),
   'fields', COALESCE((
-    SELECT json_agg(row_to_json(fd) ORDER BY fd.revision_id, fd.field_key)
+    SELECT json_agg(row_to_json(fd) ORDER BY fd.revision_id, fd.field_ordinal)
     FROM (
-      SELECT revision_id::text, field_key, decision, value_text, unknown_reason,
-             machine_status, machine_value_text, consulted_page_number, consulted_block_ordinal,
-             consulted_table_row, consulted_table_column, consulted_source_quote
+      SELECT revision_id::text, field_ordinal, field_key, decision,
+             human_value, unknown_reason,
+             consulted_page_number, consulted_block_ordinal,
+             consulted_table_row, consulted_table_column, consulted_quote
       FROM eledgercare.work_order_review_fields
     ) fd
   ), '[]'::json)
