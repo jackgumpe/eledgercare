@@ -738,3 +738,6 @@ Root observed routine review controls expose schema/field identifiers and full h
 | --- | --- | --- | --- |
 | WP-0008 /006 | eld-f3-implementer / implementation | docs/agent-reports/eld-f3-implementer/WP-0008/006_2026-11-16_implementation_eld-f3-implementer.md | RELEASED presentation-only correction under WP-0008-eld-f3-presentation-correction.md; actual same-Carbon dispatch PREPARED. |
 | WP-0008 /007 | eld-f3-reviewer / review | docs/agent-reports/eld-f3-reviewer/WP-0008/007_2026-11-16_review_eld-f3-reviewer.md | RESERVED/HELD until004 and exact006 publication; inspect final source and execute affected browser checks. |
+
+
+WP-0008 author006 actual same-Carbon dispatch RUNNING_CONFIRMED: ef53d3f3-ca53-482e-8fa7-a3cc1670564e/gemini-4-carbon-high/high, CLI25792/tool28678, exact authority3b225040475fe150956bc260d3584dfd0040d71b and clean prior publicationb77bc68a5b6878d2395cd76b0d0a858ae15cc249. Receipt docs/coordination/WP-0008/presentation-dispatch.json. Original-source independent004 remains running in its separate resources; final-source007 held until004 and006.
