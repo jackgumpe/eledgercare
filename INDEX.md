@@ -593,3 +593,14 @@ F2 independent frozen runtime under513da1a18c9b80ed99d56dd1ff7bf3bc1cb77905, cle
 ### Independent F2 final acceptance and normal integration
 
 Canonical004 c854a1d4c306c3b10d78df42a1a2552a06bb4a98 ACCEPTED, runtime evidence7f0ec3a9338606ce54c4c6d2eeabab8a2c245e2a, exact-origin/clean verified. Root final audit verifies40 exact originals/42 inventory entries/43 added files/12 protected identities, native raw/envelope to PG/API/Edge parity for all3 saved results, and report-only addition. Author0033ece293f4ea9b78f19dbfb7f95472b95d091d79e and reviewer004 normally merged through b35e2afef76e7f11ba3489c9cbcd326440df929a. Product source remains exact8a73b7a5dab51e3ccf803aceedded4929529dd35; baseline522f unchanged. Both final dispositions are complete. All model leases returned. Root005/006 now released for frozen integrated inventory and final publication; no further runtime, source or user permission gate remains.
+
+### Final two-track publication receipt — 2026-11-16 UTC
+
+Both WP-0006 and WP-0007 are ACCEPTED, MERGED and PUBLISHED; no required work remains. Frozen integrated deliverable0a2a2914e2dee652b072a4a0029b3c3156b36254, subsequent inventory/publication evidencee6c4e35e25732bb7b17924d484d30055fbd585ae, complete1192-path inventory and exact protected/source trees verified. All34 original report-guide/template/report files preserved. Final report-only commit43140c06fd734ec41a43b8ee219950386be55359 contains exactly the following two reserved coordinator reports; exact origin/coordination/bootstrap verified after normal push.26 local links across final reports/dispositions passed.
+
+| Packet / sequence | Owner / category | Exact canonical path | Publication | Final state |
+| --- | --- | --- | --- | --- |
+| WP-0006 /005 | eld-coordinator / verification | docs/agent-reports/eld-coordinator/WP-0006/005_2026-11-16_verification_eld-coordinator.md | 43140c06fd734ec41a43b8ee219950386be55359 | ACCEPTED, MERGED, PUBLISHED; independent004 c854a1d4c306c3b10d78df42a1a2552a06bb4a98 and exact source8a73b7a5dab51e3ccf803aceedded4929529dd35 |
+| WP-0007 /006 | eld-coordinator / verification | docs/agent-reports/eld-coordinator/WP-0007/006_2026-11-16_verification_eld-coordinator.md | 43140c06fd734ec41a43b8ee219950386be55359 | ACCEPTED, MERGED, PUBLISHED; independent00538f00f46d6a37f26cc7d34d02a1015101269e865 and exact source522f15f1f6e399c36b9c6c107fc08f51862f1fc1 |
+
+Final independent F2 CLI SUCCESS/exit0, all authors/reviewers complete or held after completed continuation, all leases explicitly returned/acknowledged, owned services stopped. Original failed records and supplemental evidence remain distinct. Next Jack for subsequent bounded milestone selection; no F3/F4/E1-E3/training/customer-data/deployment release. This receipt supersedes earlier pending descriptions without rewriting historical reports.
