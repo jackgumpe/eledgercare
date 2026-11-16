@@ -1,0 +1,21 @@
+# WP-0009 exact admitted corpus publication
+
+The admitted 40-file corpus is published byte-for-byte under [`evaluation/mapping_v1/`](../../../../evaluation/mapping_v1/) at **`c0a702e43efee7bda20b4da0bc2b0cb3f0852e41`**. All 1,075,820 bytes, all 40 Git blobs, four PDFs/six pages and 20 originally reserved core artifacts match the admitted sealed repository. All 2,171 preexisting tracked files at coordinator authority `5685660e0188db1d9832baded7eb8e95085109c7` retain their exact path, mode, type and Git object identity. This is publication verification; no content was regenerated or repaired and no inference ran.
+
+The explicit [root unseal object](../../../coordination/WP-0009/unseal.json) binds independent corpus admission `/004` at `3e5d305d0cdcb2666ba56912ba6c06dc19d74c8b`, accepted corrected mapper source `23e023045b335540d830ce01b75be247552a63f1`, independent source/protocol acceptance `/006` at `89a27d8b13b280632f4fc0e6704f8c3bdfe74355`, and original sealed receipt `559c5d09490b7729be26fb9bf9d872305cae3303`. Its issued time is `2026-11-16T20:42:55.470156+00:00`. Content publication/read access is now released for this exact corpus. No tuning or model/GPU execution is released.
+
+[custody-timeline.json](custody-timeline.json) records the ordered commits and UTC timestamps: public reservation; independent admission; mapper implementation; corrected source and independent freeze acceptance; explicit coordinator unseal; then publication. The original corpus reservation preceded mapper implementation. Original `/003`, `/004`, `/006`, reservation hashes, private custody and all historical evidence remain unchanged. Admission evidence publication belongs to the independent reviewer and is coordinated separately.
+
+The original private repository remains clean at `559c5d09490b7729be26fb9bf9d872305cae3303`, branch `sealed/wp-0009`, without a remote. Only its 40 tracked files were copied, preserving relative paths; Git internals, ignored scratch and caches were excluded. The [admitted inventory](../../../../evaluation/mapping_v1/inventory/sha256-r1.json) binds 39 files, and its own SHA256 `c2971612374178aaf1194f4b3a48e0c8435d14305b813b290f0e1e2b856ac322` binds the fortieth. Historical files within the copied package retain their original custody wording and paths; this later exact unseal authority supplies the current publication status.
+
+The original `.gitattributes` is one of the 40 admitted files. Its `* -text` applies within the new corpus namespace and preserves original bytes even where a parent rule names `eol=lf`. All 40 staged and committed blobs were checked against their original Git blob identities. No additional corpus attributes file or root attribute change was needed. The new documentation-only `.gitattributes` preserves raw publication-attempt receipts under `attempts/**`; it is inventoried separately from the admitted corpus.
+
+The publication helper [publish.py](publish.py) was frozen before execution at `4457172b3f47138b94e182ce6223cdd559c66c36`. Its three exclusive attempt receipts retain complete 40-file source-to-public mappings, hashes, byte counts, exact authority/source/admission bindings and observed results:
+
+- [Copy](attempts/copy-001/receipt.json): verifies originals, destination absence, admitted page counts and 20 public hashes, then copies only 40 tracked files.
+- [Index](attempts/index-001/receipt.json): verifies every checked-out and staged blob, exact staged scope and Git attributes.
+- [Commit](attempts/commit-001/receipt.json): verifies every committed blob and all 2,171 preexisting authority files.
+
+All three passed on their first execution. A separate default `git diff --check` returned 2 because admitted CRLF evidence appears as trailing whitespace; the [retained diagnostic](attempts/whitespace-001/receipt.json) includes exact output. The same check with per-command `core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol` returned 0. No admitted byte, repository configuration or root attributes were changed to address the diagnostic.
+
+No dependencies, services, downloads, models, GPUs, mapper/scorer code, existing evaluation corpus, B0 or Q0 were changed. Root next verifies and integrates this exact publication before any separately bound finite runtime release.

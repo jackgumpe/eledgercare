@@ -1,0 +1,84 @@
+test_active_recognized_data_table_is_untouched (test_mapping.MappingTests.test_active_recognized_data_table_is_untouched) ... ok
+test_actual_parser_limit_retains_identical_ineligible_denominators (test_mapping.MappingTests.test_actual_parser_limit_retains_identical_ineligible_denominators) ... ok
+test_all_label_row (test_mapping.MappingTests.test_all_label_row) ... ok
+test_candidate_exception_does_not_change_baseline_comparator (test_mapping.MappingTests.test_candidate_exception_does_not_change_baseline_comparator) ... ok
+test_column_header_and_vertical_layout_fallback (test_mapping.MappingTests.test_column_header_and_vertical_layout_fallback) ... ok
+test_duplicate_label_or_alias_is_page_scoped (test_mapping.MappingTests.test_duplicate_label_or_alias_is_page_scoped) ... ok
+test_empty_missing_known_unknown_and_containing_labels (test_mapping.MappingTests.test_empty_missing_known_unknown_and_containing_labels) ... ok
+test_immediate_value_has_single_emission_and_provenance (test_mapping.MappingTests.test_immediate_value_has_single_emission_and_provenance) ... ok
+test_multiple_plausible_right_or_below_values (test_mapping.MappingTests.test_multiple_plausible_right_or_below_values) ... ok
+test_separate_pages_keep_occurrence_accounting (test_mapping.MappingTests.test_separate_pages_keep_occurrence_accounting) ... ok
+test_spans_anywhere_in_current_row (test_mapping.MappingTests.test_spans_anywhere_in_current_row) ... ok
+test_unknown_label_and_inline_blocks_are_untouched (test_mapping.MappingTests.test_unknown_label_and_inline_blocks_are_untouched) ... ok
+test_entry_rejects_before_any_fresh_read_or_runtime_import (test_release.ReleaseTests.test_entry_rejects_before_any_fresh_read_or_runtime_import) ... ok
+test_exact_author_and_preselected_reviewer_schedule (test_release.ReleaseTests.test_exact_author_and_preselected_reviewer_schedule) ... ok
+test_missing_wrong_and_expired_envelopes (test_release.ReleaseTests.test_missing_wrong_and_expired_envelopes) ... ok
+test_no_retry_duplicate_schedule_or_changed_sentinel (test_release.ReleaseTests.test_no_retry_duplicate_schedule_or_changed_sentinel) ... ok
+test_old_public_schema_and_malformed_reference (test_release.ReleaseTests.test_old_public_schema_and_malformed_reference) ... ok
+test_exact_storage_time_log_and_stall_guards (test_runtime.RuntimeTests.test_exact_storage_time_log_and_stall_guards) ... ok
+test_gpu_observation_unavailable_or_wrong_device_rejected (test_runtime.RuntimeTests.test_gpu_observation_unavailable_or_wrong_device_rejected) ... ok
+test_real_owned_windows_job_closes_only_its_child (test_runtime.RuntimeTests.test_real_owned_windows_job_closes_only_its_child) ... ok
+test_retained_wddm_and_new_desktop_rows_are_preserved_not_classified (test_runtime.RuntimeTests.test_retained_wddm_and_new_desktop_rows_are_preserved_not_classified) ... ok
+test_success_and_failure_retention (test_runtime.RuntimeTests.test_success_and_failure_retention) ... ok
+test_atomic_heartbeat_scan_and_unsafe_paths (__main__.IndependentTests.test_atomic_heartbeat_scan_and_unsafe_paths) ... ok
+test_frozen_sentinel_policy_matches_authorized_scope (__main__.IndependentTests.test_frozen_sentinel_policy_matches_authorized_scope) ... FAIL
+test_full_release_gate_order_without_fresh_reads (__main__.IndependentTests.test_full_release_gate_order_without_fresh_reads) ... ok
+test_generic_guard_cases_and_provenance (__main__.IndependentTests.test_generic_guard_cases_and_provenance) ... ok
+test_immutable_protocol_settings_and_caps (__main__.IndependentTests.test_immutable_protocol_settings_and_caps) ... ok
+test_one_treatment_ast_isolation (__main__.IndependentTests.test_one_treatment_ast_isolation) ... FAIL
+test_parser_limits_and_completion_denominators (__main__.IndependentTests.test_parser_limits_and_completion_denominators) ... ok
+
+======================================================================
+FAIL: test_frozen_sentinel_policy_matches_authorized_scope (__main__.IndependentTests.test_frozen_sentinel_policy_matches_authorized_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-mapping-reviewer\docs\reviews\WP-0009\eld-mapping-reviewer\006\review_checks.py", line 66, in test_frozen_sentinel_policy_matches_authorized_scope
+    self.assertNotIn('raster_or_hybrid',policy.get('required_categories',[]),'Stale B0 category outside clean digital scope')
+AssertionError: 'raster_or_hybrid' unexpectedly found in ['single_page', 'multi_page', 'raster_or_hybrid'] : Stale B0 category outside clean digital scope
+
+======================================================================
+FAIL: test_one_treatment_ast_isolation (__main__.IndependentTests.test_one_treatment_ast_isolation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-mapping-reviewer\docs\reviews\WP-0009\eld-mapping-reviewer\006\review_checks.py", line 37, in test_one_treatment_ast_isolation
+    self.assertEqual(ast.dump(before,include_attributes=False),ast.dump(after,include_attributes=False))
+AssertionError: "Func[741 chars](id='pattern', ctx=Store())], value=Call(func=[20492 chars]=[])" != "Func[741 chars](id='fields', ctx=Store())], value=List(elts=[[19611 chars]=[])"
+Diff is 50756 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 29 tests in 3.695s
+
+FAILED (failures=2)
+{"real_windows_job": "PASS", "owned_child_exit": 0, "unrelated_child_alive_before_own_cleanup": true}
+C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-mapping-reviewer\.scratch\wp0009-mapping\tmpz6kh7urs\owned-runtime\runs\author\20261116T202040Z-defed002
+{"cpu_supervisor_case": "normal", "exit": 0, "primary_denominator": 4, "states": ["completed", "completed", "completed", "completed", "completed", "completed"], "owned_child_kills": 0}
+C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-mapping-reviewer\.scratch\wp0009-mapping\tmp7l77pje3\owned-runtime\runs\author\20261116T202040Z-4b495661
+{"cpu_supervisor_case": "scan_failure", "exit": 1, "primary_denominator": 4, "states": ["completed", "completed", "failed", "not_run_after_failure", "not_run_after_failure", "not_run_after_failure"], "owned_child_kills": 1}
+C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-mapping-reviewer\.scratch\wp0009-mapping\tmpfsn1683p\owned-runtime\runs\author\20261116T202040Z-b2f21e88
+{"cpu_supervisor_case": "malformed_outcome", "exit": 1, "primary_denominator": 4, "states": ["completed", "completed", "completed", "completed", "completed", "completed"], "owned_child_kills": 0}
+C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-mapping-reviewer\.scratch\wp0009-mapping\tmpxbt7yxc5\owned-runtime\runs\author\20261116T202040Z-40a415b6
+{"cpu_supervisor_case": "malformed_record", "exit": 1, "primary_denominator": 4, "states": ["completed", "completed", "failed", "not_run_after_failure", "not_run_after_failure", "not_run_after_failure"], "owned_child_kills": 0}
+C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-mapping-reviewer\.scratch\wp0009-mapping\tmps9o6o70u\owned-runtime\runs\author\20261116T202040Z-9f2b7cf3
+{"cpu_supervisor_case": "post_failure", "exit": 1, "primary_denominator": 4, "states": ["completed", "completed", "completed", "completed", "completed", "completed"], "owned_child_kills": 0}
+{
+  "executing_head": "cec1ed044c44bc2d6e8c290900ed82d9952f02f5",
+  "candidate_source": "b95c12d2fd8d71598a1e9c523182cd1a2f3ee121",
+  "source_tree": "751d27596ed89fc2ed8cb33ca93c9c6c6157b2bb",
+  "protocol_sha256": "7be254c8984c957051c8f59c725a29945055305364fd04bce135eb4ab3537d86",
+  "tests": {
+    "run": 29,
+    "failures": [
+      [
+        "test_frozen_sentinel_policy_matches_authorized_scope (__main__.IndependentTests.test_frozen_sentinel_policy_matches_authorized_scope)",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-mapping-reviewer\\docs\\reviews\\WP-0009\\eld-mapping-reviewer\\006\\review_checks.py\", line 66, in test_frozen_sentinel_policy_matches_authorized_scope\n    self.assertNotIn('raster_or_hybrid',policy.get('required_categories',[]),'Stale B0 category outside clean digital scope')\nAssertionError: 'raster_or_hybrid' unexpectedly found in ['single_page', 'multi_page', 'raster_or_hybrid'] : Stale B0 category outside clean digital scope\n"
+      ],
+      [
+        "test_one_treatment_ast_isolation (__main__.IndependentTests.test_one_treatment_ast_isolation)",
+        "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-mapping-reviewer\\docs\\reviews\\WP-0009\\eld-mapping-reviewer\\006\\review_checks.py\", line 37, in test_one_treatment_ast_isolation\n    self.assertEqual(ast.dump(before,include_attributes=False),ast.dump(after,include_attributes=False))\nAssertionError: \"Func[741 chars](id='pattern', ctx=Store())], value=Call(func=[20492 chars]=[])\" != \"Func[741 chars](id='fields', ctx=Store())], value=List(elts=[[19611 chars]=[])\"\nDiff is 50756 characters long. Set self.maxDiff to None to see it.\n"
+      ]
+    ],
+    "errors": [],
+    "skipped": []
+  },
+  "status": "FINDINGS"
+}

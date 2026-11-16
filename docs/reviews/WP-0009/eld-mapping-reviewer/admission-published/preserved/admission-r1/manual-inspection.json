@@ -1,0 +1,317 @@
+{
+  "reviewer": "eld-mapping-reviewer",
+  "session": "/root/mapping_reviewer",
+  "timestamp_utc": "2026-11-16T19:44:43.956093+00:00",
+  "method": "Actual view_image inspection of each independently rendered scale2 PDF page, against all expected values and semantic source; no custodian contact-sheet acceptance substitution.",
+  "pages": [
+    {
+      "fixture_id": "WP09-F01-v0",
+      "page": 1,
+      "image_path": ".scratch/wp0009-reviewer/admission-r1/WP09-F01-v0-p1.png",
+      "image_sha256": "ef83708122bdf7c9f0d474f893391fee61c363613b6f349ac432b0817f94adc2",
+      "visible_fields_checked": [
+        "work_order_id",
+        "requested_date",
+        "property_name",
+        "building_unit",
+        "trade_category",
+        "assigned_tech",
+        "reported_issue_and_resolution",
+        "completion_status",
+        "supervisor_signoff"
+      ],
+      "visible_table_rows_checked": [
+        {
+          "table": "stock_parts",
+          "row_id": "P71",
+          "cells": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ]
+        },
+        {
+          "table": "stock_parts",
+          "row_id": "P72",
+          "cells": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ]
+        }
+      ],
+      "absence_slots_checked": [
+        "resident_contact"
+      ],
+      "manual_observation": "Read all nine values, both four-cell parts rows, blank callback box, form title and footer. Identifiers retain leading zeros; duty lead and issue/action text have unambiguous label association. No clipping, overlap or unreadable glyph observed.",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "WP09-F02-v0",
+      "page": 1,
+      "image_path": ".scratch/wp0009-reviewer/admission-r1/WP09-F02-v0-p1.png",
+      "image_sha256": "30b76fc643d5a4000b91db5de3e0be66d6551ccacd7fc34e62e349ce9cc8aee2",
+      "visible_fields_checked": [
+        "property_unit",
+        "work_order_id",
+        "inspection_date",
+        "inspector_id",
+        "overall_result",
+        "chief_engineer_ack"
+      ],
+      "visible_table_rows_checked": [
+        {
+          "table": "safety_checklist",
+          "row_id": "C31",
+          "cells": [
+            "item_id",
+            "check_desc",
+            "location",
+            "pass_mark",
+            "fail_mark",
+            "na_mark",
+            "reading_notes"
+          ]
+        },
+        {
+          "table": "safety_checklist",
+          "row_id": "C32",
+          "cells": [
+            "item_id",
+            "check_desc",
+            "location",
+            "pass_mark",
+            "fail_mark",
+            "na_mark",
+            "reading_notes"
+          ]
+        },
+        {
+          "table": "safety_checklist",
+          "row_id": "C33",
+          "cells": [
+            "item_id",
+            "check_desc",
+            "location",
+            "pass_mark",
+            "fail_mark",
+            "na_mark",
+            "reading_notes"
+          ]
+        },
+        {
+          "table": "safety_checklist",
+          "row_id": "C34",
+          "cells": [
+            "item_id",
+            "check_desc",
+            "location",
+            "pass_mark",
+            "fail_mark",
+            "na_mark",
+            "reading_notes"
+          ]
+        }
+      ],
+      "absence_slots_checked": [
+        "requisition_id"
+      ],
+      "manual_observation": "Read all six field values and four seven-cell checklist rows. Exactly one checked outcome per row; outcome marks and note meanings agree. Blank parts request box is genuinely empty. Distinct checklist layout; all leading-zero checkpoint identifiers are legible.",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "WP09-F03-v0",
+      "page": 1,
+      "image_path": ".scratch/wp0009-reviewer/admission-r1/WP09-F03-v0-p1.png",
+      "image_sha256": "31f68948933b23567a0df5c507f2d3488994ee4fb15c7b301039241264e73478",
+      "visible_fields_checked": [
+        "invoice_number",
+        "customer_acct_id",
+        "invoice_date",
+        "due_date",
+        "address_bill_to",
+        "address_service_location",
+        "subtotal",
+        "tax_amount",
+        "invoice_total",
+        "amount_due"
+      ],
+      "visible_table_rows_checked": [
+        {
+          "table": "line_items",
+          "row_id": "Q41",
+          "cells": [
+            "row_id",
+            "sku",
+            "qty_unit",
+            "description",
+            "unit_price",
+            "net_line"
+          ]
+        },
+        {
+          "table": "line_items",
+          "row_id": "Q42",
+          "cells": [
+            "row_id",
+            "sku",
+            "qty_unit",
+            "description",
+            "unit_price",
+            "net_line"
+          ]
+        },
+        {
+          "table": "line_items",
+          "row_id": "Q43",
+          "cells": [
+            "row_id",
+            "sku",
+            "qty_unit",
+            "description",
+            "unit_price",
+            "net_line"
+          ]
+        }
+      ],
+      "absence_slots_checked": [
+        "work_order_ref"
+      ],
+      "manual_observation": "Read ten fields and three six-cell invoice rows. Quantity/unit strings, leading-zero account/product IDs and subtotal/tax/total values agree. Printed rate supports half-up arithmetic. Blank buyer reference is empty. Supplier furniture, contact text and no-fee statement are in full reference.",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "WP09-F04-v0",
+      "page": 1,
+      "image_path": ".scratch/wp0009-reviewer/admission-r1/WP09-F04-v0-p1.png",
+      "image_sha256": "af01b28ebf382e32c342181ab9c486fef1dc2d6fb14459f070bdc816f457dbf9",
+      "visible_fields_checked": [
+        "packet_id",
+        "contract_id",
+        "property_name",
+        "affected_units",
+        "crew_lead"
+      ],
+      "visible_table_rows_checked": [
+        {
+          "table": "labor_log",
+          "row_id": "V61",
+          "cells": [
+            "log_id",
+            "tech_id",
+            "work_date",
+            "time_in",
+            "time_out",
+            "hours",
+            "activity"
+          ]
+        },
+        {
+          "table": "labor_log",
+          "row_id": "V62",
+          "cells": [
+            "log_id",
+            "tech_id",
+            "work_date",
+            "time_in",
+            "time_out",
+            "hours",
+            "activity"
+          ]
+        }
+      ],
+      "absence_slots_checked": [],
+      "manual_observation": "Read five fields and two seven-cell labor rows. Journal/agreement identities, date/time pairs, elapsed hours and work descriptions agree; packet page marker and initial-visit narrative are complete.",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "WP09-F04-v0",
+      "page": 2,
+      "image_path": ".scratch/wp0009-reviewer/admission-r1/WP09-F04-v0-p2.png",
+      "image_sha256": "4e3c13b4d89bad3c3f52f9dd04bb6876b4d3a4aecd717f5ae6a3b9105117477f",
+      "visible_fields_checked": [
+        "packet_id",
+        "contract_id",
+        "property_name"
+      ],
+      "visible_table_rows_checked": [
+        {
+          "table": "labor_log",
+          "row_id": "V63",
+          "cells": [
+            "log_id",
+            "tech_id",
+            "work_date",
+            "time_in",
+            "time_out",
+            "hours",
+            "activity"
+          ]
+        },
+        {
+          "table": "labor_log",
+          "row_id": "V64",
+          "cells": [
+            "log_id",
+            "tech_id",
+            "work_date",
+            "time_in",
+            "time_out",
+            "hours",
+            "activity"
+          ]
+        }
+      ],
+      "absence_slots_checked": [],
+      "manual_observation": "Read three repeated fields and two seven-cell labor rows. Different second-visit date/crew/time/activity entries match source and expected page associations; repeated header and page marker legible.",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "WP09-F04-v0",
+      "page": 3,
+      "image_path": ".scratch/wp0009-reviewer/admission-r1/WP09-F04-v0-p3.png",
+      "image_sha256": "8ab8e595a034e3af9811217f696be5b056ea02ea4ee7e64b8294d5764548bcee",
+      "visible_fields_checked": [
+        "packet_id",
+        "contract_id",
+        "property_name",
+        "completion_status",
+        "completed_timestamp",
+        "lead_tech_signoff"
+      ],
+      "visible_table_rows_checked": [
+        {
+          "table": "stock_parts",
+          "row_id": "U81",
+          "cells": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ]
+        },
+        {
+          "table": "stock_parts",
+          "row_id": "U82",
+          "cells": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ]
+        }
+      ],
+      "absence_slots_checked": [
+        "supervisor_signoff"
+      ],
+      "manual_observation": "Read six fields and two four-cell parts rows. Return decision, closing timestamp and technician attestation correspond to printed labels. Second witness box is blank; material identifiers, counts, final marker and fictional safety statement all visible.",
+      "status": "PASS"
+    }
+  ],
+  "distinct_semantic_families": true,
+  "complete_reference_inspected": true,
+  "corrections_required": false,
+  "private_only_until_unseal": true
+}

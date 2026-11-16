@@ -1,0 +1,5894 @@
+{
+  "status": "PASS",
+  "executing_head": "3351aac84ea4f61aca9f48b710fab725fdaac8ff",
+  "sealed_receipt": "559c5d09490b7729be26fb9bf9d872305cae3303",
+  "counts": {
+    "text_operators": 249,
+    "pages": 6,
+    "cells": 90,
+    "rows": 15,
+    "tables": 5,
+    "fields": 39,
+    "absences": 4,
+    "quantity_unit_cells": 3
+  },
+  "documents": [
+    {
+      "fixture_id": "WP09-F01-v0",
+      "source_expected_visible_parity": true,
+      "arithmetic": [],
+      "expected": {
+        "schema_version": "1.0.0",
+        "fixture_id": "WP09-F01-v0",
+        "family_id": "WP09-F01",
+        "doc_kind": "work_order",
+        "split": "fresh_eval",
+        "split_disclosure": "procedurally_blinded_to_mapping_author_until_accepted_freeze",
+        "variant_kind": "v0_clean",
+        "parent_fixture_id": null,
+        "page_count": 1,
+        "expected_adjacent_page_pairs": [],
+        "page_sentinels": [],
+        "cross_page_links": [],
+        "expected_fields": [
+          {
+            "field_id": "work_order_id",
+            "label_printed": "Request key",
+            "page_number": 1,
+            "printed_text": "RPR-0006382",
+            "normalized_value": "RPR-0006382",
+            "value_type": "identifier",
+            "bbox_pt": [
+              40,
+              655,
+              103.1,
+              665
+            ]
+          },
+          {
+            "field_id": "requested_date",
+            "label_printed": "Opened on",
+            "page_number": 1,
+            "printed_text": "2026-08-21",
+            "normalized_value": "2026-08-21",
+            "value_type": "date_iso",
+            "bbox_pt": [
+              370,
+              655,
+              421.8,
+              665
+            ]
+          },
+          {
+            "field_id": "property_name",
+            "label_printed": "Premises",
+            "page_number": 1,
+            "printed_text": "Fictional Juniper Kite Court",
+            "normalized_value": "Fictional Juniper Kite Court",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              600,
+              323.3,
+              610
+            ]
+          },
+          {
+            "field_id": "building_unit",
+            "label_printed": "Work spot",
+            "page_number": 1,
+            "printed_text": "West studio 003B",
+            "normalized_value": "West studio 003B",
+            "value_type": "identifier",
+            "bbox_pt": [
+              195,
+              570,
+              274.5,
+              580
+            ]
+          },
+          {
+            "field_id": "trade_category",
+            "label_printed": "Craft needed",
+            "page_number": 1,
+            "printed_text": "Hardware / access",
+            "normalized_value": "Hardware / access",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              540,
+              280.9,
+              550
+            ]
+          },
+          {
+            "field_id": "assigned_tech",
+            "label_printed": "Assigned to",
+            "page_number": 1,
+            "printed_text": "Fictional Tessa Quill",
+            "normalized_value": "Fictional Tessa Quill",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              510,
+              291.7,
+              520
+            ]
+          },
+          {
+            "field_id": "reported_issue_and_resolution",
+            "label_printed": "Concern and action",
+            "page_number": 1,
+            "printed_text": "Latch rubbed strike; reset plate and verified free swing.",
+            "normalized_value": "Latch rubbed strike; reset plate and verified free swing.",
+            "value_type": "text",
+            "bbox_pt": [
+              40,
+              423,
+              267.88,
+              432
+            ]
+          },
+          {
+            "field_id": "completion_status",
+            "label_printed": "Closeout",
+            "page_number": 1,
+            "printed_text": "Finished - access restored",
+            "normalized_value": "Finished - access restored",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              232,
+              316.7,
+              242
+            ]
+          },
+          {
+            "field_id": "supervisor_signoff",
+            "label_printed": "Duty lead",
+            "page_number": 1,
+            "printed_text": "Fictional Noel Reed",
+            "normalized_value": "Fictional Noel Reed",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              202,
+              285.9,
+              212
+            ]
+          }
+        ],
+        "expected_absences": [
+          {
+            "field_id": "resident_contact",
+            "label_printed": "Resident callback (left empty)",
+            "page_number": 1,
+            "expected_state": "absent_blank",
+            "bbox_pt": [
+              40,
+              121,
+              290,
+              141
+            ],
+            "semantics": "A printed empty response box; no asserted value, not an unknown filled value."
+          }
+        ],
+        "expected_tables": [
+          {
+            "table_id": "stock_parts",
+            "page_numbers": [
+              1
+            ],
+            "repeated_header_pages": [],
+            "column_ids": [
+              "part_sku",
+              "part_desc",
+              "bin_loc",
+              "qty_used"
+            ],
+            "rows": [
+              {
+                "row_id": "P71",
+                "page_number": 1,
+                "cells": {
+                  "part_sku": {
+                    "printed_text": "0019476",
+                    "normalized_value": "0019476",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      316,
+                      75.36,
+                      324
+                    ]
+                  },
+                  "part_desc": {
+                    "printed_text": "Strike shim, zinc",
+                    "normalized_value": "Strike shim, zinc",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      144,
+                      316,
+                      205.44,
+                      324
+                    ]
+                  },
+                  "bin_loc": {
+                    "printed_text": "D-003",
+                    "normalized_value": "D-003",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      384,
+                      316,
+                      406.48,
+                      324
+                    ]
+                  },
+                  "qty_used": {
+                    "printed_text": "2.00",
+                    "normalized_value": "2.00",
+                    "value_type": "decimal_2",
+                    "bbox_pt": [
+                      474,
+                      316,
+                      489.76,
+                      324
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "P72",
+                "page_number": 1,
+                "cells": {
+                  "part_sku": {
+                    "printed_text": "0005368",
+                    "normalized_value": "0005368",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      284,
+                      75.36,
+                      292
+                    ]
+                  },
+                  "part_desc": {
+                    "printed_text": "M4 countersunk screw",
+                    "normalized_value": "M4 countersunk screw",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      144,
+                      284,
+                      225.84,
+                      292
+                    ]
+                  },
+                  "bin_loc": {
+                    "printed_text": "D-017",
+                    "normalized_value": "D-017",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      384,
+                      284,
+                      406.48,
+                      292
+                    ]
+                  },
+                  "qty_used": {
+                    "printed_text": "4.00",
+                    "normalized_value": "4.00",
+                    "value_type": "decimal_2",
+                    "bbox_pt": [
+                      474,
+                      284,
+                      489.76,
+                      292
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "expected_routing_for_e3": "eligible_digital_text_layer",
+        "transform_params": {
+          "renderer": "retained generic PDF 1.4 writer",
+          "dpi": null,
+          "rotation_deg": 0.0
+        }
+      },
+      "reference": {
+        "fixture_id": "WP09-F01-v0",
+        "pages": [
+          "REPAIR AUTHORITY\nFictional Juniper Kite maintenance desk\nRequest key\nOpened on\nRPR-0006382\n2026-08-21\nPremises\nFictional Juniper Kite Court\nWork spot\nWest studio 003B\nCraft needed\nHardware / access\nAssigned to\nFictional Tessa Quill\nREPAIR RECORD\nConcern and action\nLatch rubbed strike; reset plate and verified free swing.\nItems taken from stores\nStock code\nMaterial issued\nShelf\nCount\n0019476\nStrike shim, zinc\nD-003\n2.00\n0005368\nM4 countersunk screw\nD-017\n4.00\nCloseout\nFinished - access restored\nDuty lead\nFictional Noel Reed\nResident callback (left empty)\nSYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.\nTraining form JKC-R / 1 of 1"
+        ],
+        "runs": [
+          [
+            {
+              "text": "REPAIR AUTHORITY",
+              "x": 42,
+              "y": 737,
+              "size_pt": 22,
+              "bbox_pt": [
+                42,
+                737,
+                275.43,
+                759
+              ],
+              "ordinal": 1,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Juniper Kite maintenance desk",
+              "x": 42,
+              "y": 716,
+              "size_pt": 10,
+              "bbox_pt": [
+                42,
+                716,
+                226.6,
+                726
+              ],
+              "ordinal": 2,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Request key",
+              "x": 40,
+              "y": 672,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                672,
+                87.83,
+                680
+              ],
+              "ordinal": 3,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Opened on",
+              "x": 370,
+              "y": 672,
+              "size_pt": 8,
+              "bbox_pt": [
+                370,
+                672,
+                411.13,
+                680
+              ],
+              "ordinal": 5,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "RPR-0006382",
+              "x": 40,
+              "y": 655,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                655,
+                103.1,
+                665
+              ],
+              "ordinal": 4,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-08-21",
+              "x": 370,
+              "y": 655,
+              "size_pt": 10,
+              "bbox_pt": [
+                370,
+                655,
+                421.8,
+                665
+              ],
+              "ordinal": 6,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Premises",
+              "x": 40,
+              "y": 600,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                600,
+                76.12,
+                608
+              ],
+              "ordinal": 7,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Juniper Kite Court",
+              "x": 195,
+              "y": 600,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                600,
+                323.3,
+                610
+              ],
+              "ordinal": 8,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Work spot",
+              "x": 40,
+              "y": 570,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                570,
+                77.91,
+                578
+              ],
+              "ordinal": 9,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "West studio 003B",
+              "x": 195,
+              "y": 570,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                570,
+                274.5,
+                580
+              ],
+              "ordinal": 10,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Craft needed",
+              "x": 40,
+              "y": 540,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                540,
+                90.03,
+                548
+              ],
+              "ordinal": 11,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Hardware / access",
+              "x": 195,
+              "y": 540,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                540,
+                280.9,
+                550
+              ],
+              "ordinal": 12,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Assigned to",
+              "x": 40,
+              "y": 510,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                510,
+                85.71,
+                518
+              ],
+              "ordinal": 13,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Tessa Quill",
+              "x": 195,
+              "y": 510,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                510,
+                291.7,
+                520
+              ],
+              "ordinal": 14,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "REPAIR RECORD",
+              "x": 40,
+              "y": 464,
+              "size_pt": 11,
+              "bbox_pt": [
+                40,
+                464,
+                137.48,
+                475
+              ],
+              "ordinal": 15,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Concern and action",
+              "x": 40,
+              "y": 440,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                440,
+                114.88,
+                448
+              ],
+              "ordinal": 16,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Latch rubbed strike; reset plate and verified free swing.",
+              "x": 40,
+              "y": 423,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                423,
+                267.88,
+                432
+              ],
+              "ordinal": 17,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Items taken from stores",
+              "x": 40,
+              "y": 373,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                373,
+                154.06,
+                383
+              ],
+              "ordinal": 18,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Stock code",
+              "x": 44,
+              "y": 348,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                44,
+                348,
+                83.46,
+                355.3
+              ],
+              "ordinal": 19,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Material issued",
+              "x": 144,
+              "y": 348,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                144,
+                348,
+                197.86,
+                355.3
+              ],
+              "ordinal": 20,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Shelf",
+              "x": 384,
+              "y": 348,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                384,
+                348,
+                402.57,
+                355.3
+              ],
+              "ordinal": 21,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Count",
+              "x": 474,
+              "y": 348,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                474,
+                348,
+                495.28,
+                355.3
+              ],
+              "ordinal": 22,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0019476",
+              "x": 44,
+              "y": 316,
+              "size_pt": 8,
+              "bbox_pt": [
+                44,
+                316,
+                75.36,
+                324
+              ],
+              "ordinal": 23,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Strike shim, zinc",
+              "x": 144,
+              "y": 316,
+              "size_pt": 8,
+              "bbox_pt": [
+                144,
+                316,
+                205.44,
+                324
+              ],
+              "ordinal": 24,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "D-003",
+              "x": 384,
+              "y": 316,
+              "size_pt": 8,
+              "bbox_pt": [
+                384,
+                316,
+                406.48,
+                324
+              ],
+              "ordinal": 25,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2.00",
+              "x": 474,
+              "y": 316,
+              "size_pt": 8,
+              "bbox_pt": [
+                474,
+                316,
+                489.76,
+                324
+              ],
+              "ordinal": 26,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0005368",
+              "x": 44,
+              "y": 284,
+              "size_pt": 8,
+              "bbox_pt": [
+                44,
+                284,
+                75.36,
+                292
+              ],
+              "ordinal": 27,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "M4 countersunk screw",
+              "x": 144,
+              "y": 284,
+              "size_pt": 8,
+              "bbox_pt": [
+                144,
+                284,
+                225.84,
+                292
+              ],
+              "ordinal": 28,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "D-017",
+              "x": 384,
+              "y": 284,
+              "size_pt": 8,
+              "bbox_pt": [
+                384,
+                284,
+                406.48,
+                292
+              ],
+              "ordinal": 29,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "4.00",
+              "x": 474,
+              "y": 284,
+              "size_pt": 8,
+              "bbox_pt": [
+                474,
+                284,
+                489.76,
+                292
+              ],
+              "ordinal": 30,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Closeout",
+              "x": 40,
+              "y": 232,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                232,
+                74.94,
+                240
+              ],
+              "ordinal": 31,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Finished - access restored",
+              "x": 195,
+              "y": 232,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                232,
+                316.7,
+                242
+              ],
+              "ordinal": 32,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Duty lead",
+              "x": 40,
+              "y": 202,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                202,
+                77.4,
+                210
+              ],
+              "ordinal": 33,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Noel Reed",
+              "x": 195,
+              "y": 202,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                202,
+                285.9,
+                212
+              ],
+              "ordinal": 34,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Resident callback (left empty)",
+              "x": 40,
+              "y": 150,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                150,
+                156.09,
+                158
+              ],
+              "ordinal": 35,
+              "role": "absence_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.",
+              "x": 40,
+              "y": 35,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                35,
+                325.53,
+                42
+              ],
+              "ordinal": 36,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Training form JKC-R / 1 of 1",
+              "x": 40,
+              "y": 22,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                22,
+                131.42,
+                29
+              ],
+              "ordinal": 37,
+              "role": "furniture",
+              "source": "vector_operator"
+            }
+          ]
+        ],
+        "coverage": {
+          "status": "complete_all_visible_text_operators",
+          "ordering": "page; baseline y descending; x ascending; operator ordinal for ties",
+          "includes": [
+            "titles",
+            "all labels",
+            "all filled values",
+            "table headers and cells",
+            "fictional notices",
+            "page markers"
+          ],
+          "excludes": [
+            "nontext lines and boxes"
+          ],
+          "text_layer_only": true,
+          "handwriting": false,
+          "raster_text": false
+        }
+      }
+    },
+    {
+      "fixture_id": "WP09-F02-v0",
+      "source_expected_visible_parity": true,
+      "arithmetic": [],
+      "expected": {
+        "schema_version": "1.0.0",
+        "fixture_id": "WP09-F02-v0",
+        "family_id": "WP09-F02",
+        "doc_kind": "inspection_checklist",
+        "split": "fresh_eval",
+        "split_disclosure": "procedurally_blinded_to_mapping_author_until_accepted_freeze",
+        "variant_kind": "v0_clean",
+        "parent_fixture_id": null,
+        "page_count": 1,
+        "expected_adjacent_page_pairs": [],
+        "page_sentinels": [],
+        "cross_page_links": [],
+        "expected_fields": [
+          {
+            "field_id": "property_unit",
+            "label_printed": "Inspection place",
+            "page_number": 1,
+            "printed_text": "Fictional Lantern Vale / Hall 02",
+            "normalized_value": "Fictional Lantern Vale / Hall 02",
+            "value_type": "text",
+            "bbox_pt": [
+              40,
+              661,
+              184.7,
+              671
+            ]
+          },
+          {
+            "field_id": "work_order_id",
+            "label_printed": "Check record",
+            "page_number": 1,
+            "printed_text": "CK-0002809",
+            "normalized_value": "CK-0002809",
+            "value_type": "identifier",
+            "bbox_pt": [
+              40,
+              603,
+              97.3,
+              613
+            ]
+          },
+          {
+            "field_id": "inspection_date",
+            "label_printed": "Visit day",
+            "page_number": 1,
+            "printed_text": "2026-09-06",
+            "normalized_value": "2026-09-06",
+            "value_type": "date_iso",
+            "bbox_pt": [
+              245,
+              603,
+              296.8,
+              613
+            ]
+          },
+          {
+            "field_id": "inspector_id",
+            "label_printed": "Examiner code",
+            "page_number": 1,
+            "printed_text": "INS-00053",
+            "normalized_value": "INS-00053",
+            "value_type": "identifier",
+            "bbox_pt": [
+              440,
+              603,
+              489.0,
+              613
+            ]
+          },
+          {
+            "field_id": "overall_result",
+            "label_printed": "Disposition",
+            "page_number": 1,
+            "printed_text": "Return visit required",
+            "normalized_value": "Return visit required",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              275,
+              287.8,
+              285
+            ]
+          },
+          {
+            "field_id": "chief_engineer_ack",
+            "label_printed": "Responsible engineer",
+            "page_number": 1,
+            "printed_text": "Fictional Arlo Finch",
+            "normalized_value": "Fictional Arlo Finch",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              240,
+              285.9,
+              250
+            ]
+          }
+        ],
+        "expected_absences": [
+          {
+            "field_id": "requisition_id",
+            "label_printed": "Parts request number (if issued)",
+            "page_number": 1,
+            "expected_state": "absent_blank",
+            "bbox_pt": [
+              40,
+              159,
+              290,
+              179
+            ],
+            "semantics": "A printed empty response box; no asserted value, not an unknown filled value."
+          }
+        ],
+        "expected_tables": [
+          {
+            "table_id": "safety_checklist",
+            "page_numbers": [
+              1
+            ],
+            "repeated_header_pages": [],
+            "column_ids": [
+              "item_id",
+              "check_desc",
+              "location",
+              "pass_mark",
+              "fail_mark",
+              "na_mark",
+              "reading_notes"
+            ],
+            "rows": [
+              {
+                "row_id": "C31",
+                "page_number": 1,
+                "cells": {
+                  "item_id": {
+                    "printed_text": "031",
+                    "normalized_value": "031",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      478,
+                      58.11,
+                      486.4
+                    ]
+                  },
+                  "check_desc": {
+                    "printed_text": "Closer sweep",
+                    "normalized_value": "Closer sweep",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      76,
+                      478,
+                      128.67,
+                      486.4
+                    ]
+                  },
+                  "location": {
+                    "printed_text": "East leaf",
+                    "normalized_value": "East leaf",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      211,
+                      478,
+                      245.61,
+                      486.4
+                    ]
+                  },
+                  "pass_mark": {
+                    "printed_text": "[X]",
+                    "normalized_value": "true",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      294,
+                      478,
+                      305.59,
+                      486.4
+                    ]
+                  },
+                  "fail_mark": {
+                    "printed_text": "[ ]",
+                    "normalized_value": "false",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      328,
+                      478,
+                      336.32,
+                      486.4
+                    ]
+                  },
+                  "na_mark": {
+                    "printed_text": "[ ]",
+                    "normalized_value": "false",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      362,
+                      478,
+                      370.32,
+                      486.4
+                    ]
+                  },
+                  "reading_notes": {
+                    "printed_text": "7 seconds",
+                    "normalized_value": "7 seconds",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      396,
+                      478,
+                      434.89,
+                      486.4
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "C32",
+                "page_number": 1,
+                "cells": {
+                  "item_id": {
+                    "printed_text": "032",
+                    "normalized_value": "032",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      431,
+                      58.11,
+                      439.4
+                    ]
+                  },
+                  "check_desc": {
+                    "printed_text": "Latch engagement",
+                    "normalized_value": "Latch engagement",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      76,
+                      431,
+                      146.48,
+                      439.4
+                    ]
+                  },
+                  "location": {
+                    "printed_text": "West leaf",
+                    "normalized_value": "West leaf",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      211,
+                      431,
+                      246.45,
+                      439.4
+                    ]
+                  },
+                  "pass_mark": {
+                    "printed_text": "[ ]",
+                    "normalized_value": "false",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      294,
+                      431,
+                      302.32,
+                      439.4
+                    ]
+                  },
+                  "fail_mark": {
+                    "printed_text": "[X]",
+                    "normalized_value": "true",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      328,
+                      431,
+                      339.59,
+                      439.4
+                    ]
+                  },
+                  "na_mark": {
+                    "printed_text": "[ ]",
+                    "normalized_value": "false",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      362,
+                      431,
+                      370.32,
+                      439.4
+                    ]
+                  },
+                  "reading_notes": {
+                    "printed_text": "Misses strike",
+                    "normalized_value": "Misses strike",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      396,
+                      431,
+                      447.49,
+                      439.4
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "C33",
+                "page_number": 1,
+                "cells": {
+                  "item_id": {
+                    "printed_text": "033",
+                    "normalized_value": "033",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      384,
+                      58.11,
+                      392.4
+                    ]
+                  },
+                  "check_desc": {
+                    "printed_text": "Vision panel seal",
+                    "normalized_value": "Vision panel seal",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      76,
+                      384,
+                      141.69,
+                      392.4
+                    ]
+                  },
+                  "location": {
+                    "printed_text": "Both leaves",
+                    "normalized_value": "Both leaves",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      211,
+                      384,
+                      256.28,
+                      392.4
+                    ]
+                  },
+                  "pass_mark": {
+                    "printed_text": "[X]",
+                    "normalized_value": "true",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      294,
+                      384,
+                      305.59,
+                      392.4
+                    ]
+                  },
+                  "fail_mark": {
+                    "printed_text": "[ ]",
+                    "normalized_value": "false",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      328,
+                      384,
+                      336.32,
+                      392.4
+                    ]
+                  },
+                  "na_mark": {
+                    "printed_text": "[ ]",
+                    "normalized_value": "false",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      362,
+                      384,
+                      370.32,
+                      392.4
+                    ]
+                  },
+                  "reading_notes": {
+                    "printed_text": "Intact",
+                    "normalized_value": "Intact",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      396,
+                      384,
+                      417.92,
+                      392.4
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "C34",
+                "page_number": 1,
+                "cells": {
+                  "item_id": {
+                    "printed_text": "034",
+                    "normalized_value": "034",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      337,
+                      58.11,
+                      345.4
+                    ]
+                  },
+                  "check_desc": {
+                    "printed_text": "Powered hold-open",
+                    "normalized_value": "Powered hold-open",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      76,
+                      337,
+                      148.91,
+                      345.4
+                    ]
+                  },
+                  "location": {
+                    "printed_text": "Door pair",
+                    "normalized_value": "Door pair",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      211,
+                      337,
+                      246.45,
+                      345.4
+                    ]
+                  },
+                  "pass_mark": {
+                    "printed_text": "[ ]",
+                    "normalized_value": "false",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      294,
+                      337,
+                      302.32,
+                      345.4
+                    ]
+                  },
+                  "fail_mark": {
+                    "printed_text": "[ ]",
+                    "normalized_value": "false",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      328,
+                      337,
+                      336.32,
+                      345.4
+                    ]
+                  },
+                  "na_mark": {
+                    "printed_text": "[X]",
+                    "normalized_value": "true",
+                    "value_type": "boolean_mark",
+                    "bbox_pt": [
+                      362,
+                      337,
+                      373.59,
+                      345.4
+                    ]
+                  },
+                  "reading_notes": {
+                    "printed_text": "Not fitted",
+                    "normalized_value": "Not fitted",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      396,
+                      337,
+                      432.79,
+                      345.4
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "expected_routing_for_e3": "eligible_digital_text_layer",
+        "transform_params": {
+          "renderer": "retained generic PDF 1.4 writer",
+          "dpi": null,
+          "rotation_deg": 0.0
+        }
+      },
+      "reference": {
+        "fixture_id": "WP09-F02-v0",
+        "pages": [
+          "DOOR PAIR WALKDOWN\nFictional Lantern Vale safety workshop\nInspection place\nFictional Lantern Vale / Hall 02\nCheck record\nVisit day\nExaminer code\nCK-0002809\n2026-09-06\nINS-00053\nChoose one outcome per checkpoint; comments describe the observation.\nNo.\nCheckpoint\nPosition\nOK\nFix\nN/A\nObservation\n031\nCloser sweep\nEast leaf\n[X]\n[ ]\n[ ]\n7 seconds\n032\nLatch engagement\nWest leaf\n[ ]\n[X]\n[ ]\nMisses strike\n033\nVision panel seal\nBoth leaves\n[X]\n[ ]\n[ ]\nIntact\n034\nPowered hold-open\nDoor pair\n[ ]\n[ ]\n[X]\nNot fitted\nDisposition\nReturn visit required\nResponsible engineer\nFictional Arlo Finch\nParts request number (if issued)\nNo powered hold-open is installed on this fictional door set.\nSYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.\nTraining checklist LV-D / 1 of 1"
+        ],
+        "runs": [
+          [
+            {
+              "text": "DOOR PAIR WALKDOWN",
+              "x": 40,
+              "y": 742,
+              "size_pt": 21,
+              "bbox_pt": [
+                40,
+                742,
+                304.23,
+                763
+              ],
+              "ordinal": 1,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Lantern Vale safety workshop",
+              "x": 40,
+              "y": 722,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                722,
+                220.4,
+                732
+              ],
+              "ordinal": 2,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Inspection place",
+              "x": 40,
+              "y": 678,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                678,
+                103.18,
+                686
+              ],
+              "ordinal": 3,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Lantern Vale / Hall 02",
+              "x": 40,
+              "y": 661,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                661,
+                184.7,
+                671
+              ],
+              "ordinal": 4,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Check record",
+              "x": 40,
+              "y": 620,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                620,
+                91.64,
+                628
+              ],
+              "ordinal": 5,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Visit day",
+              "x": 245,
+              "y": 620,
+              "size_pt": 8,
+              "bbox_pt": [
+                245,
+                620,
+                279.43,
+                628
+              ],
+              "ordinal": 7,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Examiner code",
+              "x": 440,
+              "y": 620,
+              "size_pt": 8,
+              "bbox_pt": [
+                440,
+                620,
+                496.9,
+                628
+              ],
+              "ordinal": 9,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "CK-0002809",
+              "x": 40,
+              "y": 603,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                603,
+                97.3,
+                613
+              ],
+              "ordinal": 6,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-09-06",
+              "x": 245,
+              "y": 603,
+              "size_pt": 10,
+              "bbox_pt": [
+                245,
+                603,
+                296.8,
+                613
+              ],
+              "ordinal": 8,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "INS-00053",
+              "x": 440,
+              "y": 603,
+              "size_pt": 10,
+              "bbox_pt": [
+                440,
+                603,
+                489.0,
+                613
+              ],
+              "ordinal": 10,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Choose one outcome per checkpoint; comments describe the observation.",
+              "x": 40,
+              "y": 560,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                560,
+                341.05,
+                569
+              ],
+              "ordinal": 11,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "No.",
+              "x": 44,
+              "y": 525,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                44,
+                525,
+                56.46,
+                532.3
+              ],
+              "ordinal": 12,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Checkpoint",
+              "x": 76,
+              "y": 525,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                76,
+                525,
+                116.24,
+                532.3
+              ],
+              "ordinal": 13,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Position",
+              "x": 211,
+              "y": 525,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                211,
+                525,
+                240.17,
+                532.3
+              ],
+              "ordinal": 14,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "OK",
+              "x": 294,
+              "y": 525,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                294,
+                525,
+                305.3,
+                532.3
+              ],
+              "ordinal": 15,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fix",
+              "x": 328,
+              "y": 525,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                328,
+                525,
+                339.68,
+                532.3
+              ],
+              "ordinal": 16,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "N/A",
+              "x": 362,
+              "y": 525,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                362,
+                525,
+                376.01,
+                532.3
+              ],
+              "ordinal": 17,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Observation",
+              "x": 396,
+              "y": 525,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                396,
+                525,
+                438.95,
+                532.3
+              ],
+              "ordinal": 18,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "031",
+              "x": 44,
+              "y": 478,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                44,
+                478,
+                58.11,
+                486.4
+              ],
+              "ordinal": 19,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Closer sweep",
+              "x": 76,
+              "y": 478,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                76,
+                478,
+                128.67,
+                486.4
+              ],
+              "ordinal": 20,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "East leaf",
+              "x": 211,
+              "y": 478,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                211,
+                478,
+                245.61,
+                486.4
+              ],
+              "ordinal": 21,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[X]",
+              "x": 294,
+              "y": 478,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                294,
+                478,
+                305.59,
+                486.4
+              ],
+              "ordinal": 22,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[ ]",
+              "x": 328,
+              "y": 478,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                328,
+                478,
+                336.32,
+                486.4
+              ],
+              "ordinal": 23,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[ ]",
+              "x": 362,
+              "y": 478,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                362,
+                478,
+                370.32,
+                486.4
+              ],
+              "ordinal": 24,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "7 seconds",
+              "x": 396,
+              "y": 478,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                396,
+                478,
+                434.89,
+                486.4
+              ],
+              "ordinal": 25,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "032",
+              "x": 44,
+              "y": 431,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                44,
+                431,
+                58.11,
+                439.4
+              ],
+              "ordinal": 26,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Latch engagement",
+              "x": 76,
+              "y": 431,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                76,
+                431,
+                146.48,
+                439.4
+              ],
+              "ordinal": 27,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "West leaf",
+              "x": 211,
+              "y": 431,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                211,
+                431,
+                246.45,
+                439.4
+              ],
+              "ordinal": 28,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[ ]",
+              "x": 294,
+              "y": 431,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                294,
+                431,
+                302.32,
+                439.4
+              ],
+              "ordinal": 29,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[X]",
+              "x": 328,
+              "y": 431,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                328,
+                431,
+                339.59,
+                439.4
+              ],
+              "ordinal": 30,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[ ]",
+              "x": 362,
+              "y": 431,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                362,
+                431,
+                370.32,
+                439.4
+              ],
+              "ordinal": 31,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Misses strike",
+              "x": 396,
+              "y": 431,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                396,
+                431,
+                447.49,
+                439.4
+              ],
+              "ordinal": 32,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "033",
+              "x": 44,
+              "y": 384,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                44,
+                384,
+                58.11,
+                392.4
+              ],
+              "ordinal": 33,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Vision panel seal",
+              "x": 76,
+              "y": 384,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                76,
+                384,
+                141.69,
+                392.4
+              ],
+              "ordinal": 34,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Both leaves",
+              "x": 211,
+              "y": 384,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                211,
+                384,
+                256.28,
+                392.4
+              ],
+              "ordinal": 35,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[X]",
+              "x": 294,
+              "y": 384,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                294,
+                384,
+                305.59,
+                392.4
+              ],
+              "ordinal": 36,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[ ]",
+              "x": 328,
+              "y": 384,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                328,
+                384,
+                336.32,
+                392.4
+              ],
+              "ordinal": 37,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[ ]",
+              "x": 362,
+              "y": 384,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                362,
+                384,
+                370.32,
+                392.4
+              ],
+              "ordinal": 38,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Intact",
+              "x": 396,
+              "y": 384,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                396,
+                384,
+                417.92,
+                392.4
+              ],
+              "ordinal": 39,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "034",
+              "x": 44,
+              "y": 337,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                44,
+                337,
+                58.11,
+                345.4
+              ],
+              "ordinal": 40,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Powered hold-open",
+              "x": 76,
+              "y": 337,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                76,
+                337,
+                148.91,
+                345.4
+              ],
+              "ordinal": 41,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Door pair",
+              "x": 211,
+              "y": 337,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                211,
+                337,
+                246.45,
+                345.4
+              ],
+              "ordinal": 42,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[ ]",
+              "x": 294,
+              "y": 337,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                294,
+                337,
+                302.32,
+                345.4
+              ],
+              "ordinal": 43,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[ ]",
+              "x": 328,
+              "y": 337,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                328,
+                337,
+                336.32,
+                345.4
+              ],
+              "ordinal": 44,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "[X]",
+              "x": 362,
+              "y": 337,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                362,
+                337,
+                373.59,
+                345.4
+              ],
+              "ordinal": 45,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Not fitted",
+              "x": 396,
+              "y": 337,
+              "size_pt": 8.4,
+              "bbox_pt": [
+                396,
+                337,
+                432.79,
+                345.4
+              ],
+              "ordinal": 46,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Disposition",
+              "x": 40,
+              "y": 275,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                275,
+                84.44,
+                283
+              ],
+              "ordinal": 47,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Return visit required",
+              "x": 195,
+              "y": 275,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                275,
+                287.8,
+                285
+              ],
+              "ordinal": 48,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Responsible engineer",
+              "x": 40,
+              "y": 240,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                240,
+                122.68,
+                248
+              ],
+              "ordinal": 49,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Arlo Finch",
+              "x": 195,
+              "y": 240,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                240,
+                285.9,
+                250
+              ],
+              "ordinal": 50,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Parts request number (if issued)",
+              "x": 40,
+              "y": 188,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                188,
+                164.15,
+                196
+              ],
+              "ordinal": 51,
+              "role": "absence_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "No powered hold-open is installed on this fictional door set.",
+              "x": 40,
+              "y": 100,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                100,
+                284.35,
+                109
+              ],
+              "ordinal": 52,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.",
+              "x": 40,
+              "y": 35,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                35,
+                325.53,
+                42
+              ],
+              "ordinal": 53,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Training checklist LV-D / 1 of 1",
+              "x": 40,
+              "y": 22,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                22,
+                141.71,
+                29
+              ],
+              "ordinal": 54,
+              "role": "furniture",
+              "source": "vector_operator"
+            }
+          ]
+        ],
+        "coverage": {
+          "status": "complete_all_visible_text_operators",
+          "ordering": "page; baseline y descending; x ascending; operator ordinal for ties",
+          "includes": [
+            "titles",
+            "all labels",
+            "all filled values",
+            "table headers and cells",
+            "fictional notices",
+            "page markers"
+          ],
+          "excludes": [
+            "nontext lines and boxes"
+          ],
+          "text_layer_only": true,
+          "handwriting": false,
+          "raster_text": false
+        }
+      }
+    },
+    {
+      "fixture_id": "WP09-F03-v0",
+      "source_expected_visible_parity": true,
+      "arithmetic": [
+        {
+          "subtotal": "89.00",
+          "tax": "4.90",
+          "total": "93.90"
+        }
+      ],
+      "expected": {
+        "schema_version": "1.0.0",
+        "fixture_id": "WP09-F03-v0",
+        "family_id": "WP09-F03",
+        "doc_kind": "supplier_invoice",
+        "split": "fresh_eval",
+        "split_disclosure": "procedurally_blinded_to_mapping_author_until_accepted_freeze",
+        "variant_kind": "v0_clean",
+        "parent_fixture_id": null,
+        "page_count": 1,
+        "expected_adjacent_page_pairs": [],
+        "page_sentinels": [],
+        "cross_page_links": [],
+        "expected_fields": [
+          {
+            "field_id": "invoice_number",
+            "label_printed": "Billing note",
+            "page_number": 1,
+            "printed_text": "BILL-0009274",
+            "normalized_value": "BILL-0009274",
+            "value_type": "identifier",
+            "bbox_pt": [
+              40,
+              629,
+              106.0,
+              639
+            ]
+          },
+          {
+            "field_id": "customer_acct_id",
+            "label_printed": "Ledger account",
+            "page_number": 1,
+            "printed_text": "00018403",
+            "normalized_value": "00018403",
+            "value_type": "identifier",
+            "bbox_pt": [
+              350,
+              629,
+              394.8,
+              639
+            ]
+          },
+          {
+            "field_id": "invoice_date",
+            "label_printed": "Issued",
+            "page_number": 1,
+            "printed_text": "2026-07-13",
+            "normalized_value": "2026-07-13",
+            "value_type": "date_iso",
+            "bbox_pt": [
+              40,
+              568,
+              91.8,
+              578
+            ]
+          },
+          {
+            "field_id": "due_date",
+            "label_printed": "Settle by",
+            "page_number": 1,
+            "printed_text": "2026-08-12",
+            "normalized_value": "2026-08-12",
+            "value_type": "date_iso",
+            "bbox_pt": [
+              350,
+              568,
+              401.8,
+              578
+            ]
+          },
+          {
+            "field_id": "address_bill_to",
+            "label_printed": "Charge to",
+            "page_number": 1,
+            "printed_text": "Fictional Moss Bell / 17 Imaginary Lane, ZZ 00000",
+            "normalized_value": "Fictional Moss Bell / 17 Imaginary Lane, ZZ 00000",
+            "value_type": "text",
+            "bbox_pt": [
+              40,
+              509,
+              248.89,
+              518
+            ]
+          },
+          {
+            "field_id": "address_service_location",
+            "label_printed": "Delivery point",
+            "page_number": 1,
+            "printed_text": "Fictional Moss Bell / Pump alcove 004",
+            "normalized_value": "Fictional Moss Bell / Pump alcove 004",
+            "value_type": "text",
+            "bbox_pt": [
+              40,
+              460,
+              198.04,
+              469
+            ]
+          },
+          {
+            "field_id": "subtotal",
+            "label_printed": "Goods and work",
+            "page_number": 1,
+            "printed_text": "$89.00",
+            "normalized_value": "89.00",
+            "value_type": "currency_usd",
+            "bbox_pt": [
+              490,
+              262,
+              520.9,
+              272
+            ]
+          },
+          {
+            "field_id": "tax_amount",
+            "label_printed": "Sales levy",
+            "page_number": 1,
+            "printed_text": "$4.90",
+            "normalized_value": "4.90",
+            "value_type": "currency_usd",
+            "bbox_pt": [
+              490,
+              209,
+              515.3,
+              219
+            ]
+          },
+          {
+            "field_id": "invoice_total",
+            "label_printed": "Bill total",
+            "page_number": 1,
+            "printed_text": "$93.90",
+            "normalized_value": "93.90",
+            "value_type": "currency_usd",
+            "bbox_pt": [
+              490,
+              181,
+              520.9,
+              191
+            ]
+          },
+          {
+            "field_id": "amount_due",
+            "label_printed": "Balance to remit",
+            "page_number": 1,
+            "printed_text": "$93.90",
+            "normalized_value": "93.90",
+            "value_type": "currency_usd",
+            "bbox_pt": [
+              490,
+              150,
+              520.9,
+              160
+            ]
+          }
+        ],
+        "expected_absences": [
+          {
+            "field_id": "work_order_ref",
+            "label_printed": "Buyer job reference (not supplied)",
+            "page_number": 1,
+            "expected_state": "absent_blank",
+            "bbox_pt": [
+              40,
+              219,
+              270,
+              239
+            ],
+            "semantics": "A printed empty response box; no asserted value, not an unknown filled value."
+          }
+        ],
+        "expected_tables": [
+          {
+            "table_id": "line_items",
+            "page_numbers": [
+              1
+            ],
+            "repeated_header_pages": [],
+            "column_ids": [
+              "row_id",
+              "sku",
+              "qty_unit",
+              "description",
+              "unit_price",
+              "net_line"
+            ],
+            "rows": [
+              {
+                "row_id": "Q41",
+                "page_number": 1,
+                "cells": {
+                  "row_id": {
+                    "printed_text": "Q41",
+                    "normalized_value": "Q41",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      379,
+                      60.15,
+                      387.5
+                    ]
+                  },
+                  "sku": {
+                    "printed_text": "0004782",
+                    "normalized_value": "0004782",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      82,
+                      379,
+                      115.32,
+                      387.5
+                    ]
+                  },
+                  "qty_unit": {
+                    "printed_text": "2.00 EA",
+                    "normalized_value": "2.00",
+                    "value_type": "decimal_2",
+                    "quantity_unit": "EA",
+                    "bbox_pt": [
+                      148,
+                      379,
+                      178.77,
+                      387.5
+                    ]
+                  },
+                  "description": {
+                    "printed_text": "Float switch bracket",
+                    "normalized_value": "Float switch bracket",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      218,
+                      379,
+                      298.07,
+                      387.5
+                    ]
+                  },
+                  "unit_price": {
+                    "printed_text": "$18.40",
+                    "normalized_value": "18.40",
+                    "value_type": "currency_usd",
+                    "bbox_pt": [
+                      416,
+                      379,
+                      442.26,
+                      387.5
+                    ]
+                  },
+                  "net_line": {
+                    "printed_text": "$36.80",
+                    "normalized_value": "36.80",
+                    "value_type": "currency_usd",
+                    "bbox_pt": [
+                      491,
+                      379,
+                      517.26,
+                      387.5
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "Q42",
+                "page_number": 1,
+                "cells": {
+                  "row_id": {
+                    "printed_text": "Q42",
+                    "normalized_value": "Q42",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      344,
+                      60.15,
+                      352.5
+                    ]
+                  },
+                  "sku": {
+                    "printed_text": "0006921",
+                    "normalized_value": "0006921",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      82,
+                      344,
+                      115.32,
+                      352.5
+                    ]
+                  },
+                  "qty_unit": {
+                    "printed_text": "4.00 EA",
+                    "normalized_value": "4.00",
+                    "value_type": "decimal_2",
+                    "quantity_unit": "EA",
+                    "bbox_pt": [
+                      148,
+                      344,
+                      178.77,
+                      352.5
+                    ]
+                  },
+                  "description": {
+                    "printed_text": "Drain tube section",
+                    "normalized_value": "Drain tube section",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      218,
+                      344,
+                      289.31,
+                      352.5
+                    ]
+                  },
+                  "unit_price": {
+                    "printed_text": "$6.30",
+                    "normalized_value": "6.30",
+                    "value_type": "currency_usd",
+                    "bbox_pt": [
+                      416,
+                      344,
+                      437.5,
+                      352.5
+                    ]
+                  },
+                  "net_line": {
+                    "printed_text": "$25.20",
+                    "normalized_value": "25.20",
+                    "value_type": "currency_usd",
+                    "bbox_pt": [
+                      491,
+                      344,
+                      517.26,
+                      352.5
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "Q43",
+                "page_number": 1,
+                "cells": {
+                  "row_id": {
+                    "printed_text": "Q43",
+                    "normalized_value": "Q43",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      309,
+                      60.15,
+                      317.5
+                    ]
+                  },
+                  "sku": {
+                    "printed_text": "0008159",
+                    "normalized_value": "0008159",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      82,
+                      309,
+                      115.32,
+                      317.5
+                    ]
+                  },
+                  "qty_unit": {
+                    "printed_text": "0.75 HR",
+                    "normalized_value": "0.75",
+                    "value_type": "decimal_2",
+                    "quantity_unit": "HR",
+                    "bbox_pt": [
+                      148,
+                      309,
+                      179.62,
+                      317.5
+                    ]
+                  },
+                  "description": {
+                    "printed_text": "Bench leak check",
+                    "normalized_value": "Bench leak check",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      218,
+                      309,
+                      286.25,
+                      317.5
+                    ]
+                  },
+                  "unit_price": {
+                    "printed_text": "$36.00",
+                    "normalized_value": "36.00",
+                    "value_type": "currency_usd",
+                    "bbox_pt": [
+                      416,
+                      309,
+                      442.26,
+                      317.5
+                    ]
+                  },
+                  "net_line": {
+                    "printed_text": "$27.00",
+                    "normalized_value": "27.00",
+                    "value_type": "currency_usd",
+                    "bbox_pt": [
+                      491,
+                      309,
+                      517.26,
+                      317.5
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "expected_routing_for_e3": "eligible_digital_text_layer",
+        "transform_params": {
+          "renderer": "retained generic PDF 1.4 writer",
+          "dpi": null,
+          "rotation_deg": 0.0
+        }
+      },
+      "reference": {
+        "fixture_id": "WP09-F03-v0",
+        "pages": [
+          "COPPER KITE SUPPLY\nFictional supplier - training transactions only\n81 Make-Believe Way, Example Borough, ZZ 00000\nservice@copper-kite.example / 202-555-0146\nBilling note\nLedger account\nBILL-0009274\n00018403\nIssued\nSettle by\n2026-07-13\n2026-08-12\nCharge to\nFictional Moss Bell / 17 Imaginary Lane, ZZ 00000\nDelivery point\nFictional Moss Bell / Pump alcove 004\nRow\nProduct\nSupplied\nGoods / work\nEach\nExtended\nQ41\n0004782\n2.00 EA\nFloat switch bracket\n$18.40\n$36.80\nQ42\n0006921\n4.00 EA\nDrain tube section\n$6.30\n$25.20\nQ43\n0008159\n0.75 HR\nBench leak check\n$36.00\n$27.00\nGoods and work\n$89.00\nBuyer job reference (not supplied)\nTax applies to every row at 5.50%.\nSales levy\n$4.90\nBill total\n$93.90\nBalance to remit\n$93.90\nNo discounts, additional fees, prior balance or payments apply.\nSYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.\nFictional transaction CK-S / 1 of 1"
+        ],
+        "runs": [
+          [
+            {
+              "text": "COPPER KITE SUPPLY",
+              "x": 40,
+              "y": 744,
+              "size_pt": 22,
+              "bbox_pt": [
+                40,
+                744,
+                305.15,
+                766
+              ],
+              "ordinal": 1,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional supplier - training transactions only",
+              "x": 40,
+              "y": 722,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                722,
+                224.5,
+                731
+              ],
+              "ordinal": 2,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "81 Make-Believe Way, Example Borough, ZZ 00000",
+              "x": 40,
+              "y": 705,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                705,
+                249.43,
+                714
+              ],
+              "ordinal": 3,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "service@copper-kite.example / 202-555-0146",
+              "x": 40,
+              "y": 688,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                688,
+                224.77,
+                697
+              ],
+              "ordinal": 4,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Billing note",
+              "x": 40,
+              "y": 646,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                646,
+                83.93,
+                654
+              ],
+              "ordinal": 5,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Ledger account",
+              "x": 350,
+              "y": 646,
+              "size_pt": 8,
+              "bbox_pt": [
+                350,
+                646,
+                409.95,
+                654
+              ],
+              "ordinal": 7,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "BILL-0009274",
+              "x": 40,
+              "y": 629,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                629,
+                106.0,
+                639
+              ],
+              "ordinal": 6,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "00018403",
+              "x": 350,
+              "y": 629,
+              "size_pt": 10,
+              "bbox_pt": [
+                350,
+                629,
+                394.8,
+                639
+              ],
+              "ordinal": 8,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Issued",
+              "x": 40,
+              "y": 585,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                585,
+                65.36,
+                593
+              ],
+              "ordinal": 9,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Settle by",
+              "x": 350,
+              "y": 585,
+              "size_pt": 8,
+              "bbox_pt": [
+                350,
+                585,
+                384.94,
+                593
+              ],
+              "ordinal": 11,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-07-13",
+              "x": 40,
+              "y": 568,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                568,
+                91.8,
+                578
+              ],
+              "ordinal": 10,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-08-12",
+              "x": 350,
+              "y": 568,
+              "size_pt": 10,
+              "bbox_pt": [
+                350,
+                568,
+                401.8,
+                578
+              ],
+              "ordinal": 12,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Charge to",
+              "x": 40,
+              "y": 526,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                526,
+                77.91,
+                534
+              ],
+              "ordinal": 13,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Moss Bell / 17 Imaginary Lane, ZZ 00000",
+              "x": 40,
+              "y": 509,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                509,
+                248.89,
+                518
+              ],
+              "ordinal": 14,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Delivery point",
+              "x": 40,
+              "y": 477,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                477,
+                94.44,
+                485
+              ],
+              "ordinal": 15,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Moss Bell / Pump alcove 004",
+              "x": 40,
+              "y": 460,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                460,
+                198.04,
+                469
+              ],
+              "ordinal": 16,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Row",
+              "x": 44,
+              "y": 414,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                44,
+                414,
+                59.48,
+                421.3
+              ],
+              "ordinal": 17,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Product",
+              "x": 82,
+              "y": 414,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                82,
+                414,
+                109.39,
+                421.3
+              ],
+              "ordinal": 18,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Supplied",
+              "x": 148,
+              "y": 414,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                148,
+                414,
+                178.64,
+                421.3
+              ],
+              "ordinal": 19,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Goods / work",
+              "x": 218,
+              "y": 414,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                218,
+                414,
+                265.05,
+                421.3
+              ],
+              "ordinal": 20,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Each",
+              "x": 416,
+              "y": 414,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                416,
+                414,
+                433.8,
+                421.3
+              ],
+              "ordinal": 21,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Extended",
+              "x": 491,
+              "y": 414,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                491,
+                414,
+                524.04,
+                421.3
+              ],
+              "ordinal": 22,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Q41",
+              "x": 44,
+              "y": 379,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                44,
+                379,
+                60.15,
+                387.5
+              ],
+              "ordinal": 23,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0004782",
+              "x": 82,
+              "y": 379,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                82,
+                379,
+                115.32,
+                387.5
+              ],
+              "ordinal": 24,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2.00 EA",
+              "x": 148,
+              "y": 379,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                148,
+                379,
+                178.77,
+                387.5
+              ],
+              "ordinal": 25,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Float switch bracket",
+              "x": 218,
+              "y": 379,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                218,
+                379,
+                298.07,
+                387.5
+              ],
+              "ordinal": 26,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$18.40",
+              "x": 416,
+              "y": 379,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                416,
+                379,
+                442.26,
+                387.5
+              ],
+              "ordinal": 27,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$36.80",
+              "x": 491,
+              "y": 379,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                491,
+                379,
+                517.26,
+                387.5
+              ],
+              "ordinal": 28,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Q42",
+              "x": 44,
+              "y": 344,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                44,
+                344,
+                60.15,
+                352.5
+              ],
+              "ordinal": 29,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0006921",
+              "x": 82,
+              "y": 344,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                82,
+                344,
+                115.32,
+                352.5
+              ],
+              "ordinal": 30,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "4.00 EA",
+              "x": 148,
+              "y": 344,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                148,
+                344,
+                178.77,
+                352.5
+              ],
+              "ordinal": 31,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Drain tube section",
+              "x": 218,
+              "y": 344,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                218,
+                344,
+                289.31,
+                352.5
+              ],
+              "ordinal": 32,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$6.30",
+              "x": 416,
+              "y": 344,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                416,
+                344,
+                437.5,
+                352.5
+              ],
+              "ordinal": 33,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$25.20",
+              "x": 491,
+              "y": 344,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                491,
+                344,
+                517.26,
+                352.5
+              ],
+              "ordinal": 34,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Q43",
+              "x": 44,
+              "y": 309,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                44,
+                309,
+                60.15,
+                317.5
+              ],
+              "ordinal": 35,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0008159",
+              "x": 82,
+              "y": 309,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                82,
+                309,
+                115.32,
+                317.5
+              ],
+              "ordinal": 36,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0.75 HR",
+              "x": 148,
+              "y": 309,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                148,
+                309,
+                179.62,
+                317.5
+              ],
+              "ordinal": 37,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Bench leak check",
+              "x": 218,
+              "y": 309,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                218,
+                309,
+                286.25,
+                317.5
+              ],
+              "ordinal": 38,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$36.00",
+              "x": 416,
+              "y": 309,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                416,
+                309,
+                442.26,
+                317.5
+              ],
+              "ordinal": 39,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$27.00",
+              "x": 491,
+              "y": 309,
+              "size_pt": 8.5,
+              "bbox_pt": [
+                491,
+                309,
+                517.26,
+                317.5
+              ],
+              "ordinal": 40,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Goods and work",
+              "x": 320,
+              "y": 262,
+              "size_pt": 8,
+              "bbox_pt": [
+                320,
+                262,
+                382.33,
+                270
+              ],
+              "ordinal": 42,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$89.00",
+              "x": 490,
+              "y": 262,
+              "size_pt": 10,
+              "bbox_pt": [
+                490,
+                262,
+                520.9,
+                272
+              ],
+              "ordinal": 43,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Buyer job reference (not supplied)",
+              "x": 40,
+              "y": 248,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                248,
+                171.27,
+                256
+              ],
+              "ordinal": 41,
+              "role": "absence_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Tax applies to every row at 5.50%.",
+              "x": 320,
+              "y": 234,
+              "size_pt": 8,
+              "bbox_pt": [
+                320,
+                234,
+                447.2,
+                242
+              ],
+              "ordinal": 44,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Sales levy",
+              "x": 320,
+              "y": 209,
+              "size_pt": 8,
+              "bbox_pt": [
+                320,
+                209,
+                360.62,
+                217
+              ],
+              "ordinal": 45,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$4.90",
+              "x": 490,
+              "y": 209,
+              "size_pt": 10,
+              "bbox_pt": [
+                490,
+                209,
+                515.3,
+                219
+              ],
+              "ordinal": 46,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Bill total",
+              "x": 320,
+              "y": 181,
+              "size_pt": 8,
+              "bbox_pt": [
+                320,
+                181,
+                353.16,
+                189
+              ],
+              "ordinal": 47,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$93.90",
+              "x": 490,
+              "y": 181,
+              "size_pt": 10,
+              "bbox_pt": [
+                490,
+                181,
+                520.9,
+                191
+              ],
+              "ordinal": 48,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Balance to remit",
+              "x": 320,
+              "y": 150,
+              "size_pt": 8,
+              "bbox_pt": [
+                320,
+                150,
+                383.18,
+                158
+              ],
+              "ordinal": 49,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "$93.90",
+              "x": 490,
+              "y": 150,
+              "size_pt": 10,
+              "bbox_pt": [
+                490,
+                150,
+                520.9,
+                160
+              ],
+              "ordinal": 50,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "No discounts, additional fees, prior balance or payments apply.",
+              "x": 40,
+              "y": 100,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                100,
+                298.03,
+                109
+              ],
+              "ordinal": 51,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.",
+              "x": 40,
+              "y": 35,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                35,
+                325.53,
+                42
+              ],
+              "ordinal": 52,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional transaction CK-S / 1 of 1",
+              "x": 40,
+              "y": 22,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                22,
+                150.39,
+                29
+              ],
+              "ordinal": 53,
+              "role": "furniture",
+              "source": "vector_operator"
+            }
+          ]
+        ],
+        "coverage": {
+          "status": "complete_all_visible_text_operators",
+          "ordering": "page; baseline y descending; x ascending; operator ordinal for ties",
+          "includes": [
+            "titles",
+            "all labels",
+            "all filled values",
+            "table headers and cells",
+            "fictional notices",
+            "page markers"
+          ],
+          "excludes": [
+            "nontext lines and boxes"
+          ],
+          "text_layer_only": true,
+          "handwriting": false,
+          "raster_text": false
+        }
+      }
+    },
+    {
+      "fixture_id": "WP09-F04-v0",
+      "source_expected_visible_parity": true,
+      "arithmetic": [
+        {
+          "row_id": "V61",
+          "hours": "0.75"
+        },
+        {
+          "row_id": "V62",
+          "hours": "0.5"
+        },
+        {
+          "row_id": "V63",
+          "hours": "1"
+        },
+        {
+          "row_id": "V64",
+          "hours": "0.75"
+        }
+      ],
+      "expected": {
+        "schema_version": "1.0.0",
+        "fixture_id": "WP09-F04-v0",
+        "family_id": "WP09-F04",
+        "doc_kind": "multi_page_service_record",
+        "split": "fresh_eval",
+        "split_disclosure": "procedurally_blinded_to_mapping_author_until_accepted_freeze",
+        "variant_kind": "v0_clean",
+        "parent_fixture_id": null,
+        "page_count": 3,
+        "expected_adjacent_page_pairs": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "page_sentinels": [
+          {
+            "page_number": 1,
+            "page_label": "Sheet 1 / 3",
+            "sentinel_id": "LCJ-26-1",
+            "repeated_contract_id": "AGR-000592"
+          },
+          {
+            "page_number": 2,
+            "page_label": "Sheet 2 / 3",
+            "sentinel_id": "LCJ-26-2",
+            "repeated_contract_id": "AGR-000592"
+          },
+          {
+            "page_number": 3,
+            "page_label": "Sheet 3 / 3",
+            "sentinel_id": "LCJ-26-3",
+            "repeated_contract_id": "AGR-000592"
+          }
+        ],
+        "cross_page_links": [
+          {
+            "link_id": "WP09-F04-agreement",
+            "link_type": "repeated_contract_id",
+            "value": "AGR-000592",
+            "pages": [
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "expected_fields": [
+          {
+            "field_id": "packet_id",
+            "label_printed": "Journal key",
+            "page_number": 1,
+            "printed_text": "SR-0007462",
+            "normalized_value": "SR-0007462",
+            "value_type": "identifier",
+            "bbox_pt": [
+              40,
+              663,
+              96.3,
+              673
+            ]
+          },
+          {
+            "field_id": "contract_id",
+            "label_printed": "Service agreement",
+            "page_number": 1,
+            "printed_text": "AGR-000592",
+            "normalized_value": "AGR-000592",
+            "value_type": "identifier",
+            "bbox_pt": [
+              350,
+              663,
+              408.5,
+              673
+            ]
+          },
+          {
+            "field_id": "property_name",
+            "label_printed": "Site",
+            "page_number": 1,
+            "printed_text": "Fictional Pebble Comet Annex",
+            "normalized_value": "Fictional Pebble Comet Annex",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              612,
+              333.9,
+              622
+            ]
+          },
+          {
+            "field_id": "affected_units",
+            "label_printed": "Equipment covered",
+            "page_number": 1,
+            "printed_text": "Platform lift L-007 / landing 02",
+            "normalized_value": "Platform lift L-007 / landing 02",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              574,
+              335.7,
+              584
+            ]
+          },
+          {
+            "field_id": "crew_lead",
+            "label_printed": "Visit lead",
+            "page_number": 1,
+            "printed_text": "Fictional Mira Dove",
+            "normalized_value": "Fictional Mira Dove",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              538,
+              285.0,
+              548
+            ]
+          },
+          {
+            "field_id": "packet_id",
+            "label_printed": "Journal key",
+            "page_number": 2,
+            "printed_text": "SR-0007462",
+            "normalized_value": "SR-0007462",
+            "value_type": "identifier",
+            "bbox_pt": [
+              40,
+              663,
+              96.3,
+              673
+            ]
+          },
+          {
+            "field_id": "contract_id",
+            "label_printed": "Service agreement",
+            "page_number": 2,
+            "printed_text": "AGR-000592",
+            "normalized_value": "AGR-000592",
+            "value_type": "identifier",
+            "bbox_pt": [
+              350,
+              663,
+              408.5,
+              673
+            ]
+          },
+          {
+            "field_id": "property_name",
+            "label_printed": "Site",
+            "page_number": 2,
+            "printed_text": "Fictional Pebble Comet Annex",
+            "normalized_value": "Fictional Pebble Comet Annex",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              612,
+              333.9,
+              622
+            ]
+          },
+          {
+            "field_id": "packet_id",
+            "label_printed": "Journal key",
+            "page_number": 3,
+            "printed_text": "SR-0007462",
+            "normalized_value": "SR-0007462",
+            "value_type": "identifier",
+            "bbox_pt": [
+              40,
+              663,
+              96.3,
+              673
+            ]
+          },
+          {
+            "field_id": "contract_id",
+            "label_printed": "Service agreement",
+            "page_number": 3,
+            "printed_text": "AGR-000592",
+            "normalized_value": "AGR-000592",
+            "value_type": "identifier",
+            "bbox_pt": [
+              350,
+              663,
+              408.5,
+              673
+            ]
+          },
+          {
+            "field_id": "property_name",
+            "label_printed": "Site",
+            "page_number": 3,
+            "printed_text": "Fictional Pebble Comet Annex",
+            "normalized_value": "Fictional Pebble Comet Annex",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              612,
+              333.9,
+              622
+            ]
+          },
+          {
+            "field_id": "completion_status",
+            "label_printed": "Return decision",
+            "page_number": 3,
+            "printed_text": "Returned to service",
+            "normalized_value": "Returned to service",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              362,
+              283.9,
+              372
+            ]
+          },
+          {
+            "field_id": "completed_timestamp",
+            "label_printed": "Closed at (local)",
+            "page_number": 3,
+            "printed_text": "2026-06-18 14:05",
+            "normalized_value": "2026-06-18 14:05",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              327,
+              275.0,
+              337
+            ]
+          },
+          {
+            "field_id": "lead_tech_signoff",
+            "label_printed": "Technician attestation",
+            "page_number": 3,
+            "printed_text": "Fictional Mira Dove",
+            "normalized_value": "Fictional Mira Dove",
+            "value_type": "text",
+            "bbox_pt": [
+              195,
+              292,
+              285.0,
+              302
+            ]
+          }
+        ],
+        "expected_absences": [
+          {
+            "field_id": "supervisor_signoff",
+            "label_printed": "Second witness (left empty)",
+            "page_number": 3,
+            "expected_state": "absent_blank",
+            "bbox_pt": [
+              40,
+              195,
+              290,
+              215
+            ],
+            "semantics": "A printed empty response box; no asserted value, not an unknown filled value."
+          }
+        ],
+        "expected_tables": [
+          {
+            "table_id": "labor_log",
+            "page_numbers": [
+              1,
+              2
+            ],
+            "repeated_header_pages": [
+              2
+            ],
+            "column_ids": [
+              "log_id",
+              "tech_id",
+              "work_date",
+              "time_in",
+              "time_out",
+              "hours",
+              "activity"
+            ],
+            "rows": [
+              {
+                "row_id": "V61",
+                "page_number": 1,
+                "cells": {
+                  "log_id": {
+                    "printed_text": "V61",
+                    "normalized_value": "V61",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      392,
+                      58.04,
+                      399.8
+                    ]
+                  },
+                  "tech_id": {
+                    "printed_text": "00642",
+                    "normalized_value": "00642",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      83,
+                      392,
+                      104.84,
+                      399.8
+                    ]
+                  },
+                  "work_date": {
+                    "printed_text": "2026-06-17",
+                    "normalized_value": "2026-06-17",
+                    "value_type": "date_iso",
+                    "bbox_pt": [
+                      134,
+                      392,
+                      174.4,
+                      399.8
+                    ]
+                  },
+                  "time_in": {
+                    "printed_text": "08:10",
+                    "normalized_value": "08:10",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      210,
+                      392,
+                      229.73,
+                      399.8
+                    ]
+                  },
+                  "time_out": {
+                    "printed_text": "08:55",
+                    "normalized_value": "08:55",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      256,
+                      392,
+                      275.73,
+                      399.8
+                    ]
+                  },
+                  "hours": {
+                    "printed_text": "0.75",
+                    "normalized_value": "0.75",
+                    "value_type": "decimal_2",
+                    "bbox_pt": [
+                      302,
+                      392,
+                      317.37,
+                      399.8
+                    ]
+                  },
+                  "activity": {
+                    "printed_text": "Inspect guide rollers",
+                    "normalized_value": "Inspect guide rollers",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      345,
+                      392,
+                      417.31,
+                      399.8
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "V62",
+                "page_number": 1,
+                "cells": {
+                  "log_id": {
+                    "printed_text": "V62",
+                    "normalized_value": "V62",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      347,
+                      58.04,
+                      354.8
+                    ]
+                  },
+                  "tech_id": {
+                    "printed_text": "00642",
+                    "normalized_value": "00642",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      83,
+                      347,
+                      104.84,
+                      354.8
+                    ]
+                  },
+                  "work_date": {
+                    "printed_text": "2026-06-17",
+                    "normalized_value": "2026-06-17",
+                    "value_type": "date_iso",
+                    "bbox_pt": [
+                      134,
+                      347,
+                      174.4,
+                      354.8
+                    ]
+                  },
+                  "time_in": {
+                    "printed_text": "09:05",
+                    "normalized_value": "09:05",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      210,
+                      347,
+                      229.73,
+                      354.8
+                    ]
+                  },
+                  "time_out": {
+                    "printed_text": "09:35",
+                    "normalized_value": "09:35",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      256,
+                      347,
+                      275.73,
+                      354.8
+                    ]
+                  },
+                  "hours": {
+                    "printed_text": "0.50",
+                    "normalized_value": "0.50",
+                    "value_type": "decimal_2",
+                    "bbox_pt": [
+                      302,
+                      347,
+                      317.37,
+                      354.8
+                    ]
+                  },
+                  "activity": {
+                    "printed_text": "Measure landing gap",
+                    "normalized_value": "Measure landing gap",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      345,
+                      347,
+                      417.62,
+                      354.8
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "V63",
+                "page_number": 2,
+                "cells": {
+                  "log_id": {
+                    "printed_text": "V63",
+                    "normalized_value": "V63",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      440,
+                      58.04,
+                      447.8
+                    ]
+                  },
+                  "tech_id": {
+                    "printed_text": "00642",
+                    "normalized_value": "00642",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      83,
+                      440,
+                      104.84,
+                      447.8
+                    ]
+                  },
+                  "work_date": {
+                    "printed_text": "2026-06-18",
+                    "normalized_value": "2026-06-18",
+                    "value_type": "date_iso",
+                    "bbox_pt": [
+                      134,
+                      440,
+                      174.4,
+                      447.8
+                    ]
+                  },
+                  "time_in": {
+                    "printed_text": "11:20",
+                    "normalized_value": "11:20",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      210,
+                      440,
+                      229.73,
+                      447.8
+                    ]
+                  },
+                  "time_out": {
+                    "printed_text": "12:20",
+                    "normalized_value": "12:20",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      256,
+                      440,
+                      275.73,
+                      447.8
+                    ]
+                  },
+                  "hours": {
+                    "printed_text": "1.00",
+                    "normalized_value": "1.00",
+                    "value_type": "decimal_2",
+                    "bbox_pt": [
+                      302,
+                      440,
+                      317.37,
+                      447.8
+                    ]
+                  },
+                  "activity": {
+                    "printed_text": "Renew roller sleeves",
+                    "normalized_value": "Renew roller sleeves",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      345,
+                      440,
+                      419.49,
+                      447.8
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "V64",
+                "page_number": 2,
+                "cells": {
+                  "log_id": {
+                    "printed_text": "V64",
+                    "normalized_value": "V64",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      395,
+                      58.04,
+                      402.8
+                    ]
+                  },
+                  "tech_id": {
+                    "printed_text": "00816",
+                    "normalized_value": "00816",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      83,
+                      395,
+                      104.84,
+                      402.8
+                    ]
+                  },
+                  "work_date": {
+                    "printed_text": "2026-06-18",
+                    "normalized_value": "2026-06-18",
+                    "value_type": "date_iso",
+                    "bbox_pt": [
+                      134,
+                      395,
+                      174.4,
+                      402.8
+                    ]
+                  },
+                  "time_in": {
+                    "printed_text": "13:10",
+                    "normalized_value": "13:10",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      210,
+                      395,
+                      229.73,
+                      402.8
+                    ]
+                  },
+                  "time_out": {
+                    "printed_text": "13:55",
+                    "normalized_value": "13:55",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      256,
+                      395,
+                      275.73,
+                      402.8
+                    ]
+                  },
+                  "hours": {
+                    "printed_text": "0.75",
+                    "normalized_value": "0.75",
+                    "value_type": "decimal_2",
+                    "bbox_pt": [
+                      302,
+                      395,
+                      317.37,
+                      402.8
+                    ]
+                  },
+                  "activity": {
+                    "printed_text": "Cycle lift under load",
+                    "normalized_value": "Cycle lift under load",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      345,
+                      395,
+                      417.23,
+                      402.8
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "table_id": "stock_parts",
+            "page_numbers": [
+              3
+            ],
+            "repeated_header_pages": [],
+            "column_ids": [
+              "part_sku",
+              "part_desc",
+              "bin_loc",
+              "qty_used"
+            ],
+            "rows": [
+              {
+                "row_id": "U81",
+                "page_number": 3,
+                "cells": {
+                  "part_sku": {
+                    "printed_text": "0007239",
+                    "normalized_value": "0007239",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      475,
+                      79.28,
+                      484
+                    ]
+                  },
+                  "part_desc": {
+                    "printed_text": "Guide roller sleeve",
+                    "normalized_value": "Guide roller sleeve",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      144,
+                      475,
+                      221.58,
+                      484
+                    ]
+                  },
+                  "bin_loc": {
+                    "printed_text": "L-002",
+                    "normalized_value": "L-002",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      384,
+                      475,
+                      408.39,
+                      484
+                    ]
+                  },
+                  "qty_used": {
+                    "printed_text": "3.00",
+                    "normalized_value": "3.00",
+                    "value_type": "decimal_2",
+                    "bbox_pt": [
+                      474,
+                      475,
+                      491.73,
+                      484
+                    ]
+                  }
+                }
+              },
+              {
+                "row_id": "U82",
+                "page_number": 3,
+                "cells": {
+                  "part_sku": {
+                    "printed_text": "0003671",
+                    "normalized_value": "0003671",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      44,
+                      435,
+                      79.28,
+                      444
+                    ]
+                  },
+                  "part_desc": {
+                    "printed_text": "Retaining ring",
+                    "normalized_value": "Retaining ring",
+                    "value_type": "text",
+                    "bbox_pt": [
+                      144,
+                      435,
+                      200.88,
+                      444
+                    ]
+                  },
+                  "bin_loc": {
+                    "printed_text": "L-019",
+                    "normalized_value": "L-019",
+                    "value_type": "identifier",
+                    "bbox_pt": [
+                      384,
+                      435,
+                      408.39,
+                      444
+                    ]
+                  },
+                  "qty_used": {
+                    "printed_text": "3.00",
+                    "normalized_value": "3.00",
+                    "value_type": "decimal_2",
+                    "bbox_pt": [
+                      474,
+                      435,
+                      491.73,
+                      444
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "expected_routing_for_e3": "eligible_digital_text_layer",
+        "transform_params": {
+          "renderer": "retained generic PDF 1.4 writer",
+          "dpi": null,
+          "rotation_deg": 0.0
+        }
+      },
+      "reference": {
+        "fixture_id": "WP09-F04-v0",
+        "pages": [
+          "LIFT SERVICE JOURNAL\nInitial visit\nJournal key\nService agreement\nSR-0007462\nAGR-000592\nSite\nFictional Pebble Comet Annex\nEquipment covered\nPlatform lift L-007 / landing 02\nVisit lead\nFictional Mira Dove\nInitial finding: guide roller sleeves were worn; landing clearance recorded.\nEntry\nCrew no.\nVisit date\nStart\nFinish\nHours\nService performed\nV61\n00642\n2026-06-17\n08:10\n08:55\n0.75\nInspect guide rollers\nV62\n00642\n2026-06-17\n09:05\n09:35\n0.50\nMeasure landing gap\nNext visit: renew sleeves and complete loaded travel checks.\nSheet 1 / 3   |   LCJ-26-1\nSYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.\nTraining journal PCA-L / fictional record",
+          "LIFT SERVICE JOURNAL\nFollow-up visit\nJournal key\nService agreement\nSR-0007462\nAGR-000592\nSite\nFictional Pebble Comet Annex\nFollow-up finding: replacement sleeves seated and lift travel checked.\nEntry\nCrew no.\nVisit date\nStart\nFinish\nHours\nService performed\nV63\n00642\n2026-06-18\n11:20\n12:20\n1.00\nRenew roller sleeves\nV64\n00816\n2026-06-18\n13:10\n13:55\n0.75\nCycle lift under load\nObserved result: both landing stops aligned; no rubbing during travel.\nMaterials and return decision are recorded on the final sheet.\nSheet 2 / 3   |   LCJ-26-2\nSYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.\nTraining journal PCA-L / fictional record",
+          "LIFT SERVICE JOURNAL\nReturn to service\nJournal key\nService agreement\nSR-0007462\nAGR-000592\nSite\nFictional Pebble Comet Annex\nMaterials used during the follow-up visit\nStock code\nMaterial issued\nShelf\nCount\n0007239\nGuide roller sleeve\nL-002\n3.00\n0003671\nRetaining ring\nL-019\n3.00\nReturn decision\nReturned to service\nClosed at (local)\n2026-06-18 14:05\nTechnician attestation\nFictional Mira Dove\nSecond witness (left empty)\nFictional equipment record. This sheet makes no real safety certification.\nSheet 3 / 3   |   LCJ-26-3\nSYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.\nTraining journal PCA-L / fictional record"
+        ],
+        "runs": [
+          [
+            {
+              "text": "LIFT SERVICE JOURNAL",
+              "x": 42,
+              "y": 742,
+              "size_pt": 21,
+              "bbox_pt": [
+                42,
+                742,
+                318.91,
+                763
+              ],
+              "ordinal": 1,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Initial visit",
+              "x": 42,
+              "y": 723,
+              "size_pt": 10,
+              "bbox_pt": [
+                42,
+                723,
+                90.9,
+                733
+              ],
+              "ordinal": 2,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Journal key",
+              "x": 40,
+              "y": 680,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                680,
+                85.71,
+                688
+              ],
+              "ordinal": 3,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Service agreement",
+              "x": 350,
+              "y": 680,
+              "size_pt": 8,
+              "bbox_pt": [
+                350,
+                680,
+                422.0,
+                688
+              ],
+              "ordinal": 5,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SR-0007462",
+              "x": 40,
+              "y": 663,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                663,
+                96.3,
+                673
+              ],
+              "ordinal": 4,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "AGR-000592",
+              "x": 350,
+              "y": 663,
+              "size_pt": 10,
+              "bbox_pt": [
+                350,
+                663,
+                408.5,
+                673
+              ],
+              "ordinal": 6,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Site",
+              "x": 40,
+              "y": 612,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                612,
+                55.77,
+                620
+              ],
+              "ordinal": 7,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Pebble Comet Annex",
+              "x": 195,
+              "y": 612,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                612,
+                333.9,
+                622
+              ],
+              "ordinal": 8,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Equipment covered",
+              "x": 40,
+              "y": 574,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                574,
+                113.61,
+                582
+              ],
+              "ordinal": 9,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Platform lift L-007 / landing 02",
+              "x": 195,
+              "y": 574,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                574,
+                335.7,
+                584
+              ],
+              "ordinal": 10,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Visit lead",
+              "x": 40,
+              "y": 538,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                538,
+                76.89,
+                546
+              ],
+              "ordinal": 11,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Mira Dove",
+              "x": 195,
+              "y": 538,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                538,
+                285.0,
+                548
+              ],
+              "ordinal": 12,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Initial finding: guide roller sleeves were worn; landing clearance recorded.",
+              "x": 40,
+              "y": 485,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                485,
+                342.04,
+                494
+              ],
+              "ordinal": 13,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Entry",
+              "x": 44,
+              "y": 437,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                44,
+                437,
+                63.04,
+                444.3
+              ],
+              "ordinal": 14,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Crew no.",
+              "x": 83,
+              "y": 437,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                83,
+                437,
+                114.8,
+                444.3
+              ],
+              "ordinal": 15,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Visit date",
+              "x": 134,
+              "y": 437,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                134,
+                437,
+                168.12,
+                444.3
+              ],
+              "ordinal": 16,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Start",
+              "x": 210,
+              "y": 437,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                210,
+                437,
+                227.57,
+                444.3
+              ],
+              "ordinal": 17,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Finish",
+              "x": 256,
+              "y": 437,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                256,
+                437,
+                278.29,
+                444.3
+              ],
+              "ordinal": 18,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Hours",
+              "x": 302,
+              "y": 437,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                302,
+                437,
+                323.28,
+                444.3
+              ],
+              "ordinal": 19,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Service performed",
+              "x": 345,
+              "y": 437,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                345,
+                437,
+                409.23,
+                444.3
+              ],
+              "ordinal": 20,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "V61",
+              "x": 44,
+              "y": 392,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                44,
+                392,
+                58.04,
+                399.8
+              ],
+              "ordinal": 21,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "00642",
+              "x": 83,
+              "y": 392,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                83,
+                392,
+                104.84,
+                399.8
+              ],
+              "ordinal": 22,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-06-17",
+              "x": 134,
+              "y": 392,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                134,
+                392,
+                174.4,
+                399.8
+              ],
+              "ordinal": 23,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "08:10",
+              "x": 210,
+              "y": 392,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                210,
+                392,
+                229.73,
+                399.8
+              ],
+              "ordinal": 24,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "08:55",
+              "x": 256,
+              "y": 392,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                256,
+                392,
+                275.73,
+                399.8
+              ],
+              "ordinal": 25,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0.75",
+              "x": 302,
+              "y": 392,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                302,
+                392,
+                317.37,
+                399.8
+              ],
+              "ordinal": 26,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Inspect guide rollers",
+              "x": 345,
+              "y": 392,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                345,
+                392,
+                417.31,
+                399.8
+              ],
+              "ordinal": 27,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "V62",
+              "x": 44,
+              "y": 347,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                44,
+                347,
+                58.04,
+                354.8
+              ],
+              "ordinal": 28,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "00642",
+              "x": 83,
+              "y": 347,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                83,
+                347,
+                104.84,
+                354.8
+              ],
+              "ordinal": 29,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-06-17",
+              "x": 134,
+              "y": 347,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                134,
+                347,
+                174.4,
+                354.8
+              ],
+              "ordinal": 30,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "09:05",
+              "x": 210,
+              "y": 347,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                210,
+                347,
+                229.73,
+                354.8
+              ],
+              "ordinal": 31,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "09:35",
+              "x": 256,
+              "y": 347,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                256,
+                347,
+                275.73,
+                354.8
+              ],
+              "ordinal": 32,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0.50",
+              "x": 302,
+              "y": 347,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                302,
+                347,
+                317.37,
+                354.8
+              ],
+              "ordinal": 33,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Measure landing gap",
+              "x": 345,
+              "y": 347,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                345,
+                347,
+                417.62,
+                354.8
+              ],
+              "ordinal": 34,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Next visit: renew sleeves and complete loaded travel checks.",
+              "x": 40,
+              "y": 280,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                280,
+                319.8,
+                290
+              ],
+              "ordinal": 35,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Sheet 1 / 3   |   LCJ-26-1",
+              "x": 40,
+              "y": 80,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                80,
+                162.32,
+                90
+              ],
+              "ordinal": 36,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.",
+              "x": 40,
+              "y": 35,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                35,
+                325.53,
+                42
+              ],
+              "ordinal": 37,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Training journal PCA-L / fictional record",
+              "x": 40,
+              "y": 22,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                22,
+                169.36,
+                29
+              ],
+              "ordinal": 38,
+              "role": "furniture",
+              "source": "vector_operator"
+            }
+          ],
+          [
+            {
+              "text": "LIFT SERVICE JOURNAL",
+              "x": 42,
+              "y": 742,
+              "size_pt": 21,
+              "bbox_pt": [
+                42,
+                742,
+                318.91,
+                763
+              ],
+              "ordinal": 1,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Follow-up visit",
+              "x": 42,
+              "y": 723,
+              "size_pt": 10,
+              "bbox_pt": [
+                42,
+                723,
+                110.5,
+                733
+              ],
+              "ordinal": 2,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Journal key",
+              "x": 40,
+              "y": 680,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                680,
+                85.71,
+                688
+              ],
+              "ordinal": 3,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Service agreement",
+              "x": 350,
+              "y": 680,
+              "size_pt": 8,
+              "bbox_pt": [
+                350,
+                680,
+                422.0,
+                688
+              ],
+              "ordinal": 5,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SR-0007462",
+              "x": 40,
+              "y": 663,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                663,
+                96.3,
+                673
+              ],
+              "ordinal": 4,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "AGR-000592",
+              "x": 350,
+              "y": 663,
+              "size_pt": 10,
+              "bbox_pt": [
+                350,
+                663,
+                408.5,
+                673
+              ],
+              "ordinal": 6,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Site",
+              "x": 40,
+              "y": 612,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                612,
+                55.77,
+                620
+              ],
+              "ordinal": 7,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Pebble Comet Annex",
+              "x": 195,
+              "y": 612,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                612,
+                333.9,
+                622
+              ],
+              "ordinal": 8,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Follow-up finding: replacement sleeves seated and lift travel checked.",
+              "x": 40,
+              "y": 548,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                548,
+                359.6,
+                558
+              ],
+              "ordinal": 9,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Entry",
+              "x": 44,
+              "y": 485,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                44,
+                485,
+                63.04,
+                492.3
+              ],
+              "ordinal": 10,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Crew no.",
+              "x": 83,
+              "y": 485,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                83,
+                485,
+                114.8,
+                492.3
+              ],
+              "ordinal": 11,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Visit date",
+              "x": 134,
+              "y": 485,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                134,
+                485,
+                168.12,
+                492.3
+              ],
+              "ordinal": 12,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Start",
+              "x": 210,
+              "y": 485,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                210,
+                485,
+                227.57,
+                492.3
+              ],
+              "ordinal": 13,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Finish",
+              "x": 256,
+              "y": 485,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                256,
+                485,
+                278.29,
+                492.3
+              ],
+              "ordinal": 14,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Hours",
+              "x": 302,
+              "y": 485,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                302,
+                485,
+                323.28,
+                492.3
+              ],
+              "ordinal": 15,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Service performed",
+              "x": 345,
+              "y": 485,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                345,
+                485,
+                409.23,
+                492.3
+              ],
+              "ordinal": 16,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "V63",
+              "x": 44,
+              "y": 440,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                44,
+                440,
+                58.04,
+                447.8
+              ],
+              "ordinal": 17,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "00642",
+              "x": 83,
+              "y": 440,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                83,
+                440,
+                104.84,
+                447.8
+              ],
+              "ordinal": 18,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-06-18",
+              "x": 134,
+              "y": 440,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                134,
+                440,
+                174.4,
+                447.8
+              ],
+              "ordinal": 19,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "11:20",
+              "x": 210,
+              "y": 440,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                210,
+                440,
+                229.73,
+                447.8
+              ],
+              "ordinal": 20,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "12:20",
+              "x": 256,
+              "y": 440,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                256,
+                440,
+                275.73,
+                447.8
+              ],
+              "ordinal": 21,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "1.00",
+              "x": 302,
+              "y": 440,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                302,
+                440,
+                317.37,
+                447.8
+              ],
+              "ordinal": 22,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Renew roller sleeves",
+              "x": 345,
+              "y": 440,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                345,
+                440,
+                419.49,
+                447.8
+              ],
+              "ordinal": 23,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "V64",
+              "x": 44,
+              "y": 395,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                44,
+                395,
+                58.04,
+                402.8
+              ],
+              "ordinal": 24,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "00816",
+              "x": 83,
+              "y": 395,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                83,
+                395,
+                104.84,
+                402.8
+              ],
+              "ordinal": 25,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-06-18",
+              "x": 134,
+              "y": 395,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                134,
+                395,
+                174.4,
+                402.8
+              ],
+              "ordinal": 26,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "13:10",
+              "x": 210,
+              "y": 395,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                210,
+                395,
+                229.73,
+                402.8
+              ],
+              "ordinal": 27,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "13:55",
+              "x": 256,
+              "y": 395,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                256,
+                395,
+                275.73,
+                402.8
+              ],
+              "ordinal": 28,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0.75",
+              "x": 302,
+              "y": 395,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                302,
+                395,
+                317.37,
+                402.8
+              ],
+              "ordinal": 29,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Cycle lift under load",
+              "x": 345,
+              "y": 395,
+              "size_pt": 7.8,
+              "bbox_pt": [
+                345,
+                395,
+                417.23,
+                402.8
+              ],
+              "ordinal": 30,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Observed result: both landing stops aligned; no rubbing during travel.",
+              "x": 40,
+              "y": 326,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                326,
+                353.3,
+                336
+              ],
+              "ordinal": 31,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Materials and return decision are recorded on the final sheet.",
+              "x": 40,
+              "y": 290,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                290,
+                316.3,
+                300
+              ],
+              "ordinal": 32,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Sheet 2 / 3   |   LCJ-26-2",
+              "x": 40,
+              "y": 80,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                80,
+                162.32,
+                90
+              ],
+              "ordinal": 33,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.",
+              "x": 40,
+              "y": 35,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                35,
+                325.53,
+                42
+              ],
+              "ordinal": 34,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Training journal PCA-L / fictional record",
+              "x": 40,
+              "y": 22,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                22,
+                169.36,
+                29
+              ],
+              "ordinal": 35,
+              "role": "furniture",
+              "source": "vector_operator"
+            }
+          ],
+          [
+            {
+              "text": "LIFT SERVICE JOURNAL",
+              "x": 42,
+              "y": 742,
+              "size_pt": 21,
+              "bbox_pt": [
+                42,
+                742,
+                318.91,
+                763
+              ],
+              "ordinal": 1,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Return to service",
+              "x": 42,
+              "y": 723,
+              "size_pt": 10,
+              "bbox_pt": [
+                42,
+                723,
+                120.1,
+                733
+              ],
+              "ordinal": 2,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Journal key",
+              "x": 40,
+              "y": 680,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                680,
+                85.71,
+                688
+              ],
+              "ordinal": 3,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Service agreement",
+              "x": 350,
+              "y": 680,
+              "size_pt": 8,
+              "bbox_pt": [
+                350,
+                680,
+                422.0,
+                688
+              ],
+              "ordinal": 5,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SR-0007462",
+              "x": 40,
+              "y": 663,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                663,
+                96.3,
+                673
+              ],
+              "ordinal": 4,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "AGR-000592",
+              "x": 350,
+              "y": 663,
+              "size_pt": 10,
+              "bbox_pt": [
+                350,
+                663,
+                408.5,
+                673
+              ],
+              "ordinal": 6,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Site",
+              "x": 40,
+              "y": 612,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                612,
+                55.77,
+                620
+              ],
+              "ordinal": 7,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Pebble Comet Annex",
+              "x": 195,
+              "y": 612,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                612,
+                333.9,
+                622
+              ],
+              "ordinal": 8,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Materials used during the follow-up visit",
+              "x": 40,
+              "y": 550,
+              "size_pt": 11,
+              "bbox_pt": [
+                40,
+                550,
+                253.26,
+                561
+              ],
+              "ordinal": 9,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Stock code",
+              "x": 44,
+              "y": 515,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                44,
+                515,
+                83.46,
+                522.3
+              ],
+              "ordinal": 10,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Material issued",
+              "x": 144,
+              "y": 515,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                144,
+                515,
+                197.86,
+                522.3
+              ],
+              "ordinal": 11,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Shelf",
+              "x": 384,
+              "y": 515,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                384,
+                515,
+                402.57,
+                522.3
+              ],
+              "ordinal": 12,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Count",
+              "x": 474,
+              "y": 515,
+              "size_pt": 7.3,
+              "bbox_pt": [
+                474,
+                515,
+                495.28,
+                522.3
+              ],
+              "ordinal": 13,
+              "role": "table_header",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0007239",
+              "x": 44,
+              "y": 475,
+              "size_pt": 9,
+              "bbox_pt": [
+                44,
+                475,
+                79.28,
+                484
+              ],
+              "ordinal": 14,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Guide roller sleeve",
+              "x": 144,
+              "y": 475,
+              "size_pt": 9,
+              "bbox_pt": [
+                144,
+                475,
+                221.58,
+                484
+              ],
+              "ordinal": 15,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "L-002",
+              "x": 384,
+              "y": 475,
+              "size_pt": 9,
+              "bbox_pt": [
+                384,
+                475,
+                408.39,
+                484
+              ],
+              "ordinal": 16,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "3.00",
+              "x": 474,
+              "y": 475,
+              "size_pt": 9,
+              "bbox_pt": [
+                474,
+                475,
+                491.73,
+                484
+              ],
+              "ordinal": 17,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "0003671",
+              "x": 44,
+              "y": 435,
+              "size_pt": 9,
+              "bbox_pt": [
+                44,
+                435,
+                79.28,
+                444
+              ],
+              "ordinal": 18,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Retaining ring",
+              "x": 144,
+              "y": 435,
+              "size_pt": 9,
+              "bbox_pt": [
+                144,
+                435,
+                200.88,
+                444
+              ],
+              "ordinal": 19,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "L-019",
+              "x": 384,
+              "y": 435,
+              "size_pt": 9,
+              "bbox_pt": [
+                384,
+                435,
+                408.39,
+                444
+              ],
+              "ordinal": 20,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "3.00",
+              "x": 474,
+              "y": 435,
+              "size_pt": 9,
+              "bbox_pt": [
+                474,
+                435,
+                491.73,
+                444
+              ],
+              "ordinal": 21,
+              "role": "table_cell",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Return decision",
+              "x": 40,
+              "y": 362,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                362,
+                100.29,
+                370
+              ],
+              "ordinal": 22,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Returned to service",
+              "x": 195,
+              "y": 362,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                362,
+                283.9,
+                372
+              ],
+              "ordinal": 23,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Closed at (local)",
+              "x": 40,
+              "y": 327,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                327,
+                104.45,
+                335
+              ],
+              "ordinal": 24,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "2026-06-18 14:05",
+              "x": 195,
+              "y": 327,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                327,
+                275.0,
+                337
+              ],
+              "ordinal": 25,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Technician attestation",
+              "x": 40,
+              "y": 292,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                292,
+                127.0,
+                300
+              ],
+              "ordinal": 26,
+              "role": "field_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional Mira Dove",
+              "x": 195,
+              "y": 292,
+              "size_pt": 10,
+              "bbox_pt": [
+                195,
+                292,
+                285.0,
+                302
+              ],
+              "ordinal": 27,
+              "role": "field_value",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Second witness (left empty)",
+              "x": 40,
+              "y": 224,
+              "size_pt": 8,
+              "bbox_pt": [
+                40,
+                224,
+                148.63,
+                232
+              ],
+              "ordinal": 28,
+              "role": "absence_label",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Fictional equipment record. This sheet makes no real safety certification.",
+              "x": 40,
+              "y": 133,
+              "size_pt": 9,
+              "bbox_pt": [
+                40,
+                133,
+                340.96,
+                142
+              ],
+              "ordinal": 29,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Sheet 3 / 3   |   LCJ-26-3",
+              "x": 40,
+              "y": 80,
+              "size_pt": 10,
+              "bbox_pt": [
+                40,
+                80,
+                162.32,
+                90
+              ],
+              "ordinal": 30,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "SYNTHETIC TRAINING DOCUMENT - all people, sites and contact details are fictional.",
+              "x": 40,
+              "y": 35,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                35,
+                325.53,
+                42
+              ],
+              "ordinal": 31,
+              "role": "furniture",
+              "source": "vector_operator"
+            },
+            {
+              "text": "Training journal PCA-L / fictional record",
+              "x": 40,
+              "y": 22,
+              "size_pt": 7,
+              "bbox_pt": [
+                40,
+                22,
+                169.36,
+                29
+              ],
+              "ordinal": 32,
+              "role": "furniture",
+              "source": "vector_operator"
+            }
+          ]
+        ],
+        "coverage": {
+          "status": "complete_all_visible_text_operators",
+          "ordering": "page; baseline y descending; x ascending; operator ordinal for ties",
+          "includes": [
+            "titles",
+            "all labels",
+            "all filled values",
+            "table headers and cells",
+            "fictional notices",
+            "page markers"
+          ],
+          "excludes": [
+            "nontext lines and boxes"
+          ],
+          "text_layer_only": true,
+          "handwriting": false,
+          "raster_text": false
+        }
+      }
+    }
+  ],
+  "renders": [
+    {
+      "fixture_id": "WP09-F01-v0",
+      "page": 1,
+      "path": ".scratch/wp0009-reviewer/admission-r1/WP09-F01-v0-p1.png",
+      "sha256": "ef83708122bdf7c9f0d474f893391fee61c363613b6f349ac432b0817f94adc2",
+      "size": [
+        1224,
+        1584
+      ]
+    },
+    {
+      "fixture_id": "WP09-F02-v0",
+      "page": 1,
+      "path": ".scratch/wp0009-reviewer/admission-r1/WP09-F02-v0-p1.png",
+      "sha256": "30b76fc643d5a4000b91db5de3e0be66d6551ccacd7fc34e62e349ce9cc8aee2",
+      "size": [
+        1224,
+        1584
+      ]
+    },
+    {
+      "fixture_id": "WP09-F03-v0",
+      "page": 1,
+      "path": ".scratch/wp0009-reviewer/admission-r1/WP09-F03-v0-p1.png",
+      "sha256": "31f68948933b23567a0df5c507f2d3488994ee4fb15c7b301039241264e73478",
+      "size": [
+        1224,
+        1584
+      ]
+    },
+    {
+      "fixture_id": "WP09-F04-v0",
+      "page": 1,
+      "path": ".scratch/wp0009-reviewer/admission-r1/WP09-F04-v0-p1.png",
+      "sha256": "af01b28ebf382e32c342181ab9c486fef1dc2d6fb14459f070bdc816f457dbf9",
+      "size": [
+        1224,
+        1584
+      ]
+    },
+    {
+      "fixture_id": "WP09-F04-v0",
+      "page": 2,
+      "path": ".scratch/wp0009-reviewer/admission-r1/WP09-F04-v0-p2.png",
+      "sha256": "4e3c13b4d89bad3c3f52f9dd04bb6876b4d3a4aecd717f5ae6a3b9105117477f",
+      "size": [
+        1224,
+        1584
+      ]
+    },
+    {
+      "fixture_id": "WP09-F04-v0",
+      "page": 3,
+      "path": ".scratch/wp0009-reviewer/admission-r1/WP09-F04-v0-p3.png",
+      "sha256": "8ab8e595a034e3af9811217f696be5b056ea02ea4ee7e64b8294d5764548bcee",
+      "size": [
+        1224,
+        1584
+      ]
+    }
+  ],
+  "regenerated_files_equal": 21,
+  "public_literal_disclosure_hits": [],
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-rd-carbon-recovery\\.venv\\Scripts\\python.exe",
+    "pypdf": "7.1.0",
+    "pypdfium2": "5.15.2",
+    "Pillow": "13.0.0"
+  }
+}

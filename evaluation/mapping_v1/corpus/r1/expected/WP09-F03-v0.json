@@ -1,0 +1,415 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "WP09-F03-v0",
+  "family_id": "WP09-F03",
+  "doc_kind": "supplier_invoice",
+  "split": "fresh_eval",
+  "split_disclosure": "procedurally_blinded_to_mapping_author_until_accepted_freeze",
+  "variant_kind": "v0_clean",
+  "parent_fixture_id": null,
+  "page_count": 1,
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": [],
+  "expected_fields": [
+    {
+      "field_id": "invoice_number",
+      "label_printed": "Billing note",
+      "page_number": 1,
+      "printed_text": "BILL-0009274",
+      "normalized_value": "BILL-0009274",
+      "value_type": "identifier",
+      "bbox_pt": [
+        40,
+        629,
+        106.0,
+        639
+      ]
+    },
+    {
+      "field_id": "customer_acct_id",
+      "label_printed": "Ledger account",
+      "page_number": 1,
+      "printed_text": "00018403",
+      "normalized_value": "00018403",
+      "value_type": "identifier",
+      "bbox_pt": [
+        350,
+        629,
+        394.8,
+        639
+      ]
+    },
+    {
+      "field_id": "invoice_date",
+      "label_printed": "Issued",
+      "page_number": 1,
+      "printed_text": "2026-07-13",
+      "normalized_value": "2026-07-13",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        40,
+        568,
+        91.8,
+        578
+      ]
+    },
+    {
+      "field_id": "due_date",
+      "label_printed": "Settle by",
+      "page_number": 1,
+      "printed_text": "2026-08-12",
+      "normalized_value": "2026-08-12",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        350,
+        568,
+        401.8,
+        578
+      ]
+    },
+    {
+      "field_id": "address_bill_to",
+      "label_printed": "Charge to",
+      "page_number": 1,
+      "printed_text": "Fictional Moss Bell / 17 Imaginary Lane, ZZ 00000",
+      "normalized_value": "Fictional Moss Bell / 17 Imaginary Lane, ZZ 00000",
+      "value_type": "text",
+      "bbox_pt": [
+        40,
+        509,
+        248.89,
+        518
+      ]
+    },
+    {
+      "field_id": "address_service_location",
+      "label_printed": "Delivery point",
+      "page_number": 1,
+      "printed_text": "Fictional Moss Bell / Pump alcove 004",
+      "normalized_value": "Fictional Moss Bell / Pump alcove 004",
+      "value_type": "text",
+      "bbox_pt": [
+        40,
+        460,
+        198.04,
+        469
+      ]
+    },
+    {
+      "field_id": "subtotal",
+      "label_printed": "Goods and work",
+      "page_number": 1,
+      "printed_text": "$89.00",
+      "normalized_value": "89.00",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        490,
+        262,
+        520.9,
+        272
+      ]
+    },
+    {
+      "field_id": "tax_amount",
+      "label_printed": "Sales levy",
+      "page_number": 1,
+      "printed_text": "$4.90",
+      "normalized_value": "4.90",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        490,
+        209,
+        515.3,
+        219
+      ]
+    },
+    {
+      "field_id": "invoice_total",
+      "label_printed": "Bill total",
+      "page_number": 1,
+      "printed_text": "$93.90",
+      "normalized_value": "93.90",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        490,
+        181,
+        520.9,
+        191
+      ]
+    },
+    {
+      "field_id": "amount_due",
+      "label_printed": "Balance to remit",
+      "page_number": 1,
+      "printed_text": "$93.90",
+      "normalized_value": "93.90",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        490,
+        150,
+        520.9,
+        160
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "work_order_ref",
+      "label_printed": "Buyer job reference (not supplied)",
+      "page_number": 1,
+      "expected_state": "absent_blank",
+      "bbox_pt": [
+        40,
+        219,
+        270,
+        239
+      ],
+      "semantics": "A printed empty response box; no asserted value, not an unknown filled value."
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "line_items",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "row_id",
+        "sku",
+        "qty_unit",
+        "description",
+        "unit_price",
+        "net_line"
+      ],
+      "rows": [
+        {
+          "row_id": "Q41",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "Q41",
+              "normalized_value": "Q41",
+              "value_type": "identifier",
+              "bbox_pt": [
+                44,
+                379,
+                60.15,
+                387.5
+              ]
+            },
+            "sku": {
+              "printed_text": "0004782",
+              "normalized_value": "0004782",
+              "value_type": "identifier",
+              "bbox_pt": [
+                82,
+                379,
+                115.32,
+                387.5
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "2.00 EA",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "EA",
+              "bbox_pt": [
+                148,
+                379,
+                178.77,
+                387.5
+              ]
+            },
+            "description": {
+              "printed_text": "Float switch bracket",
+              "normalized_value": "Float switch bracket",
+              "value_type": "text",
+              "bbox_pt": [
+                218,
+                379,
+                298.07,
+                387.5
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$18.40",
+              "normalized_value": "18.40",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                416,
+                379,
+                442.26,
+                387.5
+              ]
+            },
+            "net_line": {
+              "printed_text": "$36.80",
+              "normalized_value": "36.80",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                491,
+                379,
+                517.26,
+                387.5
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "Q42",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "Q42",
+              "normalized_value": "Q42",
+              "value_type": "identifier",
+              "bbox_pt": [
+                44,
+                344,
+                60.15,
+                352.5
+              ]
+            },
+            "sku": {
+              "printed_text": "0006921",
+              "normalized_value": "0006921",
+              "value_type": "identifier",
+              "bbox_pt": [
+                82,
+                344,
+                115.32,
+                352.5
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "4.00 EA",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "EA",
+              "bbox_pt": [
+                148,
+                344,
+                178.77,
+                352.5
+              ]
+            },
+            "description": {
+              "printed_text": "Drain tube section",
+              "normalized_value": "Drain tube section",
+              "value_type": "text",
+              "bbox_pt": [
+                218,
+                344,
+                289.31,
+                352.5
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$6.30",
+              "normalized_value": "6.30",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                416,
+                344,
+                437.5,
+                352.5
+              ]
+            },
+            "net_line": {
+              "printed_text": "$25.20",
+              "normalized_value": "25.20",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                491,
+                344,
+                517.26,
+                352.5
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "Q43",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "Q43",
+              "normalized_value": "Q43",
+              "value_type": "identifier",
+              "bbox_pt": [
+                44,
+                309,
+                60.15,
+                317.5
+              ]
+            },
+            "sku": {
+              "printed_text": "0008159",
+              "normalized_value": "0008159",
+              "value_type": "identifier",
+              "bbox_pt": [
+                82,
+                309,
+                115.32,
+                317.5
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "0.75 HR",
+              "normalized_value": "0.75",
+              "value_type": "decimal_2",
+              "quantity_unit": "HR",
+              "bbox_pt": [
+                148,
+                309,
+                179.62,
+                317.5
+              ]
+            },
+            "description": {
+              "printed_text": "Bench leak check",
+              "normalized_value": "Bench leak check",
+              "value_type": "text",
+              "bbox_pt": [
+                218,
+                309,
+                286.25,
+                317.5
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$36.00",
+              "normalized_value": "36.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                416,
+                309,
+                442.26,
+                317.5
+              ]
+            },
+            "net_line": {
+              "printed_text": "$27.00",
+              "normalized_value": "27.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                491,
+                309,
+                517.26,
+                317.5
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expected_routing_for_e3": "eligible_digital_text_layer",
+  "transform_params": {
+    "renderer": "retained generic PDF 1.4 writer",
+    "dpi": null,
+    "rotation_deg": 0.0
+  }
+}

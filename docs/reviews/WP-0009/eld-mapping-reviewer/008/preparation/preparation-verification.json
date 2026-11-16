@@ -1,0 +1,61 @@
+{
+  "schema": "eld-wp0009-comparison-preparation-verification/1",
+  "utc": "2026-11-16T21:05:27.270516+00:00",
+  "owner": "eld-mapping-reviewer",
+  "session": "same independent Codex; requested xhigh; backend identity and actual effort not exposed",
+  "branch": "review/wp-0009-mapping",
+  "start_utc": "2026-11-16T20:55:19.7574333Z",
+  "initial_head": "68a2f9458851b8bf60b067b702261f63ff70b900",
+  "root_authority": "bd6af89ca7cca165785916f8fe3b349e6c01dfb7",
+  "merged_base": "406ebc316f8c3153bbcd78978428dc52157cb2ea",
+  "helper_freeze": "a6209b0d3262f524e963bbc24981112cd31c6ebf",
+  "deliverable_commit": "7445421ec871ac281d3976ef99a8395872c135cc",
+  "status": "CPU_PREPARATION_COMPLETE",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "checks": [
+    {
+      "command": "python -B docs/reviews/WP-0009/eld-mapping-reviewer/008/preparation/test_compare_published.py",
+      "frozen_revision": "a6209b0d3262f524e963bbc24981112cd31c6ebf",
+      "attempt": 1,
+      "exit_code": 0,
+      "tests": 19,
+      "failures": 0,
+      "scope": "synthetic in-memory packets only",
+      "log": "docs/reviews/WP-0009/eld-mapping-reviewer/008/preparation/self-check-attempt-1.log"
+    },
+    {
+      "command": "frozen compare_published.source_inventory() and prohibited-import audit",
+      "frozen_revision": "a6209b0d3262f524e963bbc24981112cd31c6ebf",
+      "exit_code": 0,
+      "verified_source_files": 52,
+      "output": "docs/reviews/WP-0009/eld-mapping-reviewer/008/preparation/source-bindings.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "command": "compare full recursive Git trees at merged base and deliverable; assert clean tracked worktree",
+      "protected_paths": 2277,
+      "unchanged": true,
+      "all_added_paths_owned": true
+    }
+  ],
+  "not_executed": [
+    "active author output reads",
+    "actual author four-primary scoring reproduction",
+    "actual sentinel inference/comparison",
+    "GPU queries or model/backend/renderer imports",
+    "services/downloads",
+    "canonical008 publication"
+  ],
+  "helper_failures": [],
+  "read_only_discovery_errors": [
+    "Two initial Get-Content reads used nonexistent test_scoring.py/test_mapper.py paths; corrected discovery with rg --files. No check result claimed."
+  ],
+  "limitations": "Synthetic fixtures prove helper accounting behavior only. Actual supervisor exit, lease return, job cleanup, exact model/notice/dependency/PDFium identities and empirical sentinel comparison require separately bound published evidence and manual independent inspection as specified in README. AUDITED is CPU accounting completion, not runtime acceptance.",
+  "metadata_files_added_after_deliverable": [
+    "docs/reviews/WP-0009/eld-mapping-reviewer/008/preparation/preparation-verification.json",
+    "docs/reviews/WP-0009/eld-mapping-reviewer/008/preparation/preparation-inventory.json"
+  ]
+}

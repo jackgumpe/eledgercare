@@ -1,0 +1,396 @@
+{
+  "schema": "eld-mapping-v1-run/1",
+  "run": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b",
+  "executing_head": "69f7a79677b43228869d7c35bb5fb6d3e12e9291",
+  "release": {
+    "schema": "eld-mapping-v1-release/1",
+    "owner": "reviewer",
+    "source_commit": "23e023045b335540d830ce01b75be247552a63f1",
+    "executing_head": "69f7a79677b43228869d7c35bb5fb6d3e12e9291",
+    "source_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+    "protocol_sha256": "f54214cc42307eb955f44f4c6470311f01ff7cf93887ea21d024feaa08a63e42",
+    "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+    "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+    "reservation_sha256": "f1490c428109e94f8b15c62a9f2ef3386039e614eb046a647957f2d0c759bdba",
+    "corpus_commit": "c0a702e43efee7bda20b4da0bc2b0cb3f0852e41",
+    "runtime_root": "C:/Users/jackg/eLedgerCare-Mapping/WP-0009/reviewer",
+    "issued_utc": "2026-11-16T21:14:45.611979+00:00",
+    "expires_utc": "2026-11-17T03:14:45.611979+00:00",
+    "schedule": [
+      {
+        "fixture_id": "SYN-WO-01-v0-clean",
+        "kind": "warmup",
+        "excluded": true
+      },
+      {
+        "fixture_id": "SYN-MP-01-v0-clean",
+        "kind": "warmup",
+        "excluded": true
+      },
+      {
+        "fixture_id": "WP09-F04-v0",
+        "kind": "measured",
+        "excluded": false
+      }
+    ],
+    "source_review": {
+      "commit": "89a27d8b13b280632f4fc0e6704f8c3bdfe74355",
+      "path": "docs/agent-reports/eld-mapping-reviewer/WP-0009/006_2026-11-16_review_eld-mapping-reviewer.md",
+      "sha256": "1aa45aa3a902c0c1e94c5b850ece50c3661ef1a880a1e8edb6376066a510dc3d"
+    },
+    "admission_review": {
+      "commit": "3e5d305d0cdcb2666ba56912ba6c06dc19d74c8b",
+      "path": "docs/agent-reports/eld-mapping-reviewer/WP-0009/004_2026-11-16_review_eld-mapping-reviewer.md",
+      "sha256": "0676faec469598074a3da453032047cc168db95d941df8ced0698d6205b96a82"
+    },
+    "unseal": {
+      "commit": "5685660e0188db1d9832baded7eb8e95085109c7",
+      "path": "docs/coordination/WP-0009/unseal.json",
+      "sha256": "37aa66e9bbec874cbece9f381f98e27aaf49ce23c35f019c310f791add4b0c07"
+    },
+    "lease": {
+      "id": "WP-0009-reviewer-sentinel-20261116T2114Z",
+      "owner": "reviewer",
+      "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+      "sole_lease": true,
+      "scope": "sole_model_job",
+      "observations": [
+        {
+          "commit": "0aef94abf0c3bdbd2e7fad598a82069cac58d5a0",
+          "path": "docs/coordination/WP-0009/reviewer-before/host.json",
+          "sha256": "a726f91212ec687704871ae1438b434bca3f6b11449e239783ee0152e2f5c197"
+        },
+        {
+          "commit": "0aef94abf0c3bdbd2e7fad598a82069cac58d5a0",
+          "path": "docs/coordination/WP-0009/reviewer-before/model.json",
+          "sha256": "6fa881c58aad4ff5d0b1775b9e618229ba8cc991e51cd59f184b4428e0a67fdd"
+        },
+        {
+          "commit": "0aef94abf0c3bdbd2e7fad598a82069cac58d5a0",
+          "path": "docs/coordination/WP-0009/reviewer-before/processes.json",
+          "sha256": "68ece976a3f059758349ca3a7a578a5ea93b545098b35e36223ebf8c3871584a"
+        },
+        {
+          "commit": "0aef94abf0c3bdbd2e7fad598a82069cac58d5a0",
+          "path": "docs/coordination/WP-0009/reviewer-before/ownership-review.json",
+          "sha256": "c3905d0b34e397446b63c4c481b5cdd7a5afeb5433eede6d8dfcc2e77651e265"
+        }
+      ]
+    },
+    "torchvision_local_sha256_TOFU_accepted": true
+  },
+  "calls": [
+    {
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "kind": "warmup",
+      "excluded": true,
+      "status": "completed",
+      "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "kind": "warmup",
+      "excluded": true,
+      "status": "completed",
+      "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "WP09-F04-v0",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\WP09-F04-v0.measured.observation.json",
+      "observation_status": "available"
+    }
+  ],
+  "failure": null,
+  "supervisor_error": null,
+  "secondary_errors": [],
+  "finalization_errors": [],
+  "final_observation_status": {
+    "post_observers": "available",
+    "worker_outcome": "available",
+    "free_bytes_after": "available",
+    "owned_bytes_after": "available"
+  },
+  "child_launcher_pid": 34188,
+  "child_returncode": 0,
+  "observed_child_exit": true,
+  "elapsed_s": 624.7030000000377,
+  "observers": [
+    {
+      "tag": "pre",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-pre-0.txt",
+      "t": 1794863738.0281992
+    },
+    {
+      "tag": "pre",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1875,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-pre-1.txt",
+      "t": 1794863738.0924706
+    },
+    {
+      "tag": "during-60",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-60-0.txt",
+      "t": 1794863798.4498868
+    },
+    {
+      "tag": "during-60",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-60-1.txt",
+      "t": 1794863798.52061
+    },
+    {
+      "tag": "during-120",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-120-0.txt",
+      "t": 1794863858.9778845
+    },
+    {
+      "tag": "during-120",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-120-1.txt",
+      "t": 1794863859.0433116
+    },
+    {
+      "tag": "during-181",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-181-0.txt",
+      "t": 1794863919.5042357
+    },
+    {
+      "tag": "during-181",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-181-1.txt",
+      "t": 1794863919.585686
+    },
+    {
+      "tag": "during-242",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-242-0.txt",
+      "t": 1794863980.0749764
+    },
+    {
+      "tag": "during-242",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-242-1.txt",
+      "t": 1794863980.1425734
+    },
+    {
+      "tag": "during-302",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-302-0.txt",
+      "t": 1794864040.6524127
+    },
+    {
+      "tag": "during-302",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-302-1.txt",
+      "t": 1794864040.7078617
+    },
+    {
+      "tag": "during-363",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-363-0.txt",
+      "t": 1794864101.1885736
+    },
+    {
+      "tag": "during-363",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-363-1.txt",
+      "t": 1794864101.259319
+    },
+    {
+      "tag": "during-423",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-423-0.txt",
+      "t": 1794864161.7425354
+    },
+    {
+      "tag": "during-423",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-423-1.txt",
+      "t": 1794864161.8229597
+    },
+    {
+      "tag": "during-484",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-484-0.txt",
+      "t": 1794864222.3237221
+    },
+    {
+      "tag": "during-484",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-484-1.txt",
+      "t": 1794864222.3711288
+    },
+    {
+      "tag": "during-544",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-544-0.txt",
+      "t": 1794864282.8314066
+    },
+    {
+      "tag": "during-544",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-544-1.txt",
+      "t": 1794864282.8740823
+    },
+    {
+      "tag": "during-605",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-605-0.txt",
+      "t": 1794864343.317118
+    },
+    {
+      "tag": "during-605",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-during-605-1.txt",
+      "t": 1794864343.4178615
+    },
+    {
+      "tag": "post",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-post-0.txt",
+      "t": 1794864362.6120193
+    },
+    {
+      "tag": "post",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1875,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-post-1.txt",
+      "t": 1794864362.6633465
+    }
+  ],
+  "gpu_process_checks": [
+    {
+      "stage": "pre",
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 60.42200000002049,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 120.93800000002375,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 181.46900000004098,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 242.0470000000205,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 302.625,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 363.15600000001723,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 423.7030000000377,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 484.28100000001723,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 544.7970000000205,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    },
+    {
+      "stage": "during",
+      "elapsed_s": 605.2810000000172,
+      "expected_device_observed": true,
+      "process_observation_text": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\n6640, C:\\Windows\\explorer.exe, [N/A]\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\n26776, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\n30420, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\n10572, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\n10708, C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe, [N/A]\n",
+      "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+    }
+  ],
+  "free_bytes_after": 47081635840,
+  "owned_bytes_after": 62826751
+}

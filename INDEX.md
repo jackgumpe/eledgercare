@@ -611,16 +611,16 @@ Jack: “Agreeded, I authorize this bounded lane.” Exact scope docs/coordinati
 
 | Packet / sequence | Owner / category | Branch / worktree | Exact report path | State / next owner |
 | --- | --- | --- | --- | --- |
-| WP-0008 /001 | eld-coordinator / design | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0008/001_2026-11-16_design_eld-coordinator.md | RELEASED design; next independent /002 |
-| WP-0008 /002 | eld-f3-reviewer / review | review/wp-0008-f3; eld-f3-reviewer | docs/agent-reports/eld-f3-reviewer/WP-0008/002_2026-11-16_review_eld-f3-reviewer.md | PREPARED independent design/README wording review, exact frozen design follows |
-| WP-0008 /003 | eld-f3-implementer / implementation | feature/wp-0008-f3-review; eld-f3-implementer | docs/agent-reports/eld-f3-implementer/WP-0008/003_2026-11-16_implementation_eld-f3-implementer.md | HELD until independent /002 acceptance and exact implementation release |
+| WP-0008 /001 | eld-coordinator / design | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0008/001_2026-11-16_design_eld-coordinator.md | PUBLISHED30bb49ed56c32bda61a6907d49bd183e7b292268; independently accepted /002 |
+| WP-0008 /002 | eld-f3-reviewer / review | review/wp-0008-f3; eld-f3-reviewer | docs/agent-reports/eld-f3-reviewer/WP-0008/002_2026-11-16_review_eld-f3-reviewer.md | ACCEPTED/PUBLISHED bff139bcdf55df77a821b858513b7e6bf5d96b87; normally integrated |
+| WP-0008 /003 | eld-f3-implementer / implementation | feature/wp-0008-f3-review; eld-f3-implementer | docs/agent-reports/eld-f3-implementer/WP-0008/003_2026-11-16_implementation_eld-f3-implementer.md | RUNNING fresh Carbon ef53d3f3-ca53-482e-8fa7-a3cc1670564e, exact715d625 release; next independent /004 |
 | WP-0008 /004 | eld-f3-reviewer / review | review/wp-0008-f3; eld-f3-reviewer | docs/agent-reports/eld-f3-reviewer/WP-0008/004_2026-11-16_review_eld-f3-reviewer.md | Reserved independent actual product/source/PG/Edge review |
 | WP-0008 /005 | eld-coordinator / verification | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0008/005_2026-11-16_verification_eld-coordinator.md | Reserved final integration/disposition |
-| WP-0009 /001 | eld-mapping-author / research | research/wp-0009-mapping; eld-mapping-author | docs/agent-reports/eld-mapping-author/WP-0009/001_2026-11-16_research_eld-mapping-author.md | RELEASED CPU diagnosis only; next independent /002 and root single-change selection |
-| WP-0009 /002 | eld-mapping-reviewer / review | review/wp-0009-mapping; eld-mapping-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0009/002_2026-11-16_review_eld-mapping-reviewer.md | PREPARED diagnosis/protocol review; no canonical publication until exact /001 |
-| WP-0009 /003 | eld-eval-custodian / verification | evaluation/wp-0009-fresh-families; eld-eval-custodian | docs/agent-reports/eld-eval-custodian/WP-0009/003_2026-11-16_verification_eld-eval-custodian.md | RELEASED CPU sealed fresh-family preparation/reservation; next independent /004 |
-| WP-0009 /004 | eld-mapping-reviewer / review | review/wp-0009-mapping; eld-mapping-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0009/004_2026-11-16_review_eld-mapping-reviewer.md | PREPARED independent corpus admission after exact sealed candidate |
-| WP-0009 /005 | eld-mapping-author / implementation | research/wp-0009-mapping; eld-mapping-author | docs/agent-reports/eld-mapping-author/WP-0009/005_2026-11-16_implementation_eld-mapping-author.md | HELD until diagnosis review, selection and reserved fresh families; one change only |
+| WP-0009 /001 | eld-mapping-author / research | research/wp-0009-mapping; eld-mapping-author | docs/agent-reports/eld-mapping-author/WP-0009/001_2026-11-16_research_eld-mapping-author.md | ACCEPTED/PUBLISHED f6c7c7e8922b73ac58cdeebc198ed098d88a9c80 via independent /002 |
+| WP-0009 /002 | eld-mapping-reviewer / review | review/wp-0009-mapping; eld-mapping-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0009/002_2026-11-16_review_eld-mapping-reviewer.md | ACCEPTED/PUBLISHED ca96f769c822b1b5ef28b377e27d665e2f1f8b98; root selected one treatment |
+| WP-0009 /003 | eld-eval-custodian / verification | evaluation/wp-0009-fresh-families; eld-eval-custodian | docs/agent-reports/eld-eval-custodian/WP-0009/003_2026-11-16_verification_eld-eval-custodian.md | PUBLISHED d866c70986abc311767e1cb0f152653687a16964; sealed candidate independently admitted /004 |
+| WP-0009 /004 | eld-mapping-reviewer / review | review/wp-0009-mapping; eld-mapping-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0009/004_2026-11-16_review_eld-mapping-reviewer.md | ACCEPTED/PUBLISHED3e5d305d0cdcb2666ba56912ba6c06dc19d74c8b; fresh contents remain sealed |
+| WP-0009 /005 | eld-mapping-author / implementation | research/wp-0009-mapping; eld-mapping-author | docs/agent-reports/eld-mapping-author/WP-0009/005_2026-11-16_implementation_eld-mapping-author.md | RUNNING same requested-xhigh mappingauthor underc30d360; CPU source/protocol only; next /006 |
 | WP-0009 /006 | eld-mapping-reviewer / review | review/wp-0009-mapping; eld-mapping-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0009/006_2026-11-16_review_eld-mapping-reviewer.md | Reserved independent selected-source/scoring/protocol freeze review |
 | WP-0009 /007 | eld-mapping-author / verification | research/wp-0009-mapping; eld-mapping-author | docs/agent-reports/eld-mapping-author/WP-0009/007_2026-11-16_verification_eld-mapping-author.md | Reserved frozen comparison/fresh-family execution after exact release |
 | WP-0009 /008 | eld-mapping-reviewer / review | review/wp-0009-mapping; eld-mapping-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0009/008_2026-11-16_review_eld-mapping-reviewer.md | Reserved independent final comparison/reproduction |
@@ -646,3 +646,95 @@ WP-0008 /002 ACCEPTED/PUBLISHED bff139bcdf55df77a821b858513b7e6bf5d96b87, delive
 | Packet / sequence | Owner / category | Exact report path | State / scope |
 | --- | --- | --- | --- |
 | WP-0009 /010 | eld-eval-custodian / verification | docs/agent-reports/eld-eval-custodian/WP-0009/010_2026-11-16_verification_eld-eval-custodian.md | RESERVED/HELD until independent /006 accepted frozen mapper/scorer/protocol and exact root unseal release; publish unchanged sealed tracked files under evaluation/mapping_v1/ preserving relative paths, verify hashes and original custody; no tuning or inference. |
+
+Actual F3 author dispatch RUNNING_CONFIRMED: ef53d3f3-ca53-482e-8fa7-a3cc1670564e/gemini-4-carbon-high/high, CLI28012, exactstart/authority715d62533cdf69ee3f144ac8bbf5184bc0d78ad3. Receipt docs/coordination/WP-0008/implementation-dispatch.json. WP-0009 /004 accepted/published3e5d305d0cdcb2666ba56912ba6c06dc19d74c8b, deliverablecc0c24270b1b1355b2f07ccdc323a95c004f564e/inventory82debc429298b231d53f1d2e8b1a51f60117d6fe, normally integratedc36b6fe4dc1b1024e1d20e4d5acb8e859aafac04 after six-entry/fourteen-identity public audit. All private contents/evidence remain sealed; opaqueWP09-F04-v0 sentinel preselected before outputs. No active GPU lease.
+
+WP-0008 independent same-Carbon reviewer preparation RELEASED under WP-0008-eld-f3-reviewer-preparation.md: independently construct exact genuineF2 PostgreSQLseed in own55437 cluster for later forwardmigration/actualF3 review, preserve original helperfailure in newevidence. Canonical004 still HELD until exactauthor source/report; no product/GPU work. Actual preparationdispatch PREPARED.
+
+Independent F3 preparation actualdispatch RUNNING_CONFIRMED: sameCarbon025f1605-d7e3-4fea-8255-907c2b07b55f/gemini-4-carbon-high/high CLI32300, cleanexactef152e1cfcc57b1404aa242a3e96d18843c4c10c. Receipt docs/coordination/WP-0008/reviewer-preparation-dispatch.json. PostgreSQL55437 seed preparation only; canonical004/sourceacceptance held.
+
+WP-0009 /005 PUBLISHED8942eb843c635ef381da11d9d5ce95524eeb979e; sourceb95c12d2fd8d71598a1e9c523182cd1a2f3ee121/tree751d27596ed89fc2ed8cb33ca93c9c6c6157b2bb, deliverableb6b67f4482796d7d47717885850b5225c1101eb0/inventory6927f0a05cb23c14cb377a36e7c6c45a006f9d1f. Root verified28inventoryentries/30additions/nineprotectedidentities/exactorigin/report-onlypublication, implementation-publication-audit.json. /006 RELEASED exactCPUsource/protocol review under WP-0009-eld-mapping-reviewer-source.md, actualdispatch PREPARED. Freshcontent/unseal/runtime remainheld. Originalpass e84/c02 retained; final22testsPASS after parser-limit/WDDM boundarycorrections.
+
+WP-0008 independent seedpreparation COMPLETED/PUBLISHED9d99c3f42dda42ab691583f5b0c221b7be0bf5b6, frozenhelper3ad5bddd596443fa12b36bc91548fd59721be5da; root verifiedsix inventoryentries/sevenadditions/elevenprotectedidentities/13passingchecks/originalfailurebytes/stopped5490,4510,55437 and PIDs5340,33568. Normal integrationa1ca5ce97ac8b8c4d5b93207805f452d292cb51e; CLI SUCCESS/exit0, seedretained forF3migration; canonical004 stillheld. WP-0009 source006 RUNNING_CONFIRMED same requestedxhighreviewer at2026-11-16T20:15:30.9548390Z, authorityf7aec1d3bcbe863c6c1d4280ca8d40d945c786cf/reviewheade39ede6f6fddf7dff487ebc34b7edd667fed02ac, source-review-dispatch.json. No unseal/GPUlease.
+
+WP-0009 initial006 findings published93dd59606c39f2cd7dca77c7773ffac0b2eb0e81, correctedreviewhelper436523b0857d8017fa190b38f235f84693c49e39. Independent30tests:29pass/sole F006-01 staledeclarativesentinelpolicyfails; all22authorchecks/all26fullscores+recovery/27gains/zero losses/treatmentisolation and owner-specific scoringdenominators reproduced. Reviewerhelper AST-strip failure retained separately then corrected; no reviewedsourceedited. Canonical006 unpublished pending narrowauthorcorrection.
+
+| Packet / sequence | Owner / category | Exact report path | State / scope |
+| --- | --- | --- | --- |
+| WP-0009 /011 | eld-mapping-author / implementation | docs/agent-reports/eld-mapping-author/WP-0009/011_2026-11-16_implementation_eld-mapping-author.md | RELEASED narrow F006-01 declarative sentinel-policy correction, consistency test and frozen fullCPU regression; WP-0009-eld-mapping-author-protocol-correction.md. Source runtime/mapper/scorer and all old reports/evidence stay unchanged; actualdispatch PREPARED. |
+
+WP-0009 /011 PUBLISHED50beea530079d9c9c4c6b26eae7ee624a5ad0a4e; correctedsource23e023045b335540d830ce01b75be247552a63f1/tree59f66d0d3d9be145a43efcc9258eb260d3ef2f00/protocolf54214cc42307eb955f44f4c6470311f01ff7cf93887ea21d024feaa08a63e42, deliverable05b14c9b4e7a9bdb36fb6d82397c260db21e4579/inventory1674c3c280f6173998ea673e92b7af08cb6eb6cd. Root audited11entries/2133protectedfiles/onlytwoallowedsourcechanges/exactorigin/report-onlypublication. Initialreview006 checkpointee32e819b39918556af28de54d24ef586ea4a297 retained. Independent006 exact reconciliation and canonicaldisposition RELEASED under WP-0009-eld-mapping-reviewer-reconciliation.md; actualdispatch PREPARED. No unseal/runtime.
+
+
+## WP-0009 source acceptance and exact unseal release (2026-11-16 UTC)
+
+Independent006 ACCEPTED/PUBLISHED89a27d8b13b280632f4fc0e6704f8c3bdfe74355; source23e023045b335540d830ce01b75be247552a63f1/tree59f66d0d3d9be145a43efcc9258eb260d3ef2f00. Root verified45 diff entries and2159 unchanged input files, exact origin and report-only publication; normally integrated. Final31 CPU checks pass; prior failed checks remain preserved. Root now explicitly unseals exact admitted corpus559c5d09490b7729be26fb9bf9d872305cae3303 via docs/coordination/WP-0009/unseal.json. Custodian010 and reviewer admission-evidence publication are RELEASED under their exact new kickoffs; actual dispatch PREPARED. All fresh inference007/008 stays held pending publication verification and separate observed finite lease.
+
+
+## WP-0009 exact fresh publication accepted;007 execution preparation (2026-11-16 UTC)
+
+Custodian010 PUBLISHED c723df666f9148747ff2d713867590789959b4a9, exact corpus c0a702e43efee7bda20b4da0bc2b0cb3f0852e41; root independently verified all40 admitted files/1,075,820bytes,52 deliverable entries,2171 preserved authority files and exact remote/report-only publication. Independent admission evidence publication68a2f9458851b8bf60b067b702261f63ff70b900 is accepted: all32 original artifacts exact,36 deliverable entries and2171 old files preserved. Both normally integrated. Root read-only model18objects/notice/host observations pass; Ollama server has no loaded models, no model runner observed; desktop sharing retained.007 is RELEASED for source preparation under WP-0009-eld-mapping-author-execution.md; actual inference awaits exact clean HEAD and separately bound finite author.json lease.008 remains held.
+
+
+## WP-0009 author finite runtime release (2026-11-16 UTC)
+
+Author confirmed clean executing HEAD2a3781745cb120f6e3eb22b234c111241ba8d8c9 and accepted mapping tree. Root retained fresh GPU/process/loaded-model observations and explicit ownership review at13b8a6d8e7fb896fa9ea4d4e90a8a528cc3dd5d4. Lease WP-0009-author-fresh-20261116T2052Z is GRANTED under exact docs/coordination/WP-0009/releases/author.json,6h ceiling, two excluded warmups plus four fixed fresh primary calls. Actual dispatch PREPARED; no run claimed yet. Same source/scorer/model and first-failure stop; no retries.007 publication remains pending;008 held until observed author return and separate release.
+
+
+WP-0009 author007 actual start2026-11-16T20:53:18.6090134Z: RUNNING_CONFIRMED, wrapper19996/supervisor32624/worker23516, tool session65622, run20261116T205320Z-67b42d6e. Exact authority6343ded1cd79b7c5b67b34893fe4516dc6845eb9 and clean executing2a3781745cb120f6e3eb22b234c111241ba8d8c9. Lease ACTIVE; final outcomes pending. See docs/coordination/WP-0009/author-dispatch.json.
+
+
+WP-0009 reviewer008 independent CPU comparison preparation is RELEASED under WP-0009-eld-mapping-reviewer-comparison-preparation.md, actual dispatch PREPARED. Own new008/preparation helpers only; no current author-output reads, no GPU/model or canonical008 publication until separate final release. Fixed WP09-F04-v0 sentinel unchanged.
+
+
+WP-0009 reviewer008 CPU preparation PUBLISHED a72735e43ce081e65d7be994f9df29f72ef1b300; helpera6209b0d3262f524e963bbc24981112cd31c6ebf, deliverable7445421ec871ac281d3976ef99a8395872c135cc. All19 synthetic checks pass; root verified five deliverable entries,2277 preserved base paths and exact origin, normally integrated025216409699e127793c5367a11ab3f083495e26. Reviewer IDLE awaiting author007 and separate actual sentinel release; canonical008 remains held.
+
+
+WP-0009 author007 actual model run COMPLETED (911.344s,2 warmups+4 primaries,all completed,no failure,worker0,post observers0/0); author tool65622 reports exit0. Exact clean-head CPU score-run also exit0. Root independently acknowledged lease WP-0009-author-fresh-20261116T2052Z RETURNED after18-object/notice verification, qualified host pass and bound PID absence; docs/coordination/WP-0009/author-after/lease-return.json. Author provisional fresh structured field/cell scores are zero for both mappings; independent reproduction/publication remains pending. No model tuning/retry follows.
+
+
+## WP-0009 independent sentinel sequencing clarification (2026-11-16 UTC)
+
+Root has independently acknowledged author lease return70d45a144f44b74e562c1dbe8fdcea16662e970b. Accepted source006, exact corpus010 and fixed pre-result WP09-F04-v0 sentinel are already bound. To overlap publication with independent runtime, reviewer008 sentinel preparation is RELEASED under WP-0009-eld-mapping-reviewer-execution.md while author007 packages evidence. This supersedes only earlier wording requiring author007 publication before sentinel execution:007 publication remains mandatory for independent CPU comparison/final008 acceptance. No source, schedule, selection, scope or lease condition changes. Actual sentinel inference awaits confirmed clean reviewer HEAD and a new exact observed reviewer.json lease. Actual dispatch PREPARED.
+
+
+WP-0009 reviewer008 confirmed/pushed clean executing HEAD69f7a79677b43228869d7c35bb5fb6d3e12e9291; exact accepted source/tree/protocol and52 source/40 corpus files verified. Root model18objects/notice/host/process ownership observations0aef94abf0c3bdbd2e7fad598a82069cac58d5a0 pass. Lease WP-0009-reviewer-sentinel-20261116T2114Z GRANTED under docs/coordination/WP-0009/releases/reviewer.json: two excluded historical warmups then only preselected three-page WP09-F04-v0 once,first failure stops/no retry. Actual dispatch PREPARED. Final author007 CPU reproduction and independent008 publication still depend on immutable author007 evidence.
+
+
+WP-0009 reviewer008 actual sentinel run RUNNING_CONFIRMED at2026-11-16T21:15:36.0831908Z, shell27828/supervisor33568/worker10708, tool96218/run20261116T211537Z-074ec88b. Bound clean executing69f7a79677b43228869d7c35bb5fb6d3e12e9291 and authoritye339bd4c8322a14fbff98d9299acede4b92c911f. Lease ACTIVE; final outcomes pending.
+
+
+## WP-0008 author003 published; independent004 released (2026-11-16 UTC)
+
+Carbon author ef53d3f3-ca53-482e-8fa7-a3cc1670564e completed SUCCESS/exit0. Source62e8666af747c0040942cee20c0ed34f4d747e93, evidence724e3b601e40a7dd102d486043dec555d508b466, report-only publicationb77bc68a5b6878d2395cd76b0d0a858ae15cc249 exact-origin verified. Root verified51 source inventory paths,18 protected identities,29 post-deliverable artifacts plus self-inventory,25 evidence files and stopped services. All author13 steps pass:9 worker CPU/85.NET/13Edge; actual PG+API restart/durable reopen. AngularCLI prose discrepancy22.0.5 versus actual pinned/installed22.2.7 explicitly routed for independent reconciliation.004 RELEASED under WP-0008-eld-f3-reviewer-acceptance.md to same independent Carbon reviewer025f1605-d7e3-4fea-8255-907c2b07b55f/high, actual dispatch PREPARED. Product not accepted/integrated yet.
+
+WP-0009 author007 PUBLISHED73b5c5d3ce123adc33ba0397dcc74029208606c5, evidence8372aa9d1d9304f19fe973d61485f04838ce42b9, inventorycd5a8873a5fb16cf7d5bc73ca3f22d7f650882c1. Root verified100 additions,91 copied original bytes,2272 unchanged prior files, report-only publication/exact origin. Exact independent comparison input is docs/coordination/WP-0009/author-comparison-input.json. Author outcome0/39 fields,0/90 cells,zero gains/losses remains pending008 independent acceptance; actual reviewer sentinel already running.
+
+
+WP-0008 independent004 actual Carbon acceptance RUNNING_CONFIRMED, same conversation025f1605-d7e3-4fea-8255-907c2b07b55f/modelgemini-4-carbon-high/high, CLI25360/tool85242. Exact authorityd38eca6b55b49a71f2bced304a486d9cf562487b and source62e8666af747c0040942cee20c0ed34f4d747e93; docs/coordination/WP-0008/acceptance-dispatch.json records init. Prior prep session ended before resume. Result pending; no author acceptance inferred.
+
+
+WP-0009 reviewer008 finite execution COMPLETED:624.703s,2excluded warmups+fixed WP09-F04-v0 all completed,actual tool96218 reports0,worker0,all24 observer commands0,no finalization error,CPU score-run0 at unchanged69f7a79677b43228869d7c35bb5fb6d3e12e9291. Root independently acknowledges lease WP-0009-reviewer-sentinel-20261116T2114Z RETURNED after18-object/notice/qualified host and scoped bound PID absence; docs/coordination/WP-0009/reviewer-after/lease-return.json. All task GPU leases returned; actual independent comparison/evidence publication008 still pending.
+
+
+Coordinator routing refresh: CURRENT.md now states only current WP-0008/WP-0009 states and links completed historical dispositions. Immutable reports/receipts remain in place; no acceptance or scope change. F3 independent004 and R&D independent008 remain running; all GPU leases returned.
+
+
+## WP-0009 final independent acceptance and integration (2026-11-16 UTC)
+
+Independent008 ACCEPTED/PUBLISHED187ca27ad2c6deb4a23b5fbecd47434ca286a829; deliverablead3181856b2e78f381739127d973e778bfccb1e4/inventory0e60ca0f2d27d20e0154807977aa83e825838998. Root verifies120 additions,57 original byte copies,2292 unchanged inputs, report-only publication/exact origin. All author4 scores reproduce; fixed actual sentinel raw/token/full-score/raster identities match. Both leases returned. Author007 and reviewer008 normally integrated32a129a2101d365243b43214217f00acbbf9c6dd. Final R&D disposition frozen next; coordinator009 follows integrated preservation audit. F3 independent004 continues separately; no mapper promotion or fresh benefit claimed.
+
+
+## WP-0009 completed coordinator closure (2026-11-16 UTC)
+
+Coordinator /009 ACCEPTED/PUBLISHED fd7caba783ee2e92820b18ec26119c9617a237a8; frozen deliverable 1b372490d3aa3a9f50d613eea09ad115bac39307, preservation evidence 7427fee28cf03299a78041c502421710c8153599. Normal push and exact origin verified. Complete audit passes 1,922 protected historical paths, 506 changed paths, five accepted source trees and all 11 R&D publication ancestries. Final disposition and publication receipt are in docs/coordination/WP-0009/final-disposition/. Historical 27 unique field gains/zero losses; fresh four-family B0/v1 predictions identical at 0/39 fields and 0/90 cells, no fresh benefit or promotion claim. Both GPU leases returned. WP-0009 is complete; F3 independent /004 continues, with coordinator /005 still reserved.
+
+
+## WP-0008 bounded presentation correction reservations (2026-11-16 UTC)
+
+Root observed routine review controls expose schema/field identifiers and full hashes in the default flow at source62e8666af747c0040942cee20c0ed34f4d747e93; exact finding is docs/coordination/WP-0008/presentation-observation.md. This is an existing F3 usability correction, no new feature or backend behavior. Original-source independent004 continues; final005 awaits final-source acceptance.
+
+| Reservation | Owner / category | Canonical path | State |
+| --- | --- | --- | --- |
+| WP-0008 /006 | eld-f3-implementer / implementation | docs/agent-reports/eld-f3-implementer/WP-0008/006_2026-11-16_implementation_eld-f3-implementer.md | RELEASED presentation-only correction under WP-0008-eld-f3-presentation-correction.md; actual same-Carbon dispatch PREPARED. |
+| WP-0008 /007 | eld-f3-reviewer / review | docs/agent-reports/eld-f3-reviewer/WP-0008/007_2026-11-16_review_eld-f3-reviewer.md | RESERVED/HELD until004 and exact006 publication; inspect final source and execute affected browser checks. |
