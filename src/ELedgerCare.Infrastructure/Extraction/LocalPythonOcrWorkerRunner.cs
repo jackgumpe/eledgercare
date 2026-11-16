@@ -120,39 +120,43 @@ public sealed class LocalPythonOcrWorkerRunner(ExtractionSettings settings) : IL
 
         long sharedLogBytes = 0;
         using var jobProcess = WindowsJobProcess.CreateSuspendedAssigned(venvPython, childArgs, runDir, childEnv);
-
-        // Persist launcher (PID, CreationTime) BEFORE ResumePrimaryThread so zero startup race exists.
-        var stillOwns = await onLauncherAssignedBeforeResumeAsync(
-            jobProcess.LauncherIdentity.Pid,
-            jobProcess.LauncherIdentity.CreateFileTime,
-            cancellationToken);
-        if (!stillOwns)
-        {
-            jobProcess.TerminateAllInJob(1);
-            await jobProcess.WaitForAllJobProcessesExitAsync(TimeSpan.FromSeconds(10));
-            return new WorkerRunOutcome(null, null, null, "attempt_fenced_out", "Attempt lost ownership before worker start.");
-        }
-
-        using var stdoutPipe = jobProcess.OpenStandardOutputReadStream();
-        using var stderrPipe = jobProcess.OpenStandardErrorReadStream();
-        jobProcess.ResumePrimaryThread();
-
-        var stdoutPump = PumpBoundedLogAsync(stdoutPipe, stdoutLogPath, bytes => Interlocked.Add(ref sharedLogBytes, bytes));
-        var stderrPump = PumpBoundedLogAsync(stderrPipe, stderrLogPath, bytes => Interlocked.Add(ref sharedLogBytes, bytes));
-
+        Stream? stdoutPipe = null;
+        Stream? stderrPipe = null;
+        Task? stdoutPump = null;
+        Task? stderrPump = null;
         string? abortCode = null;
         string? abortDetail = null;
-        var sw = Stopwatch.StartNew();
-        var currentPhase = "starting";
-        var phaseStartedAt = sw.Elapsed;
-        var phaseTimeoutSeconds = ExtractionCeilings.LoadTimeoutSeconds;
-        var lastForwardProgress = 0L;
-        var lastProgressAt = sw.Elapsed;
-        var sessionCapSeconds = ExtractionCeilings.LoadTimeoutSeconds + callTimeoutSeconds + 300;
         int? exitCode = null;
 
         try
         {
+            // Persist launcher (PID, CreationTime) BEFORE ResumePrimaryThread so zero startup race exists.
+            var stillOwns = await onLauncherAssignedBeforeResumeAsync(
+                jobProcess.LauncherIdentity.Pid,
+                jobProcess.LauncherIdentity.CreateFileTime,
+                cancellationToken);
+            if (!stillOwns)
+            {
+                jobProcess.TerminateAllInJob(1);
+                await jobProcess.WaitForAllJobProcessesExitAsync(TimeSpan.FromSeconds(10));
+                return new WorkerRunOutcome(null, null, null, "attempt_fenced_out", "Attempt lost ownership before worker start.");
+            }
+
+            stdoutPipe = jobProcess.OpenStandardOutputReadStream();
+            stderrPipe = jobProcess.OpenStandardErrorReadStream();
+            jobProcess.ResumePrimaryThread();
+
+            stdoutPump = PumpBoundedLogAsync(stdoutPipe, stdoutLogPath, bytes => Interlocked.Add(ref sharedLogBytes, bytes));
+            stderrPump = PumpBoundedLogAsync(stderrPipe, stderrLogPath, bytes => Interlocked.Add(ref sharedLogBytes, bytes));
+
+            var sw = Stopwatch.StartNew();
+            var currentPhase = "starting";
+            var phaseStartedAt = sw.Elapsed;
+            var phaseTimeoutSeconds = ExtractionCeilings.LoadTimeoutSeconds;
+            var lastForwardProgress = 0L;
+            var lastProgressAt = sw.Elapsed;
+            var sessionCapSeconds = ExtractionCeilings.LoadTimeoutSeconds + callTimeoutSeconds + 300;
+
             while (true)
             {
                 cancellationToken.ThrowIfCancellationRequested();
@@ -238,12 +242,35 @@ public sealed class LocalPythonOcrWorkerRunner(ExtractionSettings settings) : IL
         }
         finally
         {
-            if (abortCode is not null || cancellationToken.IsCancellationRequested)
+            // F2-S1-02: Guarantee owned Job Object termination & child exit on EVERY non-normal path
+            // BEFORE awaiting stdio pumps, with bounded cleanup that never masks primary exceptions.
+            if (exitCode is null)
             {
                 jobProcess.TerminateAllInJob(1);
+                try
+                {
+                    await jobProcess.WaitForAllJobProcessesExitAsync(TimeSpan.FromSeconds(10)).ConfigureAwait(false);
+                }
+                catch
+                {
+                    // Preserve original exception.
+                }
             }
 
-            await Task.WhenAll(stdoutPump, stderrPump).ConfigureAwait(false);
+            if (stdoutPump is not null && stderrPump is not null)
+            {
+                try
+                {
+                    await Task.WhenAll(stdoutPump, stderrPump).WaitAsync(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
+                }
+                catch
+                {
+                    // Disposing pipes below unblocks any lingering reader without masking primary exception.
+                }
+            }
+
+            stdoutPipe?.Dispose();
+            stderrPipe?.Dispose();
         }
 
         byte[]? envelopeBytes = null;
@@ -406,39 +433,231 @@ public sealed class LocalPythonOcrWorkerRunner(ExtractionSettings settings) : IL
         }
     }
 
-    private static bool CheckStorageBounds(string writableRoot, out string failureDetail)
+    private const int MaxStorageScanDepth = 32;
+    private const int MaxStorageScanEntries = 100_000;
+    private static readonly EnumerationOptions SingleLevelScanOptions = new()
+    {
+        RecurseSubdirectories = false,
+        IgnoreInaccessible = false,
+        AttributesToSkip = 0,
+    };
+
+    public static bool CheckStorageBounds(string writableRoot, out string failureDetail)
     {
         failureDetail = string.Empty;
+        if (string.IsNullOrWhiteSpace(writableRoot) || !Directory.Exists(writableRoot))
+        {
+            failureDetail = "Configured writable F2 runtime root does not exist.";
+            return false;
+        }
+
+        bool rootReparse;
+        try
+        {
+            rootReparse = IsReparsePoint(writableRoot);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            failureDetail = "Unable to inspect local OCR runtime root attributes safely.";
+            return false;
+        }
+
+        if (rootReparse)
+        {
+            failureDetail = "Configured writable F2 runtime root must not be a symlink or reparse point.";
+            return false;
+        }
+
         var rootDrive = Path.GetPathRoot(writableRoot);
         if (!string.IsNullOrWhiteSpace(rootDrive))
         {
-            var drive = new DriveInfo(rootDrive);
-            if (drive.AvailableFreeSpace < ExtractionCeilings.MinFreeDiskBytes)
+            try
             {
-                failureDetail = "Available free disk space fell below the 20 GiB safety floor.";
+                var drive = new DriveInfo(rootDrive);
+                if (drive.AvailableFreeSpace < ExtractionCeilings.MinFreeDiskBytes)
+                {
+                    failureDetail = "Available free disk space fell below the 20 GiB safety floor.";
+                    return false;
+                }
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                failureDetail = "Unable to verify free disk space floor safely.";
                 return false;
             }
         }
 
         long used = 0;
-        foreach (var file in Directory.EnumerateFiles(writableRoot, "*", SearchOption.AllDirectories))
+        var inspectedEntries = 0;
+        var fullRoot = Path.GetFullPath(writableRoot);
+        var stack = new Stack<(string DirPath, int Depth)>();
+        stack.Push((fullRoot, 0));
+
+        while (stack.Count > 0)
         {
-            try
+            var (curDir, depth) = stack.Pop();
+            if (depth > MaxStorageScanDepth)
             {
-                used += new FileInfo(file).Length;
-            }
-            catch (IOException)
-            {
+                failureDetail = "Local OCR runtime directory nesting exceeded bounded scan depth.";
+                return false;
             }
 
-            if (used > ExtractionCeilings.MaxRuntimeRootBytes)
+            List<FileSystemInfo>? entries = null;
+            DateTime? prevCreationUtc = null;
+            var resolved = false;
+
+            for (var attempt = 0; attempt < 6; attempt++)
             {
-                failureDetail = "Local OCR runtime directory exceeded the 4 GiB storage ceiling.";
+                try
+                {
+                    entries = [.. new DirectoryInfo(curDir).EnumerateFileSystemInfos("*", SingleLevelScanOptions)];
+                    resolved = true;
+                    break;
+                }
+                catch (Exception ex) when (ex is DirectoryNotFoundException or FileNotFoundException)
+                {
+                    entries = null;
+                    resolved = true;
+                    break;
+                }
+                catch (Exception ex) when (ex is UnauthorizedAccessException or IOException)
+                {
+                    var curCreation = TryGetDirectoryCreationUtc(curDir);
+                    if (curCreation is null)
+                    {
+                        // Directory vanished concurrently (e.g. NTFS STATUS_DELETE_PENDING completed).
+                        entries = null;
+                        resolved = true;
+                        break;
+                    }
+
+                    if (prevCreationUtc is not null && curCreation.Value == prevCreationUtc.Value && attempt >= 3)
+                    {
+                        // Same persistent directory instance remained unreadable across retries: fail closed.
+                        failureDetail = "Unable to inspect local OCR runtime storage directory safely.";
+                        return false;
+                    }
+
+                    prevCreationUtc = curCreation;
+                    Thread.Sleep(2 * (attempt + 1));
+                }
+            }
+
+            if (!resolved)
+            {
+                // Directory CreationTimeUtc changed across every retry due to rapid delete/recreate churn in cache.
+                if (IsInsideRunCacheOrTemp(fullRoot, curDir))
+                {
+                    continue;
+                }
+
+                failureDetail = "Unable to inspect local OCR runtime storage directory safely.";
                 return false;
+            }
+
+            if (entries is null)
+            {
+                continue;
+            }
+
+            foreach (var entry in entries)
+            {
+                inspectedEntries++;
+                if (inspectedEntries > MaxStorageScanEntries)
+                {
+                    failureDetail = "Local OCR runtime directory entry count exceeded bounded scan limit.";
+                    return false;
+                }
+
+                FileAttributes attrs;
+                try
+                {
+                    attrs = entry.Attributes;
+                }
+                catch (Exception ex) when (ex is FileNotFoundException or DirectoryNotFoundException)
+                {
+                    continue;
+                }
+                catch (Exception ex) when (ex is UnauthorizedAccessException or IOException)
+                {
+                    Thread.Sleep(2);
+                    if (!Path.Exists(entry.FullName))
+                    {
+                        continue;
+                    }
+
+                    failureDetail = "Unable to inspect local OCR runtime entry attributes safely.";
+                    return false;
+                }
+
+                if ((attrs & FileAttributes.ReparsePoint) != 0)
+                {
+                    failureDetail = "Reparse point or symlink detected inside local OCR runtime directory.";
+                    return false;
+                }
+
+                if ((attrs & FileAttributes.Directory) != 0)
+                {
+                    stack.Push((entry.FullName, depth + 1));
+                }
+                else if (entry is FileInfo fi)
+                {
+                    long len;
+                    try
+                    {
+                        len = fi.Length;
+                    }
+                    catch (Exception ex) when (ex is FileNotFoundException or DirectoryNotFoundException)
+                    {
+                        continue;
+                    }
+                    catch (Exception ex) when (ex is UnauthorizedAccessException or IOException)
+                    {
+                        Thread.Sleep(2);
+                        if (!File.Exists(fi.FullName))
+                        {
+                            continue;
+                        }
+
+                        failureDetail = "Unable to inspect local OCR runtime file size safely.";
+                        return false;
+                    }
+
+                    used += len;
+                    if (used > ExtractionCeilings.MaxRuntimeRootBytes)
+                    {
+                        failureDetail = "Local OCR runtime directory exceeded the 4 GiB storage ceiling.";
+                        return false;
+                    }
+                }
             }
         }
 
         return true;
+    }
+
+    private static DateTime? TryGetDirectoryCreationUtc(string dirPath)
+    {
+        try
+        {
+            if (!Directory.Exists(dirPath))
+            {
+                return null;
+            }
+
+            return Directory.GetCreationTimeUtc(dirPath);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            return Directory.Exists(dirPath) ? DateTime.MinValue : null;
+        }
+    }
+
+    private static bool IsInsideRunCacheOrTemp(string fullRoot, string candidateDir)
+    {
+        var rel = Path.GetRelativePath(fullRoot, candidateDir).Replace('\\', '/');
+        return rel.StartsWith("runs/", StringComparison.OrdinalIgnoreCase) &&
+               rel.Contains("/cache/", StringComparison.OrdinalIgnoreCase);
     }
 
     private static bool IsReparsePoint(string path) =>

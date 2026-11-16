@@ -6,7 +6,14 @@ import argparse
 from pathlib import Path
 import sys
 
-from local_ocr.worker import execute_request_file
+# F2-S1-01: Under CPython `-I` (isolated mode, which enables `-P` safe_path), the script's directory
+# is omitted from sys.path when launched from an external attempt run directory. Prepend only the
+# resolved worker root while keeping `-I` isolation (no cwd, PYTHONPATH, or user-site on sys.path).
+WORKER_ROOT = Path(__file__).resolve().parent
+if str(WORKER_ROOT) not in sys.path:
+    sys.path.insert(0, str(WORKER_ROOT))
+
+from local_ocr.worker import execute_request_file  # noqa: E402
 
 
 def main(argv: list[str] | None = None) -> int:

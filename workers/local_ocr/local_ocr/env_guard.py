@@ -9,11 +9,16 @@ import json
 import os
 import re
 import shutil
+import stat
 import threading
 import time
 from pathlib import Path
 
 from .protocol import MAX_RUNTIME_ROOT_BYTES, MIN_FREE_DISK_BYTES, WorkerError
+
+_REPARSE_ATTR = getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
+MAX_STORAGE_SCAN_DEPTH = 32
+MAX_STORAGE_SCAN_ENTRIES = 100_000
 
 FORBIDDEN_EXACT = {
     "TIME_DIAG", "TIME_DIAG_INTERVAL", "WARMUP_MAIN_LOCAL_WINDOW", "PAGE_SCOPE_PREFILL",
@@ -128,16 +133,90 @@ def audit_worker_environment(
             )
 
 
+def _is_link_or_reparse_stat(st: os.stat_result) -> bool:
+    return stat.S_ISLNK(st.st_mode) or bool(getattr(st, "st_file_attributes", 0) & _REPARSE_ATTR)
+
+
 def directory_size_bytes(root: Path) -> int:
+    """Bounded, reparse-aware directory byte accounting tolerant of transient deletions only."""
     if not root.exists():
         return 0
+    root_st = os.lstat(root)
+    if _is_link_or_reparse_stat(root_st):
+        raise WorkerError("storage_limit_exceeded", "Writable runtime root must not be a symlink or reparse point.")
+
     total = 0
-    for dirpath, _, filenames in os.walk(root, followlinks=False):
-        for fn in filenames:
+    inspected = 0
+    stack: list[tuple[Path, int]] = [(root, 0)]
+
+    while stack:
+        cur_dir, depth = stack.pop()
+        if depth > MAX_STORAGE_SCAN_DEPTH:
+            raise WorkerError("storage_limit_exceeded", "Runtime directory nesting exceeded bounded scan depth.")
+
+        entries = None
+        prev_ctime = None
+        for attempt in range(5):
             try:
-                total += (Path(dirpath) / fn).stat().st_size
-            except OSError:
-                pass
+                with os.scandir(cur_dir) as it:
+                    entries = list(it)
+                break
+            except FileNotFoundError:
+                entries = None
+                break
+            except OSError as exc:
+                try:
+                    cur_st = os.lstat(cur_dir)
+                except FileNotFoundError:
+                    entries = None
+                    break
+                except OSError:
+                    if attempt == 4:
+                        raise WorkerError(
+                            "storage_limit_exceeded",
+                            f"Unable to inspect runtime directory safely ({type(exc).__name__}).",
+                        ) from exc
+                    time.sleep(0.002 * (attempt + 1))
+                    continue
+
+                if prev_ctime is not None and cur_st.st_ctime_ns == prev_ctime and attempt >= 2:
+                    raise WorkerError(
+                        "storage_limit_exceeded",
+                        f"Persistent permission or I/O error inspecting runtime directory ({type(exc).__name__}).",
+                    ) from exc
+                prev_ctime = cur_st.st_ctime_ns
+                time.sleep(0.002 * (attempt + 1))
+
+        if entries is None:
+            continue
+
+        for entry in entries:
+            inspected += 1
+            if inspected > MAX_STORAGE_SCAN_ENTRIES:
+                raise WorkerError("storage_limit_exceeded", "Runtime directory entry count exceeded bounded scan limit.")
+            try:
+                st = entry.stat(follow_symlinks=False)
+            except FileNotFoundError:
+                continue
+            except OSError as exc:
+                time.sleep(0.002)
+                if not os.path.lexists(entry.path):
+                    continue
+                raise WorkerError(
+                    "storage_limit_exceeded",
+                    f"Unable to stat runtime entry safely ({type(exc).__name__}).",
+                ) from exc
+
+            if _is_link_or_reparse_stat(st):
+                raise WorkerError(
+                    "storage_limit_exceeded",
+                    "Symlink or reparse point detected inside writable runtime directory.",
+                )
+            if stat.S_ISDIR(st.st_mode):
+                stack.append((Path(entry.path), depth + 1))
+            elif stat.S_ISREG(st.st_mode):
+                total += int(st.st_size)
+
     return total
 
 

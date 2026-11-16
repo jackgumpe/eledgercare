@@ -1,0 +1,33 @@
+$ dotnet test --solution ELedgerCare.slnx -c Release --no-build
+--- STDOUT ---
+Running tests from C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Domain.Tests\bin\Release\net10.0\ELedgerCare.Domain.Tests.dll (net10.0|x64)
+Running tests from C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Infrastructure.Tests\bin\Release\net10.0\ELedgerCare.Infrastructure.Tests.dll (net10.0|x64)
+C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Domain.Tests\bin\Release\net10.0\ELedgerCare.Domain.Tests.dll (net10.0|x64) passed (657ms)
+Running tests from C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Acceptance.Tests\bin\Release\net10.0\ELedgerCare.Acceptance.Tests.dll (net10.0|x64)
+C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Infrastructure.Tests\bin\Release\net10.0\ELedgerCare.Infrastructure.Tests.dll (net10.0|x64) passed (10s 006ms)
+failed ELedgerCare.Acceptance.Tests.LocalExtractionAcceptanceTests.F2_S1_02_F2_S1_03_postgres_diagnostic_sanitization_and_same_instance_orphaned_attempt_recovery (4s 220ms)
+  from C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Acceptance.Tests\bin\Release\net10.0\ELedgerCare.Acceptance.Tests.dll (net10.0|x64)
+  Assert.True() Failure
+  Expected: True
+  Actual:   False
+    at ELedgerCare.Acceptance.Tests.LocalExtractionAcceptanceTests.F2_S1_02_F2_S1_03_postgres_diagnostic_sanitization_and_same_instance_orphaned_attempt_recovery() in C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Acceptance.Tests\LocalExtractionAcceptanceTests.cs:598
+    at ELedgerCare.Acceptance.Tests.LocalExtractionAcceptanceTests.F2_S1_02_F2_S1_03_postgres_diagnostic_sanitization_and_same_instance_orphaned_attempt_recovery() in C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Acceptance.Tests\LocalExtractionAcceptanceTests.cs:650
+    at ELedgerCare.Acceptance.Tests.LocalExtractionAcceptanceTests.F2_S1_02_F2_S1_03_postgres_diagnostic_sanitization_and_same_instance_orphaned_attempt_recovery() in C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Acceptance.Tests\LocalExtractionAcceptanceTests.cs:650
+    --- End of stack trace from previous location ---
+C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Acceptance.Tests\bin\Release\net10.0\ELedgerCare.Acceptance.Tests.dll (net10.0|x64) failed with 1 error(s) (1m 38s 677ms)
+Exit code: 2
+
+Test run summary: Failed!
+  C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Infrastructure.Tests\bin\Release\net10.0\ELedgerCare.Infrastructure.Tests.dll (net10.0|x64) passed (10s 006ms)
+  C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Domain.Tests\bin\Release\net10.0\ELedgerCare.Domain.Tests.dll (net10.0|x64) passed (657ms)
+  C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\tests\ELedgerCare.Acceptance.Tests\bin\Release\net10.0\ELedgerCare.Acceptance.Tests.dll (net10.0|x64) failed with 1 error(s) (1m 38s 677ms)
+
+  total: 74
+  failed: 1
+  succeeded: 73
+  skipped: 0
+  duration: 1m 39s 803ms
+Test run completed with non-success exit code: 2 (see: https://aka.ms/testingplatform/exitcodes)
+
+--- STDERR ---
+

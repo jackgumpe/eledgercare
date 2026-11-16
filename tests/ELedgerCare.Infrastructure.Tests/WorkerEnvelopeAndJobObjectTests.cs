@@ -423,6 +423,333 @@ public sealed class WorkerEnvelopeAndJobObjectTests
             try { Directory.Delete(tempDir, recursive: true); } catch { /* best effort */ }
         }
     }
+
+    /// <summary>
+    /// F2-S1-01: runs the real LocalPythonOcrWorkerRunner -> WindowsJobProcess -> venv python.exe -I -B -X utf8 -u
+    /// -> workers/local_ocr/run_worker.py from an external runDir (with no torch/model libraries installed),
+    /// proving run_worker.py resolves local_ocr cleanly under -I, writes heartbeat.json + envelope.json,
+    /// and validates as structured dependency_lock_mismatch (zero ModuleNotFoundError).
+    /// </summary>
+    [Fact]
+    public async Task F2_S1_01_LocalPythonOcrWorkerRunner_executes_isolated_run_worker_from_external_venv_and_parses_envelope()
+    {
+        var ct = TestContext.Current.CancellationToken;
+        var tempRoot = Path.Combine(Path.GetTempPath(), $"elc-s1-01-{Guid.NewGuid():N}");
+        var fakeQ0 = Path.Combine(tempRoot, "q0");
+        var fakeRt = Path.Combine(tempRoot, "rt");
+        Directory.CreateDirectory(fakeQ0);
+        Directory.CreateDirectory(fakeRt);
+
+        try
+        {
+            var hostPy = ResolveHostPythonExe();
+            using (var venvProc = Process.Start(new ProcessStartInfo(hostPy)
+            {
+                ArgumentList = { "-m", "venv", "--without-pip", Path.Combine(fakeQ0, "venv") },
+                UseShellExecute = false,
+                CreateNoWindow = true,
+            })!)
+            {
+                await venvProc.WaitForExitAsync(ct);
+                Assert.Equal(0, venvProc.ExitCode);
+            }
+
+            Directory.CreateDirectory(Path.Combine(fakeQ0, "models", "Unlimited_OCR_2_04809669"));
+            Directory.CreateDirectory(Path.Combine(fakeQ0, "notices", "Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a"));
+
+            var (baseSettings, work) = CreatePinnedContext(pageCount: 1);
+            var enabledSettings = new ExtractionSettings(
+                enabled: true,
+                maxExtractionPages: 3,
+                readOnlyQ0Root: fakeQ0,
+                writableRuntimeRoot: fakeRt,
+                leasedGpuUuid: "GPU-00000000-0000-0000-0000-000000000000",
+                workerRootPath: baseSettings.WorkerRootPath,
+                modelManifestSha256: baseSettings.ModelManifestSha256,
+                dependencyLockSha256: baseSettings.DependencyLockSha256,
+                workerSourceSha256: baseSettings.WorkerSourceSha256);
+
+            var runner = new LocalPythonOcrWorkerRunner(enabledSettings);
+            var probe = new WindowsProcessIdentityProbe();
+            int capturedLauncherPid = 0;
+            long capturedLauncherFt = 0;
+
+            var outcome = await runner.ExecuteAttemptAsync(
+                work,
+                (pid, ft, _) =>
+                {
+                    capturedLauncherPid = pid;
+                    capturedLauncherFt = ft;
+                    return Task.FromResult(true);
+                },
+                (_, _, _, _) => Task.FromResult(true),
+                ct);
+
+            var runOutDir = Path.Combine(fakeRt, "runs", work.RunDirectoryName, "output");
+            var stderrLog = await File.ReadAllTextAsync(Path.Combine(runOutDir, "child.stderr.log"), ct);
+
+            Assert.DoesNotContain("ModuleNotFoundError", stderrLog, StringComparison.Ordinal);
+            Assert.Equal(2, outcome.ExitCode);
+            Assert.NotNull(outcome.EnvelopeJsonBytes);
+            Assert.True(File.Exists(Path.Combine(runOutDir, "heartbeat.json")));
+            Assert.False(probe.IsProcessAlive(capturedLauncherPid, capturedLauncherFt));
+
+            var validated = Assert.IsType<EnvelopeValidationOutcome.Rejected>(
+                WorkerEnvelopeValidator.Validate(work, enabledSettings, outcome, Now));
+            Assert.Equal("dependency_lock_mismatch", validated.FailureCode);
+        }
+        finally
+        {
+            try { Directory.Delete(tempRoot, recursive: true); } catch { /* best effort */ }
+        }
+    }
+
+    /// <summary>
+    /// F2-S1-02: proves CheckStorageBounds tolerates heavy multi-threaded NTFS cache subdirectory churn
+    /// without throwing, while failing closed (false) on reparse points and persistent unreadable directories.
+    /// </summary>
+    [Fact]
+    public async Task F2_S1_02_CheckStorageBounds_survives_concurrent_ntfs_subdir_churn_and_rejects_reparse_and_locked_dirs()
+    {
+        var ct = TestContext.Current.CancellationToken;
+        var tempRt = Path.Combine(Path.GetTempPath(), $"elc-s1-02-storage-{Guid.NewGuid():N}");
+        Directory.CreateDirectory(tempRt);
+        string? aclLockedDir = null;
+
+        try
+        {
+            for (var s = 0; s < 16; s++)
+            {
+                var seedDir = Path.Combine(tempRt, "runs", "attempt-1", "cache", $"seed-{s:D2}");
+                Directory.CreateDirectory(seedDir);
+                await File.WriteAllBytesAsync(Path.Combine(seedDir, "blob.bin"), [1, 2, 3, 4], ct);
+            }
+
+            // 1. 4-thread rapid subdirectory create/write/delete churn on same %16 names: zero exceptions!
+            using (var churnCts = CancellationTokenSource.CreateLinkedTokenSource(ct))
+            {
+                churnCts.CancelAfter(TimeSpan.FromSeconds(4));
+                var churnTasks = Enumerable.Range(0, 4).Select(workerIdx => Task.Run(() =>
+                {
+                    var seq = 0;
+                    while (!churnCts.IsCancellationRequested)
+                    {
+                        var sub = Path.Combine(tempRt, "runs", "attempt-1", "cache", "tmp", $"w{workerIdx}-transient-{seq++ % 16}");
+                        try
+                        {
+                            Directory.CreateDirectory(sub);
+                            for (var f = 0; f < 6; f++)
+                            {
+                                File.WriteAllBytes(Path.Combine(sub, $"part-{f}.tmp"), [1, 2, 3, 4]);
+                            }
+
+                            Directory.Delete(sub, recursive: true);
+                        }
+                        catch
+                        {
+                            // Expected concurrent churn races among worker threads.
+                        }
+                    }
+                }, CancellationToken.None)).ToArray();
+
+                for (var iter = 0; iter < 1200 && !churnCts.IsCancellationRequested; iter++)
+                {
+                    Assert.True(LocalPythonOcrWorkerRunner.CheckStorageBounds(tempRt, out var err), $"Failed on iter {iter}: {err}");
+                }
+
+                await churnCts.CancelAsync();
+                try { await Task.WhenAll(churnTasks); } catch { /* best effort */ }
+            }
+
+            // 2. Reparse point (NTFS directory junction) inside writableRoot fails closed.
+            var outsideTarget = Path.Combine(Path.GetTempPath(), $"elc-s1-02-target-{Guid.NewGuid():N}");
+            var junctionPath = Path.Combine(tempRt, "runs", "junction-escape");
+            Directory.CreateDirectory(outsideTarget);
+            try
+            {
+                using (var mklink = Process.Start(new ProcessStartInfo("cmd.exe")
+                {
+                    ArgumentList = { "/c", "mklink", "/J", junctionPath, outsideTarget },
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                })!)
+                {
+                    await mklink.WaitForExitAsync(ct);
+                    Assert.Equal(0, mklink.ExitCode);
+                }
+
+                Assert.False(LocalPythonOcrWorkerRunner.CheckStorageBounds(tempRt, out var reparseDetail));
+                Assert.Contains("Reparse point", reparseDetail, StringComparison.OrdinalIgnoreCase);
+            }
+            finally
+            {
+                if (Directory.Exists(junctionPath))
+                {
+                    Directory.Delete(junctionPath, recursive: false);
+                }
+
+                try { Directory.Delete(outsideTarget, recursive: true); } catch { /* best effort */ }
+            }
+
+            // 3. Persistent unreadable directory (NTFS DENY ListDirectory ACL for Everyone S-1-1-0) fails closed instead of being swallowed.
+            aclLockedDir = Path.Combine(tempRt, "runs", "locked-persistent");
+            Directory.CreateDirectory(aclLockedDir);
+            await File.WriteAllBytesAsync(Path.Combine(aclLockedDir, "hidden.bin"), [9, 9, 9], ct);
+            using (var denyProc = Process.Start(new ProcessStartInfo("icacls.exe")
+            {
+                ArgumentList = { aclLockedDir, "/deny", "*S-1-1-0:(RD)" },
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+            })!)
+            {
+                await denyProc.WaitForExitAsync(ct);
+                Assert.Equal(0, denyProc.ExitCode);
+            }
+
+            Assert.False(LocalPythonOcrWorkerRunner.CheckStorageBounds(tempRt, out var aclDetail));
+            Assert.Contains("Unable to inspect", aclDetail, StringComparison.OrdinalIgnoreCase);
+        }
+        finally
+        {
+            if (aclLockedDir is not null && Directory.Exists(aclLockedDir))
+            {
+                try
+                {
+                    using var resetProc = Process.Start(new ProcessStartInfo("icacls.exe")
+                    {
+                        ArgumentList = { aclLockedDir, "/reset" },
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                    })!;
+                    resetProc.WaitForExit(5000);
+                }
+                catch { /* best effort */ }
+            }
+
+            try { Directory.Delete(tempRt, recursive: true); } catch { /* best effort */ }
+        }
+    }
+
+    /// <summary>
+    /// F2-S1-02: proves ExecuteAttemptAsync terminates both the venv launcher and its spawned grandchild
+    /// BEFORE awaiting stdio pipe drain whenever a supervision callback throws mid-flight, returning promptly
+    /// without hanging on open pipes and propagating the original exception.
+    /// </summary>
+    [Fact]
+    public async Task F2_S1_02_ExecuteAttemptAsync_terminates_launcher_and_grandchild_before_pipe_drain_when_callback_throws()
+    {
+        var ct = TestContext.Current.CancellationToken;
+        var rootDir = Path.Combine(Path.GetTempPath(), $"elc-s1-02-pipe-{Guid.NewGuid():N}");
+        var fakeQ0 = Path.Combine(rootDir, "q0");
+        var fakeRt = Path.Combine(rootDir, "rt");
+        var fakeWorkerRoot = Path.Combine(rootDir, "worker");
+        Directory.CreateDirectory(fakeQ0);
+        Directory.CreateDirectory(fakeRt);
+        Directory.CreateDirectory(Path.Combine(fakeWorkerRoot, "local_ocr"));
+
+        try
+        {
+            var hostPy = ResolveHostPythonExe();
+            using (var venvProc = Process.Start(new ProcessStartInfo(hostPy)
+            {
+                ArgumentList = { "-m", "venv", "--without-pip", Path.Combine(fakeQ0, "venv") },
+                UseShellExecute = false,
+                CreateNoWindow = true,
+            })!)
+            {
+                await venvProc.WaitForExitAsync(ct);
+                Assert.Equal(0, venvProc.ExitCode);
+            }
+
+            Directory.CreateDirectory(Path.Combine(fakeQ0, "models", "Unlimited_OCR_2_04809669"));
+            Directory.CreateDirectory(Path.Combine(fakeQ0, "notices", "Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a"));
+
+            // Worker spawns a grandchild python holding inherited stdout/stderr open for 60s.
+            const string workerPy = """
+                import ctypes, ctypes.wintypes, json, os, pathlib, subprocess, sys, time
+                grandchild_code = (
+                    "import ctypes, ctypes.wintypes, json, os, pathlib, sys, time\n"
+                    "k32 = ctypes.WinDLL('kernel32', use_last_error=True)\n"
+                    "k32.GetCurrentProcess.restype = ctypes.wintypes.HANDLE\n"
+                    "k32.GetProcessTimes.argtypes = [ctypes.wintypes.HANDLE] + [ctypes.POINTER(ctypes.wintypes.FILETIME)]*4\n"
+                    "k32.GetProcessTimes.restype = ctypes.wintypes.BOOL\n"
+                    "c, e, kt, ut = ctypes.wintypes.FILETIME(), ctypes.wintypes.FILETIME(), ctypes.wintypes.FILETIME(), ctypes.wintypes.FILETIME()\n"
+                    "k32.GetProcessTimes(k32.GetCurrentProcess(), ctypes.byref(c), ctypes.byref(e), ctypes.byref(kt), ctypes.byref(ut))\n"
+                    "ft = (int(c.dwHighDateTime) << 32) | int(c.dwLowDateTime)\n"
+                    "p = pathlib.Path('output/grandchild.json')\n"
+                    "p.write_text(json.dumps({'pid': os.getpid(), 'create_filetime': ft}), encoding='utf-8')\n"
+                    "print('grandchild holding pipe', flush=True)\n"
+                    "time.sleep(60)\n"
+                )
+                child = subprocess.Popen([sys.executable, "-c", grandchild_code])
+                sys.exit(child.wait())
+                """;
+            await File.WriteAllTextAsync(Path.Combine(fakeWorkerRoot, "local_ocr", "__init__.py"), string.Empty, ct);
+            await File.WriteAllTextAsync(Path.Combine(fakeWorkerRoot, "run_worker.py"), workerPy, ct);
+
+            var (baseSettings, work) = CreatePinnedContext(pageCount: 1);
+            var fakeWorkerSha = ExtractionSettings.ComputeWorkerSourceSha256(fakeWorkerRoot);
+            var settings = new ExtractionSettings(
+                enabled: true,
+                maxExtractionPages: 3,
+                readOnlyQ0Root: fakeQ0,
+                writableRuntimeRoot: fakeRt,
+                leasedGpuUuid: "GPU-00000000-0000-0000-0000-000000000000",
+                workerRootPath: fakeWorkerRoot,
+                modelManifestSha256: baseSettings.ModelManifestSha256,
+                dependencyLockSha256: baseSettings.DependencyLockSha256,
+                workerSourceSha256: fakeWorkerSha);
+
+            var runner = new LocalPythonOcrWorkerRunner(settings);
+            var probe = new WindowsProcessIdentityProbe();
+            var grandchildPath = Path.Combine(fakeRt, "runs", work.RunDirectoryName, "output", "grandchild.json");
+
+            int launcherPid = 0;
+            long launcherFt = 0;
+            OsProcessIdentity grandchild = default;
+
+            var thrown = await Assert.ThrowsAsync<InvalidOperationException>(() =>
+                runner.ExecuteAttemptAsync(
+                    work,
+                    (pid, ft, _) =>
+                    {
+                        launcherPid = pid;
+                        launcherFt = ft;
+                        return Task.FromResult(true);
+                    },
+                    async (_, _, _, innerCt) =>
+                    {
+                        if (!File.Exists(grandchildPath))
+                        {
+                            return true;
+                        }
+
+                        using var doc = JsonDocument.Parse(await File.ReadAllTextAsync(grandchildPath, innerCt));
+                        grandchild = new OsProcessIdentity(
+                            doc.RootElement.GetProperty("pid").GetInt32(),
+                            doc.RootElement.GetProperty("create_filetime").GetInt64());
+                        Assert.True(probe.IsProcessAlive(launcherPid, launcherFt));
+                        Assert.True(probe.IsProcessAlive(grandchild.Pid, grandchild.CreateFileTime));
+                        throw new InvalidOperationException("Simulated mid-run DB failure");
+                    },
+                    ct).WaitAsync(TimeSpan.FromSeconds(15), ct));
+
+            Assert.Equal("Simulated mid-run DB failure", thrown.Message);
+            Assert.True(grandchild.Pid > 0);
+            Assert.False(probe.IsProcessAlive(launcherPid, launcherFt));
+            Assert.False(probe.IsProcessAlive(grandchild.Pid, grandchild.CreateFileTime));
+        }
+        finally
+        {
+            try { Directory.Delete(rootDir, recursive: true); } catch { /* best effort */ }
+        }
+    }
 }
 
 public sealed class ExternalJobSupervisorHelper

@@ -196,13 +196,16 @@ public sealed class ExecutionAttempt
         ArgumentException.ThrowIfNullOrWhiteSpace(failureDetail);
         Status = AttemptStatus.Failed;
         Phase = AttemptStatusNames.Failed;
-        FailureCode = failureCode;
-        FailureDetail = Truncate(failureDetail, MaxFailureDetailLength);
+        FailureCode = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+            failureCode, DiagnosticTextSanitizer.MaxFailureCodeChars, "worker_failed");
+        FailureDetail = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+            failureDetail, MaxFailureDetailLength, "Local OCR execution failed.");
         EndedAtUtc = endedAtUtc;
         LastHeartbeatAtUtc = endedAtUtc;
         ExitCode = exitCode;
-        DiagnosticRawOutputUtf8 = diagnosticRawOutputUtf8 is null ? null : Truncate(diagnosticRawOutputUtf8, MaxDiagnosticOutputChars);
-        DiagnosticMetadataJson = diagnosticMetadataJson;
+        DiagnosticRawOutputUtf8 = DiagnosticTextSanitizer.SanitizeForPostgresText(
+            diagnosticRawOutputUtf8, MaxDiagnosticOutputChars);
+        DiagnosticMetadataJson = DiagnosticTextSanitizer.SanitizeDiagnosticJsonOrNull(diagnosticMetadataJson);
     }
 
     public void MarkInterrupted(
@@ -216,11 +219,13 @@ public sealed class ExecutionAttempt
         ArgumentException.ThrowIfNullOrWhiteSpace(failureDetail);
         Status = AttemptStatus.Interrupted;
         Phase = AttemptStatusNames.Interrupted;
-        FailureCode = failureCode;
-        FailureDetail = Truncate(failureDetail, MaxFailureDetailLength);
+        FailureCode = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+            failureCode, DiagnosticTextSanitizer.MaxFailureCodeChars, "supervisor_interrupted");
+        FailureDetail = DiagnosticTextSanitizer.SanitizeRequiredForPostgresText(
+            failureDetail, MaxFailureDetailLength, "Local extraction was interrupted.");
         EndedAtUtc = endedAtUtc;
         LastHeartbeatAtUtc = endedAtUtc;
-        DiagnosticMetadataJson = diagnosticMetadataJson;
+        DiagnosticMetadataJson = DiagnosticTextSanitizer.SanitizeDiagnosticJsonOrNull(diagnosticMetadataJson);
     }
 
     private void EnsureRunning()
@@ -230,9 +235,6 @@ public sealed class ExecutionAttempt
             throw new InvalidOperationException($"Attempt {AttemptId} is already in terminal state {Status}.");
         }
     }
-
-    private static string Truncate(string value, int maxLength) =>
-        value.Length <= maxLength ? value : value[..maxLength];
 
     private static void RequireNonEmpty(Guid value, string name)
     {

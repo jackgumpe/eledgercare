@@ -16,7 +16,7 @@ if str(WORKER_ROOT) not in sys.path:
     sys.path.insert(0, str(WORKER_ROOT))
 
 from local_ocr import ENVELOPE_SCHEMA, REQUEST_SCHEMA
-from local_ocr.env_guard import audit_worker_environment, current_process_create_filetime
+from local_ocr.env_guard import audit_worker_environment, current_process_create_filetime, directory_size_bytes
 from local_ocr.observer import InferenceMonitor, SafetyTripwire, resolve_monitoring_targets
 from local_ocr.protocol import (
     DEPENDENCY_LOCK_PATH,
@@ -549,6 +549,101 @@ class WorkerCpuTests(unittest.TestCase):
             self.assertEqual(env_trunc["failure"]["code"], "model_output_truncated")
             self.assertIn("Synthetic Maintenance Record", env_trunc["failure"]["diagnostic_raw_output_utf8"])
             self.assertFalse((dir_trunc / "output" / "raw_output.utf8.bin").exists())
+
+    def test_f2_s1_01_isolated_cli_entrypoint_from_external_cwd_preserves_isolation_and_writes_envelope(self):
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            q0_root = base / "q0"
+            writable_root = base / "f2-runtime"
+            run_dir = writable_root / "runs" / "attempt-cli"
+            (run_dir / "input").mkdir(parents=True)
+            (run_dir / "output").mkdir(parents=True)
+            (run_dir / "cache").mkdir(parents=True)
+            (q0_root / "models" / "Unlimited_OCR_2_04809669").mkdir(parents=True)
+            (q0_root / "notices" / "Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a").mkdir(parents=True)
+
+            # Poison cwd/PYTHONPATH module: `-I` must ignore both cwd and PYTHONPATH.
+            (run_dir / "local_ocr.py").write_text("raise SystemExit(99)\n", encoding="utf-8")
+
+            pdf_bytes = b"%PDF-1.4\n%%EOF\n"
+            pdf_path = run_dir / "input" / "document.pdf"
+            pdf_path.write_bytes(pdf_bytes)
+
+            req = {
+                "schema": REQUEST_SCHEMA,
+                "document_id": "019a0000-0000-7000-8000-000000000011",
+                "job_id": "019a0000-0000-7000-8000-000000000012",
+                "attempt_id": "019a0000-0000-7000-8000-000000000013",
+                "fencing_token": 1,
+                "writable_runtime_root": str(writable_root),
+                "readonly_q0_root": str(q0_root),
+                "input_pdf_path": str(pdf_path),
+                "expected_input_sha256": sha256_bytes(pdf_bytes),
+                "expected_input_byte_length": len(pdf_bytes),
+                "expected_page_count": 1,
+                "model_dir": str(q0_root / "models" / "Unlimited_OCR_2_04809669"),
+                "notice_dir": str(q0_root / "notices" / "Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a"),
+                "leased_gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+                "expected_model_manifest_sha256": sha256_bytes(MODEL_MANIFEST_PATH.read_bytes()),
+                "expected_dependency_lock_sha256": sha256_bytes(DEPENDENCY_LOCK_PATH.read_bytes()),
+                "expected_worker_source_sha256": compute_worker_source_sha256(),
+                "expected_worker_config_sha256": compute_config_digest(1),
+                "accepted_provenance_exceptions": ["torchvision-local-sha256-TOFU"],
+                "guards": {"min_free_disk_bytes": 1024, "max_runtime_root_bytes": 1024 * 1024 * 64},
+            }
+            req_path = run_dir / "request.json"
+            req_path.write_text(json.dumps(req), encoding="utf-8")
+
+            env = _build_env(run_dir)
+            for v in env.values():
+                if v.startswith(str(run_dir)):
+                    Path(v).mkdir(parents=True, exist_ok=True)
+
+            proc = subprocess.run(
+                [sys.executable, "-I", "-B", "-X", "utf8", "-u", str(WORKER_ROOT / "run_worker.py"), "--request", str(req_path)],
+                cwd=run_dir,
+                env=env,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(proc.returncode, 2, msg=f"stderr={proc.stderr}")
+            self.assertNotIn("ModuleNotFoundError", proc.stderr)
+            self.assertTrue((run_dir / "output" / "heartbeat.json").is_file())
+            envelope = json.loads((run_dir / "output" / "envelope.json").read_text(encoding="utf-8"))
+            self.assertEqual(envelope["schema"], ENVELOPE_SCHEMA)
+            self.assertEqual(envelope["status"], "failed")
+            self.assertEqual(envelope["failure"]["code"], "dependency_lock_mismatch")
+
+    def test_f2_s1_02_directory_size_bytes_rejects_reparse_points_and_persistent_permission_errors(self):
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "rt"
+            sub = root / "runs" / "a1"
+            sub.mkdir(parents=True)
+            (sub / "f1.bin").write_bytes(b"12345")
+            self.assertEqual(directory_size_bytes(root), 5)
+
+            # Persistent permission failure on an existing directory must fail closed, never be swallowed.
+            with patch("os.scandir", side_effect=PermissionError("Denied")):
+                with self.assertRaises(WorkerError) as ctx:
+                    directory_size_bytes(root)
+                self.assertEqual(ctx.exception.code, "storage_limit_exceeded")
+
+            if os.name == "nt":
+                target = Path(tmp) / "outside_target"
+                target.mkdir()
+                junction = root / "runs" / "junc"
+                subprocess.run(["cmd.exe", "/c", "mklink", "/J", str(junction), str(target)], check=True, capture_output=True)
+                try:
+                    with self.assertRaises(WorkerError) as jctx:
+                        directory_size_bytes(root)
+                    self.assertEqual(jctx.exception.code, "storage_limit_exceeded")
+                finally:
+                    os.rmdir(junction)
 
 
 if __name__ == "__main__":

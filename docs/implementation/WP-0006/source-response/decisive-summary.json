@@ -1,0 +1,188 @@
+{
+  "schema": "eledgercare.wp-0006.source-response-decisive-summary/1",
+  "candidate_sha": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+  "previous_source_sha": "0ad2fcd1e1c2cc918fe24db14d4b58ba347c0978",
+  "release_authority_sha": "2c54927463b46a96a9b0c0c5d1012636fb4f961e",
+  "reviewer_findings_sha": "10193e2c904f99cfc23c97367f1e5d881b0630f2",
+  "pre_git": {
+    "head": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+    "porcelain": "",
+    "clean": true
+  },
+  "post_git": {
+    "head": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+    "porcelain": "",
+    "clean": true
+  },
+  "ports_before": {
+    "5190": false,
+    "4210": false,
+    "55434": false
+  },
+  "ports_after": {
+    "5190": false,
+    "4210": false,
+    "55434": false
+  },
+  "postgres_cluster": {
+    "pid": 27824,
+    "create_filetime": 134393134479381670,
+    "port": 55434,
+    "started_utc": "2026-11-16T14:37:28.303713+00:00"
+  },
+  "external_author_runtime_root_unchanged": {
+    "before": {
+      "exists": true,
+      "file_count": 4,
+      "total_bytes": 374331,
+      "run_dirs": [
+        "attempt-01a1e316-879e-737e-b222-cf9ebea58b09"
+      ]
+    },
+    "after": {
+      "exists": true,
+      "file_count": 4,
+      "total_bytes": 374331,
+      "run_dirs": [
+        "attempt-01a1e316-879e-737e-b222-cf9ebea58b09"
+      ]
+    },
+    "unchanged": true
+  },
+  "gpu_or_model_imports_used": false,
+  "pinned_digests": {
+    "previous_worker_source_sha256": "01ad2fa1d6dcf8643ecb5801a934b37bae4630faca2f70959b4a85cc4480eb01",
+    "new_worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+    "worker_config_1p_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+    "worker_config_2p_sha256": "e4df504ddb51dcc8fb137e97f5af97c735252374738b1a1754a88b16a05de5df",
+    "worker_config_3p_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86"
+  },
+  "steps": [
+    {
+      "step_id": "01-dotnet-restore-locked",
+      "command": [
+        "dotnet",
+        "restore",
+        "ELedgerCare.slnx",
+        "--locked-mode",
+        "--packages",
+        "<worktree>\\.local\\nuget"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T14:37:28.303713+00:00",
+      "ended_utc": "2026-11-16T14:37:30.192033+00:00",
+      "duration_ms": 1890,
+      "exit_code": 0,
+      "raw_bytes": 259,
+      "raw_file_sha256": "b033b9e34c75fc824bf6bd71da4ad128c4bddc6eae5ec34d3f56e5b1f74e283e",
+      "lf_bytes": 257,
+      "lf_normalized_sha256": "09ff6bd20eda39a3b2a666b7b779e4c43b34f8bdd5b71e983e99d5317ef633aa"
+    },
+    {
+      "step_id": "02-dotnet-build-release",
+      "command": [
+        "dotnet",
+        "build",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T14:37:30.194758+00:00",
+      "ended_utc": "2026-11-16T14:37:39.030743+00:00",
+      "duration_ms": 8838,
+      "exit_code": 0,
+      "raw_bytes": 1444,
+      "raw_file_sha256": "07e302991f5119e7e25a1ff96be203d9642b9a5d9d690c61577433e26345ed57",
+      "lf_bytes": 1431,
+      "lf_normalized_sha256": "3102e49e2fffbd4d9b59c865a0c6519fe6019b7a1524478885ae40f0976bbbd4"
+    },
+    {
+      "step_id": "03-dotnet-publish-api",
+      "command": [
+        "dotnet",
+        "publish",
+        "src/ELedgerCare.Api/ELedgerCare.Api.csproj",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T14:37:39.030743+00:00",
+      "ended_utc": "2026-11-16T14:37:40.930934+00:00",
+      "duration_ms": 1897,
+      "exit_code": 0,
+      "raw_bytes": 946,
+      "raw_file_sha256": "2ed0b9a9cbe51dd2de36d97b96616421780e7e0cbf0f2a3a255ae4cceb209dda",
+      "lf_bytes": 941,
+      "lf_normalized_sha256": "66a6e41f4f9ec5828b0ad62179df45f2c9e1cc9df231faeee560aace08872491"
+    },
+    {
+      "step_id": "04-python-worker-cpu-tests",
+      "command": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "workers/local_ocr/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T14:37:40.931508+00:00",
+      "ended_utc": "2026-11-16T14:37:41.780129+00:00",
+      "duration_ms": 848,
+      "exit_code": 0,
+      "raw_bytes": 1819,
+      "raw_file_sha256": "e197f628641fac52a31b4f46a439f96b43acf786a816a61c20de89678940610d",
+      "lf_bytes": 1805,
+      "lf_normalized_sha256": "a072a9cb2b13a5f3c28ec3efb1f49ae6dfe0c46e2431ae8fe9168482981dcc01"
+    },
+    {
+      "step_id": "05-dotnet-test-solution",
+      "command": [
+        "dotnet",
+        "test",
+        "--solution",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-16T14:37:41.781051+00:00",
+      "ended_utc": "2026-11-16T14:39:25.454061+00:00",
+      "duration_ms": 103673,
+      "exit_code": 0,
+      "raw_bytes": 1967,
+      "raw_file_sha256": "719b57ae7a3779d2ae7140f26d491e51aa9ecc6856b9862e7e98d5e998d50b90",
+      "lf_bytes": 1950,
+      "lf_normalized_sha256": "c7e0ebadd40f67d7b76cde423f5cd357416a2947a382f7160591c790dcc211a7"
+    }
+  ],
+  "test_totals": {
+    "python_worker_cpu_tests": 9,
+    "dotnet_domain_tests": 12,
+    "dotnet_infrastructure_tests": 42,
+    "dotnet_acceptance_tests": 20,
+    "dotnet_total": 74,
+    "focused_total_passed": 83,
+    "focused_total_failed": 0,
+    "focused_total_skipped": 0
+  },
+  "retained_intermediate_failure": {
+    "candidate_sha": "850d20063f09f0564a1008da20f09ff185fd0dfb",
+    "relative_path": "docs/implementation/WP-0006/source-response/retained-failures/05-dotnet-test-solution-850d200.log",
+    "raw_bytes": 3529,
+    "raw_file_sha256": "3a842eba449d30f351ae38e28bafb99a6f0a9d5abeee0078a3c8cd2592e68539",
+    "lf_bytes": 3501,
+    "lf_normalized_sha256": "16e0d0ba657b0c766ff87a388cd14d62afbe3307714b04028aa564d69d4e1ea4",
+    "reason": "Test-only assertion in LocalExtractionAcceptanceTests.cs:598 checked canRetryExtraction==true on an ApiProcess started with default LocalOcr:Enabled=false."
+  }
+}
