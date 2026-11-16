@@ -1,0 +1,38 @@
+{
+  "schema": "eledgercare.wp-0006.saved-result-completion-summary/3",
+  "authority_commit": "6dec634c81a4b2cbc1b492541697958cc0f76232",
+  "kickoff_path": "docs/kickoffs/WP-0006-eld-f2-saved-result-completion.md",
+  "executing_head": "467ccb717ff97cd3d31536707de7ea559ae2d6d6",
+  "source_commit": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+  "prior_v2_evidence_commit": "48e8896d53fa001bba55276ac244f4adee377587",
+  "database": "eledgercare_f2_runtime_author_v2",
+  "ocr_enabled_throughout": false,
+  "gpu_or_cuda_queried_or_imported": false,
+  "external_runtime_roots_touched": false,
+  "post_or_mutation_requests_sent": 0,
+  "started_utc": "2026-11-16T16:20:32.878288+00:00",
+  "ports_bound_before": {
+    "5190": false,
+    "4210": false,
+    "55434": false
+  },
+  "postgres_start_1": {
+    "postmaster_pid": 22712,
+    "postmaster_create_filetime": 134393196354199128,
+    "started_utc": "2026-11-16T16:20:35.705889+00:00"
+  },
+  "outcome": "FAILED",
+  "error": "CalledProcessError: Command '['C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-f2-implementer\\\\.local\\\\tools\\\\pgsql-18.7-1\\\\bin\\\\psql.exe', '-X', '-q', '-A', '-t', '-v', 'ON_ERROR_STOP=1', '-h', '127.0.0.1', '-p', '55434', '-U', 'eledgercare_app', '-d', 'eledgercare_f2_runtime_author_v2', '-c', \"SET TRANSACTION READ ONLY; SELECT COALESCE(json_agg(t), '[]'::json)::text FROM (SELECT d.document_id, d.admitted_page_count, d.byte_length, encode(d.sha256, 'hex') AS sha256_hex, d.submitted_at, octet_length(o.bytes) AS artifact_byte_length, encode(sha256(o.bytes), 'hex') AS artifact_computed_sha256 FROM eledgercare.documents d JOIN eledgercare.original_artifacts o ON o.document_id = d.document_id ORDER BY d.submitted_at ASC, d.document_id ASC) t;\"]' returned non-zero exit status 1.",
+  "cleanup_postgres_stop": {
+    "stopped_postmaster_pid": 22712,
+    "stopped_utc": "2026-11-16T16:20:36.485708+00:00",
+    "port_55434_bound": false
+  },
+  "ports_bound_after": {
+    "5190": false,
+    "4210": false,
+    "55434": false
+  },
+  "git_clean_after": true,
+  "completed_utc": "2026-11-16T16:20:37.877510+00:00"
+}

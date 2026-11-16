@@ -478,16 +478,17 @@ class ReadOnlyPostgresSession:
 
 def capture_readonly_db_snapshot(pg: ReadOnlyPostgresSession, label: str) -> dict:
     docs = pg.select_json_readonly(
-        "SELECT d.document_id, d.admitted_page_count, d.byte_length, encode(d.sha256, 'hex') AS sha256_hex, "
-        "d.submitted_at, octet_length(o.bytes) AS artifact_byte_length, "
+        "SELECT d.document_id, d.idempotency_key, d.submitted_at, "
+        "o.page_count, o.byte_length, encode(o.sha256, 'hex') AS sha256_hex, "
+        "octet_length(o.bytes) AS artifact_byte_length, "
         "encode(sha256(o.bytes), 'hex') AS artifact_computed_sha256 "
         "FROM eledgercare.documents d "
         "JOIN eledgercare.original_artifacts o ON o.document_id = d.document_id "
         "ORDER BY d.submitted_at ASC, d.document_id ASC"
     )
     jobs = pg.select_json_readonly(
-        "SELECT job_id, document_id, status, current_attempt_id, accepted_result_id, attempt_count, "
-        "next_fencing_token "
+        "SELECT job_id, document_id, status, requested_at, queued_at, updated_at, "
+        "attempt_count, latest_fencing_token, retried_from_attempt_id "
         "FROM eledgercare.processing_jobs ORDER BY document_id ASC"
     )
     attempts = pg.select_json_readonly(
