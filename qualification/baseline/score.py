@@ -101,6 +101,11 @@ def score_document(pred,expected,reference,completion='completed'):
       'adjacency':counts(sum(s['correct'] for s in adjacency),len(adjacency),details=adjacency),
       'cross_page_links':counts(sum(s['correct'] for s in links),len(links),details=links),
       'text':tokens,'reference_coverage':reference['coverage'],'unmapped_content':pred['unmapped'],
+      'mapping_coverage':{'fields_with_candidate':sum(d['predicted'] is not None for d in details),'expected_fields':len(details),
+        'cells_with_candidate':sum(d['predicted'] is not None for d in cell_details),'expected_cells':ct,
+        'unsupported_or_missing_table_rows':missing_rows,'unclassified_content_records':len(pred['unmapped']),
+        'failure_reasons':(['no_exact_dev_header_or_missing_table_rows'] if missing_rows else [])+(['missing_field_candidates'] if any(d['predicted'] is None for d in details) else [])+(['native_parse_error'] if pred['parse_errors'] else []),
+        'interpretation':'Field/cell mismatches combine extraction/mapping and recognition errors. Unmapped cells are not asserted character-reading errors; raw token errors are reported separately.'},
       'invention_limit':'Unmatched fields/rows/cells and absence violations are schema-relative signals; unrecognized prose is retained, not asserted factual hallucination.'}
 
 def summarize(scores):

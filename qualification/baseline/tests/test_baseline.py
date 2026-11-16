@@ -75,6 +75,10 @@ class ParserScorerTests(unittest.TestCase):
     def test_bad_header_not_repaired(self):
         a=pred('<PAGE>'+block('<table><tr><td>C0de</td><td>Price</td></tr><tr><td>A</td><td>$1</td></tr></table>','table'))
         self.assertFalse(a['tables']);self.assertTrue(a['unmapped'])
+        e=truth();e['expected_tables']=[{'table_id':'lines','rows':[{'row_id':'r1','page_number':1,'cells':{'code':{'printed_text':'A'},'price':{'printed_text':'$1'}}}]}]
+        r=score_document(a,e,{'pages':['A $1'],'coverage':{'status':'test'}})
+        self.assertEqual(r['mapping_coverage']['cells_with_candidate'],0);self.assertEqual(r['cells']['total'],2)
+        self.assertIn('no_exact_dev_header_or_missing_table_rows',r['mapping_coverage']['failure_reasons'])
     def test_repeated_headers_not_rows(self):
         h='<tr><td>Code</td><td>Price</td></tr>';r='<tr><td>A</td><td>$1</td></tr>'
         a=pred('<PAGE>'+block('<table>'+h+r+h+r+'</table>','table'))
