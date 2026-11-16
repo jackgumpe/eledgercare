@@ -682,3 +682,6 @@ Author confirmed clean executing HEAD2a3781745cb120f6e3eb22b234c111241ba8d8c9 an
 
 
 WP-0009 author007 actual start2026-11-16T20:53:18.6090134Z: RUNNING_CONFIRMED, wrapper19996/supervisor32624/worker23516, tool session65622, run20261116T205320Z-67b42d6e. Exact authority6343ded1cd79b7c5b67b34893fe4516dc6845eb9 and clean executing2a3781745cb120f6e3eb22b234c111241ba8d8c9. Lease ACTIVE; final outcomes pending. See docs/coordination/WP-0009/author-dispatch.json.
+
+
+WP-0009 reviewer008 independent CPU comparison preparation is RELEASED under WP-0009-eld-mapping-reviewer-comparison-preparation.md, actual dispatch PREPARED. Own new008/preparation helpers only; no current author-output reads, no GPU/model or canonical008 publication until separate final release. Fixed WP09-F04-v0 sentinel unchanged.
