@@ -56,16 +56,20 @@ try {
 
 Invoke-Psql $settings.migratorUser $settings.migratorPassword $Database (Get-Content (Join-Path $PSScriptRoot 'grant-runtime.sql') -Raw) | Out-Null
 
-Write-Host "Runtime privilege matrix for $($settings.appUser) on $Database (table: select insert update delete truncate):"
+Write-Host "Runtime privilege matrix for $($settings.appUser) on $Database (table: select insert table_update col_update delete truncate):"
 Invoke-Psql $settings.adminUser $settings.adminPassword $Database @"
 SELECT c.relname || ': ' ||
        has_table_privilege('$($settings.appUser)', c.oid, 'SELECT') || ' ' ||
        has_table_privilege('$($settings.appUser)', c.oid, 'INSERT') || ' ' ||
        has_table_privilege('$($settings.appUser)', c.oid, 'UPDATE') || ' ' ||
+       has_any_column_privilege('$($settings.appUser)', c.oid, 'UPDATE') || ' ' ||
        has_table_privilege('$($settings.appUser)', c.oid, 'DELETE') || ' ' ||
        has_table_privilege('$($settings.appUser)', c.oid, 'TRUNCATE')
 FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE n.nspname = 'eledgercare' AND c.relkind = 'r' ORDER BY c.relname;
+SELECT 'fencing_seq usage/select: ' ||
+       has_sequence_privilege('$($settings.appUser)', 'eledgercare.extraction_fencing_seq', 'USAGE') || ' ' ||
+       has_sequence_privilege('$($settings.appUser)', 'eledgercare.extraction_fencing_seq', 'SELECT');
 SELECT 'schema create for app: ' || has_schema_privilege('$($settings.appUser)', 'eledgercare', 'CREATE');
 SELECT 'migrations: ' || string_agg("MigrationId", ', ') FROM eledgercare.__ef_migrations_history;
 "@ -Tuples | Out-Host

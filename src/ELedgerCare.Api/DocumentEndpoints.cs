@@ -1,3 +1,6 @@
+using System.Globalization;
+using System.Text.Json;
+using ELedgerCare.Application.Extraction;
 using ELedgerCare.Application.Intake;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.Primitives;
@@ -9,12 +12,15 @@ internal static class DocumentEndpoints
 {
     public const string IdempotencyKeyHeader = "Idempotency-Key";
     public const string IntakeRateLimitPolicy = "intake-admission";
+    private const int MaxExtractionRequestBodyBytes = 512;
 
     public static void MapDocumentEndpoints(this IEndpointRouteBuilder app)
     {
         app.MapPost("/api/documents", SubmitAsync).RequireRateLimiting(IntakeRateLimitPolicy);
         app.MapGet("/api/documents/{documentId}", GetDocumentAsync);
         app.MapGet("/api/documents/{documentId}/original", GetOriginalAsync);
+        app.MapPost("/api/documents/{documentId}/extraction", RequestExtractionAsync);
+        app.MapGet("/api/documents/{documentId}/extraction", GetExtractionAsync);
         app.MapGet("/api/submissions/{idempotencyKey}", GetSubmissionAsync);
     }
 
@@ -84,17 +90,20 @@ internal static class DocumentEndpoints
         };
     }
 
-    private static async Task<IResult> GetDocumentAsync(string documentId, IIntakeStore store, CancellationToken cancellationToken)
+    private static async Task<IResult> GetDocumentAsync(
+        string documentId,
+        IExtractionStore extractionStore,
+        CancellationToken cancellationToken)
     {
         if (!TryParseCanonicalUuid(documentId, out var id))
         {
             return InvalidRouteId("documentId");
         }
 
-        var submission = await store.FindByDocumentIdAsync(id, cancellationToken);
-        return submission is null
+        var summary = await extractionStore.GetDocumentSummaryAsync(id, cancellationToken);
+        return summary is null
             ? Problems.Create(StatusCodes.Status404NotFound, "document_not_found", "Document not found")
-            : TypedResults.Ok(SubmissionReceiptResponse.From(submission));
+            : TypedResults.Ok(DocumentDetailResponse.From(summary));
     }
 
     private static async Task<IResult> GetOriginalAsync(string documentId, IIntakeStore store, CancellationToken cancellationToken)
@@ -108,6 +117,87 @@ internal static class DocumentEndpoints
         return bytes is null
             ? Problems.Create(StatusCodes.Status404NotFound, "document_not_found", "Document not found")
             : TypedResults.File(bytes, "application/pdf", $"document-{id:D}.pdf");
+    }
+
+    private static async Task<IResult> RequestExtractionAsync(
+        string documentId,
+        HttpContext http,
+        RequestExtraction requestExtraction,
+        ExtractionSettings settings,
+        IExtractionWakeSignal wakeSignal)
+    {
+        if (!TryParseCanonicalUuid(documentId, out var id))
+        {
+            return InvalidRouteId("documentId");
+        }
+
+        var (parseOk, retryAttemptId, parseError) = await TryReadOptionalRetryTargetAsync(http.Request, http.RequestAborted);
+        if (!parseOk)
+        {
+            return parseError!;
+        }
+
+        var outcome = await requestExtraction.ExecuteAsync(id, retryAttemptId, http.RequestAborted);
+        switch (outcome)
+        {
+            case QueueExtractionOutcome.NotFound:
+                return Problems.Create(StatusCodes.Status404NotFound, "document_not_found", "Document not found");
+
+            case QueueExtractionOutcome.ProfileUnsupported unsupported:
+                return Problems.Create(
+                    StatusCodes.Status422UnprocessableEntity,
+                    "extraction_profile_unsupported",
+                    "Document outside extraction profile",
+                    string.Create(CultureInfo.InvariantCulture,
+                        $"Local extraction supports 1 to {unsupported.MaxSupportedPages} pages in this profile; this document has {unsupported.AdmittedPageCount} pages."));
+
+            case QueueExtractionOutcome.WorkerDisabled:
+                return Problems.Create(
+                    StatusCodes.Status503ServiceUnavailable,
+                    "extraction_disabled",
+                    "Local extraction unavailable",
+                    "Local OCR execution is disabled until a coordinator runtime release is configured.");
+
+            case QueueExtractionOutcome.RetryExplicitRequired reqRetry:
+                return Problems.Create(
+                    StatusCodes.Status409Conflict,
+                    "retry_explicit_required",
+                    "Explicit retry required",
+                    string.Create(CultureInfo.InvariantCulture,
+                        $"The previous attempt ({reqRetry.LatestAttemptId:D}) did not complete. Supply retryAttemptId to start a new attempt."));
+
+            case QueueExtractionOutcome.RetryConflict conflict:
+                return Problems.Create(StatusCodes.Status409Conflict, conflict.Code, "Extraction retry conflict", conflict.Detail);
+
+            case QueueExtractionOutcome.AlreadyCompleted completed:
+                return TypedResults.Ok(DocumentExtractionResponse.From(completed.Snapshot, settings));
+
+            case QueueExtractionOutcome.QueuedOrActive active:
+                wakeSignal.NotifyWorkQueued();
+                return TypedResults.Accepted(
+                    $"/api/documents/{id:D}/extraction",
+                    DocumentExtractionResponse.From(active.Snapshot, settings));
+
+            default:
+                throw new InvalidOperationException("Unhandled extraction request outcome.");
+        }
+    }
+
+    private static async Task<IResult> GetExtractionAsync(
+        string documentId,
+        IExtractionStore extractionStore,
+        ExtractionSettings settings,
+        CancellationToken cancellationToken)
+    {
+        if (!TryParseCanonicalUuid(documentId, out var id))
+        {
+            return InvalidRouteId("documentId");
+        }
+
+        var snapshot = await extractionStore.GetDocumentExtractionAsync(id, cancellationToken);
+        return snapshot is null
+            ? Problems.Create(StatusCodes.Status404NotFound, "document_not_found", "Document not found")
+            : TypedResults.Ok(DocumentExtractionResponse.From(snapshot, settings));
     }
 
     private static async Task<IResult> GetSubmissionAsync(string idempotencyKey, IIntakeStore store, CancellationToken cancellationToken)
@@ -124,6 +214,89 @@ internal static class DocumentEndpoints
             : TypedResults.Ok(SubmissionReceiptResponse.From(submission));
     }
 
+    private static async Task<(bool Ok, Guid? RetryAttemptId, ProblemHttpResult? Error)> TryReadOptionalRetryTargetAsync(
+        HttpRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (request.ContentLength == 0)
+        {
+            return (true, null, null);
+        }
+
+        if (request.ContentLength > MaxExtractionRequestBodyBytes)
+        {
+            return (false, null, Problems.Create(StatusCodes.Status400BadRequest, "invalid_extraction_request",
+                "Request body too large", "Extraction request payload exceeds 512 bytes."));
+        }
+
+        byte[] raw;
+        try
+        {
+            raw = await BoundedBody.ReadAsync(request.Body, MaxExtractionRequestBodyBytes, cancellationToken);
+        }
+        catch (BoundedBody.LimitExceededException)
+        {
+            return (false, null, Problems.Create(StatusCodes.Status400BadRequest, "invalid_extraction_request",
+                "Request body too large", "Extraction request payload exceeds 512 bytes."));
+        }
+
+        if (raw.Length == 0 || raw.All(b => b is (byte)' ' or (byte)'\t' or (byte)'\r' or (byte)'\n'))
+        {
+            return (true, null, null);
+        }
+
+        if (!IsJsonMediaType(request.ContentType))
+        {
+            return (false, null, Problems.Create(StatusCodes.Status415UnsupportedMediaType, "unsupported_media_type",
+                "Unsupported media type", "Non-empty extraction request bodies must use Content-Type application/json."));
+        }
+
+        try
+        {
+            using var doc = JsonDocument.Parse(raw);
+            var root = doc.RootElement;
+            if (root.ValueKind != JsonValueKind.Object)
+            {
+                return (false, null, InvalidExtractionPayload());
+            }
+
+            Guid? retryId = null;
+            foreach (var prop in root.EnumerateObject())
+            {
+                if (prop.Name != "retryAttemptId")
+                {
+                    return (false, null, InvalidExtractionPayload());
+                }
+
+                if (prop.Value.ValueKind == JsonValueKind.Null)
+                {
+                    continue;
+                }
+
+                if (prop.Value.ValueKind != JsonValueKind.String ||
+                    prop.Value.GetString() is not { Length: 36 } text ||
+                    !Guid.TryParseExact(text, "D", out var parsed) ||
+                    parsed == Guid.Empty)
+                {
+                    return (false, null, Problems.Create(StatusCodes.Status400BadRequest, "invalid_identifier",
+                        "Invalid retryAttemptId", "retryAttemptId must be a non-empty UUID in 36-character D format."));
+                }
+
+                retryId = parsed;
+            }
+
+            return (true, retryId, null);
+        }
+        catch (JsonException)
+        {
+            return (false, null, InvalidExtractionPayload());
+        }
+    }
+
+    private static ProblemHttpResult InvalidExtractionPayload() =>
+        Problems.Create(StatusCodes.Status400BadRequest, "invalid_extraction_request",
+            "Invalid extraction request", "Send an empty body or a JSON object with optional retryAttemptId.");
+
     internal static bool TryParseCanonicalUuid(StringValues values, out Guid value)
     {
         value = Guid.Empty;
@@ -139,6 +312,10 @@ internal static class DocumentEndpoints
         MediaTypeHeaderValue.TryParse(contentType, out var parsed)
         && parsed.MediaType.Equals("application/pdf", StringComparison.OrdinalIgnoreCase)
         && parsed.Parameters.Count == 0;
+
+    private static bool IsJsonMediaType(string? contentType) =>
+        MediaTypeHeaderValue.TryParse(contentType, out var parsed)
+        && parsed.MediaType.Equals("application/json", StringComparison.OrdinalIgnoreCase);
 
     private static bool IsIdentityEncoding(StringValues encodings) =>
         encodings.Count == 0

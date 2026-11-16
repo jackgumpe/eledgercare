@@ -8,8 +8,8 @@ import { PendingSubmission, SubmissionApi, isUncertainFailure } from './submissi
 type Phase = 'idle' | 'sending' | 'receipt' | 'unknown' | 'busy' | 'rejected';
 
 /**
- * F1 screen: select one synthetic PDF, submit it with a stable pending Idempotency-Key, and show the
- * committed receipt. Uncertain outcomes keep the key for status queries or same-key retries.
+ * Intake screen: select one permitted synthetic PDF, submit it with a stable pending Idempotency-Key,
+ * and show the committed receipt. Uncertain outcomes keep the key for status queries or same-key retries.
  */
 @Component({
   selector: 'elc-intake-page',
@@ -81,7 +81,7 @@ type Phase = 'idle' | 'sending' | 'receipt' | 'unknown' | 'busy' | 'rejected';
           ·
           <a [routerLink]="['/documents', r.documentId]" data-testid="receipt-open">Open document page</a>
         </p>
-        <p class="note">No extraction has run. Extracted fields will appear only after a real extraction feature exists.</p>
+        <p class="note">No extraction has run at intake. Open the document page to inspect extraction state or saved results.</p>
       </section>
     }
 
@@ -118,7 +118,6 @@ export class IntakePage {
       return;
     }
 
-    // The key is persisted before any bytes are sent.
     const pending = this.api.pendingOrNew();
     this.pending.set(pending);
     this.phase.set('sending');
@@ -191,20 +190,17 @@ export class IntakePage {
     }
 
     if (status === 429) {
-      // Keep the key; a busy answer never resolves an earlier uncertainty.
       this.phase.set(pending.uncertain ? 'unknown' : 'busy');
       return;
     }
 
     const detail = problem?.detail ?? problem?.title ?? `Request rejected (HTTP ${status}).`;
     if (status === 409 || pending.uncertain) {
-      // The key may name an earlier committed document; keep it so its status can be checked.
       this.phase.set(pending.uncertain ? 'unknown' : 'rejected');
       this.message.set(detail);
       return;
     }
 
-    // Definitive rejection with no earlier uncertainty: nothing was stored under this key.
     this.api.clearPending();
     this.pending.set(null);
     this.phase.set('rejected');
