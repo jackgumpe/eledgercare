@@ -67,10 +67,33 @@ def execute(authority,release_path,split,owner):
         Path(env[key]).mkdir(parents=True,exist_ok=True)
     audit_child_env(env,root=root,owner=owner,run_dir=run)
     plan=released_schedule(p,r,split,owner)
-    write(run/'plan.json',{'release':r,'authority_commit':authority,'release_path':release_path,'executing_head':git('rev-parse','HEAD').decode().strip(),'calls':plan})
+    executing_head=git('rev-parse','HEAD').decode().strip()
+    write(run/'plan.json',{'release':r,'authority_commit':authority,'release_path':release_path,'executing_head':executing_head,'calls':plan})
     jobname='Local\\eLedgerCare-B0-'+uuid.uuid4().hex;job=winjob.create(jobname)
     cmd=[str(python),'-I','-B',str(HERE/'baseline.py'),'worker','--authority',authority,'--release-path',release_path,'--split',split,'--owner',owner,'--run-dir',str(run),'--job',jobname]
     observed=run_observers(p['gpu']['observer']['commands'],run,'pre');proc=None;failure=None;failure_detail=None;start=time.monotonic();last_phase=None;phase_start=start;progress_start=start;last_progress=None;next_obs=start+60
+    secondary_errors=[];finalization_errors=[]
+    def finish(stage,action,unavailable=None):
+        # Bounded best-effort finalization, never a successful zero for a failed observation.
+        nonlocal failure,failure_detail
+        try:return action()
+        except Exception as exc:
+            detail={**supervisor_diagnostic(exc,last_phase),'stage':stage}
+            finalization_errors.append(detail)
+            if failure_detail is None:failure_detail=detail
+            else:secondary_errors.append(detail)
+            failure=failure or 'SUPERVISOR_FINALIZATION_ERROR:'+repr(exc)
+            return unavailable
+    def read_record(path,stage,worker=False):
+        def read():
+            try:value=load_json(path)
+            except FileNotFoundError:return None,'absent'
+            if not isinstance(value,dict):raise ValueError('Record must be a JSON object')
+            if worker:
+                if 'failure' not in value or 'active_call' not in value:raise ValueError('Malformed worker outcome')
+            elif not isinstance(value.get('flags'),list):raise ValueError('Malformed call observation')
+            return value,'available'
+        return finish(stage,read,(None,'unavailable'))
     try:
         with (run/'stdout.txt').open('xb') as stdout,(run/'stderr.txt').open('xb') as stderr:
             proc=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=stdout,stderr=stderr,stdin=subprocess.DEVNULL,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
@@ -89,25 +112,39 @@ def execute(authority,release_path,split,owner):
             if failure:winjob.close(job);job=None;proc.kill()
             proc.wait(timeout=60)
     except BaseException as e:
-        failure_detail=supervisor_diagnostic(e,last_phase)
+        failure_detail={**supervisor_diagnostic(e,last_phase),'stage':'supervision'}
         failure=failure or 'SUPERVISOR_ERROR:'+repr(e)
     finally:
-        if job is not None:winjob.close(job)
-        if proc is not None and proc.poll() is None:proc.kill();proc.wait(timeout=60)
-    observed+=run_observers(p['gpu']['observer']['commands'],run,'post')
+        if job is not None:finish('cleanup_job_close',lambda:winjob.close(job))
+        if proc is not None:
+            alive=finish('cleanup_child_poll',proc.poll)
+            if alive is None:
+                finish('cleanup_child_kill',proc.kill)
+                finish('cleanup_child_wait',lambda:proc.wait(timeout=60))
+    post=finish('post_observers',lambda:run_observers(p['gpu']['observer']['commands'],run,'post'))
+    if post is not None:observed+=post
     records=[]
-    worker_outcome=load_json(run/'evidence/worker-outcome.json') if (run/'evidence/worker-outcome.json').is_file() else {}
+    worker_outcome,worker_status=read_record(run/'evidence/worker-outcome.json','worker_outcome',worker=True)
+    worker_outcome=worker_outcome or {}
     for call in plan:
         name=call['fixture_id']+'.'+call['kind'];path=run/'evidence'/f'{name}.observation.json'
-        record=load_json(path) if path.is_file() else None
-        state='completed' if record and not record.get('flags') and not record.get('error') else 'failed' if record else 'not_run_after_failure'
+        record,record_status=read_record(path,'call_observation:'+name)
+        state='completed' if record and not record.get('flags') and not record.get('error') else 'failed' if record or record_status=='unavailable' else 'not_run_after_failure'
         if worker_outcome.get('failure') and worker_outcome.get('active_call')==name:state='failed'
         if failure and last_phase in ('call:'+name,'render:'+call['fixture_id']):state='failed'
-        records.append({**call,'status':state,'observation':str(path.relative_to(run)) if record else None})
+        records.append({**call,'status':state,'observation':str(path.relative_to(run)) if record else None,
+                        'observation_status':record_status})
     if proc is None or proc.returncode!=0:failure=failure or 'CHILD_EXIT_FAILURE'
-    result={'schema':'eld-baseline-run/1','run':str(run),'executing_head':git('rev-parse','HEAD').decode().strip(),'release':r,'calls':records,'failure':failure,'supervisor_error':failure_detail,
-      'child_launcher_pid':None if proc is None else proc.pid,'child_returncode':None if proc is None else proc.returncode,'observed_child_exit':proc is not None and proc.poll() is not None,
-      'elapsed_s':time.monotonic()-start,'observers':observed,'free_bytes_after':shutil.disk_usage(root).free,'owned_bytes_after':directory_size(root)}
+    child_exit=finish('child_exit_observation',proc.poll) if proc is not None else None
+    free_after=finish('free_bytes_after',lambda:shutil.disk_usage(root).free)
+    owned_after=finish('owned_bytes_after',lambda:directory_size(root))
+    result={'schema':'eld-baseline-run/1','run':str(run),'executing_head':executing_head,'release':r,'calls':records,'failure':failure,'supervisor_error':failure_detail,
+      'secondary_errors':secondary_errors,'finalization_errors':finalization_errors,
+      'final_observation_status':{'post_observers':'available' if post is not None else 'unavailable','worker_outcome':worker_status,
+         'free_bytes_after':'available' if free_after is not None else 'unavailable','owned_bytes_after':'available' if owned_after is not None else 'unavailable'},
+      'child_launcher_pid':None if proc is None else proc.pid,'child_returncode':None if proc is None else proc.returncode,
+      'observed_child_exit':None if any(x['stage']=='child_exit_observation' for x in finalization_errors) else proc is not None and child_exit is not None,
+      'elapsed_s':time.monotonic()-start,'observers':observed,'free_bytes_after':free_after,'owned_bytes_after':owned_after}
     write(run/'run-result.json',result);print(str(run));return 0 if not failure and all(x['status']=='completed' for x in records) else 1
 
 def worker(authority,release_path,split,owner,run_dir,job):
