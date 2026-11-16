@@ -62,9 +62,10 @@ def content_audit():
     sys.addaudithook(hook)
     return seen, denied
 
-def probes(scratch):
+def probes(scratch, only=None):
     findings=[]
     def check(name, fn):
+        if only and name not in only:return
         try:
             passed, detail=fn()
             findings.append({'name':name,'passed':bool(passed),'detail':detail})
@@ -138,6 +139,7 @@ def probes(scratch):
            'allow_test_content':False,'sentinels':SENTINELS,'observed_gpu_state':{'synthetic_unit_test':True},'torchvision_local_sha256_TOFU_accepted':True}
         real_git=release.git
         def fake_git(*args):
+            if args==('status','--porcelain'):return b'' # Reviewed source was frozen; ignore this probe's new evidence files.
             if args==('show','1'*40+':docs/coordination/WP-0007/review-cpu-test.json'):return json.dumps(r).encode()
             if args==('show',r['accepted_review_commit']+':'+r['accepted_review_path']):return b'CPU validation placeholder, no acceptance or lease'
             return real_git(*args)
@@ -153,15 +155,19 @@ def probes(scratch):
         p=copy.deepcopy(release.protocol());p['guards']['timeouts_s']['session']=5
         r={'runtime_root':str(scratch/'supervisor-root'),'gpu_uuid':p['gpu']['uuid'],'sentinels':SENTINELS}
         with patch('runtime.read_release',return_value=r),patch('runtime.protocol',return_value=p),patch('runtime.HERE',fake),patch('q0harness.supervisor.run_observers',return_value=[]):
-            rc=runtime.execute('CPU-TEST',None,'dev','author')
+            rc=runtime.execute('CPU-TEST','docs/coordination/WP-0007/CPU-TEST-NOT-A-RELEASE.json','dev','author')
         results=list((scratch/'supervisor-root').rglob('run-result.json'));result=corpus.load_json(results[0])
-        baseline.score_run # The production score wrapper is release-bound; direct deterministic scoring follows.
+        # Production scoring against the synthetic run; no release or GPU action occurs.
+        with patch('baseline.read_release',return_value=r):
+            baseline.score_run(results[0].parent,scratch/'supervisor-scores.json','CPU-TEST','CPU-TEST','dev','author')
         scored_docs=[]
         for f in corpus.fixtures():
             if f['split']=='dev':
                 scored_docs.append(score.score_document(baseline.prediction('',RULES),corpus.expected_for(f),corpus.reference_for(f),'not_run_after_failure'))
         summary=score.summarize(scored_docs)
-        return rc==1 and len(result['calls'])==15 and result['failure']=='PHASE_TIMEOUT' and summary['dev']['document_denominator']==13, {'runtime_result':result,'dev_summary':summary}
+        wrapper_scores=corpus.load_json(scratch/'supervisor-scores.json')
+        remaining=[c['status'] for c in result['calls'][1:]]
+        return rc==1 and len(result['calls'])==15 and result['failure']=='PHASE_TIMEOUT' and result['calls'][0]['status']=='failed' and set(remaining)=={'not_run_after_failure'} and summary['dev']['document_denominator']==13 and wrapper_scores['summary']==summary, {'runtime_result':result,'dev_summary':summary,'score_run_matches_direct_scoring':wrapper_scores['summary']==summary}
     runtime.q0_imports()
     check('real_supervisor_timeout_retains_all_fifteen_planned_calls_and_thirteen_measured_denominators',completed_aborted_schedule)
     return findings
@@ -221,6 +227,11 @@ def main():
     evidence=OWN/'evidence'/tag;evidence.mkdir(parents=True)
     expected_tree=git('rev-parse',CANDIDATE+':qualification/baseline')
     if expected_tree!=git('rev-parse','HEAD:qualification/baseline'):raise RuntimeError('Reviewed candidate tree differs')
+    if len(sys.argv)>1 and sys.argv[1]=='supervisor-only':
+        seen,denied=content_audit()
+        results=probes(scratch,only={'real_supervisor_timeout_retains_all_fifteen_planned_calls_and_thirteen_measured_denominators'})
+        dump(evidence/'supervisor-recheck.json',{'execution_head':head,'candidate':CANDIDATE,'checks':results,'synthetic_files_opened':sorted(set(seen)),'denied':denied,'reason':'Correct reviewer test argument None to a string release path; initial run stopped in Popen before launching a child.'})
+        print(json.dumps({'evidence':str(evidence),'checks':results}));return
     commands=[]
     for label,cmd in [('author-tests',[sys.executable,'-I','-B',str(HERE/'tests/test_baseline.py'),'-v']),
                       ('pdfium-reference',[str(VENV),'-I','-B',str(Path(__file__).resolve()),'reference'])]:
