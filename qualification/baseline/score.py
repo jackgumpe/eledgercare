@@ -120,6 +120,16 @@ def summarize(scores):
         for metric in next(iter(family.values()))['metrics']:
             vals=[f['metrics'][metric]['mean'] for f in family.values() if f['metrics'][metric]['mean'] is not None]
             macro[metric]={'mean':sum(vals)/len(vals) if vals else None,'families_with_denominator':len(vals)}
-        variants={v:{'documents':sum(s['variant_kind']==v for s in items),'completed':sum(s['completed_documents'] for s in items if s['variant_kind']==v)} for v in sorted({s['variant_kind'] for s in items})}
+        variants={}
+        for v in sorted({s['variant_kind'] for s in items}):
+            group=[s for s in items if s['variant_kind']==v];vm={}
+            for metric in macro:
+                family_means=[]
+                for fam in sorted({s['family_id'] for s in group}):
+                    values=[(s['text']['error_rate'] if metric=='text_error_rate' else s[metric]['rate']) for s in group if s['family_id']==fam]
+                    values=[x for x in values if x is not None]
+                    if values:family_means.append(sum(values)/len(values))
+                vm[metric]={'mean':sum(family_means)/len(family_means) if family_means else None,'families_with_denominator':len(family_means)}
+            variants[v]={'documents':len(group),'completed':sum(s['completed_documents'] for s in group),'family_macro':vm}
         out[split]={'document_denominator':len(items),'completed_documents':sum(s['completed_documents'] for s in items),'families':family,'family_macro':macro,'variants':variants}
     return out

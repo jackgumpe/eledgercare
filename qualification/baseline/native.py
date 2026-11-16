@@ -16,8 +16,12 @@ class ParseError(ValueError): pass
 class TableParser(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.rows=[]; self.row=None; self.cell=None; self.count=0; self.errors=[]
+        self.rows=[]; self.row=None; self.cell=None; self.count=0; self.events=0; self.errors=[]
+    def event(self):
+        self.events+=1
+        if self.events>100000:raise ParseError('html_event_limit')
     def handle_starttag(self, tag, attrs):
+        self.event()
         if tag not in {'table','thead','tbody','tfoot','tr','td','th','br'}:
             self.errors.append('unsupported_html_tag:'+tag)
         if tag=='tr':
@@ -33,6 +37,7 @@ class TableParser(HTMLParser):
             self.cell={'text':'','colspan':col,'rowspan':row}
         if tag=='br' and self.cell is not None: self.cell['text']+='\n'
     def handle_endtag(self,tag):
+        self.event()
         if tag in ('td','th'):
             if self.cell is None or self.row is None: self.errors.append('unmatched_cell_end');return
             self.cell['text']=norm(self.cell['text']); self.row.append(self.cell); self.cell=None
@@ -42,6 +47,7 @@ class TableParser(HTMLParser):
             if self.row is None: self.errors.append('unmatched_row_end');return
             self.rows.append(self.row);self.row=None
     def handle_data(self,data):
+        self.event()
         if self.cell is not None:self.cell['text']+=data
         elif data.strip():self.errors.append('text_outside_cell')
     def result(self):
