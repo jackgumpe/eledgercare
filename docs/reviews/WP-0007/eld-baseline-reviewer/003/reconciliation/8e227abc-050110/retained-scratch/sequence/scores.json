@@ -1,0 +1,834 @@
+{
+  "scores": [
+    {
+      "schema": "eld-baseline-score/1",
+      "fixture_id": "review-synthetic",
+      "family_id": "review",
+      "split": "dev",
+      "variant_kind": "v0_clean",
+      "completion": "completed",
+      "eligible_for_exact_credit": false,
+      "document_denominator": 1,
+      "completed_documents": 1,
+      "parse_errors": [
+        "page_1:table:unclosed_or_missing_table"
+      ],
+      "fields": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "missing": 1,
+        "unmatched_candidates": 0,
+        "details": [
+          {
+            "key": [
+              1,
+              "id"
+            ],
+            "expected_printed": "007",
+            "expected_normalized": "007",
+            "predicted": null,
+            "observed_exact": false,
+            "credited_exact": false,
+            "status": "missing"
+          }
+        ]
+      },
+      "cells": {
+        "correct": 0,
+        "total": 2,
+        "rate": 0.0,
+        "extra_rows": 0,
+        "extra_cells": 0,
+        "missing_rows": 1,
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "code",
+            "expected_printed": "A",
+            "predicted": null,
+            "observed_exact": false,
+            "credited_exact": false
+          },
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "price",
+            "expected_printed": "$1",
+            "predicted": null,
+            "observed_exact": false,
+            "credited_exact": false
+          }
+        ]
+      },
+      "normalized_fields": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "parsed_candidates": 0,
+        "uncredited_reasons": {
+          "missing": 1
+        },
+        "details": [
+          {
+            "key": [
+              1,
+              "id"
+            ],
+            "raw": null,
+            "value_type": "identifier",
+            "slot": "id",
+            "status": "missing",
+            "canonical": null,
+            "expected_normalized": "007",
+            "reference_status": "supported",
+            "observed_exact": false,
+            "credited_exact": false
+          }
+        ],
+        "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+      },
+      "normalized_cells": {
+        "correct": 0,
+        "total": 2,
+        "rate": 0.0,
+        "parsed_candidates": 0,
+        "uncredited_reasons": {
+          "missing": 2,
+          "unsupported_normalized_target": 2
+        },
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "code",
+            "raw": null,
+            "value_type": null,
+            "slot": "code",
+            "status": "missing",
+            "canonical": null,
+            "expected_normalized": null,
+            "reference_status": "unsupported_normalized_target",
+            "observed_exact": false,
+            "credited_exact": false
+          },
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "price",
+            "raw": null,
+            "value_type": null,
+            "slot": "price",
+            "status": "missing",
+            "canonical": null,
+            "expected_normalized": null,
+            "reference_status": "unsupported_normalized_target",
+            "observed_exact": false,
+            "credited_exact": false
+          }
+        ],
+        "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+      },
+      "rows": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "exact": false
+          }
+        ]
+      },
+      "expected_absences": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "violations": 0,
+        "surplus_candidates": 0,
+        "details": [
+          {
+            "field_id": "optional",
+            "page": 1,
+            "values": [],
+            "violation": false,
+            "candidate_count": 0,
+            "surplus_candidates": 0,
+            "verified_absent": false,
+            "unmapped": true
+          }
+        ]
+      },
+      "page_count": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "predicted": 1,
+        "expected": 1
+      },
+      "page_sentinels": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "adjacency": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "cross_page_links": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "text": {
+        "status": "scored",
+        "reference_tokens": 4,
+        "prediction_tokens": 1,
+        "substitutions": 1,
+        "deletions": 3,
+        "insertions": 0,
+        "error_rate": 1.0,
+        "alignment": "SequenceMatcher-autojunk=False; not minimum Levenshtein WER"
+      },
+      "reference_coverage": {},
+      "unmapped_content": [],
+      "mapping_coverage": {
+        "fields_with_candidate": 0,
+        "expected_fields": 1,
+        "cells_with_candidate": 0,
+        "expected_cells": 2,
+        "unsupported_or_missing_table_rows": 1,
+        "unclassified_content_records": 0,
+        "unmapped_table_physical_rows": 0,
+        "unmapped_table_physical_cells": 0,
+        "short_table_rows": 0,
+        "failure_reasons": [
+          "no_exact_dev_header_or_missing_table_rows",
+          "missing_field_candidates",
+          "native_parse_error"
+        ],
+        "interpretation": "Field/cell mismatches combine extraction/mapping and recognition errors. Unmapped cells are not asserted character-reading errors; raw token errors are reported separately."
+      },
+      "invention_limit": "Unmatched fields/rows/cells and absence violations are schema-relative signals; unrecognized prose is retained, not asserted factual hallucination.",
+      "raw_sha256": "856fd351201baeb956914c33acb2da6005b4cfc84dd43f1c58fac5835f781f95"
+    },
+    {
+      "schema": "eld-baseline-score/1",
+      "fixture_id": "review-synthetic",
+      "family_id": "review",
+      "split": "dev",
+      "variant_kind": "v0_clean",
+      "completion": "completed",
+      "eligible_for_exact_credit": true,
+      "document_denominator": 1,
+      "completed_documents": 1,
+      "parse_errors": [],
+      "fields": {
+        "correct": 1,
+        "total": 1,
+        "rate": 1.0,
+        "missing": 0,
+        "unmatched_candidates": 0,
+        "details": [
+          {
+            "key": [
+              1,
+              "id"
+            ],
+            "expected_printed": "007",
+            "expected_normalized": "007",
+            "predicted": "007",
+            "observed_exact": true,
+            "credited_exact": true,
+            "status": "exact"
+          }
+        ]
+      },
+      "cells": {
+        "correct": 2,
+        "total": 2,
+        "rate": 1.0,
+        "extra_rows": 0,
+        "extra_cells": 0,
+        "missing_rows": 0,
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "code",
+            "expected_printed": "A",
+            "predicted": "A",
+            "observed_exact": true,
+            "credited_exact": true
+          },
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "price",
+            "expected_printed": "$1",
+            "predicted": "$1",
+            "observed_exact": true,
+            "credited_exact": true
+          }
+        ]
+      },
+      "normalized_fields": {
+        "correct": 1,
+        "total": 1,
+        "rate": 1.0,
+        "parsed_candidates": 1,
+        "uncredited_reasons": {},
+        "details": [
+          {
+            "key": [
+              1,
+              "id"
+            ],
+            "raw": "007",
+            "value_type": "identifier",
+            "slot": "id",
+            "status": "parsed",
+            "canonical": "007",
+            "expected_normalized": "007",
+            "reference_status": "supported",
+            "observed_exact": true,
+            "credited_exact": true
+          }
+        ],
+        "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+      },
+      "normalized_cells": {
+        "correct": 0,
+        "total": 2,
+        "rate": 0.0,
+        "parsed_candidates": 0,
+        "uncredited_reasons": {
+          "unsupported_type": 2,
+          "unsupported_normalized_target": 2
+        },
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "code",
+            "raw": "A",
+            "value_type": null,
+            "slot": "code",
+            "status": "unsupported_type",
+            "canonical": null,
+            "expected_normalized": null,
+            "reference_status": "unsupported_normalized_target",
+            "observed_exact": false,
+            "credited_exact": false
+          },
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "price",
+            "raw": "$1",
+            "value_type": null,
+            "slot": "price",
+            "status": "unsupported_type",
+            "canonical": null,
+            "expected_normalized": null,
+            "reference_status": "unsupported_normalized_target",
+            "observed_exact": false,
+            "credited_exact": false
+          }
+        ],
+        "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+      },
+      "rows": {
+        "correct": 1,
+        "total": 1,
+        "rate": 1.0,
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "exact": true
+          }
+        ]
+      },
+      "expected_absences": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "violations": 0,
+        "surplus_candidates": 0,
+        "details": [
+          {
+            "field_id": "optional",
+            "page": 1,
+            "values": [],
+            "violation": false,
+            "candidate_count": 0,
+            "surplus_candidates": 0,
+            "verified_absent": false,
+            "unmapped": true
+          }
+        ]
+      },
+      "page_count": {
+        "correct": 1,
+        "total": 1,
+        "rate": 1.0,
+        "predicted": 1,
+        "expected": 1
+      },
+      "page_sentinels": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "adjacency": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "cross_page_links": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "text": {
+        "status": "scored",
+        "reference_tokens": 4,
+        "prediction_tokens": 6,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 2,
+        "error_rate": 0.5,
+        "alignment": "SequenceMatcher-autojunk=False; not minimum Levenshtein WER"
+      },
+      "reference_coverage": {},
+      "unmapped_content": [],
+      "mapping_coverage": {
+        "fields_with_candidate": 1,
+        "expected_fields": 1,
+        "cells_with_candidate": 2,
+        "expected_cells": 2,
+        "unsupported_or_missing_table_rows": 0,
+        "unclassified_content_records": 0,
+        "unmapped_table_physical_rows": 0,
+        "unmapped_table_physical_cells": 0,
+        "short_table_rows": 0,
+        "failure_reasons": [],
+        "interpretation": "Field/cell mismatches combine extraction/mapping and recognition errors. Unmapped cells are not asserted character-reading errors; raw token errors are reported separately."
+      },
+      "invention_limit": "Unmatched fields/rows/cells and absence violations are schema-relative signals; unrecognized prose is retained, not asserted factual hallucination.",
+      "raw_sha256": "ca3b0ff58621d186d9c5618148bd7c3a189fab20fc1088982f74eacee3fa1e89"
+    },
+    {
+      "schema": "eld-baseline-score/1",
+      "fixture_id": "review-synthetic",
+      "family_id": "review",
+      "split": "dev",
+      "variant_kind": "v0_clean",
+      "completion": "missing_run_record",
+      "eligible_for_exact_credit": false,
+      "document_denominator": 1,
+      "completed_documents": 0,
+      "parse_errors": [
+        "no_page_markers"
+      ],
+      "fields": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "missing": 1,
+        "unmatched_candidates": 0,
+        "details": [
+          {
+            "key": [
+              1,
+              "id"
+            ],
+            "expected_printed": "007",
+            "expected_normalized": "007",
+            "predicted": null,
+            "observed_exact": false,
+            "credited_exact": false,
+            "status": "missing"
+          }
+        ]
+      },
+      "cells": {
+        "correct": 0,
+        "total": 2,
+        "rate": 0.0,
+        "extra_rows": 0,
+        "extra_cells": 0,
+        "missing_rows": 1,
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "code",
+            "expected_printed": "A",
+            "predicted": null,
+            "observed_exact": false,
+            "credited_exact": false
+          },
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "price",
+            "expected_printed": "$1",
+            "predicted": null,
+            "observed_exact": false,
+            "credited_exact": false
+          }
+        ]
+      },
+      "normalized_fields": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "parsed_candidates": 0,
+        "uncredited_reasons": {
+          "missing": 1
+        },
+        "details": [
+          {
+            "key": [
+              1,
+              "id"
+            ],
+            "raw": null,
+            "value_type": "identifier",
+            "slot": "id",
+            "status": "missing",
+            "canonical": null,
+            "expected_normalized": "007",
+            "reference_status": "supported",
+            "observed_exact": false,
+            "credited_exact": false
+          }
+        ],
+        "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+      },
+      "normalized_cells": {
+        "correct": 0,
+        "total": 2,
+        "rate": 0.0,
+        "parsed_candidates": 0,
+        "uncredited_reasons": {
+          "missing": 2,
+          "unsupported_normalized_target": 2
+        },
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "code",
+            "raw": null,
+            "value_type": null,
+            "slot": "code",
+            "status": "missing",
+            "canonical": null,
+            "expected_normalized": null,
+            "reference_status": "unsupported_normalized_target",
+            "observed_exact": false,
+            "credited_exact": false
+          },
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "row_id": "r1",
+            "column": "price",
+            "raw": null,
+            "value_type": null,
+            "slot": "price",
+            "status": "missing",
+            "canonical": null,
+            "expected_normalized": null,
+            "reference_status": "unsupported_normalized_target",
+            "observed_exact": false,
+            "credited_exact": false
+          }
+        ],
+        "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+      },
+      "rows": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "details": [
+          {
+            "table": "lines",
+            "page": 1,
+            "row_ordinal": 0,
+            "exact": false
+          }
+        ]
+      },
+      "expected_absences": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "violations": 0,
+        "surplus_candidates": 0,
+        "details": [
+          {
+            "field_id": "optional",
+            "page": 1,
+            "values": [],
+            "violation": false,
+            "candidate_count": 0,
+            "surplus_candidates": 0,
+            "verified_absent": false,
+            "unmapped": true
+          }
+        ]
+      },
+      "page_count": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0,
+        "predicted": 0,
+        "expected": 1
+      },
+      "page_sentinels": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "adjacency": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "cross_page_links": {
+        "correct": 0,
+        "total": 0,
+        "rate": null,
+        "details": []
+      },
+      "text": {
+        "status": "scored",
+        "reference_tokens": 4,
+        "prediction_tokens": 0,
+        "substitutions": 0,
+        "deletions": 4,
+        "insertions": 0,
+        "error_rate": 1.0,
+        "alignment": "SequenceMatcher-autojunk=False; not minimum Levenshtein WER"
+      },
+      "reference_coverage": {},
+      "unmapped_content": [],
+      "mapping_coverage": {
+        "fields_with_candidate": 0,
+        "expected_fields": 1,
+        "cells_with_candidate": 0,
+        "expected_cells": 2,
+        "unsupported_or_missing_table_rows": 1,
+        "unclassified_content_records": 0,
+        "unmapped_table_physical_rows": 0,
+        "unmapped_table_physical_cells": 0,
+        "short_table_rows": 0,
+        "failure_reasons": [
+          "no_exact_dev_header_or_missing_table_rows",
+          "missing_field_candidates",
+          "native_parse_error"
+        ],
+        "interpretation": "Field/cell mismatches combine extraction/mapping and recognition errors. Unmapped cells are not asserted character-reading errors; raw token errors are reported separately."
+      },
+      "invention_limit": "Unmatched fields/rows/cells and absence violations are schema-relative signals; unrecognized prose is retained, not asserted factual hallucination.",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "summary": {
+    "dev": {
+      "document_denominator": 3,
+      "completed_documents": 2,
+      "families": {
+        "review": {
+          "documents": 3,
+          "completed": 2,
+          "metrics": {
+            "fields": {
+              "mean": 0.3333333333333333,
+              "documents_with_denominator": 3
+            },
+            "cells": {
+              "mean": 0.3333333333333333,
+              "documents_with_denominator": 3
+            },
+            "normalized_fields": {
+              "mean": 0.3333333333333333,
+              "documents_with_denominator": 3
+            },
+            "normalized_cells": {
+              "mean": 0.0,
+              "documents_with_denominator": 3
+            },
+            "rows": {
+              "mean": 0.3333333333333333,
+              "documents_with_denominator": 3
+            },
+            "expected_absences": {
+              "mean": 0.0,
+              "documents_with_denominator": 3
+            },
+            "page_count": {
+              "mean": 0.3333333333333333,
+              "documents_with_denominator": 3
+            },
+            "page_sentinels": {
+              "mean": null,
+              "documents_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "documents_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "documents_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.8333333333333334,
+              "documents_with_denominator": 3
+            }
+          }
+        }
+      },
+      "family_macro": {
+        "fields": {
+          "mean": 0.3333333333333333,
+          "families_with_denominator": 1
+        },
+        "cells": {
+          "mean": 0.3333333333333333,
+          "families_with_denominator": 1
+        },
+        "normalized_fields": {
+          "mean": 0.3333333333333333,
+          "families_with_denominator": 1
+        },
+        "normalized_cells": {
+          "mean": 0.0,
+          "families_with_denominator": 1
+        },
+        "rows": {
+          "mean": 0.3333333333333333,
+          "families_with_denominator": 1
+        },
+        "expected_absences": {
+          "mean": 0.0,
+          "families_with_denominator": 1
+        },
+        "page_count": {
+          "mean": 0.3333333333333333,
+          "families_with_denominator": 1
+        },
+        "page_sentinels": {
+          "mean": null,
+          "families_with_denominator": 0
+        },
+        "adjacency": {
+          "mean": null,
+          "families_with_denominator": 0
+        },
+        "cross_page_links": {
+          "mean": null,
+          "families_with_denominator": 0
+        },
+        "text_error_rate": {
+          "mean": 0.8333333333333334,
+          "families_with_denominator": 1
+        }
+      },
+      "variants": {
+        "v0_clean": {
+          "documents": 3,
+          "completed": 2,
+          "family_macro": {
+            "fields": {
+              "mean": 0.3333333333333333,
+              "families_with_denominator": 1
+            },
+            "cells": {
+              "mean": 0.3333333333333333,
+              "families_with_denominator": 1
+            },
+            "normalized_fields": {
+              "mean": 0.3333333333333333,
+              "families_with_denominator": 1
+            },
+            "normalized_cells": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "rows": {
+              "mean": 0.3333333333333333,
+              "families_with_denominator": 1
+            },
+            "expected_absences": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "page_count": {
+              "mean": 0.3333333333333333,
+              "families_with_denominator": 1
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.8333333333333334,
+              "families_with_denominator": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "run_result_sha256": "bbdc7e830904e948b29375902f7f487e08ac04db6afb403ab3157836af42c7f7"
+}
