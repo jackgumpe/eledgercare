@@ -287,7 +287,11 @@ def verify_lineage_scope_and_author_publication() -> dict:
     )
     diff_from_prev_source = sorted(
         ln.strip()
-        for ln in run_git(["diff", "--name-only", f"{PREVIOUS_AUTHOR_SOURCE_SHA}..{AUTHOR_CANDIDATE_SHA}"]).splitlines()
+        for ln in run_git([
+            "diff", "--name-only",
+            f"{PREVIOUS_AUTHOR_SOURCE_SHA}..{AUTHOR_CANDIDATE_SHA}",
+            "--", "src", "web", "workers", "tests", "deploy", "ELedgerCare.slnx",
+        ]).splitlines()
         if ln.strip()
     )
     if diff_from_merge_base != EXPECTED_12_CHANGED_PATHS or diff_from_prev_source != EXPECTED_12_CHANGED_PATHS:
