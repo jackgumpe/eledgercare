@@ -1,0 +1,890 @@
+{
+  "schema": "eld-baseline-run/1",
+  "run": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d",
+  "executing_head": "9a8ae5293899d3f17b5cd240c29ce43270e93e2d",
+  "release": {
+    "schema": "eld-baseline-release/1",
+    "owner": "author",
+    "source_commit": "522f15f1f6e399c36b9c6c107fc08f51862f1fc1",
+    "executing_head": "9a8ae5293899d3f17b5cd240c29ce43270e93e2d",
+    "source_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+    "protocol_sha256": "97ce68486813f34d04a61e24fc7b19f2c291e9062078fd6319bb0230812dbee8",
+    "mapping_sha256": "eed1fba8aeee921e2f0f586cb4caf0b9ec0d4cd93d74df43d68c6358e1b21bf9",
+    "lock_sha256": "d8eeaf0fe838d9df5728f17fcbacc8b504d98b79644a524b4faa705d97c49e6e",
+    "accepted_review_commit": "b9dc09fa3dc6838c59f519063bb38d2c2a7f44f0",
+    "accepted_review_path": "docs/agent-reports/eld-baseline-reviewer/WP-0007/010_2026-11-16_review_eld-baseline-reviewer.md",
+    "split": "eval_holdout",
+    "runtime_root": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author",
+    "lease_id": "WP-0007-author-heldout-20261116T145544Z",
+    "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+    "expires_utc": "2026-11-16T22:55:44.940903+00:00",
+    "allow_test_content": true,
+    "sentinels": [
+      "SYN-WO-02-v3-hybrid-note",
+      "SYN-INV-03-v1-raster300",
+      "SYN-MP-02-v0-clean"
+    ],
+    "observed_gpu_state": {
+      "host-before.json": {
+        "path": "docs/coordination/WP-0007/gpu-author-heldout-release/host-before.json",
+        "sha256": "ca695a48ab23609f9fe7b3b22d7ee4f3fe340cced84a20e3fda1f62ee6a2e6a2"
+      },
+      "model-before.json": {
+        "path": "docs/coordination/WP-0007/gpu-author-heldout-release/model-before.json",
+        "sha256": "cca23b62fb8b22599caf77d08b9482fc467a189abf7babcc0ba1fc49fd270dac"
+      },
+      "processes-before.json": {
+        "path": "docs/coordination/WP-0007/gpu-author-heldout-release/processes-before.json",
+        "sha256": "347adc3d3993510e3e5482c9daf1ca3eefd2d0eac943be8b51ccae8623658f4a"
+      }
+    },
+    "torchvision_local_sha256_TOFU_accepted": true,
+    "released_by": "eld-coordinator",
+    "released_utc": "2026-11-16T14:55:44.940903+00:00",
+    "scope": "Fixed full13 heldout primary documents/21 pages plus two excluded dev warmups. No tuning/retry. Original13 dev primary scores unchanged; recovery supplement remains separate."
+  },
+  "calls": [
+    {
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "kind": "warmup",
+      "excluded": true,
+      "status": "completed",
+      "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "kind": "warmup",
+      "excluded": true,
+      "status": "completed",
+      "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-WO-03-v0-clean",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-WO-03-v0-clean.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-WO-03-v1-raster300",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-WO-03-v1-raster300.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-WO-03-v2-skew-pos4deg",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-WO-03-v2-skew-pos4deg.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-INV-02-v0-clean",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-INV-02-v0-clean.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-INV-02-v1-raster300",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-INV-02-v1-raster300.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-INV-02-v2-skew-pos4deg",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-INV-02-v2-skew-pos4deg.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-INV-03-v0-clean",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-INV-03-v0-clean.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-INV-03-v1-raster300",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-INV-03-v1-raster300.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-INV-03-v2-skew-neg3deg",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-INV-03-v2-skew-neg3deg.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-MP-02-v0-clean",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-MP-02-v0-clean.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-MP-02-v1-raster300",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-MP-02-v1-raster300.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-MP-02-v2-skew-neg3deg",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-MP-02-v2-skew-neg3deg.measured.observation.json",
+      "observation_status": "available"
+    },
+    {
+      "fixture_id": "SYN-MP-02-v3-hybrid-stamp",
+      "kind": "measured",
+      "excluded": false,
+      "status": "completed",
+      "observation": "evidence\\SYN-MP-02-v3-hybrid-stamp.measured.observation.json",
+      "observation_status": "available"
+    }
+  ],
+  "failure": null,
+  "supervisor_error": null,
+  "secondary_errors": [],
+  "finalization_errors": [],
+  "final_observation_status": {
+    "post_observers": "available",
+    "worker_outcome": "available",
+    "free_bytes_after": "available",
+    "owned_bytes_after": "available"
+  },
+  "child_launcher_pid": 2376,
+  "child_returncode": 0,
+  "observed_child_exit": true,
+  "elapsed_s": 2543.719000000041,
+  "observers": [
+    {
+      "tag": "pre",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-pre-0.txt",
+      "t": 1794841048.6644096
+    },
+    {
+      "tag": "pre",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1875,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-pre-1.txt",
+      "t": 1794841048.7207413
+    },
+    {
+      "tag": "during-60",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-60-0.txt",
+      "t": 1794841109.5517364
+    },
+    {
+      "tag": "during-60",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-60-1.txt",
+      "t": 1794841109.6399312
+    },
+    {
+      "tag": "during-120",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-120-0.txt",
+      "t": 1794841169.7064679
+    },
+    {
+      "tag": "during-120",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-120-1.txt",
+      "t": 1794841169.7759314
+    },
+    {
+      "tag": "during-181",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-181-0.txt",
+      "t": 1794841229.8910508
+    },
+    {
+      "tag": "during-181",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-181-1.txt",
+      "t": 1794841229.953753
+    },
+    {
+      "tag": "during-241",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-241-0.txt",
+      "t": 1794841290.311012
+    },
+    {
+      "tag": "during-241",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-241-1.txt",
+      "t": 1794841290.3712423
+    },
+    {
+      "tag": "during-301",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 135,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-301-0.txt",
+      "t": 1794841350.5554833
+    },
+    {
+      "tag": "during-301",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-301-1.txt",
+      "t": 1794841350.6192598
+    },
+    {
+      "tag": "during-362",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-362-0.txt",
+      "t": 1794841410.8851779
+    },
+    {
+      "tag": "during-362",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-362-1.txt",
+      "t": 1794841410.9697855
+    },
+    {
+      "tag": "during-422",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-422-0.txt",
+      "t": 1794841471.233732
+    },
+    {
+      "tag": "during-422",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-422-1.txt",
+      "t": 1794841471.305281
+    },
+    {
+      "tag": "during-482",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-482-0.txt",
+      "t": 1794841531.5421
+    },
+    {
+      "tag": "during-482",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-482-1.txt",
+      "t": 1794841531.625555
+    },
+    {
+      "tag": "during-543",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-543-0.txt",
+      "t": 1794841592.461956
+    },
+    {
+      "tag": "during-543",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-543-1.txt",
+      "t": 1794841592.5495155
+    },
+    {
+      "tag": "during-604",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-604-0.txt",
+      "t": 1794841653.4372027
+    },
+    {
+      "tag": "during-604",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-604-1.txt",
+      "t": 1794841653.4834595
+    },
+    {
+      "tag": "during-665",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-665-0.txt",
+      "t": 1794841714.3470564
+    },
+    {
+      "tag": "during-665",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-665-1.txt",
+      "t": 1794841714.4509091
+    },
+    {
+      "tag": "during-726",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-726-0.txt",
+      "t": 1794841775.2522473
+    },
+    {
+      "tag": "during-726",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-726-1.txt",
+      "t": 1794841775.3313246
+    },
+    {
+      "tag": "during-787",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-787-0.txt",
+      "t": 1794841836.151128
+    },
+    {
+      "tag": "during-787",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-787-1.txt",
+      "t": 1794841836.2452576
+    },
+    {
+      "tag": "during-848",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-848-0.txt",
+      "t": 1794841897.1499856
+    },
+    {
+      "tag": "during-848",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-848-1.txt",
+      "t": 1794841897.2338483
+    },
+    {
+      "tag": "during-909",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-909-0.txt",
+      "t": 1794841958.0498035
+    },
+    {
+      "tag": "during-909",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-909-1.txt",
+      "t": 1794841958.1112192
+    },
+    {
+      "tag": "during-969",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-969-0.txt",
+      "t": 1794842018.2538333
+    },
+    {
+      "tag": "during-969",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-969-1.txt",
+      "t": 1794842018.3053389
+    },
+    {
+      "tag": "during-1029",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1029-0.txt",
+      "t": 1794842078.5611272
+    },
+    {
+      "tag": "during-1029",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1029-1.txt",
+      "t": 1794842078.6237237
+    },
+    {
+      "tag": "during-1090",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 135,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1090-0.txt",
+      "t": 1794842139.07046
+    },
+    {
+      "tag": "during-1090",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1090-1.txt",
+      "t": 1794842139.1373293
+    },
+    {
+      "tag": "during-1150",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1150-0.txt",
+      "t": 1794842199.5587413
+    },
+    {
+      "tag": "during-1150",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1150-1.txt",
+      "t": 1794842199.6108363
+    },
+    {
+      "tag": "during-1211",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1211-0.txt",
+      "t": 1794842259.8883944
+    },
+    {
+      "tag": "during-1211",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1211-1.txt",
+      "t": 1794842259.9685295
+    },
+    {
+      "tag": "during-1271",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1271-0.txt",
+      "t": 1794842320.0633175
+    },
+    {
+      "tag": "during-1271",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1271-1.txt",
+      "t": 1794842320.123893
+    },
+    {
+      "tag": "during-1331",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1331-0.txt",
+      "t": 1794842380.3710866
+    },
+    {
+      "tag": "during-1331",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1331-1.txt",
+      "t": 1794842380.4820492
+    },
+    {
+      "tag": "during-1391",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 135,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1391-0.txt",
+      "t": 1794842440.5168633
+    },
+    {
+      "tag": "during-1391",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1391-1.txt",
+      "t": 1794842449.4416072
+    },
+    {
+      "tag": "during-1452",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1452-0.txt",
+      "t": 1794842501.4257038
+    },
+    {
+      "tag": "during-1452",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1452-1.txt",
+      "t": 1794842501.4942155
+    },
+    {
+      "tag": "during-1513",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 135,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1513-0.txt",
+      "t": 1794842562.3036337
+    },
+    {
+      "tag": "during-1513",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1513-1.txt",
+      "t": 1794842562.4066699
+    },
+    {
+      "tag": "during-1573",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1573-0.txt",
+      "t": 1794842622.3268754
+    },
+    {
+      "tag": "during-1573",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1573-1.txt",
+      "t": 1794842622.3929124
+    },
+    {
+      "tag": "during-1634",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 135,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1634-0.txt",
+      "t": 1794842683.3054261
+    },
+    {
+      "tag": "during-1634",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1634-1.txt",
+      "t": 1794842683.4083476
+    },
+    {
+      "tag": "during-1695",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 135,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1695-0.txt",
+      "t": 1794842744.2814245
+    },
+    {
+      "tag": "during-1695",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1695-1.txt",
+      "t": 1794842744.3373299
+    },
+    {
+      "tag": "during-1756",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1756-0.txt",
+      "t": 1794842805.2472115
+    },
+    {
+      "tag": "during-1756",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1756-1.txt",
+      "t": 1794842805.2995317
+    },
+    {
+      "tag": "during-1817",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1817-0.txt",
+      "t": 1794842866.1778808
+    },
+    {
+      "tag": "during-1817",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1817-1.txt",
+      "t": 1794842866.238876
+    },
+    {
+      "tag": "during-1877",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1877-0.txt",
+      "t": 1794842926.2780006
+    },
+    {
+      "tag": "during-1877",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1877-1.txt",
+      "t": 1794842926.3307958
+    },
+    {
+      "tag": "during-1937",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1937-0.txt",
+      "t": 1794842986.3071287
+    },
+    {
+      "tag": "during-1937",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1937-1.txt",
+      "t": 1794842986.3714898
+    },
+    {
+      "tag": "during-1997",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1997-0.txt",
+      "t": 1794843046.3980448
+    },
+    {
+      "tag": "during-1997",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-1997-1.txt",
+      "t": 1794843046.45711
+    },
+    {
+      "tag": "during-2057",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 135,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2057-0.txt",
+      "t": 1794843106.513355
+    },
+    {
+      "tag": "during-2057",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2057-1.txt",
+      "t": 1794843106.5829656
+    },
+    {
+      "tag": "during-2118",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2118-0.txt",
+      "t": 1794843167.0031514
+    },
+    {
+      "tag": "during-2118",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2118-1.txt",
+      "t": 1794843167.0488887
+    },
+    {
+      "tag": "during-2178",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2178-0.txt",
+      "t": 1794843227.387396
+    },
+    {
+      "tag": "during-2178",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2178-1.txt",
+      "t": 1794843227.427304
+    },
+    {
+      "tag": "during-2238",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2238-0.txt",
+      "t": 1794843287.7612245
+    },
+    {
+      "tag": "during-2238",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2238-1.txt",
+      "t": 1794843287.8057327
+    },
+    {
+      "tag": "during-2299",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2299-0.txt",
+      "t": 1794843348.0495384
+    },
+    {
+      "tag": "during-2299",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2299-1.txt",
+      "t": 1794843348.1281602
+    },
+    {
+      "tag": "during-2359",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2359-0.txt",
+      "t": 1794843408.0644233
+    },
+    {
+      "tag": "during-2359",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2359-1.txt",
+      "t": 1794843408.12539
+    },
+    {
+      "tag": "during-2419",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2419-0.txt",
+      "t": 1794843468.0609787
+    },
+    {
+      "tag": "during-2419",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2419-1.txt",
+      "t": 1794843468.1593428
+    },
+    {
+      "tag": "during-2480",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2480-0.txt",
+      "t": 1794843529.0548632
+    },
+    {
+      "tag": "during-2480",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2480-1.txt",
+      "t": 1794843529.0991201
+    },
+    {
+      "tag": "during-2540",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2540-0.txt",
+      "t": 1794843589.111253
+    },
+    {
+      "tag": "during-2540",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1956,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-during-2540-1.txt",
+      "t": 1794843589.1760232
+    },
+    {
+      "tag": "post",
+      "index": 0,
+      "returncode": 0,
+      "bytes": 136,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-post-0.txt",
+      "t": 1794843592.2678149
+    },
+    {
+      "tag": "post",
+      "index": 1,
+      "returncode": 0,
+      "bytes": 1875,
+      "path": "C:\\Users\\jackg\\eLedgerCare-Baseline\\WP-0007\\author\\runs\\author\\20261116T145728Z-07a28a6d\\observer-post-1.txt",
+      "t": 1794843592.3130949
+    }
+  ],
+  "free_bytes_after": 53077655552,
+  "owned_bytes_after": 193494309
+}
