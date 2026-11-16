@@ -35,6 +35,29 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual(sum(not x['excluded'] for x in r['schedule']),count-2)
         self.assertEqual(release.schedule(p,'reviewer')[-1]['fixture_id'],'WP09-F04-v0')
 
+    def test_declared_sentinel_policy_matches_finite_schedule_and_scope(self):
+        p=protocol();policy=p['sentinel_policy'];plan=release.schedule(p,'reviewer')
+        warmups=[row for row in plan if row['excluded']]
+        measured=[row for row in plan if not row['excluded']]
+        self.assertEqual([row['fixture_id'] for row in warmups],p['warmups'])
+        self.assertEqual(len(warmups),2)
+        self.assertTrue(all(row['kind']=='warmup' for row in warmups))
+        self.assertEqual([row['fixture_id'] for row in measured],[p['reviewer_sentinel']])
+        self.assertEqual(len(measured),1)
+        self.assertEqual(policy['measured_document_count'],len(measured))
+        self.assertTrue(all(row['kind']=='measured' for row in measured))
+        fixtures={fx['fixture_id']:fx for fx in p['fresh_fixtures']}
+        page_counts=[fixtures[row['fixture_id']]['page_count'] for row in measured]
+        self.assertEqual(page_counts,[3])
+        self.assertEqual(policy['page_counts'],page_counts)
+        actual_categories=sorted({'single_page' if count==1 else 'multi_page' for count in page_counts})
+        self.assertEqual(policy['required_categories'],actual_categories)
+        self.assertEqual(policy['content_scope'],'clean_digital_only')
+        self.assertEqual(policy['not_covered_categories'],['single_page','raster_or_hybrid'])
+        self.assertTrue(set(policy['required_categories']).isdisjoint(policy['not_covered_categories']))
+        self.assertEqual(policy['chosen_by'],'independent reviewer before result access')
+        self.assertIs(policy['ids_bound_in_release'],True)
+
     def test_missing_wrong_and_expired_envelopes(self):
         p=protocol();r=valid_release(p)
         with self.assertRaises(PermissionError):self.validate({})
