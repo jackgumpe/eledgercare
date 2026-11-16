@@ -1,0 +1,46 @@
+{
+  "observed_utc": "2026-11-16T17:40:24.4301653Z",
+  "lease_id": "WP-0006-reviewer-runtime-20261116T173239Z",
+  "processes": [
+    {
+      "ProcessId": 18496,
+      "ParentProcessId": 19048,
+      "CreationDate": "2026-11-16T12:39:19.189501-05:00",
+      "Name": "dotnet.exe",
+      "CommandLine": "dotnet \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\src\\ELedgerCare.Api\\bin\\Release\\net10.0\\ELedgerCare.Api.dll\""
+    },
+    {
+      "ProcessId": 31000,
+      "ParentProcessId": 18496,
+      "CreationDate": "2026-11-16T12:39:21.180338-05:00",
+      "Name": "python.exe",
+      "CommandLine": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe -I -B -X utf8 -u \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\workers\\local_ocr\\run_worker.py\" --request C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer\\runs\\attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4\\request.json"
+    },
+    {
+      "ProcessId": 31540,
+      "ParentProcessId": 31000,
+      "CreationDate": "2026-11-16T12:39:21.210536-05:00",
+      "Name": "python.exe",
+      "CommandLine": "\"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -I -B -X utf8 -u \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-next-reviewer\\workers\\local_ocr\\run_worker.py\" --request C:\\Users\\jackg\\eLedgerCare-F2\\WP-0006\\reviewer\\runs\\attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4\\request.json"
+    }
+  ],
+  "attempts": [
+    {
+      "directory": "attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+      "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+      "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+      "heartbeat": {
+        "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+        "fencing_token": 1,
+        "forward_progress": 179,
+        "parent_pid": 31000,
+        "phase": "inferring",
+        "phase_timeout_s": 1800,
+        "stall_monitored": true,
+        "timestamp_utc": "2026-11-16T12:40:21.521348-05:00",
+        "worker_create_filetime": 134393243612105369,
+        "worker_pid": 31540
+      }
+    }
+  ]
+}
