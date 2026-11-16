@@ -535,13 +535,15 @@ public sealed class LocalExtractionAcceptanceTests(PostgresFixture fixture)
     public async Task F2_S1_02_F2_S1_03_postgres_diagnostic_sanitization_and_same_instance_orphaned_attempt_recovery()
     {
         await using var db = await fixture.CreateDatabaseAsync();
-        await using var api = await ApiProcess.StartAsync(db.AppConnectionString);
-        using var client = api.CreateClient();
-
-        var docNul = await SubmitDocumentAsync(client, SyntheticPdf.CanonicalFixture());
-        var docSurrogate = await SubmitDocumentAsync(client, SyntheticPdf.CanonicalFixture());
-        var docActive = await SubmitDocumentAsync(client, SyntheticPdf.CanonicalFixture());
-        var docOrphan = await SubmitDocumentAsync(client, SyntheticPdf.CanonicalFixture());
+        Guid docNul, docSurrogate, docActive, docOrphan;
+        await using (var intakeApi = await ApiProcess.StartAsync(db.AppConnectionString))
+        {
+            using var intakeClient = intakeApi.CreateClient();
+            docNul = await SubmitDocumentAsync(intakeClient, SyntheticPdf.CanonicalFixture());
+            docSurrogate = await SubmitDocumentAsync(intakeClient, SyntheticPdf.CanonicalFixture());
+            docActive = await SubmitDocumentAsync(intakeClient, SyntheticPdf.CanonicalFixture());
+            docOrphan = await SubmitDocumentAsync(intakeClient, SyntheticPdf.CanonicalFixture());
+        }
 
         var store = CreateAppExtractionStore(db.AppConnectionString);
         var settings = CreateEnabledTestSettings();
@@ -592,11 +594,6 @@ public sealed class LocalExtractionAcceptanceTests(PostgresFixture fixture)
             "SELECT char_length(diagnostic_raw_output_utf8)::text FROM eledgercare.execution_attempts WHERE attempt_id = @id",
             ("id", claimedSur.AttemptId)));
 
-        // Verify real API serializes both sanitized failed attempts cleanly over HTTP.
-        var nulExtHttp = await client.GetFromJsonAsync<JsonElement>($"/api/documents/{docNul:D}/extraction", Cancel);
-        Assert.Equal("failed", nulExtHttp.GetProperty("status").GetString());
-        Assert.True(nulExtHttp.GetProperty("canRetryExtraction").GetBoolean());
-
         // --- Part 2 (F2-S1-02): Same-instance active protection + orphaned 'running' recovery without API restart ---
         var probe = new FakeProcessIdentityProbe(new OsProcessIdentity(8800, 133700000000008800L));
         probe.SetAlive(8800, 133700000000008800L, alive: true);
@@ -646,6 +643,19 @@ public sealed class LocalExtractionAcceptanceTests(PostgresFixture fixture)
         // Recovery to 'interrupted' must NOT automatically launch another attempt; retry stays explicit.
         Assert.False(await coordinator.ExecuteNextQueuedAttemptAsync(Cancel));
         Assert.Equal(1L, await db.ScalarAsync("SELECT count(*) FROM eledgercare.execution_attempts WHERE document_id = @id", ("id", docOrphan)));
+
+        // Verify real API serializes both sanitized failed and reconciled interrupted attempts cleanly over HTTP.
+        await using (var readApi = await ApiProcess.StartAsync(db.AppConnectionString))
+        {
+            using var readClient = readApi.CreateClient();
+            var nulExtHttp = await readClient.GetFromJsonAsync<JsonElement>($"/api/documents/{docNul:D}/extraction", Cancel);
+            Assert.Equal("failed", nulExtHttp.GetProperty("status").GetString());
+            Assert.False(nulExtHttp.GetProperty("workerEnabled").GetBoolean());
+            Assert.False(nulExtHttp.GetProperty("canRetryExtraction").GetBoolean());
+
+            var orphanExtHttp = await readClient.GetFromJsonAsync<JsonElement>($"/api/documents/{docOrphan:D}/extraction", Cancel);
+            Assert.Equal("interrupted", orphanExtHttp.GetProperty("status").GetString());
+        }
 
         Evidence.Record("F2-S1-02 and F2-S1-03 regressions", new
         {
