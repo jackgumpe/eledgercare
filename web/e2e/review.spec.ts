@@ -249,6 +249,52 @@ test('F3-01 / F3-02 / F3-03 / F3-BIC-04: readable original PDF alongside five fi
   );
   await expect(page.getByText(/confidence\s*:|\d+(\.\d+)?%\s*confident/i)).toHaveCount(0);
 
+  // Verify default operator presentation hides internal schema/field IDs, result UUID, and full SHA-256s in closed details,
+  // while keeping plain headings, character limits, source quotes, and page controls visible!
+  await expect(page.getByTestId('review-provenance-details')).not.toHaveAttribute('open', '');
+  await expect(page.getByTestId('review-profile-id')).toBeHidden();
+  await expect(page.getByTestId('review-field-schema')).toBeHidden();
+  await expect(page.getByTestId('review-result-id')).toBeHidden();
+  await expect(page.getByTestId('review-raw-sha256')).toBeHidden();
+  await expect(page.getByTestId('review-original-sha256')).toBeHidden();
+  await expect(page.getByTestId('technical-field-key-work_order_id')).toBeHidden();
+
+  const defaultVisibleText = await page.getByTestId('review-workspace').innerText();
+  expect(defaultVisibleText).toContain('Five work-order fields');
+  expect(defaultVisibleText).toContain('max 64 characters');
+  expect(defaultVisibleText).toContain('max 4000 characters');
+  for (const forbiddenInDefaultFlow of [
+    'maintenance-work-order/1',
+    'maintenance-work-order-fields/1',
+    'work-order-suggestions/1',
+    'work_order_id',
+    'property_name',
+    'building_unit',
+    'requested_date',
+    'issue_and_resolution',
+    wo.resultId,
+    woPdfSha,
+    woRawSha,
+  ]) {
+    expect(defaultVisibleText).not.toContain(forbiddenInDefaultFlow);
+  }
+
+  // Expand provenance & technical details: verify exact identifiers/hashes are accessible, then collapse back.
+  await page.getByTestId('toggle-review-provenance').click();
+  await expect(page.getByTestId('review-provenance-details')).toHaveAttribute('open', '');
+  await expect(page.getByTestId('review-profile-id')).toBeVisible();
+  await expect(page.getByTestId('review-profile-id')).toHaveText('maintenance-work-order/1');
+  await expect(page.getByTestId('review-field-schema')).toHaveText('maintenance-work-order-fields/1');
+  await expect(page.getByTestId('review-suggestion-policy')).toHaveText('work-order-suggestions/1');
+  await expect(page.getByTestId('review-document-id')).toHaveText(wo.documentId);
+  await expect(page.getByTestId('review-result-id')).toHaveText(wo.resultId);
+  await expect(page.getByTestId('review-original-sha256')).toHaveText(woPdfSha);
+  await expect(page.getByTestId('review-raw-sha256')).toHaveText(woRawSha);
+  await expect(page.getByTestId('technical-field-key-work_order_id')).toHaveText('work_order_id');
+  await expect(page.getByTestId('technical-field-key-issue_and_resolution')).toHaveText('issue_and_resolution');
+  await page.getByTestId('toggle-review-provenance').click();
+  await expect(page.getByTestId('review-provenance-details')).not.toHaveAttribute('open', '');
+
   // Allow Edge native PDFium viewer inside iframe to complete painting and capture full two-pane screenshot!
   await page.waitForTimeout(2500);
   const twoPaneShot = path.join(screenshotOutDir, 'f3-01-two-pane-wo01-comparison.png');
@@ -256,6 +302,7 @@ test('F3-01 / F3-02 / F3-03 / F3-BIC-04: readable original PDF alongside five fi
 
   // 2. Save Revision #1 (draft): accept 2, edit 1, leave 2 unreviewed.
   await page.getByTestId('btn-accept-work_order_id').click();
+  await expect(page.getByTestId('unsaved-edits-warning')).toBeVisible();
   await page.getByTestId('btn-edit-property_name').click();
   await page.getByTestId('input-value-property_name').fill('Cedar Hollow Apartments — Bldg B Campus');
   await page.getByTestId('btn-accept-requested_date').click();
@@ -382,6 +429,9 @@ test('F3-04 / F3-BIC-05: stale-tab 409 preserves unsaved edits, uncertain 5xx re
   // Inspect server Revision #1, rebase explicitly onto #1, and save Revision #2!
   await tabB.getByTestId('inspect-conflict-head').click();
   await expect(tabB.getByTestId('conflict-server-summary')).toBeVisible();
+  const conflictSummaryText = await tabB.getByTestId('conflict-server-summary').innerText();
+  expect(conflictSummaryText).toContain('Work Order ID:');
+  expect(conflictSummaryText).not.toContain('work_order_id');
   await tabB.getByTestId('reconcile-onto-latest').click();
   await expect(tabB.getByTestId('input-value-property_name')).toHaveValue('Tab B Preserved Unsaved Edit');
   await tabB.getByTestId('save-draft').click();
@@ -412,6 +462,15 @@ test('F3-04 / F3-BIC-05: stale-tab 409 preserves unsaved edits, uncertain 5xx re
   await tabB.getByTestId('btn-accept-requested_date').click();
   await tabB.getByTestId('save-draft').click();
   await expect(tabB.getByTestId('uncertain-save-banner')).toBeVisible();
+  await expect(tabB.getByTestId('retry-uncertain-save')).toHaveText('Retry pending save');
+  await expect(tabB.getByTestId('uncertain-save-details')).not.toHaveAttribute('open', '');
+  await expect(tabB.getByTestId('pending-review-key')).toBeHidden();
+  const uncertainVisibleText = await tabB.getByTestId('uncertain-save-banner').innerText();
+  expect(uncertainVisibleText).not.toContain(seenKeys[0]);
+  expect(uncertainVisibleText).not.toContain('Idempotency-Key');
+
+  await tabB.getByTestId('toggle-uncertain-save-details').click();
+  await expect(tabB.getByTestId('pending-review-key')).toBeVisible();
   const pendingKey = (await tabB.getByTestId('pending-review-key').textContent())!.trim();
   expect(pendingKey).toBe(seenKeys[0]);
 
@@ -469,6 +528,8 @@ test('F3-04 / F3-BIC-05: stale-tab 409 preserves unsaved edits, uncertain 5xx re
   await tabB.getByTestId('retry-uncertain-save').click();
   await expect(tabB.getByTestId('replayed-historical-notice')).toContainText('Revision #4');
   await expect(tabB.getByTestId('replayed-historical-notice')).toContainText('Revision #5');
+  await expect(tabB.getByTestId('replayed-historical-details')).not.toHaveAttribute('open', '');
+  await expect(tabB.getByTestId('replayed-operation-key')).toBeHidden();
   await expect(tabB.getByTestId('current-revision-number')).toHaveText('#5');
   await expect(tabB.getByTestId('input-value-building_unit')).toHaveValue('Unit 204-Rev5-NewestHead');
 
