@@ -1,0 +1,1045 @@
+{
+  "status": "PASS",
+  "helper_commit": "635b677e45f1ded786f4ccb966ac5ac7e5efb623",
+  "checks": {
+    "author_inventory": {
+      "added_paths": 100,
+      "unchanged_base_paths": 2272,
+      "published_copied_files": 91,
+      "original_comparison_scope": "Published hashes independently reproduced; root publication audit separately checked external originals."
+    },
+    "author": {
+      "supervisor_tool_receipt": {
+        "started_utc": "2026-11-16T20:53:18.6090134Z",
+        "finished_utc": "2026-11-16T21:08:32.0627217Z",
+        "executing_head": "2a3781745cb120f6e3eb22b234c111241ba8d8c9",
+        "exit": 0
+      },
+      "started_utc": "2026-11-16T20:53:18.6090134Z",
+      "finished_utc": "2026-11-16T21:08:32.0627217Z",
+      "issued_utc": "2026-11-16T20:52:43.418572+00:00",
+      "expires_utc": "2026-11-17T02:52:43.418572+00:00",
+      "lease_return": {
+        "status": "RETURNED_ACKNOWLEDGED",
+        "utc": "2026-11-16T21:11:07.073502+00:00",
+        "lease": "WP-0009-author-fresh-20261116T2052Z",
+        "owner": "eld-mapping-author",
+        "runtime_authority": "6343ded1cd79b7c5b67b34893fe4516dc6845eb9",
+        "run": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\author\\runs\\author\\20261116T205320Z-67b42d6e",
+        "all_six_calls_completed": true,
+        "child_exit_zero_observed": true,
+        "post_observer_codes": [
+          0,
+          0
+        ],
+        "bound_model_processes_absent": true,
+        "model_18_objects_and_notice_reverified": true,
+        "host_status": "pass",
+        "remaining_task_gpu_leases": [],
+        "additional_python_pid1860": "Brief unrelated-to-bound-PIDs Python process in first root snapshot; recheck showed it exited. No Python entry in fresh GPU process capture. No competing model process observed.",
+        "ollama": "Successful ps reports no loaded model; server left unchanged.",
+        "supervisor_tool_exit": "Author reports actual tool65622 exit0 and wrapper completion21:08:32.0627217Z; immutable launch receipt will be checked with007 publication.",
+        "scope": "Lease cleanup acknowledgement, not independent score acceptance. No further author inference released; independent008 requires separate fresh observations/release."
+      },
+      "model_notice_before_after_exact": true,
+      "storage_time_bounds_pass": true,
+      "process_evidence": {
+        "observed_utc": "2026-11-16T21:10:05.4710334Z",
+        "run": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\author\\runs\\author\\20261116T205320Z-67b42d6e",
+        "bound_process_matches": [],
+        "candidate_processes": [
+          {
+            "ProcessId": 3892,
+            "ParentProcessId": 20564,
+            "Name": "ollama.exe",
+            "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+          },
+          {
+            "ProcessId": 1860,
+            "ParentProcessId": 23500,
+            "Name": "python.exe",
+            "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+          }
+        ],
+        "ollama_exit": 0,
+        "ollama_ps": "NAME    ID    SIZE    PROCESSOR    CONTEXT    RUNNER    UNTIL \r\n",
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "status": "completed"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "status": "completed"
+          },
+          {
+            "fixture_id": "WP09-F01-v0",
+            "kind": "measured",
+            "status": "completed"
+          },
+          {
+            "fixture_id": "WP09-F02-v0",
+            "kind": "measured",
+            "status": "completed"
+          },
+          {
+            "fixture_id": "WP09-F03-v0",
+            "kind": "measured",
+            "status": "completed"
+          },
+          {
+            "fixture_id": "WP09-F04-v0",
+            "kind": "measured",
+            "status": "completed"
+          }
+        ],
+        "failure": null,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "finalization_errors": [],
+        "post_observers": [
+          {
+            "tag": "post",
+            "index": 0,
+            "returncode": 0,
+            "bytes": 136,
+            "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\author\\runs\\author\\20261116T205320Z-67b42d6e\\observer-post-0.txt",
+            "t": 1794863311.9150476
+          },
+          {
+            "tag": "post",
+            "index": 1,
+            "returncode": 0,
+            "bytes": 1875,
+            "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\author\\runs\\author\\20261116T205320Z-67b42d6e\\observer-post-1.txt",
+            "t": 1794863311.959538
+          }
+        ],
+        "elapsed_s": 911.3439999999828,
+        "free_bytes_after": 47169728512,
+        "owned_bytes_after": 62891152
+      }
+    },
+    "reviewer": {
+      "supervisor_tool_receipt": {
+        "completed_utc": "2026-11-16T21:26:02.7554043Z",
+        "supervisor_exit_code": 0,
+        "executing_head": "69f7a79677b43228869d7c35bb5fb6d3e12e9291",
+        "powershell_pid": 27828
+      },
+      "started_utc": "2026-11-16T21:15:36.0831908Z",
+      "finished_utc": "2026-11-16T21:26:02.7554043Z",
+      "issued_utc": "2026-11-16T21:14:45.611979+00:00",
+      "expires_utc": "2026-11-17T03:14:45.611979+00:00",
+      "lease_return": {
+        "status": "RETURNED_ACKNOWLEDGED",
+        "utc": "2026-11-16T21:27:58.684872+00:00",
+        "lease": "WP-0009-reviewer-sentinel-20261116T2114Z",
+        "owner": "eld-mapping-reviewer",
+        "runtime_authority": "e339bd4c8322a14fbff98d9299acede4b92c911f",
+        "run": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b",
+        "all_three_calls_completed": true,
+        "child_exit_zero_observed": true,
+        "post_observer_codes": [
+          0,
+          0
+        ],
+        "bound_model_processes_absent": true,
+        "model_18_objects_and_notice_reverified": true,
+        "host_status": "pass",
+        "remaining_task_gpu_leases": [],
+        "candidate_processes": "Only unchanged idle Ollama server; successful ps reports no loaded models, no Python/other model runner observed. Desktop clients remain shared.",
+        "supervisor_tool_exit": "Reviewer reports actual96218 tool/wrapper exit0; immutable launch receipt to be reconciled with008 publication.",
+        "scope": "Lease cleanup acknowledgement; full independent score/sentinel comparison and008 publication remain pending. No further inference released."
+      },
+      "model_notice_before_after_exact": true,
+      "storage_time_bounds_pass": true,
+      "process_evidence": {
+        "observed_utc": "2026-11-16T21:27:30.7168675Z",
+        "run": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b",
+        "bound_pids": [
+          27828,
+          33568,
+          10708,
+          34188
+        ],
+        "bound_process_matches": [],
+        "candidate_processes": [
+          {
+            "ProcessId": 3892,
+            "ParentProcessId": 20564,
+            "Name": "ollama.exe",
+            "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+          }
+        ],
+        "ollama_exit": 0,
+        "ollama_ps": "NAME    ID    SIZE    PROCESSOR    CONTEXT    RUNNER    UNTIL \r\n",
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "status": "completed"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "status": "completed"
+          },
+          {
+            "fixture_id": "WP09-F04-v0",
+            "kind": "measured",
+            "status": "completed"
+          }
+        ],
+        "failure": null,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "finalization_errors": [],
+        "post_observers": [
+          {
+            "tag": "post",
+            "index": 0,
+            "returncode": 0,
+            "bytes": 136,
+            "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-post-0.txt",
+            "t": 1794864362.6120193
+          },
+          {
+            "tag": "post",
+            "index": 1,
+            "returncode": 0,
+            "bytes": 1875,
+            "path": "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\reviewer\\runs\\reviewer\\20261116T211537Z-074ec88b\\observer-post-1.txt",
+            "t": 1794864362.6633465
+          }
+        ],
+        "elapsed_s": 624.7030000000377,
+        "free_bytes_after": 47081635840,
+        "owned_bytes_after": 62826751
+      }
+    },
+    "input_inventory": [
+      {
+        "commit": "6343ded1cd79b7c5b67b34893fe4516dc6845eb9",
+        "path": "docs/coordination/WP-0009/releases/author.json",
+        "bytes": 3903,
+        "sha256": "277e97c425466d6c2be0694035c8c0bbe08a80350a23ba4c98f1d5f2b2181c99",
+        "git_blob": "d7761f1f378dee078cc7696feaad09630d888d25"
+      },
+      {
+        "commit": "70d45a144f44b74e562c1dbe8fdcea16662e970b",
+        "path": "docs/coordination/WP-0009/author-after/host.json",
+        "bytes": 5255,
+        "sha256": "f047142235c6c00f9bc21b8f5e49bfcbc276420187f3814449d490b175396ac4",
+        "git_blob": "e6681a7f1996aaa5a4ffd4a52e3d51ac9f5ea8cf"
+      },
+      {
+        "commit": "70d45a144f44b74e562c1dbe8fdcea16662e970b",
+        "path": "docs/coordination/WP-0009/author-after/lease-return.json",
+        "bytes": 1246,
+        "sha256": "84731d906a65f1091e1f232cf493e0ca066697f430ccb97379a18d4898401720",
+        "git_blob": "f8ddb504dd61b4393cf914ccacb16019ea8cda4b"
+      },
+      {
+        "commit": "70d45a144f44b74e562c1dbe8fdcea16662e970b",
+        "path": "docs/coordination/WP-0009/author-after/model.json",
+        "bytes": 6410,
+        "sha256": "f077b8e8a226181bd009acba7c0400ae7e991a73b20e284084f4f07a0a0ee9f4",
+        "git_blob": "8928aa9e1841d6c7e2d12bc9ad5c730d0d625d88"
+      },
+      {
+        "commit": "70d45a144f44b74e562c1dbe8fdcea16662e970b",
+        "path": "docs/coordination/WP-0009/author-after/processes-and-outcome.json",
+        "bytes": 2102,
+        "sha256": "b590c369c613754d1c032e73900e5f6ed6a2634c0f37f489135f2c545a70b837",
+        "git_blob": "84e58803769fa093bde3c1c3181fe6c852f1a1ed"
+      },
+      {
+        "commit": "70d45a144f44b74e562c1dbe8fdcea16662e970b",
+        "path": "docs/coordination/WP-0009/author-after/summary.json",
+        "bytes": 385,
+        "sha256": "f385fd3862c5cb710d419058857de0ef18dce33efb5f1c6043200145ad0cc4eb",
+        "git_blob": "43ed4ea61e71c668b1c99e808ff55a003f95ad18"
+      },
+      {
+        "commit": "e339bd4c8322a14fbff98d9299acede4b92c911f",
+        "path": "docs/coordination/WP-0009/releases/reviewer.json",
+        "bytes": 3134,
+        "sha256": "e9be13b3874dff853501dde183bbb19b1df3acf6d4d8122518a80f5a3a4cc33a",
+        "git_blob": "02145bbf39b78caf575a4963e07b0ec4bfbd506f"
+      },
+      {
+        "commit": "2314a32ca219116de11f2d4120afaf2133a87fec",
+        "path": "docs/coordination/WP-0009/reviewer-after/host.json",
+        "bytes": 5255,
+        "sha256": "28bf048e09b072a9645407ed4c19e2e51bd41803ac99130337139991e6c7ce97",
+        "git_blob": "1fca7f8cafdc000711a3f6131d2ddd6cd5e2d01f"
+      },
+      {
+        "commit": "2314a32ca219116de11f2d4120afaf2133a87fec",
+        "path": "docs/coordination/WP-0009/reviewer-after/lease-return.json",
+        "bytes": 1090,
+        "sha256": "936b7eaa8b6a7461cff785ff8fc464efa65b3095982dbb435edbbea862e441fd",
+        "git_blob": "589a03812b0adcdd1b90f33d402e06cc81b0ac65"
+      },
+      {
+        "commit": "2314a32ca219116de11f2d4120afaf2133a87fec",
+        "path": "docs/coordination/WP-0009/reviewer-after/model.json",
+        "bytes": 6410,
+        "sha256": "1439b5cdc6b05154ce340c194f9af6497db8d8760a9194163e6eb5f1ef874693",
+        "git_blob": "19de38da587b6a724498cc43a524e17915c6401e"
+      },
+      {
+        "commit": "2314a32ca219116de11f2d4120afaf2133a87fec",
+        "path": "docs/coordination/WP-0009/reviewer-after/processes-and-outcome.json",
+        "bytes": 1677,
+        "sha256": "9f462ac7257f73896a3107ffb5a54912caea7a25dbd4dccc442622e51e388daa",
+        "git_blob": "69ddf73851b3fc3fb1816ac76265f3ed91b863ce"
+      },
+      {
+        "commit": "2314a32ca219116de11f2d4120afaf2133a87fec",
+        "path": "docs/coordination/WP-0009/reviewer-after/summary.json",
+        "bytes": 385,
+        "sha256": "5a71a9a3f2bd038852da7376f0f5dc83581864aeb233e9d7c9049b77fced90bf",
+        "git_blob": "cf7f432b394ef0cf0e9131f8b222952eece9a318"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/research/WP-0009/eld-mapping-author/fresh-comparison/deliverable-verification.json",
+        "bytes": 438237,
+        "sha256": "ce8b9dd28d2376f3d6e4ad2e2cc7b6def62fa44f4402ebfa8fa6bfeb9ac1dc66",
+        "git_blob": "6019c27ca43ad314f0164a0d6ade0ed713133974"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/.gitattributes",
+        "bytes": 9,
+        "sha256": "48747480eddba024928d03be9bf83dc579e5515768647507a767e8187a85c9ab",
+        "git_blob": "b746772b6cda0edb9a3995c3f95e0dde764ed2ae"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/analysis.json",
+        "bytes": 61757,
+        "sha256": "da5db254589fe295c641bf85cf1466e948dd0f49ac5597aa1c1f072fb34c418e",
+        "git_blob": "024a99e8f15a50ac00cf1d235e1098cf11011b52"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/00-author.json",
+        "bytes": 3903,
+        "sha256": "277e97c425466d6c2be0694035c8c0bbe08a80350a23ba4c98f1d5f2b2181c99",
+        "git_blob": "d7761f1f378dee078cc7696feaad09630d888d25"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/01-006_2026-11-16_review_eld-mapping-reviewer.md",
+        "bytes": 15820,
+        "sha256": "1aa45aa3a902c0c1e94c5b850ece50c3661ef1a880a1e8edb6376066a510dc3d",
+        "git_blob": "ca90a0947bcf0ff668a6b1971fa0130d24b8386e"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/02-004_2026-11-16_review_eld-mapping-reviewer.md",
+        "bytes": 11103,
+        "sha256": "0676faec469598074a3da453032047cc168db95d941df8ced0698d6205b96a82",
+        "git_blob": "d59778bd9b6a3f9b9133faa196585b5a498463ee"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/03-unseal.json",
+        "bytes": 693,
+        "sha256": "37aa66e9bbec874cbece9f381f98e27aaf49ce23c35f019c310f791add4b0c07",
+        "git_blob": "12a07446b72e46262862a4acf4adf23ed05afb37"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/04-host.json",
+        "bytes": 5255,
+        "sha256": "9381c5ee7f8f35f3801711bf32ef5f33b90edc8f7d80fd2ffa6a90865a1755dc",
+        "git_blob": "d4c1b10d3f7cbf9385f6b88746ab195ad48d8639"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/05-model.json",
+        "bytes": 6410,
+        "sha256": "eaac12869c084116432c75a51b8510520e56294996569cedb31b5c8ce1b3e515",
+        "git_blob": "39d162635e752e6dbdbffb0a89c47f64d1e02374"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/06-processes.json",
+        "bytes": 586,
+        "sha256": "3727e0ea5e51023678550535da7eb8a5f71e42d161238d2eb52d35aaac9b6602",
+        "git_blob": "9884d8661afb3e835d89056436bb9b8e26373d0c"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/07-ollama-observation.json",
+        "bytes": 680,
+        "sha256": "d7337949c7ac97c4f4412ca33a726914b3d996440970776091f79f8df1546f60",
+        "git_blob": "5facdbc0abb2afbd7dcaab4e37d196623c74612a"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/08-launch-observation.json",
+        "bytes": 2886,
+        "sha256": "501369793ccc1da5bd78680787518ee634014065be940e6a33b0209498b308ab",
+        "git_blob": "c40f7ea402189ebe6fc36b4f939c06526417811a"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/09-ownership-review.json",
+        "bytes": 937,
+        "sha256": "e6a9a4a9d74898042c62169d79f55cb1631cb503abd5b26638ad68fbb2eead94",
+        "git_blob": "46fe9ca2c9e1011c836268e9f4ab5099b33122a2"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/10-host.json",
+        "bytes": 5255,
+        "sha256": "f047142235c6c00f9bc21b8f5e49bfcbc276420187f3814449d490b175396ac4",
+        "git_blob": "e6681a7f1996aaa5a4ffd4a52e3d51ac9f5ea8cf"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/11-lease-return.json",
+        "bytes": 1246,
+        "sha256": "84731d906a65f1091e1f232cf493e0ca066697f430ccb97379a18d4898401720",
+        "git_blob": "f8ddb504dd61b4393cf914ccacb16019ea8cda4b"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/12-model.json",
+        "bytes": 6410,
+        "sha256": "f077b8e8a226181bd009acba7c0400ae7e991a73b20e284084f4f07a0a0ee9f4",
+        "git_blob": "8928aa9e1841d6c7e2d12bc9ad5c730d0d625d88"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/13-processes-and-outcome.json",
+        "bytes": 2102,
+        "sha256": "b590c369c613754d1c032e73900e5f6ed6a2634c0f37f489135f2c545a70b837",
+        "git_blob": "84e58803769fa093bde3c1c3181fe6c852f1a1ed"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/bindings/14-summary.json",
+        "bytes": 385,
+        "sha256": "f385fd3862c5cb710d419058857de0ef18dce33efb5f1c6043200145ad0cc4eb",
+        "git_blob": "43ed4ea61e71c668b1c99e808ff55a003f95ad18"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/collection-execution.json",
+        "bytes": 310,
+        "sha256": "e1565a8628e4e6c7932c81a7599256223941035fb54ae45b506a1325e6037d04",
+        "git_blob": "60218e54a3aae17e698c1aa44a7f552af188c6cd"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/collection.json",
+        "bytes": 53509,
+        "sha256": "ac6a8092cc35ee20956f0f1441cdd0036e4995042ad056140c96fae8f1f4caec",
+        "git_blob": "f5371323cfb9e9c2e7e22e94b50b505cad02aa26"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/launch/cleanup.json",
+        "bytes": 883,
+        "sha256": "b39d73d0dd5c5c19479eff65f2983754a71a9607803f9b08b97f24c54b4ea639",
+        "git_blob": "d2a09e9dccad8b54902bcc820c653d7508f38773"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/launch/exit.json",
+        "bytes": 185,
+        "sha256": "e4d56e9853451aaa84d46257b1ef448550100431b4ccd00785684917068b1462",
+        "git_blob": "4480c8000669f0a63bb53bfab5f5c43e2003d140"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/launch/launch.json",
+        "bytes": 348,
+        "sha256": "7a2b0e97184126675495ffc0993b33b8fdaa6ba23623e2cc9d1a749460f89c14",
+        "git_blob": "e175e318d8b86e5c547b84c767d08a9f6c32ceb1"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/launch/score-execution.json",
+        "bytes": 537,
+        "sha256": "2a846de39245b6a5f1b9e64bb0e810d88f3d99fa3ed1365efb1931d4a2e68c5a",
+        "git_blob": "2d6bf15f7d0950c88eaefcaea1789eca98bd7a8b"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/launch/score-stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/launch/score-stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/launch/stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/launch/stdout.txt",
+        "bytes": 89,
+        "sha256": "c46b9e9a6d3f569f4114498ee4530c1ee0a6a2a28399679ad069e93314d3a742",
+        "git_blob": "d34ef6ffcc248d9d0dbd9b4ce542a8efaa14c31b"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/SYN-MP-01-v0-clean.warmup.observation.json",
+        "bytes": 9522,
+        "sha256": "47a60b937926276cbf6fd77de56160e25aaec4eea0e5d2cf99ee152415f18c73",
+        "git_blob": "58ac3480b7dc063b197e63390b0e48aa5fbb553a"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/SYN-MP-01-v0-clean.warmup.raw.txt",
+        "bytes": 7617,
+        "sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+        "git_blob": "ae7b3ce30ae23b97b51493b6db2810e7e271226a"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/SYN-MP-01-v0-clean.warmup.render.json",
+        "bytes": 619,
+        "sha256": "0d16c87e5a25f0d84f32fef6c549454c0ab28c5ea89d6d9056d60bde3ae976a9",
+        "git_blob": "102c52bc15ec10e09f9b5de67d7931469c14f885"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/SYN-MP-01-v0-clean.warmup.token_ids.json",
+        "bytes": 20504,
+        "sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+        "git_blob": "57d73eeafadca12758119c43eac6735a8ccf08af"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/SYN-WO-01-v0-clean.warmup.observation.json",
+        "bytes": 10649,
+        "sha256": "fd7b25a0f0012e8fda3cb0670966e952f6c8f484090d0373a52b6fbed012c8eb",
+        "git_blob": "f097520ea2cb48e1082a96b5f9aeaf9c3f2a4bf1"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/SYN-WO-01-v0-clean.warmup.raw.txt",
+        "bytes": 3236,
+        "sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "git_blob": "af55bc76f279a34f39210261a4dee8838e7bc40a"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/SYN-WO-01-v0-clean.warmup.render.json",
+        "bytes": 300,
+        "sha256": "4e252629c6f0fbf610f712db131eb16a8bef83f61f4c6ef096fdf6b1961eee5b",
+        "git_blob": "0b13b66c2c48303e45ce46882b19d0c0925a69a7"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/SYN-WO-01-v0-clean.warmup.token_ids.json",
+        "bytes": 8802,
+        "sha256": "923eff30d3d7ecd6f694134992a0e71244d45ed7d5a1de1460da3f89f2ba268f",
+        "git_blob": "1159077de0b780bbb937d61e0ee520e8ee01d176"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F01-v0.measured.observation.json",
+        "bytes": 8792,
+        "sha256": "389de1bc8dafc7febc714ad02f0fe8a1d07fc5bda5cae959aa18968cc397890a",
+        "git_blob": "98207e8acf5288e26a9b450699aa6b820855298d"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F01-v0.measured.raw.txt",
+        "bytes": 1497,
+        "sha256": "6fb043ddf07c30051554a3f2b257ee134172c25931dbff28aae812a26003ebd1",
+        "git_blob": "d5b77b5a7f67d07e6e9ecc7412a8314f57c900a2"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F01-v0.measured.render.json",
+        "bytes": 300,
+        "sha256": "00e66dbc28eb392440c7d1318cd3f98151f1a5b3627a84659b4ed864323dcc65",
+        "git_blob": "4b1372a4d29892a223110e070cef9c25098dd403"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F01-v0.measured.token_ids.json",
+        "bytes": 3921,
+        "sha256": "d15ca3d198d1a0f0a293ef6d3356791a122c0b7cf50340fae0715df6c1ab0698",
+        "git_blob": "a5b40734643078c2a28c0d617712d62a8305ae35"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F02-v0.measured.observation.json",
+        "bytes": 8794,
+        "sha256": "edf2b10e9b17549f9a57588e811ac07e7c7b6fe8e8e258cd0ecdb963c0b8e7dd",
+        "git_blob": "34d10677d32a0c6d5cfd4c9a13b337b7509d2fda"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F02-v0.measured.raw.txt",
+        "bytes": 1869,
+        "sha256": "ef5fbd5f585214b8e10c4c9e03dab1cd790291d9dfac4b78434a5f6ee1b0db23",
+        "git_blob": "e166430c83c42c75500204850fa2d9f13f57940e"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F02-v0.measured.render.json",
+        "bytes": 300,
+        "sha256": "ec2db34cd4a86b8317278fa5fde9cdd9700388f9505c7c16085a8519b435771b",
+        "git_blob": "c49aa8dd95c083dddcc2731f15d2874c893eae63"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F02-v0.measured.token_ids.json",
+        "bytes": 4743,
+        "sha256": "07ce16c19f3b15181f6a9a4ecd58e236fe96d705696f8df715f99412b83cbb7f",
+        "git_blob": "ef59b86fce32e56136d4f9bd08fcfc8da7bdde8f"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F03-v0.measured.observation.json",
+        "bytes": 8794,
+        "sha256": "c76701cf2980eb0ae71ac52038af61086e55b8d53f695db9a0972123d04a84d9",
+        "git_blob": "bdc28af931802128a14e9d5549f9a33fbaf6aba9"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F03-v0.measured.raw.txt",
+        "bytes": 1768,
+        "sha256": "7596d552cf6aeacfca1d9294b9e052e5bcbd244be33340d1182a5cb9dbfa7199",
+        "git_blob": "1c3b479e441a48bccb8358d88b5a38250f69ac46"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F03-v0.measured.render.json",
+        "bytes": 300,
+        "sha256": "56c6be36ed240952884f552b8942ac750866547333175e894c851014e4c56a1d",
+        "git_blob": "3b30edff842d178e828ff60e99a247b85af1d3c8"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F03-v0.measured.token_ids.json",
+        "bytes": 4724,
+        "sha256": "2be39690f992361608f440fae05e1ecd875dc2e0409aedc7aabfdd5ec7b20992",
+        "git_blob": "1a05d4100e46b63963ca9717b8a2ab374d6c7689"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F04-v0.measured.observation.json",
+        "bytes": 8865,
+        "sha256": "24629e29e8e427aa4d8333940ccdd35cebb5d0e2eeec54729f607d04bf19aff5",
+        "git_blob": "d3e319b6299fa6fa021a665951afafb7e459815f"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F04-v0.measured.raw.txt",
+        "bytes": 4539,
+        "sha256": "ab1f7b6792dc0cc00af93758039ec92e336d8ac7aa0582808935a608aff58369",
+        "git_blob": "9f951503b548df7750256d4f19bf2222db7bd52e"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F04-v0.measured.render.json",
+        "bytes": 619,
+        "sha256": "16736c97702b641d0fc804ebc76c2fa2c45ca3f12dfa14e2a8e94a3f30828954",
+        "git_blob": "34234be8c2ce48016864f850377deb3fa5022650"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/WP09-F04-v0.measured.token_ids.json",
+        "bytes": 11682,
+        "sha256": "a01586171180561bcb8d4aff5922a901055961db51899816fc27359de650b849",
+        "git_blob": "a183d9e507f1d8591fd693e461cfd6fc476395c7"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/events.jsonl",
+        "bytes": 1088,
+        "sha256": "b5c7153b70f2229573bc159e6183fb57d7b9fe41b60b224904aed9ffb021e5ad",
+        "git_blob": "48dc74766104698577c37989bdd7862cf6311621"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/load.json",
+        "bytes": 4127,
+        "sha256": "3c612fec96dd959f0dde5c859b228b79de6e6f088f5d3d89bfd396314530cd15",
+        "git_blob": "e8a74b3db36542bf0c5f01708809fab4d2283e2b"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/preflight.json",
+        "bytes": 32245,
+        "sha256": "27e950838c20fba03f3f1a315151d44c9ac53b7e49b3bbe36bc0467de6cda941",
+        "git_blob": "d32c49e58bfc923062478f88b0ceb43aadeee334"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/evidence/worker-outcome.json",
+        "bytes": 106,
+        "sha256": "5a6dc347ec4820b13859563379823ae881970a82fc68cc91578da8a3b17f9f6e",
+        "git_blob": "8fd4a77b7ebaf155135d8737bcef1a6ef27f1755"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/heartbeat.json",
+        "bytes": 129,
+        "sha256": "f554dcf379ed63c7a8505963d02ddff35e9b8f1bb891322536184b30528b1d73",
+        "git_blob": "0e4c48addc2f8d804b75a21c1aaa345892c38bc2"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-121-0.txt",
+        "bytes": 135,
+        "sha256": "8dd1e6a60287412219d76784b0869dcc0b2bd96ec5d466eebf2d57c9a7ff75b4",
+        "git_blob": "e4ba688f7eabe5b69f8c4da0e068c7bafa9cef7b"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-121-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-181-0.txt",
+        "bytes": 136,
+        "sha256": "c9921037c3749f50e70715ca1984c312d7d3138b04eed50cb5d2d2e5564be2ac",
+        "git_blob": "e81b998641996bcb2f93c49f5667c2669927bbe9"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-181-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-242-0.txt",
+        "bytes": 135,
+        "sha256": "c4e4f943a9810d5e2a2ed29bada89e7af13cfb35c3d33c9dcfb8e064dc695739",
+        "git_blob": "9c9fb98431a52ff6661bceb5d7886aa154dbde70"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-242-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-302-0.txt",
+        "bytes": 136,
+        "sha256": "1687db82db59ed02719013b54c162ff9287bb8063632a691d86f530fd119b75b",
+        "git_blob": "1d958c52ea4ff078cf227575030897d8c4b3a911"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-302-1.txt",
+        "bytes": 2032,
+        "sha256": "21fe08132d05b1dfc49c4d32109ac08c2a8897a8481b9deb2ba86b27aefc3b5e",
+        "git_blob": "0a9af8f21545638d0aa3a8cb68b471e142c59331"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-363-0.txt",
+        "bytes": 135,
+        "sha256": "23fdf16d7d98b403948989f61a86d8722f958c94eb865ebd0618d87a96a72e4f",
+        "git_blob": "4ab0aa4e263859d62fccbfc05c272e17207ec40e"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-363-1.txt",
+        "bytes": 2031,
+        "sha256": "e5cf1739074028ae8b1ea9fe1fb83910f97ff66c0bb96e3bb22dd71133e12010",
+        "git_blob": "acbb67e428e970d82fe5f0cfbbd865279ebe7175"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-423-0.txt",
+        "bytes": 136,
+        "sha256": "3e85220d5bd9ab52a795e0d274478009533d75b923a533e9d5fa89a12d0fd6de",
+        "git_blob": "062fa57f492a73451fc1f9169b169b9bacd250b0"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-423-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-483-0.txt",
+        "bytes": 136,
+        "sha256": "df6017c6e74696ab767369c27d364d07082d3cbc525ad18d16ac821bd50d7000",
+        "git_blob": "73e0bb5be883e11fd3cd381078e124015cbe92b2"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-483-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-544-0.txt",
+        "bytes": 136,
+        "sha256": "21f5534b6b0de8e022d85602b67af247cc0a5eeba52c431fa442b4f651690fae",
+        "git_blob": "a2eb6c16b3bc02dd072a6ffd65f0b26066ff0fb8"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-544-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-60-0.txt",
+        "bytes": 135,
+        "sha256": "fe5906cfa4f3a19f68745eba7bb20dc0a7475a84bfbdd6fcd5aa63b227cc06a6",
+        "git_blob": "2adbde119c4cb8d22bca2a1f4a46a7008644acda"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-60-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-605-0.txt",
+        "bytes": 135,
+        "sha256": "bdc2216acdb897df75987e5c16b7ba61430eae9189483f087ab20e5a138a25d8",
+        "git_blob": "6a521f9a127dc6f978750e2e9d2d831af8e8a166"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-605-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-665-0.txt",
+        "bytes": 136,
+        "sha256": "80318f214936eed76923039c36e2289c2aac930c438e9e0957a097970d114c27",
+        "git_blob": "6932132a2b4327da13da4a136f427449150718b5"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-665-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-726-0.txt",
+        "bytes": 136,
+        "sha256": "fd17c91928217616a6b6b0cfe377376485b55c588e8068c29ed0a9442669e458",
+        "git_blob": "a367290e00bf94b0838c5dcdc0250c146316a7cb"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-726-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-786-0.txt",
+        "bytes": 136,
+        "sha256": "3cb8674c801ab2273b71b04c0129d9ca3f30f594bce677c766bbe09230a7130f",
+        "git_blob": "11a83b8e584738873c946d3b847bd76d5b4caed7"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-786-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-847-0.txt",
+        "bytes": 136,
+        "sha256": "d5b4c3c0682087645c730b3c21547450226cc7329334f44e244b7fc3cefa6c8c",
+        "git_blob": "cd4c2203798a3d5428da0c4c919692db5ccbcc47"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-847-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-908-0.txt",
+        "bytes": 136,
+        "sha256": "32a2cb6e8790faaa5ed4af9802000e4343270e7d86a676fb38b84d60652bc34b",
+        "git_blob": "7966f72285ba2a2dba12a3820b80ba2e58689234"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-during-908-1.txt",
+        "bytes": 1956,
+        "sha256": "30cf54bf601bd96078ee5511f6c2bba182ac3a7803fcf17c0522d7b6c95a6839",
+        "git_blob": "1aca7af434043d99b80ad797acee05e63cca51e4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-post-0.txt",
+        "bytes": 136,
+        "sha256": "dd914fcaebeb822636011f6046c40b697caa35268912da48d3c6b2f2407a908c",
+        "git_blob": "6c6aca849748ead14a14b63efcb2d90e5e1c5d59"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-post-1.txt",
+        "bytes": 1875,
+        "sha256": "f0179c6b73298c5765bab0b73158caf90466e3e40793a1f5d3c88d6a89d080f9",
+        "git_blob": "dc95d20f136336e4911ab565b48a194d16f6b4ba"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-pre-0.txt",
+        "bytes": 136,
+        "sha256": "332c7d5a24a76b4488fea1951144d3c6fcfafc71aa5be68576d2d648d040fdb9",
+        "git_blob": "6862b0c948959c70d396efd11c96f44e609bc7f2"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/observer-pre-1.txt",
+        "bytes": 1875,
+        "sha256": "f0179c6b73298c5765bab0b73158caf90466e3e40793a1f5d3c88d6a89d080f9",
+        "git_blob": "dc95d20f136336e4911ab565b48a194d16f6b4ba"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/plan.json",
+        "bytes": 5039,
+        "sha256": "a432dbcbae671e0c3286f16f8620c989577a5bdddd0e7269bf524acc40fe88e0",
+        "git_blob": "b82a6c9fd4e207746ad524caffec908445317699"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/run-result.json",
+        "bytes": 54676,
+        "sha256": "ff9bd6c1105ed685a4f2a52f56c8c80dac73b04d4c37a1eb39f4b2b7341f21b4",
+        "git_blob": "67886ce6d818049a5890b28b57c598208e9f565c"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/stderr.txt",
+        "bytes": 377,
+        "sha256": "7599f3edc742838b5b0bd6f675dd0e34a427bb5ad2c437208646f84529688b93",
+        "git_blob": "50d690d0c66db7f8e09304ee0ee91a78deb13fb4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/run/stdout.txt",
+        "bytes": 26204,
+        "sha256": "8bb7b49f19c8321a8ca11c61b0541efcbfd1ddde4b7494985ce14246341a57b9",
+        "git_blob": "30989ccd7c6cadb66ceda8658025727920ed5af4"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/attempt-1/scores.json",
+        "bytes": 573812,
+        "sha256": "cf21fcba519d7559cf4bbae781b345a1f113a94ca76ae68dcffb2c650be3324b",
+        "git_blob": "b94219479d11202dba963a366e5273e70f2f2307"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/packaging/whitespace-receipt.json",
+        "bytes": 524,
+        "sha256": "f77874e49fdad7c1a6af9ca35caaaab2917b27d7c1bdff9e7ba6aeadee15cfbb",
+        "git_blob": "0a2e5195eae4de68518eaa8997b6a8b901b3d075"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/packaging/whitespace.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/evidence/WP-0009/eld-mapping-author/007/packaging/whitespace.stdout.txt",
+        "bytes": 136969,
+        "sha256": "d9698b686c90c6695619224d4d8adcabea8db2ec48fb1098ba259ed7df406c6a",
+        "git_blob": "a11fd7f1e75615d2bf230ad1eb109acf1d58d880"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/research/WP-0009/eld-mapping-author/fresh-comparison/RESULTS.md",
+        "bytes": 11129,
+        "sha256": "91657df33cdf518fe053fe83b65534776cb7ec40e815dbaea1e46c7d1ab49e8c",
+        "git_blob": "6b6678db5ea0e39a6a99ee0de13687c13acc9fd9"
+      },
+      {
+        "commit": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+        "path": "docs/research/WP-0009/eld-mapping-author/fresh-comparison/collect_evidence.py",
+        "bytes": 12948,
+        "sha256": "9293b945c6b5d1bc6e9244f6a2e5b535cf534b7538a2b32a9e97da5bee4a3a86",
+        "git_blob": "92074ef4bf0d41339e0584dc728943d435834151"
+      },
+      {
+        "commit": "bddc02ad6e4824850b8865ccdf062b88ca5eaa55",
+        "path": "docs/evidence/WP-0009/eld-mapping-reviewer/008/publication-attempt-2/run/evidence/preflight.json",
+        "bytes": 31426,
+        "sha256": "2047ca014f1761079b1fd5f57121962df1b3c1fe04c3803bcf7ea9bdbee06d2b",
+        "git_blob": "22ddc3e99558c462706edfe0fff9e16b676e7b2b"
+      },
+      {
+        "commit": "bddc02ad6e4824850b8865ccdf062b88ca5eaa55",
+        "path": "docs/evidence/WP-0009/eld-mapping-reviewer/008/publication-attempt-2/run/run-result.json",
+        "bytes": 38136,
+        "sha256": "ee72ffd777051966aa3a16f83c22dab38402dbdd1e01f4aa35f916571f3589f0",
+        "git_blob": "e4af6a7037fd89174edbeb7a9245d384dae46d49"
+      },
+      {
+        "commit": "bddc02ad6e4824850b8865ccdf062b88ca5eaa55",
+        "path": "docs/evidence/WP-0009/eld-mapping-reviewer/008/publication-attempt-2/launch/launch.json",
+        "bytes": 467,
+        "sha256": "cd09e22b627b28eddce53464797d837437245b4a496d7605ba33785aad31f41b",
+        "git_blob": "8b3cbe2f66c6ef60eb0270fadff342023199ec49"
+      },
+      {
+        "commit": "bddc02ad6e4824850b8865ccdf062b88ca5eaa55",
+        "path": "docs/evidence/WP-0009/eld-mapping-reviewer/008/publication-attempt-2/launch/supervisor-tool-outcome.json",
+        "bytes": 180,
+        "sha256": "af39ce100187e10b330ab6794ca1209994cfd870fbdf3a0882a8751524d73470",
+        "git_blob": "59046498fdbc96468b207ccec20ae162ec854d15"
+      }
+    ]
+  }
+}
