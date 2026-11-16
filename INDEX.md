@@ -750,3 +750,6 @@ WP-0008 independent004 ACCEPTED/PUBLISHED99bc14b29dd433d7328c0b9c43dc0a6ea0c79f2
 
 
 WP-0008 author006 PUBLISHEDac997eed58f2f10d79dfeb7b4e23819ee347c49a, final source/helperdda4b4d5856ac45105c31ba1d6d6813debdab8a7, evidence8ac598062925ea114e251c447df0464ec88ecf89, webtree381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd. Root verifies7 source entries/17 evidence+inventory/15 manifestfiles/34 protectedidentities/2595 otherbasepaths/report-only publication/exactorigin, resource return and actual screenshots. Author CLI ended with post-publication provider503/resultERROR despite wrapper0; record preserved. Final independent007 RELEASED under WP-0008-eld-f3-presentation-reconciliation.md to same Carbon reviewer, actual dispatch PREPARED. Its prior004 CLI is ended; no concurrent resume. Original004 accepted proof remains; final005 awaits007/integration.
+
+
+WP-0008 independent007 actual same-Carbon dispatch RUNNING_CONFIRMED:025f1605-d7e3-4fea-8255-907c2b07b55f/gemini-4-carbon-high/high, CLI10600/tool62428, exact authority1f9be230b648a0bf1d2d9d44e7a97b12d9d3b1fb, final sourcedda4b4d5856ac45105c31ba1d6d6813debdab8a7/author006ac997eed58f2f10d79dfeb7b4e23819ee347c49a. Receipt docs/coordination/WP-0008/presentation-review-dispatch.json. Previous004 CLI ended before this resume; no model switch or inference.
