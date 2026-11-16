@@ -1,19 +1,40 @@
 """Finite baseline runtime; Q0 model/observer primitives reused read-only, no Q0 session edits."""
 from __future__ import annotations
-import datetime,json,os,shutil,subprocess,sys,time,traceback,uuid
+import datetime,json,os,shutil,subprocess,sys,time,traceback,uuid,stat
 from pathlib import Path
 from corpus import ROOT,pdf_for,sha,load_json
-from release import HERE,protocol,read_release,schedule,git
+from release import HERE,protocol,read_release,released_schedule,git
 
 def write(path,obj):
     with Path(path).open('x',encoding='utf-8',newline='\n') as f:json.dump(obj,f,indent=2,ensure_ascii=False);f.write('\n')
 def q0_imports():sys.path.insert(0,str(ROOT/'qualification/q0/harness'))
 def directory_size(root):
-    total=0
-    for p in Path(root).rglob('*'):
-        if p.is_symlink() or (p.stat().st_file_attributes & 0x400):raise RuntimeError('Reparse path in owned runtime root')
-        if p.is_file():total+=p.stat().st_size
-    return total
+    """Count one no-follow snapshot per entry; only vanished enumerated children may skip."""
+    def reject_reparse(info):
+        if stat.S_ISLNK(info.st_mode) or getattr(info,'st_file_attributes',0) & 0x400:
+            raise RuntimeError('Reparse path in owned runtime root')
+    root=Path(root);info=root.stat(follow_symlinks=False);reject_reparse(info)
+    if not stat.S_ISDIR(info.st_mode):raise NotADirectoryError(str(root))
+    def walk(directory,is_root=False):
+        total=0
+        try:entries=os.scandir(directory)
+        except FileNotFoundError:
+            if is_root:raise
+            return 0  # This directory was an enumerated child, now absent.
+        with entries:
+            for entry in entries:
+                try:child=entry.stat(follow_symlinks=False)
+                except FileNotFoundError:continue
+                reject_reparse(child)
+                if stat.S_ISDIR(child.st_mode):total+=walk(entry.path)
+                elif stat.S_ISREG(child.st_mode):total+=child.st_size
+                else:raise RuntimeError('Unsupported entry in owned runtime root: '+entry.path)
+        return total
+    return walk(root,is_root=True)
+
+def supervisor_diagnostic(exc,phase):
+    return {'type':type(exc).__name__,'message':str(exc),'filename':getattr(exc,'filename',None),
+            'errno':getattr(exc,'errno',None),'traceback':traceback.format_exc(),'active_phase':phase}
 
 def guard_reason(*,elapsed,phase_elapsed,progress_elapsed,stall_monitored,phase_limit,log_bytes,root_bytes,free_bytes,p):
     if elapsed>p['guards']['timeouts_s']['session']:return 'SESSION_TIMEOUT'
@@ -45,11 +66,34 @@ def execute(authority,release_path,split,owner):
     for key in ['TEMP','TMP','TMPDIR','HF_HOME','HF_MODULES_CACHE','CUDA_CACHE_PATH','TORCH_HOME','TORCHINDUCTOR_CACHE_DIR','USERPROFILE']:
         Path(env[key]).mkdir(parents=True,exist_ok=True)
     audit_child_env(env,root=root,owner=owner,run_dir=run)
-    plan=schedule(p,split,r['sentinels'] if owner=='reviewer' else None)
-    write(run/'plan.json',{'release':r,'authority_commit':authority,'release_path':release_path,'executing_head':git('rev-parse','HEAD').decode().strip(),'calls':plan})
+    plan=released_schedule(p,r,split,owner)
+    executing_head=git('rev-parse','HEAD').decode().strip()
+    write(run/'plan.json',{'release':r,'authority_commit':authority,'release_path':release_path,'executing_head':executing_head,'calls':plan})
     jobname='Local\\eLedgerCare-B0-'+uuid.uuid4().hex;job=winjob.create(jobname)
     cmd=[str(python),'-I','-B',str(HERE/'baseline.py'),'worker','--authority',authority,'--release-path',release_path,'--split',split,'--owner',owner,'--run-dir',str(run),'--job',jobname]
-    observed=run_observers(p['gpu']['observer']['commands'],run,'pre');proc=None;failure=None;start=time.monotonic();last_phase=None;phase_start=start;progress_start=start;last_progress=None;next_obs=start+60
+    observed=run_observers(p['gpu']['observer']['commands'],run,'pre');proc=None;failure=None;failure_detail=None;start=time.monotonic();last_phase=None;phase_start=start;progress_start=start;last_progress=None;next_obs=start+60
+    secondary_errors=[];finalization_errors=[]
+    def finish(stage,action,unavailable=None):
+        # Bounded best-effort finalization, never a successful zero for a failed observation.
+        nonlocal failure,failure_detail
+        try:return action()
+        except Exception as exc:
+            detail={**supervisor_diagnostic(exc,last_phase),'stage':stage}
+            finalization_errors.append(detail)
+            if failure_detail is None:failure_detail=detail
+            else:secondary_errors.append(detail)
+            failure=failure or 'SUPERVISOR_FINALIZATION_ERROR:'+repr(exc)
+            return unavailable
+    def read_record(path,stage,worker=False):
+        def read():
+            try:value=load_json(path)
+            except FileNotFoundError:return None,'absent'
+            if not isinstance(value,dict):raise ValueError('Record must be a JSON object')
+            if worker:
+                if 'failure' not in value or 'active_call' not in value:raise ValueError('Malformed worker outcome')
+            elif not isinstance(value.get('flags'),list):raise ValueError('Malformed call observation')
+            return value,'available'
+        return finish(stage,read,(None,'unavailable'))
     try:
         with (run/'stdout.txt').open('xb') as stdout,(run/'stderr.txt').open('xb') as stderr:
             proc=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=stdout,stderr=stderr,stdin=subprocess.DEVNULL,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
@@ -68,24 +112,39 @@ def execute(authority,release_path,split,owner):
             if failure:winjob.close(job);job=None;proc.kill()
             proc.wait(timeout=60)
     except BaseException as e:
+        failure_detail={**supervisor_diagnostic(e,last_phase),'stage':'supervision'}
         failure=failure or 'SUPERVISOR_ERROR:'+repr(e)
     finally:
-        if job is not None:winjob.close(job)
-        if proc is not None and proc.poll() is None:proc.kill();proc.wait(timeout=60)
-    observed+=run_observers(p['gpu']['observer']['commands'],run,'post')
+        if job is not None:finish('cleanup_job_close',lambda:winjob.close(job))
+        if proc is not None:
+            alive=finish('cleanup_child_poll',proc.poll)
+            if alive is None:
+                finish('cleanup_child_kill',proc.kill)
+                finish('cleanup_child_wait',lambda:proc.wait(timeout=60))
+    post=finish('post_observers',lambda:run_observers(p['gpu']['observer']['commands'],run,'post'))
+    if post is not None:observed+=post
     records=[]
-    worker_outcome=load_json(run/'evidence/worker-outcome.json') if (run/'evidence/worker-outcome.json').is_file() else {}
+    worker_outcome,worker_status=read_record(run/'evidence/worker-outcome.json','worker_outcome',worker=True)
+    worker_outcome=worker_outcome or {}
     for call in plan:
         name=call['fixture_id']+'.'+call['kind'];path=run/'evidence'/f'{name}.observation.json'
-        record=load_json(path) if path.is_file() else None
-        state='completed' if record and not record.get('flags') and not record.get('error') else 'failed' if record else 'not_run_after_failure'
+        record,record_status=read_record(path,'call_observation:'+name)
+        state='completed' if record and not record.get('flags') and not record.get('error') else 'failed' if record or record_status=='unavailable' else 'not_run_after_failure'
         if worker_outcome.get('failure') and worker_outcome.get('active_call')==name:state='failed'
         if failure and last_phase in ('call:'+name,'render:'+call['fixture_id']):state='failed'
-        records.append({**call,'status':state,'observation':str(path.relative_to(run)) if record else None})
+        records.append({**call,'status':state,'observation':str(path.relative_to(run)) if record else None,
+                        'observation_status':record_status})
     if proc is None or proc.returncode!=0:failure=failure or 'CHILD_EXIT_FAILURE'
-    result={'schema':'eld-baseline-run/1','run':str(run),'executing_head':git('rev-parse','HEAD').decode().strip(),'release':r,'calls':records,'failure':failure,
-      'child_launcher_pid':None if proc is None else proc.pid,'child_returncode':None if proc is None else proc.returncode,'observed_child_exit':proc is not None and proc.poll() is not None,
-      'elapsed_s':time.monotonic()-start,'observers':observed,'free_bytes_after':shutil.disk_usage(root).free,'owned_bytes_after':directory_size(root)}
+    child_exit=finish('child_exit_observation',proc.poll) if proc is not None else None
+    free_after=finish('free_bytes_after',lambda:shutil.disk_usage(root).free)
+    owned_after=finish('owned_bytes_after',lambda:directory_size(root))
+    result={'schema':'eld-baseline-run/1','run':str(run),'executing_head':executing_head,'release':r,'calls':records,'failure':failure,'supervisor_error':failure_detail,
+      'secondary_errors':secondary_errors,'finalization_errors':finalization_errors,
+      'final_observation_status':{'post_observers':'available' if post is not None else 'unavailable','worker_outcome':worker_status,
+         'free_bytes_after':'available' if free_after is not None else 'unavailable','owned_bytes_after':'available' if owned_after is not None else 'unavailable'},
+      'child_launcher_pid':None if proc is None else proc.pid,'child_returncode':None if proc is None else proc.returncode,
+      'observed_child_exit':None if any(x['stage']=='child_exit_observation' for x in finalization_errors) else proc is not None and child_exit is not None,
+      'elapsed_s':time.monotonic()-start,'observers':observed,'free_bytes_after':free_after,'owned_bytes_after':owned_after}
     write(run/'run-result.json',result);print(str(run));return 0 if not failure and all(x['status']=='completed' for x in records) else 1
 
 def worker(authority,release_path,split,owner,run_dir,job):
@@ -123,7 +182,7 @@ def worker(authority,release_path,split,owner,run_dir,job):
         cache=verify_module_cache(Path(os.environ['HF_MODULES_CACHE']),model_dir,loaded)
         session.writer.write_json('load.json',{'timing':timing,'host_memory':sampler.result(),'cuda_memory':be.cuda_memory(),'module_cache':cache},cap_bytes=8<<20)
         targets,missing=resolve_targets(sys.modules,prefix=package+'.');session.observer=NativeObserver(targets,missing,memory_probe=be.memory_probe).install()
-        for call in schedule(p,split,r['sentinels'] if owner=='reviewer' else None):
+        for call in released_schedule(p,r,split,owner):
             active_call=call['fixture_id']+'.'+call['kind']
             fx=next(f for f in p['fixtures'] if f['fixture_id']==call['fixture_id']);fx=dict(fx,max_new_tokens=8000*fx['page_count'],ngram_window=1024 if fx['page_count']>1 else 128)
             session.phase('render:'+fx['fixture_id'],1800);start=time.perf_counter();images=render_pdf_bytes(pdfium,pdf_for(fx,split=='eval_holdout'))
