@@ -699,3 +699,6 @@ Root has independently acknowledged author lease return70d45a144f44b74e562c1dbe8
 
 
 WP-0009 reviewer008 confirmed/pushed clean executing HEAD69f7a79677b43228869d7c35bb5fb6d3e12e9291; exact accepted source/tree/protocol and52 source/40 corpus files verified. Root model18objects/notice/host/process ownership observations0aef94abf0c3bdbd2e7fad598a82069cac58d5a0 pass. Lease WP-0009-reviewer-sentinel-20261116T2114Z GRANTED under docs/coordination/WP-0009/releases/reviewer.json: two excluded historical warmups then only preselected three-page WP09-F04-v0 once,first failure stops/no retry. Actual dispatch PREPARED. Final author007 CPU reproduction and independent008 publication still depend on immutable author007 evidence.
+
+
+WP-0009 reviewer008 actual sentinel run RUNNING_CONFIRMED at2026-11-16T21:15:36.0831908Z, shell27828/supervisor33568/worker10708, tool96218/run20261116T211537Z-074ec88b. Bound clean executing69f7a79677b43228869d7c35bb5fb6d3e12e9291 and authoritye339bd4c8322a14fbff98d9299acede4b92c911f. Lease ACTIVE; final outcomes pending.
