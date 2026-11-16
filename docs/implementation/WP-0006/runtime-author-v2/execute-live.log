@@ -1,0 +1,37 @@
+[Stage2-v2] 0. Verifying ports, runtime root snapshot, GPU/host preflight, and model integrity...
+[Stage2-v2] Starting owned PostgreSQL 18.7 cluster on 127.0.0.1:55434...
+Owned cluster started: postmaster PID 29832, started 2026-11-16T15:46:24.5256486Z, data C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\.local\postgres-data
+[Stage2-v2] Starting owned ELedgerCare.Api #1 (LocalOcr:Enabled=true) on 127.0.0.1:5190...
+[Stage2-v2] SCENARIO 1 / New Attempt #1: Submitting SYN-WO-01-v1-raster300.pdf (1 page)...
+[Stage2-v2] New Attempt #1 COMPLETED! attempt=01a1e509-f5d4-7a01-80f1-4f23fe282930 raw_sha=7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95 total_ms=168644
+[Stage2-v2] SCENARIO 2 / New Attempt #2: Submitting SYN-MP-01-v0-clean.pdf (3 pages)...
+[Stage2-v2] New Attempt #2 COMPLETED! attempt=01a1e50c-bdb9-7477-a96a-abb58323c615 pages=[1, 2, 3] raw_sha=c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639 total_ms=320779
+[Stage2-v2] SCENARIO 3 / New Attempt #3: Submitting fresh SYN-WO-01-v1-raster300.pdf for live interruption...
+[Stage2-v2] New Attempt #3 active inference confirmed! forward_progress=34 supervisor=28180 launcher=19740 worker=16036. Terminating supervisor ONLY...
+[Stage2-v2] Job Object killed launcher+worker in 659.3 ms (cuda_after_kill=[]). Starting API #2 to reconcile abandoned Attempt #3...
+[Stage2-v2] Issuing explicit retry for Attempt #3 (01a1e511-ae6a-74cf-b0c9-d6e5933a22ea) -> New Attempt #4...
+[Stage2-v2] New Attempt #4 COMPLETED! doc3 retains Attempt #1=interrupted (token=3) and Attempt #2=completed (token=4).
+[Stage2-v2] SCENARIO 4: Stopping OCR-enabled API, fast-restarting PostgreSQL 18.7, and reopening with LocalOcr:Enabled=false...
+waiting for server to shut down.... done
+server stopped
+Owned cluster started: postmaster PID 24964, started 2026-11-16T15:58:42.5661340Z, data C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\.local\postgres-data
+Error: Attempt row #1 ('101a1e511-ae6a-74cf-b0c9-d6e5933a22eaExtraction interruptedinterrupted2026-11-16T15:55:03.658059+00:002026-11-16T15:55:51.418655+00:00') missing expected status 'Interrupted'
+    at main (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f2-implementer/docs/implementation/WP-0006/runtime-corrected-preparation/helpers/verify_ui_real_results_v2.mjs:172:21)
+waiting for server to shut down.... done
+server stopped
+[Stage2-v2] Finalized trial-summary-v2.json (FAILED) and explicit lease-return-v2.json (new_attempts=4, all_exited=True).
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\runtime-corrected-preparation\helpers\run_f2_author_runtime_v2.py", line 2102, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\runtime-corrected-preparation\helpers\run_f2_author_runtime_v2.py", line 2098, in main
+    return execute_live_trial(release_doc, validated, release_blob_meta, scratch_dir=scratch_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\runtime-corrected-preparation\helpers\run_f2_author_runtime_v2.py", line 1873, in execute_live_trial
+    ui_all_disabled = run_edge_ui_verification(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f2-implementer\docs\implementation\WP-0006\runtime-corrected-preparation\helpers\run_f2_author_runtime_v2.py", line 1399, in run_edge_ui_verification
+    subprocess.run(
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['node', 'C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer\\docs\\implementation\\WP-0006\\runtime-corrected-preparation\\helpers\\verify_ui_real_results_v2.mjs', '--repoRoot', 'C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer', '--input', 'C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer\\.scratch\\stage2-runtime-v2\\observations\\ui-spec-scenario4-all-reopened-ocr-disabled.json', '--output', 'C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f2-implementer\\.scratch\\stage2-runtime-v2\\observations\\ui-verified-scenario4-all-reopened-ocr-disabled.json']' returned non-zero exit status 1.
