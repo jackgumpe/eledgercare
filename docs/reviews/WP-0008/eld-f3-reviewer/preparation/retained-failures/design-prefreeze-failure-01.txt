@@ -1,0 +1,6 @@
+Pre-freeze dry-run failure preserved (2026-11-16, before Commit A freeze):
+Command: python -B docs/reviews/WP-0008/eld-f3-reviewer/design/verify_f3_design_and_readme.py --output .scratch/pre-freeze-receipt.json
+Exit code: 1
+Failure: AssertionError: Check failed (suggestion_edge_cases): {'work_order_id': 'suggested', 'property_name': 'suggested', 'building_unit': 'missing', 'requested_date': 'ambiguous', 'issue_and_resolution': 'suggested'}
+Root cause discovered: Naive inline check `trimmed.startswith(label + ":")` treated `"Property::"` as an inline `Label: value` block with remainder `":"`, bypassing F3-review-correction.md L17's "one trailing colon removal only" rule!
+Resolution before freeze: Guard inline `Label:` matching against `Label::` (`not raw_after_colon.startswith(":")`) and record this exact edge case in F3-BIC-01 so eld-f3-implementer does not fall into the same inline-vs-standalone colon trap.
