@@ -1,0 +1,207 @@
+{
+  "all_assertions_passed": true,
+  "assertions": {
+    "all_local_markdown_links_resolve": true,
+    "b0_manifest_counts_match_contract": true,
+    "b0_projected_runtime_within_6h_session_cap": true,
+    "design_candidate_exact_8_paths": true,
+    "design_candidate_exact_blobs": true,
+    "design_parent_equals_packet_base": true,
+    "dispatch_parent_equals_design_candidate": true,
+    "dispatch_report_exact_2_paths": true,
+    "dispatch_report_exact_blobs": true,
+    "f1_product_preserved_at_dispatch": true,
+    "f2_target_dev_pdfs_pass_f1_structural_admission": true,
+    "q0_pins_match_f2_contract": true,
+    "wp0004_corpus_preserved_at_dispatch": true,
+    "wp0005_q0_core_preserved_at_dispatch": true,
+    "zero_holdout_paths_opened": true
+  },
+  "b0_source_observations": {
+    "dev_expected_files_inspected": 13,
+    "dev_source_files_inspected": 4,
+    "dev_value_types": [
+      "boolean_mark",
+      "currency_usd",
+      "date_iso",
+      "decimal_2",
+      "identifier",
+      "rate_percent",
+      "text"
+    ],
+    "expected_json_has_top_level_document_text": false,
+    "field_ids_with_varying_printed_labels_across_dev_families": {
+      "invoice_date": [
+        "Invoice Date",
+        "Statement Date"
+      ],
+      "tax_amount": [
+        "Sales Tax (6.25% on Taxable Subtotal)",
+        "Sales Tax (7.50% on Taxable Subtotal)"
+      ],
+      "work_order_id": [
+        "Ticket Number",
+        "Work Order ID"
+      ]
+    },
+    "holdout_files_opened": 0,
+    "multiline_comma_joined_address_field_instances_in_dev": 12,
+    "projected_26doc_single_session_s": 4838.21,
+    "q0_f07_raw_contains_html_amp_and_colspan_and_merged_summary": true,
+    "value_types_where_printed_differs_from_normalized": [
+      "boolean_mark",
+      "currency_usd",
+      "decimal_2",
+      "rate_percent"
+    ]
+  },
+  "branch": "review/wp-0006-0007-next-tracks",
+  "executing_head": "7eae6de27d21bd41558611f95116e13cbd0f6b92",
+  "f2_pdf_admission_prechecks": {
+    "F1-SWO-001": {
+      "byte_length": 887,
+      "ends_with_eof": true,
+      "has_supported_pdf1_header": true,
+      "passes_structural_prechecks": true,
+      "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+      "startxref_addresses_xref": true,
+      "startxref_offset": 628,
+      "within_10mib": true
+    },
+    "SYN-MP-01-v0-clean": {
+      "byte_length": 8422,
+      "ends_with_eof": true,
+      "has_supported_pdf1_header": true,
+      "passes_structural_prechecks": true,
+      "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "startxref_addresses_xref": true,
+      "startxref_offset": 7987,
+      "within_10mib": true
+    },
+    "SYN-WO-01-v1-raster300": {
+      "byte_length": 372258,
+      "ends_with_eof": true,
+      "has_supported_pdf1_header": true,
+      "passes_structural_prechecks": true,
+      "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "startxref_addresses_xref": true,
+      "startxref_offset": 371964,
+      "within_10mib": true
+    }
+  },
+  "f2_source_observations": {
+    "f2_implementer_kickoff_omits_deploy_dev_and_workers_ocr": true,
+    "grant_sql_currently_f1_select_insert_only": true,
+    "grant_sql_referenced_by_postgres_fixture_and_prepare_script": true,
+    "legacy_workers_ocr_readme_claims_not_implemented": true,
+    "native_infer_multi_returns_2_tuple_only": true,
+    "owned_api_ts_references_evaluation_product_smoke_and_5180": true,
+    "q0_dependency_lock_uses_git_blob_indirection": true,
+    "q0_protocol_timeouts_omit_call_pages_2": true
+  },
+  "helper_path": "docs/reviews/WP-0006/eld-next-reviewer/design/verify_design_contracts.py",
+  "helper_sha256": "c240a63edfd5c997ee1e54ceee21b8f4fa45bf9764c152ab4b6cd511571f2e02",
+  "markdown_link_checks": [
+    {
+      "file": "CURRENT.md",
+      "local_links_checked": 8,
+      "missing_targets": []
+    },
+    {
+      "file": "docs/design/F2-local-extraction.md",
+      "local_links_checked": 0,
+      "missing_targets": []
+    },
+    {
+      "file": "docs/design/B0-vanilla-accuracy-baseline.md",
+      "local_links_checked": 0,
+      "missing_targets": []
+    },
+    {
+      "file": "docs/kickoffs/WP-0006-eld-f2-implementer.md",
+      "local_links_checked": 0,
+      "missing_targets": []
+    },
+    {
+      "file": "docs/kickoffs/WP-0007-eld-rd-astra.md",
+      "local_links_checked": 0,
+      "missing_targets": []
+    },
+    {
+      "file": "docs/kickoffs/WP-0006-0007-eld-next-reviewer.md",
+      "local_links_checked": 0,
+      "missing_targets": []
+    },
+    {
+      "file": "docs/agent-reports/eld-coordinator/WP-0006/001_2026-11-16_design_eld-coordinator.md",
+      "local_links_checked": 1,
+      "missing_targets": []
+    },
+    {
+      "file": "docs/agent-reports/eld-coordinator/WP-0007/001_2026-11-16_design_eld-coordinator.md",
+      "local_links_checked": 1,
+      "missing_targets": []
+    },
+    {
+      "file": "docs/reviews/WP-0006/eld-next-reviewer/design/README.md",
+      "local_links_checked": 4,
+      "missing_targets": []
+    }
+  ],
+  "observed_utc": "2026-11-16T04:35:45Z",
+  "opened_repository_paths": [
+    "docs/design/F2-local-extraction.md",
+    "docs/kickoffs/WP-0006-eld-f2-implementer.md",
+    "deploy/dev/database/grant-runtime.sql",
+    "tests/ELedgerCare.Acceptance.Tests/Harness/PostgresFixture.cs",
+    "deploy/dev/database/prepare-database.ps1",
+    "workers/ocr/README.md",
+    "web/e2e/owned-api.ts",
+    "evaluation/synthetic/pdfs/F01/SYN-WO-01-v1-raster300.pdf",
+    "evaluation/synthetic/pdfs/F07/SYN-MP-01-v0-clean.pdf",
+    "tests/fixtures/F1-SWO-001.pdf",
+    "qualification/q0/harness/protocol.json",
+    "qualification/q0/harness/locks/dependency-lock.json",
+    "qualification/q0/harness/manifests/model-files.json",
+    "research/astra/sources/hf-modeling_unlimitedocr.py.txt",
+    "docs/design/B0-vanilla-accuracy-baseline.md",
+    "evaluation/manifests/corpus-manifest.json",
+    "docs/coordination/WP-0005/final-runtime-observations/run-comparison.json",
+    "evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json",
+    "evaluation/synthetic/expected/SYN-WO-01-v1-raster300_expected.json",
+    "evaluation/synthetic/expected/SYN-WO-01-v2-skew-pos4deg_expected.json",
+    "evaluation/synthetic/expected/SYN-WO-02-v0-clean_expected.json",
+    "evaluation/synthetic/expected/SYN-WO-02-v1-raster300_expected.json",
+    "evaluation/synthetic/expected/SYN-WO-02-v2-skew-neg3deg_expected.json",
+    "evaluation/synthetic/expected/SYN-WO-02-v3-hybrid-note_expected.json",
+    "evaluation/synthetic/expected/SYN-INV-01-v0-clean_expected.json",
+    "evaluation/synthetic/expected/SYN-INV-01-v1-raster300_expected.json",
+    "evaluation/synthetic/expected/SYN-INV-01-v2-skew-neg3deg_expected.json",
+    "evaluation/synthetic/expected/SYN-MP-01-v0-clean_expected.json",
+    "evaluation/synthetic/expected/SYN-MP-01-v1-raster300_expected.json",
+    "evaluation/synthetic/expected/SYN-MP-01-v2-skew-pos4deg_expected.json",
+    "evaluation/synthetic/sources/F01_SYN-WO-01_source.json",
+    "evaluation/synthetic/sources/F02_SYN-WO-02_source.json",
+    "evaluation/synthetic/sources/F04_SYN-INV-01_source.json",
+    "evaluation/synthetic/sources/F07_SYN-MP-01_source.json",
+    "qualification/q0/harness/evidence/004-gpu-trial/9e73ef86/run-20261115T202627Z-eb5bf7da/evidence/F07.warm1.raw.txt",
+    "CURRENT.md",
+    "docs/design/F2-local-extraction.md",
+    "docs/design/B0-vanilla-accuracy-baseline.md",
+    "docs/kickoffs/WP-0006-eld-f2-implementer.md",
+    "docs/kickoffs/WP-0007-eld-rd-astra.md",
+    "docs/kickoffs/WP-0006-0007-eld-next-reviewer.md",
+    "docs/agent-reports/eld-coordinator/WP-0006/001_2026-11-16_design_eld-coordinator.md",
+    "docs/agent-reports/eld-coordinator/WP-0007/001_2026-11-16_design_eld-coordinator.md",
+    "docs/reviews/WP-0006/eld-next-reviewer/design/README.md"
+  ],
+  "reviewed_revisions": {
+    "accepted_corpus_candidate": "29b2000265ae6068d9c86818622c81a40cadd961",
+    "accepted_f1_candidate": "e3117ec2aa11a78359a754cfe52ef3ece6c1733f",
+    "accepted_q0_core_candidate": "41d6204648e4115ab197507d1a22f6d5c7f3e784",
+    "design_candidate": "efa9cb986711f82a886f917e68142a7a59319bba",
+    "dispatch_report_tip": "c08d50e204395e60a88ce25f70e25bd29b97b8c6",
+    "packet_base": "8e80a42c29c0fc27a4af6348cfb1ec22cab3764d"
+  },
+  "schema": "eld-phase1-design-review-verification/1"
+}

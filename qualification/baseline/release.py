@@ -3,6 +3,7 @@ import datetime,json,re,subprocess,os
 from pathlib import Path
 from corpus import ROOT,load_json,sha
 HERE=Path(__file__).resolve().parent
+REVIEW_PATH='docs/agent-reports/eld-baseline-reviewer/WP-0007/003_2026-11-16_review_eld-baseline-reviewer.md'
 
 def git(*args):return subprocess.check_output([os.environ.get('Q0_GIT_EXECUTABLE','git'),*args],cwd=ROOT)
 def protocol():return load_json(HERE/'protocol.json')
@@ -19,6 +20,7 @@ def validate_release(r,p,split,owner,*,tree,now=None):
     if not required<=r.keys():raise PermissionError('Incomplete coordinator release')
     for k in ('source_commit','executing_head','source_tree','accepted_review_commit'):
         if not re.fullmatch('[0-9a-f]{40}',r[k]):raise PermissionError('Invalid revision '+k)
+    if r['accepted_review_path']!=REVIEW_PATH:raise PermissionError('Wrong independent review report')
     if r['schema']!='eld-baseline-release/1' or owner not in ('author','reviewer') or r['owner']!=owner or r['split']!=split:raise PermissionError('Release owner/split mismatch')
     if r['source_tree']!=tree:raise PermissionError('Source tree mismatch')
     for k,path in [('protocol_sha256',HERE/'protocol.json'),('mapping_sha256',HERE/'mapping.json'),('lock_sha256',ROOT/p['dependency_lock_path'])]:
@@ -44,7 +46,6 @@ def read_release(authority,path,split,owner):
     if p['q0_core_tree']!=git('rev-parse','HEAD:qualification/q0/harness/q0harness').decode().strip():raise PermissionError('Accepted Q0 primitives changed')
     if source_tree(r['source_commit'])!=r['source_tree']:raise PermissionError('Source commit/tree disagree')
     # Bind an actual immutable reviewer report object; acceptance is coordinator's reviewed assertion.
-    if not r['accepted_review_path'].startswith('docs/agent-reports/eld-next-reviewer/WP-0007/003_'):raise PermissionError('Wrong independent review report')
     review=git('show',r['accepted_review_commit']+':'+r['accepted_review_path'])
     if not review.strip():raise PermissionError('Empty review')
     for key,pathkey in [('q0_protocol_sha256','q0_protocol_path'),('dependency_lock_sha256','dependency_lock_path'),('model_manifest_sha256','model_manifest_path')]:
