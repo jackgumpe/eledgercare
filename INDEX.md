@@ -669,3 +669,19 @@ WP-0009 /011 PUBLISHED50beea530079d9c9c4c6b26eae7ee624a5ad0a4e; correctedsource2
 ## WP-0009 source acceptance and exact unseal release (2026-11-16 UTC)
 
 Independent006 ACCEPTED/PUBLISHED89a27d8b13b280632f4fc0e6704f8c3bdfe74355; source23e023045b335540d830ce01b75be247552a63f1/tree59f66d0d3d9be145a43efcc9258eb260d3ef2f00. Root verified45 diff entries and2159 unchanged input files, exact origin and report-only publication; normally integrated. Final31 CPU checks pass; prior failed checks remain preserved. Root now explicitly unseals exact admitted corpus559c5d09490b7729be26fb9bf9d872305cae3303 via docs/coordination/WP-0009/unseal.json. Custodian010 and reviewer admission-evidence publication are RELEASED under their exact new kickoffs; actual dispatch PREPARED. All fresh inference007/008 stays held pending publication verification and separate observed finite lease.
+
+
+## WP-0009 exact fresh publication accepted;007 execution preparation (2026-11-16 UTC)
+
+Custodian010 PUBLISHED c723df666f9148747ff2d713867590789959b4a9, exact corpus c0a702e43efee7bda20b4da0bc2b0cb3f0852e41; root independently verified all40 admitted files/1,075,820bytes,52 deliverable entries,2171 preserved authority files and exact remote/report-only publication. Independent admission evidence publication68a2f9458851b8bf60b067b702261f63ff70b900 is accepted: all32 original artifacts exact,36 deliverable entries and2171 old files preserved. Both normally integrated. Root read-only model18objects/notice/host observations pass; Ollama server has no loaded models, no model runner observed; desktop sharing retained.007 is RELEASED for source preparation under WP-0009-eld-mapping-author-execution.md; actual inference awaits exact clean HEAD and separately bound finite author.json lease.008 remains held.
+
+
+## WP-0009 author finite runtime release (2026-11-16 UTC)
+
+Author confirmed clean executing HEAD2a3781745cb120f6e3eb22b234c111241ba8d8c9 and accepted mapping tree. Root retained fresh GPU/process/loaded-model observations and explicit ownership review at13b8a6d8e7fb896fa9ea4d4e90a8a528cc3dd5d4. Lease WP-0009-author-fresh-20261116T2052Z is GRANTED under exact docs/coordination/WP-0009/releases/author.json,6h ceiling, two excluded warmups plus four fixed fresh primary calls. Actual dispatch PREPARED; no run claimed yet. Same source/scorer/model and first-failure stop; no retries.007 publication remains pending;008 held until observed author return and separate release.
+
+
+WP-0009 author007 actual start2026-11-16T20:53:18.6090134Z: RUNNING_CONFIRMED, wrapper19996/supervisor32624/worker23516, tool session65622, run20261116T205320Z-67b42d6e. Exact authority6343ded1cd79b7c5b67b34893fe4516dc6845eb9 and clean executing2a3781745cb120f6e3eb22b234c111241ba8d8c9. Lease ACTIVE; final outcomes pending. See docs/coordination/WP-0009/author-dispatch.json.
+
+
+WP-0009 reviewer008 independent CPU comparison preparation is RELEASED under WP-0009-eld-mapping-reviewer-comparison-preparation.md, actual dispatch PREPARED. Own new008/preparation helpers only; no current author-output reads, no GPU/model or canonical008 publication until separate final release. Fixed WP09-F04-v0 sentinel unchanged.

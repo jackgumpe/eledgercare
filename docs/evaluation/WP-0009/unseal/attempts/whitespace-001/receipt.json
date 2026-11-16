@@ -1,0 +1,32 @@
+{
+  "observed_utc": "2026-11-16T20:46:23.215123+00:00",
+  "results": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "4457172b3f47138b94e182ce6223cdd559c66c36",
+        "c0a702e43efee7bda20b4da0bc2b0cb3f0852e41"
+      ],
+      "exit_code": 2,
+      "stdout": "check-1.stdout.txt",
+      "stderr": "check-1.stderr.txt"
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+        "diff",
+        "--check",
+        "4457172b3f47138b94e182ce6223cdd559c66c36",
+        "c0a702e43efee7bda20b4da0bc2b0cb3f0852e41"
+      ],
+      "exit_code": 0,
+      "stdout": "check-2.stdout.txt",
+      "stderr": "check-2.stderr.txt"
+    }
+  ],
+  "explanation": "Default diff --check reports preserved original CRLF evidence lines as trailing whitespace. No admitted byte was changed. Per-command cr-at-eol interpretation passes with ordinary trailing-blank/end-file/tab checks retained. Initial staged diff --check emitted the same preserved-CR diagnostic before corpus commit. No repository config change."
+}

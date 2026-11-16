@@ -1,0 +1,67 @@
+{
+  "schema": "eld-wp09-custodian-validation/1",
+  "run_id": "verify-r1",
+  "candidate_commit": "1040e4132532670a100fa431266c69c2ea56aefc",
+  "started_utc": "2026-11-16T19:26:04.753787+00:00",
+  "author_verification_only": true,
+  "independent_admission": "pending",
+  "checks": [
+    "exact candidate HEAD and tracked bytes",
+    "20 manifest paths, sizes and SHA256 identities",
+    "canonical schema slots and typed source values",
+    "all visible PDF text, reference and expected bbox parity",
+    "no text overlap or page overflow",
+    "empty response boxes",
+    "invoice and labor arithmetic",
+    "page markers, adjacency and repeated identity",
+    "six PDFium renderings",
+    "two complete fresh regenerations byte-identical to candidate"
+  ],
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-rd-carbon-recovery\\.venv\\Scripts\\python.exe",
+    "pypdf": "7.1.0",
+    "pypdfium2": "5.15.2",
+    "Pillow": "13.0.0"
+  },
+  "commands": [
+    [
+      "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-rd-carbon-recovery\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\sealed\\generation\\create.py",
+      "--out",
+      "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\sealed\\scratch\\verify-r1\\generate-1"
+    ],
+    [
+      "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-rd-carbon-recovery\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\sealed\\generation\\create.py",
+      "--out",
+      "C:\\Users\\jackg\\eLedgerCare-Mapping\\WP-0009\\sealed\\scratch\\verify-r1\\generate-2"
+    ]
+  ],
+  "status": "passed",
+  "counts": {
+    "fields": 39,
+    "absences": 4,
+    "tables": 5,
+    "rows": 15,
+    "cells": 90,
+    "text_operators": 249,
+    "quantity_unit_cells": 3,
+    "pages": 6
+  },
+  "regeneration": [
+    {
+      "run": 1,
+      "files": 21,
+      "all_bytes_equal": true,
+      "stdout": "{\"status\": \"generated\", \"pdfs\": 4, \"pages\": 6, \"files\": 21}"
+    },
+    {
+      "run": 2,
+      "files": 21,
+      "all_bytes_equal": true,
+      "stdout": "{\"status\": \"generated\", \"pdfs\": 4, \"pages\": 6, \"files\": 21}"
+    }
+  ],
+  "ended_utc": "2026-11-16T19:26:05.688328+00:00"
+}
