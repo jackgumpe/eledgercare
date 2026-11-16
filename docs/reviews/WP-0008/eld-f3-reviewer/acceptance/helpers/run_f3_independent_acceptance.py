@@ -1048,7 +1048,8 @@ GRANT UPDATE (status, phase, launcher_pid, launcher_create_filetime, worker_pid,
         assert repro_post_mig["f1_f2_rows_and_seq_sha256"] == EXPECTED_F1_F2_ROWS_AND_SEQ_SHA256
         invoke_psql(str(settings["adminUser"]), str(settings["adminPassword"]), "postgres", f"DROP DATABASE IF EXISTS {FWD_REPRO_DB} WITH (FORCE);")
 
-        # 3b. Verify preserved eledgercare_f3_reviewer_seed_f2 (forward-migrated in retained d1987a4c-06-migrate-reviewer-f2-seed-db.log with 0 review rows)
+        # 3b. Verify preserved eledgercare_f3_reviewer_seed_f2 (forward-migrated in retained d1987a4c-06-migrate-reviewer-f2-seed-db.log),
+        #     clear any partial F3 review rows left by an aborted reviewer helper run via admin TRUNCATE (never touching F1/F2 tables),
         #     and re-run idempotent prepare-database.ps1 on SEED_DB + dev DB.
         initial_seed_check = query_f2_seed_core_snapshot(SEED_DB)
         if initial_seed_check["f1_f2_rows_and_seq_sha256"] != EXPECTED_F1_F2_ROWS_AND_SEQ_SHA256:
@@ -1057,6 +1058,12 @@ GRANT UPDATE (status, phase, launcher_pid, launcher_create_filetime, worker_pid,
             raise RuntimeError(f"Unexpected {SEED_DB} core state_sha256: {initial_seed_check['state_sha256']}")
 
         steps.append(run_logged("06-migrate-reviewer-f2-seed-db", ["pwsh", "-NoProfile", "-File", "deploy/dev/database/prepare-database.ps1", "-Database", SEED_DB], REPO_ROOT, settings))
+        invoke_psql(
+            str(settings["adminUser"]),
+            str(settings["adminPassword"]),
+            SEED_DB,
+            "TRUNCATE TABLE eledgercare.work_order_review_fields, eledgercare.work_order_review_heads, eledgercare.work_order_review_revisions;",
+        )
         steps.append(run_logged("07-prepare-reviewer-dev-db", ["pwsh", "-NoProfile", "-File", "deploy/dev/database/prepare-database.ps1"], REPO_ROOT, settings))
 
         post_mig_seed = query_f2_seed_core_snapshot(SEED_DB)

@@ -61,6 +61,43 @@ async function waitForExactText(locator, expected, timeoutMs = 20_000) {
   throw new Error(`Timed out waiting for exact text '${expected}' (last='${lastText}')`);
 }
 
+async function waitForEnabled(locator, label, timeoutMs = 15_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    if ((await locator.count()) > 0 && (await locator.first().isEnabled())) {
+      return;
+    }
+    await new Promise((r) => setTimeout(r, 75));
+  }
+  throw new Error(`Timed out waiting for '${label}' to become enabled`);
+}
+
+async function waitForDisabled(locator, label, timeoutMs = 15_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    if ((await locator.count()) > 0 && (await locator.first().isDisabled())) {
+      return;
+    }
+    await new Promise((r) => setTimeout(r, 75));
+  }
+  throw new Error(`Timed out waiting for '${label}' to become disabled`);
+}
+
+async function waitForAttr(locator, attrName, expectedVal, timeoutMs = 15_000) {
+  const deadline = Date.now() + timeoutMs;
+  let lastVal = null;
+  while (Date.now() < deadline) {
+    if ((await locator.count()) > 0) {
+      lastVal = await locator.first().getAttribute(attrName);
+      if (lastVal === expectedVal) {
+        return;
+      }
+    }
+    await new Promise((r) => setTimeout(r, 75));
+  }
+  throw new Error(`Timed out waiting for attribute ${attrName}='${expectedVal}' (last='${lastVal}')`);
+}
+
 async function readStorageState(page) {
   return await page.evaluate(async () => {
     const idbList = 'databases' in indexedDB ? await indexedDB.databases() : [];
@@ -188,7 +225,7 @@ async function main() {
       await tabA.getByTestId('btn-unreviewed-issue_and_resolution').click();
       await tabA.getByTestId('input-operator-label').fill('Independent Reviewer Desk');
 
-      assert(await tabA.getByTestId('save-reviewed').isDisabled(), 'save-reviewed must stay disabled when unreviewed > 0');
+      await waitForDisabled(tabA.getByTestId('save-reviewed'), 'save-reviewed when unreviewed > 0');
       await tabA.getByTestId('save-draft').click();
       await waitForExactText(tabA.getByTestId('review-status-badge'), 'Saved draft (Revision #1)');
       await waitForExactText(tabA.getByTestId('current-revision-number'), '#1');
@@ -197,16 +234,15 @@ async function main() {
       // 4. Resolve 5th field, verify premature save-reviewed stays disabled until confirmation checkbox, save Revision #2 (reviewed, 1 unknown).
       await tabA.getByTestId('btn-accept-issue_and_resolution').click();
       await waitForTextContains(tabA.getByTestId('unknown-fields-list'), 'Fields marked unknown (1): Building / Unit');
-      assert(
-        await tabA.getByTestId('save-reviewed').isDisabled(),
-        'save-reviewed must stay disabled until affirmative checkbox is checked',
-      );
+      await waitForDisabled(tabA.getByTestId('save-reviewed'), 'save-reviewed before confirmation checkbox');
+      await waitForEnabled(tabA.getByTestId('confirm-reviewed-checkbox'), 'confirm-reviewed-checkbox when 0 unreviewed');
       await tabA.getByTestId('confirm-reviewed-checkbox').check();
-      assert(await tabA.getByTestId('save-reviewed').isEnabled(), 'save-reviewed must enable after confirmation');
+      await waitForEnabled(tabA.getByTestId('save-reviewed'), 'save-reviewed after confirmation checkbox');
       await tabA.getByTestId('save-reviewed').click();
 
       await waitForExactText(tabA.getByTestId('review-status-badge'), 'Reviewed (Revision #2 · 1 unknown)');
       await waitForExactText(tabA.getByTestId('current-revision-number'), '#2');
+      await tabA.evaluate(() => window.scrollTo(0, 0));
       await tabA.waitForTimeout(1000);
       const shot02Path = path.join(screenshotsDir, '02-reviewer-wo01-rev2-reviewed.png');
       await tabA.screenshot({ path: shot02Path });
@@ -291,7 +327,9 @@ async function main() {
         .fill('Printed request date smudged on carbon copy; awaiting dispatch log');
       await tabA.getByTestId('input-operator-label').fill('Reviewer Final Sign-off');
       await waitForTextContains(tabA.getByTestId('unknown-fields-list'), 'Fields marked unknown (1): Requested Date');
+      await waitForEnabled(tabA.getByTestId('confirm-reviewed-checkbox'), 'confirm-reviewed-checkbox on Rev 4');
       await tabA.getByTestId('confirm-reviewed-checkbox').check();
+      await waitForEnabled(tabA.getByTestId('save-reviewed'), 'save-reviewed on Rev 4');
       await tabA.getByTestId('save-reviewed').click();
 
       await waitForExactText(tabA.getByTestId('review-status-badge'), 'Save outcome uncertain');
@@ -306,6 +344,7 @@ async function main() {
       await tabA.unroute(`**/api/documents/${SEED1_WO_DOC_ID}/review/revisions`);
       assertZeroStorage(await readStorageState(tabA), 'after-uncertain-retry-rev4');
 
+      await tabA.evaluate(() => window.scrollTo(0, 0));
       await tabA.waitForTimeout(1500);
       const shot03Path = path.join(screenshotsDir, '03-reviewer-wo01-rev4-before-restart.png');
       await tabA.screenshot({ path: shot03Path });
@@ -330,16 +369,12 @@ async function main() {
         'issue_and_resolution',
       ]) {
         await waitForTextContains(tabA.getByTestId(`machine-value-${fk}`), 'No suggestion (missing)');
-        assert(await tabA.getByTestId(`btn-accept-${fk}`).isDisabled(), `btn-accept-${fk} must be disabled on missing`);
+        await waitForDisabled(tabA.getByTestId(`btn-accept-${fk}`), `btn-accept-${fk} on missing`);
       }
 
       await tabA.getByTestId('pdf-page-btn-2').click();
       await waitForTextContains(tabA.getByTestId('pdf-current-page'), 'Page 2 of 3');
-      assert(
-        (await tabA.getByTestId('pdf-preview-frame').getAttribute('src')) ===
-          `/api/documents/${SEED2_MP_DOC_ID}/preview#page=2`,
-        'Expected #page=2 on Seed 2 iframe',
-      );
+      await waitForAttr(tabA.getByTestId('pdf-preview-frame'), 'src', `/api/documents/${SEED2_MP_DOC_ID}/preview#page=2`);
       await tabA.waitForTimeout(2000);
       const shot04Path = path.join(screenshotsDir, '04-reviewer-mp01-page2-navigation.png');
       await tabA.screenshot({ path: shot04Path });
@@ -347,11 +382,7 @@ async function main() {
 
       await tabA.getByTestId('pdf-page-btn-3').click();
       await waitForTextContains(tabA.getByTestId('pdf-current-page'), 'Page 3 of 3');
-      assert(
-        (await tabA.getByTestId('pdf-preview-frame').getAttribute('src')) ===
-          `/api/documents/${SEED2_MP_DOC_ID}/preview#page=3`,
-        'Expected #page=3 on Seed 2 iframe',
-      );
+      await waitForAttr(tabA.getByTestId('pdf-preview-frame'), 'src', `/api/documents/${SEED2_MP_DOC_ID}/preview#page=3`);
       await tabA.waitForTimeout(2000);
       const shot05Path = path.join(screenshotsDir, '05-reviewer-mp01-page3-navigation.png');
       await tabA.screenshot({ path: shot05Path });
