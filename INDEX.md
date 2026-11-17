@@ -1023,3 +1023,9 @@ WP-0013 initial author007 actual invocation18:24:36Z stopped pre-model at18:24:4
 | WP-0013 /012 | eld-mapping-author / research | docs/agent-reports/eld-mapping-author/WP-0013/012_2026-11-17_research_eld-mapping-author.md | RESERVED separate recovery; no inference lease |
 
 WP-0012 coordinator005 CLOSED/ACCEPTED publication68230cf7ddfb4d85e41e9d6718c822090a706631; disposition187f1bd01203a4859d982d1c7c47416c08df6410/preservation456591859342de863e6d98756881cc8981a3acf1. Author003bd21/independent004a772 verified,4completed attempts, no further product work. Exact receipt docs/coordination/WP-0012/final-disposition/publication-receipt.json. WP-0013 remains independently active.
+
+WP-0013 original0070d610695 and independent accounting7f8cf7db PUBLISHED/VERIFIED: all12 unavailable/zero model calls, complete score/policy objects independently reproduced without quality claims. Correction010bd59cb57/sourceb60624ac passes own16children/61tests and independent12standardchildren, but independent F011-01 at64a456db demonstrates accepted audits permit earlier mutable bare-Git lookup. Root releases bounded runtime-only reconciliation under docs/kickoffs/WP-0013-runtime-correction-013.md; original010/failure evidence immutable. Existing unpublished011 will review010+013/final source. All inference remains held.
+
+| Reservation | Owner/category | Canonical path | State |
+| --- | --- | --- | --- |
+| WP-0013 /013 | eld-mapping-author / implementation | docs/agent-reports/eld-mapping-author/WP-0013/013_2026-11-17_implementation_eld-mapping-author.md | RELEASED CPU-only F011-01 reconciliation; independent011 before recovery |
