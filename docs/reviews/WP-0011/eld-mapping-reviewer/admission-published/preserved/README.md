@@ -1,0 +1,9 @@
+# Private independent WP-0011 corpus admission
+
+Owner eld-mapping-reviewer; same native session/requested xhigh, backend identity/actual effort not exposed. Local-only evidence repository, no remote. Identifying findings stay here until exact root unseal; no private content goes to the mapping author or public repository.
+
+Authority d04cebad972e6e2dcfc4b5eb290c49546b4e9b19; public start HEAD68ed24346039c6b26a8c2010ca0956f958a1e4dc; start2026-11-17T08:14:31.9136074Z. Sealed receipt6583715067d3a027dd2502ed9623cf02c545391d; corecandidateb5f33a65d463d4b9a5463fdb93353c0c7ac7c7f3; inventory SHA256bd37f4020a4b5b185379d9d7d2e529b39ebc0d3fa0aa37802d2bccc0546c4330. Custodian tree is read-only. All writes stay under this verified new admission directory. No model/GPU/service/download/production changes.
+
+Freeze reviewer helpers before decisive checks. `audit.py` independently verifies source/input bytes, PDF streams/reference order/visible slots, semantic pairs, exact factor distinctions, controlled degradation pixels, control support, typed/unit facts and one independent regeneration in owned ignored scratch. It renders all12 pages for separate human visual inspection. It never consumes model outputs. Ideal native records are support witnesses, not inference. Public contract63a14cafa1dee7db7cb70aca00cee529c46452fc is a provisional interface only; its known absence/unit metadata validation gaps are separately tracked publicly, and the independent checks here cover those fields.
+
+Existing CPU interpreter: C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/eld-rd-carbon-recovery/.venv/Scripts/python.exe, using installed pypdf7.1.0, pypdfium2 5.15.2 and Pillow13.0.0. Execute with -I -B. No package changes; no model libraries imported. Preserve failures and corrections; custodian alone authors corpus fixes. Final inventory will bind all private evidence before public count/hash-only /004.
