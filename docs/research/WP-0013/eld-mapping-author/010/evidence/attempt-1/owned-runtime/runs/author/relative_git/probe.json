@@ -1,0 +1,21 @@
+{
+  "case": "relative_git",
+  "started_utc": "2026-11-17T18:38:51.243472+00:00",
+  "identity": {
+    "pid": 37624,
+    "creation_filetime_100ns": 134394143310615877,
+    "created_utc": "2026-11-17T18:38:51.061587+00:00",
+    "source": "Windows GetProcessTimes on explicitly owned PID"
+  },
+  "python": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+  "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts;C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-correction\\attempt-1\\owned-runtime\\venv\\Scripts;C:\\WINDOWS\\System32;C:\\WINDOWS",
+  "git_pin": "C:\\Program Files\\Git\\cmd\\git.exe",
+  "model_imports_prohibited": true,
+  "status": "raised",
+  "error_type": "Q0Failure",
+  "error": "HOST_PRECHECK_FAILED: Git executable must be an absolute path, got 'git'",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\010\\restricted_probe.py\", line 99, in <module>\n    try: main(args, receipt); receipt['status'] = 'returned'\n         ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\010\\restricted_probe.py\", line 44, in main\n    runtime.enable_pinned_git_lookup(env, root=root, owner='author', run_dir=run)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\runtime.py\", line 39, in enable_pinned_git_lookup\n    audit_child_env(env,root=root,owner=owner,run_dir=run_dir)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\q0\\harness\\q0harness\\environment.py\", line 219, in audit_child_env\n    _audit_git_pin(env, root=root, run_dir=run_dir)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\q0\\harness\\q0harness\\environment.py\", line 204, in _audit_git_pin\n    git_exe = validate_git_executable(env.get(GIT_EXECUTABLE_VAR, \"\"))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\q0\\harness\\q0harness\\environment.py\", line 106, in validate_git_executable\n    raise Q0Failure(\"HOST_PRECHECK_FAILED\", f\"Git executable must be an absolute path, got {path!r}\")\nq0harness.outcome.Q0Failure: HOST_PRECHECK_FAILED: Git executable must be an absolute path, got 'git'\n",
+  "finished_utc": "2026-11-17T18:38:51.246527+00:00",
+  "exit_code": 1,
+  "prohibited_imports_present": []
+}
