@@ -1,5 +1,6 @@
 """CPU-owned process tests and fault injection; never calls a model or real observer."""
 import contextlib
+import ast
 import csv
 import io
 import json
@@ -23,12 +24,17 @@ SCRATCH=ROOT/'.scratch/wp0011-coverage'
 class RuntimeTests(unittest.TestCase):
     def setUp(self):SCRATCH.mkdir(parents=True,exist_ok=True)
 
-    def test_runtime_is_only_scoped_adaptation_of_accepted_source(self):
+    def test_runtime_worker_and_model_settings_preserve_accepted_source(self):
         old=git('show','23e023045b335540d830ce01b75be247552a63f1:qualification/mapping_v1/runtime.py').decode()
         expected=old.replace('Operational adaptation of B0 runtime.py at 522f15f1f6e399c36b9c6c107fc08f51862f1fc1.',
             'Finite WP-0011 adaptation of accepted mapping-v1 runtime at 23e023045b335540d830ce01b75be247552a63f1.\nUnderlying B0 runtime source: 522f15f1f6e399c36b9c6c107fc08f51862f1fc1.')
         expected=expected.replace('MappingV1','CoverageV1').replace('eld-mapping-v1-run/1','eld-coverage-v1-run/1').replace('mapping_v1_source_commit','coverage_v1_source_commit')
-        self.assertEqual((HERE/'runtime.py').read_text(),expected)
+        # /009 fixes supervisor observation accounting only. The full worker
+        # (including model/call/render behavior) must remain byte-for-byte equal.
+        self.assertEqual((HERE/'runtime.py').read_text().split('\ndef worker(',1)[1],expected.split('\ndef worker(',1)[1])
+        old_functions={n.name for n in ast.parse(expected).body if isinstance(n,ast.FunctionDef)}
+        new_functions={n.name for n in ast.parse((HERE/'runtime.py').read_text()).body if isinstance(n,ast.FunctionDef)}
+        self.assertEqual(new_functions,old_functions)
         previous=json.loads(git('show','23e023045b335540d830ce01b75be247552a63f1:qualification/mapping_v1/protocol.json'))
         p=protocol()
         for key in ('model','renderer','call','guards','gpu','read_only_q0_root','model_relative','notice_relative','storage_cap_bytes','free_floor_bytes','warmups','historical_warmups'):
@@ -46,9 +52,10 @@ class RuntimeTests(unittest.TestCase):
     def test_gpu_observation_unavailable_or_wrong_device_rejected(self):
         with tempfile.TemporaryDirectory(dir=SCRATCH) as tmp:
             root=Path(tmp);p=protocol();a=root/'a';b=root/'b';a.write_text('timestamp, '+p['gpu']['uuid']);b.write_text('')
-            observed=[{'returncode':0,'bytes':10,'path':str(a)},{'returncode':0,'bytes':0,'path':str(b)}]
+            observed=[{'returncode':0,'bytes':x.stat().st_size,'path':str(x)} for x in (a,b)]
             runtime.verify_device_observation(observed,p)
             b.write_text('123, unrelated.exe, [N/A]')
+            observed[1]['bytes']=b.stat().st_size
             self.assertIn('unrelated.exe',runtime.verify_device_observation(observed,p)['process_observation_text'])
             b.write_text('--- stderr --- warning')
             with self.assertRaises(PermissionError):runtime.verify_device_observation(observed,p)
@@ -66,6 +73,7 @@ class RuntimeTests(unittest.TestCase):
             outcome=runtime.verify_device_observation(observed,p)
             self.assertEqual(len(list(csv.reader(io.StringIO(outcome['process_observation_text'])))),22)
             paths[1].write_text(retained['gpu_observer'][1]['stdout']+'42, C:/Edge/msedge.exe, [N/A]\n',newline='')
+            observed[1]['bytes']=paths[1].stat().st_size
             self.assertIn('42, C:/Edge/msedge.exe',runtime.verify_device_observation(observed,p)['process_observation_text'])
             self.assertIn('without automatic classification',outcome['limit'])
 
@@ -81,8 +89,10 @@ class RuntimeTests(unittest.TestCase):
             r=valid_release(p);r['runtime_root']=str(scratch/'owned-runtime');plan=schedule(p,'author')
             active=plan[2]['fixture_id']+'.measured';root=Path(r['runtime_root'])
             class Process:
-                pid=123456;returncode=None if case=='scan_failure' else 0;kills=0;waits=0
-                def poll(self):return self.returncode
+                pid=123456;returncode=None if case=='scan_failure' else 0;kills=0;waits=0;polls=0
+                def poll(self):
+                    self.polls+=1
+                    return None if case=='post_nonzero' and self.polls==1 else self.returncode
                 def kill(self):self.kills+=1;self.returncode=1
                 def wait(self,timeout):self.waits+=1;return self.returncode
             proc=Process()
@@ -101,13 +111,24 @@ class RuntimeTests(unittest.TestCase):
                 if tag=='post' and case=='post_failure':raise OSError('CPU injected post-observer failure')
                 paths=[run/('cpu-observer-'+tag+'-'+str(i)+'.txt') for i in range(2)]
                 paths[0].write_text('timestamp, '+p['gpu']['uuid']);paths[1].write_text('')
-                return [{'returncode':0,'bytes':x.stat().st_size,'path':str(x)} for x in paths]
+                rows=[{'returncode':0,'bytes':x.stat().st_size,'path':str(x)} for x in paths]
+                phase,_,fault=case.partition('_')
+                if tag==phase:
+                    if fault=='nonzero':rows[0]['returncode']=1
+                    elif fault=='timeout':rows[0]['returncode']=None;rows[0]['error']='TimeoutExpired'
+                    elif fault=='wrong_device':paths[0].write_text('timestamp, OTHER');rows[0]['bytes']=paths[0].stat().st_size
+                    elif fault=='empty':return []
+                    elif fault=='truncated':rows[0]['bytes']=65536
+                    elif fault=='size_mismatch':rows[0]['bytes']+=1
+                    elif fault=='error':rows[0]['error']='observer error despite zero exit'
+                return rows
             environment={k:str(scratch/'cache'/k) for k in ['TEMP','TMP','TMPDIR','HF_HOME','HF_MODULES_CACHE','CUDA_CACHE_PATH','TORCH_HOME','TORCHINDUCTOR_CACHE_DIR','USERPROFILE']};environment['PATH']=''
             with contextlib.ExitStack() as stack:
                 for obj,name,kw in [(runtime,'read_release',{'return_value':r}),(runtime,'protocol',{'return_value':p}),
                     (runtime,'git',{'return_value':b'cpu-head'}),(env,'build_child_env',{'return_value':environment}),
                     (env,'audit_child_env',{}),(env,'resolve_host_git',{'return_value':'git'}),
                     (observers,'run_observers',{'side_effect':observe}),(winjob,'create',{'return_value':42}),
+                    (runtime.time,'sleep',{}),
                     (runtime.subprocess,'Popen',{'side_effect':spawn})]:stack.enter_context(patch.object(obj,name,**kw))
                 close=stack.enter_context(patch.object(winjob,'close'))
                 if case=='scan_failure':stack.enter_context(patch.object(runtime,'directory_size',side_effect=PermissionError('CPU injected denied scan')))
@@ -126,12 +147,24 @@ class RuntimeTests(unittest.TestCase):
                 self.assertTrue(all(x['status']=='not_run_after_failure' for x in result['calls'][3:]))
                 self.assertTrue(result['calls'][3]['unexpected_later_observation'])
             if case in ('malformed_outcome','post_failure'):self.assertTrue(result['finalization_errors'])
+            if case.startswith('post_'):
+                self.assertTrue(all(c['status']=='completed' for c in result['calls']))
+                self.assertEqual(result['final_observation_status']['post_observers'],'unavailable')
+                self.assertTrue(result['finalization_errors']);self.assertEqual(proc.kills,0)
+            if case.startswith('pre_'):
+                self.assertIsNone(result['child_launcher_pid']);self.assertEqual(proc.polls,0)
+                self.assertTrue(all(c['status']=='not_run_after_failure' for c in result['calls']))
             self.assertFalse(list(base.glob('**/run-result.json')))
             print(json.dumps({'cpu_supervisor_case':case,'exit':code,'primary_denominator':12,'states':[x['status'] for x in result['calls']],'owned_child_kills':proc.kills}))
 
     def test_success_and_failure_retention(self):
         for case in ('normal','scan_failure','malformed_outcome','malformed_record','post_failure'):
             with self.subTest(case=case):self.supervisor_case(case)
+
+    def test_returned_pre_and_post_observer_failures(self):
+        for phase in ('pre','post'):
+            for fault in ('nonzero','timeout','wrong_device','empty','truncated','size_mismatch','error'):
+                with self.subTest(phase=phase,fault=fault):self.supervisor_case(phase+'_'+fault)
 
     @unittest.skipUnless(os.name=='nt','Windows job API')
     def test_real_owned_windows_job_closes_only_its_child(self):

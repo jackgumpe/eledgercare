@@ -628,7 +628,8 @@
     "coordinator_duty": "Review fresh retained process/owner evidence before exact lease; resolve unknown/model processes without terminating other owners",
     "runtime_observations": "Successful exact-device captures and complete process rows retained; no automatic desktop classification or empty-list requirement",
     "limits": "WDDM [N/A] and desktop GPU sharing remain confounders; no OS-exclusive hardware assurance",
-    "retained_policy_evidence": "docs/coordination/WP-0007/gpu-reviewer-heldout-release/host-before.json"
+    "retained_policy_evidence": "docs/coordination/WP-0007/gpu-reviewer-heldout-release/host-before.json",
+    "capture_validity": "Pre/during/post require two complete successful exact-device captures, matching bounded byte counts and no error/truncation/stderr. Retain unsuccessful rows and explicit unavailable final observation; no success from returned error records."
   },
   "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
   "mapping_v1_source": "23e023045b335540d830ce01b75be247552a63f1",
@@ -655,7 +656,7 @@
   "diagnostic_schema": "eld-coverage-annotations/1",
   "historical_primary_metric": "printed field exact match; equal documents within family then equal families; primary and recovery separate",
   "stage_measurements": {
-    "visible_presence": "NFC plus whitespace collapse; case-sensitive whole-word-boundary exact substring in decoded visible payload leaves, same page; tags/attributes/coordinates excluded.",
+    "visible_presence": "NFC plus whitespace collapse; case-sensitive word-boundary exact substring in decoded visible payload leaves, same page. Declared HTML block/line boundaries become whitespace; inline adjacency remains. Unknown tags make global presence unavailable; tags/attributes/coordinates excluded. Syntactic grammar, not CSS rendering.",
     "ambiguity": "Retain occurrence count, repeated expected value count, exact raw block/row/cell anchors, unsupported/unadjudicated flags; presence is not semantic association.",
     "parse": "End-to-end parse errors unchanged; globally ineligible stage rates unavailable; locally decoded positive payload evidence retained separately, never absence inferred from incomplete parsing.",
     "row_binding": "Unique same-page row key at annotated canonical column index, exact row width and unit spans; no cross-row value substitution.",
@@ -663,6 +664,7 @@
     "normalization": "Original typed conversion untouched; separate literal printed-unit agreement and identifier exactness including leading zeroes.",
     "pairing": "Fixed family-major controls; all nine condition-control pairs remain; presence deltas only when both documents eligible; historical score deltas preserve failed denominators.",
     "absence": "Original explicit blank/unmapped/violation counts retained; no mapped violation does not establish no inventions.",
-    "attribution": "Overlapping evidence flags and unadjudicated cases, not forced mutually exclusive causes or percentages."
+    "attribution": "Overlapping evidence flags and unadjudicated cases, not forced mutually exclusive causes or percentages.",
+    "execution_validity": "Before scoring, validate all scheduled call statuses including warmups; only completed prefix then failed/unavailable and not-run suffix. Invalid/missing/malformed completed records reject. Genuine final-observer failure preserves completed scores."
   }
 }

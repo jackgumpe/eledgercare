@@ -78,19 +78,20 @@ class ReleaseTests(unittest.TestCase):
 
     def test_failed_author_packet_keeps_twelve_and_reviewer_only_one(self):
         p=protocol();scratch=ROOT/'.scratch/wp0011-coverage';scratch.mkdir(parents=True,exist_ok=True)
-        for owner in ('author','reviewer'):
-            with self.subTest(owner=owner),tempfile.TemporaryDirectory(dir=scratch) as tmp:
+        for owner,mode in (('author','partial'),('reviewer','partial'),('author','post_failure')):
+            with self.subTest(owner=owner,mode=mode),tempfile.TemporaryDirectory(dir=scratch) as tmp:
                 root=Path(tmp);r=valid_release(p,owner);r['runtime_root']=str(root);run=root/'runs'/owner/'CPU';run.mkdir(parents=True)
                 plan=release.schedule(p,owner);calls=[]
                 for i,call in enumerate(plan):
-                    completed=i<=2;observation=None
-                    if i==2:
-                        fx=release.fixture(p,call['fixture_id']);e,ref,a=tiny(fx['condition'],fx['family_id'])
+                    completed=i<=2 or mode=='post_failure';observation=None
+                    if completed:
+                        e,ref,a=tiny()
                         raw=a['ideal_native'].encode();(run/'raw.txt').write_bytes(raw)
-                        (run/'observation.json').write_text(json.dumps({'raw_output':{'name':'raw.txt','sha256_written':sha(raw)}}))
+                        (run/'observation.json').write_text(json.dumps({'flags':[],'raw_output':{'name':'raw.txt','sha256_written':sha(raw),'truncated_by_writer':False}}))
                         observation='observation.json'
-                    calls.append({**call,'status':'completed' if completed else 'failed' if i==3 else 'not_run_after_failure','observation':observation})
-                (run/'run-result.json').write_text(json.dumps({'release':r,'calls':calls}))
+                    calls.append({**call,'status':'completed' if completed else 'failed' if i==3 else 'not_run_after_failure','observation':observation,
+                                  'observation_status':'available' if completed else 'unavailable' if i==3 else 'absent'})
+                (run/'run-result.json').write_text(json.dumps({'schema':'eld-coverage-v1-run/1','release':r,'calls':calls,'failure':'CPU failure' if owner=='author' else None}))
                 by_path={}
                 for fx in p['fresh_fixtures']:
                     triple=tiny(fx['condition'],fx['family_id'])
@@ -101,8 +102,63 @@ class ReleaseTests(unittest.TestCase):
                 packet=json.loads((root/'scores.json').read_text());self.assertEqual(len(packet['records']),12 if owner=='author' else 1)
                 self.assertEqual(sum(x['scores']['b0']['fields']['total'] for x in packet['records']),12 if owner=='author' else 1)
                 if owner=='author':
-                    self.assertEqual(packet['diagnostic_pairing']['unavailable_presence_pairs'],9)
-                    self.assertEqual(sum(x['diagnostic']['presence_denominator']['unavailable_slots'] for x in packet['records']),11)
+                    self.assertEqual(packet['diagnostic_pairing']['unavailable_presence_pairs'],0 if mode=='post_failure' else 9)
+                    self.assertEqual(sum(x['diagnostic']['presence_denominator']['unavailable_slots'] for x in packet['records']),0 if mode=='post_failure' else 11)
+                    self.assertEqual(sum(x['scores']['b0']['fields']['correct'] for x in packet['records']),12 if mode=='post_failure' else 1)
                 else:self.assertEqual(packet['diagnostic_pairing']['preselected_id'],'WP11-F03-degraded-v0')
+
+    def test_call_state_machine_rejects_malformed_and_after_failure(self):
+        p=protocol();scratch=ROOT/'.scratch/wp0011-coverage';scratch.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=scratch) as tmp:
+            run=Path(tmp);raw=tiny()[2]['ideal_native'].encode();(run/'raw.txt').write_bytes(raw)
+            observation={'flags':[],'raw_output':{'name':'raw.txt','sha256_written':sha(raw),'truncated_by_writer':False}}
+            (run/'obs.json').write_text(json.dumps(observation))
+            for owner in ('author','reviewer'):
+                good={'schema':'eld-coverage-v1-run/1','failure':None,'calls':[{**c,'status':'completed','observation':'obs.json','observation_status':'available'} for c in release.schedule(p,owner)]}
+                self.assertEqual(len(scoring.validated_calls(good,p,owner,run)[0]),14 if owner=='author' else 3)
+                mutations=[('failed_warmup',lambda x:x['calls'][0].update(status='failed')),
+                    ('gap_warmup',lambda x:x['calls'][0].update(status='not_run_after_failure',observation=None,observation_status='absent')),
+                    ('missing_status',lambda x:x['calls'][0].pop('status')),
+                    ('unknown_status',lambda x:x['calls'][0].update(status='success')),
+                    ('missing_observation',lambda x:x['calls'][0].update(observation=None)),
+                    ('unavailable_completed',lambda x:x['calls'][0].update(observation_status='unavailable')),
+                    ('short_schedule',lambda x:x['calls'].pop()),
+                    ('order_change',lambda x:x['calls'].reverse()),
+                    ('missing_run_failure',lambda x:x.pop('failure'))]
+                for name,mutate in mutations:
+                    bad=copy.deepcopy(good);mutate(bad)
+                    if name in ('failed_warmup','gap_warmup'):bad['failure']='INJECTED_FIRST_CALL_FAILURE'
+                    with self.subTest(owner=owner,case=name),self.assertRaises(PermissionError):scoring.validated_calls(bad,p,owner,run)
+                absent=copy.deepcopy(good)
+                for c in absent['calls']:c.update(status='not_run_after_failure',observation=None,observation_status='absent')
+                absent['failure']='PRE_EXECUTION_FAILURE';self.assertTrue(all(r is None for r in scoring.validated_calls(absent,p,owner,run)[1]))
+                absent['failure']=None
+                with self.assertRaises(PermissionError):scoring.validated_calls(absent,p,owner,run)
+            for malformed in ({},{'flags':['failed'],'raw_output':observation['raw_output']},
+                    {'flags':[],'raw_output':{**observation['raw_output'],'truncated_by_writer':True}},
+                    {'flags':[],'error':'reported failure','raw_output':observation['raw_output']}):
+                (run/'obs.json').write_text(json.dumps(malformed))
+                with self.subTest(record=malformed),self.assertRaises(PermissionError):scoring.validated_calls(good,p,'reviewer',run)
+            (run/'obs.json').unlink()
+            with self.assertRaises(FileNotFoundError):scoring.validated_calls(good,p,'reviewer',run)
+
+    def test_actual_score_run_rejects_otherwise_valid_completed_after_failed_warmup(self):
+        p=protocol();scratch=ROOT/'.scratch/wp0011-coverage';scratch.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=scratch) as tmp:
+            root=Path(tmp);r=valid_release(p);r['runtime_root']=str(root);run=root/'runs/author/CPU';run.mkdir(parents=True)
+            raw=tiny()[2]['ideal_native'].encode();(run/'raw.txt').write_bytes(raw)
+            (run/'obs.json').write_text(json.dumps({'flags':[],'raw_output':{'name':'raw.txt','sha256_written':sha(raw),'truncated_by_writer':False}}))
+            result={'schema':'eld-coverage-v1-run/1','release':r,'failure':'FIRST_WARMUP_FAILED',
+                'calls':[{**c,'status':'completed','observation':'obs.json','observation_status':'available'} for c in release.schedule(p,'author')]}
+            # Positive: the complete revised record is accepted even with a run-level
+            # post-finalization failure. Only the first call state changes below.
+            self.assertEqual(len(scoring.validated_calls(result,p,'author',run)[0]),14)
+            result['calls'][0]['status']='failed'
+            (run/'run-result.json').write_text(json.dumps(result))
+            with patch.object(scoring,'read_release',return_value=r),patch.object(scoring,'read_artifact',side_effect=AssertionError('Scored invalid history')) as read:
+                with self.assertRaisesRegex(PermissionError,'after first failure'):
+                    scoring.score_run(run,root/'scores.json','CPU','CPU','author')
+                read.assert_not_called()
+            self.assertFalse((root/'scores.json').exists())
 
 if __name__=='__main__':unittest.main()
