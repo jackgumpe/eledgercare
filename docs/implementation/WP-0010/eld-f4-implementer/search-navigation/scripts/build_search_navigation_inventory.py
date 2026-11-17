@@ -10,6 +10,7 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parents[6]
 SN_DOSSIER_DIR = REPO_ROOT / "docs" / "implementation" / "WP-0010" / "eld-f4-implementer" / "search-navigation"
 
 CONTINUATION_MERGE_BASE_SHA = "4b8e9b8231b9543b9a09cc8514a6876a70940d7b"
+INITIAL_FROZEN_006_CANDIDATE_SHA = "eefa6377646cfaa5c7a531298563d2f47d77bdf3"
 DISPATCH_AUTHORITY_SHA = "cd5237303beaa374c3a60e9de58e45808b55435f"
 PRIOR_003_PUBLICATION_SHA = "7c578be6e8abff4d285ea1b519bbcfaeba1bb8c7"
 PRIOR_003_SOURCE_SHA = "c383021be1774451ba3034d89255b38b4267353b"
@@ -114,7 +115,14 @@ def main() -> None:
         "prior_003_publication_sha": PRIOR_003_PUBLICATION_SHA,
         "dispatch_authority_sha": DISPATCH_AUTHORITY_SHA,
         "continuation_merge_base_sha": CONTINUATION_MERGE_BASE_SHA,
+        "initial_frozen_006_candidate_sha": INITIAL_FROZEN_006_CANDIDATE_SHA,
         "frozen_006_deliverable_sha": deliverable_sha,
+        "product_and_web_trees_identical_between_eefa6377_and_final_deliverable": (
+            git_out(["rev-parse", f"{INITIAL_FROZEN_006_CANDIDATE_SHA}:web"])
+            == git_out(["rev-parse", f"{deliverable_sha}:web"])
+            and git_out(["rev-parse", f"{INITIAL_FROZEN_006_CANDIDATE_SHA}:src"])
+            == git_out(["rev-parse", f"{deliverable_sha}:src"])
+        ),
         "base_to_deliverable_count": len(base_to_deliverable),
         "base_to_deliverable_paths": base_to_deliverable,
         "post_freeze_evidence_count_excluding_self_inventory": len(post_freeze_additions),

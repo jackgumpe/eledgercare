@@ -77,11 +77,10 @@ E2E_DB = "eledgercare_f4_006_e2e"
 
 CANONICAL_8_TABLE_SQL = """
 SELECT json_build_object(
-  'database_collation', (
+  'collation', (
     SELECT json_build_object(
       'datcollate', datcollate,
       'datctype', datctype,
-      'datlocprovider', datlocprovider,
       'encoding', pg_encoding_to_char(encoding)
     ) FROM pg_database WHERE datname = current_database()
   ),

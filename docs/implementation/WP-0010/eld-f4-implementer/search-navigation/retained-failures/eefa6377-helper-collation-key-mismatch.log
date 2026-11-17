@@ -1,0 +1,9 @@
+$ python -B docs/implementation/WP-0010/eld-f4-implementer/search-navigation/scripts/run_search_navigation_verification.py --require-clean
+[frozen_head=eefa6377646cfaa5c7a531298563d2f47d77bdf3, exit=1]
+--- STDERR ---
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-implementer\docs\implementation\WP-0010\eld-f4-implementer\search-navigation\scripts\run_search_navigation_verification.py", line 932, in <module>
+    main()
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-implementer\docs\implementation\WP-0010\eld-f4-implementer\search-navigation\scripts\run_search_navigation_verification.py", line 699, in main
+    raise RuntimeError(f"Retained {SEED_DB} digest mismatch before tests: {seed_pre}")
+RuntimeError: Retained eledgercare_f4_author_seed_f3 digest mismatch before tests: {'canonical_8_table_and_migrations_sha256': '5bdd1a1572ebafb6696b327931ef0ab12750eb6a853e9c40f355484efb68993d', 'core_data_without_migrations_sha256': 'd930a6bba5d2eeac7f55fe0a29a24fa0639b6d4dc576bb8362ce3517a44e42ec'}

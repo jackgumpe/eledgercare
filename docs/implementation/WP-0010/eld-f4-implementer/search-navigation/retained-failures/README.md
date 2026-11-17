@@ -19,3 +19,10 @@
     Search-navigation Edge verification FAILED: Criterion (1) FAILED: newer typed draft "MULTIPAGE-REVIEWED-ALDER-P2" was overwritten with "REV2-ACTIVE-HAWTHORNE" when earlier pending navigation settled.
     ```
 - **Resolution:** Fixed in [archive-page.ts](../../../../../../web/src/app/archive/archive-page.ts) by synchronizing initial route parameters synchronously on mount, tagging `ArchivePage`-initiated `router.navigate` calls via transient `NavigationBehaviorOptions.info`, ignoring self-initiated route completions on `draftQuery`/search state while keeping external URL/Back-Forward updates authoritative, and clearing stale `response()` on new query execution.
+
+## 2. Initial Helper SQL JSON Key Mismatch (`eefa6377646cfaa5c7a531298563d2f47d77bdf3`, Zero Product / Database Change)
+
+- **Artifact:** [eefa6377-helper-collation-key-mismatch.log](eefa6377-helper-collation-key-mismatch.log)
+- **Cause:** In initial `/006` helper candidate `eefa6377646cfaa5c7a531298563d2f47d77bdf3`, `CANONICAL_8_TABLE_SQL` in [run_search_navigation_verification.py](../scripts/run_search_navigation_verification.py) projected `'database_collation'` (including `datlocprovider`) instead of `/003`'s exact `'collation'` (`datcollate`, `datctype`, `encoding`) key in [run_f4_decisive_verification.py](../../scripts/run_f4_decisive_verification.py) (`L246–251`), causing the SHA-256 comparison against `76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085` to fail before any tests ran (`finally:` stopped PostgreSQL `55438` cleanly).
+- **Resolution:** Updated `CANONICAL_8_TABLE_SQL` in [run_search_navigation_verification.py](../scripts/run_search_navigation_verification.py) to match `/003`'s exact `'collation'` projection. Zero product (`src/`, `web/`, `tests/`, `deploy/`) or database bytes changed between `eefa6377646cfaa5c7a531298563d2f47d77bdf3` and the superseded helper commit.
+
