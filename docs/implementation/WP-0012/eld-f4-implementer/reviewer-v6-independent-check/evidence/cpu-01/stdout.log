@@ -1,0 +1,48 @@
+PASS exact-accounted-idle-and-exact-observer 
+PASS creation-offset-equivalent-instant 
+PASS same-wall-time-changed-offset Unaccounted competing model/GPU workload detected: [{"source": "unaccounted_model_server", "pid": 3892, "name": "ollama.exe"}]
+PASS idle-unknown Unaccounted competing model/GPU workload detected: [{"source": "unaccounted_model_server", "pid": 3892, "name": "ollama.exe"}]
+PASS idle-pid-reused Unaccounted competing model/GPU workload detected: [{"source": "unaccounted_model_server", "pid": 3892, "name": "ollama.exe"}]
+PASS idle-executable-changed Unaccounted competing model/GPU workload detected: [{"source": "unaccounted_model_server", "pid": 3892, "name": "ollama.exe"}]
+PASS idle-pid-changed Unaccounted competing model/GPU workload detected: [{"source": "unaccounted_model_server", "pid": 3893, "name": "ollama.exe"}]
+PASS current-ollama-loaded Ollama has loaded models; idle exception forbidden
+PASS idle-ollama-has-gpu-row Unaccounted competing model/GPU workload detected: [{"source": "gpu_model_process", "pid": 3892, "name": "ollama.exe"}, {"source": "unaccounted_model_server", "pid": 3892, "name": "ollama.exe"}]
+PASS root-idle-row-mismatch Coordinator idle identity not present in baseline
+PASS root-idle-row-missing Coordinator idle identity not present in baseline
+PASS root-ollama-loaded Ollama has loaded models; idle exception forbidden
+PASS root-idle-on-gpu Coordinator idle Ollama appears in GPU apps
+PASS observer-reused-pid Observer PID/creation/executable mismatch
+PASS observer-changed-executable Observer PID/creation/executable mismatch
+PASS observer-query-hash-mismatch Observer query hash mismatch
+PASS observer-command-mismatch Observer command identity mismatch
+PASS observer-both-commands-wrong Observer command is not the exact issued query
+PASS unrelated-powershell-worker Unaccounted competing model/GPU workload detected: [{"source": "host_model_worker_or_unknown_command", "pid": 42000, "name": "pwsh.exe"}]
+PASS unrelated-python-worker Unaccounted competing model/GPU workload detected: [{"source": "host_model_worker_or_unknown_command", "pid": 42000, "name": "python.exe"}]
+PASS python-command-unobservable Unaccounted competing model/GPU workload detected: [{"source": "host_model_worker_or_unknown_command", "pid": 42000, "name": "python.exe"}]
+PASS unknown-model-server Unaccounted competing model/GPU workload detected: [{"source": "unaccounted_model_server", "pid": 42000, "name": "vllm.exe"}]
+PASS unknown-gpu-process Unaccounted competing model/GPU workload detected: [{"source": "unknown_gpu_process", "pid": 44444, "name": "compute.exe"}]
+PASS process-query-failed Process observation failed or unknown
+PASS process-query-exit-unknown Process observation failed or unknown
+PASS malformed-process-list Process observation must be a list
+PASS malformed-process-row Malformed process PID
+PASS duplicate-process-pid Duplicate process PID in observation
+PASS ollama-query-failed Ollama observation failed or unknown
+PASS ollama-query-malformed Unrecognized Ollama ps header
+PASS ollama-query-empty Unrecognized Ollama ps header
+PASS ollama-queried-other-executable Unaccounted competing model/GPU workload detected: [{"source": "unaccounted_model_server", "pid": 3892, "name": "ollama.exe"}]
+PASS root-ollama-query-failed Ollama observation failed or unknown
+PASS root-app-query-failed GPU apps observation failed or unknown
+PASS gpu-query-failed GPU observation failed or unknown
+PASS gpu-app-query-failed GPU apps observation failed or unknown
+PASS malformed-gpu-app-row Unparsed GPU row
+PASS snapshot-stale Ownership snapshot is stale/future
+PASS snapshot-future Ownership snapshot is stale/future
+PASS ollama-observation-stale Ollama observation is not fresh
+PASS exact-observer-alone 
+PASS collector-process-nonzero Process observation failed: injected observer failure
+PASS collector-process-malformed-json Malformed process-query JSON
+PASS collector-process-malformed-rows Process observation must be a list
+PASS collector-ollama-nonzero Ollama observation failed or unknown
+PASS collector-ollama-malformed Unrecognized Ollama ps header
+PASS collector-ollama-loaded Ollama has loaded models; idle exception forbidden
+{"candidate": "651146fa704fe0df262057540587399277ff6a23", "check_source_commit": "d8a1d48018d3448fba083a68ba373c57cd6c6b5a", "started_utc": "2026-11-17T17:27:39.600351+00:00", "pid": 17476, "argv": ["C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\reviewer-v6-independent-check\\helpers\\check_v6.py", "--output", "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\reviewer-v6-independent-check\\evidence\\cpu-01"], "actual_observation": false, "completed_utc": "2026-11-17T17:27:39.808742+00:00", "passed": true, "exit_code": 0}
