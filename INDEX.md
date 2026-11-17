@@ -799,3 +799,6 @@ WP-0010 author preparation actual Carbon dispatch RUNNING_CONFIRMED: conversatio
 
 
 WP-0011 frozen corpus reservation PUBLISHED98a3a3f73df0e578ae98ebf3923db7ba4882d018. Root custody identity audit verifies108 sealed files plus self-inventory and48 public artifact descriptors at clean/no-remote sealedreceipt6583715067d3a027dd2502ed9623cf02c545391d; inventory SHA256bd37f4020a4b5b185379d9d7d2e529b39ebc0d3fa0aa37802d2bccc0546c4330. Ground-truth admission pending. Independent004 RELEASED under WP-0011-eld-mapping-reviewer-admission.md, exact candidateb5f33a65d463d4b9a5463fdb93353c0c7ac7c7f3; reviewer private evidence only under new /admission root; public hashes/status only. Native actual dispatch PREPARED. Author remains barred from sealed content; no GPU work.
+
+
+WP-0011 independent004 actual native admission RUNNING_CONFIRMED at2026-11-17T08:14:31.9136074Z, clean startingHEAD68ed24346039c6b26a8c2010ca0956f958a1e4dc under exactauthorityd04cebad972e6e2dcfc4b5eb290c49546b4e9b19. Private evidence in owned /admission; no private identifying content to author/public. Custodian metadata-only048719ca3f403d37fbe715ac53fa98288d92b2bd adds verification.json without changing reserved bytes; exact origin/delta verified. Admission/canonical003 and protocol002 remain pending.
