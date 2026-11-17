@@ -89,6 +89,9 @@ type Phase = 'idle' | 'sending' | 'receipt' | 'unknown' | 'busy' | 'rejected';
       <h2>Reopen a document</h2>
       <input type="text" size="40" placeholder="Document reference (UUID)" data-testid="reopen-input" #reopenInput />
       <button type="button" data-testid="reopen" (click)="reopen(reopenInput.value)">Open</button>
+      <p class="note">
+        Or <a routerLink="/archive" data-testid="intake-open-archive">browse &amp; search the saved archive</a> by machine text or reviewed work-order values.
+      </p>
     </section>
   `,
 })

@@ -1,10 +1,12 @@
 using System.Net;
 using System.Threading.RateLimiting;
 using ELedgerCare.Api;
+using ELedgerCare.Application.Archive;
 using ELedgerCare.Application.Extraction;
 using ELedgerCare.Application.Intake;
 using ELedgerCare.Application.Review;
 using ELedgerCare.Infrastructure;
+using ELedgerCare.Infrastructure.Persistence;
 using Microsoft.AspNetCore.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,9 +18,10 @@ var limits = new IntakeLimits(intakeOptions.MaxDocumentBytes, intakeOptions.MaxP
 // Local OCR settings: disabled by default until a bounded coordinator runtime release is configured.
 var localOcrOptions = builder.Configuration.GetSection(LocalOcrOptions.Section).Get<LocalOcrOptions>() ?? new LocalOcrOptions();
 var extractionSettings = localOcrOptions.BuildValidatedSettings(builder.Environment.ContentRootPath);
+var archiveOptions = builder.Configuration.GetSection(ArchiveBackfillOptions.Section).Get<ArchiveBackfillOptions>() ?? new ArchiveBackfillOptions();
 
 // Local-only binding: loopback IPv4 only. Port 0 lets a test harness obtain an ephemeral owned port.
-var port = builder.Configuration.GetValue("Api:Port", 5390);
+var port = builder.Configuration.GetValue("Api:Port", 5590);
 if (port is < 0 or > 65535)
 {
     throw new InvalidOperationException("Api:Port must be within 0..65535.");
@@ -45,11 +48,13 @@ builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddSingleton<SubmitDocument>();
 builder.Services.AddSingleton<RequestExtraction>();
 builder.Services.AddSingleton<SaveWorkOrderReviewRevision>();
+builder.Services.AddSingleton<SearchArchive>();
 builder.Services.AddSingleton<ExtractionAttemptCoordinator>();
 builder.Services.AddSingleton<ExtractionSupervisorService>();
 builder.Services.AddSingleton<IExtractionWakeSignal>(sp => sp.GetRequiredService<ExtractionSupervisorService>());
 builder.Services.AddHostedService(sp => sp.GetRequiredService<ExtractionSupervisorService>());
-builder.Services.AddIntakeAndExtractionInfrastructure(runtimeConnection);
+builder.Services.AddIntakeAndExtractionInfrastructure(runtimeConnection, archiveOptions);
+builder.Services.AddHostedService<ArchiveStartupHostedService>();
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<UnhandledExceptionHandler>();
 builder.Services.AddRateLimiter(rateLimiter =>
@@ -73,5 +78,6 @@ app.Use(LocalOnlyGuard.InvokeAsync);
 app.UseRateLimiter();
 app.MapDocumentEndpoints();
 app.MapReviewEndpoints();
+app.MapArchiveEndpoints();
 
 app.Run();

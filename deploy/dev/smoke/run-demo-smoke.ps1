@@ -9,7 +9,7 @@
 [CmdletBinding()]
 param(
     [string] $ReceiptPath,
-    [int] $ApiPort = 5390
+    [int] $ApiPort = 5590
 )
 
 $ErrorActionPreference = 'Stop'

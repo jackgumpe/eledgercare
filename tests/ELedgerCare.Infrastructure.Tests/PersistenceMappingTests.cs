@@ -1,3 +1,4 @@
+using ELedgerCare.Domain.Archive;
 using ELedgerCare.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -73,12 +74,47 @@ public sealed class PersistenceMappingTests
     }
 
     [Fact]
+    public void Archive_search_queries_never_select_original_raw_diagnostic_or_machine_snapshot_blobs()
+    {
+        var cursorPos = new ArchiveCursorPosition(DateTimeOffset.UtcNow, 1_794_885_000_123_456L, Guid.NewGuid());
+        var sqlFragments = new List<string>
+        {
+            ArchiveStore.UnprojectedGuardSql,
+            ArchiveStore.LoadReviewedUnitsSql,
+            ArchiveStore.LoadMachineUnitsSql,
+        };
+
+        foreach (var source in new[] { ArchiveSourceFilter.All, ArchiveSourceFilter.Machine, ArchiveSourceFilter.Reviewed })
+        {
+            sqlFragments.Add(ArchiveStore.BuildSearchCardHeadersSql(
+                new ParsedArchiveQuery(string.Empty, [], source, 20, After: null)));
+            sqlFragments.Add(ArchiveStore.BuildSearchCardHeadersSql(
+                new ParsedArchiveQuery("WO-004192 pump", ["WO-004192", "pump"], source, 20, After: cursorPos)));
+        }
+
+        foreach (var sql in sqlFragments)
+        {
+            Assert.DoesNotContain(".bytes", sql, StringComparison.OrdinalIgnoreCase);
+            Assert.DoesNotContain("raw_output_bytes", sql, StringComparison.OrdinalIgnoreCase);
+            Assert.DoesNotContain("diagnostic_raw_output_utf8", sql, StringComparison.OrdinalIgnoreCase);
+            Assert.DoesNotContain("machine_snapshot_json", sql, StringComparison.OrdinalIgnoreCase);
+            Assert.DoesNotContain("unknown_reason", sql, StringComparison.OrdinalIgnoreCase);
+            Assert.DoesNotContain("operator_display_label", sql, StringComparison.OrdinalIgnoreCase);
+        }
+
+        var keywordCursorSql = ArchiveStore.BuildSearchCardHeadersSql(
+            new ParsedArchiveQuery("WO-004192", ["WO-004192"], ArchiveSourceFilter.All, 20, After: cursorPos));
+        Assert.Contains("ILIKE @term0 ESCAPE '\\'", keywordCursorSql, StringComparison.Ordinal);
+        Assert.Contains("(d.submitted_at, d.document_id) < (@afterTs, @afterId)", keywordCursorSql, StringComparison.Ordinal);
+    }
+
+    [Fact]
     public void All_foreign_keys_restrict_deletes()
     {
         using var db = CreateContext();
         var foreignKeys = db.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()).ToList();
 
-        Assert.Equal(15, foreignKeys.Count);
+        Assert.Equal(19, foreignKeys.Count);
         Assert.All(foreignKeys, fk => Assert.Equal(DeleteBehavior.Restrict, fk.DeleteBehavior));
     }
 }
