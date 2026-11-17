@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "name": "actual_q0_schema",
+      "passed": true
+    },
+    {
+      "name": "original_v6_missing_disk_key",
+      "passed": true,
+      "original_error": "KeyError('demo_root_bytes')"
+    },
+    {
+      "name": "q0_reject_missing_or_mismatched_distributions",
+      "passed": true
+    },
+    {
+      "name": "q0_reject_unexpected_extra_model_entries",
+      "passed": true
+    },
+    {
+      "name": "q0_reject_forbidden_modules_present",
+      "passed": true
+    },
+    {
+      "name": "q0_reject_verified_model_files",
+      "passed": true
+    },
+    {
+      "name": "q0_reject_model_manifest_sha256",
+      "passed": true
+    },
+    {
+      "name": "actual_file_size_measurement",
+      "passed": true,
+      "result": {
+        "schema": "eledgercare.wp0012.owned-demo-storage/1",
+        "observed_utc": "2026-11-17T17:49:42.823855+00:00",
+        "root": "C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-v7-owned-disk-jxliopcv",
+        "file_count": 2,
+        "demo_root_bytes": 10,
+        "demo_drive_free_bytes": 40981848064,
+        "storage_cap_bytes": 4294967296,
+        "free_floor_bytes": 21474836480
+      }
+    },
+    {
+      "name": "over_cap",
+      "passed": true
+    },
+    {
+      "name": "below_floor",
+      "passed": true
+    },
+    {
+      "name": "failed_disk_observation",
+      "passed": true
+    },
+    {
+      "name": "linked_descendant",
+      "passed": true
+    }
+  ],
+  "passed": 12,
+  "total": 12
+}
