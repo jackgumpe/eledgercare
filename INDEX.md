@@ -924,3 +924,6 @@ WP-0013 preliminary reviewer PUBLISHED/VERIFIEDfd9e6b9da0e8aa3aadaa18d9261f6e69b
 
 
 WP-0013 exact public protocol review RUNNING_CONFIRMED14:10:31Z at clean merged3ac149bdadb1484b2a07ce75441d27b3b1a2df13, author candidate66204677ee7c84a13c98bf1702d03640e603745f/treee224a4d66bc2ac59cf2253d5ec6248ceb20869cc over preliminaryfd9e6b9. This overlaps source/CPU inspection while author001 publication is packaged; canonical002 still waits root final001 audit/binding. No fresh-content or implementation/model gate released.
+
+
+WP-0013 author001 PUBLISHED/VERIFIED9b90528f4dbd0ea1ff61c86d0d4040decf178a0a, final source6207daf1dc9cbdd141d083ca2d8d1e7507c63b09/treee424945507bb1d7ebf70e18e6d26bf808270bb66. Root verifies33deliverable artifacts,3615unchanged authority paths,41input/14source identities for each retained attempt,6original capture copies,11reportlinks and exact origin. Original25test pass retained; exact header-colon correction passes26tests with unchanged12historical B0/v1 results. Final independent002 RELEASED on this exact publication; no mapper implementation, fresh corpus or GPU gate released. See protocol-author-audit.json and protocol-final-review-release.json.
