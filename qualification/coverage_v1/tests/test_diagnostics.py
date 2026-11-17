@@ -23,7 +23,7 @@ class DiagnosticTests(unittest.TestCase):
     def test_supported_control_requires_both_mappers_not_label_membership(self):
         e,r,a=tiny();self.assertEqual(support_control(e,r,a)['status'],'supported_by_both_frozen_mappers')
         a['ideal_native']='<PAGE>'+block(table([['Work Order ID','TEST-0042']]),'table')
-        pair=paired(a['ideal_native'],e,r)
+        pair=paired(a['ideal_native'],e,r,'completed')
         self.assertEqual(pair['scores']['mapping_v1']['fields']['correct'],1)
         self.assertEqual(pair['scores']['b0']['fields']['correct'],0)
         with self.assertRaises(ValueError):support_control(e,r,a)
