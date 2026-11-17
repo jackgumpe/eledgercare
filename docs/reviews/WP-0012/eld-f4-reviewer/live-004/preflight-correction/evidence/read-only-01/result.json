@@ -1,0 +1,686 @@
+{
+  "mode": "read-only",
+  "started_utc": "2026-11-17T17:30:10.113463+00:00",
+  "source_commit": "6fe4a537eb94fb75776f772e3c37fd5a90101fed",
+  "executing_head": "6fe4a537eb94fb75776f772e3c37fd5a90101fed",
+  "source_files": {
+    "docs/reviews/WP-0012/eld-f4-reviewer/live-004/preflight-correction/helpers/check_ownership_v6_cpu_v2.py": "69092bc4279c107da3291d6719b66ab1069c8703b5dcb84d930e4346a57221d6",
+    "docs/reviews/WP-0012/eld-f4-reviewer/live-004/preflight-correction/helpers/check_ownership_v6_cpu.py": "3f872d337b390e14a088943efd891d57ff3b2988cadd80a6edf427fd56d503c4",
+    "docs/reviews/WP-0012/eld-f4-reviewer/live-004/preflight-correction/helpers/ownership_v6.py": "ff01e70c09c1e7b69cbed3c660f9f6cb777d381a920a51af7e1204d24eee6d9f",
+    "docs/reviews/WP-0012/eld-f4-reviewer/live-004/preflight-correction/helpers/run_wp0012_reviewer_rehearsal_v6.py": "7fafe34da2f46ce9508a54748c275d272147655285c209c2fcf68ed34240f5df"
+  },
+  "no_model_or_service_started": true,
+  "actual_read_only_observation": {
+    "gpu_exit": 0,
+    "gpu": [
+      "2026/11/17 12:30:10.222, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, 12.0, 16303, 1639, 14359"
+    ],
+    "apps_exit": 0,
+    "apps": [
+      "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]",
+      "6640, C:\\Windows\\explorer.exe, [N/A]",
+      "9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]",
+      "9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]",
+      "6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]",
+      "12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]",
+      "14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]",
+      "16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]",
+      "20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]",
+      "18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]",
+      "11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]",
+      "12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]",
+      "21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]",
+      "10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]",
+      "23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]",
+      "23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]",
+      "17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]",
+      "29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]",
+      "15044, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]",
+      "32132, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]",
+      "35552, C:\\Users\\jackg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe, [N/A]",
+      "35936, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]",
+      "30792, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]",
+      "35520, C:\\Windows\\System32\\ShellHost.exe, [N/A]"
+    ],
+    "processes_exit": 0,
+    "observer": {
+      "CreationDate": "2026-11-17T17:30:10.3026800Z",
+      "ExecutablePath": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.7.0.0_x64__8wekyb3d8bbwe\\pwsh.exe",
+      "Name": "pwsh.exe",
+      "ProcessId": 26276,
+      "CommandLine": "C:\\Users\\jackg\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.EXE -NoProfile -EncodedCommand JABFAHIAcgBvAHIAQQBjAHQAaQBvAG4AUAByAGUAZgBlAHIAZQBuAGMAZQA9ACcAUwB0AG8AcAAnADsAIAAkAGcAcAB1AFAAaQBkAHMAPQBAACgANAA3ADgAOAAsADYAMwA5ADYALAA2ADYANAAwACwAOQAzADMAMgAsADkAMwA1ADYALAAxADAANwAwADAALAAxADEANgAxADIALAAxADIANAAwADAALAAxADIAOAA1ADIALAAxADQAMAA1ADYALAAxADUAMAA0ADQALAAxADYAOQAwADQALAAxADcAMgAyADgALAAxADgAMwA5ADIALAAyADAAMAAxADYALAAyADEANQAwADgALAAyADMAMgA4ADQALAAyADMAOQA2ADAALAAyADkAMQA3ADIALAAzADAANwA5ADIALAAzADIAMQAzADIALAAzADUANQAyADAALAAzADUANQA1ADIALAAzADUAOQAzADYAKQA7ACAAJAByAG8AdwBzAD0AQAAoAEcAZQB0AC0AQwBpAG0ASQBuAHMAdABhAG4AYwBlACAAVwBpAG4AMwAyAF8AUAByAG8AYwBlAHMAcwAgAHwAIABXAGgAZQByAGUALQBPAGIAagBlAGMAdAAgAHsAIAAkAF8ALgBQAHIAbwBjAGUAcwBzAEkAZAAgAC0AZQBxACAAJABQAEkARAAgAC0AbwByACAAJABnAHAAdQBQAGkAZABzACAALQBjAG8AbgB0AGEAaQBuAHMAIAAkAF8ALgBQAHIAbwBjAGUAcwBzAEkAZAAgAC0AbwByACAAJABfAC4ATgBhAG0AZQAgAC0AbQBhAHQAYwBoACAAJwBeACgAcAB5AHQAaABvAG4AKAB3ACkAPwB8AG8AbABsAGEAbQBhAHwAbABsAGEAbQBhACgALQBzAGUAcgB2AGUAcgB8AC0AYwBsAGkAKQA/AHwAdgBsAGwAbQB8AGwAbQAuAD8AcwB0AHUAZABpAG8AfABrAG8AYgBvAGwAZABjAHAAcAApAFwALgBlAHgAZQAkACcAIAAtAG8AcgAgACQAXwAuAEMAbwBtAG0AYQBuAGQATABpAG4AZQAgAC0AbQBhAHQAYwBoACAAJwAoAGwAbwBjAGEAbABfAG8AYwByAHwAcgB1AG4AXwB3AG8AcgBrAGUAcgB8AHEAMABoAGEAcgBuAGUAcwBzAHwAcQB1AGEAbABpAGYAaQBjAGEAdABpAG8AbgBbAC8AXABcAC4AXQAoAGMAbwB2AGUAcgBhAGcAZQBfAHYAMQB8AG0AYQBwAHAAaQBuAGcAXwB2ADEAfABtAGEAcABwAGkAbgBnAF8AdgAyAHwAYgBhAHMAZQBsAGkAbgBlAHwAcQAwACkAKQAnACAAfQAgAHwAIABGAG8AcgBFAGEAYwBoAC0ATwBiAGoAZQBjAHQAIAB7ACAAQAB7ACAAUAByAG8AYwBlAHMAcwBJAGQAPQBbAGkAbgB0AF0AJABfAC4AUAByAG8AYwBlAHMAcwBJAGQAOwAgAE4AYQBtAGUAPQAkAF8ALgBOAGEAbQBlADsAIABFAHgAZQBjAHUAdABhAGIAbABlAFAAYQB0AGgAPQAkAF8ALgBFAHgAZQBjAHUAdABhAGIAbABlAFAAYQB0AGgAOwAgAEMAcgBlAGEAdABpAG8AbgBEAGEAdABlAD0AJABfAC4AQwByAGUAYQB0AGkAbwBuAEQAYQB0AGUALgBUAG8AVQBuAGkAdgBlAHIAcwBhAGwAVABpAG0AZQAoACkALgBUAG8AUwB0AHIAaQBuAGcAKAAnAG8AJwApADsAIABDAG8AbQBtAGEAbgBkAEwAaQBuAGUAPQAkAF8ALgBDAG8AbQBtAGEAbgBkAEwAaQBuAGUAIAB9ACAAfQApADsAIABAAHsAIABvAGIAcwBlAHIAdgBlAHIAXwBwAGkAZAA9AFsAaQBuAHQAXQAkAFAASQBEADsAIABwAHIAbwBjAGUAcwBzAGUAcwA9ACQAcgBvAHcAcwAgAH0AIAB8ACAAQwBvAG4AdgBlAHIAdABUAG8ALQBKAHMAbwBuACAALQBDAG8AbQBwAHIAZQBzAHMAIAAtAEQAZQBwAHQAaAAgADUA",
+      "issued_executable": "C:\\Users\\jackg\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.EXE",
+      "retained_process_image": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.7.0.0_x64__8wekyb3d8bbwe\\pwsh.exe",
+      "query_sha256": "af1dd6484365e3f00ac7298292274b1ceec51082f6d88e1fa33680cb25e3980e"
+    },
+    "candidate_and_gpu_processes": [
+      {
+        "CreationDate": "2026-11-12T16:07:23.8634100Z",
+        "ExecutablePath": "C:\\WINDOWS\\Explorer.EXE",
+        "Name": "explorer.exe",
+        "ProcessId": 6640,
+        "CommandLine": "",
+        "CommandLine_sha256": "430d1236a76c6598d4ef2eb955143ba8c9e96c2191d8550725dc57be464363a9",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:07:24.1056320Z",
+        "ExecutablePath": "C:\\WINDOWS\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe",
+        "Name": "CrossDeviceResume.exe",
+        "ProcessId": 4788,
+        "CommandLine": "",
+        "CommandLine_sha256": "b5b8e27337446fdc36339b2c3e7eefeed699b4978c1ec143b0e3c9573e921e15",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:07:27.4277850Z",
+        "ExecutablePath": "C:\\WINDOWS\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe",
+        "Name": "SearchHost.exe",
+        "ProcessId": 9332,
+        "CommandLine": "",
+        "CommandLine_sha256": "3533e9e19972bda0c0f03756aa0df41841d3a9976b2e33b538ba5c04bf2838f2",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:07:27.4288030Z",
+        "ExecutablePath": "C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe",
+        "Name": "StartMenuExperienceHost.exe",
+        "ProcessId": 9356,
+        "CommandLine": "",
+        "CommandLine_sha256": "6a7035ec8ccc2fe418d49b1f4eff70b0e2884d043cb04dd41fa39fe26b551b6e",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:07:29.3601000Z",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe",
+        "Name": "msedgewebview2.exe",
+        "ProcessId": 6396,
+        "CommandLine": "",
+        "CommandLine_sha256": "bc8818536894159de4a1916cf5473432855b1629e008b2808cbacf0a8acb60e6",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:07:38.1205030Z",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe",
+        "Name": "ProtonDrive.exe",
+        "ProcessId": 12400,
+        "CommandLine": "",
+        "CommandLine_sha256": "4a84a7bbce3e0a66510e080f4084a95cbbdd07cefb555384d842c8dcb809fcf0",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:07:39.4846860Z",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe",
+        "Name": "msedgewebview2.exe",
+        "ProcessId": 14056,
+        "CommandLine": "",
+        "CommandLine_sha256": "ca49ef3af7fb21b52fd9e74b96458960256806a19a4ba55b0eea70ead4edf84b",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:07:45.8727970Z",
+        "ExecutablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Name": "chrome.exe",
+        "ProcessId": 16904,
+        "CommandLine": "",
+        "CommandLine_sha256": "a7b939e7b33347b6c1286e17738c40acd13b6d21b96977567298b04f0a66d2fd",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:07:52.3474060Z",
+        "ExecutablePath": "C:\\WINDOWS\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe",
+        "Name": "ShellExperienceHost.exe",
+        "ProcessId": 20016,
+        "CommandLine": "",
+        "CommandLine_sha256": "f693d9f7d4e71225e4c4ba28e1fbf6f9e9333487e34fcef4cd6885840022b3e9",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:08:03.2695530Z",
+        "ExecutablePath": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe",
+        "Name": "devenv.exe",
+        "ProcessId": 18392,
+        "CommandLine": "",
+        "CommandLine_sha256": "39cbcfc38a66bbae23996f1df160c450ffbacbc3448d99db0f82c1bfa9c9c080",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:08:43.6999230Z",
+        "ExecutablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "Name": "chrome.exe",
+        "ProcessId": 11612,
+        "CommandLine": "",
+        "CommandLine_sha256": "cfc815193b295e1266b6a154c6c9974bbef08167a8fcde1afbcca105580e8e68",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:09:34.5499040Z",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+        "Name": "ollama.exe",
+        "ProcessId": 3892,
+        "CommandLine": "",
+        "CommandLine_sha256": "5d635157b09e53674beb93c14baa4cb2b47f0b916dc822f36cba1bdbd6941fe1",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:10:14.3031690Z",
+        "ExecutablePath": "C:\\WINDOWS\\system32\\ApplicationFrameHost.exe",
+        "Name": "ApplicationFrameHost.exe",
+        "ProcessId": 10700,
+        "CommandLine": "",
+        "CommandLine_sha256": "904ad4f06c24edb89b739d35fc7b4448460bab71955098816c6b8876845b6881",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:32:53.2726730Z",
+        "ExecutablePath": "C:\\Program Files (x86)\\Steam\\steam.exe",
+        "Name": "steam.exe",
+        "ProcessId": 21508,
+        "CommandLine": "",
+        "CommandLine_sha256": "42df7238b77fdc41c853287568f4c2ca93a09db8a0d033af4f2745527c398963",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-12T16:32:53.9275050Z",
+        "ExecutablePath": "C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe",
+        "Name": "steamwebhelper.exe",
+        "ProcessId": 12852,
+        "CommandLine": "",
+        "CommandLine_sha256": "6cb0202c71f651b24b59afda6f5e7fa5e8169b78678e15a0909e249e41bf9ca4",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-13T16:10:22.7387290Z",
+        "ExecutablePath": "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe",
+        "Name": "SystemSettings.exe",
+        "ProcessId": 23960,
+        "CommandLine": "",
+        "CommandLine_sha256": "7e8f5e6924ae32c240b7f63cfccc645d25f61e552c199c2d3139f1ba53c25190",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-14T05:42:43.4930270Z",
+        "ExecutablePath": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe",
+        "Name": "WindowsTerminal.exe",
+        "ProcessId": 23284,
+        "CommandLine": "",
+        "CommandLine_sha256": "d133386600b104132c0badbf7a32897a05f22ea362858afbb10d1283e4845c40",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-14T14:47:22.7170540Z",
+        "ExecutablePath": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe",
+        "Name": "Notepad.exe",
+        "ProcessId": 17228,
+        "CommandLine": "",
+        "CommandLine_sha256": "24780a87284ae043b738e2eeb9cd1ec932530efe9c65e324291a2b95357a98a2",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-15T16:03:49.4596590Z",
+        "ExecutablePath": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe",
+        "Name": "devenv.exe",
+        "ProcessId": 29172,
+        "CommandLine": "",
+        "CommandLine_sha256": "51d17153ec922ed2874b9f43c838f5522183c384554ab1e9de4925bdee183b28",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-17T07:08:01.0089690Z",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe",
+        "Name": "copilotapp.exe",
+        "ProcessId": 15044,
+        "CommandLine": "",
+        "CommandLine_sha256": "6e63bba660258ee2e34c67f39c6b18fe703a7f988db1fff6f557397fa02f07e0",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-17T07:08:01.3106560Z",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe",
+        "Name": "copilotapphost.exe",
+        "ProcessId": 32132,
+        "CommandLine": "",
+        "CommandLine_sha256": "886e282ec789e1828640d9248d389abc28cb0e2513dc08c98e2e975ad7bf69ed",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-17T08:11:27.3887870Z",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "Name": "Code.exe",
+        "ProcessId": 35552,
+        "CommandLine": "",
+        "CommandLine_sha256": "50b771cc24df6682012f18bea2e4c59b3be7fab1b771bcaa4f4bcfd0bb24754b",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-17T15:27:07.2517970Z",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "Name": "msedge.exe",
+        "ProcessId": 35936,
+        "CommandLine": "",
+        "CommandLine_sha256": "4ff471ece132e9c9c3c239fd0148c458764b12ba95fb1ed595d262f036159735",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-17T15:58:18.8457290Z",
+        "ExecutablePath": "C:\\WINDOWS\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe",
+        "Name": "TextInputHost.exe",
+        "ProcessId": 30792,
+        "CommandLine": "",
+        "CommandLine_sha256": "70398f324c6f4eb6a29aae3ce24faf68f6ea794ccb441efa58a87d235d2b4f5c",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-17T16:40:41.2232550Z",
+        "ExecutablePath": "C:\\Windows\\System32\\ShellHost.exe",
+        "Name": "ShellHost.exe",
+        "ProcessId": 35520,
+        "CommandLine": "",
+        "CommandLine_sha256": "22ef1e4678cfa9b811245faf0a24ae2587141eef41d4fc1e3d61f9b77f110651",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-17T17:30:09.8885890Z",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "Name": "python.exe",
+        "ProcessId": 34192,
+        "CommandLine": "",
+        "CommandLine_sha256": "ab38efa4726b86593292fe2e2c8e68421735310111eb6a5bbfc81f5f629f5ca8",
+        "command_disclosure": "classification tokens only; unrelated arguments omitted"
+      },
+      {
+        "CreationDate": "2026-11-17T17:30:10.3026800Z",
+        "ExecutablePath": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.7.0.0_x64__8wekyb3d8bbwe\\pwsh.exe",
+        "Name": "pwsh.exe",
+        "ProcessId": 26276,
+        "CommandLine": "C:\\Users\\jackg\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.EXE -NoProfile -EncodedCommand JABFAHIAcgBvAHIAQQBjAHQAaQBvAG4AUAByAGUAZgBlAHIAZQBuAGMAZQA9ACcAUwB0AG8AcAAnADsAIAAkAGcAcAB1AFAAaQBkAHMAPQBAACgANAA3ADgAOAAsADYAMwA5ADYALAA2ADYANAAwACwAOQAzADMAMgAsADkAMwA1ADYALAAxADAANwAwADAALAAxADEANgAxADIALAAxADIANAAwADAALAAxADIAOAA1ADIALAAxADQAMAA1ADYALAAxADUAMAA0ADQALAAxADYAOQAwADQALAAxADcAMgAyADgALAAxADgAMwA5ADIALAAyADAAMAAxADYALAAyADEANQAwADgALAAyADMAMgA4ADQALAAyADMAOQA2ADAALAAyADkAMQA3ADIALAAzADAANwA5ADIALAAzADIAMQAzADIALAAzADUANQAyADAALAAzADUANQA1ADIALAAzADUAOQAzADYAKQA7ACAAJAByAG8AdwBzAD0AQAAoAEcAZQB0AC0AQwBpAG0ASQBuAHMAdABhAG4AYwBlACAAVwBpAG4AMwAyAF8AUAByAG8AYwBlAHMAcwAgAHwAIABXAGgAZQByAGUALQBPAGIAagBlAGMAdAAgAHsAIAAkAF8ALgBQAHIAbwBjAGUAcwBzAEkAZAAgAC0AZQBxACAAJABQAEkARAAgAC0AbwByACAAJABnAHAAdQBQAGkAZABzACAALQBjAG8AbgB0AGEAaQBuAHMAIAAkAF8ALgBQAHIAbwBjAGUAcwBzAEkAZAAgAC0AbwByACAAJABfAC4ATgBhAG0AZQAgAC0AbQBhAHQAYwBoACAAJwBeACgAcAB5AHQAaABvAG4AKAB3ACkAPwB8AG8AbABsAGEAbQBhAHwAbABsAGEAbQBhACgALQBzAGUAcgB2AGUAcgB8AC0AYwBsAGkAKQA/AHwAdgBsAGwAbQB8AGwAbQAuAD8AcwB0AHUAZABpAG8AfABrAG8AYgBvAGwAZABjAHAAcAApAFwALgBlAHgAZQAkACcAIAAtAG8AcgAgACQAXwAuAEMAbwBtAG0AYQBuAGQATABpAG4AZQAgAC0AbQBhAHQAYwBoACAAJwAoAGwAbwBjAGEAbABfAG8AYwByAHwAcgB1AG4AXwB3AG8AcgBrAGUAcgB8AHEAMABoAGEAcgBuAGUAcwBzAHwAcQB1AGEAbABpAGYAaQBjAGEAdABpAG8AbgBbAC8AXABcAC4AXQAoAGMAbwB2AGUAcgBhAGcAZQBfAHYAMQB8AG0AYQBwAHAAaQBuAGcAXwB2ADEAfABtAGEAcABwAGkAbgBnAF8AdgAyAHwAYgBhAHMAZQBsAGkAbgBlAHwAcQAwACkAKQAnACAAfQAgAHwAIABGAG8AcgBFAGEAYwBoAC0ATwBiAGoAZQBjAHQAIAB7ACAAQAB7ACAAUAByAG8AYwBlAHMAcwBJAGQAPQBbAGkAbgB0AF0AJABfAC4AUAByAG8AYwBlAHMAcwBJAGQAOwAgAE4AYQBtAGUAPQAkAF8ALgBOAGEAbQBlADsAIABFAHgAZQBjAHUAdABhAGIAbABlAFAAYQB0AGgAPQAkAF8ALgBFAHgAZQBjAHUAdABhAGIAbABlAFAAYQB0AGgAOwAgAEMAcgBlAGEAdABpAG8AbgBEAGEAdABlAD0AJABfAC4AQwByAGUAYQB0AGkAbwBuAEQAYQB0AGUALgBUAG8AVQBuAGkAdgBlAHIAcwBhAGwAVABpAG0AZQAoACkALgBUAG8AUwB0AHIAaQBuAGcAKAAnAG8AJwApADsAIABDAG8AbQBtAGEAbgBkAEwAaQBuAGUAPQAkAF8ALgBDAG8AbQBtAGEAbgBkAEwAaQBuAGUAIAB9ACAAfQApADsAIABAAHsAIABvAGIAcwBlAHIAdgBlAHIAXwBwAGkAZAA9AFsAaQBuAHQAXQAkAFAASQBEADsAIABwAHIAbwBjAGUAcwBzAGUAcwA9ACQAcgBvAHcAcwAgAH0AIAB8ACAAQwBvAG4AdgBlAHIAdABUAG8ALQBKAHMAbwBuACAALQBDAG8AbQBwAHIAZQBzAHMAIAAtAEQAZQBwAHQAaAAgADUA"
+      }
+    ],
+    "ollama_ps_exit": 0,
+    "ollama_ps": [
+      "NAME    ID    SIZE    PROCESSOR    CONTEXT    RUNNER    UNTIL "
+    ],
+    "ollama_executable": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+    "ollama_observed_utc": "2026-11-17T17:30:10.893388+00:00",
+    "observed_utc": "2026-11-17T17:30:10.893388+00:00"
+  },
+  "result": {
+    "sole_model_job_verified": true,
+    "hardware_exclusivity_claimed": false,
+    "wddm_desktop_sharing_observed": true,
+    "wddm_desktop_sharing_entries": [
+      {
+        "pid": 4788,
+        "name": "crossdeviceresume.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 6640,
+        "name": "explorer.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 9356,
+        "name": "startmenuexperiencehost.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 9332,
+        "name": "searchhost.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 6396,
+        "name": "msedgewebview2.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 12400,
+        "name": "protondrive.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 14056,
+        "name": "msedgewebview2.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 16904,
+        "name": "chrome.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 20016,
+        "name": "shellexperiencehost.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 18392,
+        "name": "devenv.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 11612,
+        "name": "chrome.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 12852,
+        "name": "steamwebhelper.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 21508,
+        "name": "steam.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 10700,
+        "name": "applicationframehost.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 23960,
+        "name": "systemsettings.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 23284,
+        "name": "windowsterminal.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 17228,
+        "name": "notepad.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 29172,
+        "name": "devenv.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 15044,
+        "name": "copilotapp.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 32132,
+        "name": "copilotapphost.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 35552,
+        "name": "code.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 35936,
+        "name": "msedge.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 30792,
+        "name": "textinputhost.exe",
+        "used_memory_mib": "[N/A]"
+      },
+      {
+        "pid": 35520,
+        "name": "shellhost.exe",
+        "used_memory_mib": "[N/A]"
+      }
+    ],
+    "accounted_idle_ollama": [
+      {
+        "ProcessId": 3892,
+        "CreationDate": "2026-11-12T16:09:34.5499040Z",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+      }
+    ],
+    "exact_observer_excluded": {
+      "CreationDate": "2026-11-17T17:30:10.3026800Z",
+      "ExecutablePath": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.7.0.0_x64__8wekyb3d8bbwe\\pwsh.exe",
+      "Name": "pwsh.exe",
+      "ProcessId": 26276,
+      "CommandLine": "C:\\Users\\jackg\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.EXE -NoProfile -EncodedCommand JABFAHIAcgBvAHIAQQBjAHQAaQBvAG4AUAByAGUAZgBlAHIAZQBuAGMAZQA9ACcAUwB0AG8AcAAnADsAIAAkAGcAcAB1AFAAaQBkAHMAPQBAACgANAA3ADgAOAAsADYAMwA5ADYALAA2ADYANAAwACwAOQAzADMAMgAsADkAMwA1ADYALAAxADAANwAwADAALAAxADEANgAxADIALAAxADIANAAwADAALAAxADIAOAA1ADIALAAxADQAMAA1ADYALAAxADUAMAA0ADQALAAxADYAOQAwADQALAAxADcAMgAyADgALAAxADgAMwA5ADIALAAyADAAMAAxADYALAAyADEANQAwADgALAAyADMAMgA4ADQALAAyADMAOQA2ADAALAAyADkAMQA3ADIALAAzADAANwA5ADIALAAzADIAMQAzADIALAAzADUANQAyADAALAAzADUANQA1ADIALAAzADUAOQAzADYAKQA7ACAAJAByAG8AdwBzAD0AQAAoAEcAZQB0AC0AQwBpAG0ASQBuAHMAdABhAG4AYwBlACAAVwBpAG4AMwAyAF8AUAByAG8AYwBlAHMAcwAgAHwAIABXAGgAZQByAGUALQBPAGIAagBlAGMAdAAgAHsAIAAkAF8ALgBQAHIAbwBjAGUAcwBzAEkAZAAgAC0AZQBxACAAJABQAEkARAAgAC0AbwByACAAJABnAHAAdQBQAGkAZABzACAALQBjAG8AbgB0AGEAaQBuAHMAIAAkAF8ALgBQAHIAbwBjAGUAcwBzAEkAZAAgAC0AbwByACAAJABfAC4ATgBhAG0AZQAgAC0AbQBhAHQAYwBoACAAJwBeACgAcAB5AHQAaABvAG4AKAB3ACkAPwB8AG8AbABsAGEAbQBhAHwAbABsAGEAbQBhACgALQBzAGUAcgB2AGUAcgB8AC0AYwBsAGkAKQA/AHwAdgBsAGwAbQB8AGwAbQAuAD8AcwB0AHUAZABpAG8AfABrAG8AYgBvAGwAZABjAHAAcAApAFwALgBlAHgAZQAkACcAIAAtAG8AcgAgACQAXwAuAEMAbwBtAG0AYQBuAGQATABpAG4AZQAgAC0AbQBhAHQAYwBoACAAJwAoAGwAbwBjAGEAbABfAG8AYwByAHwAcgB1AG4AXwB3AG8AcgBrAGUAcgB8AHEAMABoAGEAcgBuAGUAcwBzAHwAcQB1AGEAbABpAGYAaQBjAGEAdABpAG8AbgBbAC8AXABcAC4AXQAoAGMAbwB2AGUAcgBhAGcAZQBfAHYAMQB8AG0AYQBwAHAAaQBuAGcAXwB2ADEAfABtAGEAcABwAGkAbgBnAF8AdgAyAHwAYgBhAHMAZQBsAGkAbgBlAHwAcQAwACkAKQAnACAAfQAgAHwAIABGAG8AcgBFAGEAYwBoAC0ATwBiAGoAZQBjAHQAIAB7ACAAQAB7ACAAUAByAG8AYwBlAHMAcwBJAGQAPQBbAGkAbgB0AF0AJABfAC4AUAByAG8AYwBlAHMAcwBJAGQAOwAgAE4AYQBtAGUAPQAkAF8ALgBOAGEAbQBlADsAIABFAHgAZQBjAHUAdABhAGIAbABlAFAAYQB0AGgAPQAkAF8ALgBFAHgAZQBjAHUAdABhAGIAbABlAFAAYQB0AGgAOwAgAEMAcgBlAGEAdABpAG8AbgBEAGEAdABlAD0AJABfAC4AQwByAGUAYQB0AGkAbwBuAEQAYQB0AGUALgBUAG8AVQBuAGkAdgBlAHIAcwBhAGwAVABpAG0AZQAoACkALgBUAG8AUwB0AHIAaQBuAGcAKAAnAG8AJwApADsAIABDAG8AbQBtAGEAbgBkAEwAaQBuAGUAPQAkAF8ALgBDAG8AbQBtAGEAbgBkAEwAaQBuAGUAIAB9ACAAfQApADsAIABAAHsAIABvAGIAcwBlAHIAdgBlAHIAXwBwAGkAZAA9AFsAaQBuAHQAXQAkAFAASQBEADsAIABwAHIAbwBjAGUAcwBzAGUAcwA9ACQAcgBvAHcAcwAgAH0AIAB8ACAAQwBvAG4AdgBlAHIAdABUAG8ALQBKAHMAbwBuACAALQBDAG8AbQBwAHIAZQBzAHMAIAAtAEQAZQBwAHQAaAAgADUA",
+      "issued_executable": "C:\\Users\\jackg\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.EXE",
+      "retained_process_image": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.7.0.0_x64__8wekyb3d8bbwe\\pwsh.exe",
+      "query_sha256": "af1dd6484365e3f00ac7298292274b1ceec51082f6d88e1fa33680cb25e3980e"
+    },
+    "competing_model_violations": []
+  },
+  "cpu_only_root_fixture": {
+    "schema": "eld-wp12-wp13-ownership-observation/1",
+    "observed_utc": "2026-11-17T17:10:41.0815448Z",
+    "gpu_exit": 0,
+    "gpu": [
+      "2026/11/17 12:10:40.729, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, 12.0, 16303, 1727, 14271, 2, P8"
+    ],
+    "apps_exit": 0,
+    "apps": [
+      "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]",
+      "6640, C:\\Windows\\explorer.exe, [N/A]",
+      "9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]",
+      "9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]",
+      "6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]",
+      "12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]",
+      "14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]",
+      "16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]",
+      "20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]",
+      "18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]",
+      "11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]",
+      "12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]",
+      "21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]",
+      "10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]",
+      "23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]",
+      "23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]",
+      "17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]",
+      "29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]",
+      "15044, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]",
+      "32132, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]",
+      "35552, C:\\Users\\jackg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe, [N/A]",
+      "35936, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]",
+      "30792, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]",
+      "35520, C:\\Windows\\System32\\ShellHost.exe, [N/A]"
+    ],
+    "candidate_and_gpu_processes": [
+      {
+        "ProcessId": 6640,
+        "ParentProcessId": 6900,
+        "Name": "explorer.exe",
+        "ExecutablePath": "C:\\WINDOWS\\Explorer.EXE",
+        "CreationDate": "2026-11-12T11:07:23.86341-05:00"
+      },
+      {
+        "ProcessId": 4788,
+        "ParentProcessId": 5648,
+        "Name": "CrossDeviceResume.exe",
+        "ExecutablePath": "C:\\WINDOWS\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe",
+        "CreationDate": "2026-11-12T11:07:24.105632-05:00"
+      },
+      {
+        "ProcessId": 9332,
+        "ParentProcessId": 1400,
+        "Name": "SearchHost.exe",
+        "ExecutablePath": "C:\\WINDOWS\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe",
+        "CreationDate": "2026-11-12T11:07:27.427785-05:00"
+      },
+      {
+        "ProcessId": 9356,
+        "ParentProcessId": 1400,
+        "Name": "StartMenuExperienceHost.exe",
+        "ExecutablePath": "C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe",
+        "CreationDate": "2026-11-12T11:07:27.428803-05:00"
+      },
+      {
+        "ProcessId": 6396,
+        "ParentProcessId": 11004,
+        "Name": "msedgewebview2.exe",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe",
+        "CreationDate": "2026-11-12T11:07:29.3601-05:00"
+      },
+      {
+        "ProcessId": 12400,
+        "ParentProcessId": 6640,
+        "Name": "ProtonDrive.exe",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe",
+        "CreationDate": "2026-11-12T11:07:38.120503-05:00"
+      },
+      {
+        "ProcessId": 14056,
+        "ParentProcessId": 13768,
+        "Name": "msedgewebview2.exe",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe",
+        "CreationDate": "2026-11-12T11:07:39.484686-05:00"
+      },
+      {
+        "ProcessId": 16904,
+        "ParentProcessId": 16412,
+        "Name": "chrome.exe",
+        "ExecutablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "CreationDate": "2026-11-12T11:07:45.872797-05:00"
+      },
+      {
+        "ProcessId": 20016,
+        "ParentProcessId": 1400,
+        "Name": "ShellExperienceHost.exe",
+        "ExecutablePath": "C:\\WINDOWS\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe",
+        "CreationDate": "2026-11-12T11:07:52.347406-05:00"
+      },
+      {
+        "ProcessId": 18392,
+        "ParentProcessId": 6640,
+        "Name": "devenv.exe",
+        "ExecutablePath": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe",
+        "CreationDate": "2026-11-12T11:08:03.269553-05:00"
+      },
+      {
+        "ProcessId": 11612,
+        "ParentProcessId": 16412,
+        "Name": "chrome.exe",
+        "ExecutablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "CreationDate": "2026-11-12T11:08:43.699923-05:00"
+      },
+      {
+        "ProcessId": 3892,
+        "ParentProcessId": 20564,
+        "Name": "ollama.exe",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+        "CreationDate": "2026-11-12T11:09:34.549904-05:00"
+      },
+      {
+        "ProcessId": 10700,
+        "ParentProcessId": 1400,
+        "Name": "ApplicationFrameHost.exe",
+        "ExecutablePath": "C:\\WINDOWS\\system32\\ApplicationFrameHost.exe",
+        "CreationDate": "2026-11-12T11:10:14.303169-05:00"
+      },
+      {
+        "ProcessId": 21508,
+        "ParentProcessId": 12904,
+        "Name": "steam.exe",
+        "ExecutablePath": "C:\\Program Files (x86)\\Steam\\steam.exe",
+        "CreationDate": "2026-11-12T11:32:53.272673-05:00"
+      },
+      {
+        "ProcessId": 12852,
+        "ParentProcessId": 21648,
+        "Name": "steamwebhelper.exe",
+        "ExecutablePath": "C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe",
+        "CreationDate": "2026-11-12T11:32:53.927505-05:00"
+      },
+      {
+        "ProcessId": 23960,
+        "ParentProcessId": 1400,
+        "Name": "SystemSettings.exe",
+        "ExecutablePath": "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe",
+        "CreationDate": "2026-11-13T11:10:22.738729-05:00"
+      },
+      {
+        "ProcessId": 23284,
+        "ParentProcessId": 6640,
+        "Name": "WindowsTerminal.exe",
+        "ExecutablePath": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe",
+        "CreationDate": "2026-11-14T00:42:43.493027-05:00"
+      },
+      {
+        "ProcessId": 17228,
+        "ParentProcessId": 6640,
+        "Name": "Notepad.exe",
+        "ExecutablePath": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe",
+        "CreationDate": "2026-11-14T09:47:22.717054-05:00"
+      },
+      {
+        "ProcessId": 29172,
+        "ParentProcessId": 6640,
+        "Name": "devenv.exe",
+        "ExecutablePath": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe",
+        "CreationDate": "2026-11-15T11:03:49.459659-05:00"
+      },
+      {
+        "ProcessId": 15044,
+        "ParentProcessId": 31296,
+        "Name": "copilotapp.exe",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe",
+        "CreationDate": "2026-11-17T02:08:01.008969-05:00"
+      },
+      {
+        "ProcessId": 32132,
+        "ParentProcessId": 31296,
+        "Name": "copilotapphost.exe",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe",
+        "CreationDate": "2026-11-17T02:08:01.310656-05:00"
+      },
+      {
+        "ProcessId": 35552,
+        "ParentProcessId": 31956,
+        "Name": "Code.exe",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "CreationDate": "2026-11-17T03:11:27.388787-05:00"
+      },
+      {
+        "ProcessId": 35936,
+        "ParentProcessId": 32512,
+        "Name": "msedge.exe",
+        "ExecutablePath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "CreationDate": "2026-11-17T10:27:07.251797-05:00"
+      },
+      {
+        "ProcessId": 30792,
+        "ParentProcessId": 1400,
+        "Name": "TextInputHost.exe",
+        "ExecutablePath": "C:\\WINDOWS\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe",
+        "CreationDate": "2026-11-17T10:58:18.845729-05:00"
+      },
+      {
+        "ProcessId": 35520,
+        "ParentProcessId": 5648,
+        "Name": "ShellHost.exe",
+        "ExecutablePath": "C:\\Windows\\System32\\ShellHost.exe",
+        "CreationDate": "2026-11-17T11:40:41.223255-05:00"
+      }
+    ],
+    "ollama_ps_exit": 0,
+    "ollama_ps": [
+      "NAME    ID    SIZE    PROCESSOR    CONTEXT    RUNNER    UNTIL "
+    ],
+    "note": "Read-only snapshot. No full command lines, environment, process termination or lease grant. Root must reconcile active leases and process ownership separately. Desktop sharing/WDDM unavailable memory do not establish hardware exclusivity.",
+    "accounted_idle_ollama": [
+      {
+        "ProcessId": 3892,
+        "ParentProcessId": 20564,
+        "Name": "ollama.exe",
+        "ExecutablePath": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+        "CreationDate": "2026-11-12T11:09:34.549904-05:00"
+      }
+    ]
+  },
+  "root_blob_commit": "8c93a61635156105c8ecae60589ad31539782067",
+  "root_blob_path": "docs/coordination/WP-0012/reviewer-004-release/ownership-before.json",
+  "root_blob_sha256": "4f81d79797ae8c615c20b9638c3d2e61f87d052bf8dfe83b2fe6e31a8723ac8f",
+  "root_explicit_idle_authority": "8b6224a44ddbf4658abc5ae1fe3ac0cd2bb96938 plus exact root message",
+  "runtime_authorization": false,
+  "command_disclosure": "Only exact observer command and matching workload tokens retained. Other command lines are hashed.",
+  "exit_code": 0,
+  "finished_utc": "2026-11-17T17:30:10.895454+00:00"
+}
