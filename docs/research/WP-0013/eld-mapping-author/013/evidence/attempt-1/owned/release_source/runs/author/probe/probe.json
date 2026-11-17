@@ -1,0 +1,28 @@
+{
+  "case": "release_source",
+  "started_utc": "2026-11-17T19:07:08.196931+00:00",
+  "identity": {
+    "pid": 25152,
+    "creation_filetime_100ns": 134394160280090597,
+    "created_utc": "2026-11-17T19:07:08.009059+00:00",
+    "source": "Windows GetProcessTimes on explicitly owned PID"
+  },
+  "python": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+  "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts;C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-shadow\\attempt-1\\owned\\release_source\\venv\\Scripts;C:\\WINDOWS\\System32;C:\\WINDOWS;C:\\Program Files\\Git\\cmd",
+  "git_pin": "C:\\Program Files\\Git\\cmd\\git.exe",
+  "model_imports_prohibited": true,
+  "selected_git": "C:\\Program Files\\Git\\cmd\\git.exe",
+  "frozen_pins_verified": true,
+  "test_only_interceptions": [
+    "0000000000000000000000000000000000000000:docs/coordination/WP-0013/releases/author.json"
+  ],
+  "synthetic_cpu_release_not_authority": true,
+  "status": "raised",
+  "error_type": "PermissionError",
+  "error": "Exact clean executing source required",
+  "winerror": null,
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\013\\restricted_probe.py\", line 150, in <module>\n    try: main(args, receipt); receipt['status'] = 'returned'\n         ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\013\\restricted_probe.py\", line 135, in main\n    result = release.read_release(SYNTHETIC, RELEASE, 'author', execution=False)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\release.py\", line 89, in read_release\n    validate_release(r, p, owner, head=git('rev-parse', 'HEAD').decode().strip(),\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\release.py\", line 44, in validate_release\n    require(r['source_tree'] == source_tree and r['executing_head'] == head and clean, 'Exact clean executing source required')\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\release.py\", line 16, in require\n    if not condition: raise PermissionError(reason)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: Exact clean executing source required\n",
+  "finished_utc": "2026-11-17T19:07:09.295866+00:00",
+  "exit_code": 1,
+  "prohibited_imports_present": []
+}

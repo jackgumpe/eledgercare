@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\013\restricted_probe.py", line 150, in <module>
+    try: main(args, receipt); receipt['status'] = 'returned'
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\013\restricted_probe.py", line 75, in main
+    runtime.worker(AUTHORITY, RELEASE, 'author', str(run), args.job)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\runtime.py", line 182, in worker
+    r=read_release(authority,release_path,owner);p=protocol();run=Path(run_dir).resolve();root=Path(r['runtime_root']).resolve()
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\013\restricted_probe.py", line 72, in counted_release
+    receipt['actual_read_release_calls'] += 1; return actual_read(*a, **kw)
+                                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\release.py", line 89, in read_release
+    validate_release(r, p, owner, head=git('rev-parse', 'HEAD').decode().strip(),
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\release.py", line 44, in validate_release
+    require(r['source_tree'] == source_tree and r['executing_head'] == head and clean, 'Exact clean executing source required')
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\release.py", line 16, in require
+    if not condition: raise PermissionError(reason)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: Exact clean executing source required

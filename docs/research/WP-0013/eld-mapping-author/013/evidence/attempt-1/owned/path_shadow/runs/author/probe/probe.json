@@ -1,0 +1,29 @@
+{
+  "case": "path_shadow",
+  "started_utc": "2026-11-17T19:07:15.242488+00:00",
+  "identity": {
+    "pid": 33120,
+    "creation_filetime_100ns": 134394160350602514,
+    "created_utc": "2026-11-17T19:07:15.060251+00:00",
+    "source": "Windows GetProcessTimes on explicitly owned PID"
+  },
+  "python": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+  "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts;C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-shadow\\attempt-1\\owned\\path_shadow\\venv\\Scripts;C:\\WINDOWS\\System32;C:\\WINDOWS",
+  "git_pin": "C:\\Program Files\\Git\\cmd\\git.exe",
+  "model_imports_prohibited": true,
+  "invalid_image_fixtures": [
+    {
+      "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-shadow\\attempt-1\\owned\\path_shadow\\venv\\Scripts\\git.exe",
+      "sha256": "376f0f89ba6ba76b7384c1a1ef69f93b0c70ea1b620d80903c9e2e9d847cb16f"
+    }
+  ],
+  "actual_caller_cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author",
+  "status": "raised",
+  "error_type": "PermissionError",
+  "error": "Bare Git is shadowed before the validated executable: C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-shadow\\attempt-1\\owned\\path_shadow\\venv\\Scripts\\git.exe",
+  "winerror": null,
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\013\\restricted_probe.py\", line 150, in <module>\n    try: main(args, receipt); receipt['status'] = 'returned'\n         ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\013\\restricted_probe.py\", line 80, in main\n    runtime.enable_pinned_git_lookup(env, root=root, owner='author', run_dir=run)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\runtime.py\", line 43, in enable_pinned_git_lookup\n    verify_bare_git_lookup(env)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\runtime_git.py\", line 43, in verify_bare_git_lookup\n    raise PermissionError('Bare Git is shadowed before the validated executable: ' + str(candidate))\nPermissionError: Bare Git is shadowed before the validated executable: C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-shadow\\attempt-1\\owned\\path_shadow\\venv\\Scripts\\git.exe\n",
+  "finished_utc": "2026-11-17T19:07:15.245645+00:00",
+  "exit_code": 1,
+  "prohibited_imports_present": []
+}

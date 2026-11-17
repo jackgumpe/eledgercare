@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\013\restricted_probe.py", line 150, in <module>
+    try: main(args, receipt); receipt['status'] = 'returned'
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\013\restricted_probe.py", line 80, in main
+    runtime.enable_pinned_git_lookup(env, root=root, owner='author', run_dir=run)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\runtime.py", line 43, in enable_pinned_git_lookup
+    verify_bare_git_lookup(env)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\runtime_git.py", line 43, in verify_bare_git_lookup
+    raise PermissionError('Bare Git is shadowed before the validated executable: ' + str(candidate))
+PermissionError: Bare Git is shadowed before the validated executable: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\.scratch\wp0013-runtime-shadow\attempt-1\owned\path_shadow\venv\Scripts\git.exe
