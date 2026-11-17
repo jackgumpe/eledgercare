@@ -1,0 +1,103 @@
+{
+  "schema": "eledgercare.wp0012-correction-006-validation-summary/1",
+  "packet": "WP-0012",
+  "sequence": "006",
+  "author": "eld-f4-implementer",
+  "started_utc": "2026-11-17T16:34:21.893958+00:00",
+  "completed_utc": "2026-11-17T16:35:11.659367+00:00",
+  "passed": true,
+  "static_and_ast_audit": {
+    "clean_worktree": true,
+    "branch": "rehearsal/wp-0012-product",
+    "frozen_006_head_sha": "4ca6bc2dfba3548c6d0dfb820594d25e9c2c9cd4",
+    "correction_006_base_sha": "379d8c5d607fd248d7f272e412b4ed4a97bc64f6",
+    "prior_author_001_publication_sha": "165b2421b297bf49181c91af8d05a449ad69e9b5",
+    "prior_changes_requested_review_002_sha": "379d8c5d607fd248d7f272e412b4ed4a97bc64f6",
+    "dispatch_authority_006_inspected_readonly_sha": "598b9e80c317a9fe3d8288732fc19d3a05219cbc",
+    "preserved_006_base_paths_verified_unchanged": 3683,
+    "changed_paths_since_006_base": [
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/.gitattributes",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/01-node-check-edge-driver.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/02-validate-synthetic-sample-cli.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/03-old-fails-new-passes-and-guard-tests.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/resource-return.json",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/synthetic-sample-validation.json",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/validation-summary.json",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/build_wp0012_006_inventory.cpython-312.pyc",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/run_wp0012_rehearsal.cpython-312.pyc",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/validate_wp0012_correction_006_cpu.cpython-312.pyc",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/build_wp0012_006_inventory.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/run_wp0012_rehearsal.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/validate_wp0012_correction_006_cpu.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/inventory.json",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-checks/pre-freeze-02-native-inherited-tests.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-checks/pre-freeze-03-native-cleanup-tests.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/native-prose-edit-error.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/pre-freeze-01-mock-popen-and-short-secret.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/sample-synthetic-release.json"
+    ],
+    "compiled_python_helpers": [
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/build_wp0012_006_inventory.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/run_wp0012_rehearsal.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/validate_wp0012_correction_006_cpu.py"
+    ],
+    "forbidden_ml_or_research_imports": 0
+  },
+  "executed_steps": [
+    {
+      "step": "01-node-check-edge-driver",
+      "command": [
+        "node",
+        "--check",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\correction-006\\helpers\\drive_rehearsal_edge.mjs"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T16:34:23.681910+00:00",
+      "elapsed_ms": 63.0,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/01-node-check-edge-driver.log",
+      "log_sha256": "85a285f093eaa55ebb7d585dd29179c716f176f856c1bcf76cf089dfb95921c3"
+    },
+    {
+      "step": "02-validate-synthetic-sample-cli",
+      "command": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\correction-006\\helpers\\run_wp0012_rehearsal.py",
+        "--validate-synthetic-sample",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\correction-006\\sample-synthetic-release.json",
+        "--output",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\correction-006\\evidence-02\\synthetic-sample-validation.json"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T16:34:23.754183+00:00",
+      "elapsed_ms": 875.0,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/02-validate-synthetic-sample-cli.log",
+      "log_sha256": "8426f28500cdffafbcc3dde4d22df91f2b077e7953bf28eb6c77aa620a0ff25f"
+    },
+    {
+      "step": "03-old-fails-new-passes-and-guard-tests",
+      "command": [
+        "unittest",
+        "Wp0012Correction006GuardTests"
+      ],
+      "tests_run": 31,
+      "elapsed_ms": 45765.0,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/03-old-fails-new-passes-and-guard-tests.log",
+      "log_sha256": "9bee7f4d4936c30c9d976f88affd3f3958ce3083d0d8d7744e760d26186a5b88"
+    }
+  ],
+  "live_rehearsal_executed": false,
+  "model_imported_or_invoked": false,
+  "gpu_queries_or_inference_run": false,
+  "product_services_or_databases_started": false,
+  "database_preservation": "No database operations; prior001 evidence remains attributed, not rerun",
+  "native_session": "/root/product_author_continuation",
+  "native_model_marker": "native-codex-backend-unexposed",
+  "effort_disclosure": "xhigh-requested"
+}
