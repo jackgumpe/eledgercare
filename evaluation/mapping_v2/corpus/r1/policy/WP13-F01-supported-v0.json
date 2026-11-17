@@ -1,0 +1,546 @@
+{
+  "schema": "eld-mapping-v2-policy/1",
+  "fixture_id": "WP13-F01-supported-v0",
+  "family_id": "WP13-F01",
+  "case": "supported",
+  "profile": "work_order",
+  "page_count": 1,
+  "catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+  "ideal_native": "<PAGE>\n<BLOCK>text[65,34,434,58]<FORK>Door seal service record\n<BLOCK>text[65,76,291,89]<FORK>Fictional Indigo Fox workshop\n<BLOCK>table[65,129,935,296]<FORK><table><tr><th>Stock reference</th><th>Item supplied</th><th>Shelf</th><th>Used count</th></tr><tr><td>00073165</td><td>Door edge seal strip</td><td>D-034</td><td>2.00</td></tr><tr><td>00090824</td><td>Retainer screw</td><td>D-042</td><td>7.00</td></tr></table>\n<BLOCK>table[65,369,935,392]<FORK><table><tr><td>Repair record</td><td>WO-0004926</td></tr></table>\n<BLOCK>table[65,405,935,428]<FORK><table><tr><td>Premises name</td><td>Fictional Indigo Fox Residences</td></tr></table>\n<BLOCK>table[65,442,935,465]<FORK><table><tr><td>Place within site</td><td>Block D / Unit 003A</td></tr></table>\n<BLOCK>table[65,479,935,501]<FORK><table><tr><td>Opened on</td><td>2026-07-18</td></tr></table>\n<BLOCK>table[65,515,935,538]<FORK><table><tr><td>Work discipline</td><td>Carpentry / door seals</td></tr></table>\n<BLOCK>table[65,552,935,575]<FORK><table><tr><td>Worker assigned</td><td>Fictional Mara Linden</td></tr></table>\n<BLOCK>table[65,589,935,611]<FORK><table><tr><td>Job state</td><td>Closed - seal seated on practice frame</td></tr></table>\n<BLOCK>table[65,647,935,669]<FORK><table><tr><td>Occupant callback</td><td></td></tr></table>\n<BLOCK>footer[65,948,492,957]<FORK>SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.\n<BLOCK>footer[65,964,446,973]<FORK>Training record only; no real work or safety certification is asserted.",
+  "tables": [
+    {
+      "table_id": "stock_parts",
+      "column_ids": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "row_ids": [
+        "P31",
+        "P32"
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "work_order_id",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "WO-0004926",
+        "normalized_value": "WO-0004926",
+        "value_type": "identifier"
+      },
+      "evidence": [
+        {
+          "label_printed": "Repair record",
+          "value_printed": "WO-0004926",
+          "label_bbox_pt": [
+            40,
+            484,
+            234,
+            498
+          ],
+          "value_bbox_pt": [
+            252,
+            484,
+            572,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "property_name",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Fictional Indigo Fox Residences",
+        "normalized_value": "Fictional Indigo Fox Residences",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Premises name",
+          "value_printed": "Fictional Indigo Fox Residences",
+          "label_bbox_pt": [
+            40,
+            455,
+            234,
+            469
+          ],
+          "value_bbox_pt": [
+            252,
+            455,
+            572,
+            469
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "building_unit",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Block D / Unit 003A",
+        "normalized_value": "Block D / Unit 003A",
+        "value_type": "identifier"
+      },
+      "evidence": [
+        {
+          "label_printed": "Place within site",
+          "value_printed": "Block D / Unit 003A",
+          "label_bbox_pt": [
+            40,
+            426,
+            234,
+            440
+          ],
+          "value_bbox_pt": [
+            252,
+            426,
+            572,
+            440
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "requested_date",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "2026-07-18",
+        "normalized_value": "2026-07-18",
+        "value_type": "date_iso"
+      },
+      "evidence": [
+        {
+          "label_printed": "Opened on",
+          "value_printed": "2026-07-18",
+          "label_bbox_pt": [
+            40,
+            397,
+            234,
+            411
+          ],
+          "value_bbox_pt": [
+            252,
+            397,
+            572,
+            411
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "trade_category",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Carpentry / door seals",
+        "normalized_value": "Carpentry / door seals",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Work discipline",
+          "value_printed": "Carpentry / door seals",
+          "label_bbox_pt": [
+            40,
+            368,
+            234,
+            382
+          ],
+          "value_bbox_pt": [
+            252,
+            368,
+            572,
+            382
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "assigned_tech",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Fictional Mara Linden",
+        "normalized_value": "Fictional Mara Linden",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Worker assigned",
+          "value_printed": "Fictional Mara Linden",
+          "label_bbox_pt": [
+            40,
+            339,
+            234,
+            353
+          ],
+          "value_bbox_pt": [
+            252,
+            339,
+            572,
+            353
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "completion_status",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Closed - seal seated on practice frame",
+        "normalized_value": "Closed - seal seated on practice frame",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Job state",
+          "value_printed": "Closed - seal seated on practice frame",
+          "label_bbox_pt": [
+            40,
+            310,
+            234,
+            324
+          ],
+          "value_bbox_pt": [
+            252,
+            310,
+            572,
+            324
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "P31",
+      "column_id": "part_sku",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "00073165",
+        "normalized_value": "00073165",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Stock reference",
+          "value_printed": "00073165",
+          "label_bbox_pt": [
+            40,
+            666,
+            140,
+            690
+          ],
+          "value_bbox_pt": [
+            40,
+            630,
+            140,
+            654
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "P31",
+      "column_id": "part_desc",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Door edge seal strip",
+        "normalized_value": "Door edge seal strip",
+        "value_type": "text"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Item supplied",
+          "value_printed": "Door edge seal strip",
+          "label_bbox_pt": [
+            140,
+            666,
+            390,
+            690
+          ],
+          "value_bbox_pt": [
+            140,
+            630,
+            390,
+            654
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "P31",
+      "column_id": "bin_loc",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "D-034",
+        "normalized_value": "D-034",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Shelf",
+          "value_printed": "D-034",
+          "label_bbox_pt": [
+            390,
+            666,
+            464,
+            690
+          ],
+          "value_bbox_pt": [
+            390,
+            630,
+            464,
+            654
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "P31",
+      "column_id": "qty_used",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "2.00",
+        "normalized_value": "2.00",
+        "value_type": "decimal_2"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Used count",
+          "value_printed": "2.00",
+          "label_bbox_pt": [
+            464,
+            666,
+            572,
+            690
+          ],
+          "value_bbox_pt": [
+            464,
+            630,
+            572,
+            654
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "P32",
+      "column_id": "part_sku",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "00090824",
+        "normalized_value": "00090824",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Stock reference",
+          "value_printed": "00090824",
+          "label_bbox_pt": [
+            40,
+            666,
+            140,
+            690
+          ],
+          "value_bbox_pt": [
+            40,
+            594,
+            140,
+            618
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "P32",
+      "column_id": "part_desc",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Retainer screw",
+        "normalized_value": "Retainer screw",
+        "value_type": "text"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Item supplied",
+          "value_printed": "Retainer screw",
+          "label_bbox_pt": [
+            140,
+            666,
+            390,
+            690
+          ],
+          "value_bbox_pt": [
+            140,
+            594,
+            390,
+            618
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "P32",
+      "column_id": "bin_loc",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "D-042",
+        "normalized_value": "D-042",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Shelf",
+          "value_printed": "D-042",
+          "label_bbox_pt": [
+            390,
+            666,
+            464,
+            690
+          ],
+          "value_bbox_pt": [
+            390,
+            594,
+            464,
+            618
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "P32",
+      "column_id": "qty_used",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "7.00",
+        "normalized_value": "7.00",
+        "value_type": "decimal_2"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Used count",
+          "value_printed": "7.00",
+          "label_bbox_pt": [
+            464,
+            666,
+            572,
+            690
+          ],
+          "value_bbox_pt": [
+            464,
+            594,
+            572,
+            618
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "absence",
+      "page_number": 1,
+      "field_id": "resident_contact",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "",
+        "expected_state": "absent_blank"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Occupant callback",
+          "value_printed": "",
+          "label_bbox_pt": [
+            40,
+            264,
+            234,
+            278
+          ],
+          "value_bbox_pt": [
+            252,
+            262,
+            572,
+            280
+          ]
+        }
+      ]
+    }
+  ]
+}

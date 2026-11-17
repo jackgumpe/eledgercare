@@ -1,0 +1,1324 @@
+{
+  "schema": "eld-wp13-final-source/1",
+  "fixture_id": "WP13-F01-unsupported-v0",
+  "family_id": "WP13-F01",
+  "case": "unsupported",
+  "foundation_family": {
+    "family_id": "WP13-F01",
+    "doc_kind": "work_order",
+    "profile": "work_order",
+    "title": "Door seal service record",
+    "subtitle": "Fictional Indigo Fox workshop",
+    "fields": [
+      {
+        "field_id": "work_order_id",
+        "printed_text": "WO-0004926",
+        "normalized_value": "WO-0004926",
+        "value_type": "identifier"
+      },
+      {
+        "field_id": "property_name",
+        "printed_text": "Fictional Indigo Fox Residences",
+        "normalized_value": "Fictional Indigo Fox Residences",
+        "value_type": "text"
+      },
+      {
+        "field_id": "building_unit",
+        "printed_text": "Block D / Unit 003A",
+        "normalized_value": "Block D / Unit 003A",
+        "value_type": "identifier"
+      },
+      {
+        "field_id": "requested_date",
+        "printed_text": "2026-07-18",
+        "normalized_value": "2026-07-18",
+        "value_type": "date_iso"
+      },
+      {
+        "field_id": "trade_category",
+        "printed_text": "Carpentry / door seals",
+        "normalized_value": "Carpentry / door seals",
+        "value_type": "text"
+      },
+      {
+        "field_id": "assigned_tech",
+        "printed_text": "Fictional Mara Linden",
+        "normalized_value": "Fictional Mara Linden",
+        "value_type": "text"
+      },
+      {
+        "field_id": "completion_status",
+        "printed_text": "Closed - seal seated on practice frame",
+        "normalized_value": "Closed - seal seated on practice frame",
+        "value_type": "text"
+      }
+    ],
+    "absence": {
+      "field_id": "resident_contact",
+      "expected_state": "absent_blank"
+    },
+    "table": {
+      "table_id": "stock_parts",
+      "columns": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "row_key_column": "part_sku",
+      "rows": [
+        {
+          "row_id": "P31",
+          "cells": {
+            "part_sku": {
+              "printed_text": "00073165",
+              "normalized_value": "00073165",
+              "value_type": "identifier"
+            },
+            "part_desc": {
+              "printed_text": "Door edge seal strip",
+              "normalized_value": "Door edge seal strip",
+              "value_type": "text"
+            },
+            "bin_loc": {
+              "printed_text": "D-034",
+              "normalized_value": "D-034",
+              "value_type": "identifier"
+            },
+            "qty_used": {
+              "printed_text": "2.00",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2"
+            }
+          }
+        },
+        {
+          "row_id": "P32",
+          "cells": {
+            "part_sku": {
+              "printed_text": "00090824",
+              "normalized_value": "00090824",
+              "value_type": "identifier"
+            },
+            "part_desc": {
+              "printed_text": "Retainer screw",
+              "normalized_value": "Retainer screw",
+              "value_type": "text"
+            },
+            "bin_loc": {
+              "printed_text": "D-042",
+              "normalized_value": "D-042",
+              "value_type": "identifier"
+            },
+            "qty_used": {
+              "printed_text": "7.00",
+              "normalized_value": "7.00",
+              "value_type": "decimal_2"
+            }
+          }
+        }
+      ]
+    },
+    "reserved_conflict": {
+      "field_id": "work_order_id",
+      "alternate_value": {
+        "printed_text": "WO-0004937",
+        "normalized_value": "WO-0004937",
+        "value_type": "identifier"
+      },
+      "truth_if_both_printed": "ambiguous",
+      "duplicate_equal_uses_original": true
+    }
+  },
+  "foundation_template": {
+    "family_id": "WP13-F01",
+    "page_size_pt": [
+      612.0,
+      792.24
+    ],
+    "bbox_convention": "[left,bottom,right,top] PDF points",
+    "title_baseline": [
+      40,
+      746
+    ],
+    "subtitle_baseline": [
+      40,
+      722
+    ],
+    "fields": [
+      {
+        "field_id": "work_order_id",
+        "label_region": [
+          40,
+          484,
+          234,
+          498
+        ],
+        "value_region": [
+          252,
+          484,
+          572,
+          498
+        ],
+        "baseline": 486
+      },
+      {
+        "field_id": "property_name",
+        "label_region": [
+          40,
+          455,
+          234,
+          469
+        ],
+        "value_region": [
+          252,
+          455,
+          572,
+          469
+        ],
+        "baseline": 457
+      },
+      {
+        "field_id": "building_unit",
+        "label_region": [
+          40,
+          426,
+          234,
+          440
+        ],
+        "value_region": [
+          252,
+          426,
+          572,
+          440
+        ],
+        "baseline": 428
+      },
+      {
+        "field_id": "requested_date",
+        "label_region": [
+          40,
+          397,
+          234,
+          411
+        ],
+        "value_region": [
+          252,
+          397,
+          572,
+          411
+        ],
+        "baseline": 399
+      },
+      {
+        "field_id": "trade_category",
+        "label_region": [
+          40,
+          368,
+          234,
+          382
+        ],
+        "value_region": [
+          252,
+          368,
+          572,
+          382
+        ],
+        "baseline": 370
+      },
+      {
+        "field_id": "assigned_tech",
+        "label_region": [
+          40,
+          339,
+          234,
+          353
+        ],
+        "value_region": [
+          252,
+          339,
+          572,
+          353
+        ],
+        "baseline": 341
+      },
+      {
+        "field_id": "completion_status",
+        "label_region": [
+          40,
+          310,
+          234,
+          324
+        ],
+        "value_region": [
+          252,
+          310,
+          572,
+          324
+        ],
+        "baseline": 312
+      }
+    ],
+    "table": {
+      "table_id": "stock_parts",
+      "region": [
+        40,
+        558,
+        572,
+        690
+      ],
+      "header_baseline": 674,
+      "column_widths_pt": [
+        100,
+        250,
+        74,
+        108
+      ],
+      "row_height_pt": 36
+    },
+    "absence": {
+      "field_id": "resident_contact",
+      "label_region": [
+        40,
+        264,
+        234,
+        278
+      ],
+      "blank_region": [
+        252,
+        262,
+        572,
+        280
+      ]
+    },
+    "conflict_reserve_region": [
+      40,
+      116,
+      572,
+      236
+    ],
+    "footer_baselines": [
+      34,
+      21
+    ],
+    "finalization_rule": "Exact facts and template regions are frozen now. Catalog-selected wording, reference/expected/policy serialization and any declared guard-specific insertion await accepted public /001 plus independent /002. No inference-based selection."
+  },
+  "catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+  "source_occurrences": [
+    {
+      "anchor": "field.work_order_id",
+      "field_id": "work_order_id",
+      "blank": false,
+      "label_printed": "Maintenance docket",
+      "value_printed": "WO-0004926",
+      "label_bbox_pt": [
+        40,
+        484,
+        234,
+        498
+      ],
+      "value_bbox_pt": [
+        252,
+        484,
+        572,
+        498
+      ]
+    },
+    {
+      "anchor": "field.property_name",
+      "field_id": "property_name",
+      "blank": false,
+      "label_printed": "Estate designation",
+      "value_printed": "Fictional Indigo Fox Residences",
+      "label_bbox_pt": [
+        40,
+        455,
+        234,
+        469
+      ],
+      "value_bbox_pt": [
+        252,
+        455,
+        572,
+        469
+      ]
+    },
+    {
+      "anchor": "field.building_unit",
+      "field_id": "building_unit",
+      "blank": false,
+      "label_printed": "Internal location",
+      "value_printed": "Block D / Unit 003A",
+      "label_bbox_pt": [
+        40,
+        426,
+        234,
+        440
+      ],
+      "value_bbox_pt": [
+        252,
+        426,
+        572,
+        440
+      ]
+    },
+    {
+      "anchor": "field.requested_date",
+      "field_id": "requested_date",
+      "blank": false,
+      "label_printed": "Date raised",
+      "value_printed": "2026-07-18",
+      "label_bbox_pt": [
+        40,
+        397,
+        234,
+        411
+      ],
+      "value_bbox_pt": [
+        252,
+        397,
+        572,
+        411
+      ]
+    },
+    {
+      "anchor": "field.trade_category",
+      "field_id": "trade_category",
+      "blank": false,
+      "label_printed": "Service specialty",
+      "value_printed": "Carpentry / door seals",
+      "label_bbox_pt": [
+        40,
+        368,
+        234,
+        382
+      ],
+      "value_bbox_pt": [
+        252,
+        368,
+        572,
+        382
+      ]
+    },
+    {
+      "anchor": "field.assigned_tech",
+      "field_id": "assigned_tech",
+      "blank": false,
+      "label_printed": "Attending craftsperson",
+      "value_printed": "Fictional Mara Linden",
+      "label_bbox_pt": [
+        40,
+        339,
+        234,
+        353
+      ],
+      "value_bbox_pt": [
+        252,
+        339,
+        572,
+        353
+      ]
+    },
+    {
+      "anchor": "field.completion_status",
+      "field_id": "completion_status",
+      "blank": false,
+      "label_printed": "Closure notation",
+      "value_printed": "Closed - seal seated on practice frame",
+      "label_bbox_pt": [
+        40,
+        310,
+        234,
+        324
+      ],
+      "value_bbox_pt": [
+        252,
+        310,
+        572,
+        324
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.P31.part_sku",
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "P31",
+      "column_id": "part_sku",
+      "label_printed": "Material code",
+      "value_printed": "00073165",
+      "label_bbox_pt": [
+        40,
+        666,
+        140,
+        690
+      ],
+      "value_bbox_pt": [
+        40,
+        630,
+        140,
+        654
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.P31.part_desc",
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "P31",
+      "column_id": "part_desc",
+      "label_printed": "Material supplied",
+      "value_printed": "Door edge seal strip",
+      "label_bbox_pt": [
+        140,
+        666,
+        390,
+        690
+      ],
+      "value_bbox_pt": [
+        140,
+        630,
+        390,
+        654
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.P31.bin_loc",
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "P31",
+      "column_id": "bin_loc",
+      "label_printed": "Storage bay",
+      "value_printed": "D-034",
+      "label_bbox_pt": [
+        390,
+        666,
+        464,
+        690
+      ],
+      "value_bbox_pt": [
+        390,
+        630,
+        464,
+        654
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.P31.qty_used",
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "P31",
+      "column_id": "qty_used",
+      "label_printed": "Amount consumed",
+      "value_printed": "2.00",
+      "label_bbox_pt": [
+        464,
+        666,
+        572,
+        690
+      ],
+      "value_bbox_pt": [
+        464,
+        630,
+        572,
+        654
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.P32.part_sku",
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "P32",
+      "column_id": "part_sku",
+      "label_printed": "Material code",
+      "value_printed": "00090824",
+      "label_bbox_pt": [
+        40,
+        666,
+        140,
+        690
+      ],
+      "value_bbox_pt": [
+        40,
+        594,
+        140,
+        618
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.P32.part_desc",
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "P32",
+      "column_id": "part_desc",
+      "label_printed": "Material supplied",
+      "value_printed": "Retainer screw",
+      "label_bbox_pt": [
+        140,
+        666,
+        390,
+        690
+      ],
+      "value_bbox_pt": [
+        140,
+        594,
+        390,
+        618
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.P32.bin_loc",
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "P32",
+      "column_id": "bin_loc",
+      "label_printed": "Storage bay",
+      "value_printed": "D-042",
+      "label_bbox_pt": [
+        390,
+        666,
+        464,
+        690
+      ],
+      "value_bbox_pt": [
+        390,
+        594,
+        464,
+        618
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.P32.qty_used",
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "P32",
+      "column_id": "qty_used",
+      "label_printed": "Amount consumed",
+      "value_printed": "7.00",
+      "label_bbox_pt": [
+        464,
+        666,
+        572,
+        690
+      ],
+      "value_bbox_pt": [
+        464,
+        594,
+        572,
+        618
+      ]
+    },
+    {
+      "anchor": "absence.resident_contact",
+      "field_id": "resident_contact",
+      "blank": true,
+      "label_printed": "Tenant reply line",
+      "value_printed": "",
+      "label_bbox_pt": [
+        40,
+        264,
+        234,
+        278
+      ],
+      "value_bbox_pt": [
+        252,
+        262,
+        572,
+        280
+      ]
+    }
+  ],
+  "furniture_and_text_runs": [
+    {
+      "ordinal": 0,
+      "text": "Door seal service record",
+      "baseline": [
+        40,
+        746
+      ],
+      "font": "bold",
+      "size_pt": 19,
+      "bbox_pt": [
+        40,
+        746,
+        265.37,
+        765
+      ],
+      "role": "title",
+      "anchor": "furniture.title"
+    },
+    {
+      "ordinal": 1,
+      "text": "Fictional Indigo Fox workshop",
+      "baseline": [
+        40,
+        722
+      ],
+      "font": "regular",
+      "size_pt": 10,
+      "bbox_pt": [
+        40,
+        722,
+        178.0,
+        732
+      ],
+      "role": "subtitle",
+      "anchor": "furniture.subtitle"
+    },
+    {
+      "ordinal": 2,
+      "text": "Maintenance docket",
+      "baseline": [
+        40,
+        486
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        486,
+        122.77,
+        494.6
+      ],
+      "role": "field_label",
+      "anchor": "field.work_order_id.label"
+    },
+    {
+      "ordinal": 3,
+      "text": "WO-0004926",
+      "baseline": [
+        252,
+        486
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        486,
+        305.64,
+        495.2
+      ],
+      "role": "field_value",
+      "anchor": "field.work_order_id.value"
+    },
+    {
+      "ordinal": 4,
+      "text": "Estate designation",
+      "baseline": [
+        40,
+        457
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        457,
+        117.85,
+        465.6
+      ],
+      "role": "field_label",
+      "anchor": "field.property_name.label"
+    },
+    {
+      "ordinal": 5,
+      "text": "Fictional Indigo Fox Residences",
+      "baseline": [
+        252,
+        457
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        457,
+        387.42,
+        466.2
+      ],
+      "role": "field_value",
+      "anchor": "field.property_name.value"
+    },
+    {
+      "ordinal": 6,
+      "text": "Internal location",
+      "baseline": [
+        40,
+        428
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        428,
+        107.09,
+        436.6
+      ],
+      "role": "field_label",
+      "anchor": "field.building_unit.label"
+    },
+    {
+      "ordinal": 7,
+      "text": "Block D / Unit 003A",
+      "baseline": [
+        252,
+        428
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        428,
+        336.64,
+        437.2
+      ],
+      "role": "field_value",
+      "anchor": "field.building_unit.value"
+    },
+    {
+      "ordinal": 8,
+      "text": "Date raised",
+      "baseline": [
+        40,
+        399
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        399,
+        88.31,
+        407.6
+      ],
+      "role": "field_label",
+      "anchor": "field.requested_date.label"
+    },
+    {
+      "ordinal": 9,
+      "text": "2026-07-18",
+      "baseline": [
+        252,
+        399
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        399,
+        299.66,
+        408.2
+      ],
+      "role": "field_value",
+      "anchor": "field.requested_date.value"
+    },
+    {
+      "ordinal": 10,
+      "text": "Service specialty",
+      "baseline": [
+        40,
+        370
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        370,
+        112.38,
+        378.6
+      ],
+      "role": "field_label",
+      "anchor": "field.trade_category.label"
+    },
+    {
+      "ordinal": 11,
+      "text": "Carpentry / door seals",
+      "baseline": [
+        252,
+        370
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        370,
+        345.56,
+        379.2
+      ],
+      "role": "field_value",
+      "anchor": "field.trade_category.value"
+    },
+    {
+      "ordinal": 12,
+      "text": "Attending craftsperson",
+      "baseline": [
+        40,
+        341
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        341,
+        134.62,
+        349.6
+      ],
+      "role": "field_label",
+      "anchor": "field.assigned_tech.label"
+    },
+    {
+      "ordinal": 13,
+      "text": "Fictional Mara Linden",
+      "baseline": [
+        252,
+        341
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        341,
+        343.82,
+        350.2
+      ],
+      "role": "field_value",
+      "anchor": "field.assigned_tech.value"
+    },
+    {
+      "ordinal": 14,
+      "text": "Closure notation",
+      "baseline": [
+        40,
+        312
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        312,
+        108.92,
+        320.6
+      ],
+      "role": "field_label",
+      "anchor": "field.completion_status.label"
+    },
+    {
+      "ordinal": 15,
+      "text": "Closed - seal seated on practice frame",
+      "baseline": [
+        252,
+        312
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        312,
+        414.01,
+        321.2
+      ],
+      "role": "field_value",
+      "anchor": "field.completion_status.value"
+    },
+    {
+      "ordinal": 16,
+      "text": "Material code",
+      "baseline": [
+        43,
+        674
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        43,
+        674,
+        89.78,
+        681.2
+      ],
+      "role": "table_header",
+      "anchor": "table.stock_parts.header.part_sku"
+    },
+    {
+      "ordinal": 17,
+      "text": "Material supplied",
+      "baseline": [
+        143,
+        674
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        143,
+        674,
+        202.45,
+        681.2
+      ],
+      "role": "table_header",
+      "anchor": "table.stock_parts.header.part_desc"
+    },
+    {
+      "ordinal": 18,
+      "text": "Storage bay",
+      "baseline": [
+        393,
+        674
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        393,
+        674,
+        434.59,
+        681.2
+      ],
+      "role": "table_header",
+      "anchor": "table.stock_parts.header.bin_loc"
+    },
+    {
+      "ordinal": 19,
+      "text": "Amount consumed",
+      "baseline": [
+        467,
+        674
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        467,
+        674,
+        530.19,
+        681.2
+      ],
+      "role": "table_header",
+      "anchor": "table.stock_parts.header.qty_used"
+    },
+    {
+      "ordinal": 20,
+      "text": "00073165",
+      "baseline": [
+        43,
+        638
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        638,
+        77.05,
+        645.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.P31.part_sku"
+    },
+    {
+      "ordinal": 21,
+      "text": "Door edge seal strip",
+      "baseline": [
+        143,
+        638
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        143,
+        638,
+        213.07,
+        645.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.P31.part_desc"
+    },
+    {
+      "ordinal": 22,
+      "text": "D-034",
+      "baseline": [
+        393,
+        638
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        393,
+        638,
+        414.36,
+        645.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.P31.bin_loc"
+    },
+    {
+      "ordinal": 23,
+      "text": "2.00",
+      "baseline": [
+        467,
+        638
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        467,
+        638,
+        481.97,
+        645.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.P31.qty_used"
+    },
+    {
+      "ordinal": 24,
+      "text": "00090824",
+      "baseline": [
+        43,
+        602
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        602,
+        77.05,
+        609.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.P32.part_sku"
+    },
+    {
+      "ordinal": 25,
+      "text": "Retainer screw",
+      "baseline": [
+        143,
+        602
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        143,
+        602,
+        195.21,
+        609.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.P32.part_desc"
+    },
+    {
+      "ordinal": 26,
+      "text": "D-042",
+      "baseline": [
+        393,
+        602
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        393,
+        602,
+        414.36,
+        609.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.P32.bin_loc"
+    },
+    {
+      "ordinal": 27,
+      "text": "7.00",
+      "baseline": [
+        467,
+        602
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        467,
+        602,
+        481.97,
+        609.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.P32.qty_used"
+    },
+    {
+      "ordinal": 28,
+      "text": "Tenant reply line",
+      "baseline": [
+        40,
+        266
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        266,
+        110.1,
+        274.6
+      ],
+      "role": "field_label",
+      "anchor": "absence.resident_contact.label"
+    },
+    {
+      "ordinal": 29,
+      "text": "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.",
+      "baseline": [
+        40,
+        34
+      ],
+      "font": "regular",
+      "size_pt": 7.5,
+      "bbox_pt": [
+        40,
+        34,
+        301.07,
+        41.5
+      ],
+      "role": "footer",
+      "anchor": "furniture.footer.0"
+    },
+    {
+      "ordinal": 30,
+      "text": "Training record only; no real work or safety certification is asserted.",
+      "baseline": [
+        40,
+        21
+      ],
+      "font": "regular",
+      "size_pt": 7.5,
+      "bbox_pt": [
+        40,
+        21,
+        272.95,
+        28.5
+      ],
+      "role": "footer",
+      "anchor": "furniture.footer.1"
+    }
+  ],
+  "native_blocks": [
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        746,
+        265.37,
+        765
+      ],
+      "body": "Door seal service record"
+    },
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        722,
+        178.0,
+        732
+      ],
+      "body": "Fictional Indigo Fox workshop"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        558,
+        572,
+        690
+      ],
+      "body": "<table><tr><th>Material code</th><th>Material supplied</th><th>Storage bay</th><th>Amount consumed</th></tr><tr><td>00073165</td><td>Door edge seal strip</td><td>D-034</td><td>2.00</td></tr><tr><td>00090824</td><td>Retainer screw</td><td>D-042</td><td>7.00</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        482,
+        572,
+        500
+      ],
+      "body": "<table><tr><td>Maintenance docket</td><td>WO-0004926</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        453,
+        572,
+        471
+      ],
+      "body": "<table><tr><td>Estate designation</td><td>Fictional Indigo Fox Residences</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        424,
+        572,
+        442
+      ],
+      "body": "<table><tr><td>Internal location</td><td>Block D / Unit 003A</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        395,
+        572,
+        413
+      ],
+      "body": "<table><tr><td>Date raised</td><td>2026-07-18</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        366,
+        572,
+        384
+      ],
+      "body": "<table><tr><td>Service specialty</td><td>Carpentry / door seals</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        337,
+        572,
+        355
+      ],
+      "body": "<table><tr><td>Attending craftsperson</td><td>Fictional Mara Linden</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        308,
+        572,
+        326
+      ],
+      "body": "<table><tr><td>Closure notation</td><td>Closed - seal seated on practice frame</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        262,
+        572,
+        280
+      ],
+      "body": "<table><tr><td>Tenant reply line</td><td></td></tr></table>"
+    },
+    {
+      "kind": "footer",
+      "bbox_pt": [
+        40,
+        34,
+        301.07,
+        41.5
+      ],
+      "body": "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional."
+    },
+    {
+      "kind": "footer",
+      "bbox_pt": [
+        40,
+        21,
+        272.95,
+        28.5
+      ],
+      "body": "Training record only; no real work or safety certification is asserted."
+    }
+  ],
+  "conflict_plan": null,
+  "foundation_mutated": false,
+  "source_anchor_convention": "field.<id>, absence.<id>, conflict.<id>, table.<table>.row.<row>.<column>, furniture.*"
+}

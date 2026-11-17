@@ -1,0 +1,124 @@
+{
+  "schema": "eld-wp13-finalization-plan/1",
+  "foundation_change": false,
+  "cases": [
+    "supported",
+    "conflict",
+    "unsupported"
+  ],
+  "field_representation": "Each foundation label/value region is a visibly ruled two-cell one-row table; the ideal-native witness retains the same explicit cells. No cross-row value inference is needed.",
+  "supported_wording": "First exact catalog alias for every field/absence and corresponding alias headers.",
+  "unsupported_fields": {
+    "work_order": {
+      "work_order_id": "Maintenance docket",
+      "property_name": "Estate designation",
+      "building_unit": "Internal location",
+      "requested_date": "Date raised",
+      "trade_category": "Service specialty",
+      "assigned_tech": "Attending craftsperson",
+      "completion_status": "Closure notation",
+      "resident_contact": "Tenant reply line"
+    },
+    "service_invoice": {
+      "invoice_number": "Charge docket",
+      "invoice_date": "Issue calendar date",
+      "due_date": "Remittance deadline",
+      "work_order_ref": "Linked job docket",
+      "payment_terms": "Payment interval",
+      "subtotal": "Untaxed charges",
+      "taxable_subtotal": "Assessable charges",
+      "tax_amount": "Duty assessed",
+      "invoice_total": "Account grand sum",
+      "amount_due": "Outstanding remittance",
+      "customer_po_code": "Purchaser tracking line"
+    },
+    "inspection": {
+      "work_order_id": "Survey docket",
+      "property_unit": "Surveyed location",
+      "requested_date": "Survey calendar date",
+      "assigned_tech": "Inspecting operator",
+      "equipment_asset_tag": "Appliance inventory code",
+      "water_isolated": "Isolation tick",
+      "secondary_vendor_po": "Contractor tracking line"
+    }
+  },
+  "unsupported_headers": {
+    "stock_parts": [
+      "Material code",
+      "Material supplied",
+      "Storage bay",
+      "Amount consumed"
+    ],
+    "line_items": [
+      "Key",
+      "Item code",
+      "Charge detail",
+      "Amount",
+      "Cost each",
+      "Cut pct",
+      "Cut amount",
+      "Duty",
+      "Charge sum"
+    ],
+    "turnover_tasks": [
+      "Check token",
+      "Test location",
+      "Completed procedure",
+      "Pressure reading"
+    ]
+  },
+  "conflicts": {
+    "WP13-F01": {
+      "mode": "duplicate_equal",
+      "extra_label": "Work Order ID",
+      "value_source": "original",
+      "truth_status": "known"
+    },
+    "WP13-F02": {
+      "mode": "conflicting_values",
+      "extra_label": "Invoice No",
+      "value_source": "reserved_alternate",
+      "truth_status": "ambiguous"
+    },
+    "WP13-F03": {
+      "mode": "conflicting_values",
+      "extra_label": "Water Heater Asset Tag",
+      "value_source": "reserved_alternate",
+      "truth_status": "ambiguous"
+    },
+    "WP13-F04": {
+      "mode": "conflicting_values",
+      "extra_label": "Ticket Number",
+      "value_source": "reserved_alternate",
+      "truth_status": "ambiguous"
+    }
+  },
+  "conflict_placement": "One additional field pair and neutral no-precedence caption inside the pre-reserved conflict rectangle. Original occurrence/facts/layout regions retained.",
+  "conflict_caption": "Repeated entry; neither entry has priority.",
+  "footer": [
+    "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.",
+    "Training record only; no real work or safety certification is asserted."
+  ],
+  "coverage_limits": [
+    "Fresh conflicts exercise canonical-plus-alias duplicate-equal and conflicting-value field guards.",
+    "Fresh table coverage exercises complete alias schemas and unsupported headers; header collisions, duplicate tables, missing keys and spanning rows are not added to this corpus.",
+    "No semantic unknown-truth cases are fabricated. Three conflict targets are ambiguous; unsupported wording retains known human-readable truth.",
+    "No new semantic task, normalization or unit conversion is introduced."
+  ],
+  "pdf_date": "D:20261117000000Z",
+  "render_scale": 4.166666666666667,
+  "expected_render_size_px": [
+    2550,
+    3301
+  ],
+  "fonts": {
+    "title": 19,
+    "subtitle": 10,
+    "field_label": 8.6,
+    "field_value": 9.2,
+    "table_header": 7.2,
+    "table_cell": 7.6,
+    "caption": 8,
+    "footer": 7.5
+  }
+}

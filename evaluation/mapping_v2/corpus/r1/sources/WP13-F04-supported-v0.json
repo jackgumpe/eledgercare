@@ -1,0 +1,1324 @@
+{
+  "schema": "eld-wp13-final-source/1",
+  "fixture_id": "WP13-F04-supported-v0",
+  "family_id": "WP13-F04",
+  "case": "supported",
+  "foundation_family": {
+    "family_id": "WP13-F04",
+    "doc_kind": "work_order",
+    "profile": "work_order",
+    "title": "Indicator panel maintenance note",
+    "subtitle": "Fictional Coral Wombat service desk",
+    "fields": [
+      {
+        "field_id": "work_order_id",
+        "printed_text": "WO-0007163",
+        "normalized_value": "WO-0007163",
+        "value_type": "identifier"
+      },
+      {
+        "field_id": "property_name",
+        "printed_text": "Fictional Coral Wombat Court",
+        "normalized_value": "Fictional Coral Wombat Court",
+        "value_type": "text"
+      },
+      {
+        "field_id": "building_unit",
+        "printed_text": "Block M / Unit 005D",
+        "normalized_value": "Block M / Unit 005D",
+        "value_type": "identifier"
+      },
+      {
+        "field_id": "requested_date",
+        "printed_text": "2026-10-06",
+        "normalized_value": "2026-10-06",
+        "value_type": "date_iso"
+      },
+      {
+        "field_id": "trade_category",
+        "printed_text": "Electrical / indicator lamps",
+        "normalized_value": "Electrical / indicator lamps",
+        "value_type": "text"
+      },
+      {
+        "field_id": "assigned_tech",
+        "printed_text": "Fictional Sela Briar",
+        "normalized_value": "Fictional Sela Briar",
+        "value_type": "text"
+      },
+      {
+        "field_id": "completion_status",
+        "printed_text": "Closed - lamp passed bench check",
+        "normalized_value": "Closed - lamp passed bench check",
+        "value_type": "text"
+      }
+    ],
+    "absence": {
+      "field_id": "resident_contact",
+      "expected_state": "absent_blank"
+    },
+    "table": {
+      "table_id": "stock_parts",
+      "columns": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "row_key_column": "part_sku",
+      "rows": [
+        {
+          "row_id": "E51",
+          "cells": {
+            "part_sku": {
+              "printed_text": "00048217",
+              "normalized_value": "00048217",
+              "value_type": "identifier"
+            },
+            "part_desc": {
+              "printed_text": "Panel indicator lens",
+              "normalized_value": "Panel indicator lens",
+              "value_type": "text"
+            },
+            "bin_loc": {
+              "printed_text": "M-013",
+              "normalized_value": "M-013",
+              "value_type": "identifier"
+            },
+            "qty_used": {
+              "printed_text": "3.00",
+              "normalized_value": "3.00",
+              "value_type": "decimal_2"
+            }
+          }
+        },
+        {
+          "row_id": "E52",
+          "cells": {
+            "part_sku": {
+              "printed_text": "00065028",
+              "normalized_value": "00065028",
+              "value_type": "identifier"
+            },
+            "part_desc": {
+              "printed_text": "Contact retaining clip",
+              "normalized_value": "Contact retaining clip",
+              "value_type": "text"
+            },
+            "bin_loc": {
+              "printed_text": "M-027",
+              "normalized_value": "M-027",
+              "value_type": "identifier"
+            },
+            "qty_used": {
+              "printed_text": "4.00",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2"
+            }
+          }
+        }
+      ]
+    },
+    "reserved_conflict": {
+      "field_id": "work_order_id",
+      "alternate_value": {
+        "printed_text": "WO-0007179",
+        "normalized_value": "WO-0007179",
+        "value_type": "identifier"
+      },
+      "truth_if_both_printed": "ambiguous",
+      "duplicate_equal_uses_original": true
+    }
+  },
+  "foundation_template": {
+    "family_id": "WP13-F04",
+    "page_size_pt": [
+      612.0,
+      792.24
+    ],
+    "bbox_convention": "[left,bottom,right,top] PDF points",
+    "title_baseline": [
+      40,
+      746
+    ],
+    "subtitle_baseline": [
+      40,
+      722
+    ],
+    "fields": [
+      {
+        "field_id": "work_order_id",
+        "label_region": [
+          40,
+          682,
+          234,
+          696
+        ],
+        "value_region": [
+          252,
+          682,
+          572,
+          696
+        ],
+        "baseline": 684
+      },
+      {
+        "field_id": "property_name",
+        "label_region": [
+          40,
+          646,
+          234,
+          660
+        ],
+        "value_region": [
+          252,
+          646,
+          572,
+          660
+        ],
+        "baseline": 648
+      },
+      {
+        "field_id": "building_unit",
+        "label_region": [
+          40,
+          610,
+          234,
+          624
+        ],
+        "value_region": [
+          252,
+          610,
+          572,
+          624
+        ],
+        "baseline": 612
+      },
+      {
+        "field_id": "requested_date",
+        "label_region": [
+          40,
+          324,
+          234,
+          338
+        ],
+        "value_region": [
+          252,
+          324,
+          572,
+          338
+        ],
+        "baseline": 326
+      },
+      {
+        "field_id": "trade_category",
+        "label_region": [
+          40,
+          291,
+          234,
+          305
+        ],
+        "value_region": [
+          252,
+          291,
+          572,
+          305
+        ],
+        "baseline": 293
+      },
+      {
+        "field_id": "assigned_tech",
+        "label_region": [
+          40,
+          258,
+          234,
+          272
+        ],
+        "value_region": [
+          252,
+          258,
+          572,
+          272
+        ],
+        "baseline": 260
+      },
+      {
+        "field_id": "completion_status",
+        "label_region": [
+          40,
+          225,
+          234,
+          239
+        ],
+        "value_region": [
+          252,
+          225,
+          572,
+          239
+        ],
+        "baseline": 227
+      }
+    ],
+    "table": {
+      "table_id": "stock_parts",
+      "region": [
+        40,
+        410,
+        572,
+        542
+      ],
+      "header_baseline": 526,
+      "column_widths_pt": [
+        112,
+        238,
+        82,
+        100
+      ],
+      "row_height_pt": 36
+    },
+    "absence": {
+      "field_id": "resident_contact",
+      "label_region": [
+        40,
+        172,
+        234,
+        186
+      ],
+      "blank_region": [
+        252,
+        170,
+        572,
+        188
+      ]
+    },
+    "conflict_reserve_region": [
+      40,
+      70,
+      572,
+      148
+    ],
+    "footer_baselines": [
+      34,
+      21
+    ],
+    "finalization_rule": "Exact facts and template regions are frozen now. Catalog-selected wording, reference/expected/policy serialization and any declared guard-specific insertion await accepted public /001 plus independent /002. No inference-based selection."
+  },
+  "catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+  "source_occurrences": [
+    {
+      "anchor": "field.work_order_id",
+      "field_id": "work_order_id",
+      "blank": false,
+      "label_printed": "Repair record",
+      "value_printed": "WO-0007163",
+      "label_bbox_pt": [
+        40,
+        682,
+        234,
+        696
+      ],
+      "value_bbox_pt": [
+        252,
+        682,
+        572,
+        696
+      ]
+    },
+    {
+      "anchor": "field.property_name",
+      "field_id": "property_name",
+      "blank": false,
+      "label_printed": "Premises name",
+      "value_printed": "Fictional Coral Wombat Court",
+      "label_bbox_pt": [
+        40,
+        646,
+        234,
+        660
+      ],
+      "value_bbox_pt": [
+        252,
+        646,
+        572,
+        660
+      ]
+    },
+    {
+      "anchor": "field.building_unit",
+      "field_id": "building_unit",
+      "blank": false,
+      "label_printed": "Place within site",
+      "value_printed": "Block M / Unit 005D",
+      "label_bbox_pt": [
+        40,
+        610,
+        234,
+        624
+      ],
+      "value_bbox_pt": [
+        252,
+        610,
+        572,
+        624
+      ]
+    },
+    {
+      "anchor": "field.requested_date",
+      "field_id": "requested_date",
+      "blank": false,
+      "label_printed": "Opened on",
+      "value_printed": "2026-10-06",
+      "label_bbox_pt": [
+        40,
+        324,
+        234,
+        338
+      ],
+      "value_bbox_pt": [
+        252,
+        324,
+        572,
+        338
+      ]
+    },
+    {
+      "anchor": "field.trade_category",
+      "field_id": "trade_category",
+      "blank": false,
+      "label_printed": "Work discipline",
+      "value_printed": "Electrical / indicator lamps",
+      "label_bbox_pt": [
+        40,
+        291,
+        234,
+        305
+      ],
+      "value_bbox_pt": [
+        252,
+        291,
+        572,
+        305
+      ]
+    },
+    {
+      "anchor": "field.assigned_tech",
+      "field_id": "assigned_tech",
+      "blank": false,
+      "label_printed": "Worker assigned",
+      "value_printed": "Fictional Sela Briar",
+      "label_bbox_pt": [
+        40,
+        258,
+        234,
+        272
+      ],
+      "value_bbox_pt": [
+        252,
+        258,
+        572,
+        272
+      ]
+    },
+    {
+      "anchor": "field.completion_status",
+      "field_id": "completion_status",
+      "blank": false,
+      "label_printed": "Job state",
+      "value_printed": "Closed - lamp passed bench check",
+      "label_bbox_pt": [
+        40,
+        225,
+        234,
+        239
+      ],
+      "value_bbox_pt": [
+        252,
+        225,
+        572,
+        239
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.E51.part_sku",
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "E51",
+      "column_id": "part_sku",
+      "label_printed": "Stock reference",
+      "value_printed": "00048217",
+      "label_bbox_pt": [
+        40,
+        518,
+        152,
+        542
+      ],
+      "value_bbox_pt": [
+        40,
+        482,
+        152,
+        506
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.E51.part_desc",
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "E51",
+      "column_id": "part_desc",
+      "label_printed": "Item supplied",
+      "value_printed": "Panel indicator lens",
+      "label_bbox_pt": [
+        152,
+        518,
+        390,
+        542
+      ],
+      "value_bbox_pt": [
+        152,
+        482,
+        390,
+        506
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.E51.bin_loc",
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "E51",
+      "column_id": "bin_loc",
+      "label_printed": "Shelf",
+      "value_printed": "M-013",
+      "label_bbox_pt": [
+        390,
+        518,
+        472,
+        542
+      ],
+      "value_bbox_pt": [
+        390,
+        482,
+        472,
+        506
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.E51.qty_used",
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "E51",
+      "column_id": "qty_used",
+      "label_printed": "Used count",
+      "value_printed": "3.00",
+      "label_bbox_pt": [
+        472,
+        518,
+        572,
+        542
+      ],
+      "value_bbox_pt": [
+        472,
+        482,
+        572,
+        506
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.E52.part_sku",
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "E52",
+      "column_id": "part_sku",
+      "label_printed": "Stock reference",
+      "value_printed": "00065028",
+      "label_bbox_pt": [
+        40,
+        518,
+        152,
+        542
+      ],
+      "value_bbox_pt": [
+        40,
+        446,
+        152,
+        470
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.E52.part_desc",
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "E52",
+      "column_id": "part_desc",
+      "label_printed": "Item supplied",
+      "value_printed": "Contact retaining clip",
+      "label_bbox_pt": [
+        152,
+        518,
+        390,
+        542
+      ],
+      "value_bbox_pt": [
+        152,
+        446,
+        390,
+        470
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.E52.bin_loc",
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "E52",
+      "column_id": "bin_loc",
+      "label_printed": "Shelf",
+      "value_printed": "M-027",
+      "label_bbox_pt": [
+        390,
+        518,
+        472,
+        542
+      ],
+      "value_bbox_pt": [
+        390,
+        446,
+        472,
+        470
+      ]
+    },
+    {
+      "anchor": "table.stock_parts.row.E52.qty_used",
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "E52",
+      "column_id": "qty_used",
+      "label_printed": "Used count",
+      "value_printed": "4.00",
+      "label_bbox_pt": [
+        472,
+        518,
+        572,
+        542
+      ],
+      "value_bbox_pt": [
+        472,
+        446,
+        572,
+        470
+      ]
+    },
+    {
+      "anchor": "absence.resident_contact",
+      "field_id": "resident_contact",
+      "blank": true,
+      "label_printed": "Occupant callback",
+      "value_printed": "",
+      "label_bbox_pt": [
+        40,
+        172,
+        234,
+        186
+      ],
+      "value_bbox_pt": [
+        252,
+        170,
+        572,
+        188
+      ]
+    }
+  ],
+  "furniture_and_text_runs": [
+    {
+      "ordinal": 0,
+      "text": "Indicator panel maintenance note",
+      "baseline": [
+        40,
+        746
+      ],
+      "font": "bold",
+      "size_pt": 19,
+      "bbox_pt": [
+        40,
+        746,
+        342.3,
+        765
+      ],
+      "role": "title",
+      "anchor": "furniture.title"
+    },
+    {
+      "ordinal": 1,
+      "text": "Fictional Coral Wombat service desk",
+      "baseline": [
+        40,
+        722
+      ],
+      "font": "regular",
+      "size_pt": 10,
+      "bbox_pt": [
+        40,
+        722,
+        207.5,
+        732
+      ],
+      "role": "subtitle",
+      "anchor": "furniture.subtitle"
+    },
+    {
+      "ordinal": 2,
+      "text": "Repair record",
+      "baseline": [
+        40,
+        684
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        684,
+        95.52,
+        692.6
+      ],
+      "role": "field_label",
+      "anchor": "field.work_order_id.label"
+    },
+    {
+      "ordinal": 3,
+      "text": "WO-0007163",
+      "baseline": [
+        252,
+        684
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        684,
+        305.64,
+        693.2
+      ],
+      "role": "field_value",
+      "anchor": "field.work_order_id.value"
+    },
+    {
+      "ordinal": 4,
+      "text": "Premises name",
+      "baseline": [
+        40,
+        648
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        648,
+        103.36,
+        656.6
+      ],
+      "role": "field_label",
+      "anchor": "field.property_name.label"
+    },
+    {
+      "ordinal": 5,
+      "text": "Fictional Coral Wombat Court",
+      "baseline": [
+        252,
+        648
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        648,
+        376.38,
+        657.2
+      ],
+      "role": "field_value",
+      "anchor": "field.property_name.value"
+    },
+    {
+      "ordinal": 6,
+      "text": "Place within site",
+      "baseline": [
+        40,
+        612
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        612,
+        110.01,
+        620.6
+      ],
+      "role": "field_label",
+      "anchor": "field.building_unit.label"
+    },
+    {
+      "ordinal": 7,
+      "text": "Block M / Unit 005D",
+      "baseline": [
+        252,
+        612
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        612,
+        337.56,
+        621.2
+      ],
+      "role": "field_value",
+      "anchor": "field.building_unit.value"
+    },
+    {
+      "ordinal": 8,
+      "text": "Opened on",
+      "baseline": [
+        40,
+        326
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        326,
+        84.21,
+        334.6
+      ],
+      "role": "field_label",
+      "anchor": "field.requested_date.label"
+    },
+    {
+      "ordinal": 9,
+      "text": "2026-10-06",
+      "baseline": [
+        252,
+        326
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        326,
+        299.66,
+        335.2
+      ],
+      "role": "field_value",
+      "anchor": "field.requested_date.value"
+    },
+    {
+      "ordinal": 10,
+      "text": "Work discipline",
+      "baseline": [
+        40,
+        293
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        293,
+        102.9,
+        301.6
+      ],
+      "role": "field_label",
+      "anchor": "field.trade_category.label"
+    },
+    {
+      "ordinal": 11,
+      "text": "Electrical / indicator lamps",
+      "baseline": [
+        252,
+        293
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        293,
+        365.16,
+        302.2
+      ],
+      "role": "field_value",
+      "anchor": "field.trade_category.value"
+    },
+    {
+      "ordinal": 12,
+      "text": "Worker assigned",
+      "baseline": [
+        40,
+        260
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        260,
+        108.01,
+        268.6
+      ],
+      "role": "field_label",
+      "anchor": "field.assigned_tech.label"
+    },
+    {
+      "ordinal": 13,
+      "text": "Fictional Sela Briar",
+      "baseline": [
+        252,
+        260
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        260,
+        333.88,
+        269.2
+      ],
+      "role": "field_value",
+      "anchor": "field.assigned_tech.value"
+    },
+    {
+      "ordinal": 14,
+      "text": "Job state",
+      "baseline": [
+        40,
+        227
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        227,
+        79.84,
+        235.6
+      ],
+      "role": "field_label",
+      "anchor": "field.completion_status.label"
+    },
+    {
+      "ordinal": 15,
+      "text": "Closed - lamp passed bench check",
+      "baseline": [
+        252,
+        227
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        227,
+        397.54,
+        236.2
+      ],
+      "role": "field_value",
+      "anchor": "field.completion_status.value"
+    },
+    {
+      "ordinal": 16,
+      "text": "Stock reference",
+      "baseline": [
+        43,
+        526
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        43,
+        526,
+        98.18,
+        533.2
+      ],
+      "role": "table_header",
+      "anchor": "table.stock_parts.header.part_sku"
+    },
+    {
+      "ordinal": 17,
+      "text": "Item supplied",
+      "baseline": [
+        155,
+        526
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        155,
+        526,
+        201.33,
+        533.2
+      ],
+      "role": "table_header",
+      "anchor": "table.stock_parts.header.part_desc"
+    },
+    {
+      "ordinal": 18,
+      "text": "Shelf",
+      "baseline": [
+        393,
+        526
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        393,
+        526,
+        411.32,
+        533.2
+      ],
+      "role": "table_header",
+      "anchor": "table.stock_parts.header.bin_loc"
+    },
+    {
+      "ordinal": 19,
+      "text": "Used count",
+      "baseline": [
+        475,
+        526
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        475,
+        526,
+        514.69,
+        533.2
+      ],
+      "role": "table_header",
+      "anchor": "table.stock_parts.header.qty_used"
+    },
+    {
+      "ordinal": 20,
+      "text": "00048217",
+      "baseline": [
+        43,
+        490
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        490,
+        77.05,
+        497.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.E51.part_sku"
+    },
+    {
+      "ordinal": 21,
+      "text": "Panel indicator lens",
+      "baseline": [
+        155,
+        490
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        155,
+        490,
+        223.86,
+        497.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.E51.part_desc"
+    },
+    {
+      "ordinal": 22,
+      "text": "M-013",
+      "baseline": [
+        393,
+        490
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        393,
+        490,
+        414.36,
+        497.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.E51.bin_loc"
+    },
+    {
+      "ordinal": 23,
+      "text": "3.00",
+      "baseline": [
+        475,
+        490
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        475,
+        490,
+        489.97,
+        497.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.E51.qty_used"
+    },
+    {
+      "ordinal": 24,
+      "text": "00065028",
+      "baseline": [
+        43,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        454,
+        77.05,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.E52.part_sku"
+    },
+    {
+      "ordinal": 25,
+      "text": "Contact retaining clip",
+      "baseline": [
+        155,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        155,
+        454,
+        229.94,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.E52.part_desc"
+    },
+    {
+      "ordinal": 26,
+      "text": "M-027",
+      "baseline": [
+        393,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        393,
+        454,
+        414.36,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.E52.bin_loc"
+    },
+    {
+      "ordinal": 27,
+      "text": "4.00",
+      "baseline": [
+        475,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        475,
+        454,
+        489.97,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.stock_parts.row.E52.qty_used"
+    },
+    {
+      "ordinal": 28,
+      "text": "Occupant callback",
+      "baseline": [
+        40,
+        174
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        174,
+        117.3,
+        182.6
+      ],
+      "role": "field_label",
+      "anchor": "absence.resident_contact.label"
+    },
+    {
+      "ordinal": 29,
+      "text": "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.",
+      "baseline": [
+        40,
+        34
+      ],
+      "font": "regular",
+      "size_pt": 7.5,
+      "bbox_pt": [
+        40,
+        34,
+        301.07,
+        41.5
+      ],
+      "role": "footer",
+      "anchor": "furniture.footer.0"
+    },
+    {
+      "ordinal": 30,
+      "text": "Training record only; no real work or safety certification is asserted.",
+      "baseline": [
+        40,
+        21
+      ],
+      "font": "regular",
+      "size_pt": 7.5,
+      "bbox_pt": [
+        40,
+        21,
+        272.95,
+        28.5
+      ],
+      "role": "footer",
+      "anchor": "furniture.footer.1"
+    }
+  ],
+  "native_blocks": [
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        746,
+        342.3,
+        765
+      ],
+      "body": "Indicator panel maintenance note"
+    },
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        722,
+        207.5,
+        732
+      ],
+      "body": "Fictional Coral Wombat service desk"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        680,
+        572,
+        698
+      ],
+      "body": "<table><tr><td>Repair record</td><td>WO-0007163</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        644,
+        572,
+        662
+      ],
+      "body": "<table><tr><td>Premises name</td><td>Fictional Coral Wombat Court</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        608,
+        572,
+        626
+      ],
+      "body": "<table><tr><td>Place within site</td><td>Block M / Unit 005D</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        410,
+        572,
+        542
+      ],
+      "body": "<table><tr><th>Stock reference</th><th>Item supplied</th><th>Shelf</th><th>Used count</th></tr><tr><td>00048217</td><td>Panel indicator lens</td><td>M-013</td><td>3.00</td></tr><tr><td>00065028</td><td>Contact retaining clip</td><td>M-027</td><td>4.00</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        322,
+        572,
+        340
+      ],
+      "body": "<table><tr><td>Opened on</td><td>2026-10-06</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        289,
+        572,
+        307
+      ],
+      "body": "<table><tr><td>Work discipline</td><td>Electrical / indicator lamps</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        256,
+        572,
+        274
+      ],
+      "body": "<table><tr><td>Worker assigned</td><td>Fictional Sela Briar</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        223,
+        572,
+        241
+      ],
+      "body": "<table><tr><td>Job state</td><td>Closed - lamp passed bench check</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        170,
+        572,
+        188
+      ],
+      "body": "<table><tr><td>Occupant callback</td><td></td></tr></table>"
+    },
+    {
+      "kind": "footer",
+      "bbox_pt": [
+        40,
+        34,
+        301.07,
+        41.5
+      ],
+      "body": "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional."
+    },
+    {
+      "kind": "footer",
+      "bbox_pt": [
+        40,
+        21,
+        272.95,
+        28.5
+      ],
+      "body": "Training record only; no real work or safety certification is asserted."
+    }
+  ],
+  "conflict_plan": null,
+  "foundation_mutated": false,
+  "source_anchor_convention": "field.<id>, absence.<id>, conflict.<id>, table.<table>.row.<row>.<column>, furniture.*"
+}

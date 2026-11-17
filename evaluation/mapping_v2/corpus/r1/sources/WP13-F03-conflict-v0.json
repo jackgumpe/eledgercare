@@ -1,0 +1,1335 @@
+{
+  "schema": "eld-wp13-final-source/1",
+  "fixture_id": "WP13-F03-conflict-v0",
+  "family_id": "WP13-F03",
+  "case": "conflict",
+  "foundation_family": {
+    "family_id": "WP13-F03",
+    "doc_kind": "inspection_service_checklist",
+    "profile": "inspection",
+    "title": "Utility training inspection sheet",
+    "subtitle": "Fictional Jade Tern facilities bench",
+    "fields": [
+      {
+        "field_id": "work_order_id",
+        "printed_text": "QC-0006308",
+        "normalized_value": "QC-0006308",
+        "value_type": "identifier"
+      },
+      {
+        "field_id": "property_unit",
+        "printed_text": "Fictional Jade Tern Annex / Bay 004",
+        "normalized_value": "Fictional Jade Tern Annex / Bay 004",
+        "value_type": "text"
+      },
+      {
+        "field_id": "requested_date",
+        "printed_text": "2026-09-14",
+        "normalized_value": "2026-09-14",
+        "value_type": "date_iso"
+      },
+      {
+        "field_id": "assigned_tech",
+        "printed_text": "Fictional Oren Vale",
+        "normalized_value": "Fictional Oren Vale",
+        "value_type": "text"
+      },
+      {
+        "field_id": "equipment_asset_tag",
+        "printed_text": "WH-0005936",
+        "normalized_value": "WH-0005936",
+        "value_type": "identifier"
+      },
+      {
+        "field_id": "water_isolated",
+        "printed_text": "[X]",
+        "normalized_value": "true",
+        "value_type": "boolean_mark"
+      }
+    ],
+    "absence": {
+      "field_id": "secondary_vendor_po",
+      "expected_state": "absent_blank"
+    },
+    "table": {
+      "table_id": "turnover_tasks",
+      "columns": [
+        "task_code",
+        "fixture_area",
+        "action_taken",
+        "pressure_psi"
+      ],
+      "row_key_column": "task_code",
+      "rows": [
+        {
+          "row_id": "C81",
+          "cells": {
+            "task_code": {
+              "printed_text": "C-081",
+              "normalized_value": "C-081",
+              "value_type": "identifier"
+            },
+            "fixture_area": {
+              "printed_text": "Return union",
+              "normalized_value": "Return union",
+              "value_type": "text"
+            },
+            "action_taken": {
+              "printed_text": "Training gauge reading logged",
+              "normalized_value": "Training gauge reading logged",
+              "value_type": "text"
+            },
+            "pressure_psi": {
+              "printed_text": "61.50",
+              "normalized_value": "61.50",
+              "value_type": "decimal_2"
+            }
+          }
+        },
+        {
+          "row_id": "C82",
+          "cells": {
+            "task_code": {
+              "printed_text": "C-082",
+              "normalized_value": "C-082",
+              "value_type": "identifier"
+            },
+            "fixture_area": {
+              "printed_text": "Drain cock",
+              "normalized_value": "Drain cock",
+              "value_type": "text"
+            },
+            "action_taken": {
+              "printed_text": "Bench valve travel checked",
+              "normalized_value": "Bench valve travel checked",
+              "value_type": "text"
+            },
+            "pressure_psi": {
+              "printed_text": "61.00",
+              "normalized_value": "61.00",
+              "value_type": "decimal_2"
+            }
+          }
+        }
+      ]
+    },
+    "reserved_conflict": {
+      "field_id": "equipment_asset_tag",
+      "alternate_value": {
+        "printed_text": "WH-0005948",
+        "normalized_value": "WH-0005948",
+        "value_type": "identifier"
+      },
+      "truth_if_both_printed": "ambiguous",
+      "duplicate_equal_uses_original": true
+    }
+  },
+  "foundation_template": {
+    "family_id": "WP13-F03",
+    "page_size_pt": [
+      612.0,
+      792.24
+    ],
+    "bbox_convention": "[left,bottom,right,top] PDF points",
+    "title_baseline": [
+      40,
+      746
+    ],
+    "subtitle_baseline": [
+      40,
+      722
+    ],
+    "fields": [
+      {
+        "field_id": "work_order_id",
+        "label_region": [
+          40,
+          682,
+          234,
+          696
+        ],
+        "value_region": [
+          252,
+          682,
+          572,
+          696
+        ],
+        "baseline": 684
+      },
+      {
+        "field_id": "property_unit",
+        "label_region": [
+          40,
+          646,
+          234,
+          660
+        ],
+        "value_region": [
+          252,
+          646,
+          572,
+          660
+        ],
+        "baseline": 648
+      },
+      {
+        "field_id": "requested_date",
+        "label_region": [
+          40,
+          610,
+          234,
+          624
+        ],
+        "value_region": [
+          252,
+          610,
+          572,
+          624
+        ],
+        "baseline": 612
+      },
+      {
+        "field_id": "assigned_tech",
+        "label_region": [
+          40,
+          338,
+          234,
+          352
+        ],
+        "value_region": [
+          252,
+          338,
+          572,
+          352
+        ],
+        "baseline": 340
+      },
+      {
+        "field_id": "equipment_asset_tag",
+        "label_region": [
+          40,
+          302,
+          234,
+          316
+        ],
+        "value_region": [
+          252,
+          302,
+          572,
+          316
+        ],
+        "baseline": 304
+      },
+      {
+        "field_id": "water_isolated",
+        "label_region": [
+          40,
+          266,
+          234,
+          280
+        ],
+        "value_region": [
+          252,
+          266,
+          572,
+          280
+        ],
+        "baseline": 268
+      }
+    ],
+    "table": {
+      "table_id": "turnover_tasks",
+      "region": [
+        40,
+        410,
+        572,
+        542
+      ],
+      "header_baseline": 526,
+      "column_widths_pt": [
+        78,
+        130,
+        240,
+        84
+      ],
+      "row_height_pt": 36
+    },
+    "absence": {
+      "field_id": "secondary_vendor_po",
+      "label_region": [
+        40,
+        214,
+        234,
+        228
+      ],
+      "blank_region": [
+        252,
+        212,
+        572,
+        230
+      ]
+    },
+    "conflict_reserve_region": [
+      40,
+      104,
+      572,
+      188
+    ],
+    "footer_baselines": [
+      34,
+      21
+    ],
+    "finalization_rule": "Exact facts and template regions are frozen now. Catalog-selected wording, reference/expected/policy serialization and any declared guard-specific insertion await accepted public /001 plus independent /002. No inference-based selection."
+  },
+  "catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+  "source_occurrences": [
+    {
+      "anchor": "field.work_order_id",
+      "field_id": "work_order_id",
+      "blank": false,
+      "label_printed": "Inspection record",
+      "value_printed": "QC-0006308",
+      "label_bbox_pt": [
+        40,
+        682,
+        234,
+        696
+      ],
+      "value_bbox_pt": [
+        252,
+        682,
+        572,
+        696
+      ]
+    },
+    {
+      "anchor": "field.property_unit",
+      "field_id": "property_unit",
+      "blank": false,
+      "label_printed": "Inspection place",
+      "value_printed": "Fictional Jade Tern Annex / Bay 004",
+      "label_bbox_pt": [
+        40,
+        646,
+        234,
+        660
+      ],
+      "value_bbox_pt": [
+        252,
+        646,
+        572,
+        660
+      ]
+    },
+    {
+      "anchor": "field.requested_date",
+      "field_id": "requested_date",
+      "blank": false,
+      "label_printed": "Check day",
+      "value_printed": "2026-09-14",
+      "label_bbox_pt": [
+        40,
+        610,
+        234,
+        624
+      ],
+      "value_bbox_pt": [
+        252,
+        610,
+        572,
+        624
+      ]
+    },
+    {
+      "anchor": "field.assigned_tech",
+      "field_id": "assigned_tech",
+      "blank": false,
+      "label_printed": "Examiner assigned",
+      "value_printed": "Fictional Oren Vale",
+      "label_bbox_pt": [
+        40,
+        338,
+        234,
+        352
+      ],
+      "value_bbox_pt": [
+        252,
+        338,
+        572,
+        352
+      ]
+    },
+    {
+      "anchor": "field.equipment_asset_tag",
+      "field_id": "equipment_asset_tag",
+      "blank": false,
+      "label_printed": "Equipment reference",
+      "value_printed": "WH-0005936",
+      "label_bbox_pt": [
+        40,
+        302,
+        234,
+        316
+      ],
+      "value_bbox_pt": [
+        252,
+        302,
+        572,
+        316
+      ]
+    },
+    {
+      "anchor": "conflict.equipment_asset_tag",
+      "field_id": "equipment_asset_tag",
+      "blank": false,
+      "label_printed": "Water Heater Asset Tag",
+      "value_printed": "WH-0005948",
+      "label_bbox_pt": [
+        40,
+        148,
+        234,
+        162
+      ],
+      "value_bbox_pt": [
+        252,
+        148,
+        572,
+        162
+      ]
+    },
+    {
+      "anchor": "field.water_isolated",
+      "field_id": "water_isolated",
+      "blank": false,
+      "label_printed": "Isolation verified",
+      "value_printed": "[X]",
+      "label_bbox_pt": [
+        40,
+        266,
+        234,
+        280
+      ],
+      "value_bbox_pt": [
+        252,
+        266,
+        572,
+        280
+      ]
+    },
+    {
+      "anchor": "table.turnover_tasks.row.C81.task_code",
+      "table_id": "turnover_tasks",
+      "row_ordinal": 0,
+      "row_id": "C81",
+      "column_id": "task_code",
+      "label_printed": "Check ref",
+      "value_printed": "C-081",
+      "label_bbox_pt": [
+        40,
+        518,
+        118,
+        542
+      ],
+      "value_bbox_pt": [
+        40,
+        482,
+        118,
+        506
+      ]
+    },
+    {
+      "anchor": "table.turnover_tasks.row.C81.fixture_area",
+      "table_id": "turnover_tasks",
+      "row_ordinal": 0,
+      "row_id": "C81",
+      "column_id": "fixture_area",
+      "label_printed": "Inspection zone",
+      "value_printed": "Return union",
+      "label_bbox_pt": [
+        118,
+        518,
+        248,
+        542
+      ],
+      "value_bbox_pt": [
+        118,
+        482,
+        248,
+        506
+      ]
+    },
+    {
+      "anchor": "table.turnover_tasks.row.C81.action_taken",
+      "table_id": "turnover_tasks",
+      "row_ordinal": 0,
+      "row_id": "C81",
+      "column_id": "action_taken",
+      "label_printed": "Observed work",
+      "value_printed": "Training gauge reading logged",
+      "label_bbox_pt": [
+        248,
+        518,
+        488,
+        542
+      ],
+      "value_bbox_pt": [
+        248,
+        482,
+        488,
+        506
+      ]
+    },
+    {
+      "anchor": "table.turnover_tasks.row.C81.pressure_psi",
+      "table_id": "turnover_tasks",
+      "row_ordinal": 0,
+      "row_id": "C81",
+      "column_id": "pressure_psi",
+      "label_printed": "Gauge PSI",
+      "value_printed": "61.50",
+      "label_bbox_pt": [
+        488,
+        518,
+        572,
+        542
+      ],
+      "value_bbox_pt": [
+        488,
+        482,
+        572,
+        506
+      ]
+    },
+    {
+      "anchor": "table.turnover_tasks.row.C82.task_code",
+      "table_id": "turnover_tasks",
+      "row_ordinal": 1,
+      "row_id": "C82",
+      "column_id": "task_code",
+      "label_printed": "Check ref",
+      "value_printed": "C-082",
+      "label_bbox_pt": [
+        40,
+        518,
+        118,
+        542
+      ],
+      "value_bbox_pt": [
+        40,
+        446,
+        118,
+        470
+      ]
+    },
+    {
+      "anchor": "table.turnover_tasks.row.C82.fixture_area",
+      "table_id": "turnover_tasks",
+      "row_ordinal": 1,
+      "row_id": "C82",
+      "column_id": "fixture_area",
+      "label_printed": "Inspection zone",
+      "value_printed": "Drain cock",
+      "label_bbox_pt": [
+        118,
+        518,
+        248,
+        542
+      ],
+      "value_bbox_pt": [
+        118,
+        446,
+        248,
+        470
+      ]
+    },
+    {
+      "anchor": "table.turnover_tasks.row.C82.action_taken",
+      "table_id": "turnover_tasks",
+      "row_ordinal": 1,
+      "row_id": "C82",
+      "column_id": "action_taken",
+      "label_printed": "Observed work",
+      "value_printed": "Bench valve travel checked",
+      "label_bbox_pt": [
+        248,
+        518,
+        488,
+        542
+      ],
+      "value_bbox_pt": [
+        248,
+        446,
+        488,
+        470
+      ]
+    },
+    {
+      "anchor": "table.turnover_tasks.row.C82.pressure_psi",
+      "table_id": "turnover_tasks",
+      "row_ordinal": 1,
+      "row_id": "C82",
+      "column_id": "pressure_psi",
+      "label_printed": "Gauge PSI",
+      "value_printed": "61.00",
+      "label_bbox_pt": [
+        488,
+        518,
+        572,
+        542
+      ],
+      "value_bbox_pt": [
+        488,
+        446,
+        572,
+        470
+      ]
+    },
+    {
+      "anchor": "absence.secondary_vendor_po",
+      "field_id": "secondary_vendor_po",
+      "blank": true,
+      "label_printed": "Outside order reference",
+      "value_printed": "",
+      "label_bbox_pt": [
+        40,
+        214,
+        234,
+        228
+      ],
+      "value_bbox_pt": [
+        252,
+        212,
+        572,
+        230
+      ]
+    }
+  ],
+  "furniture_and_text_runs": [
+    {
+      "ordinal": 0,
+      "text": "Utility training inspection sheet",
+      "baseline": [
+        40,
+        746
+      ],
+      "font": "bold",
+      "size_pt": 19,
+      "bbox_pt": [
+        40,
+        746,
+        330.42,
+        765
+      ],
+      "role": "title",
+      "anchor": "furniture.title"
+    },
+    {
+      "ordinal": 1,
+      "text": "Fictional Jade Tern facilities bench",
+      "baseline": [
+        40,
+        722
+      ],
+      "font": "regular",
+      "size_pt": 10,
+      "bbox_pt": [
+        40,
+        722,
+        203.5,
+        732
+      ],
+      "role": "subtitle",
+      "anchor": "furniture.subtitle"
+    },
+    {
+      "ordinal": 2,
+      "text": "Inspection record",
+      "baseline": [
+        40,
+        684
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        684,
+        111.65,
+        692.6
+      ],
+      "role": "field_label",
+      "anchor": "field.work_order_id.label"
+    },
+    {
+      "ordinal": 3,
+      "text": "QC-0006308",
+      "baseline": [
+        252,
+        684
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        684,
+        305.64,
+        693.2
+      ],
+      "role": "field_value",
+      "anchor": "field.work_order_id.value"
+    },
+    {
+      "ordinal": 4,
+      "text": "Inspection place",
+      "baseline": [
+        40,
+        648
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        648,
+        107.91,
+        656.6
+      ],
+      "role": "field_label",
+      "anchor": "field.property_unit.label"
+    },
+    {
+      "ordinal": 5,
+      "text": "Fictional Jade Tern Annex / Bay 004",
+      "baseline": [
+        252,
+        648
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        648,
+        406.93,
+        657.2
+      ],
+      "role": "field_value",
+      "anchor": "field.property_unit.value"
+    },
+    {
+      "ordinal": 6,
+      "text": "Check day",
+      "baseline": [
+        40,
+        612
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        612,
+        84.21,
+        620.6
+      ],
+      "role": "field_label",
+      "anchor": "field.requested_date.label"
+    },
+    {
+      "ordinal": 7,
+      "text": "2026-09-14",
+      "baseline": [
+        252,
+        612
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        612,
+        299.66,
+        621.2
+      ],
+      "role": "field_value",
+      "anchor": "field.requested_date.value"
+    },
+    {
+      "ordinal": 8,
+      "text": "Examiner assigned",
+      "baseline": [
+        40,
+        340
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        340,
+        118.58,
+        348.6
+      ],
+      "role": "field_label",
+      "anchor": "field.assigned_tech.label"
+    },
+    {
+      "ordinal": 9,
+      "text": "Fictional Oren Vale",
+      "baseline": [
+        252,
+        340
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        340,
+        333.88,
+        349.2
+      ],
+      "role": "field_value",
+      "anchor": "field.assigned_tech.value"
+    },
+    {
+      "ordinal": 10,
+      "text": "Equipment reference",
+      "baseline": [
+        40,
+        304
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        304,
+        125.51,
+        312.6
+      ],
+      "role": "field_label",
+      "anchor": "field.equipment_asset_tag.label"
+    },
+    {
+      "ordinal": 11,
+      "text": "WH-0005936",
+      "baseline": [
+        252,
+        304
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        304,
+        305.64,
+        313.2
+      ],
+      "role": "field_value",
+      "anchor": "field.equipment_asset_tag.value"
+    },
+    {
+      "ordinal": 12,
+      "text": "Repeated entry; neither entry has priority.",
+      "baseline": [
+        40,
+        174
+      ],
+      "font": "regular",
+      "size_pt": 8,
+      "bbox_pt": [
+        40,
+        174,
+        191.68,
+        182
+      ],
+      "role": "conflict_notice",
+      "anchor": "conflict.caption"
+    },
+    {
+      "ordinal": 13,
+      "text": "Water Heater Asset Tag",
+      "baseline": [
+        40,
+        150
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        150,
+        139.73,
+        158.6
+      ],
+      "role": "field_label",
+      "anchor": "conflict.equipment_asset_tag.label"
+    },
+    {
+      "ordinal": 14,
+      "text": "WH-0005948",
+      "baseline": [
+        252,
+        150
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        150,
+        305.64,
+        159.2
+      ],
+      "role": "field_value",
+      "anchor": "conflict.equipment_asset_tag.value"
+    },
+    {
+      "ordinal": 15,
+      "text": "Isolation verified",
+      "baseline": [
+        40,
+        268
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        268,
+        109.74,
+        276.6
+      ],
+      "role": "field_label",
+      "anchor": "field.water_isolated.label"
+    },
+    {
+      "ordinal": 16,
+      "text": "[X]",
+      "baseline": [
+        252,
+        268
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        268,
+        264.7,
+        277.2
+      ],
+      "role": "field_value",
+      "anchor": "field.water_isolated.value"
+    },
+    {
+      "ordinal": 17,
+      "text": "Check ref",
+      "baseline": [
+        43,
+        526
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        43,
+        526,
+        77.12,
+        533.2
+      ],
+      "role": "table_header",
+      "anchor": "table.turnover_tasks.header.task_code"
+    },
+    {
+      "ordinal": 18,
+      "text": "Inspection zone",
+      "baseline": [
+        121,
+        526
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        121,
+        526,
+        175.65,
+        533.2
+      ],
+      "role": "table_header",
+      "anchor": "table.turnover_tasks.header.fixture_area"
+    },
+    {
+      "ordinal": 19,
+      "text": "Observed work",
+      "baseline": [
+        251,
+        526
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        251,
+        526,
+        303.43,
+        533.2
+      ],
+      "role": "table_header",
+      "anchor": "table.turnover_tasks.header.action_taken"
+    },
+    {
+      "ordinal": 20,
+      "text": "Gauge PSI",
+      "baseline": [
+        491,
+        526
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        491,
+        526,
+        528.24,
+        533.2
+      ],
+      "role": "table_header",
+      "anchor": "table.turnover_tasks.header.pressure_psi"
+    },
+    {
+      "ordinal": 21,
+      "text": "C-081",
+      "baseline": [
+        43,
+        490
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        490,
+        64.36,
+        497.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.turnover_tasks.row.C81.task_code"
+    },
+    {
+      "ordinal": 22,
+      "text": "Return union",
+      "baseline": [
+        121,
+        490
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        121,
+        490,
+        164.62,
+        497.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.turnover_tasks.row.C81.fixture_area"
+    },
+    {
+      "ordinal": 23,
+      "text": "Training gauge reading logged",
+      "baseline": [
+        251,
+        490
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        251,
+        490,
+        354.89,
+        497.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.turnover_tasks.row.C81.action_taken"
+    },
+    {
+      "ordinal": 24,
+      "text": "61.50",
+      "baseline": [
+        491,
+        490
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        491,
+        490,
+        510.23,
+        497.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.turnover_tasks.row.C81.pressure_psi"
+    },
+    {
+      "ordinal": 25,
+      "text": "C-082",
+      "baseline": [
+        43,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        454,
+        64.36,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.turnover_tasks.row.C82.task_code"
+    },
+    {
+      "ordinal": 26,
+      "text": "Drain cock",
+      "baseline": [
+        121,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        121,
+        454,
+        158.62,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.turnover_tasks.row.C82.fixture_area"
+    },
+    {
+      "ordinal": 27,
+      "text": "Bench valve travel checked",
+      "baseline": [
+        251,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        251,
+        454,
+        346.38,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.turnover_tasks.row.C82.action_taken"
+    },
+    {
+      "ordinal": 28,
+      "text": "61.00",
+      "baseline": [
+        491,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        491,
+        454,
+        510.23,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.turnover_tasks.row.C82.pressure_psi"
+    },
+    {
+      "ordinal": 29,
+      "text": "Outside order reference",
+      "baseline": [
+        40,
+        216
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        216,
+        138.18,
+        224.6
+      ],
+      "role": "field_label",
+      "anchor": "absence.secondary_vendor_po.label"
+    },
+    {
+      "ordinal": 30,
+      "text": "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.",
+      "baseline": [
+        40,
+        34
+      ],
+      "font": "regular",
+      "size_pt": 7.5,
+      "bbox_pt": [
+        40,
+        34,
+        301.07,
+        41.5
+      ],
+      "role": "footer",
+      "anchor": "furniture.footer.0"
+    },
+    {
+      "ordinal": 31,
+      "text": "Training record only; no real work or safety certification is asserted.",
+      "baseline": [
+        40,
+        21
+      ],
+      "font": "regular",
+      "size_pt": 7.5,
+      "bbox_pt": [
+        40,
+        21,
+        272.95,
+        28.5
+      ],
+      "role": "footer",
+      "anchor": "furniture.footer.1"
+    }
+  ],
+  "native_blocks": [
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        746,
+        330.42,
+        765
+      ],
+      "body": "Utility training inspection sheet"
+    },
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        722,
+        203.5,
+        732
+      ],
+      "body": "Fictional Jade Tern facilities bench"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        680,
+        572,
+        698
+      ],
+      "body": "<table><tr><td>Inspection record</td><td>QC-0006308</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        644,
+        572,
+        662
+      ],
+      "body": "<table><tr><td>Inspection place</td><td>Fictional Jade Tern Annex / Bay 004</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        608,
+        572,
+        626
+      ],
+      "body": "<table><tr><td>Check day</td><td>2026-09-14</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        410,
+        572,
+        542
+      ],
+      "body": "<table><tr><th>Check ref</th><th>Inspection zone</th><th>Observed work</th><th>Gauge PSI</th></tr><tr><td>C-081</td><td>Return union</td><td>Training gauge reading logged</td><td>61.50</td></tr><tr><td>C-082</td><td>Drain cock</td><td>Bench valve travel checked</td><td>61.00</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        336,
+        572,
+        354
+      ],
+      "body": "<table><tr><td>Examiner assigned</td><td>Fictional Oren Vale</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        300,
+        572,
+        318
+      ],
+      "body": "<table><tr><td>Equipment reference</td><td>WH-0005936</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        264,
+        572,
+        282
+      ],
+      "body": "<table><tr><td>Isolation verified</td><td>[X]</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        212,
+        572,
+        230
+      ],
+      "body": "<table><tr><td>Outside order reference</td><td></td></tr></table>"
+    },
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        174,
+        191.68,
+        182
+      ],
+      "body": "Repeated entry; neither entry has priority."
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        146,
+        572,
+        164
+      ],
+      "body": "<table><tr><td>Water Heater Asset Tag</td><td>WH-0005948</td></tr></table>"
+    },
+    {
+      "kind": "footer",
+      "bbox_pt": [
+        40,
+        34,
+        301.07,
+        41.5
+      ],
+      "body": "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional."
+    },
+    {
+      "kind": "footer",
+      "bbox_pt": [
+        40,
+        21,
+        272.95,
+        28.5
+      ],
+      "body": "Training record only; no real work or safety certification is asserted."
+    }
+  ],
+  "conflict_plan": {
+    "mode": "conflicting_values",
+    "extra_label": "Water Heater Asset Tag",
+    "value_source": "reserved_alternate",
+    "truth_status": "ambiguous"
+  },
+  "foundation_mutated": false,
+  "source_anchor_convention": "field.<id>, absence.<id>, conflict.<id>, table.<table>.row.<row>.<column>, furniture.*"
+}

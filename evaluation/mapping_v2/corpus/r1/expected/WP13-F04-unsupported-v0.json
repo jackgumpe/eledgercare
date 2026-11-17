@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "WP13-F04-unsupported-v0",
+  "family_id": "WP13-F04",
+  "doc_kind": "work_order",
+  "split": "vocabulary_eval",
+  "variant_kind": "unsupported",
+  "page_count": 1,
+  "parent_fixture_id": null,
+  "expected_fields": [
+    {
+      "field_id": "work_order_id",
+      "page_number": 1,
+      "label_printed": "Maintenance docket",
+      "printed_text": "WO-0007163",
+      "normalized_value": "WO-0007163",
+      "value_type": "identifier",
+      "bbox_pt": [
+        252,
+        682,
+        572,
+        696
+      ]
+    },
+    {
+      "field_id": "property_name",
+      "page_number": 1,
+      "label_printed": "Estate designation",
+      "printed_text": "Fictional Coral Wombat Court",
+      "normalized_value": "Fictional Coral Wombat Court",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        646,
+        572,
+        660
+      ]
+    },
+    {
+      "field_id": "building_unit",
+      "page_number": 1,
+      "label_printed": "Internal location",
+      "printed_text": "Block M / Unit 005D",
+      "normalized_value": "Block M / Unit 005D",
+      "value_type": "identifier",
+      "bbox_pt": [
+        252,
+        610,
+        572,
+        624
+      ]
+    },
+    {
+      "field_id": "requested_date",
+      "page_number": 1,
+      "label_printed": "Date raised",
+      "printed_text": "2026-10-06",
+      "normalized_value": "2026-10-06",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        252,
+        324,
+        572,
+        338
+      ]
+    },
+    {
+      "field_id": "trade_category",
+      "page_number": 1,
+      "label_printed": "Service specialty",
+      "printed_text": "Electrical / indicator lamps",
+      "normalized_value": "Electrical / indicator lamps",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        291,
+        572,
+        305
+      ]
+    },
+    {
+      "field_id": "assigned_tech",
+      "page_number": 1,
+      "label_printed": "Attending craftsperson",
+      "printed_text": "Fictional Sela Briar",
+      "normalized_value": "Fictional Sela Briar",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        258,
+        572,
+        272
+      ]
+    },
+    {
+      "field_id": "completion_status",
+      "page_number": 1,
+      "label_printed": "Closure notation",
+      "printed_text": "Closed - lamp passed bench check",
+      "normalized_value": "Closed - lamp passed bench check",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        225,
+        572,
+        239
+      ]
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "stock_parts",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "rows": [
+        {
+          "row_id": "E51",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "00048217",
+              "normalized_value": "00048217",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                482,
+                152,
+                506
+              ]
+            },
+            "part_desc": {
+              "printed_text": "Panel indicator lens",
+              "normalized_value": "Panel indicator lens",
+              "value_type": "text",
+              "bbox_pt": [
+                152,
+                482,
+                390,
+                506
+              ]
+            },
+            "bin_loc": {
+              "printed_text": "M-013",
+              "normalized_value": "M-013",
+              "value_type": "identifier",
+              "bbox_pt": [
+                390,
+                482,
+                472,
+                506
+              ]
+            },
+            "qty_used": {
+              "printed_text": "3.00",
+              "normalized_value": "3.00",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                472,
+                482,
+                572,
+                506
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "E52",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "00065028",
+              "normalized_value": "00065028",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                446,
+                152,
+                470
+              ]
+            },
+            "part_desc": {
+              "printed_text": "Contact retaining clip",
+              "normalized_value": "Contact retaining clip",
+              "value_type": "text",
+              "bbox_pt": [
+                152,
+                446,
+                390,
+                470
+              ]
+            },
+            "bin_loc": {
+              "printed_text": "M-027",
+              "normalized_value": "M-027",
+              "value_type": "identifier",
+              "bbox_pt": [
+                390,
+                446,
+                472,
+                470
+              ]
+            },
+            "qty_used": {
+              "printed_text": "4.00",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                472,
+                446,
+                572,
+                470
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "resident_contact",
+      "page_number": 1,
+      "label_printed": "Tenant reply line",
+      "expected_state": "absent_blank",
+      "bbox_pt": [
+        252,
+        170,
+        572,
+        188
+      ]
+    }
+  ],
+  "page_sentinels": [],
+  "expected_adjacent_page_pairs": [],
+  "cross_page_links": []
+}
