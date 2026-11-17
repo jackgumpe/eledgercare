@@ -1,0 +1,13 @@
+Pre-freeze dry-run failure #2 (2026-11-17 UTC, `.scratch/wp0012-dryrun`)
+Command:
+  python -B docs/reviews/WP-0012/eld-f4-reviewer/preparation/helpers/run_wp0012_reviewer_rehearsal.py --mode cpu-prep-validation ...
+Exit code: 1
+Observed error:
+  AssertionError: Assertion failed [q0_readonly_pure_stdlib_manifest_verified]:
+    {'verified_model_file_count': 18, 'total_model_bytes': 6699195181, 'locked_distribution_count': 32}
+  In `.scratch/wp0012-dryrun/q0-readonly-manifest-check.json`: `extra_model_entries == [".cache"]`.
+Root cause & pre-freeze correction in helper only:
+  `C:\Users\jackg\eLedgerCare-Q0\WP-0005\models\Unlimited_OCR_2_04809669` contains Hugging Face's original WP-0005 download
+  metadata directory `.cache` (matching `TOLERATED_METADATA_PREFIX` in `workers/local_ocr/local_ocr/verify_runtime.py:172`,
+  with zero `.py`/`.pyc` files inside `.cache`). Updated `verify_q0_readonly_pure_stdlib` prior to helper freeze to check
+  `unexpected_extra_model_entries == []` while recording tolerated `.cache` download metadata (`zero .py/.pyc`).

@@ -1,0 +1,14 @@
+Pre-freeze dry-run failure #3 (2026-11-17 UTC, `.scratch/wp0012-dryrun`)
+Command:
+  python -B docs/reviews/WP-0012/eld-f4-reviewer/preparation/helpers/run_wp0012_reviewer_rehearsal.py --mode cpu-prep-validation ...
+Exit code: 1 (`finally:` block stopped PostgreSQL 18.7 cleanly)
+Observed error:
+  AssertionError: Assertion failed [historical_wp0010_databases_intact_before]:
+    {'seed_f3_sha256': '9a2aae179b126172aa7919e373c70ad9cc3dea97da4b9c0c2c2e0b668465cc8d',
+     'migrated_proj_sha256': '0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa'}
+Root cause & pre-freeze correction in helper only:
+  `compute_canonical_8table_snapshot` used the shortened column projection from `run_f4_independent_review.py` rather than the
+  canonical column projection from `prepare_and_verify_f3_seed.py` (`L560-648`) that defined
+  `841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993` (`updated_at_utc`, `started_at_utc`/`ended_at_utc`,
+  `worker_source_sha256_hex`, `load_duration_ms`..`total_duration_ms`, and `work_order_review_heads.input_sha256_hex`).
+  Aligned `compute_canonical_8table_snapshot` SQL with `prepare_and_verify_f3_seed.py` prior to helper freeze.

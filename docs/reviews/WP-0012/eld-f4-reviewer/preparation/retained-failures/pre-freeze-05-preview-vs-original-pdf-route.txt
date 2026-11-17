@@ -1,0 +1,11 @@
+Pre-freeze dry-run failure #5 (2026-11-17 UTC, `.scratch/wp0012-dryrun`)
+Command:
+  python -B docs/reviews/WP-0012/eld-f4-reviewer/preparation/helpers/run_wp0012_reviewer_rehearsal.py --mode cpu-prep-validation ...
+Exit code: 1 (`finally:` stopped owned UI `4710`, API `5690`, and PostgreSQL `55439` cleanly)
+Observed error:
+  Edge workflow assertion failed [pdf_range_206_readable]: {"status":200,"contentRange":null,"magic":"%PDF-1.4..."}
+Root cause & pre-freeze correction in helper only:
+  `DocumentEndpoints.cs:119` serves `/api/documents/{id}/original` as a full attachment download (`200 OK`), while
+  `pdf-preview-url.ts:19` mounts inline PDF preview frames against `/api/documents/{id}/preview#page=1..3` (`206` Range-enabled).
+  Updated `drive_wp0012_edge_workflow.mjs` prior to helper freeze to verify both `206` Range on `/preview`, full-byte `200`
+  integrity on `/original`, and `/preview#page=...` iframe URLs.
