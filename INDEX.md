@@ -866,3 +866,6 @@ Original independent152f8ac83f2ce4ffb8061a2e85fbb5f68fc18bfb evidence passed fin
 | WP-0010 / 007 | eld-f4-reviewer / review | review/wp-0010-f4; eledgercare-worktrees/eld-f4-reviewer | docs/agent-reports/eld-f4-reviewer/WP-0010/007_2026-11-17_review_eld-f4-reviewer.md | HELD exact006 independent reconciliation |
 
 Original003/004 and all failed/passing evidence remain immutable. Same Carbon conversations/high effort; no fresh Codex agent. Root sole coordinator/source author separation retained. Final005 stays reserved and uncompleted.
+
+
+WP-0010 author006 correction RUNNING_CONFIRMED same Carbonb7c54417-db09-49bd-8d2b-7cc808f113be/high, PID37504/tool44693, authoritycd5237303beaa374c3a60e9de58e45808b55435f. Prior author CLI ended/absent, DNS resolved. Independent original004 packaging continues;007 held until exact006 and ended prior reviewer CLI. WP-0011 independent combined comparison reports full equality including fixed-sentinel raw/token/raster/fullscores/diagnostics; final006 publication pending. Both model leases returned; no new inference.
