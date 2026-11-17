@@ -1,0 +1,11 @@
+# WP-0013 final sealed reservation
+
+The [reservation](reservation.json) freezes twelve one-page cases across four independent new fictional families, each with supported, conflict and unsupported cases. It binds 48 PDF/expected/reference/policy descriptors and the complete private source/render/evidence inventory. Future artifact paths are reserved under `evaluation/mapping_v2/corpus/r1/`; no corpus content is published here.
+
+The accepted public contract is author /001 `9b90528f4dbd0ea1ff61c86d0d4040decf178a0a`, independent /002 `bb66c7261339a1e5b36a826e949b1eb6f8d62cd8`, tested source `6207daf1dc9cbdd141d083ca2d8d1e7507c63b09`, released by root `48ffd871eec58dac841e12a40c9d242aece2608c`. Exact catalog/protocol hashes are in the reservation. The earlier [foundation receipt](foundation/receipt.json) remains unchanged.
+
+Final generation, source validation and inventory were frozen before their decisive executions. All ten author verification groups passed first attempt: all twelve accepted-contract cases, four matched families, complete actual PDF text and reading order, faithful ideal-native reference structure, actual render equality and byte-identical regeneration of all 85 core files. Author visual inspection covered all twelve actual rendered pages. Original foundation facts, layouts and custody records remain intact. These author checks do not self-accept ground truth.
+
+Known truth, ambiguous/unknown truth, explicit blank absence and required abstention remain separate under the accepted interface. Every expected row has a grounded known canonical row key. No OCR/model output, mapper prediction or unit repair was used to select or tune the corpus. Public metadata contains counts, hashes and fixed identifiers only. Exact private commit and location go separately only to root and independent reviewer; custody is procedural, not an OS access-denial guarantee.
+
+Root must verify this reservation and bind independent admission /004. Canonical custodian /003 waits accepted /004. Mapper /005 requires root binding of accepted /002 and these frozen bytes. Contents stay sealed until independently accepted implementation /006 and explicit root unseal. No inference, GPU lease or corpus publication is released by this metadata. The future unseal must copy the admitted originals unchanged.
