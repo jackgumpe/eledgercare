@@ -1,0 +1,3672 @@
+{
+  "schema": "eld-wp13-independent-source-checks/1",
+  "mode": "probes",
+  "status": "PASS",
+  "started_utc": "2026-11-17T15:27:15.411827+00:00",
+  "helper_freeze": "4999469ce914bffb5dca5299d46cc9e09d239127",
+  "reviewed_source": "c0a1af638e807803b6014b3a93ecb7f9946ce6e1",
+  "source_tree": "4477104eb2a3c73f496ef451cef9578f54d96518",
+  "source_inputs": [
+    {
+      "path": "qualification/baseline/README.md",
+      "bytes": 22649,
+      "sha256": "40b3ddfb8f1d2ff3a0adfcebd210468a5f05b0c87f3381a2288cbc02ef00142d",
+      "git_blob": "d3695acdb8e089ab96b759abcfaf9ce0726cdc13"
+    },
+    {
+      "path": "qualification/baseline/baseline.py",
+      "bytes": 6465,
+      "sha256": "7034792bbbcf3a16f45d3019d296d141271040c15d0cc15c1e03bff6b016f28a",
+      "git_blob": "1aaf176886ba29ab41b2b6a875e4b0be539d8994"
+    },
+    {
+      "path": "qualification/baseline/corpus.py",
+      "bytes": 3997,
+      "sha256": "2ed902e0b879989e63e161ac2a3e5040f801a64f3eb588de13dcbf4e6d01d74e",
+      "git_blob": "36f79e03dd54962844bb3a4804013dbaa770224d"
+    },
+    {
+      "path": "qualification/baseline/mapping.json",
+      "bytes": 8388,
+      "sha256": "eed1fba8aeee921e2f0f586cb4caf0b9ec0d4cd93d74df43d68c6358e1b21bf9",
+      "git_blob": "cf5f73740b6c756bdab233b7dc3d33c3edf349a5"
+    },
+    {
+      "path": "qualification/baseline/native.py",
+      "bytes": 9625,
+      "sha256": "67a0ee062b22e93978857f5f19ad3b72d43b0407f8545a5d594039b5c755997c",
+      "git_blob": "10917b891e57d993176a19a8845dab917fa794c0"
+    },
+    {
+      "path": "qualification/baseline/prepare.py",
+      "bytes": 4372,
+      "sha256": "023a3f78d3e1530784d680887202a566ec09d387e64cfa7f5f8a0f24710f898b",
+      "git_blob": "1851b412e960d14fac09a9cb0da28766762c18df"
+    },
+    {
+      "path": "qualification/baseline/protocol.json",
+      "bytes": 26651,
+      "sha256": "97ce68486813f34d04a61e24fc7b19f2c291e9062078fd6319bb0230812dbee8",
+      "git_blob": "2c5c7fa9bb60d585e39a6fb27610c5cc5a5a85e9"
+    },
+    {
+      "path": "qualification/baseline/release.py",
+      "bytes": 8072,
+      "sha256": "8b9334d8e47fa3ec0df84e4d1c149b608c3f4f9ff3c98b7ac1eddc80f6738fe0",
+      "git_blob": "c3fb82f58a6c5f9044730436d3a00113c1431fc0"
+    },
+    {
+      "path": "qualification/baseline/run_checks.py",
+      "bytes": 3302,
+      "sha256": "cfd0c3bf37cedbc36b79f2893f13ebd15c262b41ae54dc9dd97ec96dfe776b7d",
+      "git_blob": "81a0e44c3c9bdaac5fafd76c1231941a79fa82e0"
+    },
+    {
+      "path": "qualification/baseline/runtime.py",
+      "bytes": 16038,
+      "sha256": "ab10f03517891f2fef8fd1a1bee0f1b055b61598810d4f7ba69742e133617367",
+      "git_blob": "65b8cec06b1ab0a9fe3c84c34bc5dadfb291e153"
+    },
+    {
+      "path": "qualification/baseline/score.py",
+      "bytes": 13637,
+      "sha256": "b63ad4e9cd930a628843ad41609099950f075bea7e2a115c0321c5b77590cf55",
+      "git_blob": "cc58a16f4c3598f663b1e4aef506b45f3dc0ea16"
+    },
+    {
+      "path": "qualification/baseline/tests/run_runtime_checks.py",
+      "bytes": 2866,
+      "sha256": "de33d4e6e195163e491e4f27bec163d51acfb3f45576b2dcc903c4191d638c85",
+      "git_blob": "abe000ae97d0998b2009baf2cd66155e93900046"
+    },
+    {
+      "path": "qualification/baseline/tests/test_baseline.py",
+      "bytes": 20703,
+      "sha256": "68ef1d812082e9c98a96e49c4d9b918836a69f0219615b7d8d4e5fd4db02ee94",
+      "git_blob": "6da20cf09eeb225c01b275f4a5fb48a569fabc84"
+    },
+    {
+      "path": "qualification/baseline/tests/test_runtime_correction.py",
+      "bytes": 23801,
+      "sha256": "cbc44fb84582bab8cb29f6eb9c1a2ae9b3d3afaf2b5ce6ad5c4df75e6520e418",
+      "git_blob": "330354f1d269390489ddabee5b071533e1e802fc"
+    },
+    {
+      "path": "qualification/baseline/typed_values.py",
+      "bytes": 3239,
+      "sha256": "34081537f2df43c7ee5fabfb0f55aab61e3224cea99da3aa20b7bc3f7d41efa8",
+      "git_blob": "cdf154aad5e371af8ee52635d7d28973412c076a"
+    },
+    {
+      "path": "qualification/baseline/winjob.py",
+      "bytes": 2272,
+      "sha256": "6a02c0d1649b755b4f95a341bdb7a5533491edd96b26bd73fa9b43f013fd7b9c",
+      "git_blob": "def16f401335b78799bbb5f048163aad8dc07e90"
+    },
+    {
+      "path": "qualification/coverage_v1/INTERFACE.md",
+      "bytes": 5068,
+      "sha256": "febffc08c85eef7ac274ba6b9b72449db53720dcfb6deb57acd7e17a83ef850b",
+      "git_blob": "3fc80237a6ed9af2bd672574e7c5307aec1d6780"
+    },
+    {
+      "path": "qualification/coverage_v1/README.md",
+      "bytes": 12421,
+      "sha256": "918c1aa1a61b772deecc189907f8a62e56c349ae55ff39f78a9c0396de36b10c",
+      "git_blob": "3f181a8f995e4f11ec3aedd31a0f7a22e603300b"
+    },
+    {
+      "path": "qualification/coverage_v1/__init__.py",
+      "bytes": 79,
+      "sha256": "f194c6f307b1dc8824edf2b0023d98e61f864a424d2dacc92f6572c6a5457cd7",
+      "git_blob": "5b43e8acc8f86f207cea4cd639c0a47627dc2a3a"
+    },
+    {
+      "path": "qualification/coverage_v1/cli.py",
+      "bytes": 1721,
+      "sha256": "ae758ad88365c1bd27e57d00c069541b798febd5f9709aaf5001d697149382d7",
+      "git_blob": "8b385a9f7d2583ed54ebc623410b3009c29977d8"
+    },
+    {
+      "path": "qualification/coverage_v1/common.py",
+      "bytes": 707,
+      "sha256": "48b443059adf2ec40b42958275d839320a783e4f165cc5d22e5b1e90816ced92",
+      "git_blob": "0ab7bba38a78080ede1c26f59ce52891551b6597"
+    },
+    {
+      "path": "qualification/coverage_v1/contract.py",
+      "bytes": 8041,
+      "sha256": "7437f87cc6cfc2df58ebd6102b95951d3b0199e609e85b39c965e648bf6ec73d",
+      "git_blob": "ea431b8cdf958e45460f3b62cc011d4365f9607a"
+    },
+    {
+      "path": "qualification/coverage_v1/diagnostics.py",
+      "bytes": 16747,
+      "sha256": "6f6b9a9a593463d491ab35353f5d45a36ad73a8140a8d3d77c75d1b861f1c05d",
+      "git_blob": "8ac69d6fa8d43c985b492af7ecf26e9a83eb1a40"
+    },
+    {
+      "path": "qualification/coverage_v1/protocol.json",
+      "bytes": 31241,
+      "sha256": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000",
+      "git_blob": "37e3aae44e995e64c3a501196f4cc0127c0c9128"
+    },
+    {
+      "path": "qualification/coverage_v1/release.py",
+      "bytes": 9792,
+      "sha256": "d64644447a2edea5bb09933a8ed389afd8e79656f94ec1989fcbd934c23d944d",
+      "git_blob": "52169a6d9d530204101ac5c1db9c412b417ea00f"
+    },
+    {
+      "path": "qualification/coverage_v1/run_checks.py",
+      "bytes": 9250,
+      "sha256": "63af560c2ac535bd03711802949ff5689e01206e91095a409551fe2edf44add0",
+      "git_blob": "2448c954ff9e1b8bb0dcff027a4d288da76fb072"
+    },
+    {
+      "path": "qualification/coverage_v1/runtime.py",
+      "bytes": 17603,
+      "sha256": "291f0be82a44ce1412e882a54117f52f42cd057eb2c0633d0fc945e2079aafb2",
+      "git_blob": "4fdd3570c2af06c32a81d183948bac52c5980cc3"
+    },
+    {
+      "path": "qualification/coverage_v1/scoring.py",
+      "bytes": 5006,
+      "sha256": "9ee0780ddbe3e2b348dcbaf63eb76c22027215df3d4ef09c89dbae4aa532e760",
+      "git_blob": "35a4c0d187617709a368b5c98e47749e64c4cb86"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_diagnostics.py",
+      "bytes": 9902,
+      "sha256": "22027732a74adaf02db4ed05a547bee6bb1702001ddb638364513e9f1a749ff4",
+      "git_blob": "b83f730d547e832a0fbb831407c1e246d9037982"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_release.py",
+      "bytes": 13519,
+      "sha256": "8fcd99747485f49ef97c04b0d042c7c07d86facb4a6be310a1969624ea694179",
+      "git_blob": "1c40806e74d52c16bb7c63ae3247bd1743ced141"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_runtime.py",
+      "bytes": 13984,
+      "sha256": "3dfd307f8c67c349a07f6c72a201410b9cc3271e426d0527514699562f096352",
+      "git_blob": "f8317773b5f7b18686e234f429dd0998bbce71c2"
+    },
+    {
+      "path": "qualification/mapping_v1/README.md",
+      "bytes": 11369,
+      "sha256": "ecaef870eff9670198608e7cea0be4b9c241cec4db29b0e888133c1cf04503f0",
+      "git_blob": "794a2eea44be34527f2ede8bc5e489a4459d4450"
+    },
+    {
+      "path": "qualification/mapping_v1/__init__.py",
+      "bytes": 84,
+      "sha256": "f50379d81759a99815a3059f5fd240cb4b8b9530d3534a82cc7d624e9d2c5794",
+      "git_blob": "b1d62770eb1221f0744888a7d63e39398ea6a17a"
+    },
+    {
+      "path": "qualification/mapping_v1/cli.py",
+      "bytes": 1249,
+      "sha256": "bab361d33a66d612bbf9909ad55107135ed58d6348d731b83e3cf8d625d99d8b",
+      "git_blob": "92a985ea128cb780b7a7c20ef8aa4b28588b40a9"
+    },
+    {
+      "path": "qualification/mapping_v1/common.py",
+      "bytes": 2616,
+      "sha256": "a25855a658fb10aeac63b6892db7ca547f319bd4a2c71948eea9e6b328509f13",
+      "git_blob": "9cda5d79c8314f19c1d15ee92482938eb6676bb3"
+    },
+    {
+      "path": "qualification/mapping_v1/mapper.py",
+      "bytes": 6553,
+      "sha256": "0cf84a41d18c73cafd4215acb90175958df02c1436f6dda7046f10ab144c664b",
+      "git_blob": "3813daa2def596ec7178b142f2ea3ab9e3e769b5"
+    },
+    {
+      "path": "qualification/mapping_v1/protocol.json",
+      "bytes": 15223,
+      "sha256": "f54214cc42307eb955f44f4c6470311f01ff7cf93887ea21d024feaa08a63e42",
+      "git_blob": "a964e19cfb684356fb0d588cd78c2100cd0505f8"
+    },
+    {
+      "path": "qualification/mapping_v1/release.py",
+      "bytes": 8405,
+      "sha256": "139ec1507d3ac13e7ce03ca8a701410dbd92a74e339181a962de63129017ef0e",
+      "git_blob": "a58730d473737351bd69621d3b7816e11b0cd0ca"
+    },
+    {
+      "path": "qualification/mapping_v1/run_checks.py",
+      "bytes": 9240,
+      "sha256": "53a50fd93e1e3ef53d2ec80ab44da477d79076bf83a9ec07cf33fbf9e3f2ca10",
+      "git_blob": "521c47984d8f1c25bc0c3dacc63d0bb67d0b1da7"
+    },
+    {
+      "path": "qualification/mapping_v1/runtime.py",
+      "bytes": 16866,
+      "sha256": "207f281bfadaa682305caea7c67a51ba6c52b9899c74266c3167984525c3b24e",
+      "git_blob": "92cb336d48392fa582aabfaf5cf6539172d3c78d"
+    },
+    {
+      "path": "qualification/mapping_v1/scoring.py",
+      "bytes": 4749,
+      "sha256": "3618426c9bf1b058202d22f9d043bdee2fa590bab84c2faf3742e2d2b3f254ce",
+      "git_blob": "ec52cc08ac170fd78e7d194067c2cc26f985b09a"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_mapping.py",
+      "bytes": 5961,
+      "sha256": "dc02f379fdb75e0c905a97032053adb3e2334d3e4977da30e506782ee8e688f4",
+      "git_blob": "e3a029804b12c62064e2edd21bfaab7656b1f903"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_release.py",
+      "bytes": 6778,
+      "sha256": "027d2d18b74e77ea3a5dcb36e2986b1825a80c546849c3243ea1c827b38cf713",
+      "git_blob": "9a530ad830609ed317c7f2f738776c7c7609d59d"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_runtime.py",
+      "bytes": 10581,
+      "sha256": "395897759e5f2aefdd527da5a9fe22c169d8147b20057b2d0f2f3c3da53b95bb",
+      "git_blob": "5750877e9034e8fae0aee891ed3414cdde9a8eed"
+    },
+    {
+      "path": "qualification/mapping_v2/README.md",
+      "bytes": 2054,
+      "sha256": "b3be0ae9be469e2f71364cff02a0ccff3e308b863bf2458d2331b70864af04a8",
+      "git_blob": "213f51ed6095a5991df705e99183434627b626ab"
+    },
+    {
+      "path": "qualification/mapping_v2/__init__.py",
+      "bytes": 84,
+      "sha256": "f7a629be4344016b6cdc5138c796de94cefbf3be92df0176d222997c582485af",
+      "git_blob": "152b64775809838565886bfba989305576c399a9"
+    },
+    {
+      "path": "qualification/mapping_v2/cli.py",
+      "bytes": 1286,
+      "sha256": "2bbe4d23bf737803e4dcfe68dd67cf64775da1d383a587e4ff125d03d1f511bf",
+      "git_blob": "98d95d5119e9e2975d14edbda388f4d3807d26b1"
+    },
+    {
+      "path": "qualification/mapping_v2/common.py",
+      "bytes": 945,
+      "sha256": "3abe969191088c52107c85fed190d396458e9dd07c236cec2296cf07a23037ac",
+      "git_blob": "a70d794ad03d9ffccd87cad04e2f13b6ac782b59"
+    },
+    {
+      "path": "qualification/mapping_v2/mapper.py",
+      "bytes": 14218,
+      "sha256": "be366594e1dc926eb310e1a1862eac0077d489c4abccefeb274888497785f5ed",
+      "git_blob": "3d2c40ec92f86e182222202d780676e05f6e5240"
+    },
+    {
+      "path": "qualification/mapping_v2/process_identity.py",
+      "bytes": 1602,
+      "sha256": "e0b7da645249b0e640a885229113109841afa557173cff709cb3c2fc25708bac",
+      "git_blob": "aa628942b2f9784b075ee492d96ef915a5b49d5f"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/INTERFACE.md",
+      "bytes": 5573,
+      "sha256": "1bd8d8f2d060ee9044bf63c707f470380f0d2dc87d128e3eb104fcc5d587af42",
+      "git_blob": "c7f9d1d422ad9a9999a4756cf378ddddc9e941dd"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/POLICY.md",
+      "bytes": 9945,
+      "sha256": "4b4b15d5109c44d59c376571376838e55493226268d7c67a10a6398f56d2ac18",
+      "git_blob": "5e41e721e4a9c26fbb2a103d9f621ae1e7d74a4b"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/__init__.py",
+      "bytes": 76,
+      "sha256": "16b3295da8c48b0157ece119c4d6f82803283312232a68787ecc6a4278bbe66a",
+      "git_blob": "bfd9b2b0c4da4fb6dabe0864c2abd324f6fcde1c"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/catalog.json",
+      "bytes": 15981,
+      "sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+      "git_blob": "0ab09f3d2d00a9bab2d540bb8e728bc553064be9"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/cli.py",
+      "bytes": 1702,
+      "sha256": "c5e27fe3359e7070bfab06da01d2caed5907cc2f7077f0957e9462c0fef1229a",
+      "git_blob": "0d23c8595653f3929e7d20b8982adb980509c2a6"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/common.py",
+      "bytes": 1528,
+      "sha256": "b3ec74a6c6a5eff3028768f86204d1e4c0dd3d55123efa0e03a0348d0817b880",
+      "git_blob": "4fd6a226af6140f6199f165716ec4d53ae6a1bf2"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/contract.py",
+      "bytes": 13594,
+      "sha256": "c8ed951d64767ce134f4df94637e3378d955f8421285c6ab3295e9bba152e673",
+      "git_blob": "ecec8822112f46be41381b57c0fc3296f99098c4"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/protocol.json",
+      "bytes": 3573,
+      "sha256": "aa0d8f183f9f0161c6e47b56a6f2cd844d6ad3f31e772b9761aa0ad618f6a372",
+      "git_blob": "afc2cdec87f0029746cd087bb086650cc7365e12"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/run_checks.py",
+      "bytes": 5412,
+      "sha256": "0618a48b43085ac74b73ac225df7d2f7e5d68f55d3299c5cdf6942f3c3cb293e",
+      "git_blob": "22c78463c373abdd41f21db13d5b0dc1128147d6"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/scoring.py",
+      "bytes": 9267,
+      "sha256": "9a3dba263b080a383ac98730636167b15ac193eb8e10a6f3f2533cb72ae8685a",
+      "git_blob": "5c81c583bd1a5d432ba1ddd546e32ddb659a8446"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/tests/test_protocol.py",
+      "bytes": 17180,
+      "sha256": "59f5c8933b9fe60d103dcc9290863857b4f7df336be7a62de895a0dbf628010d",
+      "git_blob": "297d1024d200ebbc914494f7c0b025a0f7225f10"
+    },
+    {
+      "path": "qualification/mapping_v2/release.py",
+      "bytes": 10482,
+      "sha256": "e19cd0a004f552f143bd3a40e4c56be527733e501faefc2d505642c3669f6618",
+      "git_blob": "ee66a3def475012b2dbde6903bbfd80b5cb39c33"
+    },
+    {
+      "path": "qualification/mapping_v2/run_checks.py",
+      "bytes": 12368,
+      "sha256": "355e197ddefc28a75b6799fdae38362034365b3918561c6cdc90e81ef386e4e9",
+      "git_blob": "2c118160f0760f57978772f180e7125867712c6a"
+    },
+    {
+      "path": "qualification/mapping_v2/runtime.py",
+      "bytes": 18218,
+      "sha256": "fc1e0367993234c3d50a59b720bd12a821d5fc9bc00a1edfa1cb537cc28ffcba",
+      "git_blob": "d9da7c8739b453adf1137486caf7be7138abfd96"
+    },
+    {
+      "path": "qualification/mapping_v2/runtime_protocol.json",
+      "bytes": 24797,
+      "sha256": "46a0d3e7bec0f14a3911eb7365385b7d132db8e8a72c8edb3f030aeeda124ec2",
+      "git_blob": "244f2972e2398b10fee7b79da833c62d4f5a5ea2"
+    },
+    {
+      "path": "qualification/mapping_v2/scoring.py",
+      "bytes": 5816,
+      "sha256": "3835e94a27391c858dd667b1583201ce5c10c4d099666ae9ad065e6ea0e01a57",
+      "git_blob": "dbcc32a36acd2abcf08893c36bd320f7e1120d3f"
+    },
+    {
+      "path": "qualification/mapping_v2/tests/test_mapper.py",
+      "bytes": 9691,
+      "sha256": "b46c123bba1a2c7c95bcb138e2edf5b0bf936719271d994387c880c22778d827",
+      "git_blob": "63f2dac233f06217a78579ab969d437f443782e8"
+    },
+    {
+      "path": "qualification/mapping_v2/tests/test_release.py",
+      "bytes": 12095,
+      "sha256": "b4c53671af5ccc2def249b8478eb2f775025a6096c75f4779d769fb26b5cda66",
+      "git_blob": "d23b6d9c2f4e425a0f4d71946bd5d4e977d067f9"
+    },
+    {
+      "path": "qualification/mapping_v2/tests/test_runtime.py",
+      "bytes": 14261,
+      "sha256": "912f840f899a8a6ac6885795a21c027e5822f4c44263dd007c2aedfc31fa5ade",
+      "git_blob": "25b6af76bc0456be59829ea32ef2120771662b8b"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/__init__.py",
+      "bytes": 526,
+      "sha256": "c42997c315f52c4b9d31a42d90c7ad9ea9870aa87f5e80fb146f56999013acb1",
+      "git_blob": "159e8487b2395614fbc8d9e2482c392421a4ee94"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/backend_torch.py",
+      "bytes": 4546,
+      "sha256": "d6dad4d19dbec6988d4be8159fde68eea9c203546e07d018fdf6b1617cd7eda7",
+      "git_blob": "be1183130891b1770a6fcef639d9eeb5ad0175cc"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/environment.py",
+      "bytes": 14098,
+      "sha256": "e160969d04093d5fd70499fab20d6062a8919509e8830aae562628be210f1f0f",
+      "git_blob": "0ca99d8c4b84ec02ca9dc19ab855c1b0a120a274"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/fixtures.py",
+      "bytes": 5465,
+      "sha256": "13ad85f3847bb754c8c1c028bd28c1884b2836d5854d71c8fe88886b486f1cab",
+      "git_blob": "156b02108fccd5acb5e752985c48fcc69d3c5ef7"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/hashing.py",
+      "bytes": 1510,
+      "sha256": "ad61007cb6615c815f97ce253b8db8268a46049189ef7c6ec857d70f0bcc27af",
+      "git_blob": "3317ef04145548f4c13f66a1ecfb51ff74033ab2"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/hostcheck.py",
+      "bytes": 9659,
+      "sha256": "a4fa60ab7f1cde7f71e1a1b6ecbad82a87c4f752e5b7e5ee0367320495562754",
+      "git_blob": "81baac5859aacb4560512f7a863b97fefc057c5f"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/locks.py",
+      "bytes": 26495,
+      "sha256": "133c1cfcab1c2b0bad6433527b50694b88a634ffbe6873a3130b300f8d06edaf",
+      "git_blob": "6167cf8c4dbeaf48d8753d10289ea22d67150718"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/logscan.py",
+      "bytes": 1992,
+      "sha256": "9bd65a8c6c4b3538965093c73a282786d08a61ebce83bea646824593b0684f4f",
+      "git_blob": "d37c4dc7d8e4c5f66002f311227731499a9be1b1"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/modelfiles.py",
+      "bytes": 10882,
+      "sha256": "b2490e546f8393b68107b8e283bd238c364f249524796c233920199d69cc1f75",
+      "git_blob": "bfcee168c5f955a73832d9d93d40190a314c125a"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/outcome.py",
+      "bytes": 6137,
+      "sha256": "18781652d761bc379c44a3f513c95208c28c86282a5e73abf19b4a33bbdb0997",
+      "git_blob": "4665ed59ab22f77ec55fe5260457cba80071a9b1"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/preflight.py",
+      "bytes": 2113,
+      "sha256": "5a44e13b2246a4a13ac66b3c85309fb3f90cacf0df0c0d1841d082a904017e2d",
+      "git_blob": "daf5df737885b0eb9a571c7c5b8e2ea3c6bf859f"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/procmem.py",
+      "bytes": 3550,
+      "sha256": "970fb86b0c27655cea50f03b231a20f1678aa07ca6958f51967bef4ebf4c3274",
+      "git_blob": "666a5ed54d9322ce07052f2161943305848d9c93"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/protocol.py",
+      "bytes": 11202,
+      "sha256": "8ec4aa9998a6a0ba1df766de896805350887e1501772de3f13dc6ca6a268c843",
+      "git_blob": "c3e6a60592687219acf7c2ffec4c4c99404a84c7"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/release.py",
+      "bytes": 3565,
+      "sha256": "55c2b154badc15201d336d317e8632aa86294e6423b9ea2c19a08796f679d216",
+      "git_blob": "106c4b00ff4bcebb5a8b27168145e1ccd2f9792d"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/render.py",
+      "bytes": 2194,
+      "sha256": "f9f70f7555c1c1779fa29aa0a3700c76b43e195f83ea3569e3f6716c174a4769",
+      "git_blob": "1551e6cdd5751bd38b2b6fbd0ac758e52c0e7d3b"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/session.py",
+      "bytes": 21353,
+      "sha256": "06d5869406f8d5f8a78b6384f892ab123d63014bcfae604be1dc1129505bb96a",
+      "git_blob": "8709ad91275c1890e3dfc2f187e208c60878ff4e"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/sourcecheck.py",
+      "bytes": 9617,
+      "sha256": "f13b68e494e75b95665635ee1b2acca932b50d5c056bc6208dd97a5d790cbf84",
+      "git_blob": "6d7bd23c11ec5d9ce6e0f059cfbed18397be9a8b"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/supervisor.py",
+      "bytes": 6944,
+      "sha256": "fb45790e7e6bd61f7c40db5150b6ab8128e65940964bb0ac22a9818a26d812a4",
+      "git_blob": "f1e3fd73e353544635467765b0c6d4e122fa460d"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/telemetry.py",
+      "bytes": 17256,
+      "sha256": "a26a2df84249f698e91a83d2e59469128257b09e2ba159eac2ab2e9776930c89",
+      "git_blob": "5183528425d97da46019477962d0662f48f100c3"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/writer.py",
+      "bytes": 4286,
+      "sha256": "657c1e777859941efffd00ddca8c4c92f5e775bb084349140f446d17fe68198d",
+      "git_blob": "811128b2834499ead8794f6532f5a88e12874700"
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact_catalog/work_order/Repair record",
+      "evidence": {
+        "label": "Repair record",
+        "target": "work_order_id",
+        "prediction_sha256": "dc4b5a90e909a50e27c54775b2fb65f87379924c70d59df0fe37442f61f4845e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Ticket Number",
+      "evidence": {
+        "label": "Ticket Number",
+        "target": "work_order_id",
+        "prediction_sha256": "5b9c1faf77d04b2f177a59f2a7a26d692e57206c6dc3ef80b6e7d1b703ac6df1"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Work Order ID",
+      "evidence": {
+        "label": "Work Order ID",
+        "target": "work_order_id",
+        "prediction_sha256": "77a2f1ad6d8a20e6613610b3f691205fd1f6e544c2151bf93c015993865a0101"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Premises name",
+      "evidence": {
+        "label": "Premises name",
+        "target": "property_name",
+        "prediction_sha256": "e055c3a8a2670c3a35e988a78c6861788c8ee063e12d33ec30541ef8ad1ff373"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Property",
+      "evidence": {
+        "label": "Property",
+        "target": "property_name",
+        "prediction_sha256": "26c6c3dbc6b3858afb9f6d5f6bcb4eed9f12ad50a7b992a3c7be4dda4aef155e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Place within site",
+      "evidence": {
+        "label": "Place within site",
+        "target": "building_unit",
+        "prediction_sha256": "1b11b7a206017560f129e2c18c38a8b113e412f4e1340ecc88eaf87a42d1aee9"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Building / Unit",
+      "evidence": {
+        "label": "Building / Unit",
+        "target": "building_unit",
+        "prediction_sha256": "12e11731c71f69551d260553d99ce1e8f269b76bedf99b913f8baf1c50e7f7df"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Opened on",
+      "evidence": {
+        "label": "Opened on",
+        "target": "requested_date",
+        "prediction_sha256": "572f08a7f22eec4294f922fc92af17f5221628695898757ef577dd11423c579c"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Requested Date",
+      "evidence": {
+        "label": "Requested Date",
+        "target": "requested_date",
+        "prediction_sha256": "f49c0b403388fca5455af9626b17fec41a25d9153a7cfbea6fc729e5ed5f37f6"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Work discipline",
+      "evidence": {
+        "label": "Work discipline",
+        "target": "trade_category",
+        "prediction_sha256": "83dfb19f1397234dd90bde655cfc0e5eec617c7ef3bb142f71a968c9951a3d80"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Trade Category",
+      "evidence": {
+        "label": "Trade Category",
+        "target": "trade_category",
+        "prediction_sha256": "a7d235951ef23c661c4579cb8ae730be9c092cbbf7acb71061319831abbd651b"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Worker assigned",
+      "evidence": {
+        "label": "Worker assigned",
+        "target": "assigned_tech",
+        "prediction_sha256": "7cc90976e5e967c21b80c639561ec15b59af5b927fc4fc022e022675e5aa6e33"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Assigned Technician",
+      "evidence": {
+        "label": "Assigned Technician",
+        "target": "assigned_tech",
+        "prediction_sha256": "51f2362e3bde1536b41f3e0db48fcd517c8f70d53ccbba1460c66775a755e5f6"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Job state",
+      "evidence": {
+        "label": "Job state",
+        "target": "completion_status",
+        "prediction_sha256": "6e39a1176a4857961e52d3d9613a1415e050babad26c82a603be1886b19e1cb7"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Work Order Status",
+      "evidence": {
+        "label": "Work Order Status",
+        "target": "completion_status",
+        "prediction_sha256": "5c1c892c24e7dfd076270cec5ff9da9dfad321106d96e16f5297fa448cd96465"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Occupant callback",
+      "evidence": {
+        "label": "Occupant callback",
+        "target": "resident_contact",
+        "prediction_sha256": "adb9a9a80c7e818b84075989c380460d4eb0594f5545ba5e3767bd8366a1454c"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/work_order/Resident Contact",
+      "evidence": {
+        "label": "Resident Contact",
+        "target": "resident_contact",
+        "prediction_sha256": "b0da1d4782ff68298d94595ea0c501ba901f20d71f9ce693780a270adf9147ab"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "mixed_permuted_header/work_order",
+      "evidence": [
+        {
+          "table_id": "stock_parts",
+          "columns": [
+            "qty_used",
+            "bin_loc",
+            "part_desc",
+            "part_sku"
+          ],
+          "page": 1,
+          "rows": [
+            {
+              "values": [
+                "literal-3",
+                "literal-2",
+                "literal-1",
+                "literal-0"
+              ],
+              "physical_values": [
+                "literal-3",
+                "literal-2",
+                "literal-1",
+                "literal-0"
+              ],
+              "cells": [
+                {
+                  "text": "literal-3",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-2",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-1",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-0",
+                  "colspan": 1,
+                  "rowspan": 1
+                }
+              ],
+              "native_row": 1,
+              "mapping_status": "mapped"
+            }
+          ],
+          "block": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Billing reference",
+      "evidence": {
+        "label": "Billing reference",
+        "target": "invoice_number",
+        "prediction_sha256": "5e98671719d9595f10264ce2197bcb7f5d0fa5e121bf48f13ae89aecc958b626"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Invoice No",
+      "evidence": {
+        "label": "Invoice No",
+        "target": "invoice_number",
+        "prediction_sha256": "b8a31f63d27d8b3662a48e77b289857bdbc03b10d5b75195bbd57885f341cae5"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Billed on",
+      "evidence": {
+        "label": "Billed on",
+        "target": "invoice_date",
+        "prediction_sha256": "ca7c9f6a80455842dac7f92a0d4220cbec6a07f2d1551c21716c5dc78301a57a"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Invoice Date",
+      "evidence": {
+        "label": "Invoice Date",
+        "target": "invoice_date",
+        "prediction_sha256": "e819504a98548ac965d7f125f0c5f67dd34d9d94595fd8eacd440c5a0dfac0c7"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Statement Date",
+      "evidence": {
+        "label": "Statement Date",
+        "target": "invoice_date",
+        "prediction_sha256": "e7d5d31796ba429960d69304eb7f74cce1e6d71f2175ac93bfb98a41fb01a51e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Settle by",
+      "evidence": {
+        "label": "Settle by",
+        "target": "due_date",
+        "prediction_sha256": "e23634f7dd2dafeb72a7abd45aa004f03bcae4724e2cc655700afb4112fd50df"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Due Date",
+      "evidence": {
+        "label": "Due Date",
+        "target": "due_date",
+        "prediction_sha256": "7e3aa75b1b3b83df100361e733b46c0d759531de7449a6434990d5704fd5365e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Related repair",
+      "evidence": {
+        "label": "Related repair",
+        "target": "work_order_ref",
+        "prediction_sha256": "04dca7bdd92388a1f10accdb1f9b579062ee3d95da76d1f71bb512616765a423"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Work Order Ref",
+      "evidence": {
+        "label": "Work Order Ref",
+        "target": "work_order_ref",
+        "prediction_sha256": "5891bb97f7b5292a9adc38d1d9335aa581d12a07dab738b9c2dfe5af2f0957fb"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Settlement rule",
+      "evidence": {
+        "label": "Settlement rule",
+        "target": "payment_terms",
+        "prediction_sha256": "4ce8610ab6a561f29f282620aa6dcd2b72b639e7f99743d6b74964b0a97ceaee"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Terms",
+      "evidence": {
+        "label": "Terms",
+        "target": "payment_terms",
+        "prediction_sha256": "128b959e1afa17703f5fdcdec7dcc70875edab9f3f5db66765f17e755bbac96e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Charges before levy",
+      "evidence": {
+        "label": "Charges before levy",
+        "target": "subtotal",
+        "prediction_sha256": "fdd3c905a6680573017f3a9c08f385f94ff4366cde7572be3eae02ba20b9176f"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Line Net Subtotal",
+      "evidence": {
+        "label": "Line Net Subtotal",
+        "target": "subtotal",
+        "prediction_sha256": "9ce51e18a9d8b78429dbda84faa06aed500d5a704daa440b110a510813ca9cae"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Levy basis",
+      "evidence": {
+        "label": "Levy basis",
+        "target": "taxable_subtotal",
+        "prediction_sha256": "ab1bfbd7a57463e371ae2cea18b9b9e2599ef1814dc84c203be8177324a71b50"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Taxable Subtotal (Tax=T Rows)",
+      "evidence": {
+        "label": "Taxable Subtotal (Tax=T Rows)",
+        "target": "taxable_subtotal",
+        "prediction_sha256": "e38cf78afda3d8a12c6eacb9403d0beacf7cf2d7c946788bf809d690ec380c68"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Local levy at 7.50%",
+      "evidence": {
+        "label": "Local levy at 7.50%",
+        "target": "tax_amount",
+        "prediction_sha256": "e783df3eb767c0347c61d06a77743ffd1fcaedb796858fd81c0c600be654035e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Sales Tax (6.25% on Taxable Subtotal)",
+      "evidence": {
+        "label": "Sales Tax (6.25% on Taxable Subtotal)",
+        "target": "tax_amount",
+        "prediction_sha256": "ae2ec2d144db0d35c45be13d1673a12ff7296bb43236ce48bfa8c09ff2d284b2"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Sales Tax (7.50% on Taxable Subtotal)",
+      "evidence": {
+        "label": "Sales Tax (7.50% on Taxable Subtotal)",
+        "target": "tax_amount",
+        "prediction_sha256": "d7905527b9de2754794743d37fe31d4db784c28936e9b794994654c42670fdd5"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/This bill total",
+      "evidence": {
+        "label": "This bill total",
+        "target": "invoice_total",
+        "prediction_sha256": "d3df342d614d574e989ced97e9beb4e8137b189a9df0409809a87f22128e0f43"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/CURRENT INVOICE TOTAL",
+      "evidence": {
+        "label": "CURRENT INVOICE TOTAL",
+        "target": "invoice_total",
+        "prediction_sha256": "436686221033c4fbd2765cba09c8ef3488ae119d2ed543262847cae055b21bf5"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Balance to remit",
+      "evidence": {
+        "label": "Balance to remit",
+        "target": "amount_due",
+        "prediction_sha256": "2cc30ffbb488722441941a41b6afe39b475233359d66372f1c312e2f02d85cb1"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/TOTAL AMOUNT DUE",
+      "evidence": {
+        "label": "TOTAL AMOUNT DUE",
+        "target": "amount_due",
+        "prediction_sha256": "c0e833f06c0bda2eef39b03c11c9582f010585db65094d9b13b709a1ec8d3bb8"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Buyer purchase reference",
+      "evidence": {
+        "label": "Buyer purchase reference",
+        "target": "customer_po_code",
+        "prediction_sha256": "808e32f7872205f7abc4b224bdc524a25bc9d3895e12034f6ad1535f5dfc4991"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/service_invoice/Customer PO / CapEx Code",
+      "evidence": {
+        "label": "Customer PO / CapEx Code",
+        "target": "customer_po_code",
+        "prediction_sha256": "d6e2cabeb36bb5b01297b75945f3908141015a0bc5382cc12e8e37f7a3f785d8"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "mixed_permuted_header/service_invoice",
+      "evidence": [
+        {
+          "table_id": "line_items",
+          "columns": [
+            "net_line",
+            "tax_flag",
+            "line_discount",
+            "discount_rate",
+            "unit_price",
+            "qty_unit",
+            "description",
+            "sku",
+            "row_id"
+          ],
+          "page": 1,
+          "rows": [
+            {
+              "values": [
+                "literal-8",
+                "literal-7",
+                "literal-6",
+                "literal-5",
+                "literal-4",
+                "literal-3",
+                "literal-2",
+                "literal-1",
+                "literal-0"
+              ],
+              "physical_values": [
+                "literal-8",
+                "literal-7",
+                "literal-6",
+                "literal-5",
+                "literal-4",
+                "literal-3",
+                "literal-2",
+                "literal-1",
+                "literal-0"
+              ],
+              "cells": [
+                {
+                  "text": "literal-8",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-7",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-6",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-5",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-4",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-3",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-2",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-1",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-0",
+                  "colspan": 1,
+                  "rowspan": 1
+                }
+              ],
+              "native_row": 1,
+              "mapping_status": "mapped"
+            }
+          ],
+          "block": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Inspection record",
+      "evidence": {
+        "label": "Inspection record",
+        "target": "work_order_id",
+        "prediction_sha256": "cff655ffaaaea5851c49e9ec64a6fc142df5ce799913192e732b63d7c8f58a82"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Ticket Number",
+      "evidence": {
+        "label": "Ticket Number",
+        "target": "work_order_id",
+        "prediction_sha256": "f59fd24171fae13eb42fc7839ca9df1011791fc6eefb47b00c9b0a7addca7c15"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Work Order ID",
+      "evidence": {
+        "label": "Work Order ID",
+        "target": "work_order_id",
+        "prediction_sha256": "03d967993bc81fe30d890e306caf77ca38fb15672f0eef1f2468183a17ad1645"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Inspection place",
+      "evidence": {
+        "label": "Inspection place",
+        "target": "property_unit",
+        "prediction_sha256": "84b2f87a136078e46ab5a9d3c8763da894fa3cbb487ec9ea0275a6b06dd746c8"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Property / Unit",
+      "evidence": {
+        "label": "Property / Unit",
+        "target": "property_unit",
+        "prediction_sha256": "10429865febbcde63b7418879d249edc04df30bde3e0acf1e98448c73fcffd24"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Check day",
+      "evidence": {
+        "label": "Check day",
+        "target": "requested_date",
+        "prediction_sha256": "7be49ff2d8a08d064c7ae9b4ea950991d2202c28244a063c5fa2114fb1b84b3e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Requested Date",
+      "evidence": {
+        "label": "Requested Date",
+        "target": "requested_date",
+        "prediction_sha256": "752d19938ea59078a68766fc8909c3cefa69d701891cb55f56d3db0531c5dc06"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Examiner assigned",
+      "evidence": {
+        "label": "Examiner assigned",
+        "target": "assigned_tech",
+        "prediction_sha256": "e2821e3404d1ce8f99111191dd7fff67edf53b4b719a2e8a978a4cf51e13c4a1"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Assigned Technician",
+      "evidence": {
+        "label": "Assigned Technician",
+        "target": "assigned_tech",
+        "prediction_sha256": "d9ae701fff79e5262d969e95e7165d40eeb65241a5b50a6b488fe7ad115c8650"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Equipment reference",
+      "evidence": {
+        "label": "Equipment reference",
+        "target": "equipment_asset_tag",
+        "prediction_sha256": "0033cb81af2cc981d9fd98bc1f4aaca1eec6af5ac4fec147b45c4afff6dd770f"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Water Heater Asset Tag",
+      "evidence": {
+        "label": "Water Heater Asset Tag",
+        "target": "equipment_asset_tag",
+        "prediction_sha256": "469a48b0948c6318c26187df12eb03d2efbe94fd1ad55a46b4615bd70dc27104"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Isolation verified",
+      "evidence": {
+        "label": "Isolation verified",
+        "target": "water_isolated",
+        "prediction_sha256": "bd2bb6472944272b192c7b0ad2c454924b18000c7aa2b1a744b51ee495ffd10e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Branch Isolation Tested",
+      "evidence": {
+        "label": "Branch Isolation Tested",
+        "target": "water_isolated",
+        "prediction_sha256": "7356a3d23523157ebf0a880cc9b275f011381a36ba9a93dbe3108915c576e97f"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Outside order reference",
+      "evidence": {
+        "label": "Outside order reference",
+        "target": "secondary_vendor_po",
+        "prediction_sha256": "20ed529298f664599106087c39aee69ea945792dd32ad59a571f482af7a0890e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "exact_catalog/inspection/Secondary Vendor PO",
+      "evidence": {
+        "label": "Secondary Vendor PO",
+        "target": "secondary_vendor_po",
+        "prediction_sha256": "42a6a44bbfcada56c424dbf0022f82dcb97b65fa30f20f6d02ff97afbd476304"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "mixed_permuted_header/inspection",
+      "evidence": [
+        {
+          "table_id": "turnover_tasks",
+          "columns": [
+            "pressure_psi",
+            "action_taken",
+            "fixture_area",
+            "task_code"
+          ],
+          "page": 1,
+          "rows": [
+            {
+              "values": [
+                "literal-3",
+                "literal-2",
+                "literal-1",
+                "literal-0"
+              ],
+              "physical_values": [
+                "literal-3",
+                "literal-2",
+                "literal-1",
+                "literal-0"
+              ],
+              "cells": [
+                {
+                  "text": "literal-3",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-2",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-1",
+                  "colspan": 1,
+                  "rowspan": 1
+                },
+                {
+                  "text": "literal-0",
+                  "colspan": 1,
+                  "rowspan": 1
+                }
+              ],
+              "native_row": 1,
+              "mapping_status": "mapped"
+            }
+          ],
+          "block": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "alias_without_profile",
+      "evidence": {
+        "prediction_sha256": "d7973f9549210e94a9b61cb6366e600e24ca7bfaf524ce5b703d94c294d960e0",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "missing_profile",
+            "label_occurrences": 1,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_alias_duplicate_suppresses_old",
+      "evidence": {
+        "prediction_sha256": "4a61cfe3367db02490abcf9bdf1e8d4dd48f6f502a997a4e4b6465db7517a9d6",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "duplicate_label",
+            "label_occurrences": 2,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "removed_legacy_candidates": 1
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_distinct",
+      "evidence": {
+        "prediction_sha256": "ef6950e6e4e50e95fff43886dd2feaa355822a95f7117d7df3f59f5d5bb42709",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "duplicate_label",
+            "label_occurrences": 2,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_in_footer_counts",
+      "evidence": {
+        "prediction_sha256": "de47689acc8c0f0ad3c4613a8a208a09890e835d59d2d1d57089e126ef084d90",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "duplicate_label",
+            "label_occurrences": 2,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "removed_legacy_candidates": 1
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_in_data_cell_counts",
+      "evidence": {
+        "prediction_sha256": "9dbace6c5e9d3b91909cf088a89c5cd2b62365452903d4ce4cc2475aa714ce73",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "duplicate_label",
+            "label_occurrences": 2,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "two_profiles_no_alias_fallback",
+      "evidence": {
+        "prediction_sha256": "89c79875fcbd687b3861966f529b8a00b85a29711f93f3d9f337d6678a97e675",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "multiple_profiles",
+            "label_occurrences": 1,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_schema_no_alias_fallback",
+      "evidence": {
+        "prediction_sha256": "1d477395dc94cd6c5220f784f7e0f7e9a64752fb740909cc47acd7cbaee97acb",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "duplicate_schema_candidates",
+            "label_occurrences": 1,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "rejected_right_has_no_below_escape",
+      "evidence": {
+        "prediction_sha256": "a232b70c183b8284a6a525cd2e850591afc82941e7db76139fa80239d55cdb5d",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "ambiguous_value_candidates",
+            "label_occurrences": 1,
+            "candidates": 2,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 1
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "unknown_colon_value",
+      "evidence": {
+        "prediction_sha256": "04811a67f44d3d189e67b76efaee219942ec000505995e8a6aa161bcfc196c1f",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "label_or_markup_in_value",
+            "label_occurrences": 1,
+            "candidates": 0,
+            "unsafe_candidates": 1,
+            "label_locations": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "additional_plain_cell",
+      "evidence": {
+        "prediction_sha256": "81039921059d35c3bd74f9caecdb712fba637836799ebdaf294729cb4e905b95",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "additional_plain_cell",
+            "label_occurrences": 1,
+            "candidates": 1,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "internal_nbsp_not_normalized",
+      "evidence": {
+        "prediction_sha256": "cd691025df07f3446a1ba6c54b04b7b12cc275e2e3cdbece43e55ff6839f8f94",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "missing_label",
+            "label_occurrences": 0,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "case_not_folded",
+      "evidence": {
+        "prediction_sha256": "5d4df5dab6373e59c4a81428b4e4f85ef9a8a0612cc3caa2b4bc0349a809078e",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "missing_label",
+            "label_occurrences": 0,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "double_colon_not_repaired",
+      "evidence": {
+        "prediction_sha256": "4da2a554f3f6f9a66dca7c2c8a9108a75e2bfc5cf6221d4706704031c9d1d567",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "multiple_label_colons",
+            "label_occurrences": 1,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "alias_inside_markup_abstains",
+      "evidence": {
+        "prediction_sha256": "779d535a7efa49c69026d367bbd93678826fd9ef5ce6270e23071c692b1467bf",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "unsupported_text_markup",
+            "label_occurrences": 1,
+            "candidates": 0,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "right_and_below_equal_still_ambiguous",
+      "evidence": {
+        "prediction_sha256": "037ae162748cb0c70a00a05533bea331e5f842757424188527fef14251ad5187",
+        "decisions": [
+          {
+            "kind": "field",
+            "page": 1,
+            "field_id": "work_order_id",
+            "action": "abstain",
+            "reason": "ambiguous_value_candidates",
+            "label_occurrences": 1,
+            "candidates": 2,
+            "unsafe_candidates": 0,
+            "label_locations": [
+              [
+                0
+              ]
+            ],
+            "removed_legacy_candidates": 0
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_alias_header_collision",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "abstain",
+          "reason": "missing_profile",
+          "profile": null,
+          "native_table_blocks": []
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 1,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "missing_profile",
+          "columns": [
+            "part_sku",
+            "part_sku",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_profile",
+          "label_occurrences": 1,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [
+            [
+              0
+            ]
+          ],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_table/empty_key",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            0
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 0,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "empty_row_key",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 1
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_table/equal_duplicate",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            0
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 0,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "duplicate_row_key",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 1
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_table/trimmed_duplicate",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            0
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 0,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "duplicate_row_key",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 1
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_table/different_duplicate",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            0
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 0,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "duplicate_row_key",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 1
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_table/short",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            0
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 0,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "row_width",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 1
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_table/long",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            0
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 0,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "row_width",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 1
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_table/span",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            0
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 0,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "unsupported_span",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 1
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_table/repeated_header",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            0
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 0,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "repeated_header",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 1
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "profile_independent_of_data_validity",
+      "evidence": [
+        {
+          "kind": "profile",
+          "page": 1,
+          "action": "active",
+          "reason": "unique_native_profile",
+          "profile": "work_order",
+          "native_table_blocks": [
+            1
+          ]
+        },
+        {
+          "kind": "table",
+          "page": 1,
+          "block": 1,
+          "table_id": "stock_parts",
+          "action": "abstain",
+          "reason": "row_width",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "removed_legacy_tables": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "assigned_tech",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "building_unit",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "completion_status",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "property_name",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "requested_date",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "resident_contact",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "trade_category",
+          "action": "abstain",
+          "reason": "missing_label",
+          "label_occurrences": 0,
+          "candidates": 0,
+          "unsafe_candidates": 0,
+          "label_locations": [],
+          "removed_legacy_candidates": 0
+        },
+        {
+          "kind": "field",
+          "page": 1,
+          "field_id": "work_order_id",
+          "action": "emit",
+          "reason": "unique_structural_candidate",
+          "label_occurrences": 1,
+          "candidates": 1,
+          "unsafe_candidates": 0,
+          "label_locations": [
+            [
+              0
+            ]
+          ],
+          "removed_legacy_candidates": 0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "untouched_and_input_immutability",
+      "evidence": {
+        "before": "fd138018d533872a17350ba9b2e57d9bf07845d7ffce7f66b7852f24e4eb1d2d",
+        "after": "953ddc0680cfa441c78b9c4cb4de608bf1e08930785d9f83068748988aaccb5e"
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_scope_page_local",
+      "evidence": [
+        {
+          "field_id": "work_order_id",
+          "label": "Repair record",
+          "page": 1,
+          "value": "PUBLIC-A",
+          "location": [
+            0
+          ],
+          "value_location": [
+            0
+          ],
+          "association": "inline"
+        },
+        {
+          "field_id": "work_order_id",
+          "label": "Repair record",
+          "page": 2,
+          "value": "PUBLIC-A",
+          "location": [
+            0
+          ],
+          "value_location": [
+            0
+          ],
+          "association": "inline"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "explicit_blank_vs_omission",
+      "evidence": [
+        {
+          "field_id": "resident_contact",
+          "label": "Occupant callback",
+          "page": 1,
+          "value": "",
+          "location": [
+            0,
+            0,
+            0
+          ],
+          "value_location": [
+            0,
+            0,
+            1
+          ],
+          "association": "immediate_right"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "original_score_and_actual_policy",
+      "evidence": {
+        "comparison": "7aeb57083821a27be90972410f40586707d0f7d468d90069f06885dfa1d0e7d2",
+        "policy": {
+          "schema": "eld-mapping-v2-policy-score/1",
+          "fixture_id": "WP13-F01-supported-v0",
+          "family_id": "WP13-F01",
+          "case": "supported",
+          "completion": "completed",
+          "document_denominator": 1,
+          "completed_documents": 1,
+          "eligible": true,
+          "parse_errors": [],
+          "visibility_problems": [],
+          "metrics": {
+            "slots": 5,
+            "eligible_slots": 5,
+            "unavailable_slots": 0,
+            "observed_candidates": 5,
+            "eligible_candidates": 5,
+            "covered_slots": 5,
+            "abstentions": 0,
+            "correct_assignments": 5,
+            "incorrect_assignments": 0,
+            "ambiguous_truth_assignments": 0,
+            "unknown_truth_assignments": 0,
+            "strict_correct_known_slots": 5,
+            "surplus_candidates_within_slots": 0,
+            "required_abstention_slots": 0,
+            "eligible_required_abstentions": 0,
+            "unavailable_required_abstentions": 0,
+            "required_abstention_violations": 0,
+            "required_abstention_observed": 0,
+            "unexpected_abstentions": 0,
+            "surplus_output_candidates": 0,
+            "truth_known": 5,
+            "eligible_truth_known": 5,
+            "unavailable_truth_known": 0,
+            "abstentions_truth_known": 0,
+            "required_abstention_observed_truth_known": 0,
+            "truth_ambiguous": 0,
+            "eligible_truth_ambiguous": 0,
+            "unavailable_truth_ambiguous": 0,
+            "abstentions_truth_ambiguous": 0,
+            "required_abstention_observed_truth_ambiguous": 0,
+            "truth_unknown": 0,
+            "eligible_truth_unknown": 0,
+            "unavailable_truth_unknown": 0,
+            "abstentions_truth_unknown": 0,
+            "required_abstention_observed_truth_unknown": 0,
+            "observed_surplus_output_candidates": 0
+          },
+          "rates": {
+            "coverage_all_slots": {
+              "numerator": 5,
+              "denominator": 5,
+              "rate": 1.0
+            },
+            "coverage_eligible": {
+              "numerator": 5,
+              "denominator": 5,
+              "rate": 1.0
+            },
+            "strict_known_exact": {
+              "numerator": 5,
+              "denominator": 5,
+              "rate": 1.0
+            },
+            "required_abstention_violation": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            }
+          },
+          "slots": [
+            {
+              "target": [
+                "field",
+                1,
+                "work_order_id"
+              ],
+              "kind": "field",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": true,
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "value": "PUBLIC-0042",
+                  "field_index": 0,
+                  "location": [
+                    0
+                  ]
+                }
+              ],
+              "strict_correct_known": true,
+              "required_abstention_violation": null,
+              "abstained": false
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "part_sku"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": true,
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "value": "PUBLIC-ROW-001",
+                  "table_index": 0,
+                  "row_ordinal": 0,
+                  "column_index": 0,
+                  "block": 1,
+                  "native_row": 1
+                }
+              ],
+              "strict_correct_known": true,
+              "required_abstention_violation": null,
+              "abstained": false
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "part_desc"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": true,
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "value": "public-cell-1",
+                  "table_index": 0,
+                  "row_ordinal": 0,
+                  "column_index": 1,
+                  "block": 1,
+                  "native_row": 1
+                }
+              ],
+              "strict_correct_known": true,
+              "required_abstention_violation": null,
+              "abstained": false
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "bin_loc"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": true,
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "value": "public-cell-2",
+                  "table_index": 0,
+                  "row_ordinal": 0,
+                  "column_index": 2,
+                  "block": 1,
+                  "native_row": 1
+                }
+              ],
+              "strict_correct_known": true,
+              "required_abstention_violation": null,
+              "abstained": false
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "qty_used"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": true,
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "value": "public-cell-3",
+                  "table_index": 0,
+                  "row_ordinal": 0,
+                  "column_index": 3,
+                  "block": 1,
+                  "native_row": 1
+                }
+              ],
+              "strict_correct_known": true,
+              "required_abstention_violation": null,
+              "abstained": false
+            }
+          ],
+          "surplus_output": [],
+          "row_truth": [
+            {
+              "table_id": "stock_parts",
+              "row_ordinal": 0,
+              "row_id": "REVIEW-ROW",
+              "known": 4,
+              "ambiguous": 0,
+              "unknown": 0,
+              "original_row_credit_scope": "declared_known_cells_only"
+            }
+          ],
+          "interpretation": "Abstention observations are not exact-value credits. Original scores and every policy opportunity remain separate."
+        }
+      },
+      "status": "PASS"
+    }
+  ],
+  "input_files": [
+    {
+      "path": "qualification/baseline/README.md",
+      "bytes": 22649,
+      "sha256": "40b3ddfb8f1d2ff3a0adfcebd210468a5f05b0c87f3381a2288cbc02ef00142d",
+      "git_blob": "d3695acdb8e089ab96b759abcfaf9ce0726cdc13"
+    },
+    {
+      "path": "qualification/baseline/baseline.py",
+      "bytes": 6465,
+      "sha256": "7034792bbbcf3a16f45d3019d296d141271040c15d0cc15c1e03bff6b016f28a",
+      "git_blob": "1aaf176886ba29ab41b2b6a875e4b0be539d8994"
+    },
+    {
+      "path": "qualification/baseline/corpus.py",
+      "bytes": 3997,
+      "sha256": "2ed902e0b879989e63e161ac2a3e5040f801a64f3eb588de13dcbf4e6d01d74e",
+      "git_blob": "36f79e03dd54962844bb3a4804013dbaa770224d"
+    },
+    {
+      "path": "qualification/baseline/mapping.json",
+      "bytes": 8388,
+      "sha256": "eed1fba8aeee921e2f0f586cb4caf0b9ec0d4cd93d74df43d68c6358e1b21bf9",
+      "git_blob": "cf5f73740b6c756bdab233b7dc3d33c3edf349a5"
+    },
+    {
+      "path": "qualification/baseline/native.py",
+      "bytes": 9625,
+      "sha256": "67a0ee062b22e93978857f5f19ad3b72d43b0407f8545a5d594039b5c755997c",
+      "git_blob": "10917b891e57d993176a19a8845dab917fa794c0"
+    },
+    {
+      "path": "qualification/baseline/prepare.py",
+      "bytes": 4372,
+      "sha256": "023a3f78d3e1530784d680887202a566ec09d387e64cfa7f5f8a0f24710f898b",
+      "git_blob": "1851b412e960d14fac09a9cb0da28766762c18df"
+    },
+    {
+      "path": "qualification/baseline/protocol.json",
+      "bytes": 26651,
+      "sha256": "97ce68486813f34d04a61e24fc7b19f2c291e9062078fd6319bb0230812dbee8",
+      "git_blob": "2c5c7fa9bb60d585e39a6fb27610c5cc5a5a85e9"
+    },
+    {
+      "path": "qualification/baseline/release.py",
+      "bytes": 8072,
+      "sha256": "8b9334d8e47fa3ec0df84e4d1c149b608c3f4f9ff3c98b7ac1eddc80f6738fe0",
+      "git_blob": "c3fb82f58a6c5f9044730436d3a00113c1431fc0"
+    },
+    {
+      "path": "qualification/baseline/run_checks.py",
+      "bytes": 3302,
+      "sha256": "cfd0c3bf37cedbc36b79f2893f13ebd15c262b41ae54dc9dd97ec96dfe776b7d",
+      "git_blob": "81a0e44c3c9bdaac5fafd76c1231941a79fa82e0"
+    },
+    {
+      "path": "qualification/baseline/runtime.py",
+      "bytes": 16038,
+      "sha256": "ab10f03517891f2fef8fd1a1bee0f1b055b61598810d4f7ba69742e133617367",
+      "git_blob": "65b8cec06b1ab0a9fe3c84c34bc5dadfb291e153"
+    },
+    {
+      "path": "qualification/baseline/score.py",
+      "bytes": 13637,
+      "sha256": "b63ad4e9cd930a628843ad41609099950f075bea7e2a115c0321c5b77590cf55",
+      "git_blob": "cc58a16f4c3598f663b1e4aef506b45f3dc0ea16"
+    },
+    {
+      "path": "qualification/baseline/tests/run_runtime_checks.py",
+      "bytes": 2866,
+      "sha256": "de33d4e6e195163e491e4f27bec163d51acfb3f45576b2dcc903c4191d638c85",
+      "git_blob": "abe000ae97d0998b2009baf2cd66155e93900046"
+    },
+    {
+      "path": "qualification/baseline/tests/test_baseline.py",
+      "bytes": 20703,
+      "sha256": "68ef1d812082e9c98a96e49c4d9b918836a69f0219615b7d8d4e5fd4db02ee94",
+      "git_blob": "6da20cf09eeb225c01b275f4a5fb48a569fabc84"
+    },
+    {
+      "path": "qualification/baseline/tests/test_runtime_correction.py",
+      "bytes": 23801,
+      "sha256": "cbc44fb84582bab8cb29f6eb9c1a2ae9b3d3afaf2b5ce6ad5c4df75e6520e418",
+      "git_blob": "330354f1d269390489ddabee5b071533e1e802fc"
+    },
+    {
+      "path": "qualification/baseline/typed_values.py",
+      "bytes": 3239,
+      "sha256": "34081537f2df43c7ee5fabfb0f55aab61e3224cea99da3aa20b7bc3f7d41efa8",
+      "git_blob": "cdf154aad5e371af8ee52635d7d28973412c076a"
+    },
+    {
+      "path": "qualification/baseline/winjob.py",
+      "bytes": 2272,
+      "sha256": "6a02c0d1649b755b4f95a341bdb7a5533491edd96b26bd73fa9b43f013fd7b9c",
+      "git_blob": "def16f401335b78799bbb5f048163aad8dc07e90"
+    },
+    {
+      "path": "qualification/coverage_v1/INTERFACE.md",
+      "bytes": 5068,
+      "sha256": "febffc08c85eef7ac274ba6b9b72449db53720dcfb6deb57acd7e17a83ef850b",
+      "git_blob": "3fc80237a6ed9af2bd672574e7c5307aec1d6780"
+    },
+    {
+      "path": "qualification/coverage_v1/README.md",
+      "bytes": 12421,
+      "sha256": "918c1aa1a61b772deecc189907f8a62e56c349ae55ff39f78a9c0396de36b10c",
+      "git_blob": "3f181a8f995e4f11ec3aedd31a0f7a22e603300b"
+    },
+    {
+      "path": "qualification/coverage_v1/__init__.py",
+      "bytes": 79,
+      "sha256": "f194c6f307b1dc8824edf2b0023d98e61f864a424d2dacc92f6572c6a5457cd7",
+      "git_blob": "5b43e8acc8f86f207cea4cd639c0a47627dc2a3a"
+    },
+    {
+      "path": "qualification/coverage_v1/cli.py",
+      "bytes": 1721,
+      "sha256": "ae758ad88365c1bd27e57d00c069541b798febd5f9709aaf5001d697149382d7",
+      "git_blob": "8b385a9f7d2583ed54ebc623410b3009c29977d8"
+    },
+    {
+      "path": "qualification/coverage_v1/common.py",
+      "bytes": 707,
+      "sha256": "48b443059adf2ec40b42958275d839320a783e4f165cc5d22e5b1e90816ced92",
+      "git_blob": "0ab7bba38a78080ede1c26f59ce52891551b6597"
+    },
+    {
+      "path": "qualification/coverage_v1/contract.py",
+      "bytes": 8041,
+      "sha256": "7437f87cc6cfc2df58ebd6102b95951d3b0199e609e85b39c965e648bf6ec73d",
+      "git_blob": "ea431b8cdf958e45460f3b62cc011d4365f9607a"
+    },
+    {
+      "path": "qualification/coverage_v1/diagnostics.py",
+      "bytes": 16747,
+      "sha256": "6f6b9a9a593463d491ab35353f5d45a36ad73a8140a8d3d77c75d1b861f1c05d",
+      "git_blob": "8ac69d6fa8d43c985b492af7ecf26e9a83eb1a40"
+    },
+    {
+      "path": "qualification/coverage_v1/protocol.json",
+      "bytes": 31241,
+      "sha256": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000",
+      "git_blob": "37e3aae44e995e64c3a501196f4cc0127c0c9128"
+    },
+    {
+      "path": "qualification/coverage_v1/release.py",
+      "bytes": 9792,
+      "sha256": "d64644447a2edea5bb09933a8ed389afd8e79656f94ec1989fcbd934c23d944d",
+      "git_blob": "52169a6d9d530204101ac5c1db9c412b417ea00f"
+    },
+    {
+      "path": "qualification/coverage_v1/run_checks.py",
+      "bytes": 9250,
+      "sha256": "63af560c2ac535bd03711802949ff5689e01206e91095a409551fe2edf44add0",
+      "git_blob": "2448c954ff9e1b8bb0dcff027a4d288da76fb072"
+    },
+    {
+      "path": "qualification/coverage_v1/runtime.py",
+      "bytes": 17603,
+      "sha256": "291f0be82a44ce1412e882a54117f52f42cd057eb2c0633d0fc945e2079aafb2",
+      "git_blob": "4fdd3570c2af06c32a81d183948bac52c5980cc3"
+    },
+    {
+      "path": "qualification/coverage_v1/scoring.py",
+      "bytes": 5006,
+      "sha256": "9ee0780ddbe3e2b348dcbaf63eb76c22027215df3d4ef09c89dbae4aa532e760",
+      "git_blob": "35a4c0d187617709a368b5c98e47749e64c4cb86"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_diagnostics.py",
+      "bytes": 9902,
+      "sha256": "22027732a74adaf02db4ed05a547bee6bb1702001ddb638364513e9f1a749ff4",
+      "git_blob": "b83f730d547e832a0fbb831407c1e246d9037982"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_release.py",
+      "bytes": 13519,
+      "sha256": "8fcd99747485f49ef97c04b0d042c7c07d86facb4a6be310a1969624ea694179",
+      "git_blob": "1c40806e74d52c16bb7c63ae3247bd1743ced141"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_runtime.py",
+      "bytes": 13984,
+      "sha256": "3dfd307f8c67c349a07f6c72a201410b9cc3271e426d0527514699562f096352",
+      "git_blob": "f8317773b5f7b18686e234f429dd0998bbce71c2"
+    },
+    {
+      "path": "qualification/mapping_v1/README.md",
+      "bytes": 11369,
+      "sha256": "ecaef870eff9670198608e7cea0be4b9c241cec4db29b0e888133c1cf04503f0",
+      "git_blob": "794a2eea44be34527f2ede8bc5e489a4459d4450"
+    },
+    {
+      "path": "qualification/mapping_v1/__init__.py",
+      "bytes": 84,
+      "sha256": "f50379d81759a99815a3059f5fd240cb4b8b9530d3534a82cc7d624e9d2c5794",
+      "git_blob": "b1d62770eb1221f0744888a7d63e39398ea6a17a"
+    },
+    {
+      "path": "qualification/mapping_v1/cli.py",
+      "bytes": 1249,
+      "sha256": "bab361d33a66d612bbf9909ad55107135ed58d6348d731b83e3cf8d625d99d8b",
+      "git_blob": "92a985ea128cb780b7a7c20ef8aa4b28588b40a9"
+    },
+    {
+      "path": "qualification/mapping_v1/common.py",
+      "bytes": 2616,
+      "sha256": "a25855a658fb10aeac63b6892db7ca547f319bd4a2c71948eea9e6b328509f13",
+      "git_blob": "9cda5d79c8314f19c1d15ee92482938eb6676bb3"
+    },
+    {
+      "path": "qualification/mapping_v1/mapper.py",
+      "bytes": 6553,
+      "sha256": "0cf84a41d18c73cafd4215acb90175958df02c1436f6dda7046f10ab144c664b",
+      "git_blob": "3813daa2def596ec7178b142f2ea3ab9e3e769b5"
+    },
+    {
+      "path": "qualification/mapping_v1/protocol.json",
+      "bytes": 15223,
+      "sha256": "f54214cc42307eb955f44f4c6470311f01ff7cf93887ea21d024feaa08a63e42",
+      "git_blob": "a964e19cfb684356fb0d588cd78c2100cd0505f8"
+    },
+    {
+      "path": "qualification/mapping_v1/release.py",
+      "bytes": 8405,
+      "sha256": "139ec1507d3ac13e7ce03ca8a701410dbd92a74e339181a962de63129017ef0e",
+      "git_blob": "a58730d473737351bd69621d3b7816e11b0cd0ca"
+    },
+    {
+      "path": "qualification/mapping_v1/run_checks.py",
+      "bytes": 9240,
+      "sha256": "53a50fd93e1e3ef53d2ec80ab44da477d79076bf83a9ec07cf33fbf9e3f2ca10",
+      "git_blob": "521c47984d8f1c25bc0c3dacc63d0bb67d0b1da7"
+    },
+    {
+      "path": "qualification/mapping_v1/runtime.py",
+      "bytes": 16866,
+      "sha256": "207f281bfadaa682305caea7c67a51ba6c52b9899c74266c3167984525c3b24e",
+      "git_blob": "92cb336d48392fa582aabfaf5cf6539172d3c78d"
+    },
+    {
+      "path": "qualification/mapping_v1/scoring.py",
+      "bytes": 4749,
+      "sha256": "3618426c9bf1b058202d22f9d043bdee2fa590bab84c2faf3742e2d2b3f254ce",
+      "git_blob": "ec52cc08ac170fd78e7d194067c2cc26f985b09a"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_mapping.py",
+      "bytes": 5961,
+      "sha256": "dc02f379fdb75e0c905a97032053adb3e2334d3e4977da30e506782ee8e688f4",
+      "git_blob": "e3a029804b12c62064e2edd21bfaab7656b1f903"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_release.py",
+      "bytes": 6778,
+      "sha256": "027d2d18b74e77ea3a5dcb36e2986b1825a80c546849c3243ea1c827b38cf713",
+      "git_blob": "9a530ad830609ed317c7f2f738776c7c7609d59d"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_runtime.py",
+      "bytes": 10581,
+      "sha256": "395897759e5f2aefdd527da5a9fe22c169d8147b20057b2d0f2f3c3da53b95bb",
+      "git_blob": "5750877e9034e8fae0aee891ed3414cdde9a8eed"
+    },
+    {
+      "path": "qualification/mapping_v2/README.md",
+      "bytes": 2054,
+      "sha256": "b3be0ae9be469e2f71364cff02a0ccff3e308b863bf2458d2331b70864af04a8",
+      "git_blob": "213f51ed6095a5991df705e99183434627b626ab"
+    },
+    {
+      "path": "qualification/mapping_v2/__init__.py",
+      "bytes": 84,
+      "sha256": "f7a629be4344016b6cdc5138c796de94cefbf3be92df0176d222997c582485af",
+      "git_blob": "152b64775809838565886bfba989305576c399a9"
+    },
+    {
+      "path": "qualification/mapping_v2/cli.py",
+      "bytes": 1286,
+      "sha256": "2bbe4d23bf737803e4dcfe68dd67cf64775da1d383a587e4ff125d03d1f511bf",
+      "git_blob": "98d95d5119e9e2975d14edbda388f4d3807d26b1"
+    },
+    {
+      "path": "qualification/mapping_v2/common.py",
+      "bytes": 945,
+      "sha256": "3abe969191088c52107c85fed190d396458e9dd07c236cec2296cf07a23037ac",
+      "git_blob": "a70d794ad03d9ffccd87cad04e2f13b6ac782b59"
+    },
+    {
+      "path": "qualification/mapping_v2/mapper.py",
+      "bytes": 14218,
+      "sha256": "be366594e1dc926eb310e1a1862eac0077d489c4abccefeb274888497785f5ed",
+      "git_blob": "3d2c40ec92f86e182222202d780676e05f6e5240"
+    },
+    {
+      "path": "qualification/mapping_v2/process_identity.py",
+      "bytes": 1602,
+      "sha256": "e0b7da645249b0e640a885229113109841afa557173cff709cb3c2fc25708bac",
+      "git_blob": "aa628942b2f9784b075ee492d96ef915a5b49d5f"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/INTERFACE.md",
+      "bytes": 5573,
+      "sha256": "1bd8d8f2d060ee9044bf63c707f470380f0d2dc87d128e3eb104fcc5d587af42",
+      "git_blob": "c7f9d1d422ad9a9999a4756cf378ddddc9e941dd"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/POLICY.md",
+      "bytes": 9945,
+      "sha256": "4b4b15d5109c44d59c376571376838e55493226268d7c67a10a6398f56d2ac18",
+      "git_blob": "5e41e721e4a9c26fbb2a103d9f621ae1e7d74a4b"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/__init__.py",
+      "bytes": 76,
+      "sha256": "16b3295da8c48b0157ece119c4d6f82803283312232a68787ecc6a4278bbe66a",
+      "git_blob": "bfd9b2b0c4da4fb6dabe0864c2abd324f6fcde1c"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/catalog.json",
+      "bytes": 15981,
+      "sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+      "git_blob": "0ab09f3d2d00a9bab2d540bb8e728bc553064be9"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/cli.py",
+      "bytes": 1702,
+      "sha256": "c5e27fe3359e7070bfab06da01d2caed5907cc2f7077f0957e9462c0fef1229a",
+      "git_blob": "0d23c8595653f3929e7d20b8982adb980509c2a6"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/common.py",
+      "bytes": 1528,
+      "sha256": "b3ec74a6c6a5eff3028768f86204d1e4c0dd3d55123efa0e03a0348d0817b880",
+      "git_blob": "4fd6a226af6140f6199f165716ec4d53ae6a1bf2"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/contract.py",
+      "bytes": 13594,
+      "sha256": "c8ed951d64767ce134f4df94637e3378d955f8421285c6ab3295e9bba152e673",
+      "git_blob": "ecec8822112f46be41381b57c0fc3296f99098c4"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/protocol.json",
+      "bytes": 3573,
+      "sha256": "aa0d8f183f9f0161c6e47b56a6f2cd844d6ad3f31e772b9761aa0ad618f6a372",
+      "git_blob": "afc2cdec87f0029746cd087bb086650cc7365e12"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/run_checks.py",
+      "bytes": 5412,
+      "sha256": "0618a48b43085ac74b73ac225df7d2f7e5d68f55d3299c5cdf6942f3c3cb293e",
+      "git_blob": "22c78463c373abdd41f21db13d5b0dc1128147d6"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/scoring.py",
+      "bytes": 9267,
+      "sha256": "9a3dba263b080a383ac98730636167b15ac193eb8e10a6f3f2533cb72ae8685a",
+      "git_blob": "5c81c583bd1a5d432ba1ddd546e32ddb659a8446"
+    },
+    {
+      "path": "qualification/mapping_v2/protocol/tests/test_protocol.py",
+      "bytes": 17180,
+      "sha256": "59f5c8933b9fe60d103dcc9290863857b4f7df336be7a62de895a0dbf628010d",
+      "git_blob": "297d1024d200ebbc914494f7c0b025a0f7225f10"
+    },
+    {
+      "path": "qualification/mapping_v2/release.py",
+      "bytes": 10482,
+      "sha256": "e19cd0a004f552f143bd3a40e4c56be527733e501faefc2d505642c3669f6618",
+      "git_blob": "ee66a3def475012b2dbde6903bbfd80b5cb39c33"
+    },
+    {
+      "path": "qualification/mapping_v2/run_checks.py",
+      "bytes": 12368,
+      "sha256": "355e197ddefc28a75b6799fdae38362034365b3918561c6cdc90e81ef386e4e9",
+      "git_blob": "2c118160f0760f57978772f180e7125867712c6a"
+    },
+    {
+      "path": "qualification/mapping_v2/runtime.py",
+      "bytes": 18218,
+      "sha256": "fc1e0367993234c3d50a59b720bd12a821d5fc9bc00a1edfa1cb537cc28ffcba",
+      "git_blob": "d9da7c8739b453adf1137486caf7be7138abfd96"
+    },
+    {
+      "path": "qualification/mapping_v2/runtime_protocol.json",
+      "bytes": 24797,
+      "sha256": "46a0d3e7bec0f14a3911eb7365385b7d132db8e8a72c8edb3f030aeeda124ec2",
+      "git_blob": "244f2972e2398b10fee7b79da833c62d4f5a5ea2"
+    },
+    {
+      "path": "qualification/mapping_v2/scoring.py",
+      "bytes": 5816,
+      "sha256": "3835e94a27391c858dd667b1583201ce5c10c4d099666ae9ad065e6ea0e01a57",
+      "git_blob": "dbcc32a36acd2abcf08893c36bd320f7e1120d3f"
+    },
+    {
+      "path": "qualification/mapping_v2/tests/test_mapper.py",
+      "bytes": 9691,
+      "sha256": "b46c123bba1a2c7c95bcb138e2edf5b0bf936719271d994387c880c22778d827",
+      "git_blob": "63f2dac233f06217a78579ab969d437f443782e8"
+    },
+    {
+      "path": "qualification/mapping_v2/tests/test_release.py",
+      "bytes": 12095,
+      "sha256": "b4c53671af5ccc2def249b8478eb2f775025a6096c75f4779d769fb26b5cda66",
+      "git_blob": "d23b6d9c2f4e425a0f4d71946bd5d4e977d067f9"
+    },
+    {
+      "path": "qualification/mapping_v2/tests/test_runtime.py",
+      "bytes": 14261,
+      "sha256": "912f840f899a8a6ac6885795a21c027e5822f4c44263dd007c2aedfc31fa5ade",
+      "git_blob": "25b6af76bc0456be59829ea32ef2120771662b8b"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/__init__.py",
+      "bytes": 526,
+      "sha256": "c42997c315f52c4b9d31a42d90c7ad9ea9870aa87f5e80fb146f56999013acb1",
+      "git_blob": "159e8487b2395614fbc8d9e2482c392421a4ee94"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/backend_torch.py",
+      "bytes": 4546,
+      "sha256": "d6dad4d19dbec6988d4be8159fde68eea9c203546e07d018fdf6b1617cd7eda7",
+      "git_blob": "be1183130891b1770a6fcef639d9eeb5ad0175cc"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/environment.py",
+      "bytes": 14098,
+      "sha256": "e160969d04093d5fd70499fab20d6062a8919509e8830aae562628be210f1f0f",
+      "git_blob": "0ca99d8c4b84ec02ca9dc19ab855c1b0a120a274"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/fixtures.py",
+      "bytes": 5465,
+      "sha256": "13ad85f3847bb754c8c1c028bd28c1884b2836d5854d71c8fe88886b486f1cab",
+      "git_blob": "156b02108fccd5acb5e752985c48fcc69d3c5ef7"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/hashing.py",
+      "bytes": 1510,
+      "sha256": "ad61007cb6615c815f97ce253b8db8268a46049189ef7c6ec857d70f0bcc27af",
+      "git_blob": "3317ef04145548f4c13f66a1ecfb51ff74033ab2"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/hostcheck.py",
+      "bytes": 9659,
+      "sha256": "a4fa60ab7f1cde7f71e1a1b6ecbad82a87c4f752e5b7e5ee0367320495562754",
+      "git_blob": "81baac5859aacb4560512f7a863b97fefc057c5f"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/locks.py",
+      "bytes": 26495,
+      "sha256": "133c1cfcab1c2b0bad6433527b50694b88a634ffbe6873a3130b300f8d06edaf",
+      "git_blob": "6167cf8c4dbeaf48d8753d10289ea22d67150718"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/logscan.py",
+      "bytes": 1992,
+      "sha256": "9bd65a8c6c4b3538965093c73a282786d08a61ebce83bea646824593b0684f4f",
+      "git_blob": "d37c4dc7d8e4c5f66002f311227731499a9be1b1"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/modelfiles.py",
+      "bytes": 10882,
+      "sha256": "b2490e546f8393b68107b8e283bd238c364f249524796c233920199d69cc1f75",
+      "git_blob": "bfcee168c5f955a73832d9d93d40190a314c125a"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/outcome.py",
+      "bytes": 6137,
+      "sha256": "18781652d761bc379c44a3f513c95208c28c86282a5e73abf19b4a33bbdb0997",
+      "git_blob": "4665ed59ab22f77ec55fe5260457cba80071a9b1"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/preflight.py",
+      "bytes": 2113,
+      "sha256": "5a44e13b2246a4a13ac66b3c85309fb3f90cacf0df0c0d1841d082a904017e2d",
+      "git_blob": "daf5df737885b0eb9a571c7c5b8e2ea3c6bf859f"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/procmem.py",
+      "bytes": 3550,
+      "sha256": "970fb86b0c27655cea50f03b231a20f1678aa07ca6958f51967bef4ebf4c3274",
+      "git_blob": "666a5ed54d9322ce07052f2161943305848d9c93"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/protocol.py",
+      "bytes": 11202,
+      "sha256": "8ec4aa9998a6a0ba1df766de896805350887e1501772de3f13dc6ca6a268c843",
+      "git_blob": "c3e6a60592687219acf7c2ffec4c4c99404a84c7"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/release.py",
+      "bytes": 3565,
+      "sha256": "55c2b154badc15201d336d317e8632aa86294e6423b9ea2c19a08796f679d216",
+      "git_blob": "106c4b00ff4bcebb5a8b27168145e1ccd2f9792d"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/render.py",
+      "bytes": 2194,
+      "sha256": "f9f70f7555c1c1779fa29aa0a3700c76b43e195f83ea3569e3f6716c174a4769",
+      "git_blob": "1551e6cdd5751bd38b2b6fbd0ac758e52c0e7d3b"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/session.py",
+      "bytes": 21353,
+      "sha256": "06d5869406f8d5f8a78b6384f892ab123d63014bcfae604be1dc1129505bb96a",
+      "git_blob": "8709ad91275c1890e3dfc2f187e208c60878ff4e"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/sourcecheck.py",
+      "bytes": 9617,
+      "sha256": "f13b68e494e75b95665635ee1b2acca932b50d5c056bc6208dd97a5d790cbf84",
+      "git_blob": "6d7bd23c11ec5d9ce6e0f059cfbed18397be9a8b"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/supervisor.py",
+      "bytes": 6944,
+      "sha256": "fb45790e7e6bd61f7c40db5150b6ab8128e65940964bb0ac22a9818a26d812a4",
+      "git_blob": "f1e3fd73e353544635467765b0c6d4e122fa460d"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/telemetry.py",
+      "bytes": 17256,
+      "sha256": "a26a2df84249f698e91a83d2e59469128257b09e2ba159eac2ab2e9776930c89",
+      "git_blob": "5183528425d97da46019477962d0662f48f100c3"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/writer.py",
+      "bytes": 4286,
+      "sha256": "657c1e777859941efffd00ddca8c4c92f5e775bb084349140f446d17fe68198d",
+      "git_blob": "811128b2834499ead8794f6532f5a88e12874700"
+    }
+  ],
+  "finished_utc": "2026-11-17T15:27:26.531574+00:00"
+}
