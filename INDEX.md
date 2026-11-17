@@ -796,3 +796,6 @@ WP-0010 author preparation released under WP-0010-eld-f4-implementer-preparation
 
 
 WP-0010 author preparation actual Carbon dispatch RUNNING_CONFIRMED: conversationb7c54417-db09-49bd-8d2b-7cc808f113be, gemini-4-carbon-high/high, CLI28760/tool96717, exactauthority419159c0c35f8adccae88ca65b5d7d72ccdde729. Owned F3 seed preparation only; no F4 source implementation, no canonical003. Receipt docs/coordination/WP-0010/author-preparation-dispatch.json.
+
+
+WP-0011 frozen corpus reservation PUBLISHED98a3a3f73df0e578ae98ebf3923db7ba4882d018. Root custody identity audit verifies108 sealed files plus self-inventory and48 public artifact descriptors at clean/no-remote sealedreceipt6583715067d3a027dd2502ed9623cf02c545391d; inventory SHA256bd37f4020a4b5b185379d9d7d2e529b39ebc0d3fa0aa37802d2bccc0546c4330. Ground-truth admission pending. Independent004 RELEASED under WP-0011-eld-mapping-reviewer-admission.md, exact candidateb5f33a65d463d4b9a5463fdb93353c0c7ac7c7f3; reviewer private evidence only under new /admission root; public hashes/status only. Native actual dispatch PREPARED. Author remains barred from sealed content; no GPU work.
