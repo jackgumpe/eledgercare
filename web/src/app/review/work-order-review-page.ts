@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, DestroyRef, HostListener, computed, effect, inject, input, signal } from '@angular/core';
+import { Component, DestroyRef, HostListener, computed, effect, inject, input, signal, untracked } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterLink, RouterStateSnapshot } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
+import { normalizeArchiveSourceParam } from '../archive/archive-models';
 import { isUncertainFailure } from '../intake/submission-api';
 import { buildRelativePdfPreviewHref, trustSameOriginPdfPreviewUrl } from './pdf-preview-url';
 import { ReviewApi } from './review-api';
@@ -75,6 +76,18 @@ interface ReplayedHistoricalInfo {
           </p>
         </div>
         <div class="review-topbar-links">
+          @if (hasArchiveReturnContext()) {
+            <a
+              [routerLink]="['/archive']"
+              [queryParams]="archiveReturnQueryParams()"
+              data-testid="review-back-to-archive"
+            >
+              &larr; Back to archive search
+            </a>
+            ·
+          }
+          <a routerLink="/archive" data-testid="review-open-archive">Archive search</a>
+          ·
           <a [routerLink]="['/documents', documentId()]" data-testid="back-to-document">
             &larr; Extraction &amp; provenance screen
           </a>
@@ -159,8 +172,13 @@ interface ReplayedHistoricalInfo {
             <div class="warning note-box" data-testid="historical-revision-banner">
               <p>
                 <strong>
-                  Viewing immutable historical Revision #{{ histView.revision.revisionNumber }}
-                  ({{ histView.revision.status }})
+                  @if (histView.isCurrentHead) {
+                    Viewing pinned immutable Revision #{{ histView.revision.revisionNumber }}
+                    ({{ histView.revision.status }})
+                  } @else {
+                    Viewing immutable historical Revision #{{ histView.revision.revisionNumber }}
+                    ({{ histView.revision.status }})
+                  }
                 </strong>
                 — saved {{ histView.revision.savedAtUtc }}
                 @if (histView.revision.operatorDisplayLabel; as op) {
@@ -170,9 +188,15 @@ interface ReplayedHistoricalInfo {
               </p>
               <p>
                 <button type="button" data-testid="return-to-current-head" (click)="returnToCurrentHead()">
-                  Return to current head (#{{ histView.currentRevisionNumber }})
+                  {{ histView.isCurrentHead ? 'Switch to editable current head' : 'Return to current head (#' + histView.currentRevisionNumber + ')' }}
                 </button>
               </p>
+            </div>
+          }
+
+          @if (navigationNotice(); as navWarn) {
+            <div class="warning note-box" data-testid="review-navigation-notice">
+              <p>{{ navWarn }}</p>
             </div>
           }
 
@@ -361,7 +385,12 @@ interface ReplayedHistoricalInfo {
             @if (selectedHistorical(); as hist) {
               <h3>Historical snapshot — Revision #{{ hist.revision.revisionNumber }} ({{ hist.revision.status }})</h3>
               @for (hf of hist.fields; track hf.fieldKey) {
-                <article class="field-card" [attr.data-testid]="'historical-field-' + hf.fieldKey">
+                <article
+                  class="field-card"
+                  [class.highlighted-target]="focusedFieldKey() === hf.fieldKey"
+                  [attr.data-focused]="focusedFieldKey() === hf.fieldKey ? 'true' : null"
+                  [attr.data-testid]="'historical-field-' + hf.fieldKey"
+                >
                   <div class="field-header">
                     <strong>{{ hf.label }}</strong>
                     <span class="status" [attr.data-testid]="'historical-decision-' + hf.fieldKey">{{ hf.decision }}</span>
@@ -390,6 +419,19 @@ interface ReplayedHistoricalInfo {
                       <dt>Consulted source</dt>
                       <dd>
                         Page {{ csrc.pageNumber }} — quote: {{ csrc.sourceQuote }}
+                        <button
+                          type="button"
+                          class="small-btn"
+                          [attr.data-testid]="'historical-consulted-page-' + hf.fieldKey"
+                          (click)="goToPage(csrc.pageNumber)"
+                        >
+                          View Page {{ csrc.pageNumber }}
+                        </button>
+                      </dd>
+                    } @else if (hf.decision === 'accepted' || hf.decision === 'edited') {
+                      <dt>Consulted source</dt>
+                      <dd [attr.data-testid]="'historical-no-provenance-' + hf.fieldKey">
+                        None recorded (no source page coordinates)
                       </dd>
                     }
                   </dl>
@@ -399,7 +441,12 @@ interface ReplayedHistoricalInfo {
               <h3>Five work-order fields</h3>
 
               @for (f of editableFields(); track f.fieldKey) {
-                <article class="field-card" [attr.data-testid]="'review-field-' + f.fieldKey">
+                <article
+                  class="field-card"
+                  [class.highlighted-target]="focusedFieldKey() === f.fieldKey"
+                  [attr.data-focused]="focusedFieldKey() === f.fieldKey ? 'true' : null"
+                  [attr.data-testid]="'review-field-' + f.fieldKey"
+                >
                   <div class="field-header">
                     <div>
                       <strong>{{ f.label }}</strong>
@@ -718,11 +765,17 @@ export class WorkOrderReviewPage {
   readonly documentId = input.required<string>();
   readonly revision = input<string | undefined>(undefined);
   readonly revisionNumber = input<string | undefined>(undefined);
+  readonly page = input<string | undefined>(undefined);
+  readonly field = input<string | undefined>(undefined);
+  readonly returnQ = input<string | undefined>(undefined);
+  readonly returnSource = input<string | undefined>(undefined);
 
   protected readonly loading = signal(true);
   protected readonly loadError = signal<string | null>(null);
   protected readonly reviewHead = signal<DocumentReviewView | null>(null);
   protected readonly selectedHistorical = signal<SelectedReviewRevisionView | null>(null);
+  protected readonly focusedFieldKey = signal<string | null>(null);
+  protected readonly navigationNotice = signal<string | null>(null);
 
   protected readonly expectedRevision = signal(0);
   protected readonly editableFields = signal<EditableFieldState[]>([]);
@@ -744,6 +797,23 @@ export class WorkOrderReviewPage {
   protected readonly pageNumbers = computed(() => {
     const count = this.reviewHead()?.pageCount ?? 1;
     return Array.from({ length: count }, (_, idx) => idx + 1);
+  });
+
+  protected readonly hasArchiveReturnContext = computed(
+    () => this.returnQ() !== undefined || this.returnSource() !== undefined,
+  );
+
+  protected readonly archiveReturnQueryParams = computed(() => {
+    const q = this.returnQ();
+    const src = normalizeArchiveSourceParam(this.returnSource());
+    const params: Record<string, string> = {};
+    if (q && q.length > 0) {
+      params['q'] = q;
+    }
+    if (src !== 'all') {
+      params['source'] = src;
+    }
+    return params;
   });
 
   protected readonly viewerFrameKey = computed(
@@ -839,6 +909,20 @@ export class WorkOrderReviewPage {
       const revParam = this.revisionNumber() ?? this.revision();
       void this.loadInitial(id, revParam);
     });
+
+    // Non-destructive focus & page navigation effect: updates focusedFieldKey and PDF page
+    // when query parameters (?page=...&field=...) change without resetting unsaved edits in memory!
+    effect(() => {
+      const head = this.reviewHead();
+      const rawPage = this.page();
+      const rawField = this.field();
+      untracked(() => {
+        if (!head) {
+          return;
+        }
+        this.applyValidatedQueryFocus(head, rawPage, rawField);
+      });
+    });
   }
 
   @HostListener('window:beforeunload', ['$event'])
@@ -850,7 +934,7 @@ export class WorkOrderReviewPage {
   }
 
   hasUnsavedMemoryWarning(): boolean {
-    return this.hasUnsavedEdits() || this.pendingSave() !== null;
+    return this.hasUnsavedEdits() || this.pendingSave() !== null || this.staleConflict() !== null;
   }
 
   protected isEditorLocked(): boolean {
@@ -1176,7 +1260,7 @@ export class WorkOrderReviewPage {
       if (!this.destroyed) {
         this.selectedHistorical.set(snap);
         void this.router.navigate(['/documents', head.documentId, 'review'], {
-          queryParams: { revision: revNum },
+          queryParams: { revision: revNum, ...this.preserveArchiveQueryParams() },
           replaceUrl: true,
         });
       }
@@ -1190,7 +1274,7 @@ export class WorkOrderReviewPage {
     this.selectedHistorical.set(null);
     if (head) {
       void this.router.navigate(['/documents', head.documentId, 'review'], {
-        queryParams: {},
+        queryParams: this.preserveArchiveQueryParams(),
         replaceUrl: true,
       });
     }
@@ -1306,8 +1390,11 @@ export class WorkOrderReviewPage {
         return;
       }
       this.currentPage.set(1);
+      this.focusedFieldKey.set(null);
+      this.navigationNotice.set(null);
       this.applyHeadView(head, true);
 
+      const hasExplicitPinnedRoute = this.revisionNumber() !== undefined && this.revisionNumber() !== '';
       if (revisionParam !== undefined && revisionParam !== '') {
         const parsedRev = Number(revisionParam);
         if (
@@ -1316,12 +1403,16 @@ export class WorkOrderReviewPage {
           !/^[1-9][0-9]*$/.test(revisionParam)
         ) {
           this.validationError.set(`Invalid revision parameter '${revisionParam}'. Showing current head.`);
-        } else if (parsedRev !== head.currentRevisionNumber) {
+        } else if (hasExplicitPinnedRoute || parsedRev !== head.currentRevisionNumber) {
           const hist = await firstValueFrom(this.api.getRevision(documentId, parsedRev));
           if (!this.destroyed) {
             this.selectedHistorical.set(hist);
           }
         }
+      }
+
+      if (!this.destroyed) {
+        this.applyValidatedQueryFocus(head, this.page(), this.field());
       }
     } catch (error: unknown) {
       if (this.destroyed) {
@@ -1388,16 +1479,85 @@ export class WorkOrderReviewPage {
     });
   }
 
+  private preserveArchiveQueryParams(): Record<string, string> {
+    if (!this.hasArchiveReturnContext()) {
+      return {};
+    }
+    const out: Record<string, string> = {
+      returnSource: normalizeArchiveSourceParam(this.returnSource()),
+    };
+    const q = this.returnQ();
+    if (q && q.length > 0) {
+      out['returnQ'] = q;
+    }
+    return out;
+  }
+
+  private applyValidatedQueryFocus(
+    head: DocumentReviewView,
+    rawPage: string | undefined,
+    rawField: string | undefined,
+  ): void {
+    const notices: string[] = [];
+
+    if (rawPage !== undefined && rawPage !== '') {
+      const parsedPage = Number(rawPage);
+      if (!/^[1-9][0-9]*$/.test(rawPage) || !Number.isInteger(parsedPage) || parsedPage < 1 || parsedPage > head.pageCount) {
+        notices.push(`Requested PDF page '${rawPage}' is outside this document's 1..${head.pageCount} page count.`);
+      } else {
+        this.goToPage(parsedPage);
+      }
+    }
+
+    if (rawField !== undefined && rawField !== '') {
+      const matched = head.fields.find((f) => f.fieldKey === rawField);
+      if (!matched) {
+        notices.push('Requested work-order field was not recognized.');
+        this.focusedFieldKey.set(null);
+      } else {
+        this.focusedFieldKey.set(matched.fieldKey);
+      }
+    } else {
+      this.focusedFieldKey.set(null);
+    }
+
+    this.navigationNotice.set(notices.length > 0 ? notices.join(' ') : null);
+  }
+
   private clearTransientAlerts(): void {
     this.validationError.set(null);
     this.saveSuccessMessage.set(null);
   }
 }
 
-export function unsavedReviewChangesGuard(component: WorkOrderReviewPage): boolean {
+export function unsavedReviewChangesGuard(
+  component: WorkOrderReviewPage,
+  currentRoute: ActivatedRouteSnapshot,
+  _currentState: RouterStateSnapshot,
+  nextState?: RouterStateSnapshot,
+): boolean {
   if (!component.hasUnsavedMemoryWarning()) {
     return true;
   }
+
+  if (nextState) {
+    let leaf: ActivatedRouteSnapshot | null = nextState.root;
+    while (leaf?.firstChild) {
+      leaf = leaf.firstChild;
+    }
+    if (leaf && leaf.component === WorkOrderReviewPage) {
+      const currDoc = currentRoute.paramMap.get('documentId') ?? '';
+      const nextDoc = leaf.paramMap.get('documentId') ?? '';
+      const currRev = currentRoute.paramMap.get('revisionNumber') ?? currentRoute.queryParamMap.get('revision') ?? '';
+      const nextRev = leaf.paramMap.get('revisionNumber') ?? leaf.queryParamMap.get('revision') ?? '';
+      if (currDoc === nextDoc && currRev === nextRev) {
+        // Non-destructive query-parameter update (?page= / ?field=) on the same document & revision:
+        // unsaved memory is preserved intact without reloading!
+        return true;
+      }
+    }
+  }
+
   return window.confirm(
     'You have unsaved work-order review changes or an uncertain save in page memory. Leave and discard unsaved memory?',
   );

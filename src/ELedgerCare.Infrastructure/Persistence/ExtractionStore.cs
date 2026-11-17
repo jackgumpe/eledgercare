@@ -521,7 +521,9 @@ public sealed class ExtractionStore(IDbContextFactory<ELedgerCareDbContext> cont
             }
         }
 
+        var projection = ELedgerCare.Domain.Archive.ArchiveMachineProjector.Project(result, completedAtUtc);
         db.ExtractionResults.Add(result);
+        db.ArchiveResultProjections.Add(projection);
         try
         {
             await db.SaveChangesAsync(cancellationToken);

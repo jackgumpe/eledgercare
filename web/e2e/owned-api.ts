@@ -13,7 +13,7 @@ export class OwnedApi {
   readonly starts: { pid: number; port: string; startedUtc: string; stoppedUtc?: string }[] = [];
 
   get port(): string {
-    return process.env['ELEDGERCARE_API_PORT'] ?? '5390';
+    return process.env['ELEDGERCARE_API_PORT'] ?? '5590';
   }
 
   get settings(): Record<string, string | number> {

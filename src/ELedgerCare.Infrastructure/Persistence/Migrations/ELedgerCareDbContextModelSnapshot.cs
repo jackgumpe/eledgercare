@@ -25,6 +25,115 @@ namespace ELedgerCare.Infrastructure.Persistence.Migrations
 
             modelBuilder.HasSequence("extraction_fencing_seq", "eledgercare");
 
+            modelBuilder.Entity("ELedgerCare.Domain.Archive.ArchiveProjectionUnit", b =>
+                {
+                    b.Property<Guid>("ResultId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("result_id");
+
+                    b.Property<string>("ProjectionVersion")
+                        .HasColumnType("text")
+                        .HasColumnName("projection_version");
+
+                    b.Property<int>("UnitOrdinal")
+                        .HasColumnType("integer")
+                        .HasColumnName("unit_ordinal");
+
+                    b.Property<Guid>("DocumentId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("document_id");
+
+                    b.Property<bool>("IsFallback")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_fallback");
+
+                    b.Property<int?>("PageNumber")
+                        .HasColumnType("integer")
+                        .HasColumnName("page_number");
+
+                    b.Property<string>("SearchText")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("search_text");
+
+                    b.Property<string>("UnitKind")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("unit_kind");
+
+                    b.HasKey("ResultId", "ProjectionVersion", "UnitOrdinal")
+                        .HasName("pk_archive_projection_units");
+
+                    b.HasIndex("DocumentId", "ProjectionVersion", "UnitOrdinal")
+                        .HasDatabaseName("ix_archive_projection_units_document_version_ordinal");
+
+                    b.ToTable("archive_projection_units", "eledgercare", t =>
+                        {
+                            t.HasCheckConstraint("ck_archive_projection_units_coords", "((unit_kind = 'document_fallback' AND page_number IS NULL AND is_fallback = TRUE) OR (unit_kind = 'page_fallback' AND page_number BETWEEN 1 AND 3 AND is_fallback = TRUE) OR (unit_kind = 'page' AND page_number BETWEEN 1 AND 3))");
+
+                            t.HasCheckConstraint("ck_archive_projection_units_kind", "unit_kind IN ('page', 'page_fallback', 'document_fallback')");
+
+                            t.HasCheckConstraint("ck_archive_projection_units_ordinal", "unit_ordinal >= 0");
+
+                            t.HasCheckConstraint("ck_archive_projection_units_text", "char_length(btrim(search_text)) >= 1");
+
+                            t.HasCheckConstraint("ck_archive_projection_units_version", "projection_version = 'archive-machine-projection/1'");
+                        });
+                });
+
+            modelBuilder.Entity("ELedgerCare.Domain.Archive.ArchiveResultProjection", b =>
+                {
+                    b.Property<Guid>("ResultId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("result_id");
+
+                    b.Property<string>("ProjectionVersion")
+                        .HasColumnType("text")
+                        .HasColumnName("projection_version");
+
+                    b.Property<Guid>("DocumentId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("document_id");
+
+                    b.Property<bool>("HasFallback")
+                        .HasColumnType("boolean")
+                        .HasColumnName("has_fallback");
+
+                    b.Property<DateTimeOffset>("ProjectedAtUtc")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("projected_at");
+
+                    b.Property<byte[]>("ProjectionSha256")
+                        .IsRequired()
+                        .HasColumnType("bytea")
+                        .HasColumnName("projection_sha256");
+
+                    b.Property<byte[]>("RawOutputSha256")
+                        .IsRequired()
+                        .HasColumnType("bytea")
+                        .HasColumnName("raw_output_sha256");
+
+                    b.Property<int>("UnitCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("unit_count");
+
+                    b.HasKey("ResultId", "ProjectionVersion")
+                        .HasName("pk_archive_result_projections");
+
+                    b.HasIndex("DocumentId", "ProjectionVersion")
+                        .IsUnique()
+                        .HasDatabaseName("ux_archive_result_projections_document_version");
+
+                    b.ToTable("archive_result_projections", "eledgercare", t =>
+                        {
+                            t.HasCheckConstraint("ck_archive_result_projections_digests", "octet_length(raw_output_sha256) = 32 AND octet_length(projection_sha256) = 32");
+
+                            t.HasCheckConstraint("ck_archive_result_projections_unit_count", "unit_count >= 0");
+
+                            t.HasCheckConstraint("ck_archive_result_projections_version", "projection_version = 'archive-machine-projection/1'");
+                        });
+                });
+
             modelBuilder.Entity("ELedgerCare.Domain.Documents.Document", b =>
                 {
                     b.Property<Guid>("DocumentId")
@@ -45,6 +154,10 @@ namespace ELedgerCare.Infrastructure.Persistence.Migrations
                     b.HasIndex("IdempotencyKey")
                         .IsUnique()
                         .HasDatabaseName("ux_documents_idempotency_key");
+
+                    b.HasIndex("SubmittedAtUtc", "DocumentId")
+                        .IsDescending()
+                        .HasDatabaseName("ix_documents_submitted_at_document_id_desc");
 
                     b.ToTable("documents", "eledgercare");
                 });
@@ -729,6 +842,40 @@ namespace ELedgerCare.Infrastructure.Persistence.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ELedgerCare.Domain.Archive.ArchiveProjectionUnit", b =>
+                {
+                    b.HasOne("ELedgerCare.Domain.Documents.Document", null)
+                        .WithMany()
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("fk_archive_projection_units_documents");
+
+                    b.HasOne("ELedgerCare.Domain.Archive.ArchiveResultProjection", null)
+                        .WithMany("Units")
+                        .HasForeignKey("ResultId", "ProjectionVersion")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("fk_archive_projection_units_projections");
+                });
+
+            modelBuilder.Entity("ELedgerCare.Domain.Archive.ArchiveResultProjection", b =>
+                {
+                    b.HasOne("ELedgerCare.Domain.Documents.Document", null)
+                        .WithMany()
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("fk_archive_result_projections_documents");
+
+                    b.HasOne("ELedgerCare.Domain.Processing.ExtractionResult", null)
+                        .WithMany()
+                        .HasForeignKey("ResultId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("fk_archive_result_projections_extraction_results");
+                });
+
             modelBuilder.Entity("ELedgerCare.Domain.Documents.OriginalArtifact", b =>
                 {
                     b.HasOne("ELedgerCare.Domain.Documents.Document", null)
@@ -851,6 +998,11 @@ namespace ELedgerCare.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("fk_work_order_review_revisions_extraction_results");
+                });
+
+            modelBuilder.Entity("ELedgerCare.Domain.Archive.ArchiveResultProjection", b =>
+                {
+                    b.Navigation("Units");
                 });
 
             modelBuilder.Entity("ELedgerCare.Domain.Documents.Document", b =>

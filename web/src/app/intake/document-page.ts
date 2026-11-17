@@ -1,14 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, DestroyRef, effect, inject, input, signal } from '@angular/core';
+import { Component, DestroyRef, computed, effect, inject, input, signal, untracked } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
+import { normalizeArchiveSourceParam } from '../archive/archive-models';
+import { buildRelativePdfPreviewHref, trustSameOriginPdfPreviewUrl } from '../review/pdf-preview-url';
 import { DocumentDetail, DocumentExtractionView, ProblemBody, statusLabel } from './receipt';
 import { SubmissionApi } from './submission-api';
 
 const pollIntervalMs = 2_000;
 
 /**
- * Document and unreviewed local extraction result screen (/documents/:documentId).
+ * Document, inline original PDF preview, and unreviewed local extraction result screen (/documents/:documentId).
  * Renders all extracted content exclusively via Angular text interpolation ({{ ... }});
  * never uses innerHTML, bypassSecurityTrustHtml, or dynamic evaluation.
  */
@@ -17,10 +20,27 @@ const pollIntervalMs = 2_000;
   imports: [RouterLink],
   template: `
     <section>
-      <h2>Document</h2>
+      <div class="review-topbar">
+        <h2>Document</h2>
+        <div class="review-topbar-links">
+          @if (hasArchiveReturnContext()) {
+            <a [routerLink]="['/archive']" [queryParams]="archiveReturnQueryParams()" data-testid="back-to-archive">
+              &larr; Back to archive search
+            </a>
+            ·
+          }
+          <a routerLink="/archive" data-testid="document-open-archive">Archive search</a>
+          ·
+          <a routerLink="/">Back to intake</a>
+        </div>
+      </div>
+
       @if (loading()) {
         <p>Loading…</p>
       } @else if (document(); as d) {
+        @if (invalidPageWarning(); as warn) {
+          <p class="warning note-box" data-testid="document-invalid-page-warning">{{ warn }}</p>
+        }
         <dl data-testid="document">
           <dt>Document reference</dt>
           <dd data-testid="document-id">{{ d.documentId }}</dd>
@@ -41,8 +61,62 @@ const pollIntervalMs = 2_000;
       } @else {
         <p class="error" data-testid="document-error">{{ error() }}</p>
       }
-      <p><a routerLink="/">Back to intake</a></p>
     </section>
+
+    @if (document(); as dPreview) {
+      <section data-testid="document-pdf-preview-section">
+        <div class="pdf-toolbar">
+          <div>
+            <strong>Original PDF preview</strong>
+            @if (selectedPreviewPage(); as pgNum) {
+              <span class="note" data-testid="document-pdf-current-page">
+                · Page {{ pgNum }} of {{ dPreview.admittedPageCount }}
+              </span>
+            } @else {
+              <span class="note" data-testid="document-pdf-current-page">
+                · {{ dPreview.admittedPageCount }} page{{ dPreview.admittedPageCount === 1 ? '' : 's' }} (no page claim)
+              </span>
+            }
+          </div>
+
+          @if (previewPageButtons().length > 0) {
+            <div class="pdf-page-controls" role="group" aria-label="Document PDF page navigation">
+              @for (pg of previewPageButtons(); track pg) {
+                <button
+                  type="button"
+                  [class.active-page]="selectedPreviewPage() === pg"
+                  [attr.data-testid]="'document-pdf-page-btn-' + pg"
+                  (click)="selectPreviewPage(pg)"
+                >
+                  Page {{ pg }}
+                </button>
+              }
+            </div>
+          }
+
+          <div class="pdf-fallback-links">
+            <a [href]="documentPreviewHref()" target="_blank" rel="noopener" data-testid="document-pdf-open-fallback">
+              Open PDF
+            </a>
+            ·
+            <a [href]="dPreview.originalUrl" download data-testid="document-pdf-download-fallback">
+              Download original ({{ dPreview.byteLength }} B)
+            </a>
+          </div>
+        </div>
+
+        <div class="document-pdf-frame-container">
+          @for (frameKey of [previewFrameKey()]; track frameKey) {
+            <iframe
+              class="pdf-preview-frame"
+              data-testid="document-pdf-preview-frame"
+              title="Original submitted PDF preview"
+              [src]="safeDocumentPreviewUrl()"
+            ></iframe>
+          }
+        </div>
+      </section>
+    }
 
     @if (extraction(); as ext) {
       <section data-testid="extraction-panel">
@@ -181,6 +255,7 @@ const pollIntervalMs = 2_000;
                 <a
                   class="button-link"
                   [routerLink]="['/documents', ext.documentId, 'review']"
+                  [queryParams]="hasArchiveReturnContext() ? archiveReturnPassThroughParams() : null"
                   data-testid="open-work-order-review"
                 >
                   {{ ext.workOrderReview ? 'Open work-order review' : 'Review as maintenance work order' }}
@@ -212,7 +287,11 @@ const pollIntervalMs = 2_000;
           <h3>Extracted pages (in document order)</h3>
           <div data-testid="result-pages">
             @for (page of res.pages; track page.pageNumber) {
-              <article class="page-card" [attr.data-testid]="'result-page-' + page.pageNumber">
+              <article
+                class="page-card"
+                [class.highlighted-target]="selectedPreviewPage() === page.pageNumber"
+                [attr.data-testid]="'result-page-' + page.pageNumber"
+              >
                 <h4>Page {{ page.pageNumber }} of {{ res.pageCount }}</h4>
                 @for (block of page.blocks; track $index) {
                   @if (block.tableRows && block.tableRows.length > 0) {
@@ -250,17 +329,82 @@ const pollIntervalMs = 2_000;
 })
 export class DocumentPage {
   private readonly api = inject(SubmissionApi);
+  private readonly sanitizer = inject(DomSanitizer);
   private readonly destroyRef = inject(DestroyRef);
   private pollHandle: ReturnType<typeof setTimeout> | null = null;
   private destroyed = false;
 
   readonly documentId = input.required<string>();
+  readonly page = input<string | undefined>(undefined);
+  readonly returnQ = input<string | undefined>(undefined);
+  readonly returnSource = input<string | undefined>(undefined);
+
   protected readonly loading = signal(true);
   protected readonly document = signal<DocumentDetail | null>(null);
   protected readonly extraction = signal<DocumentExtractionView | null>(null);
   protected readonly error = signal<string | null>(null);
   protected readonly actionError = signal<string | null>(null);
   protected readonly actionInFlight = signal(false);
+
+  protected readonly selectedPreviewPage = signal<number | undefined>(undefined);
+  protected readonly invalidPageWarning = signal<string | null>(null);
+  protected readonly previewRemountSeq = signal(0);
+
+  protected readonly hasArchiveReturnContext = computed(
+    () => this.returnQ() !== undefined || this.returnSource() !== undefined,
+  );
+
+  protected readonly archiveReturnQueryParams = computed(() => {
+    const q = this.returnQ();
+    const src = normalizeArchiveSourceParam(this.returnSource());
+    const params: Record<string, string> = {};
+    if (q && q.length > 0) {
+      params['q'] = q;
+    }
+    if (src !== 'all') {
+      params['source'] = src;
+    }
+    return params;
+  });
+
+  protected readonly archiveReturnPassThroughParams = computed(() => {
+    const params: Record<string, string> = {
+      returnSource: normalizeArchiveSourceParam(this.returnSource()),
+    };
+    const q = this.returnQ();
+    if (q && q.length > 0) {
+      params['returnQ'] = q;
+    }
+    return params;
+  });
+
+  protected readonly previewPageButtons = computed(() => {
+    const doc = this.document();
+    if (!doc || doc.admittedPageCount > 3) {
+      return [];
+    }
+    return Array.from({ length: doc.admittedPageCount }, (_, idx) => idx + 1);
+  });
+
+  protected readonly previewFrameKey = computed(
+    () => `${this.documentId()}:p${this.selectedPreviewPage() ?? 'none'}:r${this.previewRemountSeq()}`,
+  );
+
+  protected readonly documentPreviewHref = computed(() => {
+    const doc = this.document();
+    if (!doc) {
+      return '';
+    }
+    return buildRelativePdfPreviewHref(doc.documentId, this.selectedPreviewPage());
+  });
+
+  protected readonly safeDocumentPreviewUrl = computed<SafeResourceUrl>(() => {
+    const doc = this.document();
+    if (!doc) {
+      throw new Error('Cannot construct SafeResourceUrl before document metadata is loaded.');
+    }
+    return trustSameOriginPdfPreviewUrl(this.sanitizer, doc.documentId, this.selectedPreviewPage());
+  });
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -273,10 +417,36 @@ export class DocumentPage {
       this.clearPoll();
       void this.load(id, true);
     });
+
+    effect(() => {
+      const doc = this.document();
+      const rawPage = this.page();
+      untracked(() => {
+        if (!doc) {
+          this.selectedPreviewPage.set(undefined);
+          this.invalidPageWarning.set(null);
+          return;
+        }
+        this.applyValidatedPageParam(doc, rawPage);
+      });
+    });
   }
 
   protected label(status: string): string {
     return statusLabel(status);
+  }
+
+  protected selectPreviewPage(pageNum: number): void {
+    const doc = this.document();
+    if (!doc || doc.admittedPageCount > 3 || pageNum < 1 || pageNum > doc.admittedPageCount) {
+      return;
+    }
+    this.invalidPageWarning.set(null);
+    if (this.selectedPreviewPage() === pageNum) {
+      this.previewRemountSeq.update((n) => n + 1);
+    } else {
+      this.selectedPreviewPage.set(pageNum);
+    }
   }
 
   protected async refresh(): Promise<void> {
@@ -322,12 +492,41 @@ export class DocumentPage {
     }
   }
 
+  private applyValidatedPageParam(doc: DocumentDetail, rawPage: string | undefined): void {
+    if (rawPage === undefined || rawPage === '') {
+      this.selectedPreviewPage.set(undefined);
+      this.invalidPageWarning.set(null);
+      return;
+    }
+
+    const parsed = Number(rawPage);
+    if (!/^[1-9][0-9]*$/.test(rawPage) || !Number.isInteger(parsed) || parsed < 1 || parsed > doc.admittedPageCount) {
+      this.selectedPreviewPage.set(undefined);
+      this.invalidPageWarning.set(
+        `Requested page '${rawPage}' is outside this document's 1..${doc.admittedPageCount} page count; showing document without a page claim.`,
+      );
+      return;
+    }
+
+    if (doc.admittedPageCount > 3) {
+      // Unprocessed 4..50-page F1 documents preview without #page=1..3 fragment per pdf-preview-url bounds.
+      this.selectedPreviewPage.set(undefined);
+      this.invalidPageWarning.set(null);
+      return;
+    }
+
+    this.invalidPageWarning.set(null);
+    this.selectedPreviewPage.set(parsed);
+  }
+
   private async load(documentId: string, showSpinner: boolean): Promise<void> {
     if (showSpinner) {
       this.loading.set(true);
       this.document.set(null);
       this.extraction.set(null);
       this.error.set(null);
+      this.selectedPreviewPage.set(undefined);
+      this.invalidPageWarning.set(null);
     }
     try {
       const [doc, ext] = await Promise.all([
@@ -338,6 +537,7 @@ export class DocumentPage {
         return;
       }
       this.document.set(doc);
+      this.applyValidatedPageParam(doc, this.page());
       this.applyExtractionView(ext);
     } catch (error: unknown) {
       if (this.destroyed) {
