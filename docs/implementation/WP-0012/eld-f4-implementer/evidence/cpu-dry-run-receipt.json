@@ -1,0 +1,93 @@
+{
+  "schema": "eledgercare.wp0012-cpu-dryrun-receipt/1",
+  "verified_utc": "2026-11-17T14:22:38.508752+00:00",
+  "mode": "cpu-dry-run",
+  "live_model_imported_or_invoked": false,
+  "gpu_queries_or_inference_run": false,
+  "branch": "rehearsal/wp-0012-product",
+  "head_sha": "ad5202a029a7a86bea5fa3e3d97760d0a9cc673a",
+  "product_trees_verified": {
+    "src": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+    "web": "50fbbee1f58aace4e6ec36bd64203146d23aa96f",
+    "tests": "25c21310699086acb818549b2a4c0b99469208f1",
+    "deploy": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1",
+    "workers/local_ocr": "dc9b69e480f93db1e73ebdd65719efaa9aeab298"
+  },
+  "pinned_digests_verified": {
+    "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+    "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+    "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+    "worker_config_1p_sha256": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+    "worker_config_2p_sha256": "e4df504ddb51dcc8fb137e97f5af97c735252374738b1a1754a88b16a05de5df",
+    "worker_config_3p_sha256": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+    "f1_swo_001_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+    "syn_wo_01_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "syn_mp_01_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+  },
+  "guard_ceilings_bound": {
+    "max_model_attempts": 2,
+    "automatic_retries": 0,
+    "warmups": 0,
+    "storage_cap_bytes": 4294967296,
+    "free_floor_bytes": 21474836480,
+    "max_lease_seconds": 21600,
+    "min_lease_remaining_seconds": 300,
+    "load_timeout_s": 1800,
+    "one_page_timeout_s": 1800,
+    "two_page_timeout_s": 2700,
+    "three_page_timeout_s": 3600,
+    "stall_timeout_s": 300,
+    "heartbeat_interval_s": 5,
+    "max_raw_output_bytes": 16777216,
+    "max_log_bytes": 67108864,
+    "max_extraction_pages": 3,
+    "max_intake_document_bytes": 10485760,
+    "max_intake_pages": 50
+  },
+  "default_appsettings_ocr_disabled": true,
+  "roots_inspection": {
+    "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+    "venv_python_exists": true,
+    "model_files_verified_count": 18,
+    "model_files_sha256_hashed": false,
+    "model_total_bytes": 6699195181,
+    "notice_dir_exists": true,
+    "writable_demo_root": "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\author",
+    "writable_demo_root_exists": false,
+    "writable_demo_existing_entries": [],
+    "writable_demo_used_bytes": 0,
+    "drive_free_bytes": 41903054848
+  },
+  "owned_rehearsal_database": "eledgercare_demo_wp0012_author",
+  "runtime_privilege_audit": {
+    "probe_count": 13,
+    "denied_42501_count": 13,
+    "all_denied": true
+  },
+  "owned_rehearsal_database_row_counts": {
+    "documents": 0,
+    "execution_attempts": 0,
+    "extraction_results": 0,
+    "review_revisions": 0
+  },
+  "disabled_ocr_edge_preflight": {
+    "mode": "cpu-preflight",
+    "liveModelExecuted": false,
+    "edgeBrowserVersion": "157.0.4341.60",
+    "apiPort": 5590,
+    "uiPort": 4610,
+    "elapsedMs": 1176,
+    "archiveItemCount": 0,
+    "fixtureBindingsVerified": {
+      "synWo01Bytes": 372258,
+      "synWo01Sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "synMp01Bytes": 8422,
+      "synMp01Sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+    },
+    "storageAudit": {
+      "local": [],
+      "session": []
+    },
+    "screenshot": "docs/implementation/WP-0012/eld-f4-implementer/evidence/screenshots/cpu-preflight-empty-archive.png"
+  }
+}

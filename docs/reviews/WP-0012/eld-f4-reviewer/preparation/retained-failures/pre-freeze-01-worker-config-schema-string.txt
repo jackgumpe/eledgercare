@@ -1,0 +1,14 @@
+Pre-freeze dry-run failure #1 (2026-11-17 UTC, `.scratch/wp0012-dryrun`)
+Command:
+  python -B docs/reviews/WP-0012/eld-f4-reviewer/preparation/helpers/run_wp0012_reviewer_rehearsal.py --mode cpu-prep-validation ...
+Exit code: 1
+Observed error:
+  AssertionError: Assertion failed [worker_source_and_config_digests]:
+    {'worker_source_sha256': 'c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54',
+     '1p': '07f4b7809b55931d8fbd52967cc225f1eb6c663e134e24882600e7714b4e2939',
+     '2p': '5ae064d60d8e3180212bc7434f506f014e55562860c69732ee11557a117caa5f',
+     '3p': '6fd8a7ca0f3bfef06087413e70ebc19ae45201bab06aae769c85693ab616035f'}
+Root cause & pre-freeze correction in helper only:
+  `compute_worker_config_sha256` used `"request_schema":"eledgercare.local-ocr-worker-request/1"` instead of
+  `ExtractionCeilings.RequestSchema = "eledgercare.local-extraction-request/1"` (`src/ELedgerCare.Domain/Processing/ExtractionCeilings.cs:22`).
+  Zero production source files were touched; fixed in `run_wp0012_reviewer_rehearsal.py` prior to helper freeze.

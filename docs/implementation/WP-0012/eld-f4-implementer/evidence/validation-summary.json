@@ -1,0 +1,210 @@
+{
+  "packet": "WP-0012",
+  "sequence": "001",
+  "phase": "CPU-only demonstration rehearsal preparation",
+  "author": "eld-f4-implementer",
+  "started_utc": "2026-11-17T14:21:53.135542+00:00",
+  "completed_utc": "2026-11-17T14:22:42.078645+00:00",
+  "live_rehearsal_executed": false,
+  "model_imported_or_invoked": false,
+  "gpu_queries_or_inference_run": false,
+  "static_and_ast_audit": {
+    "clean_worktree": true,
+    "branch": "rehearsal/wp-0012-product",
+    "frozen_head_sha": "ad5202a029a7a86bea5fa3e3d97760d0a9cc673a",
+    "dispatch_authority_sha": "47fbc7612e4a08cf1960ad7ac01bd2843ae645e5",
+    "packet_base_sha": "73c8d3c4f0a00312e3444328331b6cbd6406e882",
+    "changed_paths_since_authority": [
+      "docs/implementation/WP-0012/eld-f4-implementer/.gitattributes",
+      "docs/implementation/WP-0012/eld-f4-implementer/RUNBOOK.md",
+      "docs/implementation/WP-0012/eld-f4-implementer/helpers/build_wp0012_inventory.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/helpers/drive_rehearsal_edge.mjs",
+      "docs/implementation/WP-0012/eld-f4-implementer/helpers/run_wp0012_rehearsal.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/helpers/validate_wp0012_preparation_cpu.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/retained-failures/51cf3ecc-02-dotnet-build-flag.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/retained-failures/7a1bdea9-07-model-manifest-size-key.log",
+      "docs/implementation/WP-0012/eld-f4-implementer/retained-failures/README.md"
+    ],
+    "compiled_python_helpers": [
+      "docs/implementation/WP-0012/eld-f4-implementer/helpers/build_wp0012_inventory.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/helpers/run_wp0012_rehearsal.py",
+      "docs/implementation/WP-0012/eld-f4-implementer/helpers/validate_wp0012_preparation_cpu.py"
+    ],
+    "forbidden_ml_or_research_imports": 0
+  },
+  "executed_steps": [
+    {
+      "step": "01-node-check-edge-driver",
+      "command": [
+        "node",
+        "--check",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\helpers\\drive_rehearsal_edge.mjs"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T14:21:54.497127+00:00",
+      "elapsed_ms": 52.4,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/01-node-check-edge-driver.log",
+      "log_sha256": "a63e38637253d6c6cf3fff2eb41ea368dffa941130e7f8b9e1e7366f4347270f"
+    },
+    {
+      "step": "02a-dotnet-restore-locked",
+      "command": [
+        "dotnet",
+        "restore",
+        "ELedgerCare.slnx",
+        "--locked-mode",
+        "--configfile",
+        ".local/nuget/offline.nuget.config"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T14:21:54.559829+00:00",
+      "elapsed_ms": 1743.5,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/02a-dotnet-restore-locked.log",
+      "log_sha256": "ccbcba5fbbc17fccf5eb22263132e421b450c5b18cc8050e6ae12377b385ec3c"
+    },
+    {
+      "step": "02b-dotnet-build-release",
+      "command": [
+        "dotnet",
+        "build",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T14:21:56.313304+00:00",
+      "elapsed_ms": 7875.5,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/02b-dotnet-build-release.log",
+      "log_sha256": "f979659823914416e624ad37e428f35b9b62104bf396f0bf0a89d5abf1f26b37"
+    },
+    {
+      "step": "03-ng-build-production",
+      "command": [
+        "node",
+        "node_modules/@angular/cli/bin/ng.js",
+        "build"
+      ],
+      "cwd": "web",
+      "started_utc": "2026-11-17T14:22:04.196174+00:00",
+      "elapsed_ms": 4156.1,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/03-ng-build-production.log",
+      "log_sha256": "3f2d4d7f778ac7a914388349792718d6fcb98aabd0d1af650279aecbc0cb313e"
+    },
+    {
+      "step": "04-guard-and-release-contract-tests",
+      "command": [
+        "unittest",
+        "Wp0012PreparationGuardTests"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T14:22:08.360858+00:00",
+      "elapsed_ms": 7491.6,
+      "exit_code": 0,
+      "tests_run": 18,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/04-guard-and-release-contract-tests.log",
+      "log_sha256": "a7888c0698f96ffd77fc13b583346eb36b2d776c3e926ddf6bdf0222c40317b9"
+    },
+    {
+      "step": "05-pg-cluster-start",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/start-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T14:22:15.856438+00:00",
+      "elapsed_ms": 1590.3,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/05-pg-cluster-start.log",
+      "log_sha256": "758bd4fdbc9d7e46a4f93fdf196b1e0825166d92e8717271c62dad6a9b51cec6"
+    },
+    {
+      "step": "06-prepare-owned-rehearsal-db",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1",
+        "-Database",
+        "eledgercare_demo_wp0012_author"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T14:22:18.028669+00:00",
+      "elapsed_ms": 7973.9,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/06-prepare-owned-rehearsal-db.log",
+      "log_sha256": "05cbf1935255d51336fe7fa48c796f2be9cf8a804777c93a4edcc02481686d88"
+    },
+    {
+      "step": "07-cpu-dry-run-and-disabled-ocr-edge-smoke",
+      "command": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\helpers\\run_wp0012_rehearsal.py",
+        "--cpu-dry-run",
+        "--with-disabled-ocr-smoke",
+        "--output",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\evidence\\cpu-dry-run-receipt.json"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T14:22:26.014230+00:00",
+      "elapsed_ms": 12587.1,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/07-cpu-dry-run-and-disabled-ocr-edge-smoke.log",
+      "log_sha256": "4ff31093c81bd43be40aeaa779e5a06902d821ffa0ee5dbcb869f75a00d24a73"
+    },
+    {
+      "step": "08-pg-cluster-stop-final",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/stop-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T14:22:39.100597+00:00",
+      "elapsed_ms": 1240.8,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0012/eld-f4-implementer/evidence/logs/08-pg-cluster-stop-final.log",
+      "log_sha256": "53cb7746e7a0484294ff189f62b20d2406f1d59b688685784d8c0fef78ad0bf2"
+    }
+  ],
+  "database_state": {
+    "new_owned_rehearsal_database": "eledgercare_demo_wp0012_author",
+    "new_owned_rehearsal_empty_8_table_sha256": "7e740159110da7da145bb805300cdaf9dff076c41127321cdd3fc418c097c7b5",
+    "documents_count": 0,
+    "execution_attempts_count": 0,
+    "extraction_results_count": 0,
+    "retained_f4_seed_db_preserved": "eledgercare_f4_author_seed_f3",
+    "retained_f4_seed_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "retained_f4_migrated_db_preserved": "eledgercare_f4_author_migrated",
+    "retained_f4_migrated_core_sha256": "ad4f44bcf7c0f7163e91cad81f569bfc4642cbb167c1eaf6c3d1ab9984b2e6d0",
+    "retained_f4_migrated_projection_sha256": "78f0f273dbdb48629924752cba6f863f11f62764e27161d8df1549ad75ce2ac3"
+  },
+  "attributed_unchanged_product_proofs": {
+    "accepted_product_source_sha": "c1fed68020ae67e8b4763bc6ea5473adaa86de2b",
+    "accepted_packet_base_sha": "73c8d3c4f0a00312e3444328331b6cbd6406e882",
+    "unchanged_trees": {
+      "src": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+      "web": "50fbbee1f58aace4e6ec36bd64203146d23aa96f",
+      "tests": "25c21310699086acb818549b2a4c0b99469208f1",
+      "deploy": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1",
+      "workers/local_ocr": "dc9b69e480f93db1e73ebdd65719efaa9aeab298"
+    },
+    "note": "All production src/, web/, tests/, deploy/, and workers/local_ocr/ trees are byte-identical to accepted WP-0010 final disposition 73c8d3c4f0a00312e3444328331b6cbd6406e882. Existing unit, integration, and E2E suites remain attributed to accepted WP-0006/WP-0008/WP-0010 reports."
+  },
+  "unrun_live_steps_held_for_003_lease": [
+    "Coordinator creation/release of writable runtime root C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\author",
+    "Independent WP-0012 / 002 preparation acceptance by eld-f4-reviewer",
+    "Coordinator sole-GPU lease binding exact executing_head and observation_files for WP-0012 / 003",
+    "Live browser upload & real local OCR Attempt #1 (SYN-WO-01-v1-raster300.pdf, 1 page) + grounded review + newer draft",
+    "Live browser upload & real local OCR Attempt #2 (SYN-MP-01-v0-clean.pdf, 3 pages) + grounded review with 2 unknowns",
+    "Live API + PostgreSQL fast restart and disabled-OCR browser search/reopen verification with unchanged 2 attempts"
+  ]
+}

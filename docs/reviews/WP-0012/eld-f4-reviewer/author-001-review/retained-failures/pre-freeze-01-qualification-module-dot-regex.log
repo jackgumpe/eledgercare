@@ -1,0 +1,20 @@
+Command:
+python -B docs/reviews/WP-0012/eld-f4-reviewer/author-001-review/helpers/verify_author_001_and_reviewer_v3_cpu.py --output .scratch/wp0012-002-dryrun/verify.json --log-output .scratch/wp0012-002-dryrun/verify.log --resource-return-output .scratch/wp0012-002-dryrun/rr.json
+
+Exit code: 1
+
+Stderr / Output:
+======================================================================
+FAIL: test_13_fails_closed_on_competing_wp0013_rd_or_q0_harness_host_process (__main__.ReviewerV3GuardReconciliationTests.test_13_fails_closed_on_competing_wp0013_rd_or_q0_harness_host_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0012\eld-f4-reviewer\author-001-review\helpers\verify_author_001_and_reviewer_v3_cpu.py", line 393, in test_13_fails_closed_on_competing_wp0013_rd_or_q0_harness_host_process
+    with self.assertRaises(rv3.CompetingModelOwnershipError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: CompetingModelOwnershipError not raised
+----------------------------------------------------------------------
+Ran 24 tests in 10.160s
+FAILED (failures=1)
+
+Root cause & pre-freeze resolution:
+`MODEL_WORKLOAD_TOKEN_RE` (`run_wp0012_reviewer_rehearsal_v3.py:226`) and `collect_live_ownership_snapshot` (`L899`) matched `qualification[/\\](coverage_v1|mapping_v1|mapping_v2|baseline|q0)` (file path separators only), missing dotted Python module invocations (`python -m qualification.mapping_v2.run_eval`). Broadened both regexes to `qualification[/\\.](coverage_v1|mapping_v1|mapping_v2|baseline|q0)` before freezing `v3`.
