@@ -1,0 +1,921 @@
+{
+  "schema": "eledgercare.wp0012.independent007-inventory/1",
+  "utc": "2026-11-17T16:40:46.654666+00:00",
+  "executing_head": "c5aed9325662b769f3d074972bdb6d50ddcb8ed1",
+  "source_candidate": "4ca6bc2dfba3548c6d0dfb820594d25e9c2c9cd4",
+  "author_publication": "f1b8306ef62bf1c82a9106509ce31988e94b1dab",
+  "historical_base": "379d8c5d607fd248d7f272e412b4ed4a97bc64f6",
+  "historical_paths_preserved": 3683,
+  "bound_source_paths_verified": 22,
+  "product_tree_objects": {
+    "src": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+    "web": "50fbbee1f58aace4e6ec36bd64203146d23aa96f",
+    "tests": "25c21310699086acb818549b2a4c0b99469208f1",
+    "deploy": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1",
+    "workers/local_ocr": "dc9b69e480f93db1e73ebdd65719efaa9aeab298",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976"
+  },
+  "added_paths": [
+    "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/.gitattributes",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/01-node-check-edge-driver.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/02-validate-synthetic-sample-cli.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/03-old-fails-new-passes-and-guard-tests.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/resource-return.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/synthetic-sample-validation.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/validation-summary.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/01-node-check-edge-driver.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/02-validate-synthetic-sample-cli.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/03-old-fails-new-passes-and-guard-tests.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/resource-return.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/synthetic-sample-validation.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/validation-summary.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/build_wp0012_006_inventory.cpython-312.pyc",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/run_wp0012_rehearsal.cpython-312.pyc",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/validate_wp0012_correction_006_cpu.cpython-312.pyc",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/build_wp0012_006_inventory.py",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/run_wp0012_rehearsal.py",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/validate_wp0012_correction_006_cpu.py",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/inventory-02.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/inventory.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-checks/pre-freeze-02-native-inherited-tests.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-checks/pre-freeze-03-native-cleanup-tests.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/native-prose-edit-error.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/pre-freeze-01-mock-popen-and-short-secret.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/sample-synthetic-release.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/NATIVE-PREPARATION.md",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/CONTROL-LIMITATION.md",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-4ca6bc2d-guards-02/guards.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-4ca6bc2d-return-02/return-probe.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-6d055395-guards-01/guards.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-6d055395-return-01/return-probe.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/source-evidence-inventory.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/build_native_007_inventory.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/build_wp0012_007_preliminary_inventory.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_bound_006_guards_cpu.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_bound_006_return_semantics.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_correction_006_failure_paths_cpu.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_native_preparation_cpu.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_old_001_baseline_native.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v4.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v5.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/FAILURES.md",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/resource-observation.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/summary.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/tests.log",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/resource-observation.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/summary.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/tests.log",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-input-inventory.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/preliminary-inventory.json"
+  ],
+  "reviewer_owned_paths": [
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/NATIVE-PREPARATION.md",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/CONTROL-LIMITATION.md",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-4ca6bc2d-guards-02/guards.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-4ca6bc2d-return-02/return-probe.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-6d055395-guards-01/guards.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-6d055395-return-01/return-probe.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/source-evidence-inventory.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/build_native_007_inventory.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/build_wp0012_007_preliminary_inventory.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_bound_006_guards_cpu.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_bound_006_return_semantics.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_correction_006_failure_paths_cpu.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_native_preparation_cpu.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_old_001_baseline_native.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v4.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v5.py",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/FAILURES.md",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/resource-observation.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/summary.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/tests.log",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/resource-observation.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/summary.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/tests.log",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-input-inventory.json",
+    "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/preliminary-inventory.json"
+  ],
+  "author_input_paths": [
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/.gitattributes",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/01-node-check-edge-driver.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/02-validate-synthetic-sample-cli.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/03-old-fails-new-passes-and-guard-tests.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/resource-return.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/synthetic-sample-validation.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/validation-summary.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/01-node-check-edge-driver.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/02-validate-synthetic-sample-cli.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/03-old-fails-new-passes-and-guard-tests.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/resource-return.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/synthetic-sample-validation.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/validation-summary.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/build_wp0012_006_inventory.cpython-312.pyc",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/run_wp0012_rehearsal.cpython-312.pyc",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/validate_wp0012_correction_006_cpu.cpython-312.pyc",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/build_wp0012_006_inventory.py",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/run_wp0012_rehearsal.py",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/validate_wp0012_correction_006_cpu.py",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/inventory-02.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/inventory.json",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-checks/pre-freeze-02-native-inherited-tests.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-checks/pre-freeze-03-native-cleanup-tests.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/native-prose-edit-error.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/pre-freeze-01-mock-popen-and-short-secret.log",
+    "docs/implementation/WP-0012/eld-f4-implementer/correction-006/sample-synthetic-release.json",
+    "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md"
+  ],
+  "runtime_identity": {
+    "owner": "eld-f4-reviewer",
+    "conversation_id": "/root/product_reviewer_continuation",
+    "model": "native-codex-backend-unexposed",
+    "effort": "xhigh-requested"
+  },
+  "files": [
+    {
+      "path": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "bytes": 18564,
+      "sha256_raw": "df5d116bf53f8dd91ab8e8064df6b79633e21e3debcbedcedcddd8dc29ea524a",
+      "sha256_lf": "df5d116bf53f8dd91ab8e8064df6b79633e21e3debcbedcedcddd8dc29ea524a",
+      "git_blob_sha256": "df5d116bf53f8dd91ab8e8064df6b79633e21e3debcbedcedcddd8dc29ea524a"
+    },
+    {
+      "path": "docs/agent-reports/eld-f4-reviewer/WP-0012/002_2026-11-17_review_eld-f4-reviewer.md",
+      "bytes": 25766,
+      "sha256_raw": "7ffeb389174308f8f4aaa67fd86756dcb9123600f89847df5893c81243f5d8fa",
+      "sha256_lf": "7ffeb389174308f8f4aaa67fd86756dcb9123600f89847df5893c81243f5d8fa",
+      "git_blob_sha256": "7ffeb389174308f8f4aaa67fd86756dcb9123600f89847df5893c81243f5d8fa"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/.gitattributes",
+      "bytes": 20,
+      "sha256_raw": "e97602ab9cac70102245345c5ab0fc9830df8b17f1072b188265a662a3a547ae",
+      "sha256_lf": "e97602ab9cac70102245345c5ab0fc9830df8b17f1072b188265a662a3a547ae",
+      "git_blob_sha256": "e97602ab9cac70102245345c5ab0fc9830df8b17f1072b188265a662a3a547ae"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "bytes": 18199,
+      "sha256_raw": "14f0898df9656f9f90e31ec13dd340646ed31559f0701123420e942944186828",
+      "sha256_lf": "14f0898df9656f9f90e31ec13dd340646ed31559f0701123420e942944186828",
+      "git_blob_sha256": "14f0898df9656f9f90e31ec13dd340646ed31559f0701123420e942944186828"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/01-node-check-edge-driver.log",
+      "bytes": 214,
+      "sha256_raw": "85a285f093eaa55ebb7d585dd29179c716f176f856c1bcf76cf089dfb95921c3",
+      "sha256_lf": "85a285f093eaa55ebb7d585dd29179c716f176f856c1bcf76cf089dfb95921c3",
+      "git_blob_sha256": "85a285f093eaa55ebb7d585dd29179c716f176f856c1bcf76cf089dfb95921c3"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/02-validate-synthetic-sample-cli.log",
+      "bytes": 718,
+      "sha256_raw": "8426f28500cdffafbcc3dde4d22df91f2b077e7953bf28eb6c77aa620a0ff25f",
+      "sha256_lf": "8426f28500cdffafbcc3dde4d22df91f2b077e7953bf28eb6c77aa620a0ff25f",
+      "git_blob_sha256": "8426f28500cdffafbcc3dde4d22df91f2b077e7953bf28eb6c77aa620a0ff25f"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/03-old-fails-new-passes-and-guard-tests.log",
+      "bytes": 5922,
+      "sha256_raw": "9bee7f4d4936c30c9d976f88affd3f3958ce3083d0d8d7744e760d26186a5b88",
+      "sha256_lf": "9bee7f4d4936c30c9d976f88affd3f3958ce3083d0d8d7744e760d26186a5b88",
+      "git_blob_sha256": "9bee7f4d4936c30c9d976f88affd3f3958ce3083d0d8d7744e760d26186a5b88"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/resource-return.json",
+      "bytes": 532,
+      "sha256_raw": "e720a841a53b253734448f3edace437b1bf8458b8e334eafd10bb53ab217249b",
+      "sha256_lf": "e720a841a53b253734448f3edace437b1bf8458b8e334eafd10bb53ab217249b",
+      "git_blob_sha256": "e720a841a53b253734448f3edace437b1bf8458b8e334eafd10bb53ab217249b"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/synthetic-sample-validation.json",
+      "bytes": 2626,
+      "sha256_raw": "df7d5f5e15bc13ac2a6f84254bc227254d5d1503e0205adac3e12f78ad3d3590",
+      "sha256_lf": "df7d5f5e15bc13ac2a6f84254bc227254d5d1503e0205adac3e12f78ad3d3590",
+      "git_blob_sha256": "df7d5f5e15bc13ac2a6f84254bc227254d5d1503e0205adac3e12f78ad3d3590"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/validation-summary.json",
+      "bytes": 6538,
+      "sha256_raw": "b797db56f843e65811c6b6e97a6ea5ea4e778d5b472daa926c84b3eca58d9785",
+      "sha256_lf": "b797db56f843e65811c6b6e97a6ea5ea4e778d5b472daa926c84b3eca58d9785",
+      "git_blob_sha256": "b797db56f843e65811c6b6e97a6ea5ea4e778d5b472daa926c84b3eca58d9785"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/01-node-check-edge-driver.log",
+      "bytes": 214,
+      "sha256_raw": "903c9d26e453854472c06e9a5f60f25c0bb7ede060441290fba00de452eb74cd",
+      "sha256_lf": "903c9d26e453854472c06e9a5f60f25c0bb7ede060441290fba00de452eb74cd",
+      "git_blob_sha256": "903c9d26e453854472c06e9a5f60f25c0bb7ede060441290fba00de452eb74cd"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/02-validate-synthetic-sample-cli.log",
+      "bytes": 715,
+      "sha256_raw": "f99d5550da986c6cb87e9b1a91335795687996a28ad49916f8273f088f5403b3",
+      "sha256_lf": "f99d5550da986c6cb87e9b1a91335795687996a28ad49916f8273f088f5403b3",
+      "git_blob_sha256": "f99d5550da986c6cb87e9b1a91335795687996a28ad49916f8273f088f5403b3"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/logs/03-old-fails-new-passes-and-guard-tests.log",
+      "bytes": 5922,
+      "sha256_raw": "d47b418bc301671cfeff8dbe9254cd061019a58660e40a3f6913e8075ccfee57",
+      "sha256_lf": "d47b418bc301671cfeff8dbe9254cd061019a58660e40a3f6913e8075ccfee57",
+      "git_blob_sha256": "d47b418bc301671cfeff8dbe9254cd061019a58660e40a3f6913e8075ccfee57"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/resource-return.json",
+      "bytes": 532,
+      "sha256_raw": "aaa8b6a2e9bfaaa1efcb3f7f0dee5119f46dd33feea21b536d193a282b21c66f",
+      "sha256_lf": "aaa8b6a2e9bfaaa1efcb3f7f0dee5119f46dd33feea21b536d193a282b21c66f",
+      "git_blob_sha256": "aaa8b6a2e9bfaaa1efcb3f7f0dee5119f46dd33feea21b536d193a282b21c66f"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/synthetic-sample-validation.json",
+      "bytes": 2626,
+      "sha256_raw": "9046898c8b819be8000cf194ddd783c5e446293d9ad08e611ea6cd99949500dd",
+      "sha256_lf": "9046898c8b819be8000cf194ddd783c5e446293d9ad08e611ea6cd99949500dd",
+      "git_blob_sha256": "9046898c8b819be8000cf194ddd783c5e446293d9ad08e611ea6cd99949500dd"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/evidence/validation-summary.json",
+      "bytes": 5639,
+      "sha256_raw": "80273e8363f14aefe9bb6c6d114665dbe6a495afede9439ce5638d804c9deddc",
+      "sha256_lf": "80273e8363f14aefe9bb6c6d114665dbe6a495afede9439ce5638d804c9deddc",
+      "git_blob_sha256": "80273e8363f14aefe9bb6c6d114665dbe6a495afede9439ce5638d804c9deddc"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/build_wp0012_006_inventory.cpython-312.pyc",
+      "bytes": 11600,
+      "sha256_raw": "861ff07526dfdb347e20da8da8ff793737a7a174f4d6fade614381c371d05287",
+      "sha256_lf": "95da14728da2cfad3428b90cae93047d9f390fdfe084b9454238224c47d1003e",
+      "git_blob_sha256": "861ff07526dfdb347e20da8da8ff793737a7a174f4d6fade614381c371d05287"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/run_wp0012_rehearsal.cpython-312.pyc",
+      "bytes": 102190,
+      "sha256_raw": "3fddae5be8f8c2974a9fbb9c3da4b20b9c9ef1e800fa26823bfd0c2fc7a19890",
+      "sha256_lf": "9671ed737d07a3c6fcfb39dc6214190e0280ff422489b2ecc7d87eb38e6f27ce",
+      "git_blob_sha256": "3fddae5be8f8c2974a9fbb9c3da4b20b9c9ef1e800fa26823bfd0c2fc7a19890"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/__pycache__/validate_wp0012_correction_006_cpu.cpython-312.pyc",
+      "bytes": 110807,
+      "sha256_raw": "f8f5964bfde76aef0df7ccd404421afe3d73f18b7215b2cb68685cbf042e246e",
+      "sha256_lf": "52906537651f3ae2aea0df8e420bac5e6195be82c2e8e468955f18375b9dafb8",
+      "git_blob_sha256": "f8f5964bfde76aef0df7ccd404421afe3d73f18b7215b2cb68685cbf042e246e"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/build_wp0012_006_inventory.py",
+      "bytes": 11068,
+      "sha256_raw": "b2db7d4b352124deb47f4145cf318354b0d9cb1fef7c700decbe321e1e5c6c21",
+      "sha256_lf": "b2db7d4b352124deb47f4145cf318354b0d9cb1fef7c700decbe321e1e5c6c21",
+      "git_blob_sha256": "b2db7d4b352124deb47f4145cf318354b0d9cb1fef7c700decbe321e1e5c6c21"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs",
+      "bytes": 35815,
+      "sha256_raw": "1a6e0fe5a5c085615de5cc335ca126992df5592efe94aaecf3f039ea157166ba",
+      "sha256_lf": "1a6e0fe5a5c085615de5cc335ca126992df5592efe94aaecf3f039ea157166ba",
+      "git_blob_sha256": "1a6e0fe5a5c085615de5cc335ca126992df5592efe94aaecf3f039ea157166ba"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/run_wp0012_rehearsal.py",
+      "bytes": 90834,
+      "sha256_raw": "0d3562f95de90ed8510cf12536833a62ac94f0e9ec928103fa6d407cd3d7172c",
+      "sha256_lf": "0d3562f95de90ed8510cf12536833a62ac94f0e9ec928103fa6d407cd3d7172c",
+      "git_blob_sha256": "0d3562f95de90ed8510cf12536833a62ac94f0e9ec928103fa6d407cd3d7172c"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/validate_wp0012_correction_006_cpu.py",
+      "bytes": 71696,
+      "sha256_raw": "40feb56009d192855c84f1029b93a9ba2697ce787027c55715aa971f67dac2ae",
+      "sha256_lf": "40feb56009d192855c84f1029b93a9ba2697ce787027c55715aa971f67dac2ae",
+      "git_blob_sha256": "40feb56009d192855c84f1029b93a9ba2697ce787027c55715aa971f67dac2ae"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/inventory-02.json",
+      "bytes": 16041,
+      "sha256_raw": "a94b5c56fb17ecd69aa3e778c8032fb80f10f22cde8d3f2689126bb99800d032",
+      "sha256_lf": "a94b5c56fb17ecd69aa3e778c8032fb80f10f22cde8d3f2689126bb99800d032",
+      "git_blob_sha256": "a94b5c56fb17ecd69aa3e778c8032fb80f10f22cde8d3f2689126bb99800d032"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/inventory.json",
+      "bytes": 12747,
+      "sha256_raw": "fe96f6b0b7cf066832b9414b53e15ae86c61c68ef5eb0ed98c888f77f4d924c1",
+      "sha256_lf": "fe96f6b0b7cf066832b9414b53e15ae86c61c68ef5eb0ed98c888f77f4d924c1",
+      "git_blob_sha256": "fe96f6b0b7cf066832b9414b53e15ae86c61c68ef5eb0ed98c888f77f4d924c1"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-checks/pre-freeze-02-native-inherited-tests.log",
+      "bytes": 5731,
+      "sha256_raw": "f820a126accd70df5d5f1f09072f5c39a80e916e732a5de37cf01db390c814c1",
+      "sha256_lf": "327e56b3a4d7f663e534e47944b694b8d22f814092d6ff5709830bc95eb63e1d",
+      "git_blob_sha256": "f820a126accd70df5d5f1f09072f5c39a80e916e732a5de37cf01db390c814c1"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-checks/pre-freeze-03-native-cleanup-tests.log",
+      "bytes": 965,
+      "sha256_raw": "b89d096d48fed8ca8e8fa7e9d8351f650a63db51a271f657c3137ceadac37dc2",
+      "sha256_lf": "bac6385aa8daa8ae6f67397a8982f9756cce3da68d64c00c3e020e5b42663ba5",
+      "git_blob_sha256": "b89d096d48fed8ca8e8fa7e9d8351f650a63db51a271f657c3137ceadac37dc2"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "bytes": 6487,
+      "sha256_raw": "e8bef34f8d3390c39b117f59ce1a621f3b60d79f4a211815a826a25547cd2204",
+      "sha256_lf": "e8bef34f8d3390c39b117f59ce1a621f3b60d79f4a211815a826a25547cd2204",
+      "git_blob_sha256": "e8bef34f8d3390c39b117f59ce1a621f3b60d79f4a211815a826a25547cd2204"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/native-prose-edit-error.log",
+      "bytes": 963,
+      "sha256_raw": "f4f69336229be0c64650d9a2476c0fde204d07e10139921d201ec2c03a64730f",
+      "sha256_lf": "f4f69336229be0c64650d9a2476c0fde204d07e10139921d201ec2c03a64730f",
+      "git_blob_sha256": "f4f69336229be0c64650d9a2476c0fde204d07e10139921d201ec2c03a64730f"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/pre-freeze-01-mock-popen-and-short-secret.log",
+      "bytes": 11984,
+      "sha256_raw": "9619df2ceccbca5678781bcf03ade5b0e43fc1eee68a8c80a81c9cee83d165f1",
+      "sha256_lf": "9619df2ceccbca5678781bcf03ade5b0e43fc1eee68a8c80a81c9cee83d165f1",
+      "git_blob_sha256": "9619df2ceccbca5678781bcf03ade5b0e43fc1eee68a8c80a81c9cee83d165f1"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/sample-synthetic-release.json",
+      "bytes": 3438,
+      "sha256_raw": "69b27312fe0da96b2ec824084aaee4784e4e054b12ee7fc0246ce614957658ee",
+      "sha256_lf": "69b27312fe0da96b2ec824084aaee4784e4e054b12ee7fc0246ce614957658ee",
+      "git_blob_sha256": "69b27312fe0da96b2ec824084aaee4784e4e054b12ee7fc0246ce614957658ee"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/helpers/drive_rehearsal_edge.mjs",
+      "bytes": 31837,
+      "sha256_raw": "7aeb11c9fe5a6927c307276be20f45d49a4cbb131eef6ba1ac079dfe5a496f47",
+      "sha256_lf": "7aeb11c9fe5a6927c307276be20f45d49a4cbb131eef6ba1ac079dfe5a496f47",
+      "git_blob_sha256": "7aeb11c9fe5a6927c307276be20f45d49a4cbb131eef6ba1ac079dfe5a496f47"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/helpers/run_wp0012_rehearsal.py",
+      "bytes": 61950,
+      "sha256_raw": "8105ff614280d624f11da14651838e00b3d38b726e08f70252adb12fe73046a5",
+      "sha256_lf": "8105ff614280d624f11da14651838e00b3d38b726e08f70252adb12fe73046a5",
+      "git_blob_sha256": "8105ff614280d624f11da14651838e00b3d38b726e08f70252adb12fe73046a5"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/author-001-review/AUTHOR-001-AUDIT-AND-GUARD-RECONCILIATION.md",
+      "bytes": 19786,
+      "sha256_raw": "57483c7278a006eb1dc31b610bf2e958d47020a429da41b2d8d6f2f1f68a9b22",
+      "sha256_lf": "57483c7278a006eb1dc31b610bf2e958d47020a429da41b2d8d6f2f1f68a9b22",
+      "git_blob_sha256": "57483c7278a006eb1dc31b610bf2e958d47020a429da41b2d8d6f2f1f68a9b22"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/author-001-review/helpers/run_wp0012_reviewer_rehearsal_v3.py",
+      "bytes": 64586,
+      "sha256_raw": "2b27f9668310a6fd48be579e1137a67be479355aaf0966a62dc731603153f188",
+      "sha256_lf": "2b27f9668310a6fd48be579e1137a67be479355aaf0966a62dc731603153f188",
+      "git_blob_sha256": "2b27f9668310a6fd48be579e1137a67be479355aaf0966a62dc731603153f188"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "bytes": 8322,
+      "sha256_raw": "ea09a26d18e14595771c8a5b14eab4f917ea59b06e5fb1fbc14f16802617a036",
+      "sha256_lf": "ea09a26d18e14595771c8a5b14eab4f917ea59b06e5fb1fbc14f16802617a036",
+      "git_blob_sha256": "ea09a26d18e14595771c8a5b14eab4f917ea59b06e5fb1fbc14f16802617a036"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/NATIVE-PREPARATION.md",
+      "bytes": 4440,
+      "sha256_raw": "5337bff885d4904e8568f44cf7519505ab39f65afbd381140de25ad1fa1b8762",
+      "sha256_lf": "5337bff885d4904e8568f44cf7519505ab39f65afbd381140de25ad1fa1b8762",
+      "git_blob_sha256": "5337bff885d4904e8568f44cf7519505ab39f65afbd381140de25ad1fa1b8762"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/CONTROL-LIMITATION.md",
+      "bytes": 1300,
+      "sha256_raw": "ae5b86d4d0a1458c273236f1027ff232296cfd3fe7f3701796c13c3f7fb282c3",
+      "sha256_lf": "ae5b86d4d0a1458c273236f1027ff232296cfd3fe7f3701796c13c3f7fb282c3",
+      "git_blob_sha256": "ae5b86d4d0a1458c273236f1027ff232296cfd3fe7f3701796c13c3f7fb282c3"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-4ca6bc2d-guards-02/guards.json",
+      "bytes": 13985,
+      "sha256_raw": "37bc94604737a3495125a328b167efdf8373f35466529883db63535056f1f178",
+      "sha256_lf": "37bc94604737a3495125a328b167efdf8373f35466529883db63535056f1f178",
+      "git_blob_sha256": "37bc94604737a3495125a328b167efdf8373f35466529883db63535056f1f178"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-4ca6bc2d-return-02/return-probe.json",
+      "bytes": 22191,
+      "sha256_raw": "0c38aa61abc301f0a1e8fec063eadeebf4f54fa40f87a1940dcb2262ae9c765b",
+      "sha256_lf": "0c38aa61abc301f0a1e8fec063eadeebf4f54fa40f87a1940dcb2262ae9c765b",
+      "git_blob_sha256": "0c38aa61abc301f0a1e8fec063eadeebf4f54fa40f87a1940dcb2262ae9c765b"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-6d055395-guards-01/guards.json",
+      "bytes": 13985,
+      "sha256_raw": "3fa068aad317207309f14d4e37099fe90389dd07719187d41a7bf48e6c097b64",
+      "sha256_lf": "3fa068aad317207309f14d4e37099fe90389dd07719187d41a7bf48e6c097b64",
+      "git_blob_sha256": "3fa068aad317207309f14d4e37099fe90389dd07719187d41a7bf48e6c097b64"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-6d055395-return-01/return-probe.json",
+      "bytes": 21667,
+      "sha256_raw": "589d5c6f765642d6ec8baa2545ee0fb50a0541448362bcbb2300c19e3d5605fc",
+      "sha256_lf": "589d5c6f765642d6ec8baa2545ee0fb50a0541448362bcbb2300c19e3d5605fc",
+      "git_blob_sha256": "589d5c6f765642d6ec8baa2545ee0fb50a0541448362bcbb2300c19e3d5605fc"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/source-evidence-inventory.json",
+      "bytes": 52902,
+      "sha256_raw": "c72ef6e760d170a485ee8f4202032fca59a6d37a463e01dd5e8b6d43e5992302",
+      "sha256_lf": "c72ef6e760d170a485ee8f4202032fca59a6d37a463e01dd5e8b6d43e5992302",
+      "git_blob_sha256": "c72ef6e760d170a485ee8f4202032fca59a6d37a463e01dd5e8b6d43e5992302"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/build_native_007_inventory.py",
+      "bytes": 6845,
+      "sha256_raw": "9ecc0006c596c56a60e942dea87672824d021b12382ef91471589cc7d9dc9ae1",
+      "sha256_lf": "9ecc0006c596c56a60e942dea87672824d021b12382ef91471589cc7d9dc9ae1",
+      "git_blob_sha256": "9ecc0006c596c56a60e942dea87672824d021b12382ef91471589cc7d9dc9ae1"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/build_wp0012_007_preliminary_inventory.py",
+      "bytes": 6932,
+      "sha256_raw": "55f6a05dc61573adf46db843e8ada6f16cf0084783ff42c93cc8cb82633f4f9d",
+      "sha256_lf": "55f6a05dc61573adf46db843e8ada6f16cf0084783ff42c93cc8cb82633f4f9d",
+      "git_blob_sha256": "55f6a05dc61573adf46db843e8ada6f16cf0084783ff42c93cc8cb82633f4f9d"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_bound_006_guards_cpu.py",
+      "bytes": 15507,
+      "sha256_raw": "94b29393f2ddf46cf06384769cec4913efa0b502d80f6c1eb365b04e7bd640bf",
+      "sha256_lf": "94b29393f2ddf46cf06384769cec4913efa0b502d80f6c1eb365b04e7bd640bf",
+      "git_blob_sha256": "94b29393f2ddf46cf06384769cec4913efa0b502d80f6c1eb365b04e7bd640bf"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_bound_006_return_semantics.py",
+      "bytes": 9603,
+      "sha256_raw": "610bec025356895fdebb973f150170ca2fb61bb185d862a3d69c78eebe10c953",
+      "sha256_lf": "610bec025356895fdebb973f150170ca2fb61bb185d862a3d69c78eebe10c953",
+      "git_blob_sha256": "610bec025356895fdebb973f150170ca2fb61bb185d862a3d69c78eebe10c953"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_correction_006_failure_paths_cpu.py",
+      "bytes": 47489,
+      "sha256_raw": "3432b937ad9dec16973a3b308223c5e3e381bd0c49c3041cc5adc8cde1bdb8e1",
+      "sha256_lf": "3432b937ad9dec16973a3b308223c5e3e381bd0c49c3041cc5adc8cde1bdb8e1",
+      "git_blob_sha256": "3432b937ad9dec16973a3b308223c5e3e381bd0c49c3041cc5adc8cde1bdb8e1"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_native_preparation_cpu.py",
+      "bytes": 16984,
+      "sha256_raw": "f380d474e777ad4a084225718d6ead5eeb02bc533c7a4881d39f73d1155430f5",
+      "sha256_lf": "f380d474e777ad4a084225718d6ead5eeb02bc533c7a4881d39f73d1155430f5",
+      "git_blob_sha256": "f380d474e777ad4a084225718d6ead5eeb02bc533c7a4881d39f73d1155430f5"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/probe_old_001_baseline_native.py",
+      "bytes": 6990,
+      "sha256_raw": "6b21eb0d82aaa71f148f9814e5e9b17fe69261423433f2668dec0079e970a4f5",
+      "sha256_lf": "6b21eb0d82aaa71f148f9814e5e9b17fe69261423433f2668dec0079e970a4f5",
+      "git_blob_sha256": "6b21eb0d82aaa71f148f9814e5e9b17fe69261423433f2668dec0079e970a4f5"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v4.py",
+      "bytes": 72258,
+      "sha256_raw": "bfdd25779b15ec6a6ae245b17ec0f2eabce662c0520324dcdb49f18d3d4fdbb7",
+      "sha256_lf": "bfdd25779b15ec6a6ae245b17ec0f2eabce662c0520324dcdb49f18d3d4fdbb7",
+      "git_blob_sha256": "bfdd25779b15ec6a6ae245b17ec0f2eabce662c0520324dcdb49f18d3d4fdbb7"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v5.py",
+      "bytes": 75090,
+      "sha256_raw": "dd2b84d5acbf6fd6d3ce9baf2c9a1ef56deec4859d7f6258f341299088d13330",
+      "sha256_lf": "dd2b84d5acbf6fd6d3ce9baf2c9a1ef56deec4859d7f6258f341299088d13330",
+      "git_blob_sha256": "dd2b84d5acbf6fd6d3ce9baf2c9a1ef56deec4859d7f6258f341299088d13330"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/FAILURES.md",
+      "bytes": 848,
+      "sha256_raw": "f2840f4a767f8f31782e347e7a9ff3dc1ff0311ac3581ca9c96f99ff9eb6f487",
+      "sha256_lf": "f2840f4a767f8f31782e347e7a9ff3dc1ff0311ac3581ca9c96f99ff9eb6f487",
+      "git_blob_sha256": "f2840f4a767f8f31782e347e7a9ff3dc1ff0311ac3581ca9c96f99ff9eb6f487"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/resource-observation.json",
+      "bytes": 658,
+      "sha256_raw": "c0d1681cf94d81b897ae04207639bd88974aa9ee665f361855c1b1e7fcb2735c",
+      "sha256_lf": "0d3b01e020bc79b63683b789b269c6bf14cf81ef525d2b9a5ef9d1b858a5328f",
+      "git_blob_sha256": "0d3b01e020bc79b63683b789b269c6bf14cf81ef525d2b9a5ef9d1b858a5328f"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/summary.json",
+      "bytes": 1063,
+      "sha256_raw": "0c6da1ae9c94f4a226d8b75c8a2d41aca7460301f41808f4ec7caabd03e99143",
+      "sha256_lf": "1d686ebf493936b9de4ff6c133fea7a7d5664898ff073348d392e357ff6af19c",
+      "git_blob_sha256": "1d686ebf493936b9de4ff6c133fea7a7d5664898ff073348d392e357ff6af19c"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-01/tests.log",
+      "bytes": 550,
+      "sha256_raw": "3557e52edd577ed4c01b2b4bb4762091c06580998e21cdcb2238d379f91c589d",
+      "sha256_lf": "3557e52edd577ed4c01b2b4bb4762091c06580998e21cdcb2238d379f91c589d",
+      "git_blob_sha256": "3557e52edd577ed4c01b2b4bb4762091c06580998e21cdcb2238d379f91c589d"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/resource-observation.json",
+      "bytes": 864,
+      "sha256_raw": "cc9b720e04c68c4dd62b70bdf142caba0a0a3d4b4c17fd9e1c90be46c358737d",
+      "sha256_lf": "6c8fddcce1094c385e384045810272b07823a0e677f277bf3fc400e1013c2def",
+      "git_blob_sha256": "6c8fddcce1094c385e384045810272b07823a0e677f277bf3fc400e1013c2def"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/summary.json",
+      "bytes": 13707,
+      "sha256_raw": "e814ebb6331a9bde1675dd12cf11432096f58a4ab643538c6b2de039e10e5250",
+      "sha256_lf": "16825790278236a87577fdadcaa3df3c02e18aa350c0f77029a67219540dd427",
+      "git_blob_sha256": "16825790278236a87577fdadcaa3df3c02e18aa350c0f77029a67219540dd427"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-attempt-02/tests.log",
+      "bytes": 4059,
+      "sha256_raw": "056d030861902a0f0712e5d48d2d2ed837c43aff395070e2429907979488049d",
+      "sha256_lf": "056d030861902a0f0712e5d48d2d2ed837c43aff395070e2429907979488049d",
+      "git_blob_sha256": "056d030861902a0f0712e5d48d2d2ed837c43aff395070e2429907979488049d"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/native-input-inventory.json",
+      "bytes": 10371,
+      "sha256_raw": "617c040e3efaec26630cf9fbdfdf799c66e81a945a3faa4e9943c7d42865b2ea",
+      "sha256_lf": "617c040e3efaec26630cf9fbdfdf799c66e81a945a3faa4e9943c7d42865b2ea",
+      "git_blob_sha256": "617c040e3efaec26630cf9fbdfdf799c66e81a945a3faa4e9943c7d42865b2ea"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/preliminary-inventory.json",
+      "bytes": 5725,
+      "sha256_raw": "e67fceacc638e63cb042924df9bea5e275df4f42fba71a67bab9cdf5d1122899",
+      "sha256_lf": "e67fceacc638e63cb042924df9bea5e275df4f42fba71a67bab9cdf5d1122899",
+      "git_blob_sha256": "e67fceacc638e63cb042924df9bea5e275df4f42fba71a67bab9cdf5d1122899"
+    },
+    {
+      "path": "docs/reviews/WP-0012/eld-f4-reviewer/preparation/helpers/drive_wp0012_edge_workflow.mjs",
+      "bytes": 31051,
+      "sha256_raw": "c8cd73a9a10af0dcf77b517f84684c0772de9ac31b2c6332a496e266dcfb8443",
+      "sha256_lf": "c8cd73a9a10af0dcf77b517f84684c0772de9ac31b2c6332a496e266dcfb8443",
+      "git_blob_sha256": "c8cd73a9a10af0dcf77b517f84684c0772de9ac31b2c6332a496e266dcfb8443"
+    },
+    {
+      "path": "tests/fixtures/F1-SWO-001.pdf",
+      "bytes": 887,
+      "sha256_raw": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+      "sha256_lf": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+      "git_blob_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    {
+      "path": "tests/fixtures/SYN-MP-01-v0-clean.pdf",
+      "bytes": 8422,
+      "sha256_raw": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "sha256_lf": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "git_blob_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+    },
+    {
+      "path": "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+      "bytes": 372258,
+      "sha256_raw": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "sha256_lf": "10a12dfff07473a9bf74a6d2a071fcdefaf1d9e2be3ab852f92f022e57582201",
+      "git_blob_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+    },
+    {
+      "path": "workers/local_ocr/README.md",
+      "bytes": 1605,
+      "sha256_raw": "0b4d2604b95e90d083aeb5465690880550b99d6ae8c417769e25328244c22341",
+      "sha256_lf": "0b4d2604b95e90d083aeb5465690880550b99d6ae8c417769e25328244c22341",
+      "git_blob_sha256": "0b4d2604b95e90d083aeb5465690880550b99d6ae8c417769e25328244c22341"
+    },
+    {
+      "path": "workers/local_ocr/local_ocr/__init__.py",
+      "bytes": 232,
+      "sha256_raw": "4b68e28d70a09a43270416972347dacdf745ffbd5be791ebb09976625545473a",
+      "sha256_lf": "4b68e28d70a09a43270416972347dacdf745ffbd5be791ebb09976625545473a",
+      "git_blob_sha256": "4b68e28d70a09a43270416972347dacdf745ffbd5be791ebb09976625545473a"
+    },
+    {
+      "path": "workers/local_ocr/local_ocr/env_guard.py",
+      "bytes": 11944,
+      "sha256_raw": "a70b72ed20f7dacec81e6bf81e0bc47d53cce816c622932db62ba61563759450",
+      "sha256_lf": "a70b72ed20f7dacec81e6bf81e0bc47d53cce816c622932db62ba61563759450",
+      "git_blob_sha256": "a70b72ed20f7dacec81e6bf81e0bc47d53cce816c622932db62ba61563759450"
+    },
+    {
+      "path": "workers/local_ocr/local_ocr/observer.py",
+      "bytes": 6324,
+      "sha256_raw": "9ae94f47e42cd56f3c30bbd077d9d0254c45fb0dd642d889a4cb318e3ab1f0ac",
+      "sha256_lf": "9ae94f47e42cd56f3c30bbd077d9d0254c45fb0dd642d889a4cb318e3ab1f0ac",
+      "git_blob_sha256": "9ae94f47e42cd56f3c30bbd077d9d0254c45fb0dd642d889a4cb318e3ab1f0ac"
+    },
+    {
+      "path": "workers/local_ocr/local_ocr/pdf_render.py",
+      "bytes": 3592,
+      "sha256_raw": "8ad81f14212bab6c437654e5c727846462690d90d8aa4865a563f618276db259",
+      "sha256_lf": "8ad81f14212bab6c437654e5c727846462690d90d8aa4865a563f618276db259",
+      "git_blob_sha256": "8ad81f14212bab6c437654e5c727846462690d90d8aa4865a563f618276db259"
+    },
+    {
+      "path": "workers/local_ocr/local_ocr/protocol.py",
+      "bytes": 7137,
+      "sha256_raw": "bb81b91fea085c46e5297f874b2df7a50c960456664b447414f61be1f7686b6e",
+      "sha256_lf": "bb81b91fea085c46e5297f874b2df7a50c960456664b447414f61be1f7686b6e",
+      "git_blob_sha256": "bb81b91fea085c46e5297f874b2df7a50c960456664b447414f61be1f7686b6e"
+    },
+    {
+      "path": "workers/local_ocr/local_ocr/verify_runtime.py",
+      "bytes": 13953,
+      "sha256_raw": "b6d133b5b5f051e53a3bdfeb22a4c2e6d0ba804d49486e22f244ef88a1f7e7e7",
+      "sha256_lf": "b6d133b5b5f051e53a3bdfeb22a4c2e6d0ba804d49486e22f244ef88a1f7e7e7",
+      "git_blob_sha256": "b6d133b5b5f051e53a3bdfeb22a4c2e6d0ba804d49486e22f244ef88a1f7e7e7"
+    },
+    {
+      "path": "workers/local_ocr/local_ocr/worker.py",
+      "bytes": 20729,
+      "sha256_raw": "42dac2d39f1ffdaa5dd477a1ede4a4413f7ed68d0b880d032462c5c4c6478f80",
+      "sha256_lf": "42dac2d39f1ffdaa5dd477a1ede4a4413f7ed68d0b880d032462c5c4c6478f80",
+      "git_blob_sha256": "42dac2d39f1ffdaa5dd477a1ede4a4413f7ed68d0b880d032462c5c4c6478f80"
+    },
+    {
+      "path": "workers/local_ocr/manifests/PROVENANCE.md",
+      "bytes": 2022,
+      "sha256_raw": "7b71de0c66567d9bd604e35ddc5ab308b58a816f452d46d21c1f44f438352d96",
+      "sha256_lf": "7b71de0c66567d9bd604e35ddc5ab308b58a816f452d46d21c1f44f438352d96",
+      "git_blob_sha256": "7b71de0c66567d9bd604e35ddc5ab308b58a816f452d46d21c1f44f438352d96"
+    },
+    {
+      "path": "workers/local_ocr/manifests/dependency-lock.json",
+      "bytes": 10028,
+      "sha256_raw": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+      "sha256_lf": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+      "git_blob_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111"
+    },
+    {
+      "path": "workers/local_ocr/manifests/model-files.json",
+      "bytes": 4210,
+      "sha256_raw": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+      "sha256_lf": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+      "git_blob_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be"
+    },
+    {
+      "path": "workers/local_ocr/run_worker.py",
+      "bytes": 1024,
+      "sha256_raw": "4725b681fe9a673001fa443f2da80d6051b3c5ca6dc35b5bfdca9a7a7e1896f9",
+      "sha256_lf": "4725b681fe9a673001fa443f2da80d6051b3c5ca6dc35b5bfdca9a7a7e1896f9",
+      "git_blob_sha256": "4725b681fe9a673001fa443f2da80d6051b3c5ca6dc35b5bfdca9a7a7e1896f9"
+    },
+    {
+      "path": "workers/local_ocr/tests/test_worker_cpu.py",
+      "bytes": 28791,
+      "sha256_raw": "a84cd3700f218bda82bd2a9aa2dc471714800298e048691a9c10097aeb9e70d3",
+      "sha256_lf": "a84cd3700f218bda82bd2a9aa2dc471714800298e048691a9c10097aeb9e70d3",
+      "git_blob_sha256": "a84cd3700f218bda82bd2a9aa2dc471714800298e048691a9c10097aeb9e70d3"
+    }
+  ],
+  "checked_markdown_links": [
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "NATIVE-PREPARATION.md"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "final/candidate-4ca6bc2d-guards-02/guards.json"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "final/candidate-4ca6bc2d-return-02/return-probe.json"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "final/candidate-6d055395-return-01/return-probe.json"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "final/candidate-4ca6bc2d-guards-02/guards.json"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "preliminary/native-attempt-01/summary.json"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "preliminary/native-attempt-02/tests.log"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "final/CONTROL-LIMITATION.md"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "helpers/run_wp0012_reviewer_rehearsal_v5.py"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/FINAL-INDEPENDENT-AUDIT.md",
+      "target": "final/source-evidence-inventory.json"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/NATIVE-PREPARATION.md",
+      "target": "helpers/run_wp0012_reviewer_rehearsal_v5.py"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/NATIVE-PREPARATION.md",
+      "target": "helpers/probe_native_preparation_cpu.py"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/CONTROL-LIMITATION.md",
+      "target": "../helpers/probe_bound_006_guards_cpu.py"
+    },
+    {
+      "source": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/preliminary/FAILURES.md",
+      "target": "../helpers/probe_old_001_baseline_native.py"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../agent-reports/eld-f4-implementer/WP-0012/001_2026-11-17_implementation_eld-f4-implementer.md"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../agent-reports/eld-f4-reviewer/WP-0012/002_2026-11-17_review_eld-f4-reviewer.md"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../coordination/WP-0012-0013-authority.md"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../kickoffs/WP-0012-eld-f4-implementer.md"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../../ELedgerCare.slnx"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../../src/ELedgerCare.Api/appsettings.json"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "helpers/drive_rehearsal_edge.mjs"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "helpers/drive_rehearsal_edge.mjs"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../../tests/fixtures/SYN-WO-01-v1-raster300.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../../tests/fixtures/SYN-MP-01-v0-clean.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../../workers/local_ocr/manifests/model-files.json"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "../../../../../workers/local_ocr/manifests/dependency-lock.json"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "helpers/run_wp0012_rehearsal.py"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "sample-synthetic-release.json"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md",
+      "target": "helpers/drive_rehearsal_edge.mjs"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "../../retained-failures/README.md"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "../../../../../reviews/WP-0012/eld-f4-reviewer/author-001-review/observations/author-001-and-v3-verification.json"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "../helpers/validate_wp0012_correction_006_cpu.py"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "../helpers/run_wp0012_rehearsal.py"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "../helpers/drive_rehearsal_edge.mjs"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "pre-freeze-01-mock-popen-and-short-secret.log"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "../helpers/run_wp0012_rehearsal.py"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "../retained-checks/pre-freeze-02-native-inherited-tests.log"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "../retained-checks/pre-freeze-03-native-cleanup-tests.log"
+    },
+    {
+      "source": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/retained-failures/README.md",
+      "target": "native-prose-edit-error.log"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "001_2026-11-17_implementation_eld-f4-implementer.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../eld-f4-reviewer/WP-0012/002_2026-11-17_review_eld-f4-reviewer.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/inventory-02.json"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/validation-summary.json"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/03-old-fails-new-passes-and-guard-tests.log"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/logs/01-node-check-edge-driver.log"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/synthetic-sample-validation.json"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/inventory-02.json"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/evidence-02/resource-return.json"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/helpers/run_wp0012_rehearsal.py"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/helpers/validate_wp0012_correction_006_cpu.py"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../implementation/WP-0012/eld-f4-implementer/correction-006/RUNBOOK.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md",
+      "target": "../../../reviews/WP-0012/eld-f4-reviewer/author-001-review/AUTHOR-001-AUDIT-AND-GUARD-RECONCILIATION.md"
+    }
+  ],
+  "reviewer_resources": {
+    "ports": {
+      "4710": [],
+      "5690": [],
+      "55439": []
+    },
+    "pg_status_exit": 3,
+    "run_entries": []
+  },
+  "checks_not_run": [
+    "live OCR",
+    "GPU query",
+    "renderer import",
+    "real PostgreSQL/API/browser startup",
+    "broad unchanged product suite"
+  ],
+  "inventory_excludes_itself": true
+}
