@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-11-17T09:10:41.994916+00:00",
+  "executing_head": "94f632538bf3bc7388f43863eb8f439474871480",
+  "source_commit": "adb51ac317db18950f3f1ef4629864127956eddc",
+  "helper_sha256": "14128b66c2dc00546f0da01f878f2b67cc80c4261d4d6c6ecbc2061291fe11a3",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests_reused_without_rerun": {
+    "run": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "tests_evidence": "reproduction-1/tests-stdout.txt and tests-stderr.txt; exact unchanged source",
+  "identity": {
+    "author_input_files": 144,
+    "public_objects": 1,
+    "author_deliverable_files": 28,
+    "protected_base_paths": 2704,
+    "public_fixture_descriptors": 12,
+    "public_artifact_descriptors": 48
+  },
+  "status": "FAIL",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\docs\\reviews\\WP-0011\\eld-mapping-reviewer\\source\\reproduce_v2.py\", line 133, in main\n    full=reproduce();write(out/'reproduction.json',full);receipt['summary']=full['summary'];receipt['status']='PASS'\n         ^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\docs\\reviews\\WP-0011\\eld-mapping-reviewer\\source\\reproduce_v2.py\", line 95, in reproduce\n    check(fid,None if raw is None else raw.decode(),expected,reference,score['completion'],{'b0':score,'mapping_v1':previous},lane,anchors)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\docs\\reviews\\WP-0011\\eld-mapping-reviewer\\source\\reproduce_v2.py\", line 78, in check\n    assert diagnostic==recorded,'Complete diagnostic ledger mismatch: '+fid\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: Complete diagnostic ledger mismatch: SYN-WO-01-v0-clean\n",
+  "finished_utc": "2026-11-17T09:10:49.253472+00:00"
+}
