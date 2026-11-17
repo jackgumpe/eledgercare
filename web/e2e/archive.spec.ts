@@ -508,3 +508,215 @@ test('F4-04 / F4-BIC-06 / F4-BIC-07: obsolete slow search response is ignored af
     delayedSlowResolved,
   });
 });
+
+test('F4-04 / WP-0010-006: newer typed draft survives pending router navigation, newer submitted query/filter supersedes pending navigation and late HTTP callbacks, and external Back/Forward & error states stay consistent', async ({
+  page,
+}) => {
+  const wo1 = seedRemappedGenuineCompletedResult(
+    woPdfBytes,
+    woPdfSha,
+    woRawBytes,
+    woRawSha,
+    woEnvelope,
+    '2026-11-17T08:30:00Z',
+  );
+  const wo2 = seedRemappedGenuineCompletedResult(
+    woPdfBytes,
+    woPdfSha,
+    woRawBytes,
+    woRawSha,
+    woEnvelope,
+    '2026-11-17T08:31:00Z',
+  );
+  const mp = seedRemappedGenuineCompletedResult(
+    mpPdfBytes,
+    mpPdfSha,
+    mpRawBytes,
+    mpRawSha,
+    mpEnvelope,
+    '2026-11-17T08:32:00Z',
+  );
+
+  await saveRevisionViaApi(wo1.documentId, wo1.resultId, 0, 'reviewed', [
+    { fieldKey: 'work_order_id', decision: 'edited', value: 'WO-NAV-FIRST-101' },
+    { fieldKey: 'property_name', decision: 'accepted', value: 'Cedar Hollow Apartments' },
+    { fieldKey: 'building_unit', decision: 'accepted', value: 'Bldg B - Unit 204' },
+    { fieldKey: 'requested_date', decision: 'accepted', value: '2026-10-16' },
+    { fieldKey: 'issue_and_resolution', decision: 'accepted', value: woIssueSuggested },
+  ]);
+
+  await saveRevisionViaApi(wo2.documentId, wo2.resultId, 0, 'reviewed', [
+    { fieldKey: 'work_order_id', decision: 'edited', value: 'WO-NAV-SECOND-202' },
+    { fieldKey: 'property_name', decision: 'accepted', value: 'Cedar Hollow Apartments' },
+    { fieldKey: 'building_unit', decision: 'accepted', value: 'Bldg B - Unit 204' },
+    { fieldKey: 'requested_date', decision: 'accepted', value: '2026-10-16' },
+    { fieldKey: 'issue_and_resolution', decision: 'accepted', value: woIssueSuggested },
+  ]);
+
+  const archiveRequests: string[] = [];
+  page.on('request', (req) => {
+    if (req.url().includes('/api/archive')) {
+      archiveRequests.push(req.url());
+    }
+  });
+
+  await page.goto('/archive');
+  await expect(page.getByTestId(`archive-card-${wo2.documentId}`)).toBeVisible();
+
+  // Install deterministic Promise-latched route guard on live /archive route (separating route propagation from HTTP!)
+  await page.evaluate(() => {
+    const w = window as unknown as Record<string, unknown>;
+    const ngGlobal = w['ng'] as { getComponent: (el: Element) => { router: { config: Array<Record<string, unknown>> } } };
+    const cmp = ngGlobal.getComponent(document.querySelector('elc-archive-page')!);
+    const archiveRoute = cmp.router.config.find((r) => r['path'] === 'archive')!;
+
+    const state: {
+      holdNext: boolean;
+      queue: Array<{ resolve: (allow: boolean) => void }>;
+    } = { holdNext: false, queue: [] };
+
+    archiveRoute['runGuardsAndResolvers'] = 'paramsOrQueryParamsChange';
+    archiveRoute['canActivate'] = [
+      () => {
+        if (!state.holdNext) {
+          return true;
+        }
+        return new Promise<boolean>((resolve) => {
+          state.queue.push({ resolve });
+        });
+      },
+    ];
+
+    w['__e2eArchiveNavLatch'] = {
+      arm: () => {
+        state.holdNext = true;
+      },
+      disarm: () => {
+        state.holdNext = false;
+      },
+      pendingCount: () => state.queue.length,
+      releaseNext: () => {
+        const next = state.queue.shift();
+        next?.resolve(true);
+      },
+      releaseAll: () => {
+        while (state.queue.length > 0) {
+          state.queue.shift()!.resolve(true);
+        }
+      },
+    };
+  });
+
+  // (1) Newer typed draft survives earlier pending navigation completing
+  await page.evaluate(() => {
+    ((window as unknown as Record<string, unknown>)['__e2eArchiveNavLatch'] as { arm: () => void }).arm();
+  });
+  await page.getByTestId('archive-query-input').fill('WO-NAV-FIRST-101');
+  await page.getByTestId('archive-source-select').selectOption('reviewed');
+
+  // HTTP completes and renders wo1 WHILE router navigation is deterministically held pending
+  await expect(page.getByTestId(`archive-card-${wo1.documentId}`)).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => ((window as unknown as Record<string, unknown>)['__e2eArchiveNavLatch'] as { pendingCount: () => number }).pendingCount(),
+    ),
+  ).toBe(1);
+  expect(new URL(page.url()).search).toBe('');
+
+  // User types a newer draft before Navigation #1 settles
+  await page.getByTestId('archive-query-input').fill('WO-NAV-SECOND-202');
+  const reqCountBeforeNavSettle = archiveRequests.length;
+
+  await page.evaluate(() => {
+    const latch = (window as unknown as Record<string, unknown>)['__e2eArchiveNavLatch'] as {
+      disarm: () => void;
+      releaseNext: () => void;
+    };
+    latch.disarm();
+    latch.releaseNext();
+  });
+  await expect(page).toHaveURL(/\/archive\?q=WO-NAV-FIRST-101&source=reviewed$/);
+  await page.evaluate(
+    () => new Promise<void>((r) => requestAnimationFrame(() => setTimeout(r, 0))),
+  );
+
+  // Newer typed draft must remain intact, with zero duplicate HTTP search calls!
+  await expect(page.getByTestId('archive-query-input')).toHaveValue('WO-NAV-SECOND-202');
+  expect(archiveRequests.length).toBe(reqCountBeforeNavSettle);
+
+  // Submitting that preserved draft executes WO-NAV-SECOND-202 cleanly
+  await page.getByTestId('archive-submit-btn').click();
+  await expect(page).toHaveURL(/\/archive\?q=WO-NAV-SECOND-202&source=reviewed$/);
+  await expect(page.getByTestId(`archive-card-${wo2.documentId}`)).toBeVisible();
+  await expect(page.getByTestId(`archive-card-${wo1.documentId}`)).toHaveCount(0);
+
+  // (2) Newer submitted query/filter supersedes pending earlier navigation
+  await page.getByTestId('archive-clear-btn').click();
+  await expect(page).toHaveURL(/\/archive$/);
+  await page.evaluate(() => {
+    ((window as unknown as Record<string, unknown>)['__e2eArchiveNavLatch'] as { arm: () => void }).arm();
+  });
+  await page.getByTestId('archive-query-input').fill('WO-NAV-FIRST-101');
+  await page.getByTestId('archive-source-select').selectOption('reviewed');
+  expect(
+    await page.evaluate(
+      () => ((window as unknown as Record<string, unknown>)['__e2eArchiveNavLatch'] as { pendingCount: () => number }).pendingCount(),
+    ),
+  ).toBe(1);
+
+  await page.evaluate(() => {
+    ((window as unknown as Record<string, unknown>)['__e2eArchiveNavLatch'] as { disarm: () => void }).disarm();
+  });
+  await page.getByTestId('archive-query-input').fill('Refrigerator Evaporator');
+  await page.getByTestId('archive-source-select').selectOption('machine');
+  await page.evaluate(() => {
+    ((window as unknown as Record<string, unknown>)['__e2eArchiveNavLatch'] as { releaseAll: () => void }).releaseAll();
+  });
+
+  await expect(page).toHaveURL(/\/archive\?q=Refrigerator%20Evaporator&source=machine$/);
+  await expect(page.getByTestId('archive-query-input')).toHaveValue('Refrigerator Evaporator');
+  await expect(page.getByTestId('archive-source-select')).toHaveValue('machine');
+  await expect(page.getByTestId(`archive-card-${mp.documentId}`)).toBeVisible();
+
+  // (3) External browser Back / Forward (popstate) and header routerLink="/archive"
+  await page.getByTestId('archive-query-input').fill('WO-NAV-SECOND-202');
+  await page.getByTestId('archive-source-select').selectOption('reviewed');
+  await expect(page).toHaveURL(/\/archive\?q=WO-NAV-SECOND-202&source=reviewed$/);
+  await expect(page.getByTestId(`archive-card-${wo2.documentId}`)).toBeVisible();
+
+  await page.getByTestId('archive-query-input').fill('UNSUBMITTED-SCRATCH');
+  await page.goBack();
+  await expect(page).toHaveURL(/\/archive\?q=Refrigerator%20Evaporator&source=machine$/);
+  await expect(page.getByTestId('archive-query-input')).toHaveValue('Refrigerator Evaporator');
+  await expect(page.getByTestId('archive-source-select')).toHaveValue('machine');
+  await expect(page.getByTestId(`archive-card-${mp.documentId}`)).toBeVisible();
+
+  await page.goForward();
+  await expect(page).toHaveURL(/\/archive\?q=WO-NAV-SECOND-202&source=reviewed$/);
+  await expect(page.getByTestId('archive-query-input')).toHaveValue('WO-NAV-SECOND-202');
+  await expect(page.getByTestId('archive-source-select')).toHaveValue('reviewed');
+  await expect(page.getByTestId(`archive-card-${wo2.documentId}`)).toBeVisible();
+
+  await page.getByTestId('nav-archive').click();
+  await expect(page).toHaveURL(/\/archive$/);
+  await expect(page.getByTestId('archive-query-input')).toHaveValue('');
+  await expect(page.getByTestId('archive-source-select')).toHaveValue('all');
+
+  // (4) Invalid 9-word query hides stale prior cards/cursors and Clear recovers cleanly
+  await page.getByTestId('archive-query-input').fill('w1 w2 w3 w4 w5 w6 w7 w8 w9');
+  await page.getByTestId('archive-submit-btn').click();
+  await expect(page.getByTestId('archive-error')).toBeVisible();
+  await expect(page.getByTestId('archive-results-section')).toHaveCount(0);
+
+  await page.getByTestId('archive-clear-btn').click();
+  await expect(page).toHaveURL(/\/archive$/);
+  await expect(page.getByTestId('archive-error')).toHaveCount(0);
+  await expect(page.getByTestId(`archive-card-${wo2.documentId}`)).toBeVisible();
+
+  evidence.push({
+    check: 'F4-04 / WP-0010-006 pending navigation draft preservation + newer submit authority + Back/Forward + consistency',
+    wo1DocumentId: wo1.documentId,
+    wo2DocumentId: wo2.documentId,
+    mpDocumentId: mp.documentId,
+  });
+});
