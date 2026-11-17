@@ -1,0 +1,61 @@
+{
+  "schema": "eld-wp13-reviewer-tool-receipts/1",
+  "helper_commit": "a75bc9c4ee1b2be26ca23acbede886a1cae424fe",
+  "attribution": "Actual tools.exec_command results from independent reviewer execution; timestamps and source inventories are in each result.json.",
+  "calls": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "phase": "probes",
+        "cmd": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/protocol-review/review_checks.py probes --out docs/reviews/WP-0013/eld-mapping-reviewer/protocol-review/attempt-1/probes",
+        "chunk_id": "4f9abb",
+        "wall_time_seconds": 9.7164231,
+        "exit_code": 0,
+        "original_token_count": 25,
+        "output": "{\"phase\": \"probes\", \"status\": \"PASS\", \"checks\": 35, \"tests\": null, \"documents\": 0, \"failures\": []}\r\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "phase": "author-tests",
+        "cmd": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/protocol-review/review_checks.py author-tests --out docs/reviews/WP-0013/eld-mapping-reviewer/protocol-review/attempt-1/author-tests",
+        "chunk_id": "9ad61f",
+        "wall_time_seconds": 9.8001744,
+        "exit_code": 0,
+        "original_token_count": 26,
+        "output": "{\"phase\": \"author-tests\", \"status\": \"PASS\", \"checks\": 0, \"tests\": 26, \"documents\": 0, \"failures\": []}\r\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "phase": "history",
+        "cmd": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/protocol-review/review_checks.py history --out docs/reviews/WP-0013/eld-mapping-reviewer/protocol-review/attempt-1/history",
+        "chunk_id": "9b40af",
+        "wall_time_seconds": 10.0160231,
+        "session_id": 96482,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "phase": "author-audit",
+        "cmd": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/protocol-review/audit_inventory.py author --out docs/reviews/WP-0013/eld-mapping-reviewer/protocol-review/attempt-1/author-audit.json",
+        "chunk_id": "c9a171",
+        "wall_time_seconds": 0.6256783,
+        "exit_code": 1,
+        "original_token_count": 279,
+        "output": "{\"status\": \"FAILED\", \"mode\": \"author\", \"error\": \"Traceback (most recent call last):\\n  File \\\"C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-vocabulary-reviewer\\\\docs\\\\reviews\\\\WP-0013\\\\eld-mapping-reviewer\\\\protocol-review\\\\audit_inventory.py\\\", line 100, in main\\n    if a.mode=='author':author_audit(out)\\n                        ^^^^^^^^^^^^^^^^^\\n  File \\\"C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-vocabulary-reviewer\\\\docs\\\\reviews\\\\WP-0013\\\\eld-mapping-reviewer\\\\protocol-review\\\\audit_inventory.py\\\", line 43, in author_audit\\n    require(len(working)==row['working_bytes'] and sha(working)==row['working_sha256'],'Inventory working bytes mismatch: '+path)\\n  File \\\"C:\\\\Users\\\\jackg\\\\Asp.net Projects\\\\eledgercare-worktrees\\\\eld-vocabulary-reviewer\\\\docs\\\\reviews\\\\WP-0013\\\\eld-mapping-reviewer\\\\protocol-review\\\\audit_inventory.py\\\", line 22, in require\\n    if not value:raise AssertionError(message)\\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: Inventory working bytes mismatch: docs/research/WP-0013/eld-mapping-author/001/.gitattributes\\n\"}\r\n"
+      }
+    }
+  ],
+  "history_completion": {
+    "session_id": 96482,
+    "chunk_id": "94c893",
+    "exit_code": 0,
+    "output": "{\"phase\": \"history\", \"status\": \"PASS\", \"checks\": 0, \"tests\": null, \"documents\": 12, \"failures\": []}\r\n"
+  }
+}
