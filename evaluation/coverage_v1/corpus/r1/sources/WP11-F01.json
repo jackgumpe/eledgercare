@@ -1,0 +1,149 @@
+{
+  "family_id": "WP11-F01",
+  "doc_kind": "work_order",
+  "title": "Window maintenance work order",
+  "subtitle": "Fictional Amber Otter housing workshop",
+  "fields": [
+    {
+      "field_id": "work_order_id",
+      "control_label": "Work Order ID",
+      "vocabulary_label": "Repair record",
+      "printed_text": "WO-0008645",
+      "normalized_value": "WO-0008645",
+      "value_type": "identifier"
+    },
+    {
+      "field_id": "property_name",
+      "control_label": "Property",
+      "vocabulary_label": "Premises name",
+      "printed_text": "Fictional Amber Otter Court",
+      "normalized_value": "Fictional Amber Otter Court",
+      "value_type": "text"
+    },
+    {
+      "field_id": "building_unit",
+      "control_label": "Building / Unit",
+      "vocabulary_label": "Place within site",
+      "printed_text": "Block R / Unit 007C",
+      "normalized_value": "Block R / Unit 007C",
+      "value_type": "identifier"
+    },
+    {
+      "field_id": "requested_date",
+      "control_label": "Requested Date",
+      "vocabulary_label": "Opened on",
+      "printed_text": "2026-04-09",
+      "normalized_value": "2026-04-09",
+      "value_type": "date_iso"
+    },
+    {
+      "field_id": "trade_category",
+      "control_label": "Trade Category",
+      "vocabulary_label": "Work discipline",
+      "printed_text": "Carpentry / sash hardware",
+      "normalized_value": "Carpentry / sash hardware",
+      "value_type": "text"
+    },
+    {
+      "field_id": "assigned_tech",
+      "control_label": "Assigned Technician",
+      "vocabulary_label": "Worker assigned",
+      "printed_text": "Fictional Nola Wren",
+      "normalized_value": "Fictional Nola Wren",
+      "value_type": "text"
+    },
+    {
+      "field_id": "completion_status",
+      "control_label": "Work Order Status",
+      "vocabulary_label": "Job state",
+      "printed_text": "Closed - sash travels freely",
+      "normalized_value": "Closed - sash travels freely",
+      "value_type": "text"
+    }
+  ],
+  "absence": {
+    "field_id": "resident_contact",
+    "control_label": "Resident Contact",
+    "vocabulary_label": "Occupant callback"
+  },
+  "table": {
+    "table_id": "stock_parts",
+    "row_key_column": "part_sku",
+    "columns": [
+      "part_sku",
+      "part_desc",
+      "bin_loc",
+      "qty_used"
+    ],
+    "headers": [
+      "Part SKU",
+      "Part Description",
+      "Bin",
+      "Qty Used"
+    ],
+    "vocabulary_headers": [
+      "Stock reference",
+      "Item supplied",
+      "Shelf",
+      "Used count"
+    ],
+    "widths": [
+      106,
+      246,
+      82,
+      98
+    ],
+    "rows": [
+      {
+        "row_id": "W-A",
+        "cells": {
+          "part_sku": {
+            "printed_text": "00091284",
+            "normalized_value": "00091284",
+            "value_type": "identifier"
+          },
+          "part_desc": {
+            "printed_text": "Nylon sash guide",
+            "normalized_value": "Nylon sash guide",
+            "value_type": "text"
+          },
+          "bin_loc": {
+            "printed_text": "S-006",
+            "normalized_value": "S-006",
+            "value_type": "identifier"
+          },
+          "qty_used": {
+            "printed_text": "3.00",
+            "normalized_value": "3.00",
+            "value_type": "decimal_2"
+          }
+        }
+      },
+      {
+        "row_id": "W-B",
+        "cells": {
+          "part_sku": {
+            "printed_text": "00046193",
+            "normalized_value": "00046193",
+            "value_type": "identifier"
+          },
+          "part_desc": {
+            "printed_text": "Window stop fastener",
+            "normalized_value": "Window stop fastener",
+            "value_type": "text"
+          },
+          "bin_loc": {
+            "printed_text": "S-021",
+            "normalized_value": "S-021",
+            "value_type": "identifier"
+          },
+          "qty_used": {
+            "printed_text": "6.00",
+            "normalized_value": "6.00",
+            "value_type": "decimal_2"
+          }
+        }
+      }
+    ]
+  }
+}

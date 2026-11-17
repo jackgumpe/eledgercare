@@ -1,0 +1,229 @@
+{
+  "schema": "eld-coverage-annotations/1",
+  "fixture_id": "WP11-F02-control-v0",
+  "family_id": "WP11-F02",
+  "condition": "control",
+  "control_fixture_id": "WP11-F02-control-v0",
+  "page_count": 1,
+  "fields": [
+    {
+      "field_id": "invoice_number",
+      "page_number": 1,
+      "label_printed": "Invoice No",
+      "label_bbox_pt": [
+        40,
+        670,
+        320,
+        678
+      ],
+      "value_bbox_pt": [
+        330,
+        670,
+        572,
+        680
+      ]
+    },
+    {
+      "field_id": "invoice_date",
+      "page_number": 1,
+      "label_printed": "Invoice Date",
+      "label_bbox_pt": [
+        40,
+        642,
+        320,
+        650
+      ],
+      "value_bbox_pt": [
+        330,
+        642,
+        572,
+        652
+      ]
+    },
+    {
+      "field_id": "due_date",
+      "page_number": 1,
+      "label_printed": "Due Date",
+      "label_bbox_pt": [
+        40,
+        614,
+        320,
+        622
+      ],
+      "value_bbox_pt": [
+        330,
+        614,
+        572,
+        624
+      ]
+    },
+    {
+      "field_id": "work_order_ref",
+      "page_number": 1,
+      "label_printed": "Work Order Ref",
+      "label_bbox_pt": [
+        40,
+        586,
+        320,
+        594
+      ],
+      "value_bbox_pt": [
+        330,
+        586,
+        572,
+        596
+      ]
+    },
+    {
+      "field_id": "payment_terms",
+      "page_number": 1,
+      "label_printed": "Terms",
+      "label_bbox_pt": [
+        40,
+        558,
+        320,
+        566
+      ],
+      "value_bbox_pt": [
+        330,
+        558,
+        572,
+        568
+      ]
+    },
+    {
+      "field_id": "subtotal",
+      "page_number": 1,
+      "label_printed": "Line Net Subtotal",
+      "label_bbox_pt": [
+        40,
+        530,
+        320,
+        538
+      ],
+      "value_bbox_pt": [
+        330,
+        530,
+        572,
+        540
+      ]
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "page_number": 1,
+      "label_printed": "Taxable Subtotal (Tax=T Rows)",
+      "label_bbox_pt": [
+        40,
+        502,
+        320,
+        510
+      ],
+      "value_bbox_pt": [
+        330,
+        502,
+        572,
+        512
+      ]
+    },
+    {
+      "field_id": "tax_amount",
+      "page_number": 1,
+      "label_printed": "Sales Tax (7.50% on Taxable Subtotal)",
+      "label_bbox_pt": [
+        40,
+        474,
+        320,
+        482
+      ],
+      "value_bbox_pt": [
+        330,
+        474,
+        572,
+        484
+      ]
+    },
+    {
+      "field_id": "invoice_total",
+      "page_number": 1,
+      "label_printed": "CURRENT INVOICE TOTAL",
+      "label_bbox_pt": [
+        40,
+        446,
+        320,
+        454
+      ],
+      "value_bbox_pt": [
+        330,
+        446,
+        572,
+        456
+      ]
+    },
+    {
+      "field_id": "amount_due",
+      "page_number": 1,
+      "label_printed": "TOTAL AMOUNT DUE",
+      "label_bbox_pt": [
+        40,
+        418,
+        320,
+        426
+      ],
+      "value_bbox_pt": [
+        330,
+        418,
+        572,
+        428
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "line_items",
+      "page_number": 1,
+      "headers": [
+        "Row",
+        "SKU / Ref",
+        "Description",
+        "Qty",
+        "Unit Price",
+        "Disc%",
+        "Disc Amt",
+        "Tax",
+        "Net Line"
+      ],
+      "column_ids": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "row_key_column": "row_id",
+      "header_bbox_pt": [
+        40,
+        342,
+        572,
+        365
+      ]
+    }
+  ],
+  "absences": [
+    {
+      "field_id": "customer_po_code",
+      "page_number": 1,
+      "label_printed": "Customer PO / CapEx Code",
+      "label_bbox_pt": [
+        40,
+        145,
+        320,
+        153
+      ]
+    }
+  ],
+  "ideal_native": "<PAGE>\n<BLOCK>text[65,34,509,58]<FORK>Service and materials invoice\n<BLOCK>text[65,74,328,86]<FORK>Fictional Violet Acorn service desk\n<BLOCK>text[539,142,935,154]<FORK>IV-0005638\n<BLOCK>text[65,144,523,154]<FORK>Invoice No\n<BLOCK>text[539,177,935,190]<FORK>2026-05-04\n<BLOCK>text[65,180,523,190]<FORK>Invoice Date\n<BLOCK>text[539,212,935,225]<FORK>2026-06-03\n<BLOCK>text[65,215,523,225]<FORK>Due Date\n<BLOCK>text[539,248,935,260]<FORK>WO-0003827\n<BLOCK>text[65,250,523,260]<FORK>Work Order Ref\n<BLOCK>text[539,283,935,296]<FORK>30 days from issue\n<BLOCK>text[65,286,523,296]<FORK>Terms\n<BLOCK>text[539,318,935,331]<FORK>$145.20\n<BLOCK>text[65,321,523,331]<FORK>Line Net Subtotal\n<BLOCK>text[539,354,935,366]<FORK>$145.20\n<BLOCK>text[65,356,523,366]<FORK>Taxable Subtotal (Tax=T Rows)\n<BLOCK>text[539,389,935,402]<FORK>$10.89\n<BLOCK>text[65,392,523,402]<FORK>Sales Tax (7.50% on Taxable Subtotal)\n<BLOCK>text[539,424,935,437]<FORK>$156.09\n<BLOCK>text[65,427,523,437]<FORK>CURRENT INVOICE TOTAL\n<BLOCK>text[539,460,935,472]<FORK>$156.09\n<BLOCK>text[65,462,523,472]<FORK>TOTAL AMOUNT DUE\n<BLOCK>table[65,539,935,707]<FORK><table><tr><th>Row</th><th>SKU / Ref</th><th>Description</th><th>Qty</th><th>Unit Price</th><th>Disc%</th><th>Disc Amt</th><th>Tax</th><th>Net Line</th></tr><tr><td>K17</td><td>00068547</td><td>Actuator bracket</td><td>4.00 EA</td><td>$11.75</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$47.00</td></tr><tr><td>K18</td><td>00090632</td><td>Control linkage service</td><td>1.25 HR</td><td>$68.40</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$85.50</td></tr><tr><td>K19</td><td>00027458</td><td>Retainer hardware kit</td><td>2.00 KT</td><td>$6.35</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$12.70</td></tr></table>\n<BLOCK>text[65,807,523,817]<FORK>Customer PO / CapEx Code\n<BLOCK>footer[65,946,517,956]<FORK>SYNTHETIC TRAINING DOCUMENT - all names and records are fictional.\n<BLOCK>footer[65,963,448,972]<FORK>One-page practice record; no real work or safety certification is asserted."
+}

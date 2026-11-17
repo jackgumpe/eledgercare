@@ -1,0 +1,297 @@
+{
+  "family_id": "WP11-F02",
+  "doc_kind": "service_invoice",
+  "title": "Service and materials invoice",
+  "subtitle": "Fictional Violet Acorn service desk",
+  "fields": [
+    {
+      "field_id": "invoice_number",
+      "control_label": "Invoice No",
+      "vocabulary_label": "Billing reference",
+      "printed_text": "IV-0005638",
+      "normalized_value": "IV-0005638",
+      "value_type": "identifier"
+    },
+    {
+      "field_id": "invoice_date",
+      "control_label": "Invoice Date",
+      "vocabulary_label": "Billed on",
+      "printed_text": "2026-05-04",
+      "normalized_value": "2026-05-04",
+      "value_type": "date_iso"
+    },
+    {
+      "field_id": "due_date",
+      "control_label": "Due Date",
+      "vocabulary_label": "Settle by",
+      "printed_text": "2026-06-03",
+      "normalized_value": "2026-06-03",
+      "value_type": "date_iso"
+    },
+    {
+      "field_id": "work_order_ref",
+      "control_label": "Work Order Ref",
+      "vocabulary_label": "Related repair",
+      "printed_text": "WO-0003827",
+      "normalized_value": "WO-0003827",
+      "value_type": "identifier"
+    },
+    {
+      "field_id": "payment_terms",
+      "control_label": "Terms",
+      "vocabulary_label": "Settlement rule",
+      "printed_text": "30 days from issue",
+      "normalized_value": "30 days from issue",
+      "value_type": "text"
+    },
+    {
+      "field_id": "subtotal",
+      "control_label": "Line Net Subtotal",
+      "vocabulary_label": "Charges before levy",
+      "printed_text": "$145.20",
+      "normalized_value": "145.20",
+      "value_type": "currency_usd"
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "control_label": "Taxable Subtotal (Tax=T Rows)",
+      "vocabulary_label": "Levy basis",
+      "printed_text": "$145.20",
+      "normalized_value": "145.20",
+      "value_type": "currency_usd"
+    },
+    {
+      "field_id": "tax_amount",
+      "control_label": "Sales Tax (7.50% on Taxable Subtotal)",
+      "vocabulary_label": "Local levy at 7.50%",
+      "printed_text": "$10.89",
+      "normalized_value": "10.89",
+      "value_type": "currency_usd"
+    },
+    {
+      "field_id": "invoice_total",
+      "control_label": "CURRENT INVOICE TOTAL",
+      "vocabulary_label": "This bill total",
+      "printed_text": "$156.09",
+      "normalized_value": "156.09",
+      "value_type": "currency_usd"
+    },
+    {
+      "field_id": "amount_due",
+      "control_label": "TOTAL AMOUNT DUE",
+      "vocabulary_label": "Balance to remit",
+      "printed_text": "$156.09",
+      "normalized_value": "156.09",
+      "value_type": "currency_usd"
+    }
+  ],
+  "absence": {
+    "field_id": "customer_po_code",
+    "control_label": "Customer PO / CapEx Code",
+    "vocabulary_label": "Buyer purchase reference"
+  },
+  "tax_rate": "0.0750",
+  "table": {
+    "table_id": "line_items",
+    "row_key_column": "row_id",
+    "columns": [
+      "row_id",
+      "sku",
+      "description",
+      "qty_unit",
+      "unit_price",
+      "discount_rate",
+      "line_discount",
+      "tax_flag",
+      "net_line"
+    ],
+    "headers": [
+      "Row",
+      "SKU / Ref",
+      "Description",
+      "Qty",
+      "Unit Price",
+      "Disc%",
+      "Disc Amt",
+      "Tax",
+      "Net Line"
+    ],
+    "vocabulary_headers": [
+      "Seq",
+      "Item ref",
+      "Service / item",
+      "Units",
+      "Rate",
+      "Rebate%",
+      "Rebate",
+      "Levy",
+      "Extended"
+    ],
+    "widths": [
+      30,
+      60,
+      140,
+      50,
+      56,
+      42,
+      54,
+      28,
+      72
+    ],
+    "rows": [
+      {
+        "row_id": "K17",
+        "cells": {
+          "row_id": {
+            "printed_text": "K17",
+            "normalized_value": "K17",
+            "value_type": "identifier"
+          },
+          "sku": {
+            "printed_text": "00068547",
+            "normalized_value": "00068547",
+            "value_type": "identifier"
+          },
+          "description": {
+            "printed_text": "Actuator bracket",
+            "normalized_value": "Actuator bracket",
+            "value_type": "text"
+          },
+          "qty_unit": {
+            "printed_text": "4.00 EA",
+            "normalized_value": "4.00",
+            "value_type": "decimal_2",
+            "quantity_unit": "EA"
+          },
+          "unit_price": {
+            "printed_text": "$11.75",
+            "normalized_value": "11.75",
+            "value_type": "currency_usd"
+          },
+          "discount_rate": {
+            "printed_text": "0.00%",
+            "normalized_value": "0.0000",
+            "value_type": "rate_percent"
+          },
+          "line_discount": {
+            "printed_text": "$0.00",
+            "normalized_value": "0.00",
+            "value_type": "currency_usd"
+          },
+          "tax_flag": {
+            "printed_text": "T",
+            "normalized_value": "T",
+            "value_type": "identifier"
+          },
+          "net_line": {
+            "printed_text": "$47.00",
+            "normalized_value": "47.00",
+            "value_type": "currency_usd"
+          }
+        }
+      },
+      {
+        "row_id": "K18",
+        "cells": {
+          "row_id": {
+            "printed_text": "K18",
+            "normalized_value": "K18",
+            "value_type": "identifier"
+          },
+          "sku": {
+            "printed_text": "00090632",
+            "normalized_value": "00090632",
+            "value_type": "identifier"
+          },
+          "description": {
+            "printed_text": "Control linkage service",
+            "normalized_value": "Control linkage service",
+            "value_type": "text"
+          },
+          "qty_unit": {
+            "printed_text": "1.25 HR",
+            "normalized_value": "1.25",
+            "value_type": "decimal_2",
+            "quantity_unit": "HR"
+          },
+          "unit_price": {
+            "printed_text": "$68.40",
+            "normalized_value": "68.40",
+            "value_type": "currency_usd"
+          },
+          "discount_rate": {
+            "printed_text": "0.00%",
+            "normalized_value": "0.0000",
+            "value_type": "rate_percent"
+          },
+          "line_discount": {
+            "printed_text": "$0.00",
+            "normalized_value": "0.00",
+            "value_type": "currency_usd"
+          },
+          "tax_flag": {
+            "printed_text": "T",
+            "normalized_value": "T",
+            "value_type": "identifier"
+          },
+          "net_line": {
+            "printed_text": "$85.50",
+            "normalized_value": "85.50",
+            "value_type": "currency_usd"
+          }
+        }
+      },
+      {
+        "row_id": "K19",
+        "cells": {
+          "row_id": {
+            "printed_text": "K19",
+            "normalized_value": "K19",
+            "value_type": "identifier"
+          },
+          "sku": {
+            "printed_text": "00027458",
+            "normalized_value": "00027458",
+            "value_type": "identifier"
+          },
+          "description": {
+            "printed_text": "Retainer hardware kit",
+            "normalized_value": "Retainer hardware kit",
+            "value_type": "text"
+          },
+          "qty_unit": {
+            "printed_text": "2.00 KT",
+            "normalized_value": "2.00",
+            "value_type": "decimal_2",
+            "quantity_unit": "KT"
+          },
+          "unit_price": {
+            "printed_text": "$6.35",
+            "normalized_value": "6.35",
+            "value_type": "currency_usd"
+          },
+          "discount_rate": {
+            "printed_text": "0.00%",
+            "normalized_value": "0.0000",
+            "value_type": "rate_percent"
+          },
+          "line_discount": {
+            "printed_text": "$0.00",
+            "normalized_value": "0.00",
+            "value_type": "currency_usd"
+          },
+          "tax_flag": {
+            "printed_text": "T",
+            "normalized_value": "T",
+            "value_type": "identifier"
+          },
+          "net_line": {
+            "printed_text": "$12.70",
+            "normalized_value": "12.70",
+            "value_type": "currency_usd"
+          }
+        }
+      }
+    ]
+  }
+}
