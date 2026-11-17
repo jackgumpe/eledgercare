@@ -956,3 +956,13 @@ WP-0013 independent admission004 ACCEPTED/PUBLISHED321afab409989a1eafcb1b43f433d
 
 
 WP-0013 custodian003 ACCEPTED/PUBLISHED 0adccecc3328fb367e8c8d79d7d29970c309f889, report-only over 8717a197. Root verifies 3731 preserved paths, 13 links, exact origin and unchanged clean sealed custody; no public corpus. Early source006 RELEASED on checkpoint 93d6edb6656be30ff8c99fb908fe5cb64a2fcb43 / source c0a1af638e807803b6014b3a93ecb7f9946ce6e1 / tree 4477104eb2a3c73f496ef451cef9578f54d96518. Root verifies all 3720 source-base paths and accepted protocol subtree unchanged, 14 owned source additions; checkpoint adds nine evidence files and byte-preserving attributes only. Root initially rejected the owned attributes path under an over-narrow evidence-path assertion; retained and corrected before any dispatch/integration. Author reports 61 tests, 35 public probes, 12 public-native cases and complete historical reproduction with explicit gains/losses. Canonical006 waits completed005 audit and actual independent review; no unseal/model authority.
+
+
+WP-0012 /002 publication379d8c5d607fd248d7f272e412b4ed4a97bc64f6 verified; disposition CHANGES REQUESTED on preparation001. Reproduced F12-B1 partial-startup leaks, F12-B2 skipped failure cleanup/return, F12-B3 key mismatch and F12-D4 disabled-worker assertion require bounded helper correction. No production change or live lease. New reservations (earlier reports immutable):
+
+| Packet / seq | Owner / category | Canonical report | Gate |
+| --- | --- | --- | --- |
+| WP-0012 / 006 | eld-f4-implementer / implementation | docs/agent-reports/eld-f4-implementer/WP-0012/006_2026-11-17_implementation_eld-f4-implementer.md | RELEASED bounded CPU correction per kickoff; own existing branch/worktree |
+| WP-0012 / 007 | eld-f4-reviewer / review | docs/agent-reports/eld-f4-reviewer/WP-0012/007_2026-11-17_review_eld-f4-reviewer.md | HELD exact006; independent acceptance before original003 live lease |
+
+WP-0013 /005 publication e4e57231563bb372016ec124c68fd6018a814a33 verified: source c0a1af638e807803b6014b3a93ecb7f9946ce6e1/tree4477104eb2a3c73f496ef451cef9578f54d96518 unchanged; 27 additions, 3,720 preserved base paths, 193 inputs, one public reservation and three capture copies verified. Independent006 actually started 15:22:06Z at clean merged ff843d3683b44eb8526a9aa7c4eeddf8dbfb49f7; final005 binding now releases canonical006 after completed independent checks. No source acceptance, unseal or live lease yet.
