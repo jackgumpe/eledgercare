@@ -1,0 +1,13 @@
+Command: pwsh -NoProfile -Command "... inline here-string inside outer PowerShell 5.1 double quotes ..."
+Timestamp (UTC): 2026-11-17T08:58:08Z
+Exit code: 1
+Reason: Outer Windows PowerShell 5.1 interpolated nested backtick-escaped here-string (@`"...`"
+@) before passing -Command text to pwsh 7, causing ParserError at Line 11 before any file copy or build executed.
+Resolution: Invoked PS7 setup via `pwsh -NoProfile -File .scratch/bootstrap_local_tools.ps1` per kickoff guidance (`Use pwsh -NoProfile -File for PS7 scripts`).
+
+--- Raw output ---
+ParserError: 
+Line |
+  11 |  @
+     |  ~
+     | Unrecognized token in source text.
