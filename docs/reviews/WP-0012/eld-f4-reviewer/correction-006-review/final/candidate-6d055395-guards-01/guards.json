@@ -1,0 +1,304 @@
+{
+  "source_candidate": "6d055395b2a4cf22a7926f1728bc31dbe2f315a3",
+  "reviewer_frozen_head": "0e3069737b49d3d61a8e23421d11b519f04ce376",
+  "inputs": [
+    {
+      "commit": "ad5202a029a7a86bea5fa3e3d97760d0a9cc673a",
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/helpers/run_wp0012_rehearsal.py",
+      "bytes": 61950,
+      "sha256_raw": "8105ff614280d624f11da14651838e00b3d38b726e08f70252adb12fe73046a5",
+      "sha256_git": "8105ff614280d624f11da14651838e00b3d38b726e08f70252adb12fe73046a5"
+    },
+    {
+      "commit": "6d055395b2a4cf22a7926f1728bc31dbe2f315a3",
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/run_wp0012_rehearsal.py",
+      "bytes": 90684,
+      "sha256_raw": "89ad1f1fbbfb265f331d5bb775d24d423433302e826228631c2ec462007957e9",
+      "sha256_git": "89ad1f1fbbfb265f331d5bb775d24d423433302e826228631c2ec462007957e9"
+    },
+    {
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs",
+      "sha256": "1a6e0fe5a5c085615de5cc335ca126992df5592efe94aaecf3f039ea157166ba"
+    }
+  ],
+  "model_gpu_services_executed": false,
+  "results": {
+    "corrected_old_browser_control": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 0,
+        "attempt_query": 0,
+        "q0_observations": 1,
+        "port_observations": 1
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-4i3_bsz6\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": null,
+      "synthetic_secret_removed_from_outputs": false
+    },
+    "startup_old_fails_new_passes": [
+      {
+        "case": "ui_early_exit",
+        "old": {
+          "mode": "ui_early_exit",
+          "error": "RuntimeError: Owned UI exited early (1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-startup-owned-57l90jw2\\ui-4610-ui_early_exit.log",
+          "children": [
+            {
+              "pid": 36588,
+              "alive_after_helper": true
+            },
+            {
+              "pid": 36516,
+              "alive_after_helper": false
+            }
+          ],
+          "open_handles_after_helper": 1,
+          "all_owned_children_exited_after_harness": true
+        },
+        "new": {
+          "mode": "ui_early_exit",
+          "error": "RuntimeError: Owned UI exited early (1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-startup-owned-9vj23f5a\\ui-4610-ui_early_exit.log",
+          "children": [
+            {
+              "pid": 10000,
+              "alive_after_helper": false
+            },
+            {
+              "pid": 36944,
+              "alive_after_helper": false
+            }
+          ],
+          "open_handles_after_helper": 0,
+          "all_owned_children_exited_after_harness": true
+        }
+      },
+      {
+        "case": "api_timeout",
+        "old": {
+          "mode": "api_timeout",
+          "error": "RuntimeError: Owned API did not bind 5590 within 45s",
+          "children": [
+            {
+              "pid": 30240,
+              "alive_after_helper": true
+            }
+          ],
+          "open_handles_after_helper": 0,
+          "all_owned_children_exited_after_harness": true
+        },
+        "new": {
+          "mode": "api_timeout",
+          "error": "RuntimeError: Owned API did not bind 5590 within 45s",
+          "children": [
+            {
+              "pid": 14936,
+              "alive_after_helper": false
+            }
+          ],
+          "open_handles_after_helper": 0,
+          "all_owned_children_exited_after_harness": true
+        }
+      },
+      {
+        "case": "ui_timeout",
+        "old": {
+          "mode": "ui_timeout",
+          "error": "RuntimeError: Owned UI did not respond 200 on 4610 within 90s",
+          "children": [
+            {
+              "pid": 29068,
+              "alive_after_helper": true
+            },
+            {
+              "pid": 31892,
+              "alive_after_helper": true
+            }
+          ],
+          "open_handles_after_helper": 1,
+          "all_owned_children_exited_after_harness": true
+        },
+        "new": {
+          "mode": "ui_timeout",
+          "error": "RuntimeError: Owned UI did not respond 200 on 4610 within 90s",
+          "children": [
+            {
+              "pid": 25824,
+              "alive_after_helper": false
+            },
+            {
+              "pid": 16132,
+              "alive_after_helper": false
+            }
+          ],
+          "open_handles_after_helper": 0,
+          "all_owned_children_exited_after_harness": true
+        }
+      },
+      {
+        "case": "ui_spawn_exception",
+        "old": {
+          "mode": "ui_spawn_exception",
+          "error": "OSError: synthetic UI spawn failure",
+          "children": [
+            {
+              "pid": 38036,
+              "alive_after_helper": true
+            }
+          ],
+          "open_handles_after_helper": 1,
+          "all_owned_children_exited_after_harness": true
+        },
+        "new": {
+          "mode": "ui_spawn_exception",
+          "error": "OSError: synthetic UI spawn failure",
+          "children": [
+            {
+              "pid": 36436,
+              "alive_after_helper": false
+            }
+          ],
+          "open_handles_after_helper": 0,
+          "all_owned_children_exited_after_harness": true
+        }
+      }
+    ],
+    "release": {
+      "synthetic_alias_controls": {
+        "accepted_preparation_review": true,
+        "accepted_preparation_review_sha": true,
+        "accepted_review_007": true,
+        "independent_preparation_review_007_sha": true,
+        "independent_review_007": true,
+        "accepted_007": true,
+        "independent_preparation_review_sha": true,
+        "accepted_review": true,
+        "independent_preparation_review_002_sha": true,
+        "accepted_review_002": true,
+        "independent_review_002": true,
+        "accepted_002": true,
+        "preparation_review": true
+      },
+      "rejections": {
+        "old_changes_requested_002": "Review commit 379d8c5d607fd248d7f272e412b4ed4a97bc64f6 (accepted_preparation_review) is earlier changes-requested WP-0012 / 002 or historical/preparation commit; live execution requires independent accepting WP-0012 / 007 review.",
+        "wrong_conversation": "Release conversation_id 'b7c54417-db09-49bd-8d2b-7cc808f113be' != '/root/product_author_continuation'",
+        "wrong_model": "Release model/effort ('gemini-4-carbon-high'/'xhigh-requested') != ('native-codex-backend-unexposed'/'xhigh-requested')",
+        "wrong_effort": "Release model/effort ('native-codex-backend-unexposed'/'high') != ('native-codex-backend-unexposed'/'xhigh-requested')",
+        "wrong_source": "Release source_commit '0000000000000000000000000000000000000000' must match accepted F4 product source 'c1fed68020ae67e8b4763bc6ea5473adaa86de2b' or packet base '73c8d3c4f0a00312e3444328331b6cbd6406e882'.",
+        "wrong_head": "Local worktree HEAD 0e3069737b49d3d61a8e23421d11b519f04ce376 does not match release executing_head 1111111111111111111111111111111111111111.",
+        "wrong_gpu": "gpu_uuid 'not-owned' != 'GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d'",
+        "too_many_attempts": "WP-0012 author max_model_attempts must be exactly 2, got 3",
+        "expired": "Lease expired or has < 300s remaining (-1.0s).",
+        "future": "Lease released_utc 2026-11-17T16:30:01+00:00 is in the future.",
+        "long_window": "Lease window (27000.0s) must be > 0 and <= 21600s (6h).",
+        "path_in_lease": "Invalid, synthetic, or non-WP-0012 lease_id: 'WP-0012/escape'",
+        "wrong_ports": "ports {} != {'api': 5590, 'ui': 4610, 'postgres': 55438}",
+        "wrong_runtime": "runtime_root C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0012\\eld-f4-reviewer\\correction-006-review != C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\author",
+        "wrong_db": "Database 'not-owned' is forbidden; WP-0012 author must use 'eledgercare_demo_wp0012_author' only.",
+        "wrong_pins": "Release pinned_digests['model_manifest_sha256'] (None) != '0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be'",
+        "wrong_trees": "Release product_tree_objects['src'] != expected 9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+        "missing_observations": "Missing or empty observation_files dict in release JSON.",
+        "wrong_storage": "storage_cap_bytes != 4294967296",
+        "wrong_disk_floor": "free_floor_bytes != 21474836480",
+        "nonaccepting_binding": "Review binding 'accepted_preparation_review' has non-accepting disposition 'changes-requested'; live execution requires independent 'accepted' WP-0012 / 007 review.",
+        "synthetic_live": "Release JSON is marked synthetic_test_only=true and cannot authorize live validation or execution.",
+        "real_commit_without_007_8729db93": "Accepting review commit 8729db9323e4d2945a30d525b0d67e5ad2a1692e has no accepted independent WP-0012 / 007 report.",
+        "real_commit_without_007_6d055395": "Accepting review commit 6d055395b2a4cf22a7926f1728bc31dbe2f315a3 has no accepted independent WP-0012 / 007 report.",
+        "dirty_worktree": "Owned worktree must be clean before live execution:\n M synthetic-dirty-file"
+      },
+      "native_identity": {
+        "owner": "eld-f4-implementer",
+        "conversation_id": "/root/product_author_continuation",
+        "model": "native-codex-backend-unexposed",
+        "effort": "xhigh-requested"
+      }
+    },
+    "output": {
+      "existing_directory_rejected": true,
+      "existing_output_rejected": true,
+      "reviewer_namespace_rejected": true,
+      "fresh_output_accepted": true,
+      "sentinel_preserved": true
+    },
+    "http_worker_enabled": [
+      {
+        "wo": false,
+        "mp": false,
+        "expected": "false",
+        "expected_success": true,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "wo": true,
+        "mp": true,
+        "expected": "true",
+        "expected_success": true,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "wo": true,
+        "mp": false,
+        "expected": "false",
+        "expected_success": false,
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Error: F12-D4 workerEnabled mismatch during verify-worker-enabled-guard: expected false, got WO=true, MP=false\n    at assertExtractionWorkerContract (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs:151:11)\n    at main (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs:499:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n"
+      },
+      {
+        "wo": false,
+        "mp": true,
+        "expected": "false",
+        "expected_success": false,
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Error: F12-D4 workerEnabled mismatch during verify-worker-enabled-guard: expected false, got WO=false, MP=true\n    at assertExtractionWorkerContract (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs:151:11)\n    at main (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs:499:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n"
+      },
+      {
+        "wo": "OMIT",
+        "mp": false,
+        "expected": "false",
+        "expected_success": false,
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Error: Missing boolean workerEnabled on extraction endpoints during verify-worker-enabled-guard: WO=undefined, MP=false\n    at assertExtractionWorkerContract (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs:143:11)\n    at main (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs:499:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n"
+      },
+      {
+        "wo": false,
+        "mp": "false",
+        "expected": "false",
+        "expected_success": false,
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Error: Missing boolean workerEnabled on extraction endpoints during verify-worker-enabled-guard: WO=false, MP=false\n    at assertExtractionWorkerContract (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs:143:11)\n    at main (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/drive_rehearsal_edge.mjs:499:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n"
+      }
+    ],
+    "imports": [
+      "__future__",
+      "ctypes",
+      "datetime",
+      "pathlib",
+      "typing",
+      "local_ocr.protocol",
+      "local_ocr.verify_runtime",
+      "argparse",
+      "ctypes",
+      "hashlib",
+      "json",
+      "os",
+      "re",
+      "shutil",
+      "subprocess",
+      "sys",
+      "threading",
+      "time",
+      "urllib.parse",
+      "urllib.request"
+    ]
+  },
+  "passed": true,
+  "utc": "2026-11-17T16:34:44.053977+00:00"
+}
