@@ -1,0 +1,52 @@
+{
+  "schema": "eld-wp13-reviewer-sentinel-preparation/1",
+  "state": "CPU_PREPARED_NOT_EXECUTION_RELEASE",
+  "owner": "reviewer",
+  "source_commit": "c0a1af638e807803b6014b3a93ecb7f9946ce6e1",
+  "source_tree": "4477104eb2a3c73f496ef451cef9578f54d96518",
+  "protocol_sha256": "46a0d3e7bec0f14a3911eb7365385b7d132db8e8a72c8edb3f030aeeda124ec2",
+  "corpus_commit": "373106d94b56e619e2210308ca3bf237b45affc0",
+  "corpus_tree": "af22f632c2b69531f61866ca467c6f04f386df7e",
+  "release_path": "docs/coordination/WP-0013/releases/reviewer.json",
+  "runtime_root": "C:/Users/jackg/eLedgerCare-Vocabulary/WP-0013/reviewer",
+  "schedule": [
+    {
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "kind": "warmup",
+      "excluded": true
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "kind": "warmup",
+      "excluded": true
+    },
+    {
+      "fixture_id": "WP13-F04-conflict-v0",
+      "kind": "measured",
+      "excluded": false
+    }
+  ],
+  "cold_loads": 1,
+  "max_document_calls": 3,
+  "retries": 0,
+  "first_failure_stop": true,
+  "planned_entrypoint": "qualification/mapping_v2/cli.py",
+  "planned_execute_arguments": [
+    "execute",
+    "--authority",
+    "<later exact root runtime authority>",
+    "--release-path",
+    "docs/coordination/WP-0013/releases/reviewer.json",
+    "--owner",
+    "reviewer"
+  ],
+  "planned_scoring": "score-run at the same exact released clean executing HEAD, before any merge or evidence commit",
+  "remaining_bindings": [
+    "exact reviewer executing HEAD and wrapper/collection helper publication",
+    "root observed sole model-job lease after product and author ownership returns",
+    "exact runtime authority with reviewer release and current model/notice/host/ownership proof objects",
+    "immutable author007 result publication and normalized comparison inputs",
+    "reviewer final runtime/publication/tool-exit/root-return proof objects"
+  ],
+  "limits": "No runtime root creation, model/renderer import or execution. This fixed route does not authorize a call. Future wrapper/collector and root release must bind actual process/tool identities; comparison preparation alone is insufficient."
+}
