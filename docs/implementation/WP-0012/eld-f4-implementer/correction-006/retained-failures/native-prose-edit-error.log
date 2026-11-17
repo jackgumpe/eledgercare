@@ -1,0 +1,12 @@
+Retained native editing failure, before final freeze. Source checkpoint: 56d87ffee753708ec7689d8c1d786ef75f8952a6.
+The Python editing command failed at RUNBOOK.md read_text() because its default encoding was cp1252. The enclosing PowerShell command continued to commit the preceding three code/test/inventory edits. No validation ran on this intermediate checkpoint. Exact captured traceback:
+
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1028, in read_text
+    return f.read()
+           ^^^^^^^^
+  File "C:\Users\jackg\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 492: character maps to <undefined>

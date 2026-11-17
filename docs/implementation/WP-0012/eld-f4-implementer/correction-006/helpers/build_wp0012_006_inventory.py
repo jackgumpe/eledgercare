@@ -1,6 +1,7 @@
 """Builds complete machine-readable inventory for WP-0012 / 006 bounded helper correction (eld-f4-implementer)."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -46,6 +47,13 @@ def sha256_file(path: Path) -> str:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--evidence-name", default="evidence")
+    parser.add_argument("--output-name", default="inventory.json")
+    args = parser.parse_args()
+    for name in (args.evidence_name, args.output_name):
+        if not name or Path(name).name != name:
+            raise RuntimeError("Evidence and inventory names must be simple filenames")
     deliverable_sha = git_out(["rev-parse", "HEAD"])
     diff_lines = [
         ln
@@ -88,7 +96,7 @@ def main() -> None:
     )
 
     evidence_entries = []
-    for f in sorted((CORRECTION_DIR / "evidence").rglob("*")):
+    for f in sorted((CORRECTION_DIR / args.evidence_name).rglob("*")):
         if f.is_file():
             raw = f.read_bytes()
             evidence_entries.append(
@@ -205,7 +213,7 @@ def main() -> None:
         },
     }
 
-    out = CORRECTION_DIR / "inventory.json"
+    out = CORRECTION_DIR / args.output_name
     if out.exists():
         raise RuntimeError(f"Refusing existing inventory: {out}")
     out.write_text(json.dumps(inv, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
