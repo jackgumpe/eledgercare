@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "WP13-F03-supported-v0",
+  "family_id": "WP13-F03",
+  "doc_kind": "inspection_service_checklist",
+  "split": "vocabulary_eval",
+  "variant_kind": "supported",
+  "page_count": 1,
+  "parent_fixture_id": null,
+  "expected_fields": [
+    {
+      "field_id": "work_order_id",
+      "page_number": 1,
+      "label_printed": "Inspection record",
+      "printed_text": "QC-0006308",
+      "normalized_value": "QC-0006308",
+      "value_type": "identifier",
+      "bbox_pt": [
+        252,
+        682,
+        572,
+        696
+      ]
+    },
+    {
+      "field_id": "property_unit",
+      "page_number": 1,
+      "label_printed": "Inspection place",
+      "printed_text": "Fictional Jade Tern Annex / Bay 004",
+      "normalized_value": "Fictional Jade Tern Annex / Bay 004",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        646,
+        572,
+        660
+      ]
+    },
+    {
+      "field_id": "requested_date",
+      "page_number": 1,
+      "label_printed": "Check day",
+      "printed_text": "2026-09-14",
+      "normalized_value": "2026-09-14",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        252,
+        610,
+        572,
+        624
+      ]
+    },
+    {
+      "field_id": "assigned_tech",
+      "page_number": 1,
+      "label_printed": "Examiner assigned",
+      "printed_text": "Fictional Oren Vale",
+      "normalized_value": "Fictional Oren Vale",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        338,
+        572,
+        352
+      ]
+    },
+    {
+      "field_id": "equipment_asset_tag",
+      "page_number": 1,
+      "label_printed": "Equipment reference",
+      "printed_text": "WH-0005936",
+      "normalized_value": "WH-0005936",
+      "value_type": "identifier",
+      "bbox_pt": [
+        252,
+        302,
+        572,
+        316
+      ]
+    },
+    {
+      "field_id": "water_isolated",
+      "page_number": 1,
+      "label_printed": "Isolation verified",
+      "printed_text": "[X]",
+      "normalized_value": "true",
+      "value_type": "boolean_mark",
+      "bbox_pt": [
+        252,
+        266,
+        572,
+        280
+      ]
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "turnover_tasks",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "task_code",
+        "fixture_area",
+        "action_taken",
+        "pressure_psi"
+      ],
+      "rows": [
+        {
+          "row_id": "C81",
+          "page_number": 1,
+          "cells": {
+            "task_code": {
+              "printed_text": "C-081",
+              "normalized_value": "C-081",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                482,
+                118,
+                506
+              ]
+            },
+            "fixture_area": {
+              "printed_text": "Return union",
+              "normalized_value": "Return union",
+              "value_type": "text",
+              "bbox_pt": [
+                118,
+                482,
+                248,
+                506
+              ]
+            },
+            "action_taken": {
+              "printed_text": "Training gauge reading logged",
+              "normalized_value": "Training gauge reading logged",
+              "value_type": "text",
+              "bbox_pt": [
+                248,
+                482,
+                488,
+                506
+              ]
+            },
+            "pressure_psi": {
+              "printed_text": "61.50",
+              "normalized_value": "61.50",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                488,
+                482,
+                572,
+                506
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "C82",
+          "page_number": 1,
+          "cells": {
+            "task_code": {
+              "printed_text": "C-082",
+              "normalized_value": "C-082",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                446,
+                118,
+                470
+              ]
+            },
+            "fixture_area": {
+              "printed_text": "Drain cock",
+              "normalized_value": "Drain cock",
+              "value_type": "text",
+              "bbox_pt": [
+                118,
+                446,
+                248,
+                470
+              ]
+            },
+            "action_taken": {
+              "printed_text": "Bench valve travel checked",
+              "normalized_value": "Bench valve travel checked",
+              "value_type": "text",
+              "bbox_pt": [
+                248,
+                446,
+                488,
+                470
+              ]
+            },
+            "pressure_psi": {
+              "printed_text": "61.00",
+              "normalized_value": "61.00",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                488,
+                446,
+                572,
+                470
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "secondary_vendor_po",
+      "page_number": 1,
+      "label_printed": "Outside order reference",
+      "expected_state": "absent_blank",
+      "bbox_pt": [
+        252,
+        212,
+        572,
+        230
+      ]
+    }
+  ],
+  "page_sentinels": [],
+  "expected_adjacent_page_pairs": [],
+  "cross_page_links": []
+}

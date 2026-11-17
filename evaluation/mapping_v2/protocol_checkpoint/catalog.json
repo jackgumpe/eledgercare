@@ -1,0 +1,451 @@
+{
+  "schema": "eld-mapping-v2-catalog/1",
+  "source": "Exposed WP11 vocabulary cases; no fresh WP13 content.",
+  "matching": {
+    "unicode": "NFC",
+    "outer_whitespace": "strip",
+    "internal_whitespace": "exact",
+    "case": "sensitive",
+    "label_colon": "one optional terminal colon; no header colon stripping"
+  },
+  "profiles": [
+    {
+      "profile": "work_order",
+      "doc_kind": "work_order",
+      "fields": [
+        {
+          "field_id": "work_order_id",
+          "canonical_labels": [
+            "Ticket Number",
+            "Work Order ID"
+          ],
+          "aliases": [
+            "Repair record"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "property_name",
+          "canonical_labels": [
+            "Property"
+          ],
+          "aliases": [
+            "Premises name"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "building_unit",
+          "canonical_labels": [
+            "Building / Unit"
+          ],
+          "aliases": [
+            "Place within site"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "requested_date",
+          "canonical_labels": [
+            "Requested Date"
+          ],
+          "aliases": [
+            "Opened on"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "trade_category",
+          "canonical_labels": [
+            "Trade Category"
+          ],
+          "aliases": [
+            "Work discipline"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "assigned_tech",
+          "canonical_labels": [
+            "Assigned Technician"
+          ],
+          "aliases": [
+            "Worker assigned"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "completion_status",
+          "canonical_labels": [
+            "Work Order Status"
+          ],
+          "aliases": [
+            "Job state"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "resident_contact",
+          "canonical_labels": [
+            "Resident Contact"
+          ],
+          "aliases": [
+            "Occupant callback"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "stock_parts",
+          "columns": [
+            "part_sku",
+            "part_desc",
+            "bin_loc",
+            "qty_used"
+          ],
+          "canonical_headers": [
+            "Part SKU",
+            "Part Description",
+            "Bin",
+            "Qty Used"
+          ],
+          "alias_headers": [
+            "Stock reference",
+            "Item supplied",
+            "Shelf",
+            "Used count"
+          ],
+          "row_key_column": "part_sku",
+          "provenance": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F01-vocabulary-v0.json",
+          "rationale": "Exact exposed headers, resolved only as a complete unique schema; no global word replacement."
+        }
+      ]
+    },
+    {
+      "profile": "service_invoice",
+      "doc_kind": "service_invoice",
+      "fields": [
+        {
+          "field_id": "invoice_number",
+          "canonical_labels": [
+            "Invoice No"
+          ],
+          "aliases": [
+            "Billing reference"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "invoice_date",
+          "canonical_labels": [
+            "Invoice Date",
+            "Statement Date"
+          ],
+          "aliases": [
+            "Billed on"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "due_date",
+          "canonical_labels": [
+            "Due Date"
+          ],
+          "aliases": [
+            "Settle by"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "work_order_ref",
+          "canonical_labels": [
+            "Work Order Ref"
+          ],
+          "aliases": [
+            "Related repair"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "payment_terms",
+          "canonical_labels": [
+            "Terms"
+          ],
+          "aliases": [
+            "Settlement rule"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "subtotal",
+          "canonical_labels": [
+            "Line Net Subtotal"
+          ],
+          "aliases": [
+            "Charges before levy"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "taxable_subtotal",
+          "canonical_labels": [
+            "Taxable Subtotal (Tax=T Rows)"
+          ],
+          "aliases": [
+            "Levy basis"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "tax_amount",
+          "canonical_labels": [
+            "Sales Tax (6.25% on Taxable Subtotal)",
+            "Sales Tax (7.50% on Taxable Subtotal)"
+          ],
+          "aliases": [
+            "Local levy at 7.50%"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "invoice_total",
+          "canonical_labels": [
+            "CURRENT INVOICE TOTAL"
+          ],
+          "aliases": [
+            "This bill total"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "amount_due",
+          "canonical_labels": [
+            "TOTAL AMOUNT DUE"
+          ],
+          "aliases": [
+            "Balance to remit"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "customer_po_code",
+          "canonical_labels": [
+            "Customer PO / CapEx Code"
+          ],
+          "aliases": [
+            "Buyer purchase reference"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "line_items",
+          "columns": [
+            "row_id",
+            "sku",
+            "description",
+            "qty_unit",
+            "unit_price",
+            "discount_rate",
+            "line_discount",
+            "tax_flag",
+            "net_line"
+          ],
+          "canonical_headers": [
+            "Row",
+            "SKU / Ref",
+            "Description",
+            "Qty",
+            "Unit Price",
+            "Disc%",
+            "Disc Amt",
+            "Tax",
+            "Net Line"
+          ],
+          "alias_headers": [
+            "Seq",
+            "Item ref",
+            "Service / item",
+            "Units",
+            "Rate",
+            "Rebate%",
+            "Rebate",
+            "Levy",
+            "Extended"
+          ],
+          "row_key_column": "row_id",
+          "provenance": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F02-vocabulary-v0.json",
+          "rationale": "Exact exposed headers, resolved only as a complete unique schema; no global word replacement."
+        }
+      ]
+    },
+    {
+      "profile": "inspection",
+      "doc_kind": "inspection_service_checklist",
+      "fields": [
+        {
+          "field_id": "work_order_id",
+          "canonical_labels": [
+            "Ticket Number",
+            "Work Order ID"
+          ],
+          "aliases": [
+            "Inspection record"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "property_unit",
+          "canonical_labels": [
+            "Property / Unit"
+          ],
+          "aliases": [
+            "Inspection place"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "requested_date",
+          "canonical_labels": [
+            "Requested Date"
+          ],
+          "aliases": [
+            "Check day"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "assigned_tech",
+          "canonical_labels": [
+            "Assigned Technician"
+          ],
+          "aliases": [
+            "Examiner assigned"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "equipment_asset_tag",
+          "canonical_labels": [
+            "Water Heater Asset Tag"
+          ],
+          "aliases": [
+            "Equipment reference"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "water_isolated",
+          "canonical_labels": [
+            "Branch Isolation Tested"
+          ],
+          "aliases": [
+            "Isolation verified"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        },
+        {
+          "field_id": "secondary_vendor_po",
+          "canonical_labels": [
+            "Secondary Vendor PO"
+          ],
+          "aliases": [
+            "Outside order reference"
+          ],
+          "provenance": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "rationale": "Exact exposed label for this canonical field; profile context and ambiguity guards remain mandatory."
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "turnover_tasks",
+          "columns": [
+            "task_code",
+            "fixture_area",
+            "action_taken",
+            "pressure_psi"
+          ],
+          "canonical_headers": [
+            "Task Code",
+            "Fixture / Area",
+            "Action Performed",
+            "Test PSI"
+          ],
+          "alias_headers": [
+            "Check ref",
+            "Inspection zone",
+            "Observed work",
+            "Gauge PSI"
+          ],
+          "row_key_column": "task_code",
+          "provenance": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F03-vocabulary-v0.json",
+          "rationale": "Exact exposed headers, resolved only as a complete unique schema; no global word replacement."
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "qualification/baseline/mapping.json",
+      "bytes": 8388,
+      "sha256": "eed1fba8aeee921e2f0f586cb4caf0b9ec0d4cd93d74df43d68c6358e1b21bf9"
+    },
+    {
+      "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+      "bytes": 5777,
+      "sha256": "1f54ad3574cf9fc6ec29518c475a72a9a6b1df7ce40548acfb256fdfb4858c4b"
+    },
+    {
+      "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F01-vocabulary-v0.json",
+      "bytes": 4304,
+      "sha256": "c3b83e4e94c766f5368cd6c9c958934fcb0b5b9c01d713d04350720365df1cb0"
+    },
+    {
+      "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+      "bytes": 12555,
+      "sha256": "b6732ebaee6b0e56e2af1b93c9cb466784e9e950a559709c39b86f1c2b580c96"
+    },
+    {
+      "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F02-vocabulary-v0.json",
+      "bytes": 5903,
+      "sha256": "629f5170b1db4947e0c5fab98190e66d62c3ef64bbf71ae055462932aefae4d2"
+    },
+    {
+      "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+      "bytes": 5539,
+      "sha256": "3ff2e3448c0571e7b3cc2662527d0008016f9c1f0954c69e08d85c68c994aa30"
+    },
+    {
+      "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F03-vocabulary-v0.json",
+      "bytes": 4003,
+      "sha256": "e4b98b490def857b56f78bd72e58d8fd297348e177b81496d3f1f9e4db390404"
+    }
+  ]
+}

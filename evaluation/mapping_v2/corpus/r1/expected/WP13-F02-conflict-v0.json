@@ -1,0 +1,495 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "WP13-F02-conflict-v0",
+  "family_id": "WP13-F02",
+  "doc_kind": "service_invoice",
+  "split": "vocabulary_eval",
+  "variant_kind": "conflict",
+  "page_count": 1,
+  "parent_fixture_id": null,
+  "expected_fields": [
+    {
+      "field_id": "invoice_date",
+      "page_number": 1,
+      "label_printed": "Billed on",
+      "printed_text": "2026-08-21",
+      "normalized_value": "2026-08-21",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        252,
+        654,
+        572,
+        668
+      ]
+    },
+    {
+      "field_id": "due_date",
+      "page_number": 1,
+      "label_printed": "Settle by",
+      "printed_text": "2026-09-20",
+      "normalized_value": "2026-09-20",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        252,
+        626,
+        572,
+        640
+      ]
+    },
+    {
+      "field_id": "work_order_ref",
+      "page_number": 1,
+      "label_printed": "Related repair",
+      "printed_text": "WO-0005931",
+      "normalized_value": "WO-0005931",
+      "value_type": "identifier",
+      "bbox_pt": [
+        252,
+        598,
+        572,
+        612
+      ]
+    },
+    {
+      "field_id": "payment_terms",
+      "page_number": 1,
+      "label_printed": "Settlement rule",
+      "printed_text": "Payment within 30 calendar days",
+      "normalized_value": "Payment within 30 calendar days",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        570,
+        572,
+        584
+      ]
+    },
+    {
+      "field_id": "subtotal",
+      "page_number": 1,
+      "label_printed": "Charges before levy",
+      "printed_text": "$186.00",
+      "normalized_value": "186.00",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        252,
+        304,
+        572,
+        318
+      ]
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "page_number": 1,
+      "label_printed": "Levy basis",
+      "printed_text": "$186.00",
+      "normalized_value": "186.00",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        252,
+        276,
+        572,
+        290
+      ]
+    },
+    {
+      "field_id": "tax_amount",
+      "page_number": 1,
+      "label_printed": "Local levy at 7.50%",
+      "printed_text": "$13.95",
+      "normalized_value": "13.95",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        252,
+        248,
+        572,
+        262
+      ]
+    },
+    {
+      "field_id": "invoice_total",
+      "page_number": 1,
+      "label_printed": "This bill total",
+      "printed_text": "$199.95",
+      "normalized_value": "199.95",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        252,
+        220,
+        572,
+        234
+      ]
+    },
+    {
+      "field_id": "amount_due",
+      "page_number": 1,
+      "label_printed": "Balance to remit",
+      "printed_text": "$199.95",
+      "normalized_value": "199.95",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        252,
+        192,
+        572,
+        206
+      ]
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "line_items",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "rows": [
+        {
+          "row_id": "N31",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "N31",
+              "normalized_value": "N31",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                446,
+                66,
+                470
+              ]
+            },
+            "sku": {
+              "printed_text": "00034872",
+              "normalized_value": "00034872",
+              "value_type": "identifier",
+              "bbox_pt": [
+                66,
+                446,
+                128,
+                470
+              ]
+            },
+            "description": {
+              "printed_text": "Coupling guard",
+              "normalized_value": "Coupling guard",
+              "value_type": "text",
+              "bbox_pt": [
+                128,
+                446,
+                256,
+                470
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "4.00 EA",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "EA",
+              "bbox_pt": [
+                256,
+                446,
+                314,
+                470
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$14.65",
+              "normalized_value": "14.65",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                314,
+                446,
+                374,
+                470
+              ]
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent",
+              "bbox_pt": [
+                374,
+                446,
+                414,
+                470
+              ]
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                414,
+                446,
+                468,
+                470
+              ]
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier",
+              "bbox_pt": [
+                468,
+                446,
+                502,
+                470
+              ]
+            },
+            "net_line": {
+              "printed_text": "$58.60",
+              "normalized_value": "58.60",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                502,
+                446,
+                572,
+                470
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "N32",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "N32",
+              "normalized_value": "N32",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                410,
+                66,
+                434
+              ]
+            },
+            "sku": {
+              "printed_text": "00059264",
+              "normalized_value": "00059264",
+              "value_type": "identifier",
+              "bbox_pt": [
+                66,
+                410,
+                128,
+                434
+              ]
+            },
+            "description": {
+              "printed_text": "Bench linkage alignment",
+              "normalized_value": "Bench linkage alignment",
+              "value_type": "text",
+              "bbox_pt": [
+                128,
+                410,
+                256,
+                434
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "1.50 HR",
+              "normalized_value": "1.50",
+              "value_type": "decimal_2",
+              "quantity_unit": "HR",
+              "bbox_pt": [
+                256,
+                410,
+                314,
+                434
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$74.00",
+              "normalized_value": "74.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                314,
+                410,
+                374,
+                434
+              ]
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent",
+              "bbox_pt": [
+                374,
+                410,
+                414,
+                434
+              ]
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                414,
+                410,
+                468,
+                434
+              ]
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier",
+              "bbox_pt": [
+                468,
+                410,
+                502,
+                434
+              ]
+            },
+            "net_line": {
+              "printed_text": "$111.00",
+              "normalized_value": "111.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                502,
+                410,
+                572,
+                434
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "N33",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "N33",
+              "normalized_value": "N33",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                374,
+                66,
+                398
+              ]
+            },
+            "sku": {
+              "printed_text": "00081436",
+              "normalized_value": "00081436",
+              "value_type": "identifier",
+              "bbox_pt": [
+                66,
+                374,
+                128,
+                398
+              ]
+            },
+            "description": {
+              "printed_text": "Spacer assortment",
+              "normalized_value": "Spacer assortment",
+              "value_type": "text",
+              "bbox_pt": [
+                128,
+                374,
+                256,
+                398
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "2.00 KT",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "KT",
+              "bbox_pt": [
+                256,
+                374,
+                314,
+                398
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$8.20",
+              "normalized_value": "8.20",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                314,
+                374,
+                374,
+                398
+              ]
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent",
+              "bbox_pt": [
+                374,
+                374,
+                414,
+                398
+              ]
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                414,
+                374,
+                468,
+                398
+              ]
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier",
+              "bbox_pt": [
+                468,
+                374,
+                502,
+                398
+              ]
+            },
+            "net_line": {
+              "printed_text": "$16.40",
+              "normalized_value": "16.40",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                502,
+                374,
+                572,
+                398
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "customer_po_code",
+      "page_number": 1,
+      "label_printed": "Buyer purchase reference",
+      "expected_state": "absent_blank",
+      "bbox_pt": [
+        252,
+        68,
+        572,
+        86
+      ]
+    }
+  ],
+  "page_sentinels": [],
+  "expected_adjacent_page_pairs": [],
+  "cross_page_links": []
+}

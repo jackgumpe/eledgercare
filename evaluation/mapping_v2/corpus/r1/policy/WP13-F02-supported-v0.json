@@ -1,0 +1,1294 @@
+{
+  "schema": "eld-mapping-v2-policy/1",
+  "fixture_id": "WP13-F02-supported-v0",
+  "family_id": "WP13-F02",
+  "case": "supported",
+  "profile": "service_invoice",
+  "page_count": 1,
+  "catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+  "ideal_native": "<PAGE>\n<BLOCK>text[65,34,482,58]<FORK>Mechanical service account\n<BLOCK>text[65,76,329,89]<FORK>Fictional Ochre Crane billing office\n<BLOCK>table[65,119,935,142]<FORK><table><tr><td>Billing reference</td><td>IN-0008249</td></tr></table>\n<BLOCK>table[65,154,935,177]<FORK><table><tr><td>Billed on</td><td>2026-08-21</td></tr></table>\n<BLOCK>table[65,190,935,212]<FORK><table><tr><td>Settle by</td><td>2026-09-20</td></tr></table>\n<BLOCK>table[65,225,935,248]<FORK><table><tr><td>Related repair</td><td>WO-0005931</td></tr></table>\n<BLOCK>table[65,260,935,283]<FORK><table><tr><td>Settlement rule</td><td>Payment within 30 calendar days</td></tr></table>\n<BLOCK>table[65,361,935,573]<FORK><table><tr><th>Seq</th><th>Item ref</th><th>Service / item</th><th>Units</th><th>Rate</th><th>Rebate%</th><th>Rebate</th><th>Levy</th><th>Extended</th></tr><tr><td>N31</td><td>00034872</td><td>Coupling guard</td><td>4.00 EA</td><td>$14.65</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$58.60</td></tr><tr><td>N32</td><td>00059264</td><td>Bench linkage alignment</td><td>1.50 HR</td><td>$74.00</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$111.00</td></tr><tr><td>N33</td><td>00081436</td><td>Spacer assortment</td><td>2.00 KT</td><td>$8.20</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$16.40</td></tr></table>\n<BLOCK>table[65,596,935,619]<FORK><table><tr><td>Charges before levy</td><td>$186.00</td></tr></table>\n<BLOCK>table[65,631,935,654]<FORK><table><tr><td>Levy basis</td><td>$186.00</td></tr></table>\n<BLOCK>table[65,667,935,689]<FORK><table><tr><td>Local levy at 7.50%</td><td>$13.95</td></tr></table>\n<BLOCK>table[65,702,935,725]<FORK><table><tr><td>This bill total</td><td>$199.95</td></tr></table>\n<BLOCK>table[65,737,935,760]<FORK><table><tr><td>Balance to remit</td><td>$199.95</td></tr></table>\n<BLOCK>table[65,891,935,914]<FORK><table><tr><td>Buyer purchase reference</td><td></td></tr></table>\n<BLOCK>footer[65,948,492,957]<FORK>SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.\n<BLOCK>footer[65,964,446,973]<FORK>Training record only; no real work or safety certification is asserted.",
+  "tables": [
+    {
+      "table_id": "line_items",
+      "column_ids": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "row_ids": [
+        "N31",
+        "N32",
+        "N33"
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "invoice_number",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "IN-0008249",
+        "normalized_value": "IN-0008249",
+        "value_type": "identifier"
+      },
+      "evidence": [
+        {
+          "label_printed": "Billing reference",
+          "value_printed": "IN-0008249",
+          "label_bbox_pt": [
+            40,
+            682,
+            234,
+            696
+          ],
+          "value_bbox_pt": [
+            252,
+            682,
+            572,
+            696
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "invoice_date",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "2026-08-21",
+        "normalized_value": "2026-08-21",
+        "value_type": "date_iso"
+      },
+      "evidence": [
+        {
+          "label_printed": "Billed on",
+          "value_printed": "2026-08-21",
+          "label_bbox_pt": [
+            40,
+            654,
+            234,
+            668
+          ],
+          "value_bbox_pt": [
+            252,
+            654,
+            572,
+            668
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "due_date",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "2026-09-20",
+        "normalized_value": "2026-09-20",
+        "value_type": "date_iso"
+      },
+      "evidence": [
+        {
+          "label_printed": "Settle by",
+          "value_printed": "2026-09-20",
+          "label_bbox_pt": [
+            40,
+            626,
+            234,
+            640
+          ],
+          "value_bbox_pt": [
+            252,
+            626,
+            572,
+            640
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "work_order_ref",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "WO-0005931",
+        "normalized_value": "WO-0005931",
+        "value_type": "identifier"
+      },
+      "evidence": [
+        {
+          "label_printed": "Related repair",
+          "value_printed": "WO-0005931",
+          "label_bbox_pt": [
+            40,
+            598,
+            234,
+            612
+          ],
+          "value_bbox_pt": [
+            252,
+            598,
+            572,
+            612
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "payment_terms",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Payment within 30 calendar days",
+        "normalized_value": "Payment within 30 calendar days",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Settlement rule",
+          "value_printed": "Payment within 30 calendar days",
+          "label_bbox_pt": [
+            40,
+            570,
+            234,
+            584
+          ],
+          "value_bbox_pt": [
+            252,
+            570,
+            572,
+            584
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "subtotal",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "$186.00",
+        "normalized_value": "186.00",
+        "value_type": "currency_usd"
+      },
+      "evidence": [
+        {
+          "label_printed": "Charges before levy",
+          "value_printed": "$186.00",
+          "label_bbox_pt": [
+            40,
+            304,
+            234,
+            318
+          ],
+          "value_bbox_pt": [
+            252,
+            304,
+            572,
+            318
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "taxable_subtotal",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "$186.00",
+        "normalized_value": "186.00",
+        "value_type": "currency_usd"
+      },
+      "evidence": [
+        {
+          "label_printed": "Levy basis",
+          "value_printed": "$186.00",
+          "label_bbox_pt": [
+            40,
+            276,
+            234,
+            290
+          ],
+          "value_bbox_pt": [
+            252,
+            276,
+            572,
+            290
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "tax_amount",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "$13.95",
+        "normalized_value": "13.95",
+        "value_type": "currency_usd"
+      },
+      "evidence": [
+        {
+          "label_printed": "Local levy at 7.50%",
+          "value_printed": "$13.95",
+          "label_bbox_pt": [
+            40,
+            248,
+            234,
+            262
+          ],
+          "value_bbox_pt": [
+            252,
+            248,
+            572,
+            262
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "invoice_total",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "$199.95",
+        "normalized_value": "199.95",
+        "value_type": "currency_usd"
+      },
+      "evidence": [
+        {
+          "label_printed": "This bill total",
+          "value_printed": "$199.95",
+          "label_bbox_pt": [
+            40,
+            220,
+            234,
+            234
+          ],
+          "value_bbox_pt": [
+            252,
+            220,
+            572,
+            234
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "amount_due",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "$199.95",
+        "normalized_value": "199.95",
+        "value_type": "currency_usd"
+      },
+      "evidence": [
+        {
+          "label_printed": "Balance to remit",
+          "value_printed": "$199.95",
+          "label_bbox_pt": [
+            40,
+            192,
+            234,
+            206
+          ],
+          "value_bbox_pt": [
+            252,
+            192,
+            572,
+            206
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "row_id",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "N31",
+        "normalized_value": "N31",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Seq",
+          "value_printed": "N31",
+          "label_bbox_pt": [
+            40,
+            482,
+            66,
+            506
+          ],
+          "value_bbox_pt": [
+            40,
+            446,
+            66,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "sku",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "00034872",
+        "normalized_value": "00034872",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Item ref",
+          "value_printed": "00034872",
+          "label_bbox_pt": [
+            66,
+            482,
+            128,
+            506
+          ],
+          "value_bbox_pt": [
+            66,
+            446,
+            128,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "description",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Coupling guard",
+        "normalized_value": "Coupling guard",
+        "value_type": "text"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Service / item",
+          "value_printed": "Coupling guard",
+          "label_bbox_pt": [
+            128,
+            482,
+            256,
+            506
+          ],
+          "value_bbox_pt": [
+            128,
+            446,
+            256,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "qty_unit",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "4.00 EA",
+        "normalized_value": "4.00",
+        "value_type": "decimal_2",
+        "quantity_unit": "EA"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Units",
+          "value_printed": "4.00 EA",
+          "label_bbox_pt": [
+            256,
+            482,
+            314,
+            506
+          ],
+          "value_bbox_pt": [
+            256,
+            446,
+            314,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "unit_price",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$14.65",
+        "normalized_value": "14.65",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rate",
+          "value_printed": "$14.65",
+          "label_bbox_pt": [
+            314,
+            482,
+            374,
+            506
+          ],
+          "value_bbox_pt": [
+            314,
+            446,
+            374,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "discount_rate",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "0.00%",
+        "normalized_value": "0.0000",
+        "value_type": "rate_percent"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rebate%",
+          "value_printed": "0.00%",
+          "label_bbox_pt": [
+            374,
+            482,
+            414,
+            506
+          ],
+          "value_bbox_pt": [
+            374,
+            446,
+            414,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "line_discount",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$0.00",
+        "normalized_value": "0.00",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rebate",
+          "value_printed": "$0.00",
+          "label_bbox_pt": [
+            414,
+            482,
+            468,
+            506
+          ],
+          "value_bbox_pt": [
+            414,
+            446,
+            468,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "tax_flag",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "T",
+        "normalized_value": "T",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Levy",
+          "value_printed": "T",
+          "label_bbox_pt": [
+            468,
+            482,
+            502,
+            506
+          ],
+          "value_bbox_pt": [
+            468,
+            446,
+            502,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "net_line",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$58.60",
+        "normalized_value": "58.60",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Extended",
+          "value_printed": "$58.60",
+          "label_bbox_pt": [
+            502,
+            482,
+            572,
+            506
+          ],
+          "value_bbox_pt": [
+            502,
+            446,
+            572,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "row_id",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "N32",
+        "normalized_value": "N32",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Seq",
+          "value_printed": "N32",
+          "label_bbox_pt": [
+            40,
+            482,
+            66,
+            506
+          ],
+          "value_bbox_pt": [
+            40,
+            410,
+            66,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "sku",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "00059264",
+        "normalized_value": "00059264",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Item ref",
+          "value_printed": "00059264",
+          "label_bbox_pt": [
+            66,
+            482,
+            128,
+            506
+          ],
+          "value_bbox_pt": [
+            66,
+            410,
+            128,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "description",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Bench linkage alignment",
+        "normalized_value": "Bench linkage alignment",
+        "value_type": "text"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Service / item",
+          "value_printed": "Bench linkage alignment",
+          "label_bbox_pt": [
+            128,
+            482,
+            256,
+            506
+          ],
+          "value_bbox_pt": [
+            128,
+            410,
+            256,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "qty_unit",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "1.50 HR",
+        "normalized_value": "1.50",
+        "value_type": "decimal_2",
+        "quantity_unit": "HR"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Units",
+          "value_printed": "1.50 HR",
+          "label_bbox_pt": [
+            256,
+            482,
+            314,
+            506
+          ],
+          "value_bbox_pt": [
+            256,
+            410,
+            314,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "unit_price",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$74.00",
+        "normalized_value": "74.00",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rate",
+          "value_printed": "$74.00",
+          "label_bbox_pt": [
+            314,
+            482,
+            374,
+            506
+          ],
+          "value_bbox_pt": [
+            314,
+            410,
+            374,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "discount_rate",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "0.00%",
+        "normalized_value": "0.0000",
+        "value_type": "rate_percent"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rebate%",
+          "value_printed": "0.00%",
+          "label_bbox_pt": [
+            374,
+            482,
+            414,
+            506
+          ],
+          "value_bbox_pt": [
+            374,
+            410,
+            414,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "line_discount",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$0.00",
+        "normalized_value": "0.00",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rebate",
+          "value_printed": "$0.00",
+          "label_bbox_pt": [
+            414,
+            482,
+            468,
+            506
+          ],
+          "value_bbox_pt": [
+            414,
+            410,
+            468,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "tax_flag",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "T",
+        "normalized_value": "T",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Levy",
+          "value_printed": "T",
+          "label_bbox_pt": [
+            468,
+            482,
+            502,
+            506
+          ],
+          "value_bbox_pt": [
+            468,
+            410,
+            502,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "net_line",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$111.00",
+        "normalized_value": "111.00",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Extended",
+          "value_printed": "$111.00",
+          "label_bbox_pt": [
+            502,
+            482,
+            572,
+            506
+          ],
+          "value_bbox_pt": [
+            502,
+            410,
+            572,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "row_id",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "N33",
+        "normalized_value": "N33",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Seq",
+          "value_printed": "N33",
+          "label_bbox_pt": [
+            40,
+            482,
+            66,
+            506
+          ],
+          "value_bbox_pt": [
+            40,
+            374,
+            66,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "sku",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "00081436",
+        "normalized_value": "00081436",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Item ref",
+          "value_printed": "00081436",
+          "label_bbox_pt": [
+            66,
+            482,
+            128,
+            506
+          ],
+          "value_bbox_pt": [
+            66,
+            374,
+            128,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "description",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Spacer assortment",
+        "normalized_value": "Spacer assortment",
+        "value_type": "text"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Service / item",
+          "value_printed": "Spacer assortment",
+          "label_bbox_pt": [
+            128,
+            482,
+            256,
+            506
+          ],
+          "value_bbox_pt": [
+            128,
+            374,
+            256,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "qty_unit",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "2.00 KT",
+        "normalized_value": "2.00",
+        "value_type": "decimal_2",
+        "quantity_unit": "KT"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Units",
+          "value_printed": "2.00 KT",
+          "label_bbox_pt": [
+            256,
+            482,
+            314,
+            506
+          ],
+          "value_bbox_pt": [
+            256,
+            374,
+            314,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "unit_price",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$8.20",
+        "normalized_value": "8.20",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rate",
+          "value_printed": "$8.20",
+          "label_bbox_pt": [
+            314,
+            482,
+            374,
+            506
+          ],
+          "value_bbox_pt": [
+            314,
+            374,
+            374,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "discount_rate",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "0.00%",
+        "normalized_value": "0.0000",
+        "value_type": "rate_percent"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rebate%",
+          "value_printed": "0.00%",
+          "label_bbox_pt": [
+            374,
+            482,
+            414,
+            506
+          ],
+          "value_bbox_pt": [
+            374,
+            374,
+            414,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "line_discount",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$0.00",
+        "normalized_value": "0.00",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Rebate",
+          "value_printed": "$0.00",
+          "label_bbox_pt": [
+            414,
+            482,
+            468,
+            506
+          ],
+          "value_bbox_pt": [
+            414,
+            374,
+            468,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "tax_flag",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "T",
+        "normalized_value": "T",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Levy",
+          "value_printed": "T",
+          "label_bbox_pt": [
+            468,
+            482,
+            502,
+            506
+          ],
+          "value_bbox_pt": [
+            468,
+            374,
+            502,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "net_line",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "$16.40",
+        "normalized_value": "16.40",
+        "value_type": "currency_usd"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Extended",
+          "value_printed": "$16.40",
+          "label_bbox_pt": [
+            502,
+            482,
+            572,
+            506
+          ],
+          "value_bbox_pt": [
+            502,
+            374,
+            572,
+            398
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "absence",
+      "page_number": 1,
+      "field_id": "customer_po_code",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "",
+        "expected_state": "absent_blank"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Buyer purchase reference",
+          "value_printed": "",
+          "label_bbox_pt": [
+            40,
+            70,
+            234,
+            84
+          ],
+          "value_bbox_pt": [
+            252,
+            68,
+            572,
+            86
+          ]
+        }
+      ]
+    }
+  ]
+}

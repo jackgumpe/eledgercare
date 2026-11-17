@@ -1,0 +1,515 @@
+{
+  "schema": "eld-mapping-v2-policy/1",
+  "fixture_id": "WP13-F03-unsupported-v0",
+  "family_id": "WP13-F03",
+  "case": "unsupported",
+  "profile": "inspection",
+  "page_count": 1,
+  "catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+  "ideal_native": "<PAGE>\n<BLOCK>text[65,34,540,58]<FORK>Utility training inspection sheet\n<BLOCK>text[65,76,333,89]<FORK>Fictional Jade Tern facilities bench\n<BLOCK>table[65,119,935,142]<FORK><table><tr><td>Survey docket</td><td>QC-0006308</td></tr></table>\n<BLOCK>table[65,164,935,187]<FORK><table><tr><td>Surveyed location</td><td>Fictional Jade Tern Annex / Bay 004</td></tr></table>\n<BLOCK>table[65,210,935,233]<FORK><table><tr><td>Survey calendar date</td><td>2026-09-14</td></tr></table>\n<BLOCK>table[65,316,935,482]<FORK><table><tr><th>Check token</th><th>Test location</th><th>Completed procedure</th><th>Pressure reading</th></tr><tr><td>C-081</td><td>Return union</td><td>Training gauge reading logged</td><td>61.50</td></tr><tr><td>C-082</td><td>Drain cock</td><td>Bench valve travel checked</td><td>61.00</td></tr></table>\n<BLOCK>table[65,553,935,576]<FORK><table><tr><td>Inspecting operator</td><td>Fictional Oren Vale</td></tr></table>\n<BLOCK>table[65,599,935,621]<FORK><table><tr><td>Appliance inventory code</td><td>WH-0005936</td></tr></table>\n<BLOCK>table[65,644,935,667]<FORK><table><tr><td>Isolation tick</td><td>[X]</td></tr></table>\n<BLOCK>table[65,710,935,732]<FORK><table><tr><td>Contractor tracking line</td><td></td></tr></table>\n<BLOCK>footer[65,948,492,957]<FORK>SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.\n<BLOCK>footer[65,964,446,973]<FORK>Training record only; no real work or safety certification is asserted.",
+  "tables": [
+    {
+      "table_id": "turnover_tasks",
+      "column_ids": [
+        "task_code",
+        "fixture_area",
+        "action_taken",
+        "pressure_psi"
+      ],
+      "row_ids": [
+        "C81",
+        "C82"
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "work_order_id",
+      "truth_status": "known",
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "truth": {
+        "printed_text": "QC-0006308",
+        "normalized_value": "QC-0006308",
+        "value_type": "identifier"
+      },
+      "evidence": [
+        {
+          "label_printed": "Survey docket",
+          "value_printed": "QC-0006308",
+          "label_bbox_pt": [
+            40,
+            682,
+            234,
+            696
+          ],
+          "value_bbox_pt": [
+            252,
+            682,
+            572,
+            696
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "property_unit",
+      "truth_status": "known",
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "truth": {
+        "printed_text": "Fictional Jade Tern Annex / Bay 004",
+        "normalized_value": "Fictional Jade Tern Annex / Bay 004",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Surveyed location",
+          "value_printed": "Fictional Jade Tern Annex / Bay 004",
+          "label_bbox_pt": [
+            40,
+            646,
+            234,
+            660
+          ],
+          "value_bbox_pt": [
+            252,
+            646,
+            572,
+            660
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "requested_date",
+      "truth_status": "known",
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "truth": {
+        "printed_text": "2026-09-14",
+        "normalized_value": "2026-09-14",
+        "value_type": "date_iso"
+      },
+      "evidence": [
+        {
+          "label_printed": "Survey calendar date",
+          "value_printed": "2026-09-14",
+          "label_bbox_pt": [
+            40,
+            610,
+            234,
+            624
+          ],
+          "value_bbox_pt": [
+            252,
+            610,
+            572,
+            624
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "assigned_tech",
+      "truth_status": "known",
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "truth": {
+        "printed_text": "Fictional Oren Vale",
+        "normalized_value": "Fictional Oren Vale",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Inspecting operator",
+          "value_printed": "Fictional Oren Vale",
+          "label_bbox_pt": [
+            40,
+            338,
+            234,
+            352
+          ],
+          "value_bbox_pt": [
+            252,
+            338,
+            572,
+            352
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "equipment_asset_tag",
+      "truth_status": "known",
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "truth": {
+        "printed_text": "WH-0005936",
+        "normalized_value": "WH-0005936",
+        "value_type": "identifier"
+      },
+      "evidence": [
+        {
+          "label_printed": "Appliance inventory code",
+          "value_printed": "WH-0005936",
+          "label_bbox_pt": [
+            40,
+            302,
+            234,
+            316
+          ],
+          "value_bbox_pt": [
+            252,
+            302,
+            572,
+            316
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "water_isolated",
+      "truth_status": "known",
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "truth": {
+        "printed_text": "[X]",
+        "normalized_value": "true",
+        "value_type": "boolean_mark"
+      },
+      "evidence": [
+        {
+          "label_printed": "Isolation tick",
+          "value_printed": "[X]",
+          "label_bbox_pt": [
+            40,
+            266,
+            234,
+            280
+          ],
+          "value_bbox_pt": [
+            252,
+            266,
+            572,
+            280
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "turnover_tasks",
+      "row_ordinal": 0,
+      "row_id": "C81",
+      "column_id": "task_code",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "C-081",
+        "normalized_value": "C-081",
+        "value_type": "identifier"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Check token",
+          "value_printed": "C-081",
+          "label_bbox_pt": [
+            40,
+            518,
+            118,
+            542
+          ],
+          "value_bbox_pt": [
+            40,
+            482,
+            118,
+            506
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "turnover_tasks",
+      "row_ordinal": 0,
+      "row_id": "C81",
+      "column_id": "fixture_area",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Return union",
+        "normalized_value": "Return union",
+        "value_type": "text"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Test location",
+          "value_printed": "Return union",
+          "label_bbox_pt": [
+            118,
+            518,
+            248,
+            542
+          ],
+          "value_bbox_pt": [
+            118,
+            482,
+            248,
+            506
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "turnover_tasks",
+      "row_ordinal": 0,
+      "row_id": "C81",
+      "column_id": "action_taken",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Training gauge reading logged",
+        "normalized_value": "Training gauge reading logged",
+        "value_type": "text"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Completed procedure",
+          "value_printed": "Training gauge reading logged",
+          "label_bbox_pt": [
+            248,
+            518,
+            488,
+            542
+          ],
+          "value_bbox_pt": [
+            248,
+            482,
+            488,
+            506
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "turnover_tasks",
+      "row_ordinal": 0,
+      "row_id": "C81",
+      "column_id": "pressure_psi",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "61.50",
+        "normalized_value": "61.50",
+        "value_type": "decimal_2"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Pressure reading",
+          "value_printed": "61.50",
+          "label_bbox_pt": [
+            488,
+            518,
+            572,
+            542
+          ],
+          "value_bbox_pt": [
+            488,
+            482,
+            572,
+            506
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "turnover_tasks",
+      "row_ordinal": 1,
+      "row_id": "C82",
+      "column_id": "task_code",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "C-082",
+        "normalized_value": "C-082",
+        "value_type": "identifier"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Check token",
+          "value_printed": "C-082",
+          "label_bbox_pt": [
+            40,
+            518,
+            118,
+            542
+          ],
+          "value_bbox_pt": [
+            40,
+            446,
+            118,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "turnover_tasks",
+      "row_ordinal": 1,
+      "row_id": "C82",
+      "column_id": "fixture_area",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Drain cock",
+        "normalized_value": "Drain cock",
+        "value_type": "text"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Test location",
+          "value_printed": "Drain cock",
+          "label_bbox_pt": [
+            118,
+            518,
+            248,
+            542
+          ],
+          "value_bbox_pt": [
+            118,
+            446,
+            248,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "turnover_tasks",
+      "row_ordinal": 1,
+      "row_id": "C82",
+      "column_id": "action_taken",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Bench valve travel checked",
+        "normalized_value": "Bench valve travel checked",
+        "value_type": "text"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Completed procedure",
+          "value_printed": "Bench valve travel checked",
+          "label_bbox_pt": [
+            248,
+            518,
+            488,
+            542
+          ],
+          "value_bbox_pt": [
+            248,
+            446,
+            488,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "turnover_tasks",
+      "row_ordinal": 1,
+      "row_id": "C82",
+      "column_id": "pressure_psi",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "61.00",
+        "normalized_value": "61.00",
+        "value_type": "decimal_2"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Pressure reading",
+          "value_printed": "61.00",
+          "label_bbox_pt": [
+            488,
+            518,
+            572,
+            542
+          ],
+          "value_bbox_pt": [
+            488,
+            446,
+            572,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "absence",
+      "page_number": 1,
+      "field_id": "secondary_vendor_po",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "",
+        "expected_state": "absent_blank"
+      },
+      "action": "abstain",
+      "reason": "unsupported_vocabulary",
+      "evidence": [
+        {
+          "label_printed": "Contractor tracking line",
+          "value_printed": "",
+          "label_bbox_pt": [
+            40,
+            214,
+            234,
+            228
+          ],
+          "value_bbox_pt": [
+            252,
+            212,
+            572,
+            230
+          ]
+        }
+      ]
+    }
+  ]
+}

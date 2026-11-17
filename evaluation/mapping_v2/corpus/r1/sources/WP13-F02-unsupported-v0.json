@@ -1,0 +1,2530 @@
+{
+  "schema": "eld-wp13-final-source/1",
+  "fixture_id": "WP13-F02-unsupported-v0",
+  "family_id": "WP13-F02",
+  "case": "unsupported",
+  "foundation_family": {
+    "family_id": "WP13-F02",
+    "doc_kind": "service_invoice",
+    "profile": "service_invoice",
+    "title": "Mechanical service account",
+    "subtitle": "Fictional Ochre Crane billing office",
+    "fields": [
+      {
+        "field_id": "invoice_number",
+        "printed_text": "IN-0008249",
+        "normalized_value": "IN-0008249",
+        "value_type": "identifier"
+      },
+      {
+        "field_id": "invoice_date",
+        "printed_text": "2026-08-21",
+        "normalized_value": "2026-08-21",
+        "value_type": "date_iso"
+      },
+      {
+        "field_id": "due_date",
+        "printed_text": "2026-09-20",
+        "normalized_value": "2026-09-20",
+        "value_type": "date_iso"
+      },
+      {
+        "field_id": "work_order_ref",
+        "printed_text": "WO-0005931",
+        "normalized_value": "WO-0005931",
+        "value_type": "identifier"
+      },
+      {
+        "field_id": "payment_terms",
+        "printed_text": "Payment within 30 calendar days",
+        "normalized_value": "Payment within 30 calendar days",
+        "value_type": "text"
+      },
+      {
+        "field_id": "subtotal",
+        "printed_text": "$186.00",
+        "normalized_value": "186.00",
+        "value_type": "currency_usd"
+      },
+      {
+        "field_id": "taxable_subtotal",
+        "printed_text": "$186.00",
+        "normalized_value": "186.00",
+        "value_type": "currency_usd"
+      },
+      {
+        "field_id": "tax_amount",
+        "printed_text": "$13.95",
+        "normalized_value": "13.95",
+        "value_type": "currency_usd"
+      },
+      {
+        "field_id": "invoice_total",
+        "printed_text": "$199.95",
+        "normalized_value": "199.95",
+        "value_type": "currency_usd"
+      },
+      {
+        "field_id": "amount_due",
+        "printed_text": "$199.95",
+        "normalized_value": "199.95",
+        "value_type": "currency_usd"
+      }
+    ],
+    "absence": {
+      "field_id": "customer_po_code",
+      "expected_state": "absent_blank"
+    },
+    "tax_rate": "0.0750",
+    "table": {
+      "table_id": "line_items",
+      "columns": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "row_key_column": "row_id",
+      "rows": [
+        {
+          "row_id": "N31",
+          "cells": {
+            "row_id": {
+              "printed_text": "N31",
+              "normalized_value": "N31",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "00034872",
+              "normalized_value": "00034872",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Coupling guard",
+              "normalized_value": "Coupling guard",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "4.00 EA",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "EA"
+            },
+            "unit_price": {
+              "printed_text": "$14.65",
+              "normalized_value": "14.65",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$58.60",
+              "normalized_value": "58.60",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "N32",
+          "cells": {
+            "row_id": {
+              "printed_text": "N32",
+              "normalized_value": "N32",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "00059264",
+              "normalized_value": "00059264",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Bench linkage alignment",
+              "normalized_value": "Bench linkage alignment",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "1.50 HR",
+              "normalized_value": "1.50",
+              "value_type": "decimal_2",
+              "quantity_unit": "HR"
+            },
+            "unit_price": {
+              "printed_text": "$74.00",
+              "normalized_value": "74.00",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$111.00",
+              "normalized_value": "111.00",
+              "value_type": "currency_usd"
+            }
+          }
+        },
+        {
+          "row_id": "N33",
+          "cells": {
+            "row_id": {
+              "printed_text": "N33",
+              "normalized_value": "N33",
+              "value_type": "identifier"
+            },
+            "sku": {
+              "printed_text": "00081436",
+              "normalized_value": "00081436",
+              "value_type": "identifier"
+            },
+            "description": {
+              "printed_text": "Spacer assortment",
+              "normalized_value": "Spacer assortment",
+              "value_type": "text"
+            },
+            "qty_unit": {
+              "printed_text": "2.00 KT",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "KT"
+            },
+            "unit_price": {
+              "printed_text": "$8.20",
+              "normalized_value": "8.20",
+              "value_type": "currency_usd"
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent"
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd"
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier"
+            },
+            "net_line": {
+              "printed_text": "$16.40",
+              "normalized_value": "16.40",
+              "value_type": "currency_usd"
+            }
+          }
+        }
+      ]
+    },
+    "reserved_conflict": {
+      "field_id": "invoice_number",
+      "alternate_value": {
+        "printed_text": "IN-0008256",
+        "normalized_value": "IN-0008256",
+        "value_type": "identifier"
+      },
+      "truth_if_both_printed": "ambiguous",
+      "duplicate_equal_uses_original": true
+    }
+  },
+  "foundation_template": {
+    "family_id": "WP13-F02",
+    "page_size_pt": [
+      612.0,
+      792.24
+    ],
+    "bbox_convention": "[left,bottom,right,top] PDF points",
+    "title_baseline": [
+      40,
+      746
+    ],
+    "subtitle_baseline": [
+      40,
+      722
+    ],
+    "fields": [
+      {
+        "field_id": "invoice_number",
+        "label_region": [
+          40,
+          682,
+          234,
+          696
+        ],
+        "value_region": [
+          252,
+          682,
+          572,
+          696
+        ],
+        "baseline": 684
+      },
+      {
+        "field_id": "invoice_date",
+        "label_region": [
+          40,
+          654,
+          234,
+          668
+        ],
+        "value_region": [
+          252,
+          654,
+          572,
+          668
+        ],
+        "baseline": 656
+      },
+      {
+        "field_id": "due_date",
+        "label_region": [
+          40,
+          626,
+          234,
+          640
+        ],
+        "value_region": [
+          252,
+          626,
+          572,
+          640
+        ],
+        "baseline": 628
+      },
+      {
+        "field_id": "work_order_ref",
+        "label_region": [
+          40,
+          598,
+          234,
+          612
+        ],
+        "value_region": [
+          252,
+          598,
+          572,
+          612
+        ],
+        "baseline": 600
+      },
+      {
+        "field_id": "payment_terms",
+        "label_region": [
+          40,
+          570,
+          234,
+          584
+        ],
+        "value_region": [
+          252,
+          570,
+          572,
+          584
+        ],
+        "baseline": 572
+      },
+      {
+        "field_id": "subtotal",
+        "label_region": [
+          40,
+          304,
+          234,
+          318
+        ],
+        "value_region": [
+          252,
+          304,
+          572,
+          318
+        ],
+        "baseline": 306
+      },
+      {
+        "field_id": "taxable_subtotal",
+        "label_region": [
+          40,
+          276,
+          234,
+          290
+        ],
+        "value_region": [
+          252,
+          276,
+          572,
+          290
+        ],
+        "baseline": 278
+      },
+      {
+        "field_id": "tax_amount",
+        "label_region": [
+          40,
+          248,
+          234,
+          262
+        ],
+        "value_region": [
+          252,
+          248,
+          572,
+          262
+        ],
+        "baseline": 250
+      },
+      {
+        "field_id": "invoice_total",
+        "label_region": [
+          40,
+          220,
+          234,
+          234
+        ],
+        "value_region": [
+          252,
+          220,
+          572,
+          234
+        ],
+        "baseline": 222
+      },
+      {
+        "field_id": "amount_due",
+        "label_region": [
+          40,
+          192,
+          234,
+          206
+        ],
+        "value_region": [
+          252,
+          192,
+          572,
+          206
+        ],
+        "baseline": 194
+      }
+    ],
+    "table": {
+      "table_id": "line_items",
+      "region": [
+        40,
+        338,
+        572,
+        506
+      ],
+      "header_baseline": 490,
+      "column_widths_pt": [
+        26,
+        62,
+        128,
+        58,
+        60,
+        40,
+        54,
+        34,
+        70
+      ],
+      "row_height_pt": 36
+    },
+    "absence": {
+      "field_id": "customer_po_code",
+      "label_region": [
+        40,
+        70,
+        234,
+        84
+      ],
+      "blank_region": [
+        252,
+        68,
+        572,
+        86
+      ]
+    },
+    "conflict_reserve_region": [
+      40,
+      96,
+      572,
+      164
+    ],
+    "footer_baselines": [
+      34,
+      21
+    ],
+    "finalization_rule": "Exact facts and template regions are frozen now. Catalog-selected wording, reference/expected/policy serialization and any declared guard-specific insertion await accepted public /001 plus independent /002. No inference-based selection."
+  },
+  "catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+  "source_occurrences": [
+    {
+      "anchor": "field.invoice_number",
+      "field_id": "invoice_number",
+      "blank": false,
+      "label_printed": "Charge docket",
+      "value_printed": "IN-0008249",
+      "label_bbox_pt": [
+        40,
+        682,
+        234,
+        696
+      ],
+      "value_bbox_pt": [
+        252,
+        682,
+        572,
+        696
+      ]
+    },
+    {
+      "anchor": "field.invoice_date",
+      "field_id": "invoice_date",
+      "blank": false,
+      "label_printed": "Issue calendar date",
+      "value_printed": "2026-08-21",
+      "label_bbox_pt": [
+        40,
+        654,
+        234,
+        668
+      ],
+      "value_bbox_pt": [
+        252,
+        654,
+        572,
+        668
+      ]
+    },
+    {
+      "anchor": "field.due_date",
+      "field_id": "due_date",
+      "blank": false,
+      "label_printed": "Remittance deadline",
+      "value_printed": "2026-09-20",
+      "label_bbox_pt": [
+        40,
+        626,
+        234,
+        640
+      ],
+      "value_bbox_pt": [
+        252,
+        626,
+        572,
+        640
+      ]
+    },
+    {
+      "anchor": "field.work_order_ref",
+      "field_id": "work_order_ref",
+      "blank": false,
+      "label_printed": "Linked job docket",
+      "value_printed": "WO-0005931",
+      "label_bbox_pt": [
+        40,
+        598,
+        234,
+        612
+      ],
+      "value_bbox_pt": [
+        252,
+        598,
+        572,
+        612
+      ]
+    },
+    {
+      "anchor": "field.payment_terms",
+      "field_id": "payment_terms",
+      "blank": false,
+      "label_printed": "Payment interval",
+      "value_printed": "Payment within 30 calendar days",
+      "label_bbox_pt": [
+        40,
+        570,
+        234,
+        584
+      ],
+      "value_bbox_pt": [
+        252,
+        570,
+        572,
+        584
+      ]
+    },
+    {
+      "anchor": "field.subtotal",
+      "field_id": "subtotal",
+      "blank": false,
+      "label_printed": "Untaxed charges",
+      "value_printed": "$186.00",
+      "label_bbox_pt": [
+        40,
+        304,
+        234,
+        318
+      ],
+      "value_bbox_pt": [
+        252,
+        304,
+        572,
+        318
+      ]
+    },
+    {
+      "anchor": "field.taxable_subtotal",
+      "field_id": "taxable_subtotal",
+      "blank": false,
+      "label_printed": "Assessable charges",
+      "value_printed": "$186.00",
+      "label_bbox_pt": [
+        40,
+        276,
+        234,
+        290
+      ],
+      "value_bbox_pt": [
+        252,
+        276,
+        572,
+        290
+      ]
+    },
+    {
+      "anchor": "field.tax_amount",
+      "field_id": "tax_amount",
+      "blank": false,
+      "label_printed": "Duty assessed",
+      "value_printed": "$13.95",
+      "label_bbox_pt": [
+        40,
+        248,
+        234,
+        262
+      ],
+      "value_bbox_pt": [
+        252,
+        248,
+        572,
+        262
+      ]
+    },
+    {
+      "anchor": "field.invoice_total",
+      "field_id": "invoice_total",
+      "blank": false,
+      "label_printed": "Account grand sum",
+      "value_printed": "$199.95",
+      "label_bbox_pt": [
+        40,
+        220,
+        234,
+        234
+      ],
+      "value_bbox_pt": [
+        252,
+        220,
+        572,
+        234
+      ]
+    },
+    {
+      "anchor": "field.amount_due",
+      "field_id": "amount_due",
+      "blank": false,
+      "label_printed": "Outstanding remittance",
+      "value_printed": "$199.95",
+      "label_bbox_pt": [
+        40,
+        192,
+        234,
+        206
+      ],
+      "value_bbox_pt": [
+        252,
+        192,
+        572,
+        206
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.row_id",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "row_id",
+      "label_printed": "Key",
+      "value_printed": "N31",
+      "label_bbox_pt": [
+        40,
+        482,
+        66,
+        506
+      ],
+      "value_bbox_pt": [
+        40,
+        446,
+        66,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.sku",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "sku",
+      "label_printed": "Item code",
+      "value_printed": "00034872",
+      "label_bbox_pt": [
+        66,
+        482,
+        128,
+        506
+      ],
+      "value_bbox_pt": [
+        66,
+        446,
+        128,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.description",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "description",
+      "label_printed": "Charge detail",
+      "value_printed": "Coupling guard",
+      "label_bbox_pt": [
+        128,
+        482,
+        256,
+        506
+      ],
+      "value_bbox_pt": [
+        128,
+        446,
+        256,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.qty_unit",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "qty_unit",
+      "label_printed": "Amount",
+      "value_printed": "4.00 EA",
+      "label_bbox_pt": [
+        256,
+        482,
+        314,
+        506
+      ],
+      "value_bbox_pt": [
+        256,
+        446,
+        314,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.unit_price",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "unit_price",
+      "label_printed": "Cost each",
+      "value_printed": "$14.65",
+      "label_bbox_pt": [
+        314,
+        482,
+        374,
+        506
+      ],
+      "value_bbox_pt": [
+        314,
+        446,
+        374,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.discount_rate",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "discount_rate",
+      "label_printed": "Cut pct",
+      "value_printed": "0.00%",
+      "label_bbox_pt": [
+        374,
+        482,
+        414,
+        506
+      ],
+      "value_bbox_pt": [
+        374,
+        446,
+        414,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.line_discount",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "line_discount",
+      "label_printed": "Cut amount",
+      "value_printed": "$0.00",
+      "label_bbox_pt": [
+        414,
+        482,
+        468,
+        506
+      ],
+      "value_bbox_pt": [
+        414,
+        446,
+        468,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.tax_flag",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "tax_flag",
+      "label_printed": "Duty",
+      "value_printed": "T",
+      "label_bbox_pt": [
+        468,
+        482,
+        502,
+        506
+      ],
+      "value_bbox_pt": [
+        468,
+        446,
+        502,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N31.net_line",
+      "table_id": "line_items",
+      "row_ordinal": 0,
+      "row_id": "N31",
+      "column_id": "net_line",
+      "label_printed": "Charge sum",
+      "value_printed": "$58.60",
+      "label_bbox_pt": [
+        502,
+        482,
+        572,
+        506
+      ],
+      "value_bbox_pt": [
+        502,
+        446,
+        572,
+        470
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.row_id",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "row_id",
+      "label_printed": "Key",
+      "value_printed": "N32",
+      "label_bbox_pt": [
+        40,
+        482,
+        66,
+        506
+      ],
+      "value_bbox_pt": [
+        40,
+        410,
+        66,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.sku",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "sku",
+      "label_printed": "Item code",
+      "value_printed": "00059264",
+      "label_bbox_pt": [
+        66,
+        482,
+        128,
+        506
+      ],
+      "value_bbox_pt": [
+        66,
+        410,
+        128,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.description",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "description",
+      "label_printed": "Charge detail",
+      "value_printed": "Bench linkage alignment",
+      "label_bbox_pt": [
+        128,
+        482,
+        256,
+        506
+      ],
+      "value_bbox_pt": [
+        128,
+        410,
+        256,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.qty_unit",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "qty_unit",
+      "label_printed": "Amount",
+      "value_printed": "1.50 HR",
+      "label_bbox_pt": [
+        256,
+        482,
+        314,
+        506
+      ],
+      "value_bbox_pt": [
+        256,
+        410,
+        314,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.unit_price",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "unit_price",
+      "label_printed": "Cost each",
+      "value_printed": "$74.00",
+      "label_bbox_pt": [
+        314,
+        482,
+        374,
+        506
+      ],
+      "value_bbox_pt": [
+        314,
+        410,
+        374,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.discount_rate",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "discount_rate",
+      "label_printed": "Cut pct",
+      "value_printed": "0.00%",
+      "label_bbox_pt": [
+        374,
+        482,
+        414,
+        506
+      ],
+      "value_bbox_pt": [
+        374,
+        410,
+        414,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.line_discount",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "line_discount",
+      "label_printed": "Cut amount",
+      "value_printed": "$0.00",
+      "label_bbox_pt": [
+        414,
+        482,
+        468,
+        506
+      ],
+      "value_bbox_pt": [
+        414,
+        410,
+        468,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.tax_flag",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "tax_flag",
+      "label_printed": "Duty",
+      "value_printed": "T",
+      "label_bbox_pt": [
+        468,
+        482,
+        502,
+        506
+      ],
+      "value_bbox_pt": [
+        468,
+        410,
+        502,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N32.net_line",
+      "table_id": "line_items",
+      "row_ordinal": 1,
+      "row_id": "N32",
+      "column_id": "net_line",
+      "label_printed": "Charge sum",
+      "value_printed": "$111.00",
+      "label_bbox_pt": [
+        502,
+        482,
+        572,
+        506
+      ],
+      "value_bbox_pt": [
+        502,
+        410,
+        572,
+        434
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.row_id",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "row_id",
+      "label_printed": "Key",
+      "value_printed": "N33",
+      "label_bbox_pt": [
+        40,
+        482,
+        66,
+        506
+      ],
+      "value_bbox_pt": [
+        40,
+        374,
+        66,
+        398
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.sku",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "sku",
+      "label_printed": "Item code",
+      "value_printed": "00081436",
+      "label_bbox_pt": [
+        66,
+        482,
+        128,
+        506
+      ],
+      "value_bbox_pt": [
+        66,
+        374,
+        128,
+        398
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.description",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "description",
+      "label_printed": "Charge detail",
+      "value_printed": "Spacer assortment",
+      "label_bbox_pt": [
+        128,
+        482,
+        256,
+        506
+      ],
+      "value_bbox_pt": [
+        128,
+        374,
+        256,
+        398
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.qty_unit",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "qty_unit",
+      "label_printed": "Amount",
+      "value_printed": "2.00 KT",
+      "label_bbox_pt": [
+        256,
+        482,
+        314,
+        506
+      ],
+      "value_bbox_pt": [
+        256,
+        374,
+        314,
+        398
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.unit_price",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "unit_price",
+      "label_printed": "Cost each",
+      "value_printed": "$8.20",
+      "label_bbox_pt": [
+        314,
+        482,
+        374,
+        506
+      ],
+      "value_bbox_pt": [
+        314,
+        374,
+        374,
+        398
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.discount_rate",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "discount_rate",
+      "label_printed": "Cut pct",
+      "value_printed": "0.00%",
+      "label_bbox_pt": [
+        374,
+        482,
+        414,
+        506
+      ],
+      "value_bbox_pt": [
+        374,
+        374,
+        414,
+        398
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.line_discount",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "line_discount",
+      "label_printed": "Cut amount",
+      "value_printed": "$0.00",
+      "label_bbox_pt": [
+        414,
+        482,
+        468,
+        506
+      ],
+      "value_bbox_pt": [
+        414,
+        374,
+        468,
+        398
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.tax_flag",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "tax_flag",
+      "label_printed": "Duty",
+      "value_printed": "T",
+      "label_bbox_pt": [
+        468,
+        482,
+        502,
+        506
+      ],
+      "value_bbox_pt": [
+        468,
+        374,
+        502,
+        398
+      ]
+    },
+    {
+      "anchor": "table.line_items.row.N33.net_line",
+      "table_id": "line_items",
+      "row_ordinal": 2,
+      "row_id": "N33",
+      "column_id": "net_line",
+      "label_printed": "Charge sum",
+      "value_printed": "$16.40",
+      "label_bbox_pt": [
+        502,
+        482,
+        572,
+        506
+      ],
+      "value_bbox_pt": [
+        502,
+        374,
+        572,
+        398
+      ]
+    },
+    {
+      "anchor": "absence.customer_po_code",
+      "field_id": "customer_po_code",
+      "blank": true,
+      "label_printed": "Purchaser tracking line",
+      "value_printed": "",
+      "label_bbox_pt": [
+        40,
+        70,
+        234,
+        84
+      ],
+      "value_bbox_pt": [
+        252,
+        68,
+        572,
+        86
+      ]
+    }
+  ],
+  "furniture_and_text_runs": [
+    {
+      "ordinal": 0,
+      "text": "Mechanical service account",
+      "baseline": [
+        40,
+        746
+      ],
+      "font": "bold",
+      "size_pt": 19,
+      "bbox_pt": [
+        40,
+        746,
+        294.77,
+        765
+      ],
+      "role": "title",
+      "anchor": "furniture.title"
+    },
+    {
+      "ordinal": 1,
+      "text": "Fictional Ochre Crane billing office",
+      "baseline": [
+        40,
+        722
+      ],
+      "font": "regular",
+      "size_pt": 10,
+      "bbox_pt": [
+        40,
+        722,
+        201.1,
+        732
+      ],
+      "role": "subtitle",
+      "anchor": "furniture.subtitle"
+    },
+    {
+      "ordinal": 2,
+      "text": "Charge docket",
+      "baseline": [
+        40,
+        684
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        684,
+        100.44,
+        692.6
+      ],
+      "role": "field_label",
+      "anchor": "field.invoice_number.label"
+    },
+    {
+      "ordinal": 3,
+      "text": "IN-0008249",
+      "baseline": [
+        252,
+        684
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        684,
+        301.13,
+        693.2
+      ],
+      "role": "field_value",
+      "anchor": "field.invoice_number.value"
+    },
+    {
+      "ordinal": 4,
+      "text": "Issue calendar date",
+      "baseline": [
+        40,
+        656
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        656,
+        120.95,
+        664.6
+      ],
+      "role": "field_label",
+      "anchor": "field.invoice_date.label"
+    },
+    {
+      "ordinal": 5,
+      "text": "2026-08-21",
+      "baseline": [
+        252,
+        656
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        656,
+        299.66,
+        665.2
+      ],
+      "role": "field_value",
+      "anchor": "field.invoice_date.value"
+    },
+    {
+      "ordinal": 6,
+      "text": "Remittance deadline",
+      "baseline": [
+        40,
+        628
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        628,
+        124.41,
+        636.6
+      ],
+      "role": "field_label",
+      "anchor": "field.due_date.label"
+    },
+    {
+      "ordinal": 7,
+      "text": "2026-09-20",
+      "baseline": [
+        252,
+        628
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        628,
+        299.66,
+        637.2
+      ],
+      "role": "field_value",
+      "anchor": "field.due_date.value"
+    },
+    {
+      "ordinal": 8,
+      "text": "Linked job docket",
+      "baseline": [
+        40,
+        600
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        600,
+        114.66,
+        608.6
+      ],
+      "role": "field_label",
+      "anchor": "field.work_order_ref.label"
+    },
+    {
+      "ordinal": 9,
+      "text": "WO-0005931",
+      "baseline": [
+        252,
+        600
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        600,
+        305.64,
+        609.2
+      ],
+      "role": "field_value",
+      "anchor": "field.work_order_ref.value"
+    },
+    {
+      "ordinal": 10,
+      "text": "Payment interval",
+      "baseline": [
+        40,
+        572
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        572,
+        110.19,
+        580.6
+      ],
+      "role": "field_label",
+      "anchor": "field.payment_terms.label"
+    },
+    {
+      "ordinal": 11,
+      "text": "Payment within 30 calendar days",
+      "baseline": [
+        252,
+        572
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        572,
+        390.74,
+        581.2
+      ],
+      "role": "field_value",
+      "anchor": "field.payment_terms.value"
+    },
+    {
+      "ordinal": 12,
+      "text": "Untaxed charges",
+      "baseline": [
+        40,
+        306
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        306,
+        110.28,
+        314.6
+      ],
+      "role": "field_label",
+      "anchor": "field.subtotal.label"
+    },
+    {
+      "ordinal": 13,
+      "text": "$186.00",
+      "baseline": [
+        252,
+        306
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        306,
+        285.58,
+        315.2
+      ],
+      "role": "field_value",
+      "anchor": "field.subtotal.value"
+    },
+    {
+      "ordinal": 14,
+      "text": "Assessable charges",
+      "baseline": [
+        40,
+        278
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        278,
+        123.59,
+        286.6
+      ],
+      "role": "field_label",
+      "anchor": "field.taxable_subtotal.label"
+    },
+    {
+      "ordinal": 15,
+      "text": "$186.00",
+      "baseline": [
+        252,
+        278
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        278,
+        285.58,
+        287.2
+      ],
+      "role": "field_value",
+      "anchor": "field.taxable_subtotal.value"
+    },
+    {
+      "ordinal": 16,
+      "text": "Duty assessed",
+      "baseline": [
+        40,
+        250
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        250,
+        102.17,
+        258.6
+      ],
+      "role": "field_label",
+      "anchor": "field.tax_amount.label"
+    },
+    {
+      "ordinal": 17,
+      "text": "$13.95",
+      "baseline": [
+        252,
+        250
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        250,
+        280.43,
+        259.2
+      ],
+      "role": "field_value",
+      "anchor": "field.tax_amount.value"
+    },
+    {
+      "ordinal": 18,
+      "text": "Account grand sum",
+      "baseline": [
+        40,
+        222
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        222,
+        119.13,
+        230.6
+      ],
+      "role": "field_label",
+      "anchor": "field.invoice_total.label"
+    },
+    {
+      "ordinal": 19,
+      "text": "$199.95",
+      "baseline": [
+        252,
+        222
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        222,
+        285.58,
+        231.2
+      ],
+      "role": "field_value",
+      "anchor": "field.invoice_total.value"
+    },
+    {
+      "ordinal": 20,
+      "text": "Outstanding remittance",
+      "baseline": [
+        40,
+        194
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        194,
+        137.18,
+        202.6
+      ],
+      "role": "field_label",
+      "anchor": "field.amount_due.label"
+    },
+    {
+      "ordinal": 21,
+      "text": "$199.95",
+      "baseline": [
+        252,
+        194
+      ],
+      "font": "regular",
+      "size_pt": 9.2,
+      "bbox_pt": [
+        252,
+        194,
+        285.58,
+        203.2
+      ],
+      "role": "field_value",
+      "anchor": "field.amount_due.value"
+    },
+    {
+      "ordinal": 22,
+      "text": "Key",
+      "baseline": [
+        43,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        43,
+        490,
+        56.43,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.row_id"
+    },
+    {
+      "ordinal": 23,
+      "text": "Item code",
+      "baseline": [
+        69,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        69,
+        490,
+        102.66,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.sku"
+    },
+    {
+      "ordinal": 24,
+      "text": "Charge detail",
+      "baseline": [
+        131,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        131,
+        490,
+        177.78,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.description"
+    },
+    {
+      "ordinal": 25,
+      "text": "Amount",
+      "baseline": [
+        259,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        259,
+        490,
+        285.18,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.qty_unit"
+    },
+    {
+      "ordinal": 26,
+      "text": "Cost each",
+      "baseline": [
+        317,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        317,
+        490,
+        352.57,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.unit_price"
+    },
+    {
+      "ordinal": 27,
+      "text": "Cut pct",
+      "baseline": [
+        377,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        377,
+        490,
+        402.87,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.discount_rate"
+    },
+    {
+      "ordinal": 28,
+      "text": "Cut amount",
+      "baseline": [
+        417,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        417,
+        490,
+        457.07,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.line_discount"
+    },
+    {
+      "ordinal": 29,
+      "text": "Duty",
+      "baseline": [
+        471,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        471,
+        490,
+        487.87,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.tax_flag"
+    },
+    {
+      "ordinal": 30,
+      "text": "Charge sum",
+      "baseline": [
+        505,
+        490
+      ],
+      "font": "bold",
+      "size_pt": 7.2,
+      "bbox_pt": [
+        505,
+        490,
+        546.52,
+        497.2
+      ],
+      "role": "table_header",
+      "anchor": "table.line_items.header.net_line"
+    },
+    {
+      "ordinal": 31,
+      "text": "N31",
+      "baseline": [
+        43,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        454,
+        57.44,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.row_id"
+    },
+    {
+      "ordinal": 32,
+      "text": "00034872",
+      "baseline": [
+        69,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        69,
+        454,
+        103.05,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.sku"
+    },
+    {
+      "ordinal": 33,
+      "text": "Coupling guard",
+      "baseline": [
+        131,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        131,
+        454,
+        183.14,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.description"
+    },
+    {
+      "ordinal": 34,
+      "text": "4.00 EA",
+      "baseline": [
+        259,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        259,
+        454,
+        286.51,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.qty_unit"
+    },
+    {
+      "ordinal": 35,
+      "text": "$14.65",
+      "baseline": [
+        317,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        317,
+        454,
+        340.48,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.unit_price"
+    },
+    {
+      "ordinal": 36,
+      "text": "0.00%",
+      "baseline": [
+        377,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        377,
+        454,
+        398.81,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.discount_rate"
+    },
+    {
+      "ordinal": 37,
+      "text": "$0.00",
+      "baseline": [
+        417,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        417,
+        454,
+        436.23,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.line_discount"
+    },
+    {
+      "ordinal": 38,
+      "text": "T",
+      "baseline": [
+        471,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        471,
+        454,
+        476.17,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.tax_flag"
+    },
+    {
+      "ordinal": 39,
+      "text": "$58.60",
+      "baseline": [
+        505,
+        454
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        505,
+        454,
+        528.48,
+        461.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N31.net_line"
+    },
+    {
+      "ordinal": 40,
+      "text": "N32",
+      "baseline": [
+        43,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        418,
+        57.44,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.row_id"
+    },
+    {
+      "ordinal": 41,
+      "text": "00059264",
+      "baseline": [
+        69,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        69,
+        418,
+        103.05,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.sku"
+    },
+    {
+      "ordinal": 42,
+      "text": "Bench linkage alignment",
+      "baseline": [
+        131,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        131,
+        418,
+        215.44,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.description"
+    },
+    {
+      "ordinal": 43,
+      "text": "1.50 HR",
+      "baseline": [
+        259,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        259,
+        418,
+        287.27,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.qty_unit"
+    },
+    {
+      "ordinal": 44,
+      "text": "$74.00",
+      "baseline": [
+        317,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        317,
+        418,
+        340.48,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.unit_price"
+    },
+    {
+      "ordinal": 45,
+      "text": "0.00%",
+      "baseline": [
+        377,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        377,
+        418,
+        398.81,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.discount_rate"
+    },
+    {
+      "ordinal": 46,
+      "text": "$0.00",
+      "baseline": [
+        417,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        417,
+        418,
+        436.23,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.line_discount"
+    },
+    {
+      "ordinal": 47,
+      "text": "T",
+      "baseline": [
+        471,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        471,
+        418,
+        476.17,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.tax_flag"
+    },
+    {
+      "ordinal": 48,
+      "text": "$111.00",
+      "baseline": [
+        505,
+        418
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        505,
+        418,
+        532.74,
+        425.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N32.net_line"
+    },
+    {
+      "ordinal": 49,
+      "text": "N33",
+      "baseline": [
+        43,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        43,
+        382,
+        57.44,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.row_id"
+    },
+    {
+      "ordinal": 50,
+      "text": "00081436",
+      "baseline": [
+        69,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        69,
+        382,
+        103.05,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.sku"
+    },
+    {
+      "ordinal": 51,
+      "text": "Spacer assortment",
+      "baseline": [
+        131,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        131,
+        382,
+        195.98,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.description"
+    },
+    {
+      "ordinal": 52,
+      "text": "2.00 KT",
+      "baseline": [
+        259,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        259,
+        382,
+        286.51,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.qty_unit"
+    },
+    {
+      "ordinal": 53,
+      "text": "$8.20",
+      "baseline": [
+        317,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        317,
+        382,
+        336.23,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.unit_price"
+    },
+    {
+      "ordinal": 54,
+      "text": "0.00%",
+      "baseline": [
+        377,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        377,
+        382,
+        398.81,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.discount_rate"
+    },
+    {
+      "ordinal": 55,
+      "text": "$0.00",
+      "baseline": [
+        417,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        417,
+        382,
+        436.23,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.line_discount"
+    },
+    {
+      "ordinal": 56,
+      "text": "T",
+      "baseline": [
+        471,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        471,
+        382,
+        476.17,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.tax_flag"
+    },
+    {
+      "ordinal": 57,
+      "text": "$16.40",
+      "baseline": [
+        505,
+        382
+      ],
+      "font": "regular",
+      "size_pt": 7.6,
+      "bbox_pt": [
+        505,
+        382,
+        528.48,
+        389.6
+      ],
+      "role": "table_cell",
+      "anchor": "table.line_items.row.N33.net_line"
+    },
+    {
+      "ordinal": 58,
+      "text": "Purchaser tracking line",
+      "baseline": [
+        40,
+        72
+      ],
+      "font": "bold",
+      "size_pt": 8.6,
+      "bbox_pt": [
+        40,
+        72,
+        136.17,
+        80.6
+      ],
+      "role": "field_label",
+      "anchor": "absence.customer_po_code.label"
+    },
+    {
+      "ordinal": 59,
+      "text": "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.",
+      "baseline": [
+        40,
+        34
+      ],
+      "font": "regular",
+      "size_pt": 7.5,
+      "bbox_pt": [
+        40,
+        34,
+        301.07,
+        41.5
+      ],
+      "role": "footer",
+      "anchor": "furniture.footer.0"
+    },
+    {
+      "ordinal": 60,
+      "text": "Training record only; no real work or safety certification is asserted.",
+      "baseline": [
+        40,
+        21
+      ],
+      "font": "regular",
+      "size_pt": 7.5,
+      "bbox_pt": [
+        40,
+        21,
+        272.95,
+        28.5
+      ],
+      "role": "footer",
+      "anchor": "furniture.footer.1"
+    }
+  ],
+  "native_blocks": [
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        746,
+        294.77,
+        765
+      ],
+      "body": "Mechanical service account"
+    },
+    {
+      "kind": "text",
+      "bbox_pt": [
+        40,
+        722,
+        201.1,
+        732
+      ],
+      "body": "Fictional Ochre Crane billing office"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        680,
+        572,
+        698
+      ],
+      "body": "<table><tr><td>Charge docket</td><td>IN-0008249</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        652,
+        572,
+        670
+      ],
+      "body": "<table><tr><td>Issue calendar date</td><td>2026-08-21</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        624,
+        572,
+        642
+      ],
+      "body": "<table><tr><td>Remittance deadline</td><td>2026-09-20</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        596,
+        572,
+        614
+      ],
+      "body": "<table><tr><td>Linked job docket</td><td>WO-0005931</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        568,
+        572,
+        586
+      ],
+      "body": "<table><tr><td>Payment interval</td><td>Payment within 30 calendar days</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        338,
+        572,
+        506
+      ],
+      "body": "<table><tr><th>Key</th><th>Item code</th><th>Charge detail</th><th>Amount</th><th>Cost each</th><th>Cut pct</th><th>Cut amount</th><th>Duty</th><th>Charge sum</th></tr><tr><td>N31</td><td>00034872</td><td>Coupling guard</td><td>4.00 EA</td><td>$14.65</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$58.60</td></tr><tr><td>N32</td><td>00059264</td><td>Bench linkage alignment</td><td>1.50 HR</td><td>$74.00</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$111.00</td></tr><tr><td>N33</td><td>00081436</td><td>Spacer assortment</td><td>2.00 KT</td><td>$8.20</td><td>0.00%</td><td>$0.00</td><td>T</td><td>$16.40</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        302,
+        572,
+        320
+      ],
+      "body": "<table><tr><td>Untaxed charges</td><td>$186.00</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        274,
+        572,
+        292
+      ],
+      "body": "<table><tr><td>Assessable charges</td><td>$186.00</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        246,
+        572,
+        264
+      ],
+      "body": "<table><tr><td>Duty assessed</td><td>$13.95</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        218,
+        572,
+        236
+      ],
+      "body": "<table><tr><td>Account grand sum</td><td>$199.95</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        190,
+        572,
+        208
+      ],
+      "body": "<table><tr><td>Outstanding remittance</td><td>$199.95</td></tr></table>"
+    },
+    {
+      "kind": "table",
+      "bbox_pt": [
+        40,
+        68,
+        572,
+        86
+      ],
+      "body": "<table><tr><td>Purchaser tracking line</td><td></td></tr></table>"
+    },
+    {
+      "kind": "footer",
+      "bbox_pt": [
+        40,
+        34,
+        301.07,
+        41.5
+      ],
+      "body": "SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional."
+    },
+    {
+      "kind": "footer",
+      "bbox_pt": [
+        40,
+        21,
+        272.95,
+        28.5
+      ],
+      "body": "Training record only; no real work or safety certification is asserted."
+    }
+  ],
+  "conflict_plan": null,
+  "foundation_mutated": false,
+  "source_anchor_convention": "field.<id>, absence.<id>, conflict.<id>, table.<table>.row.<row>.<column>, furniture.*"
+}

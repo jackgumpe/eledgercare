@@ -1,0 +1,635 @@
+{
+  "schema": "eld-wp13-private-foundations/1",
+  "status": "foundation_only_not_final_corpus",
+  "families": [
+    {
+      "family_id": "WP13-F01",
+      "doc_kind": "work_order",
+      "profile": "work_order",
+      "title": "Door seal service record",
+      "subtitle": "Fictional Indigo Fox workshop",
+      "fields": [
+        {
+          "field_id": "work_order_id",
+          "printed_text": "WO-0004926",
+          "normalized_value": "WO-0004926",
+          "value_type": "identifier"
+        },
+        {
+          "field_id": "property_name",
+          "printed_text": "Fictional Indigo Fox Residences",
+          "normalized_value": "Fictional Indigo Fox Residences",
+          "value_type": "text"
+        },
+        {
+          "field_id": "building_unit",
+          "printed_text": "Block D / Unit 003A",
+          "normalized_value": "Block D / Unit 003A",
+          "value_type": "identifier"
+        },
+        {
+          "field_id": "requested_date",
+          "printed_text": "2026-07-18",
+          "normalized_value": "2026-07-18",
+          "value_type": "date_iso"
+        },
+        {
+          "field_id": "trade_category",
+          "printed_text": "Carpentry / door seals",
+          "normalized_value": "Carpentry / door seals",
+          "value_type": "text"
+        },
+        {
+          "field_id": "assigned_tech",
+          "printed_text": "Fictional Mara Linden",
+          "normalized_value": "Fictional Mara Linden",
+          "value_type": "text"
+        },
+        {
+          "field_id": "completion_status",
+          "printed_text": "Closed - seal seated on practice frame",
+          "normalized_value": "Closed - seal seated on practice frame",
+          "value_type": "text"
+        }
+      ],
+      "absence": {
+        "field_id": "resident_contact",
+        "expected_state": "absent_blank"
+      },
+      "table": {
+        "table_id": "stock_parts",
+        "columns": [
+          "part_sku",
+          "part_desc",
+          "bin_loc",
+          "qty_used"
+        ],
+        "row_key_column": "part_sku",
+        "rows": [
+          {
+            "row_id": "P31",
+            "cells": {
+              "part_sku": {
+                "printed_text": "00073165",
+                "normalized_value": "00073165",
+                "value_type": "identifier"
+              },
+              "part_desc": {
+                "printed_text": "Door edge seal strip",
+                "normalized_value": "Door edge seal strip",
+                "value_type": "text"
+              },
+              "bin_loc": {
+                "printed_text": "D-034",
+                "normalized_value": "D-034",
+                "value_type": "identifier"
+              },
+              "qty_used": {
+                "printed_text": "2.00",
+                "normalized_value": "2.00",
+                "value_type": "decimal_2"
+              }
+            }
+          },
+          {
+            "row_id": "P32",
+            "cells": {
+              "part_sku": {
+                "printed_text": "00090824",
+                "normalized_value": "00090824",
+                "value_type": "identifier"
+              },
+              "part_desc": {
+                "printed_text": "Retainer screw",
+                "normalized_value": "Retainer screw",
+                "value_type": "text"
+              },
+              "bin_loc": {
+                "printed_text": "D-042",
+                "normalized_value": "D-042",
+                "value_type": "identifier"
+              },
+              "qty_used": {
+                "printed_text": "7.00",
+                "normalized_value": "7.00",
+                "value_type": "decimal_2"
+              }
+            }
+          }
+        ]
+      },
+      "reserved_conflict": {
+        "field_id": "work_order_id",
+        "alternate_value": {
+          "printed_text": "WO-0004937",
+          "normalized_value": "WO-0004937",
+          "value_type": "identifier"
+        },
+        "truth_if_both_printed": "ambiguous",
+        "duplicate_equal_uses_original": true
+      }
+    },
+    {
+      "family_id": "WP13-F02",
+      "doc_kind": "service_invoice",
+      "profile": "service_invoice",
+      "title": "Mechanical service account",
+      "subtitle": "Fictional Ochre Crane billing office",
+      "fields": [
+        {
+          "field_id": "invoice_number",
+          "printed_text": "IN-0008249",
+          "normalized_value": "IN-0008249",
+          "value_type": "identifier"
+        },
+        {
+          "field_id": "invoice_date",
+          "printed_text": "2026-08-21",
+          "normalized_value": "2026-08-21",
+          "value_type": "date_iso"
+        },
+        {
+          "field_id": "due_date",
+          "printed_text": "2026-09-20",
+          "normalized_value": "2026-09-20",
+          "value_type": "date_iso"
+        },
+        {
+          "field_id": "work_order_ref",
+          "printed_text": "WO-0005931",
+          "normalized_value": "WO-0005931",
+          "value_type": "identifier"
+        },
+        {
+          "field_id": "payment_terms",
+          "printed_text": "Payment within 30 calendar days",
+          "normalized_value": "Payment within 30 calendar days",
+          "value_type": "text"
+        },
+        {
+          "field_id": "subtotal",
+          "printed_text": "$186.00",
+          "normalized_value": "186.00",
+          "value_type": "currency_usd"
+        },
+        {
+          "field_id": "taxable_subtotal",
+          "printed_text": "$186.00",
+          "normalized_value": "186.00",
+          "value_type": "currency_usd"
+        },
+        {
+          "field_id": "tax_amount",
+          "printed_text": "$13.95",
+          "normalized_value": "13.95",
+          "value_type": "currency_usd"
+        },
+        {
+          "field_id": "invoice_total",
+          "printed_text": "$199.95",
+          "normalized_value": "199.95",
+          "value_type": "currency_usd"
+        },
+        {
+          "field_id": "amount_due",
+          "printed_text": "$199.95",
+          "normalized_value": "199.95",
+          "value_type": "currency_usd"
+        }
+      ],
+      "absence": {
+        "field_id": "customer_po_code",
+        "expected_state": "absent_blank"
+      },
+      "tax_rate": "0.0750",
+      "table": {
+        "table_id": "line_items",
+        "columns": [
+          "row_id",
+          "sku",
+          "description",
+          "qty_unit",
+          "unit_price",
+          "discount_rate",
+          "line_discount",
+          "tax_flag",
+          "net_line"
+        ],
+        "row_key_column": "row_id",
+        "rows": [
+          {
+            "row_id": "N31",
+            "cells": {
+              "row_id": {
+                "printed_text": "N31",
+                "normalized_value": "N31",
+                "value_type": "identifier"
+              },
+              "sku": {
+                "printed_text": "00034872",
+                "normalized_value": "00034872",
+                "value_type": "identifier"
+              },
+              "description": {
+                "printed_text": "Coupling guard",
+                "normalized_value": "Coupling guard",
+                "value_type": "text"
+              },
+              "qty_unit": {
+                "printed_text": "4.00 EA",
+                "normalized_value": "4.00",
+                "value_type": "decimal_2",
+                "quantity_unit": "EA"
+              },
+              "unit_price": {
+                "printed_text": "$14.65",
+                "normalized_value": "14.65",
+                "value_type": "currency_usd"
+              },
+              "discount_rate": {
+                "printed_text": "0.00%",
+                "normalized_value": "0.0000",
+                "value_type": "rate_percent"
+              },
+              "line_discount": {
+                "printed_text": "$0.00",
+                "normalized_value": "0.00",
+                "value_type": "currency_usd"
+              },
+              "tax_flag": {
+                "printed_text": "T",
+                "normalized_value": "T",
+                "value_type": "identifier"
+              },
+              "net_line": {
+                "printed_text": "$58.60",
+                "normalized_value": "58.60",
+                "value_type": "currency_usd"
+              }
+            }
+          },
+          {
+            "row_id": "N32",
+            "cells": {
+              "row_id": {
+                "printed_text": "N32",
+                "normalized_value": "N32",
+                "value_type": "identifier"
+              },
+              "sku": {
+                "printed_text": "00059264",
+                "normalized_value": "00059264",
+                "value_type": "identifier"
+              },
+              "description": {
+                "printed_text": "Bench linkage alignment",
+                "normalized_value": "Bench linkage alignment",
+                "value_type": "text"
+              },
+              "qty_unit": {
+                "printed_text": "1.50 HR",
+                "normalized_value": "1.50",
+                "value_type": "decimal_2",
+                "quantity_unit": "HR"
+              },
+              "unit_price": {
+                "printed_text": "$74.00",
+                "normalized_value": "74.00",
+                "value_type": "currency_usd"
+              },
+              "discount_rate": {
+                "printed_text": "0.00%",
+                "normalized_value": "0.0000",
+                "value_type": "rate_percent"
+              },
+              "line_discount": {
+                "printed_text": "$0.00",
+                "normalized_value": "0.00",
+                "value_type": "currency_usd"
+              },
+              "tax_flag": {
+                "printed_text": "T",
+                "normalized_value": "T",
+                "value_type": "identifier"
+              },
+              "net_line": {
+                "printed_text": "$111.00",
+                "normalized_value": "111.00",
+                "value_type": "currency_usd"
+              }
+            }
+          },
+          {
+            "row_id": "N33",
+            "cells": {
+              "row_id": {
+                "printed_text": "N33",
+                "normalized_value": "N33",
+                "value_type": "identifier"
+              },
+              "sku": {
+                "printed_text": "00081436",
+                "normalized_value": "00081436",
+                "value_type": "identifier"
+              },
+              "description": {
+                "printed_text": "Spacer assortment",
+                "normalized_value": "Spacer assortment",
+                "value_type": "text"
+              },
+              "qty_unit": {
+                "printed_text": "2.00 KT",
+                "normalized_value": "2.00",
+                "value_type": "decimal_2",
+                "quantity_unit": "KT"
+              },
+              "unit_price": {
+                "printed_text": "$8.20",
+                "normalized_value": "8.20",
+                "value_type": "currency_usd"
+              },
+              "discount_rate": {
+                "printed_text": "0.00%",
+                "normalized_value": "0.0000",
+                "value_type": "rate_percent"
+              },
+              "line_discount": {
+                "printed_text": "$0.00",
+                "normalized_value": "0.00",
+                "value_type": "currency_usd"
+              },
+              "tax_flag": {
+                "printed_text": "T",
+                "normalized_value": "T",
+                "value_type": "identifier"
+              },
+              "net_line": {
+                "printed_text": "$16.40",
+                "normalized_value": "16.40",
+                "value_type": "currency_usd"
+              }
+            }
+          }
+        ]
+      },
+      "reserved_conflict": {
+        "field_id": "invoice_number",
+        "alternate_value": {
+          "printed_text": "IN-0008256",
+          "normalized_value": "IN-0008256",
+          "value_type": "identifier"
+        },
+        "truth_if_both_printed": "ambiguous",
+        "duplicate_equal_uses_original": true
+      }
+    },
+    {
+      "family_id": "WP13-F03",
+      "doc_kind": "inspection_service_checklist",
+      "profile": "inspection",
+      "title": "Utility training inspection sheet",
+      "subtitle": "Fictional Jade Tern facilities bench",
+      "fields": [
+        {
+          "field_id": "work_order_id",
+          "printed_text": "QC-0006308",
+          "normalized_value": "QC-0006308",
+          "value_type": "identifier"
+        },
+        {
+          "field_id": "property_unit",
+          "printed_text": "Fictional Jade Tern Annex / Bay 004",
+          "normalized_value": "Fictional Jade Tern Annex / Bay 004",
+          "value_type": "text"
+        },
+        {
+          "field_id": "requested_date",
+          "printed_text": "2026-09-14",
+          "normalized_value": "2026-09-14",
+          "value_type": "date_iso"
+        },
+        {
+          "field_id": "assigned_tech",
+          "printed_text": "Fictional Oren Vale",
+          "normalized_value": "Fictional Oren Vale",
+          "value_type": "text"
+        },
+        {
+          "field_id": "equipment_asset_tag",
+          "printed_text": "WH-0005936",
+          "normalized_value": "WH-0005936",
+          "value_type": "identifier"
+        },
+        {
+          "field_id": "water_isolated",
+          "printed_text": "[X]",
+          "normalized_value": "true",
+          "value_type": "boolean_mark"
+        }
+      ],
+      "absence": {
+        "field_id": "secondary_vendor_po",
+        "expected_state": "absent_blank"
+      },
+      "table": {
+        "table_id": "turnover_tasks",
+        "columns": [
+          "task_code",
+          "fixture_area",
+          "action_taken",
+          "pressure_psi"
+        ],
+        "row_key_column": "task_code",
+        "rows": [
+          {
+            "row_id": "C81",
+            "cells": {
+              "task_code": {
+                "printed_text": "C-081",
+                "normalized_value": "C-081",
+                "value_type": "identifier"
+              },
+              "fixture_area": {
+                "printed_text": "Return union",
+                "normalized_value": "Return union",
+                "value_type": "text"
+              },
+              "action_taken": {
+                "printed_text": "Training gauge reading logged",
+                "normalized_value": "Training gauge reading logged",
+                "value_type": "text"
+              },
+              "pressure_psi": {
+                "printed_text": "61.50",
+                "normalized_value": "61.50",
+                "value_type": "decimal_2"
+              }
+            }
+          },
+          {
+            "row_id": "C82",
+            "cells": {
+              "task_code": {
+                "printed_text": "C-082",
+                "normalized_value": "C-082",
+                "value_type": "identifier"
+              },
+              "fixture_area": {
+                "printed_text": "Drain cock",
+                "normalized_value": "Drain cock",
+                "value_type": "text"
+              },
+              "action_taken": {
+                "printed_text": "Bench valve travel checked",
+                "normalized_value": "Bench valve travel checked",
+                "value_type": "text"
+              },
+              "pressure_psi": {
+                "printed_text": "61.00",
+                "normalized_value": "61.00",
+                "value_type": "decimal_2"
+              }
+            }
+          }
+        ]
+      },
+      "reserved_conflict": {
+        "field_id": "equipment_asset_tag",
+        "alternate_value": {
+          "printed_text": "WH-0005948",
+          "normalized_value": "WH-0005948",
+          "value_type": "identifier"
+        },
+        "truth_if_both_printed": "ambiguous",
+        "duplicate_equal_uses_original": true
+      }
+    },
+    {
+      "family_id": "WP13-F04",
+      "doc_kind": "work_order",
+      "profile": "work_order",
+      "title": "Indicator panel maintenance note",
+      "subtitle": "Fictional Coral Wombat service desk",
+      "fields": [
+        {
+          "field_id": "work_order_id",
+          "printed_text": "WO-0007163",
+          "normalized_value": "WO-0007163",
+          "value_type": "identifier"
+        },
+        {
+          "field_id": "property_name",
+          "printed_text": "Fictional Coral Wombat Court",
+          "normalized_value": "Fictional Coral Wombat Court",
+          "value_type": "text"
+        },
+        {
+          "field_id": "building_unit",
+          "printed_text": "Block M / Unit 005D",
+          "normalized_value": "Block M / Unit 005D",
+          "value_type": "identifier"
+        },
+        {
+          "field_id": "requested_date",
+          "printed_text": "2026-10-06",
+          "normalized_value": "2026-10-06",
+          "value_type": "date_iso"
+        },
+        {
+          "field_id": "trade_category",
+          "printed_text": "Electrical / indicator lamps",
+          "normalized_value": "Electrical / indicator lamps",
+          "value_type": "text"
+        },
+        {
+          "field_id": "assigned_tech",
+          "printed_text": "Fictional Sela Briar",
+          "normalized_value": "Fictional Sela Briar",
+          "value_type": "text"
+        },
+        {
+          "field_id": "completion_status",
+          "printed_text": "Closed - lamp passed bench check",
+          "normalized_value": "Closed - lamp passed bench check",
+          "value_type": "text"
+        }
+      ],
+      "absence": {
+        "field_id": "resident_contact",
+        "expected_state": "absent_blank"
+      },
+      "table": {
+        "table_id": "stock_parts",
+        "columns": [
+          "part_sku",
+          "part_desc",
+          "bin_loc",
+          "qty_used"
+        ],
+        "row_key_column": "part_sku",
+        "rows": [
+          {
+            "row_id": "E51",
+            "cells": {
+              "part_sku": {
+                "printed_text": "00048217",
+                "normalized_value": "00048217",
+                "value_type": "identifier"
+              },
+              "part_desc": {
+                "printed_text": "Panel indicator lens",
+                "normalized_value": "Panel indicator lens",
+                "value_type": "text"
+              },
+              "bin_loc": {
+                "printed_text": "M-013",
+                "normalized_value": "M-013",
+                "value_type": "identifier"
+              },
+              "qty_used": {
+                "printed_text": "3.00",
+                "normalized_value": "3.00",
+                "value_type": "decimal_2"
+              }
+            }
+          },
+          {
+            "row_id": "E52",
+            "cells": {
+              "part_sku": {
+                "printed_text": "00065028",
+                "normalized_value": "00065028",
+                "value_type": "identifier"
+              },
+              "part_desc": {
+                "printed_text": "Contact retaining clip",
+                "normalized_value": "Contact retaining clip",
+                "value_type": "text"
+              },
+              "bin_loc": {
+                "printed_text": "M-027",
+                "normalized_value": "M-027",
+                "value_type": "identifier"
+              },
+              "qty_used": {
+                "printed_text": "4.00",
+                "normalized_value": "4.00",
+                "value_type": "decimal_2"
+              }
+            }
+          }
+        ]
+      },
+      "reserved_conflict": {
+        "field_id": "work_order_id",
+        "alternate_value": {
+          "printed_text": "WO-0007179",
+          "normalized_value": "WO-0007179",
+          "value_type": "identifier"
+        },
+        "truth_if_both_printed": "ambiguous",
+        "duplicate_equal_uses_original": true
+      }
+    }
+  ]
+}

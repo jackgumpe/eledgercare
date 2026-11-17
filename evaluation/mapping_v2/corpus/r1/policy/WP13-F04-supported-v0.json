@@ -1,0 +1,546 @@
+{
+  "schema": "eld-mapping-v2-policy/1",
+  "fixture_id": "WP13-F04-supported-v0",
+  "family_id": "WP13-F04",
+  "case": "supported",
+  "profile": "work_order",
+  "page_count": 1,
+  "catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
+  "ideal_native": "<PAGE>\n<BLOCK>text[65,34,559,58]<FORK>Indicator panel maintenance note\n<BLOCK>text[65,76,339,89]<FORK>Fictional Coral Wombat service desk\n<BLOCK>table[65,119,935,142]<FORK><table><tr><td>Repair record</td><td>WO-0007163</td></tr></table>\n<BLOCK>table[65,164,935,187]<FORK><table><tr><td>Premises name</td><td>Fictional Coral Wombat Court</td></tr></table>\n<BLOCK>table[65,210,935,233]<FORK><table><tr><td>Place within site</td><td>Block M / Unit 005D</td></tr></table>\n<BLOCK>table[65,316,935,482]<FORK><table><tr><th>Stock reference</th><th>Item supplied</th><th>Shelf</th><th>Used count</th></tr><tr><td>00048217</td><td>Panel indicator lens</td><td>M-013</td><td>3.00</td></tr><tr><td>00065028</td><td>Contact retaining clip</td><td>M-027</td><td>4.00</td></tr></table>\n<BLOCK>table[65,571,935,594]<FORK><table><tr><td>Opened on</td><td>2026-10-06</td></tr></table>\n<BLOCK>table[65,612,935,635]<FORK><table><tr><td>Work discipline</td><td>Electrical / indicator lamps</td></tr></table>\n<BLOCK>table[65,654,935,677]<FORK><table><tr><td>Worker assigned</td><td>Fictional Sela Briar</td></tr></table>\n<BLOCK>table[65,696,935,719]<FORK><table><tr><td>Job state</td><td>Closed - lamp passed bench check</td></tr></table>\n<BLOCK>table[65,763,935,785]<FORK><table><tr><td>Occupant callback</td><td></td></tr></table>\n<BLOCK>footer[65,948,492,957]<FORK>SYNTHETIC PRACTICE DOCUMENT - all names and records are fictional.\n<BLOCK>footer[65,964,446,973]<FORK>Training record only; no real work or safety certification is asserted.",
+  "tables": [
+    {
+      "table_id": "stock_parts",
+      "column_ids": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "row_ids": [
+        "E51",
+        "E52"
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "work_order_id",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "WO-0007163",
+        "normalized_value": "WO-0007163",
+        "value_type": "identifier"
+      },
+      "evidence": [
+        {
+          "label_printed": "Repair record",
+          "value_printed": "WO-0007163",
+          "label_bbox_pt": [
+            40,
+            682,
+            234,
+            696
+          ],
+          "value_bbox_pt": [
+            252,
+            682,
+            572,
+            696
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "property_name",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Fictional Coral Wombat Court",
+        "normalized_value": "Fictional Coral Wombat Court",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Premises name",
+          "value_printed": "Fictional Coral Wombat Court",
+          "label_bbox_pt": [
+            40,
+            646,
+            234,
+            660
+          ],
+          "value_bbox_pt": [
+            252,
+            646,
+            572,
+            660
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "building_unit",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Block M / Unit 005D",
+        "normalized_value": "Block M / Unit 005D",
+        "value_type": "identifier"
+      },
+      "evidence": [
+        {
+          "label_printed": "Place within site",
+          "value_printed": "Block M / Unit 005D",
+          "label_bbox_pt": [
+            40,
+            610,
+            234,
+            624
+          ],
+          "value_bbox_pt": [
+            252,
+            610,
+            572,
+            624
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "requested_date",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "2026-10-06",
+        "normalized_value": "2026-10-06",
+        "value_type": "date_iso"
+      },
+      "evidence": [
+        {
+          "label_printed": "Opened on",
+          "value_printed": "2026-10-06",
+          "label_bbox_pt": [
+            40,
+            324,
+            234,
+            338
+          ],
+          "value_bbox_pt": [
+            252,
+            324,
+            572,
+            338
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "trade_category",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Electrical / indicator lamps",
+        "normalized_value": "Electrical / indicator lamps",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Work discipline",
+          "value_printed": "Electrical / indicator lamps",
+          "label_bbox_pt": [
+            40,
+            291,
+            234,
+            305
+          ],
+          "value_bbox_pt": [
+            252,
+            291,
+            572,
+            305
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "assigned_tech",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Fictional Sela Briar",
+        "normalized_value": "Fictional Sela Briar",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Worker assigned",
+          "value_printed": "Fictional Sela Briar",
+          "label_bbox_pt": [
+            40,
+            258,
+            234,
+            272
+          ],
+          "value_bbox_pt": [
+            252,
+            258,
+            572,
+            272
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "field",
+      "page_number": 1,
+      "field_id": "completion_status",
+      "truth_status": "known",
+      "action": "assign",
+      "reason": "supported",
+      "truth": {
+        "printed_text": "Closed - lamp passed bench check",
+        "normalized_value": "Closed - lamp passed bench check",
+        "value_type": "text"
+      },
+      "evidence": [
+        {
+          "label_printed": "Job state",
+          "value_printed": "Closed - lamp passed bench check",
+          "label_bbox_pt": [
+            40,
+            225,
+            234,
+            239
+          ],
+          "value_bbox_pt": [
+            252,
+            225,
+            572,
+            239
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "E51",
+      "column_id": "part_sku",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "00048217",
+        "normalized_value": "00048217",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Stock reference",
+          "value_printed": "00048217",
+          "label_bbox_pt": [
+            40,
+            518,
+            152,
+            542
+          ],
+          "value_bbox_pt": [
+            40,
+            482,
+            152,
+            506
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "E51",
+      "column_id": "part_desc",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Panel indicator lens",
+        "normalized_value": "Panel indicator lens",
+        "value_type": "text"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Item supplied",
+          "value_printed": "Panel indicator lens",
+          "label_bbox_pt": [
+            152,
+            518,
+            390,
+            542
+          ],
+          "value_bbox_pt": [
+            152,
+            482,
+            390,
+            506
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "E51",
+      "column_id": "bin_loc",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "M-013",
+        "normalized_value": "M-013",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Shelf",
+          "value_printed": "M-013",
+          "label_bbox_pt": [
+            390,
+            518,
+            472,
+            542
+          ],
+          "value_bbox_pt": [
+            390,
+            482,
+            472,
+            506
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 0,
+      "row_id": "E51",
+      "column_id": "qty_used",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "3.00",
+        "normalized_value": "3.00",
+        "value_type": "decimal_2"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Used count",
+          "value_printed": "3.00",
+          "label_bbox_pt": [
+            472,
+            518,
+            572,
+            542
+          ],
+          "value_bbox_pt": [
+            472,
+            482,
+            572,
+            506
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "E52",
+      "column_id": "part_sku",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "00065028",
+        "normalized_value": "00065028",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Stock reference",
+          "value_printed": "00065028",
+          "label_bbox_pt": [
+            40,
+            518,
+            152,
+            542
+          ],
+          "value_bbox_pt": [
+            40,
+            446,
+            152,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "E52",
+      "column_id": "part_desc",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "Contact retaining clip",
+        "normalized_value": "Contact retaining clip",
+        "value_type": "text"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Item supplied",
+          "value_printed": "Contact retaining clip",
+          "label_bbox_pt": [
+            152,
+            518,
+            390,
+            542
+          ],
+          "value_bbox_pt": [
+            152,
+            446,
+            390,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "E52",
+      "column_id": "bin_loc",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "M-027",
+        "normalized_value": "M-027",
+        "value_type": "identifier"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Shelf",
+          "value_printed": "M-027",
+          "label_bbox_pt": [
+            390,
+            518,
+            472,
+            542
+          ],
+          "value_bbox_pt": [
+            390,
+            446,
+            472,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "cell",
+      "page_number": 1,
+      "table_id": "stock_parts",
+      "row_ordinal": 1,
+      "row_id": "E52",
+      "column_id": "qty_used",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "4.00",
+        "normalized_value": "4.00",
+        "value_type": "decimal_2"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Used count",
+          "value_printed": "4.00",
+          "label_bbox_pt": [
+            472,
+            518,
+            572,
+            542
+          ],
+          "value_bbox_pt": [
+            472,
+            446,
+            572,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "absence",
+      "page_number": 1,
+      "field_id": "resident_contact",
+      "truth_status": "known",
+      "truth": {
+        "printed_text": "",
+        "expected_state": "absent_blank"
+      },
+      "action": "assign",
+      "reason": "supported",
+      "evidence": [
+        {
+          "label_printed": "Occupant callback",
+          "value_printed": "",
+          "label_bbox_pt": [
+            40,
+            172,
+            234,
+            186
+          ],
+          "value_bbox_pt": [
+            252,
+            170,
+            572,
+            188
+          ]
+        }
+      ]
+    }
+  ]
+}

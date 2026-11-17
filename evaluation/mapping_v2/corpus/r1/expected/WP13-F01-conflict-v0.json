@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "WP13-F01-conflict-v0",
+  "family_id": "WP13-F01",
+  "doc_kind": "work_order",
+  "split": "vocabulary_eval",
+  "variant_kind": "conflict",
+  "page_count": 1,
+  "parent_fixture_id": null,
+  "expected_fields": [
+    {
+      "field_id": "work_order_id",
+      "page_number": 1,
+      "label_printed": "Repair record",
+      "printed_text": "WO-0004926",
+      "normalized_value": "WO-0004926",
+      "value_type": "identifier",
+      "bbox_pt": [
+        252,
+        484,
+        572,
+        498
+      ]
+    },
+    {
+      "field_id": "property_name",
+      "page_number": 1,
+      "label_printed": "Premises name",
+      "printed_text": "Fictional Indigo Fox Residences",
+      "normalized_value": "Fictional Indigo Fox Residences",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        455,
+        572,
+        469
+      ]
+    },
+    {
+      "field_id": "building_unit",
+      "page_number": 1,
+      "label_printed": "Place within site",
+      "printed_text": "Block D / Unit 003A",
+      "normalized_value": "Block D / Unit 003A",
+      "value_type": "identifier",
+      "bbox_pt": [
+        252,
+        426,
+        572,
+        440
+      ]
+    },
+    {
+      "field_id": "requested_date",
+      "page_number": 1,
+      "label_printed": "Opened on",
+      "printed_text": "2026-07-18",
+      "normalized_value": "2026-07-18",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        252,
+        397,
+        572,
+        411
+      ]
+    },
+    {
+      "field_id": "trade_category",
+      "page_number": 1,
+      "label_printed": "Work discipline",
+      "printed_text": "Carpentry / door seals",
+      "normalized_value": "Carpentry / door seals",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        368,
+        572,
+        382
+      ]
+    },
+    {
+      "field_id": "assigned_tech",
+      "page_number": 1,
+      "label_printed": "Worker assigned",
+      "printed_text": "Fictional Mara Linden",
+      "normalized_value": "Fictional Mara Linden",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        339,
+        572,
+        353
+      ]
+    },
+    {
+      "field_id": "completion_status",
+      "page_number": 1,
+      "label_printed": "Job state",
+      "printed_text": "Closed - seal seated on practice frame",
+      "normalized_value": "Closed - seal seated on practice frame",
+      "value_type": "text",
+      "bbox_pt": [
+        252,
+        310,
+        572,
+        324
+      ]
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "stock_parts",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "rows": [
+        {
+          "row_id": "P31",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "00073165",
+              "normalized_value": "00073165",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                630,
+                140,
+                654
+              ]
+            },
+            "part_desc": {
+              "printed_text": "Door edge seal strip",
+              "normalized_value": "Door edge seal strip",
+              "value_type": "text",
+              "bbox_pt": [
+                140,
+                630,
+                390,
+                654
+              ]
+            },
+            "bin_loc": {
+              "printed_text": "D-034",
+              "normalized_value": "D-034",
+              "value_type": "identifier",
+              "bbox_pt": [
+                390,
+                630,
+                464,
+                654
+              ]
+            },
+            "qty_used": {
+              "printed_text": "2.00",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                464,
+                630,
+                572,
+                654
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "P32",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "00090824",
+              "normalized_value": "00090824",
+              "value_type": "identifier",
+              "bbox_pt": [
+                40,
+                594,
+                140,
+                618
+              ]
+            },
+            "part_desc": {
+              "printed_text": "Retainer screw",
+              "normalized_value": "Retainer screw",
+              "value_type": "text",
+              "bbox_pt": [
+                140,
+                594,
+                390,
+                618
+              ]
+            },
+            "bin_loc": {
+              "printed_text": "D-042",
+              "normalized_value": "D-042",
+              "value_type": "identifier",
+              "bbox_pt": [
+                390,
+                594,
+                464,
+                618
+              ]
+            },
+            "qty_used": {
+              "printed_text": "7.00",
+              "normalized_value": "7.00",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                464,
+                594,
+                572,
+                618
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "resident_contact",
+      "page_number": 1,
+      "label_printed": "Occupant callback",
+      "expected_state": "absent_blank",
+      "bbox_pt": [
+        252,
+        262,
+        572,
+        280
+      ]
+    }
+  ],
+  "page_sentinels": [],
+  "expected_adjacent_page_pairs": [],
+  "cross_page_links": []
+}
