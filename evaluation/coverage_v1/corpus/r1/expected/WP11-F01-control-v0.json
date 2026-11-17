@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "WP11-F01-control-v0",
+  "family_id": "WP11-F01",
+  "doc_kind": "work_order",
+  "split": "diagnostic_eval",
+  "variant_kind": "control",
+  "page_count": 1,
+  "parent_fixture_id": null,
+  "expected_fields": [
+    {
+      "field_id": "work_order_id",
+      "page_number": 1,
+      "label_printed": "Work Order ID",
+      "printed_text": "WO-0008645",
+      "normalized_value": "WO-0008645",
+      "value_type": "identifier",
+      "bbox_pt": [
+        330,
+        670,
+        388.3,
+        680
+      ]
+    },
+    {
+      "field_id": "property_name",
+      "page_number": 1,
+      "label_printed": "Property",
+      "printed_text": "Fictional Amber Otter Court",
+      "normalized_value": "Fictional Amber Otter Court",
+      "value_type": "text",
+      "bbox_pt": [
+        330,
+        642,
+        457.5,
+        652
+      ]
+    },
+    {
+      "field_id": "building_unit",
+      "page_number": 1,
+      "label_printed": "Building / Unit",
+      "printed_text": "Block R / Unit 007C",
+      "normalized_value": "Block R / Unit 007C",
+      "value_type": "identifier",
+      "bbox_pt": [
+        330,
+        614,
+        422.0,
+        624
+      ]
+    },
+    {
+      "field_id": "requested_date",
+      "page_number": 1,
+      "label_printed": "Requested Date",
+      "printed_text": "2026-04-09",
+      "normalized_value": "2026-04-09",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        330,
+        586,
+        381.8,
+        596
+      ]
+    },
+    {
+      "field_id": "trade_category",
+      "page_number": 1,
+      "label_printed": "Trade Category",
+      "printed_text": "Carpentry / sash hardware",
+      "normalized_value": "Carpentry / sash hardware",
+      "value_type": "text",
+      "bbox_pt": [
+        330,
+        558,
+        450.9,
+        568
+      ]
+    },
+    {
+      "field_id": "assigned_tech",
+      "page_number": 1,
+      "label_printed": "Assigned Technician",
+      "printed_text": "Fictional Nola Wren",
+      "normalized_value": "Fictional Nola Wren",
+      "value_type": "text",
+      "bbox_pt": [
+        330,
+        530,
+        420.0,
+        540
+      ]
+    },
+    {
+      "field_id": "completion_status",
+      "page_number": 1,
+      "label_printed": "Work Order Status",
+      "printed_text": "Closed - sash travels freely",
+      "normalized_value": "Closed - sash travels freely",
+      "value_type": "text",
+      "bbox_pt": [
+        330,
+        502,
+        456.6,
+        512
+      ]
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "stock_parts",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "part_sku",
+        "part_desc",
+        "bin_loc",
+        "qty_used"
+      ],
+      "rows": [
+        {
+          "row_id": "W-A",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "00091284",
+              "normalized_value": "00091284",
+              "value_type": "identifier",
+              "bbox_pt": [
+                43,
+                314,
+                77.94,
+                321.8
+              ]
+            },
+            "part_desc": {
+              "printed_text": "Nylon sash guide",
+              "normalized_value": "Nylon sash guide",
+              "value_type": "text",
+              "bbox_pt": [
+                149,
+                314,
+                210.46,
+                321.8
+              ]
+            },
+            "bin_loc": {
+              "printed_text": "S-006",
+              "normalized_value": "S-006",
+              "value_type": "identifier",
+              "bbox_pt": [
+                395,
+                314,
+                416.14,
+                321.8
+              ]
+            },
+            "qty_used": {
+              "printed_text": "3.00",
+              "normalized_value": "3.00",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                477,
+                314,
+                492.37,
+                321.8
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "W-B",
+          "page_number": 1,
+          "cells": {
+            "part_sku": {
+              "printed_text": "00046193",
+              "normalized_value": "00046193",
+              "value_type": "identifier",
+              "bbox_pt": [
+                43,
+                278,
+                77.94,
+                285.8
+              ]
+            },
+            "part_desc": {
+              "printed_text": "Window stop fastener",
+              "normalized_value": "Window stop fastener",
+              "value_type": "text",
+              "bbox_pt": [
+                149,
+                278,
+                225.21,
+                285.8
+              ]
+            },
+            "bin_loc": {
+              "printed_text": "S-021",
+              "normalized_value": "S-021",
+              "value_type": "identifier",
+              "bbox_pt": [
+                395,
+                278,
+                416.14,
+                285.8
+              ]
+            },
+            "qty_used": {
+              "printed_text": "6.00",
+              "normalized_value": "6.00",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                477,
+                278,
+                492.37,
+                285.8
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "resident_contact",
+      "page_number": 1,
+      "label_printed": "Resident Contact",
+      "expected_state": "absent_blank",
+      "bbox_pt": [
+        330,
+        139,
+        572,
+        161
+      ]
+    }
+  ],
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": []
+}

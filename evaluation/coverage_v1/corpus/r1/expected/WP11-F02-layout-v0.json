@@ -1,0 +1,509 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "WP11-F02-layout-v0",
+  "family_id": "WP11-F02",
+  "doc_kind": "service_invoice",
+  "split": "diagnostic_eval",
+  "variant_kind": "layout",
+  "page_count": 1,
+  "parent_fixture_id": "WP11-F02-control-v0",
+  "expected_fields": [
+    {
+      "field_id": "invoice_number",
+      "page_number": 1,
+      "label_printed": "Invoice No",
+      "printed_text": "IV-0005638",
+      "normalized_value": "IV-0005638",
+      "value_type": "identifier",
+      "bbox_pt": [
+        40,
+        462,
+        92.4,
+        472
+      ]
+    },
+    {
+      "field_id": "invoice_date",
+      "page_number": 1,
+      "label_printed": "Invoice Date",
+      "printed_text": "2026-05-04",
+      "normalized_value": "2026-05-04",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        320,
+        462,
+        371.8,
+        472
+      ]
+    },
+    {
+      "field_id": "due_date",
+      "page_number": 1,
+      "label_printed": "Due Date",
+      "printed_text": "2026-06-03",
+      "normalized_value": "2026-06-03",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        40,
+        402,
+        91.8,
+        412
+      ]
+    },
+    {
+      "field_id": "work_order_ref",
+      "page_number": 1,
+      "label_printed": "Work Order Ref",
+      "printed_text": "WO-0003827",
+      "normalized_value": "WO-0003827",
+      "value_type": "identifier",
+      "bbox_pt": [
+        320,
+        402,
+        378.3,
+        412
+      ]
+    },
+    {
+      "field_id": "payment_terms",
+      "page_number": 1,
+      "label_printed": "Terms",
+      "printed_text": "30 days from issue",
+      "normalized_value": "30 days from issue",
+      "value_type": "text",
+      "bbox_pt": [
+        40,
+        342,
+        126.2,
+        352
+      ]
+    },
+    {
+      "field_id": "subtotal",
+      "page_number": 1,
+      "label_printed": "Line Net Subtotal",
+      "printed_text": "$145.20",
+      "normalized_value": "145.20",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        320,
+        342,
+        356.5,
+        352
+      ]
+    },
+    {
+      "field_id": "taxable_subtotal",
+      "page_number": 1,
+      "label_printed": "Taxable Subtotal (Tax=T Rows)",
+      "printed_text": "$145.20",
+      "normalized_value": "145.20",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        40,
+        282,
+        76.5,
+        292
+      ]
+    },
+    {
+      "field_id": "tax_amount",
+      "page_number": 1,
+      "label_printed": "Sales Tax (7.50% on Taxable Subtotal)",
+      "printed_text": "$10.89",
+      "normalized_value": "10.89",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        320,
+        282,
+        350.9,
+        292
+      ]
+    },
+    {
+      "field_id": "invoice_total",
+      "page_number": 1,
+      "label_printed": "CURRENT INVOICE TOTAL",
+      "printed_text": "$156.09",
+      "normalized_value": "156.09",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        40,
+        222,
+        76.5,
+        232
+      ]
+    },
+    {
+      "field_id": "amount_due",
+      "page_number": 1,
+      "label_printed": "TOTAL AMOUNT DUE",
+      "printed_text": "$156.09",
+      "normalized_value": "156.09",
+      "value_type": "currency_usd",
+      "bbox_pt": [
+        320,
+        222,
+        356.5,
+        232
+      ]
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "line_items",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "row_id",
+        "sku",
+        "description",
+        "qty_unit",
+        "unit_price",
+        "discount_rate",
+        "line_discount",
+        "tax_flag",
+        "net_line"
+      ],
+      "rows": [
+        {
+          "row_id": "K17",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "K17",
+              "normalized_value": "K17",
+              "value_type": "identifier",
+              "bbox_pt": [
+                43,
+                614,
+                57.04,
+                621.8
+              ]
+            },
+            "sku": {
+              "printed_text": "00068547",
+              "normalized_value": "00068547",
+              "value_type": "identifier",
+              "bbox_pt": [
+                73,
+                614,
+                107.94,
+                621.8
+              ]
+            },
+            "description": {
+              "printed_text": "Actuator bracket",
+              "normalized_value": "Actuator bracket",
+              "value_type": "text",
+              "bbox_pt": [
+                133,
+                614,
+                192.12,
+                621.8
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "4.00 EA",
+              "normalized_value": "4.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "EA",
+              "bbox_pt": [
+                273,
+                614,
+                301.24,
+                621.8
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$11.75",
+              "normalized_value": "11.75",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                323,
+                614,
+                347.1,
+                621.8
+              ]
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent",
+              "bbox_pt": [
+                379,
+                614,
+                401.39,
+                621.8
+              ]
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                421,
+                614,
+                440.73,
+                621.8
+              ]
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier",
+              "bbox_pt": [
+                475,
+                614,
+                480.3,
+                621.8
+              ]
+            },
+            "net_line": {
+              "printed_text": "$47.00",
+              "normalized_value": "47.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                503,
+                614,
+                527.1,
+                621.8
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "K18",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "K18",
+              "normalized_value": "K18",
+              "value_type": "identifier",
+              "bbox_pt": [
+                43,
+                578,
+                57.04,
+                585.8
+              ]
+            },
+            "sku": {
+              "printed_text": "00090632",
+              "normalized_value": "00090632",
+              "value_type": "identifier",
+              "bbox_pt": [
+                73,
+                578,
+                107.94,
+                585.8
+              ]
+            },
+            "description": {
+              "printed_text": "Control linkage service",
+              "normalized_value": "Control linkage service",
+              "value_type": "text",
+              "bbox_pt": [
+                133,
+                578,
+                215.6,
+                585.8
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "1.25 HR",
+              "normalized_value": "1.25",
+              "value_type": "decimal_2",
+              "quantity_unit": "HR",
+              "bbox_pt": [
+                273,
+                578,
+                302.02,
+                585.8
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$68.40",
+              "normalized_value": "68.40",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                323,
+                578,
+                347.1,
+                585.8
+              ]
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent",
+              "bbox_pt": [
+                379,
+                578,
+                401.39,
+                585.8
+              ]
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                421,
+                578,
+                440.73,
+                585.8
+              ]
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier",
+              "bbox_pt": [
+                475,
+                578,
+                480.3,
+                585.8
+              ]
+            },
+            "net_line": {
+              "printed_text": "$85.50",
+              "normalized_value": "85.50",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                503,
+                578,
+                527.1,
+                585.8
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "K19",
+          "page_number": 1,
+          "cells": {
+            "row_id": {
+              "printed_text": "K19",
+              "normalized_value": "K19",
+              "value_type": "identifier",
+              "bbox_pt": [
+                43,
+                542,
+                57.04,
+                549.8
+              ]
+            },
+            "sku": {
+              "printed_text": "00027458",
+              "normalized_value": "00027458",
+              "value_type": "identifier",
+              "bbox_pt": [
+                73,
+                542,
+                107.94,
+                549.8
+              ]
+            },
+            "description": {
+              "printed_text": "Retainer hardware kit",
+              "normalized_value": "Retainer hardware kit",
+              "value_type": "text",
+              "bbox_pt": [
+                133,
+                542,
+                209.21,
+                549.8
+              ]
+            },
+            "qty_unit": {
+              "printed_text": "2.00 KT",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "KT",
+              "bbox_pt": [
+                273,
+                542,
+                301.24,
+                549.8
+              ]
+            },
+            "unit_price": {
+              "printed_text": "$6.35",
+              "normalized_value": "6.35",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                323,
+                542,
+                342.73,
+                549.8
+              ]
+            },
+            "discount_rate": {
+              "printed_text": "0.00%",
+              "normalized_value": "0.0000",
+              "value_type": "rate_percent",
+              "bbox_pt": [
+                379,
+                542,
+                401.39,
+                549.8
+              ]
+            },
+            "line_discount": {
+              "printed_text": "$0.00",
+              "normalized_value": "0.00",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                421,
+                542,
+                440.73,
+                549.8
+              ]
+            },
+            "tax_flag": {
+              "printed_text": "T",
+              "normalized_value": "T",
+              "value_type": "identifier",
+              "bbox_pt": [
+                475,
+                542,
+                480.3,
+                549.8
+              ]
+            },
+            "net_line": {
+              "printed_text": "$12.70",
+              "normalized_value": "12.70",
+              "value_type": "currency_usd",
+              "bbox_pt": [
+                503,
+                542,
+                527.1,
+                549.8
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "customer_po_code",
+      "page_number": 1,
+      "label_printed": "Customer PO / CapEx Code",
+      "expected_state": "absent_blank",
+      "bbox_pt": [
+        330,
+        139,
+        572,
+        161
+      ]
+    }
+  ],
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": []
+}

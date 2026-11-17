@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "WP11-F03-layout-v0",
+  "family_id": "WP11-F03",
+  "doc_kind": "inspection_service_checklist",
+  "split": "diagnostic_eval",
+  "variant_kind": "layout",
+  "page_count": 1,
+  "parent_fixture_id": "WP11-F03-control-v0",
+  "expected_fields": [
+    {
+      "field_id": "work_order_id",
+      "page_number": 1,
+      "label_printed": "Ticket Number",
+      "printed_text": "CK-0007516",
+      "normalized_value": "CK-0007516",
+      "value_type": "identifier",
+      "bbox_pt": [
+        40,
+        462,
+        97.3,
+        472
+      ]
+    },
+    {
+      "field_id": "property_unit",
+      "page_number": 1,
+      "label_printed": "Property / Unit",
+      "printed_text": "Fictional Silver Badger / Room 009",
+      "normalized_value": "Fictional Silver Badger / Room 009",
+      "value_type": "text",
+      "bbox_pt": [
+        320,
+        462,
+        479.6,
+        472
+      ]
+    },
+    {
+      "field_id": "requested_date",
+      "page_number": 1,
+      "label_printed": "Requested Date",
+      "printed_text": "2026-03-26",
+      "normalized_value": "2026-03-26",
+      "value_type": "date_iso",
+      "bbox_pt": [
+        40,
+        402,
+        91.8,
+        412
+      ]
+    },
+    {
+      "field_id": "assigned_tech",
+      "page_number": 1,
+      "label_printed": "Assigned Technician",
+      "printed_text": "Fictional Iris Moth",
+      "normalized_value": "Fictional Iris Moth",
+      "value_type": "text",
+      "bbox_pt": [
+        320,
+        402,
+        403.2,
+        412
+      ]
+    },
+    {
+      "field_id": "equipment_asset_tag",
+      "page_number": 1,
+      "label_printed": "Water Heater Asset Tag",
+      "printed_text": "WH-0002841",
+      "normalized_value": "WH-0002841",
+      "value_type": "identifier",
+      "bbox_pt": [
+        40,
+        342,
+        98.3,
+        352
+      ]
+    },
+    {
+      "field_id": "water_isolated",
+      "page_number": 1,
+      "label_printed": "Branch Isolation Tested",
+      "printed_text": "[X]",
+      "normalized_value": "true",
+      "value_type": "boolean_mark",
+      "bbox_pt": [
+        320,
+        342,
+        333.8,
+        352
+      ]
+    }
+  ],
+  "expected_tables": [
+    {
+      "table_id": "turnover_tasks",
+      "page_numbers": [
+        1
+      ],
+      "repeated_header_pages": [],
+      "column_ids": [
+        "task_code",
+        "fixture_area",
+        "action_taken",
+        "pressure_psi"
+      ],
+      "rows": [
+        {
+          "row_id": "I-A",
+          "page_number": 1,
+          "cells": {
+            "task_code": {
+              "printed_text": "T-071",
+              "normalized_value": "T-071",
+              "value_type": "identifier",
+              "bbox_pt": [
+                43,
+                614,
+                64.14,
+                621.8
+              ]
+            },
+            "fixture_area": {
+              "printed_text": "Cold feed",
+              "normalized_value": "Cold feed",
+              "value_type": "text",
+              "bbox_pt": [
+                123,
+                614,
+                157.4,
+                621.8
+              ]
+            },
+            "action_taken": {
+              "printed_text": "Static gauge reading recorded",
+              "normalized_value": "Static gauge reading recorded",
+              "value_type": "text",
+              "bbox_pt": [
+                249,
+                614,
+                355.08,
+                621.8
+              ]
+            },
+            "pressure_psi": {
+              "printed_text": "58.00",
+              "normalized_value": "58.00",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                491,
+                614,
+                510.73,
+                621.8
+              ]
+            }
+          }
+        },
+        {
+          "row_id": "I-B",
+          "page_number": 1,
+          "cells": {
+            "task_code": {
+              "printed_text": "T-072",
+              "normalized_value": "T-072",
+              "value_type": "identifier",
+              "bbox_pt": [
+                43,
+                578,
+                64.14,
+                585.8
+              ]
+            },
+            "fixture_area": {
+              "printed_text": "Branch outlet",
+              "normalized_value": "Branch outlet",
+              "value_type": "text",
+              "bbox_pt": [
+                123,
+                578,
+                170.5,
+                585.8
+              ]
+            },
+            "action_taken": {
+              "printed_text": "Valve reopened; gauge steady",
+              "normalized_value": "Valve reopened; gauge steady",
+              "value_type": "text",
+              "bbox_pt": [
+                249,
+                578,
+                355.31,
+                585.8
+              ]
+            },
+            "pressure_psi": {
+              "printed_text": "57.50",
+              "normalized_value": "57.50",
+              "value_type": "decimal_2",
+              "bbox_pt": [
+                491,
+                578,
+                510.73,
+                585.8
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "expected_absences": [
+    {
+      "field_id": "secondary_vendor_po",
+      "page_number": 1,
+      "label_printed": "Secondary Vendor PO",
+      "expected_state": "absent_blank",
+      "bbox_pt": [
+        330,
+        139,
+        572,
+        161
+      ]
+    }
+  ],
+  "expected_adjacent_page_pairs": [],
+  "page_sentinels": [],
+  "cross_page_links": []
+}
