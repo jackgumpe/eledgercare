@@ -1,0 +1,38 @@
+{
+  "utc": "2026-11-17T08:50:07.896846+00:00",
+  "status": "ACCEPTED_DESIGN_ONLY",
+  "design": "01a6dab0695c93246b4cf04d1a2098d3b77248d8",
+  "publication": "85d879a1adc0ee62090f4c6a5c9a7fb8eb5f3a96",
+  "exact_origin": "85d879a1adc0ee62090f4c6a5c9a7fb8eb5f3a96",
+  "deliverable": "0584e68d7fa494e1d8c442a9642c9e1edbbe5655",
+  "evidence": "9af6a521eea1b74d3e7230e671034453b4558d8a",
+  "deliverable_artifacts_verified": 3,
+  "preserved_trees_verified": 9,
+  "protected_base_paths": 2707,
+  "all_added_paths": [
+    "docs/agent-reports/eld-f4-reviewer/WP-0010/002_2026-11-17_review_eld-f4-reviewer.md",
+    "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+    "docs/reviews/WP-0010/eld-f4-reviewer/design/inventory.json",
+    "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+    "docs/reviews/WP-0010/eld-f4-reviewer/design/verification-receipt.json",
+    "docs/reviews/WP-0010/eld-f4-reviewer/design/verify_f4_design.py"
+  ],
+  "report_only_verified": true,
+  "local_links_checked": 82,
+  "design_cpu_assertions_passed": 56,
+  "verification_receipt_sha256": "4d1bfdef7e0b4d5a4dc592db6766716de887e28bf04a1fdc30cec9af6c661843",
+  "cli_result": {
+    "status": "ERROR",
+    "finished_reason": "error",
+    "error": "API error (attempt 8): request failed: Post \"https://daily-cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse\": Post \"https://oauth2.googleapis.com/token\": dial tcp: lookup oauth2.googleapis.com: no such host",
+    "duration_seconds": 2492.345833,
+    "num_turns": 1,
+    "os_wrapper_exit": 0,
+    "meaning": "Post-publication provider DNS error; actual evidence/publication checked separately, no CLI SUCCESS claim."
+  },
+  "limits": "Independent actual source/design review and CPU design model checks, not application/PG/browser acceptance. F4-KR-01 and BIC01..08 must be carried into implementation.",
+  "implementation_clarifications": [
+    "Cursor validation rejects malformed/out-of-range/query-mismatched cursors; it does not authenticate issued cursors or promise cryptographic tamper detection.",
+    "Design permits initializer-before-listen or explicit archive-not-ready503; record actual behavior, do not claim an HTTP response before a listener exists."
+  ]
+}

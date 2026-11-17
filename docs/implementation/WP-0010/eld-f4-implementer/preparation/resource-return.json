@@ -1,0 +1,79 @@
+{
+  "schema": "eledgercare.wp-0010.f4-author-preparation-resource-return/1",
+  "owner": "eld-f4-implementer",
+  "conversation_id": "b7c54417-db09-49bd-8d2b-7cc808f113be",
+  "model": "Gemini 4 Carbon (High)",
+  "effort": "high",
+  "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer",
+  "branch": "feature/wp-0010-f4-archive",
+  "merged_coordinator_authority_sha": "419159c0c35f8adccae88ca65b5d7d72ccdde729",
+  "frozen_helper_head_sha": "6e5590be39fd6dbb7eb00c672da5c0a954d9cb2c",
+  "returned_utc": "2026-11-17T08:42:00Z",
+  "owned_ports_after_stop": {
+    "5590": "FREE",
+    "4610": "FREE",
+    "55438": "FREE"
+  },
+  "stopped_owned_processes": {
+    "bootstrap_postmaster_before_freeze": {
+      "pid": 34308,
+      "started_utc": "2026-11-17T08:31:21.7421063Z",
+      "alive_after_stop": false
+    },
+    "decisive_postmaster_55438": {
+      "pid": 34884,
+      "started_utc": "2026-11-17T08:40:55.0978728Z",
+      "stop_command": "pwsh -NoProfile -File deploy/dev/postgres/stop-cluster.ps1",
+      "stop_exit_code": 0,
+      "postmaster_pid_file_absent": true,
+      "alive_after_stop": false
+    },
+    "decisive_api_5590": {
+      "pid": 10740,
+      "started_utc": "2026-11-17T08:41:07.8125119Z",
+      "local_ocr_enabled": false,
+      "alive_after_stop": false
+    },
+    "decisive_ui_4610": {
+      "pid": 25560,
+      "started_utc": "2026-11-17T08:41:11.1190448Z",
+      "alive_after_stop": false
+    }
+  },
+  "retained_postgres_cluster": {
+    "host": "127.0.0.1",
+    "port": 55438,
+    "data_dir_relpath": ".local/postgres-data",
+    "gitignored": true,
+    "preserved_on_disk": true,
+    "retained_seed_database": "eledgercare_f4_author_seed_f3",
+    "applied_migrations": [
+      "20261114182147_InitialDurableIntake",
+      "20261116052029_AddLocalExtraction",
+      "20261116200918_AddWorkOrderReview"
+    ],
+    "canonical_8_table_state_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "row_counts": {
+      "documents": 7,
+      "original_artifacts": 7,
+      "processing_jobs": 7,
+      "execution_attempts": 7,
+      "extraction_results": 5,
+      "work_order_review_heads": 4,
+      "work_order_review_revisions": 7,
+      "work_order_review_fields": 35
+    }
+  },
+  "scratch_cleanup": {
+    "scratch_dir_absent_after_cleanup": true
+  },
+  "remaining_owned_service_or_worker_processes": [],
+  "isolation_and_scope_attestation": {
+    "product_src_web_tests_deploy_modified": 0,
+    "shared_routing_or_canonical_003_modified": 0,
+    "gpu_leases_or_queries": 0,
+    "ocr_worker_invocations": 0,
+    "subagents_invoked": 0,
+    "other_clusters_or_ports_touched": 0
+  }
+}

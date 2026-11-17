@@ -1,0 +1,83 @@
+{
+  "utc": "2026-11-17T08:50:11.733100+00:00",
+  "status": "PREPARATION_VERIFIED_NOT_F4_APPLICATION_ACCEPTANCE",
+  "publication": "033d1dabb348b4dd6ba450ae9397c9f901a8b97b",
+  "exact_origin": "033d1dabb348b4dd6ba450ae9397c9f901a8b97b",
+  "helper_freeze": "6e5590be39fd6dbb7eb00c672da5c0a954d9cb2c",
+  "deliverable": "9dff237c99853e0d7b276ffcddcdc00728b3ce0d",
+  "evidence_artifacts_verified": 17,
+  "input_artifacts_verified": 10,
+  "protected_identities_verified": 22,
+  "protected_base_paths": 2717,
+  "all_added_paths": [
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/.gitattributes",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/helpers/prepare_and_verify_f3_seed.py",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/helpers/verify_f3_seed_ui_edge.mjs",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/edge-ui-smoke-receipt.json",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/01-pg-cluster-start.log",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/02-prepare-f3-seed-db.log",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/03-edge-ui-readonly-smoke.log",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/04-pg-cluster-stop.log",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/owned-api-5590.log",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/owned-ui-4610.log",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/preparation-seed-receipt.json",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/preparation-inventory.json",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/resource-return.json",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/README.md",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/prefreeze-setup-failure-01.txt",
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/prefreeze-setup-failure-02.txt"
+  ],
+  "local_links_checked": 44,
+  "seed_assertions_passed": 13,
+  "edge_smoke_ok": true,
+  "retained_database": {
+    "database": "eledgercare_f4_author_seed_f3",
+    "postgres_port": 55438,
+    "canonical_8_table_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "services_stopped_and_ports_5590_4610_55438_free": true
+  },
+  "retained_row_counts": {
+    "documents": 7,
+    "original_artifacts": 7,
+    "processing_jobs": 7,
+    "execution_attempts": 7,
+    "extraction_results": 5,
+    "work_order_review_heads": 4,
+    "work_order_review_revisions": 7,
+    "work_order_review_fields": 35
+  },
+  "root_stop_observation": {
+    "tool_chunk": "5a7470",
+    "absent_bound_pids": [
+      34308,
+      34884,
+      10740,
+      25560
+    ],
+    "free_ports": [
+      5590,
+      4610,
+      55438
+    ]
+  },
+  "receipt_sha256": "2e7a6034d2a48a4bdd63f5c2fa48eb098f1ad610884d3efe957ec152d85db9cc",
+  "resource_return_sha256": "ebb963bc04487933149c2f42fd24c0e533ebf0b9be1e1ce7d2c4a8b1dc2a2726",
+  "cli_result": {
+    "status": "ERROR",
+    "finished_reason": "error",
+    "error": "API error (attempt 8): request failed: Post \"https://daily-cloudcode-pa.googleapis.com/v1internal:streamGenerateContent?alt=sse\": Post \"https://oauth2.googleapis.com/token\": dial tcp: lookup oauth2.googleapis.com: no such host",
+    "duration_seconds": 2264.8789312,
+    "num_turns": 1,
+    "os_wrapper_exit": 0,
+    "meaning": "Post-publication provider DNS error; actual evidence/publication checked separately, no CLI SUCCESS claim."
+  },
+  "provider_dns_recheck": {
+    "tool_chunk": "5a7470",
+    "oauth2.googleapis.com": "resolved",
+    "daily-cloudcode-pa.googleapis.com": "resolved"
+  },
+  "root_read_error": "Initial metadata read used author cwd for root private log path and failed without mutation; repeated against explicit root path.",
+  "scope": "Genuine accepted F2 artifact test imports plus actual unchanged F3/F1 API state,7documents/7attempts/5results/7revisions. No model/GPU or F4 source code. No fresh PDF raster screenshot claimed by root in this prep audit."
+}
