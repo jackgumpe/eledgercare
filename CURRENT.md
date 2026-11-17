@@ -2,6 +2,20 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Active authorized lane: WP-0012 rehearsal and WP-0013 vocabulary mapping
+
+Jack explicitly said "I authorize it" to the [bounded plan](docs/coordination/WP-0012-0013-authority.md) from accepted base73c8d3c4f0a00312e3444328331b6cbd6406e882. No user permission is pending. Root owns coordination/leases/integration; implementation and independent review remain separate. Product gets first GPU execution; initial assignments are CPU preparation only. Fresh Codex sessions require requested xhigh; Carbon retains high.
+
+| Track / owner | State | Exact scope / next gate |
+| --- | --- | --- |
+| Product eld-f4-implementer | PREPARED, not yet dispatched | [WP-0012 preparation001](docs/kickoffs/WP-0012-eld-f4-implementer.md), new rehearsal/wp-0012-product branch in existing owned worktree; next independent002 |
+| Product eld-f4-reviewer | PREPARED, not yet dispatched | [WP-0012 independent review](docs/kickoffs/WP-0012-eld-f4-reviewer.md), review/wp-0012-product-rehearsal; canonical002 awaits exact001 |
+| R&D eld-mapping-author | PREPARED, not yet dispatched | [WP-0013 protocol001](docs/kickoffs/WP-0013-eld-mapping-author.md), research/wp-0013-vocabulary/new eld-vocabulary-author worktree; implementation005 held for protocol002 plus reservation |
+| R&D eld-eval-custodian | PREPARED, not yet dispatched | [WP-0013 custody003](docs/kickoffs/WP-0013-eld-eval-custodian.md), evaluation/wp-0013-vocabulary-families/new eld-vocabulary-custodian; final reserved bytes need accepted public catalog/interface |
+| R&D eld-mapping-reviewer | PREPARED, not yet dispatched | [WP-0013 independent review](docs/kickoffs/WP-0013-eld-mapping-reviewer.md), review/wp-0013-vocabulary/new eld-vocabulary-reviewer;002/004/006/008 separately gated |
+
+Intended live ceilings after exact release: each product owner2new product attempts (one1page/one3page); R&D author12primaries+2declared historical warmups, independent1prespecified sentinel+2warmups. No automatic retry. All calls serialize; initial dispatch grants no inference. Old product databases, worktrees/branches and immutable publications remain intact. Demonstration acceptance does not depend on R&D gains.
+
 ## Completed: WP-0010 F4 and WP-0011 controlled diagnosis
 
 Both authorized tracks are independently accepted, integrated and published. No implementation, review, agent response or user permission remains pending. Jack's [bounded authorization](docs/coordination/WP-0010-0011-authority.md) began from base956c056be2ec970340074871ecdd7e1a9855d944. Root coordinated and integrated; separate authors implemented, and non-authors reviewed. Fresh Codex sessions remain restricted to requested xhigh; Carbon roles retained high.
@@ -42,4 +56,4 @@ All assigned execution has ended, owned product test services are stopped and bo
 
 ## Boundary
 
-Local synthetic one-to-three-page documents only. Preserve original extraction/provenance and explicit human-review state. Product imports no research/evaluation mapper. Offline library settings are documented accurately; OS outbound denial is not verified. F4 and the finite controlled diagnosis are completed under the assignments above; no further execution is released. E1-E3 model treatment, training, customer data, deployment and legacy migration remain outside scope. No other application, owner process or database may be changed.
+Local synthetic one-to-three-page documents only. Preserve original extraction/provenance and explicit human-review state. Product imports no research/evaluation mapper. Offline library settings are documented accurately; OS outbound denial is not verified. F4 and the finite controlled diagnosis are complete. Only the bounded WP-0012 rehearsal and WP-0013 vocabulary experiment above are newly authorized; exact live leases remain separate gates. E1-E3 model treatment, training, customer data, deployment and legacy migration remain outside scope. No other application, owner process or database may be changed.

@@ -890,3 +890,25 @@ WP-0010 independent007 ACCEPTED/PUBLISHED ce4109a1515af1a8583a208e8085f2fa3bfa2d
 
 
 WP-0010 final coordinator005 ACCEPTED/INTEGRATED/PUBLISHED **3c17de27f90ebaaa1516cb0427d7526471d56476**; canonical docs/agent-reports/eld-coordinator/WP-0010/005_2026-11-17_verification_eld-coordinator.md. Frozen disposition43ad69569a7a7f610e058bc076daa237f346aeba; preservation202f704c89c8d1cbca082b25ed098c21bd3b3810 PASS2570historical paths/932changed paths/6accepted trees/22publication ancestries. Receipt docs/coordination/WP-0010/final-disposition/publication-receipt.json. Final accepted sourcec1fed68020ae67e8b4763bc6ea5473adaa86de2b and independent007ce4109a1515af1a8583a208e8085f2fa3bfa2d72 exact origin verified. Both WP-0010 and WP-0011 COMPLETE; all actual execution ended, services stopped, retained data unchanged, both GPU leases returned. No required work or user permission pending and no next lane released. Historical reservations/status entries remain immutable history; this is the final disposition.
+
+
+## WP-0012 / WP-0013: authorized rehearsal and guarded vocabulary lane
+
+Jack: "I authorize it". Accepted base73c8d3c4f0a00312e3444328331b6cbd6406e882. Exact authority docs/coordination/WP-0012-0013-authority.md. Prior packets remain closed. No user permission pending; actual dispatch recorded separately.
+
+| Packet / seq | Owner / category | Branch / worktree | Canonical report | Gate |
+| --- | --- | --- | --- | --- |
+| WP-0012 / 001 | eld-f4-implementer / implementation | rehearsal/wp-0012-product; eld-f4-implementer | docs/agent-reports/eld-f4-implementer/WP-0012/001_2026-11-17_implementation_eld-f4-implementer.md | RELEASED CPU preparation/runbook; live003 held |
+| WP-0012 / 002 | eld-f4-reviewer / review | review/wp-0012-product-rehearsal; eld-f4-reviewer | docs/agent-reports/eld-f4-reviewer/WP-0012/002_2026-11-17_review_eld-f4-reviewer.md | RELEASED preliminary preparation; canonical awaits exact001 |
+| WP-0012 / 003 | eld-f4-implementer / verification | rehearsal/wp-0012-product; eld-f4-implementer | docs/agent-reports/eld-f4-implementer/WP-0012/003_2026-11-17_verification_eld-f4-implementer.md | HELD exact accepted preparation and sole runtime lease |
+| WP-0012 / 004 | eld-f4-reviewer / review | review/wp-0012-product-rehearsal; eld-f4-reviewer | docs/agent-reports/eld-f4-reviewer/WP-0012/004_2026-11-17_review_eld-f4-reviewer.md | HELD author003 and own exact sole runtime lease |
+| WP-0012 / 005 | eld-coordinator / verification | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0012/005_2026-11-17_verification_eld-coordinator.md | RESERVED final disposition |
+| WP-0013 / 001 | eld-mapping-author / research | research/wp-0013-vocabulary; eld-vocabulary-author | docs/agent-reports/eld-mapping-author/WP-0013/001_2026-11-17_research_eld-mapping-author.md | RELEASED public protocol/catalog only |
+| WP-0013 / 002 | eld-mapping-reviewer / review | review/wp-0013-vocabulary; eld-vocabulary-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0013/002_2026-11-17_review_eld-mapping-reviewer.md | RELEASED preliminary review; canonical awaits exact001 |
+| WP-0013 / 003 | eld-eval-custodian / verification | evaluation/wp-0013-vocabulary-families; eld-vocabulary-custodian | docs/agent-reports/eld-eval-custodian/WP-0013/003_2026-11-17_verification_eld-eval-custodian.md | RELEASED private foundations; final reservation needs accepted catalog and004 |
+| WP-0013 / 004 | eld-mapping-reviewer / review | review/wp-0013-vocabulary; eld-vocabulary-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0013/004_2026-11-17_review_eld-mapping-reviewer.md | HELD exact sealed corpus reservation |
+| WP-0013 / 005 | eld-mapping-author / implementation | research/wp-0013-vocabulary; eld-vocabulary-author | docs/agent-reports/eld-mapping-author/WP-0013/005_2026-11-17_implementation_eld-mapping-author.md | HELD accepted002 and exact pre-implementation reservation |
+| WP-0013 / 006 | eld-mapping-reviewer / review | review/wp-0013-vocabulary; eld-vocabulary-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0013/006_2026-11-17_review_eld-mapping-reviewer.md | HELD exact implementation005 |
+| WP-0013 / 007 | eld-mapping-author / research | research/wp-0013-vocabulary; eld-vocabulary-author | docs/agent-reports/eld-mapping-author/WP-0013/007_2026-11-17_research_eld-mapping-author.md | HELD source006, admitted corpus, root unseal and sole lease |
+| WP-0013 / 008 | eld-mapping-reviewer / review | review/wp-0013-vocabulary; eld-vocabulary-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0013/008_2026-11-17_review_eld-mapping-reviewer.md | HELD actual007 and independent sentinel lease |
+| WP-0013 / 009 | eld-coordinator / verification | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0013/009_2026-11-17_verification_eld-coordinator.md | RESERVED final disposition |
