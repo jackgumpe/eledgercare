@@ -1,0 +1,28 @@
+{
+  "started_utc": "2026-11-17T17:50:02.875204+00:00",
+  "source": "5e75cacd11f18bf6135376e3e1e10887c1447e1f",
+  "executing_head": "dbbf03ed45a39cb2dacdff87e1614aff09288b97",
+  "mode": "lifecycle",
+  "command": [
+    "docs/reviews/WP-0012/eld-f4-reviewer/live-004/integration-correction/helpers/check_v7_integration_cpu.py",
+    "--mode",
+    "lifecycle",
+    "--output-dir",
+    "C:/Users/jackg/eLedgerCare-Demo/WP-0012/reviewer/rehearsal-evidence/WP-0012-reviewer-v7-cpu-lifecycle-01"
+  ],
+  "runtime_authorization": false,
+  "source_files": {
+    "docs/reviews/WP-0012/eld-f4-reviewer/live-004/integration-correction/helpers/check_v7_integration_cpu.py": "a41d9e98e5b36a4c4cd7acec52469920f5c784957658902fc347d32c48e4d741",
+    "docs/reviews/WP-0012/eld-f4-reviewer/live-004/integration-correction/helpers/run_wp0012_reviewer_rehearsal_v7.py": "9a445e00a812c79928c81922c1c43716bf4f04fe48cc8e7fae8f3f1106648c61",
+    "docs/reviews/WP-0012/eld-f4-reviewer/live-004/integration-correction/helpers/ownership_v6.py": "ff01e70c09c1e7b69cbed3c660f9f6cb777d381a920a51af7e1204d24eee6d9f",
+    "docs/reviews/WP-0012/eld-f4-reviewer/preparation/helpers/run_wp0012_reviewer_rehearsal.py": "6a3a4b7f366517d97d23831567418c97809b9d74cc79b8cb871ac8e3df86a81f",
+    "docs/reviews/WP-0012/eld-f4-reviewer/preparation/helpers/drive_wp0012_edge_workflow.mjs": "c8cd73a9a10af0dcf77b517f84684c0772de9ac31b2c6332a496e266dcfb8443"
+  },
+  "error": {
+    "type": "AssertionError",
+    "message": "",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0012\\eld-f4-reviewer\\live-004\\integration-correction\\helpers\\check_v7_integration_cpu.py\", line 299, in main\n    lifecycle(args.output_dir / \"complete-cpu-lifecycle\", False)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0012\\eld-f4-reviewer\\live-004\\integration-correction\\helpers\\check_v7_integration_cpu.py\", line 273, in lifecycle\n    assert returned[\"lease_id\"] == \"CPU-INTEGRATION-NOT-A-LEASE\" and returned[\"clean_return_verified\"] is True\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "finished_utc": "2026-11-17T17:50:36.894304+00:00",
+  "exit_code": 1
+}
