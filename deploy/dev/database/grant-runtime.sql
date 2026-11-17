@@ -1,9 +1,10 @@
--- Least-privilege runtime role grants for F1 + F2 + F3 tables in schema eledgercare.
+-- Least-privilege runtime role grants for F1 + F2 + F3 + F4 tables in schema eledgercare.
 -- Applied by the schema owner (eledgercare_migrator) after explicit EF Core migrations.
 -- The runtime role (eledgercare_app) never receives DELETE, TRUNCATE, REFERENCES, TRIGGER, or DDL.
--- original_artifacts, accepted extraction_results, work_order_review_revisions, and work_order_review_fields
--- remain strictly append-only/immutable (SELECT, INSERT only), and work_order_review_heads permits UPDATE
--- exclusively on mutable head pointer/status/timestamp columns (F3-BIC-02).
+-- original_artifacts, accepted extraction_results, work_order_review_revisions, work_order_review_fields,
+-- archive_result_projections, and archive_projection_units remain strictly append-only/immutable
+-- (SELECT, INSERT only), and work_order_review_heads permits UPDATE exclusively on mutable head
+-- pointer/status/timestamp columns (F3-BIC-02, F4-BIC-05).
 
 GRANT USAGE ON SCHEMA eledgercare TO eledgercare_app;
 
@@ -17,7 +18,9 @@ GRANT SELECT, INSERT ON TABLE
     eledgercare.extraction_results,
     eledgercare.work_order_review_revisions,
     eledgercare.work_order_review_fields,
-    eledgercare.work_order_review_heads
+    eledgercare.work_order_review_heads,
+    eledgercare.archive_result_projections,
+    eledgercare.archive_projection_units
 TO eledgercare_app;
 
 GRANT UPDATE (

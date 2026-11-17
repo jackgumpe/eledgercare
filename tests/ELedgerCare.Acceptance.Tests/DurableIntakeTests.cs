@@ -537,7 +537,7 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
         using var traversal = await client.GetAsync("/api/documents/..%2F..%2FWindows%2Fwin.ini/original", Cancel);
         Assert.Equal(HttpStatusCode.BadRequest, traversal.StatusCode);
 
-        // No filename column exists; the schema has exactly the designed F1+F2+F3 columns.
+        // No filename column exists; the schema has exactly the designed F1+F2+F3+F4 columns.
         await using var admin = await db.OpenAdminAsync();
         await using var command = new NpgsqlCommand(
             "SELECT string_agg(table_name || '.' || column_name, ',' ORDER BY table_name, column_name) FROM information_schema.columns WHERE table_schema = 'eledgercare' AND table_name <> '__ef_migrations_history'",
@@ -546,6 +546,12 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
         Assert.DoesNotContain("file_name", columns, StringComparison.OrdinalIgnoreCase);
         Assert.DoesNotContain("filename", columns, StringComparison.OrdinalIgnoreCase);
         Assert.Equal(
+            "archive_projection_units.document_id,archive_projection_units.is_fallback,archive_projection_units.page_number," +
+            "archive_projection_units.projection_version,archive_projection_units.result_id,archive_projection_units.search_text," +
+            "archive_projection_units.unit_kind,archive_projection_units.unit_ordinal," +
+            "archive_result_projections.document_id,archive_result_projections.has_fallback,archive_result_projections.projected_at," +
+            "archive_result_projections.projection_sha256,archive_result_projections.projection_version,archive_result_projections.raw_output_sha256," +
+            "archive_result_projections.result_id,archive_result_projections.unit_count," +
             "documents.document_id,documents.idempotency_key,documents.submitted_at," +
             "execution_attempts.attempt_id,execution_attempts.attempt_number,execution_attempts.diagnostic_metadata_json," +
             "execution_attempts.diagnostic_raw_output_utf8,execution_attempts.document_id,execution_attempts.ended_at," +
@@ -651,11 +657,15 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
                      "UPDATE eledgercare.original_artifacts SET media_type = media_type",
                      "UPDATE eledgercare.documents SET submitted_at = submitted_at",
                      "UPDATE eledgercare.extraction_results SET finish_reason = finish_reason",
+                     "UPDATE eledgercare.archive_result_projections SET unit_count = unit_count",
+                     "UPDATE eledgercare.archive_projection_units SET search_text = search_text",
                      "UPDATE eledgercare.processing_jobs SET job_id = job_id",
                      "UPDATE eledgercare.execution_attempts SET attempt_id = attempt_id",
                      "DELETE FROM eledgercare.documents",
                      "DELETE FROM eledgercare.execution_attempts",
                      "DELETE FROM eledgercare.extraction_results",
+                     "DELETE FROM eledgercare.archive_result_projections",
+                     "DELETE FROM eledgercare.archive_projection_units",
                      "TRUNCATE eledgercare.processing_jobs",
                      "CREATE TABLE eledgercare.not_allowed (id int)",
                      "SELECT count(*) FROM eledgercare.__ef_migrations_history",
@@ -745,10 +755,13 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
             "SELECT indexdef FROM pg_indexes WHERE schemaname = 'eledgercare' AND indexname = 'ux_documents_idempotency_key'");
 
         Assert.Equal(
+            "archive_projection_units=p,archive_result_projections=p," +
             "documents=p,execution_attempts=p,extraction_results=p,original_artifacts=p,processing_jobs=p," +
             "work_order_review_fields=p,work_order_review_heads=p,work_order_review_revisions=p",
             persistence);
         Assert.Equal(
+            "fk_archive_projection_units_documents:del=r,upd=a;fk_archive_projection_units_projections:del=r,upd=a;" +
+            "fk_archive_result_projections_documents:del=r,upd=a;fk_archive_result_projections_extraction_results:del=r,upd=a;" +
             "fk_execution_attempts_documents:del=r,upd=a;fk_execution_attempts_processing_jobs:del=r,upd=a;" +
             "fk_execution_attempts_retried_from:del=r,upd=a;fk_extraction_results_documents:del=r,upd=a;" +
             "fk_extraction_results_execution_attempts:del=r,upd=a;fk_extraction_results_processing_jobs:del=r,upd=a;" +
@@ -762,6 +775,9 @@ public sealed class DurableIntakeTests(PostgresFixture fixture)
             "fk_work_order_review_revisions_extraction_results:del=r,upd=a",
             foreignKeys);
         Assert.Equal(
+            "ck_archive_projection_units_coords,ck_archive_projection_units_kind,ck_archive_projection_units_ordinal," +
+            "ck_archive_projection_units_text,ck_archive_projection_units_version," +
+            "ck_archive_result_projections_digests,ck_archive_result_projections_unit_count,ck_archive_result_projections_version," +
             "ck_execution_attempts_ended_consistency,ck_execution_attempts_failure_consistency,ck_execution_attempts_positive_ids," +
             "ck_execution_attempts_status,ck_extraction_results_digests,ck_extraction_results_durations," +
             "ck_extraction_results_finish_reason,ck_extraction_results_page_bounds,ck_extraction_results_raw_length_matches," +

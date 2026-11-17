@@ -1,0 +1,61 @@
+=== KEYSET BROWSE PLAN ===
+Limit  (cost=1.20..1.22 rows=7 width=24) (actual time=0.019..0.020 rows=7.00 loops=1)
+  Buffers: shared hit=1
+  ->  Sort  (cost=1.20..1.22 rows=7 width=24) (actual time=0.018..0.019 rows=7.00 loops=1)
+        Sort Key: submitted_at DESC, document_id DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=1
+        ->  Seq Scan on documents d  (cost=0.00..1.10 rows=7 width=24) (actual time=0.010..0.011 rows=7.00 loops=1)
+              Filter: (ROW(submitted_at, document_id) < ROW('2098-12-31 19:00:00-05'::timestamp with time zone, 'ffffffff-ffff-ffff-ffff-ffffffffffff'::uuid))
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=51
+Planning Time: 1.192 ms
+Execution Time: 0.043 ms
+
+=== SINGLE-SNAPSHOT KEYWORD + LATERAL REVIEWED PLAN ===
+Limit  (cost=38.04..38.05 rows=5 width=24) (actual time=0.188..0.189 rows=1.00 loops=1)
+  Buffers: shared hit=22
+  ->  Sort  (cost=38.04..38.05 rows=5 width=24) (actual time=0.187..0.188 rows=1.00 loops=1)
+        Sort Key: d.submitted_at DESC, d.document_id DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=22
+        ->  Nested Loop Left Join  (cost=1.11..37.98 rows=5 width=24) (actual time=0.134..0.169 rows=1.00 loops=1)
+              Filter: (((er.result_id IS NOT NULL) OR (r.revision_id IS NOT NULL)) AND ((ANY (d.document_id = (hashed SubPlan 2).col1)) OR ((r.revision_id IS NOT NULL) AND (ANY (r.revision_id = (hashed SubPlan 4).col1)))))
+              Rows Removed by Filter: 6
+              Buffers: shared hit=16
+              ->  Nested Loop Left Join  (cost=0.00..3.61 rows=7 width=40) (actual time=0.026..0.033 rows=7.00 loops=1)
+                    Join Filter: (er.document_id = d.document_id)
+                    Rows Removed by Join Filter: 20
+                    Buffers: shared hit=3
+                    ->  Seq Scan on documents d  (cost=0.00..1.07 rows=7 width=24) (actual time=0.011..0.011 rows=7.00 loops=1)
+                          Buffers: shared hit=1
+                    ->  Materialize  (cost=0.00..2.07 rows=5 width=32) (actual time=0.002..0.002 rows=3.57 loops=7)
+                          Storage: Memory  Maximum Storage: 17kB
+                          Buffers: shared hit=2
+                          ->  Seq Scan on extraction_results er  (cost=0.00..2.05 rows=5 width=32) (actual time=0.004..0.005 rows=5.00 loops=1)
+                                Buffers: shared hit=2
+              ->  Limit  (cost=1.11..1.12 rows=1 width=20) (actual time=0.007..0.007 rows=0.43 loops=7)
+                    Buffers: shared hit=10
+                    ->  Sort  (cost=1.11..1.12 rows=1 width=20) (actual time=0.007..0.007 rows=0.43 loops=7)
+                          Sort Key: r.revision_number DESC
+                          Sort Method: quicksort  Memory: 25kB
+                          Buffers: shared hit=10
+                          ->  Seq Scan on work_order_review_revisions r  (cost=0.00..1.10 rows=1 width=20) (actual time=0.002..0.003 rows=0.57 loops=7)
+                                Filter: ((document_id = d.document_id) AND (status = 'reviewed'::text))
+                                Rows Removed by Filter: 6
+                                Buffers: shared hit=7
+              SubPlan 2
+                ->  Seq Scan on archive_projection_units apu  (cost=0.00..2.13 rows=1 width=16) (actual time=0.046..0.046 rows=0.00 loops=1)
+                      Filter: ((search_text ~~* '%HAWTHORNE%'::text) AND (projection_version = 'archive-machine-projection/1'::text))
+                      Rows Removed by Filter: 9
+                      Buffers: shared hit=2
+              SubPlan 4
+                ->  Seq Scan on work_order_review_fields rf  (cost=0.00..1.52 rows=1 width=16) (actual time=0.013..0.023 rows=1.00 loops=1)
+                      Filter: ((human_value IS NOT NULL) AND (decision = ANY ('{accepted,edited}'::text[])) AND (human_value ~~* '%HAWTHORNE%'::text))
+                      Rows Removed by Filter: 34
+                      Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=501
+Planning Time: 12.573 ms
+Execution Time: 0.291 ms

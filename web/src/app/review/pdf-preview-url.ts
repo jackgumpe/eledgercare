@@ -34,7 +34,7 @@ export function buildRelativePdfPreviewHref(documentId: string, pageNumber?: num
 export function trustSameOriginPdfPreviewUrl(
   sanitizer: DomSanitizer,
   documentId: string,
-  pageNumber: number,
+  pageNumber?: number,
 ): SafeResourceUrl {
   const href = buildRelativePdfPreviewHref(documentId, pageNumber);
   return sanitizer.bypassSecurityTrustResourceUrl(href);

@@ -1,4 +1,4 @@
-const apiPort = process.env['ELEDGERCARE_API_PORT'] ?? '5390';
+const apiPort = process.env['ELEDGERCARE_API_PORT'] ?? '5590';
 
 export default {
   '/api': {

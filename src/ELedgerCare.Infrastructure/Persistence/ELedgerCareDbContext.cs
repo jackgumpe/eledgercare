@@ -1,3 +1,4 @@
+using ELedgerCare.Domain.Archive;
 using ELedgerCare.Domain.Documents;
 using ELedgerCare.Domain.Intake;
 using ELedgerCare.Domain.Processing;
@@ -10,12 +11,15 @@ public sealed class ELedgerCareDbContext(DbContextOptions<ELedgerCareDbContext> 
 {
     public const string Schema = "eledgercare";
     public const string IdempotencyKeyUniqueIndex = "ux_documents_idempotency_key";
+    public const string DocumentsArchiveOrderIndex = "ix_documents_submitted_at_document_id_desc";
     public const string OneRunningAttemptIndex = "ux_execution_attempts_one_running_per_job";
     public const string AcceptedResultDocumentIndex = "ux_extraction_results_document_id";
     public const string ReviewRevisionIdempotencyKeyIndex = "ux_work_order_review_revisions_idempotency_key";
     public const string ReviewRevisionDocNumberIndex = "ux_work_order_review_revisions_document_revision";
     public const string ReviewRevisionResultNumberIndex = "ux_work_order_review_revisions_result_revision";
     public const string ReviewHeadResultIndex = "ux_work_order_review_heads_result_id";
+    public const string ArchiveProjectionDocumentVersionIndex = "ux_archive_result_projections_document_version";
+    public const string ArchiveProjectionUnitsDocumentIndex = "ix_archive_projection_units_document_version_ordinal";
 
     public DbSet<Document> Documents => Set<Document>();
 
@@ -32,6 +36,10 @@ public sealed class ELedgerCareDbContext(DbContextOptions<ELedgerCareDbContext> 
     public DbSet<WorkOrderReviewRevision> WorkOrderReviewRevisions => Set<WorkOrderReviewRevision>();
 
     public DbSet<WorkOrderReviewField> WorkOrderReviewFields => Set<WorkOrderReviewField>();
+
+    public DbSet<ArchiveResultProjection> ArchiveResultProjections => Set<ArchiveResultProjection>();
+
+    public DbSet<ArchiveProjectionUnit> ArchiveProjectionUnits => Set<ArchiveProjectionUnit>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -50,6 +58,9 @@ public sealed class ELedgerCareDbContext(DbContextOptions<ELedgerCareDbContext> 
             document.Property(d => d.IdempotencyKey).HasColumnName("idempotency_key").IsRequired();
             document.Property(d => d.SubmittedAtUtc).HasColumnName("submitted_at").HasColumnType("timestamptz").IsRequired();
             document.HasIndex(d => d.IdempotencyKey).IsUnique().HasDatabaseName(IdempotencyKeyUniqueIndex);
+            document.HasIndex(d => new { d.SubmittedAtUtc, d.DocumentId })
+                .IsDescending(true, true)
+                .HasDatabaseName(DocumentsArchiveOrderIndex);
 
             document.HasOne(d => d.Original)
                 .WithOne()
@@ -454,6 +465,88 @@ public sealed class ELedgerCareDbContext(DbContextOptions<ELedgerCareDbContext> 
 
             head.HasIndex(h => h.ResultId).IsUnique().HasDatabaseName(ReviewHeadResultIndex);
             head.HasIndex(h => h.CurrentRevisionId).IsUnique().HasDatabaseName("ux_work_order_review_heads_current_revision_id");
+        });
+
+        modelBuilder.Entity<ArchiveResultProjection>(projection =>
+        {
+            projection.ToTable("archive_result_projections", table =>
+            {
+                table.HasCheckConstraint("ck_archive_result_projections_version",
+                    $"projection_version = '{ArchiveSchema.ProjectionVersion}'");
+                table.HasCheckConstraint("ck_archive_result_projections_digests",
+                    "octet_length(raw_output_sha256) = 32 AND octet_length(projection_sha256) = 32");
+                table.HasCheckConstraint("ck_archive_result_projections_unit_count",
+                    "unit_count >= 0");
+            });
+            projection.HasKey(p => new { p.ResultId, p.ProjectionVersion }).HasName("pk_archive_result_projections");
+            projection.Property(p => p.ResultId).HasColumnName("result_id").ValueGeneratedNever();
+            projection.Property(p => p.DocumentId).HasColumnName("document_id").IsRequired();
+            projection.Property(p => p.ProjectionVersion).HasColumnName("projection_version").HasColumnType("text").ValueGeneratedNever();
+            projection.Property(p => p.RawOutputSha256).HasColumnName("raw_output_sha256").HasColumnType("bytea").IsRequired();
+            projection.Property(p => p.ProjectionSha256).HasColumnName("projection_sha256").HasColumnType("bytea").IsRequired();
+            projection.Property(p => p.UnitCount).HasColumnName("unit_count").IsRequired();
+            projection.Property(p => p.HasFallback).HasColumnName("has_fallback").IsRequired();
+            projection.Property(p => p.ProjectedAtUtc).HasColumnName("projected_at").HasColumnType("timestamptz").IsRequired();
+
+            projection.HasOne<Document>()
+                .WithMany()
+                .HasForeignKey(p => p.DocumentId)
+                .HasConstraintName("fk_archive_result_projections_documents")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            projection.HasOne<ExtractionResult>()
+                .WithMany()
+                .HasForeignKey(p => p.ResultId)
+                .HasConstraintName("fk_archive_result_projections_extraction_results")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            projection.HasMany(p => p.Units)
+                .WithOne()
+                .HasForeignKey(u => new { u.ResultId, u.ProjectionVersion })
+                .HasConstraintName("fk_archive_projection_units_projections")
+                .OnDelete(DeleteBehavior.Restrict);
+            projection.Navigation(p => p.Units).UsePropertyAccessMode(PropertyAccessMode.Field);
+
+            projection.HasIndex(p => new { p.DocumentId, p.ProjectionVersion })
+                .IsUnique()
+                .HasDatabaseName(ArchiveProjectionDocumentVersionIndex);
+        });
+
+        modelBuilder.Entity<ArchiveProjectionUnit>(unit =>
+        {
+            unit.ToTable("archive_projection_units", table =>
+            {
+                table.HasCheckConstraint("ck_archive_projection_units_version",
+                    $"projection_version = '{ArchiveSchema.ProjectionVersion}'");
+                table.HasCheckConstraint("ck_archive_projection_units_ordinal",
+                    "unit_ordinal >= 0");
+                table.HasCheckConstraint("ck_archive_projection_units_kind",
+                    $"unit_kind IN ('{ArchiveSchema.UnitKindPage}', '{ArchiveSchema.UnitKindPageFallback}', '{ArchiveSchema.UnitKindDocumentFallback}')");
+                table.HasCheckConstraint("ck_archive_projection_units_coords",
+                    $"((unit_kind = '{ArchiveSchema.UnitKindDocumentFallback}' AND page_number IS NULL AND is_fallback = TRUE) OR " +
+                    $"(unit_kind = '{ArchiveSchema.UnitKindPageFallback}' AND page_number BETWEEN 1 AND {ExtractionCeilings.MaxExtractionPages} AND is_fallback = TRUE) OR " +
+                    $"(unit_kind = '{ArchiveSchema.UnitKindPage}' AND page_number BETWEEN 1 AND {ExtractionCeilings.MaxExtractionPages}))");
+                table.HasCheckConstraint("ck_archive_projection_units_text",
+                    "char_length(btrim(search_text)) >= 1");
+            });
+            unit.HasKey(u => new { u.ResultId, u.ProjectionVersion, u.UnitOrdinal }).HasName("pk_archive_projection_units");
+            unit.Property(u => u.ResultId).HasColumnName("result_id").ValueGeneratedNever();
+            unit.Property(u => u.ProjectionVersion).HasColumnName("projection_version").HasColumnType("text").ValueGeneratedNever();
+            unit.Property(u => u.UnitOrdinal).HasColumnName("unit_ordinal").ValueGeneratedNever();
+            unit.Property(u => u.DocumentId).HasColumnName("document_id").IsRequired();
+            unit.Property(u => u.PageNumber).HasColumnName("page_number");
+            unit.Property(u => u.UnitKind).HasColumnName("unit_kind").HasColumnType("text").IsRequired();
+            unit.Property(u => u.IsFallback).HasColumnName("is_fallback").IsRequired();
+            unit.Property(u => u.SearchText).HasColumnName("search_text").HasColumnType("text").IsRequired();
+
+            unit.HasOne<Document>()
+                .WithMany()
+                .HasForeignKey(u => u.DocumentId)
+                .HasConstraintName("fk_archive_projection_units_documents")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            unit.HasIndex(u => new { u.DocumentId, u.ProjectionVersion, u.UnitOrdinal })
+                .HasDatabaseName(ArchiveProjectionUnitsDocumentIndex);
         });
     }
 }
