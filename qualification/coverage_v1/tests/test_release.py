@@ -127,6 +127,7 @@ class ReleaseTests(unittest.TestCase):
                     ('missing_run_failure',lambda x:x.pop('failure'))]
                 for name,mutate in mutations:
                     bad=copy.deepcopy(good);mutate(bad)
+                    if name in ('failed_warmup','gap_warmup'):bad['failure']='INJECTED_FIRST_CALL_FAILURE'
                     with self.subTest(owner=owner,case=name),self.assertRaises(PermissionError):scoring.validated_calls(bad,p,owner,run)
                 absent=copy.deepcopy(good)
                 for c in absent['calls']:c.update(status='not_run_after_failure',observation=None,observation_status='absent')
@@ -140,5 +141,24 @@ class ReleaseTests(unittest.TestCase):
                 with self.subTest(record=malformed),self.assertRaises(PermissionError):scoring.validated_calls(good,p,'reviewer',run)
             (run/'obs.json').unlink()
             with self.assertRaises(FileNotFoundError):scoring.validated_calls(good,p,'reviewer',run)
+
+    def test_actual_score_run_rejects_otherwise_valid_completed_after_failed_warmup(self):
+        p=protocol();scratch=ROOT/'.scratch/wp0011-coverage';scratch.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=scratch) as tmp:
+            root=Path(tmp);r=valid_release(p);r['runtime_root']=str(root);run=root/'runs/author/CPU';run.mkdir(parents=True)
+            raw=tiny()[2]['ideal_native'].encode();(run/'raw.txt').write_bytes(raw)
+            (run/'obs.json').write_text(json.dumps({'flags':[],'raw_output':{'name':'raw.txt','sha256_written':sha(raw),'truncated_by_writer':False}}))
+            result={'schema':'eld-coverage-v1-run/1','release':r,'failure':'FIRST_WARMUP_FAILED',
+                'calls':[{**c,'status':'completed','observation':'obs.json','observation_status':'available'} for c in release.schedule(p,'author')]}
+            # Positive: the complete revised record is accepted even with a run-level
+            # post-finalization failure. Only the first call state changes below.
+            self.assertEqual(len(scoring.validated_calls(result,p,'author',run)[0]),14)
+            result['calls'][0]['status']='failed'
+            (run/'run-result.json').write_text(json.dumps(result))
+            with patch.object(scoring,'read_release',return_value=r),patch.object(scoring,'read_artifact',side_effect=AssertionError('Scored invalid history')) as read:
+                with self.assertRaisesRegex(PermissionError,'after first failure'):
+                    scoring.score_run(run,root/'scores.json','CPU','CPU','author')
+                read.assert_not_called()
+            self.assertFalse((root/'scores.json').exists())
 
 if __name__=='__main__':unittest.main()
