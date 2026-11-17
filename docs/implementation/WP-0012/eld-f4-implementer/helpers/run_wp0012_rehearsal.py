@@ -64,6 +64,10 @@ from local_ocr.protocol import (  # noqa: E402
     compute_config_digest,
     compute_worker_source_sha256,
 )
+from local_ocr.verify_runtime import (  # noqa: E402
+    normalize_and_verify_model_dir,
+    verify_model_sources_ast_safety,
+)
 
 HEX40_RE = re.compile(r"^[0-9a-f]{40}$")
 HEX64_RE = re.compile(r"^[0-9a-f]{64}$")
@@ -350,20 +354,19 @@ def inspect_readonly_q0_and_demo_roots_cpu(verify_model_sha256: bool = False) ->
     total_model_bytes = 0
     for entry in files_spec:
         rel_name = entry["path"]
-        expected_bytes = int(entry["size_bytes"])
-        expected_sha = str(entry["sha256"]).lower()
+        expected_bytes = int(entry["size"])
         fpath = model_dir / rel_name
         if not fpath.is_file() or is_reparse_point(fpath):
             raise RehearsalGuardError(f"Model file missing or reparse point: {fpath}")
         stat_size = fpath.stat().st_size
         if stat_size != expected_bytes:
             raise RehearsalGuardError(f"Model file size mismatch on {rel_name}: {stat_size} != {expected_bytes}")
-        if verify_model_sha256:
-            actual_sha = sha256_file(fpath)
-            if actual_sha != expected_sha:
-                raise RehearsalGuardError(f"Model file SHA-256 mismatch on {rel_name}: {actual_sha} != {expected_sha}")
         checked_count += 1
         total_model_bytes += stat_size
+
+    if verify_model_sha256:
+        normalize_and_verify_model_dir(str(model_dir), str(notice_dir), manifest)
+        verify_model_sources_ast_safety(model_dir)
 
     demo_exists = EXPECTED_DEMO_RUNTIME_ROOT.exists()
     existing_demo_entries: list[str] = []

@@ -10,7 +10,10 @@ REPO_ROOT = Path(__file__).resolve().parents[5]
 DOSSIER_DIR = REPO_ROOT / "docs" / "implementation" / "WP-0012" / "eld-f4-implementer"
 
 DISPATCH_AUTHORITY_SHA = "47fbc7612e4a08cf1960ad7ac01bd2843ae645e5"
-INITIAL_FROZEN_001_CANDIDATE_SHA = "51cf3ecc23a1bb847f8ea7618fb9960b5d18f325"
+SUPERSEDED_001_HELPER_CANDIDATE_SHAS = [
+    "51cf3ecc23a1bb847f8ea7618fb9960b5d18f325",
+    "7a1bdea970d84df297a07593a50184b32f766255",
+]
 ACCEPTED_PACKET_BASE_SHA = "73c8d3c4f0a00312e3444328331b6cbd6406e882"
 ACCEPTED_F4_FINAL_SOURCE_SHA = "c1fed68020ae67e8b4763bc6ea5473adaa86de2b"
 
@@ -80,7 +83,7 @@ def main() -> None:
         "accepted_packet_base_sha": ACCEPTED_PACKET_BASE_SHA,
         "accepted_f4_final_source_sha": ACCEPTED_F4_FINAL_SOURCE_SHA,
         "dispatch_authority_sha": DISPATCH_AUTHORITY_SHA,
-        "initial_frozen_001_candidate_sha": INITIAL_FROZEN_001_CANDIDATE_SHA,
+        "superseded_001_helper_candidate_shas": SUPERSEDED_001_HELPER_CANDIDATE_SHAS,
         "frozen_001_deliverable_sha": deliverable_sha,
         "base_to_deliverable_count": len(deliverable_entries),
         "base_to_deliverable_paths": deliverable_entries,
