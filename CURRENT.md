@@ -8,11 +8,11 @@ Jack explicitly said "I authorize it" to the [bounded plan](docs/coordination/WP
 
 | Track / owner | State | Exact scope / next gate |
 | --- | --- | --- |
-| Product eld-f4-implementer | PREPARED, not yet dispatched | [WP-0012 preparation001](docs/kickoffs/WP-0012-eld-f4-implementer.md), new rehearsal/wp-0012-product branch in existing owned worktree; next independent002 |
-| Product eld-f4-reviewer | PREPARED, not yet dispatched | [WP-0012 independent review](docs/kickoffs/WP-0012-eld-f4-reviewer.md), review/wp-0012-product-rehearsal; canonical002 awaits exact001 |
-| R&D eld-mapping-author | PREPARED, not yet dispatched | [WP-0013 protocol001](docs/kickoffs/WP-0013-eld-mapping-author.md), research/wp-0013-vocabulary/new eld-vocabulary-author worktree; implementation005 held for protocol002 plus reservation |
-| R&D eld-eval-custodian | PREPARED, not yet dispatched | [WP-0013 custody003](docs/kickoffs/WP-0013-eld-eval-custodian.md), evaluation/wp-0013-vocabulary-families/new eld-vocabulary-custodian; final reserved bytes need accepted public catalog/interface |
-| R&D eld-mapping-reviewer | PREPARED, not yet dispatched | [WP-0013 independent review](docs/kickoffs/WP-0013-eld-mapping-reviewer.md), review/wp-0013-vocabulary/new eld-vocabulary-reviewer;002/004/006/008 separately gated |
+| Product eld-f4-implementer | RUNNING_CONFIRMED | [WP-0012 preparation001](docs/kickoffs/WP-0012-eld-f4-implementer.md), new rehearsal/wp-0012-product branch in existing owned worktree; next independent002 |
+| Product eld-f4-reviewer | RUNNING_CONFIRMED | [WP-0012 independent review](docs/kickoffs/WP-0012-eld-f4-reviewer.md), review/wp-0012-product-rehearsal; canonical002 awaits exact001 |
+| R&D eld-mapping-author | RUNNING_CONFIRMED | [WP-0013 protocol001](docs/kickoffs/WP-0013-eld-mapping-author.md), research/wp-0013-vocabulary/new eld-vocabulary-author worktree; implementation005 held for protocol002 plus reservation |
+| R&D eld-eval-custodian | RUNNING_CONFIRMED | [WP-0013 custody003](docs/kickoffs/WP-0013-eld-eval-custodian.md), evaluation/wp-0013-vocabulary-families/new eld-vocabulary-custodian; final reserved bytes need accepted public catalog/interface |
+| R&D eld-mapping-reviewer | RUNNING_CONFIRMED | [WP-0013 independent review](docs/kickoffs/WP-0013-eld-mapping-reviewer.md), review/wp-0013-vocabulary/new eld-vocabulary-reviewer;002/004/006/008 separately gated |
 
 Intended live ceilings after exact release: each product owner2new product attempts (one1page/one3page); R&D author12primaries+2declared historical warmups, independent1prespecified sentinel+2warmups. No automatic retry. All calls serialize; initial dispatch grants no inference. Old product databases, worktrees/branches and immutable publications remain intact. Demonstration acceptance does not depend on R&D gains.
 

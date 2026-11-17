@@ -912,3 +912,6 @@ Jack: "I authorize it". Accepted base73c8d3c4f0a00312e3444328331b6cbd6406e882. E
 | WP-0013 / 007 | eld-mapping-author / research | research/wp-0013-vocabulary; eld-vocabulary-author | docs/agent-reports/eld-mapping-author/WP-0013/007_2026-11-17_research_eld-mapping-author.md | HELD source006, admitted corpus, root unseal and sole lease |
 | WP-0013 / 008 | eld-mapping-reviewer / review | review/wp-0013-vocabulary; eld-vocabulary-reviewer | docs/agent-reports/eld-mapping-reviewer/WP-0013/008_2026-11-17_review_eld-mapping-reviewer.md | HELD actual007 and independent sentinel lease |
 | WP-0013 / 009 | eld-coordinator / verification | coordination/bootstrap; eledgercare | docs/agent-reports/eld-coordinator/WP-0013/009_2026-11-17_verification_eld-coordinator.md | RESERVED final disposition |
+
+
+WP-0012/001 preparation and independent preparation RUNNING_CONFIRMED at authority47fbc7612e4a08cf1960ad7ac01bd2843ae645e5: Carbon author b7c54417 CLI32800/tool35055, reviewer61105d43 CLI13000/tool85226; both gemini-4-carbon-high/high. WP-0013 native author/custodian/reviewer independently confirm clean new worktrees and actual CPU start at same authority; existing requested xhigh, actual backend/effort not exposed. Initial receipts under docs/coordination/WP-0012 and WP-0013. No GPU lease/inference released.
