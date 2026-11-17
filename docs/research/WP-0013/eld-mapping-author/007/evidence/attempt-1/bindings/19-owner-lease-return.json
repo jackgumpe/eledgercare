@@ -1,0 +1,48 @@
+{
+  "schema": "eld-mapping-v2-author-lease-return/1",
+  "timestamp_utc": "2026-11-17T18:26:35.8119313Z",
+  "lease": "WP-0013-author-vocabulary-20261117T182342Z",
+  "status": "RETURNED_AWAITING_ROOT_ACK",
+  "runtime_authority": "6558c3d7cf12fd336fc277d3406b26ffe125960d",
+  "executing_head": "da6c91e0168f63843bd8d89ecf060834ccd07b9a",
+  "run": "C:/Users/jackg/eLedgerCare-Vocabulary/WP-0013/author/runs/author/20261117T182439Z-8726c2a5",
+  "execution_exit_code": 1,
+  "child_exit_code": 1,
+  "observed_child_exit": true,
+  "score_exit_code": 0,
+  "calls_completed": 0,
+  "calls_not_run": 14,
+  "checks": [
+    {
+      "expected": {
+        "pid": 11176,
+        "creation_filetime_100ns": 134394134765002461,
+        "created_utc": "2026-11-17T13:24:36.500246-05:00",
+        "source": "Windows GetProcessTimes on explicitly owned PID"
+      },
+      "observed_pid_present": false,
+      "observed_created_utc": null
+    },
+    {
+      "expected": {
+        "pid": 31684,
+        "creation_filetime_100ns": 134394134800718911,
+        "created_utc": "2026-11-17T13:24:40.071891-05:00",
+        "source": "Windows GetProcessTimes on explicitly owned PID"
+      },
+      "observed_pid_present": false,
+      "observed_created_utc": null
+    },
+    {
+      "expected": {
+        "pid": 32964,
+        "source": "Start-Process wrapper Get-Process StartTime",
+        "created_utc": "2026-11-17T18:24:36.0113938Z"
+      },
+      "observed_pid_present": false,
+      "observed_created_utc": null
+    }
+  ],
+  "worker_identity": "unavailable: worker failed before preflight/outcome receipt",
+  "scope": "Only three explicitly bound owned PIDs queried; no other process terminated; root separately observes sole-model ownership return."
+}
