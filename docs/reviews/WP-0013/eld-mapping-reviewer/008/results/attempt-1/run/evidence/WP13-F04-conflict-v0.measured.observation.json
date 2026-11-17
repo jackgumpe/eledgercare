@@ -1,0 +1,312 @@
+{
+  "cache": {
+    "cache_types": [
+      "DynamicCache"
+    ],
+    "dash_idx_bytes_final": 4257792,
+    "decode_steps_observed": 414,
+    "final_seq_len": 693,
+    "forward_returns": 415,
+    "grows_by_one_each_decode_step": true,
+    "kv_bytes_after_prefill": 17141760,
+    "kv_bytes_final": 42577920,
+    "kv_bytes_max": 42577920,
+    "kv_bytes_per_token_derived": 61440.0,
+    "observed": true,
+    "prefill_seq_len": 279,
+    "provenance": "direct",
+    "ring_buffer_marker_seen": false,
+    "seq_len_samples_head": [
+      279,
+      280,
+      281,
+      282
+    ],
+    "seq_len_samples_tail": [
+      690,
+      691,
+      692,
+      693
+    ]
+  },
+  "call_kwargs": {
+    "base_size": 1024,
+    "crop_mode": false,
+    "dash_topm": 16,
+    "eval_mode": false,
+    "image_size": 640,
+    "max_crops": 16,
+    "max_length": 131072,
+    "max_new_tokens": 8000,
+    "max_page_tokens": 20000,
+    "ngram_whitelist_token_ids": null,
+    "ngram_window": 128,
+    "no_repeat_ngram_size": 35,
+    "output_path": "",
+    "page_count_guard": true,
+    "save_results": false,
+    "temperature": 0.0,
+    "test_compress": false,
+    "tps_interval": 0
+  },
+  "cuda_memory": {
+    "allocated": 6819691008,
+    "device_free": 8211398656,
+    "device_total": 17066360832,
+    "max_allocated": 7293335040,
+    "max_reserved": 7480541184,
+    "note": "device_free includes other processes' use (WDDM/desktop confounder).",
+    "provenance": "direct",
+    "reserved": 7480541184
+  },
+  "excluded_from_warm_statistics": false,
+  "family_id": "WP13-F04",
+  "fixture_id": "WP13-F04-conflict-v0",
+  "flags": [],
+  "host_memory": {
+    "end": {
+      "page_faults": 6740709,
+      "peak_working_set_lifetime": 7223001088,
+      "private_bytes": 10795999232,
+      "working_set": 2320896000
+    },
+    "interval_s": 0.1,
+    "page_fault_delta": 23417,
+    "provenance": "direct_sampled",
+    "samples": 467,
+    "start": {
+      "page_faults": 6717292,
+      "peak_working_set_lifetime": 7223001088,
+      "private_bytes": 10822623232,
+      "working_set": 2332852224
+    },
+    "time": 1794945513.4955974,
+    "window_peak_private_bytes_lower_bound": 10856280064,
+    "window_peak_working_set_lower_bound": 2372788224
+  },
+  "kernel_path": {
+    "decode_attend_fp32_calls": 4968,
+    "decode_forward_calls": 4968,
+    "dense_sdpa_calls": 12,
+    "label": "triton_import_failed_dense_fallback",
+    "non_dash_attention_calls": 0,
+    "prefill_attend_calls": 12,
+    "provenance": "direct",
+    "triton_attempts": 12,
+    "triton_import_exception_types": [],
+    "triton_kernel_entries": null,
+    "triton_non_null_returns": 0,
+    "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+  },
+  "kind": "measured",
+  "label": "WP13-F04-conflict-v0.measured",
+  "native": {
+    "expected_pages": 1,
+    "finish_reason": "stop",
+    "num_pages_out": 1,
+    "output_tokens": 414,
+    "prefill_time_s": 0.41121602058410645,
+    "prompt": "<PAGE><image>Multi page parsing.",
+    "prompt_len": 279,
+    "provenance": "native",
+    "text_sha256": "6765de153bd318a03d5339966349f5ddc484ba03ef694ae1a9cf6f485c702d05",
+    "time_s": 50.09094452857971,
+    "token_ids_sha256": "3c774db374974759a356224e3b86d467d6c4862283d190703f0ce4c03977d20d"
+  },
+  "observer_overhead": {
+    "callback_ns": 125050100,
+    "events": 20794,
+    "note": "Self-timed callback cost only; interpreter dispatch and global exception-event filtering overhead are not included (lower bound).",
+    "provenance": "direct"
+  },
+  "page_count_in": 1,
+  "page_markers": {
+    "expected": 1,
+    "marker_token_positions": [
+      0
+    ],
+    "out": 1,
+    "provenance": "direct"
+  },
+  "prefill_memory": {
+    "note": "allocator peak since reset, read at the first model-forward return; None when no probe or no forward occurred",
+    "provenance": "direct",
+    "value": {
+      "max_allocated": 7293335040,
+      "max_reserved": 7480541184
+    }
+  },
+  "raw_output": {
+    "bytes_written": 1478,
+    "full_bytes": 1478,
+    "full_sha256": "6765de153bd318a03d5339966349f5ddc484ba03ef694ae1a9cf6f485c702d05",
+    "name": "WP13-F04-conflict-v0.measured.raw.txt",
+    "sha256_written": "6765de153bd318a03d5339966349f5ddc484ba03ef694ae1a9cf6f485c702d05",
+    "truncated_by_writer": false,
+    "utf8_lossless": true
+  },
+  "repeat": 1,
+  "targets": {
+    "dash_attention:DashAttention._forward_dense": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 12,
+      "returns_none": 0,
+      "role": "dense_sdpa_fallback",
+      "starts": 12,
+      "unwinds": 0
+    },
+    "dash_attention:DashAttention._forward_triton": {
+      "exceptions": [],
+      "handled_exceptions": 12,
+      "returns": 12,
+      "returns_none": 12,
+      "role": "triton_attempt",
+      "starts": 12,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:_dash_decode_forward": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 4968,
+      "returns_none": 0,
+      "role": "decode_forward",
+      "starts": 4968,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:_decode_attend": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 4968,
+      "returns_none": 0,
+      "role": "decode_attend_fp32",
+      "starts": 4968,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:_infer_prefill_attend": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 12,
+      "returns_none": 0,
+      "role": "prefill_attend",
+      "starts": 12,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:_orig_forward": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "non_dash_attention_forward",
+      "starts": 0,
+      "unwinds": 0
+    },
+    "modeling_deepseekv2:configure_dash_inference": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 2,
+      "returns_none": 1,
+      "role": "dash_infer_switch",
+      "starts": 2,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_generate": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 1,
+      "returns_none": 0,
+      "role": "native_generate",
+      "starts": 1,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:UnlimitedOCRForCausalLM._uocr_save_results": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "forbidden_save_path",
+      "starts": 0,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:UnlimitedOCRForCausalLM.infer": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 1,
+      "returns_none": 0,
+      "role": "native_infer",
+      "starts": 1,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:UnlimitedOCRModel.forward": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 415,
+      "returns_none": 0,
+      "role": "model_forward",
+      "starts": 415,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:draw_bounding_boxes": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "forbidden_save_path",
+      "starts": 0,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:extract_coordinates_and_label": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "forbidden_eval_site",
+      "starts": 0,
+      "unwinds": 0
+    },
+    "modeling_unlimitedocr:process_image_with_refs": {
+      "exceptions": [],
+      "handled_exceptions": 0,
+      "returns": 0,
+      "returns_none": 0,
+      "role": "forbidden_save_path",
+      "starts": 0,
+      "unwinds": 0
+    }
+  },
+  "timing": {
+    "decode_s": {
+      "provenance": "derived",
+      "value": 49.679728507995605
+    },
+    "external_synchronized_wall_s": {
+      "provenance": "direct",
+      "value": 50.1797538
+    },
+    "native_generate_total_s": {
+      "provenance": "native",
+      "value": 50.09094452857971
+    },
+    "native_prefill_to_first_token_s": {
+      "note": "t_first - t0 in _uocr_generate; host-synchronized by int(argmax)",
+      "provenance": "native",
+      "value": 0.41121602058410645
+    },
+    "outside_generate_s": {
+      "note": "prompt build, _uocr_build_inputs preprocessing, observer overhead, final sync",
+      "provenance": "derived",
+      "value": 0.08880927142028838
+    }
+  },
+  "token_ids_file": {
+    "bytes_written": 3414,
+    "full_bytes": 3414,
+    "full_sha256": "7a9c7914f267cb17f66c33530b781df6c1535408df1b88db530c217fdd9b6e43",
+    "name": "WP13-F04-conflict-v0.measured.token_ids.json",
+    "sha256_written": "7a9c7914f267cb17f66c33530b781df6c1535408df1b88db530c217fdd9b6e43",
+    "truncated_by_writer": false
+  },
+  "unresolved_optional_targets": [
+    "sparse_gather_e2e_triton:triton_gather_attention_e2e"
+  ]
+}
