@@ -1,0 +1,16 @@
+Command:
+python -B docs/reviews/WP-0012/eld-f4-reviewer/author-001-review/helpers/build_wp0012_002_inventory.py --frozen-sha d4bbfec29c201a1c1d3dda7881afc6029cbf88cb
+
+Exit code: 1
+
+Stderr / Output:
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0012\eld-f4-reviewer\author-001-review\helpers\build_wp0012_002_inventory.py", line 197, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0012\eld-f4-reviewer\author-001-review\helpers\build_wp0012_002_inventory.py", line 157, in main
+    raise AssertionError(f"Broken Markdown links: {broken_links}")
+AssertionError: Broken Markdown links: [{'source': 'docs/reviews/WP-0012/eld-f4-reviewer/author-001-review/retained-failures/README.md', 'target': '../preparation/retained-failures/README.md'}]
+
+Root cause & forward v2 freeze resolution:
+`author-001-review/retained-failures/README.md` is two directory levels below `eld-f4-reviewer/` and used `../preparation/retained-failures/README.md` instead of `../../preparation/retained-failures/README.md` (zero helper Python files needed changes). Corrected the relative link, retained this verbatim failure log, committed a clean forward deliverable-only v2 freeze commit, and re-executed `--require-clean` CPU verification + inventory generation.
