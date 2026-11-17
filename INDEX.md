@@ -941,3 +941,6 @@ WP-0012 reviewer initial preparation PUBLISHED/VERIFIED7f3f8626489e898a50d275e93
 
 
 WP-0012 exact independent002 RUNNING_CONFIRMED under7af4cd0e2e8ffbcb9176fc78508b6cd601c16fc0, same Carbon61105d43/gemini-4-carbon-high/high, CLI14964/tool45949. Bound author165b2421/sourcead5202a0, preserving own prep7f3f8626; root-specific future004 guard reconciliation is included. Receipt reviewer-002-dispatch.json. CPU only; no live attempt or lease.
+
+
+WP-0013 early private admission inspection RELEASED on immutable85core files/12pages/fourfamilies, manifest91c4a38adeef4ceb2c3fb399eac525e141e4821e9a7dcdf0fb82803e89b86319. Root verifies all core bytes/12preserved foundation files/exact original receipts; first root audit status-token assumption failure and corrected full check retained. Exact private binding sent only root/reviewer; final custody packaging continues. Canonical004 and author005 still wait complete final reservation audit; no unseal/model authority. See early-corpus-audit.json and WP-0013-eld-mapping-reviewer-corpus-admission.md.
