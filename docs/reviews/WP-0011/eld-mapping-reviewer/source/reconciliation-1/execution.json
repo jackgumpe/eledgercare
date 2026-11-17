@@ -1,0 +1,110 @@
+{
+  "started_utc": "2026-11-17T09:23:47.419112+00:00",
+  "executing_head": "1830d8f942f91f718e60752d056c600fe1236186",
+  "source_commit": "253519e07e7d45cf1f5ecb3e03053582f7f7d4cc",
+  "source_tree": "6bdab544c9fe26cbf093cc765212db2a2e7a97a5",
+  "helper_sha256": "8f3636241477e3b66a0db6f698a7ea9a50a51d983940fdf0c64e8f5cb83e5163",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": {
+    "run": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "historical_summary": {
+    "primary_documents": 30,
+    "completed_primary_documents": 29,
+    "expected_field_cell_slots": 2291,
+    "presence_eligible_slots": 1849,
+    "presence_unavailable_slots": 442,
+    "flags_nonexclusive": {
+      "b0": {
+        "exact_value_not_observed_recognition_omission_or_segmentation_ambiguous": 71,
+        "mapped_slot_mismatch_despite_local_or_unique_exact_payload": 96,
+        "field_relationship_unadjudicated_by_presence": 96,
+        "reused_value_or_multiple_occurrences_ambiguous": 309,
+        "unadjudicated": 449,
+        "unavailable_output_or_parse": 442,
+        "exact_visible_label_or_header_unsupported": 101,
+        "typed_conversion_or_target_boundary": 6
+      },
+      "mapping_v1": {
+        "exact_value_not_observed_recognition_omission_or_segmentation_ambiguous": 71,
+        "mapped_slot_mismatch_despite_local_or_unique_exact_payload": 79,
+        "field_relationship_unadjudicated_by_presence": 79,
+        "unadjudicated": 449,
+        "reused_value_or_multiple_occurrences_ambiguous": 301,
+        "unavailable_output_or_parse": 442,
+        "exact_visible_label_or_header_unsupported": 101,
+        "typed_conversion_or_target_boundary": 6
+      }
+    }
+  },
+  "all_31_full_pair_hashes_equal_initial": true,
+  "diagnostic_denominator_changes": [
+    {
+      "fixture_id": "SYN-MP-02-v2-skew-neg3deg",
+      "prior": {
+        "all_expected_slots": 123,
+        "eligible_slots": 123,
+        "unavailable_slots": 0,
+        "statuses": {
+          "multiple": 37,
+          "one": 75,
+          "none": 11
+        }
+      },
+      "corrected": {
+        "all_expected_slots": 123,
+        "eligible_slots": 0,
+        "unavailable_slots": 123,
+        "statuses": {
+          "unavailable": 123
+        }
+      },
+      "visibility_errors": [
+        {
+          "page": 3,
+          "block": 10,
+          "unsupported_html_tags": [
+            "merge"
+          ]
+        }
+      ]
+    },
+    {
+      "fixture_id": "SYN-MP-02-v3-hybrid-stamp",
+      "prior": {
+        "all_expected_slots": 124,
+        "eligible_slots": 124,
+        "unavailable_slots": 0,
+        "statuses": {
+          "multiple": 39,
+          "one": 73,
+          "none": 12
+        }
+      },
+      "corrected": {
+        "all_expected_slots": 124,
+        "eligible_slots": 0,
+        "unavailable_slots": 124,
+        "statuses": {
+          "unavailable": 124
+        }
+      },
+      "visibility_errors": [
+        {
+          "page": 3,
+          "block": 8,
+          "unsupported_html_tags": [
+            "merge"
+          ]
+        }
+      ]
+    }
+  ],
+  "preliminary_author_ledger": "docs/research/WP-0011/eld-mapping-author/009/attempt-1/author-suite/diagnostic-ledger.json",
+  "preliminary_author_ledger_sha256": "1d1dede5f83c0a305405b02eeae693476c555685f1bcf8965ccc3ccea6fb04fc",
+  "status": "PASS",
+  "finished_utc": "2026-11-17T09:23:52.242050+00:00"
+}
