@@ -28,6 +28,7 @@ sys.path.insert(0, str(HERE))
 import probe_correction_006_failure_paths_cpu as inherited
 import run_wp0012_reviewer_rehearsal_v4 as carbon
 import run_wp0012_reviewer_rehearsal_v5 as native
+from probe_old_001_baseline_native import run_old_001_baseline_probes
 
 # Reuse inherited test logic, preserving its exact file and attributing its author.
 inherited.rv4 = native
@@ -261,7 +262,7 @@ def main():
             opener = mock.Mock()
             opener.open.side_effect = OSError("CPU boundary: no author HTTP access")
             with mock.patch.object(urllib.request, "build_opener", return_value=opener):
-                old = inherited.run_old_001_baseline_probes()
+                old = run_old_001_baseline_probes()
             suite = unittest.TestSuite([
                 unittest.defaultTestLoader.loadTestsFromTestCase(AdaptedCarbonReviewerTests),
                 unittest.defaultTestLoader.loadTestsFromTestCase(NativeSpecificTests),
