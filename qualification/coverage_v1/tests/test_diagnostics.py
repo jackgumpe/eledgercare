@@ -41,6 +41,21 @@ class DiagnosticTests(unittest.TestCase):
         e,r,a=tiny(value='0042');d=diagnose('<PAGE>'+block('Work Order ID: 10042'),e,r)
         self.assertEqual(d['slots'][0]['value_presence']['count'],0)
 
+    def test_visible_block_boundaries_and_inline_adjacency(self):
+        for payload,joined in [('RED<br>BLUE',False),('RED<br/>BLUE',False),('<p>RED</p><p>BLUE</p>',False),
+                ('<div><strong>RED</strong></div><div>BLUE</div>',False),('<span>RED</span><span>BLUE</span>',True),
+                ('<b>RED</b><em>BLUE</em>',True),('RED<!-- hidden --><script>NO</script><style>NO</style>BLUE',True)]:
+            for target,want in [('REDBLUE',int(joined)),('RED BLUE',int(not joined))]:
+                with self.subTest(payload=payload,target=target):
+                    e,r,_=tiny(value=target);d=diagnose('<PAGE>'+block(payload),e,r)
+                    self.assertTrue(d['eligible_for_presence']);self.assertEqual(d['slots'][0]['value_presence']['count'],want)
+
+    def test_unknown_markup_is_unavailable_without_erasing_other_local_evidence(self):
+        e,r,a=tiny();d=diagnose(a['ideal_native']+block('<custom-box>OTHER</custom-box>',box='0,60,900,90'),e,r)
+        self.assertFalse(d['eligible_for_presence']);self.assertEqual(d['presence_denominator']['unavailable_slots'],1)
+        self.assertEqual(d['visibility_errors'][0]['unsupported_html_tags'],['custom-box'])
+        self.assertEqual(d['slots'][0]['local_visible_payload_evidence_not_rate']['count'],1)
+
     def test_duplicate_values_remain_ambiguous(self):
         e,r,a=tiny(value='DUP-01');e['expected_fields'].append({**e['expected_fields'][0],'field_id':'work_order_ref','label_printed':'Work Order Ref'})
         d=diagnose('<PAGE>'+block('Work Order ID: DUP-01')+block('Work Order Ref: DUP-01',box='0,60,900,90'),e,r)

@@ -8,15 +8,25 @@ from .contract import validate,semantic_signature,CONDITIONS,FAMILIES
 def surface(value):return ' '.join(norm(value).split())
 
 class Visible(HTMLParser):
-    def __init__(self):super().__init__(convert_charrefs=True);self.parts=[];self.hidden=0
+    # Syntactic visible payload only, not a CSS/browser renderer. Unknown markup
+    # makes the block unavailable instead of guessing its display boundaries.
+    BOUNDARIES=frozenset('address article aside blockquote br caption dd div dl dt fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 header hr li main nav ol p pre section table tbody td tfoot th thead tr ul'.split())
+    INLINE=frozenset('a abbr b bdi bdo cite code del dfn em i ins kbd mark q rp rt ruby s samp small span strong sub sup time u var wbr'.split())
+    def __init__(self):super().__init__(convert_charrefs=True);self.parts=[];self.hidden=0;self.unsupported=set()
     def handle_starttag(self,tag,attrs):
         if tag in ('script','style'):self.hidden+=1
+        elif not self.hidden:
+            if tag in self.BOUNDARIES:self.parts.append(' ')
+            elif tag not in self.INLINE:self.unsupported.add(tag)
     def handle_endtag(self,tag):
         if tag in ('script','style'):self.hidden=max(0,self.hidden-1)
+        elif not self.hidden:
+            if tag in self.BOUNDARIES:self.parts.append(' ')
+            elif tag not in self.INLINE:self.unsupported.add(tag)
     def handle_data(self,data):
         if not self.hidden:self.parts.append(data)
 
-def visible_units(prediction):
+def visible_units(prediction,problems=None):
     units=[]
     for page in prediction['pages']:
         for bi,block in enumerate(page['blocks']):
@@ -26,6 +36,9 @@ def visible_units(prediction):
                         units.append({'page':page['page'],'block':bi,'row':ri,'cell':ci,'text':surface(cell['text'])})
             elif block['kind'] not in ('unparsed','table'):
                 visible=Visible();visible.feed(block['text']);visible.close()
+                if visible.unsupported:
+                    if problems is not None:problems.append({'page':page['page'],'block':bi,'unsupported_html_tags':sorted(visible.unsupported)})
+                    continue
                 units.append({'page':page['page'],'block':bi,'text':surface(''.join(visible.parts))})
     return units
 
@@ -65,8 +78,9 @@ def unit_agreement(expected,predicted,slot):
 def diagnose(raw,expected,reference,completion='completed',annotations=None,precomputed=None):
     if annotations is not None:validate(expected,reference,annotations)
     pair=paired(raw or '',expected,reference,completion) if precomputed is None else precomputed
-    pred=pair['predictions']['b0'];eligible=raw is not None and completion=='completed' and not pred['parse_errors']
-    units=visible_units(pred) if raw is not None else [];rules=mapping()
+    pred=pair['predictions']['b0'];visibility_errors=[]
+    units=visible_units(pred,visibility_errors) if raw is not None else [];rules=mapping()
+    eligible=raw is not None and completion=='completed' and not pred['parse_errors'] and not visibility_errors
     labels={x['label']:x['field_id'] for x in rules['labels']}
     ta={x['table_id']:x for x in annotations['tables']} if annotations else {}
     slots=[]
@@ -131,7 +145,7 @@ def diagnose(raw,expected,reference,completion='completed',annotations=None,prec
     counts=Counter(r['value_presence']['status'] for r in records)
     result={'schema':'eld-coverage-diagnostic/1','fixture_id':expected['fixture_id'],'family_id':expected['family_id'],
         'condition':None if annotations is None else annotations['condition'],'completion':completion,'raw_available':raw is not None,
-        'raw_sha256':None if raw is None else sha(raw.encode()),'eligible_for_presence':eligible,'parse_errors':pred['parse_errors'],
+        'raw_sha256':None if raw is None else sha(raw.encode()),'eligible_for_presence':eligible,'parse_errors':pred['parse_errors'],'visibility_errors':visibility_errors,
         'page_structure':[{'page':p['page'],'blocks':len(p['blocks']),'parsed_table_blocks':sum(bool(b['rows']) for b in p['blocks']),
             'unparsed_or_rejected_blocks':sum(b['kind']=='unparsed' or (b['kind']=='table' and not b['rows']) for b in p['blocks']),
             'visible_leaf_count':sum(u['page']==p['page'] for u in units)} for p in pred['pages']],

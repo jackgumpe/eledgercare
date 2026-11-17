@@ -13,10 +13,14 @@ from qualification.baseline.runtime import directory_size,guard_reason,superviso
 
 def verify_device_observation(observed,p):
     """Verify successful device capture, not an empty desktop or automatic lease proof."""
-    if len(observed)!=2 or any(x.get('returncode')!=0 or x.get('bytes',65536)>=65536 for x in observed):
+    if not isinstance(observed,list) or len(observed)!=2 or any(not isinstance(x,dict) or
+        type(x.get('returncode')) is not int or x['returncode']!=0 or x.get('error') or x.get('truncated') or
+        type(x.get('bytes')) is not int or not 0<=x['bytes']<65536 for x in observed):
         raise PermissionError('GPU observation unavailable/truncated')
-    first=Path(observed[0]['path']).read_text(encoding='utf-8')
-    second=Path(observed[1]['path']).read_text(encoding='utf-8')
+    captures=[Path(x['path']).read_bytes() for x in observed]
+    if any(len(data)!=row['bytes'] for row,data in zip(observed,captures)):
+        raise PermissionError('GPU observation capture size mismatch')
+    first,second=[data.decode('utf-8') for data in captures]
     device=list(csv.reader(io.StringIO(first),skipinitialspace=True))
     if len(device)!=1 or len(device[0])<2 or device[0][1]!=p['gpu']['uuid'] or '--- stderr ---' in first or '--- stderr ---' in second:
         raise PermissionError('Expected GPU observation unavailable')
@@ -102,6 +106,7 @@ def execute(authority,release_path,owner):
         failure_detail={**supervisor_diagnostic(e,last_phase),'stage':'supervision'}
         failure=failure or 'SUPERVISOR_ERROR:'+repr(e)
     finally:
+        call_phase_failure=failure  # Later cleanup/post failures do not undo completed calls.
         if job is not None:finish('cleanup_job_close',lambda:winjob.close(job))
         if proc is not None:
             alive=finish('cleanup_child_poll',proc.poll)
@@ -109,7 +114,9 @@ def execute(authority,release_path,owner):
                 finish('cleanup_child_kill',proc.kill)
                 finish('cleanup_child_wait',lambda:proc.wait(timeout=60))
     post=finish('post_observers',lambda:run_observers(p['gpu']['observer']['commands'],run,'post'))
-    if post is not None:observed+=post
+    if isinstance(post,list):observed+=post
+    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None
+    if post_check is not None:process_checks.append({'stage':'post',**post_check})
     records=[]
     worker_outcome,worker_status=read_record(run/'evidence/worker-outcome.json','worker_outcome',worker=True)
     worker_outcome=worker_outcome or {}
@@ -118,7 +125,7 @@ def execute(authority,release_path,owner):
         record,record_status=read_record(path,'call_observation:'+name)
         state='completed' if record and not record.get('flags') and not record.get('error') else 'failed' if record or record_status=='unavailable' else 'not_run_after_failure'
         if worker_outcome.get('failure') and worker_outcome.get('active_call')==name:state='failed'
-        if failure and last_phase in ('call:'+name,'render:'+call['fixture_id']):state='failed'
+        if call_phase_failure and last_phase in ('call:'+name,'render:'+call['fixture_id']):state='failed'
         records.append({**call,'status':state,'observation':str(path.relative_to(run)) if record else None,
                         'observation_status':record_status})
     # No later record can replace a first failed/unavailable scheduled call.
@@ -139,7 +146,7 @@ def execute(authority,release_path,owner):
     owned_after=finish('owned_bytes_after',lambda:directory_size(root))
     result={'schema':'eld-coverage-v1-run/1','run':str(run),'executing_head':executing_head,'release':r,'calls':records,'failure':failure,'supervisor_error':failure_detail,
       'secondary_errors':secondary_errors,'finalization_errors':finalization_errors,
-      'final_observation_status':{'post_observers':'available' if post is not None else 'unavailable','worker_outcome':worker_status,
+      'final_observation_status':{'post_observers':'available' if post_check is not None else 'unavailable','worker_outcome':worker_status,
          'free_bytes_after':'available' if free_after is not None else 'unavailable','owned_bytes_after':'available' if owned_after is not None else 'unavailable'},
       'child_launcher_pid':None if proc is None else proc.pid,'child_returncode':None if proc is None else proc.returncode,
       'observed_child_exit':None if any(x['stage']=='child_exit_observation' for x in finalization_errors) else proc is not None and child_exit is not None,
