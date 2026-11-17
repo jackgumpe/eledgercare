@@ -1007,3 +1007,5 @@ WP-0012 renewed004 STOPPED before services/model: actual Q0 verification passes,
 | --- | --- | --- | --- |
 | WP-0012 / 010 | eld-f4-reviewer / implementation | docs/agent-reports/eld-f4-reviewer/WP-0012/010_2026-11-17_implementation_eld-f4-reviewer.md | RELEASED actual Q0/disk boundary repair and complete OCR-disabled no-upload setup/restart/cleanup integration |
 | WP-0012 / 011 | eld-f4-implementer / review | docs/agent-reports/eld-f4-implementer/WP-0012/011_2026-11-17_review_eld-f4-implementer.md | RELEASED independent exact v7/full-boundary review; final waits010 |
+
+WP-0012 integration010bf2172c9 and independent011ed9651ed ACCEPTED/VERIFIED on source5e75cacd. Root verified62+65artifacts,15+14sourcebindings,3832+3818preserved paths and20exact original independent copies; actual disabled lifecycle/cleanup passed, zero modelattempts. Original independent wrapper copy failure exit1 and file-only recovery0 remain. New live004 WP-0012-reviewer-004-r3-20261117T181101Z RELEASED at clean HEADbf2172c9 with v7/new native-03, two attempts/no retries, fresh accounted ownership. Actual dispatch pending; R&D still held.
