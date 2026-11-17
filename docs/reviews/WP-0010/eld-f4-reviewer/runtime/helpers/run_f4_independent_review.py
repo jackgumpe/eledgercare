@@ -767,13 +767,23 @@ def main(argv: list[str] | None = None) -> int:
             if forbidden in txt:
                 static_violations.append(f"{csf.relative_to(repo_root).as_posix()}:{forbidden}")
     for tsf in ts_files:
+        rel_ts = tsf.relative_to(repo_root).as_posix()
         txt = tsf.read_text(encoding="utf-8")
         lines_no_comments = "\n".join(
             ln for ln in txt.splitlines() if not ln.strip().startswith(("//", "*", "/*"))
         )
-        for forbidden_ts in ("innerHTML", "bypassSecurityTrustHtml", "localStorage", "sessionStorage"):
+        for forbidden_ts in ("innerHTML", "bypassSecurityTrustHtml", "localStorage"):
             if forbidden_ts in lines_no_comments:
-                static_violations.append(f"{tsf.relative_to(repo_root).as_posix()}:{forbidden_ts}")
+                static_violations.append(f"{rel_ts}:{forbidden_ts}")
+        # F1 submission-api.ts stores only the accepted WP-0003 upload idempotency key in sessionStorage;
+        # all other 14 TS files (including all F3 review and F4 archive files) must have zero sessionStorage.
+        if rel_ts != "web/src/app/intake/submission-api.ts" and "sessionStorage" in lines_no_comments:
+            static_violations.append(f"{rel_ts}:sessionStorage")
+
+    sub_api_base_oid = run_git(repo_root, "rev-parse", f"{AUTHOR_BASE_SHA}:web/src/app/intake/submission-api.ts")
+    sub_api_head_oid = run_git(repo_root, "rev-parse", f"{head_sha}:web/src/app/intake/submission-api.ts")
+    if sub_api_base_oid != sub_api_head_oid:
+        static_violations.append("web/src/app/intake/submission-api.ts:modified_since_f3")
     record_assert(
         "production_cs_and_ts_static_boundary_scan_clean",
         static_violations == [],

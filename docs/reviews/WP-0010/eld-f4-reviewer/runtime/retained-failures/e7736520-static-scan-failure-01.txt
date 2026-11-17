@@ -1,0 +1,17 @@
+FROZEN HELPER CANDIDATE: e7736520ca2962608f3f9ee7e1a793e459620d5b
+
+COMMAND:
+python -B docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/run_f4_independent_review.py --require-clean --output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/verification-summary.json --resource-return-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/resource-return.json --explain-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/explain-plans.txt --logs-dir docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs --screenshots-dir docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots --edge-before-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/edge-f4-before-restart.json --edge-after-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/edge-f4-after-restart.json --demo-smoke-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/demo-smoke-5690-receipt.json
+
+EXIT CODE: 1
+
+UNALTERED STDOUT / STDERR:
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 1731, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 777, in main
+    record_assert(
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 681, in record_assert
+    raise AssertionError(f"Independent runtime assertion failed [{name}]: {detail}")
+AssertionError: Independent runtime assertion failed [production_cs_and_ts_static_boundary_scan_clean]: {'cs_files': 71, 'ts_files': 15, 'violations': ['web/src/app/intake/submission-api.ts:sessionStorage']}
