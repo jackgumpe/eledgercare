@@ -100,6 +100,14 @@ class ContractTests(unittest.TestCase):
             else: p['catalog_sha256'] = '0' * 64
             with self.subTest(change=change), self.assertRaises(ValueError): validate(e, r, p)
 
+    def test_header_colon_is_not_field_colon_normalization(self):
+        e, r, p, _ = fixture()
+        p['slots'][0]['evidence'][0]['label_printed'] += ':'
+        e['expected_fields'][0]['label_printed'] += ':'
+        validate(e, r, p)
+        p['slots'][1]['evidence'][0]['label_printed'] += ':'
+        with self.assertRaises(ValueError): validate(e, r, p)
+
     def test_ambiguous_truth_has_no_fabricated_expected_value(self):
         e, r, p, _ = fixture('conflict'); s = p['slots'][0]
         s.update(truth_status='ambiguous', truth=None, reason='conflicting_values'); s['evidence'][1]['value_printed'] = '0003'

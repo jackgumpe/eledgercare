@@ -137,7 +137,10 @@ def validate(expected, reference, policy):
             require(item['value_printed'] is None or isinstance(item['value_printed'], str), 'Printed value type')
             require(item['value_bbox_pt'] is None or box(item['value_bbox_pt']), 'Value source box')
         if slot['action'] == 'assign':
-            require(all(norm(x['label_printed']).removesuffix(':') in labels for x in evidence), 'Supported label outside catalog')
+            def declared_label(text):
+                value = norm(text)
+                return value if slot['kind'] == 'cell' else value.removesuffix(':')
+            require(all(declared_label(x['label_printed']) in labels for x in evidence), 'Supported label outside catalog')
         if slot['truth_status'] == 'known':
             require(key in known and known[key]['kind'] == slot['kind'] and known[key]['truth'] == slot['truth'], 'Known truth/expected mismatch')
             truth = slot['truth']; require(isinstance(truth['printed_text'], str), 'Printed truth string')
