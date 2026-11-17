@@ -1,0 +1,668 @@
+{
+  "schema": "eld-coverage-v1-protocol/1",
+  "status": "CPU diagnostic candidate; no unseal or runtime release",
+  "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+  "q0_protocol_path": "qualification/q0/harness/protocol.json",
+  "q0_protocol_sha256": "dd8a7dc38c2a0c46103f6667f522656a2dddf5882727c18bf7b6b5426c5e2309",
+  "dependency_lock_path": "qualification/q0/harness/locks/dependency-lock.json",
+  "dependency_lock_sha256": "d8eeaf0fe838d9df5728f17fcbacc8b504d98b79644a524b4faa705d97c49e6e",
+  "model_manifest_path": "qualification/q0/harness/manifests/model-files.json",
+  "model_manifest_sha256": "085ac7ba1e25a7300846de18bdac19c7f9612bf417041643beff6a9cab6b8ea8",
+  "model": {
+    "repo_id": "baidu/Unlimited-OCR-2",
+    "revision": "0480966938291445591f69f08a13b041c073a96a",
+    "file_manifest": "manifests/model-files.json",
+    "torch_dtype": "bfloat16",
+    "load": {
+      "trust_remote_code": true,
+      "use_safetensors": true,
+      "local_files_only": true,
+      "then": [
+        "eval",
+        "cuda"
+      ]
+    },
+    "custom_code_policy": "byte-for-byte; 18 runtime objects verified before load (16 git blob SHA-1, 2 LFS SHA-256, sizes) and after load (module-cache copies identical); model card README.md is a separately verified notice outside the runtime directory"
+  },
+  "renderer": {
+    "distribution": "pypdfium2",
+    "version": "5.15.2",
+    "pdfium_version": "159.0.8149.0",
+    "call": "pypdfium2.PdfDocument(verified_bytes)[i].render(scale=300.0 / 72.0).to_pil().convert('RGB')",
+    "scale_numerator": 300.0,
+    "scale_denominator": 72.0,
+    "input": "verified_pdf_bytes",
+    "model_input": "the rendered PIL RGB images are passed to infer_multi directly (no intermediate image file)"
+  },
+  "call": {
+    "entry": "infer_multi",
+    "signature_used": "model.infer_multi(tokenizer, prompt=PROMPT, image_files=[PIL RGB pages in order], **fixed_kwargs, max_new_tokens=..., ngram_window=...)",
+    "prompt": "Multi page parsing.",
+    "prompt_expansion": "native infer(): '<PAGE><image>' * n_pages + prompt (no <image> placeholder in PROMPT)",
+    "page_token_id": 128827,
+    "fixed_kwargs": {
+      "crop_mode": false,
+      "save_results": false,
+      "output_path": "",
+      "temperature": 0.0,
+      "max_length": 131072,
+      "max_page_tokens": 20000,
+      "page_count_guard": true,
+      "image_size": 640,
+      "base_size": 1024,
+      "max_crops": 16,
+      "no_repeat_ngram_size": 35,
+      "ngram_whitelist_token_ids": null,
+      "dash_topm": 16,
+      "tps_interval": 0,
+      "test_compress": false,
+      "eval_mode": false
+    },
+    "per_fixture_kwargs": [
+      "max_new_tokens",
+      "ngram_window"
+    ],
+    "tokens_per_page": 8000,
+    "rules": {
+      "max_new_tokens": "8000 * page_count (upstream tokens_per_page); the accepted min(8000 * page_count, max_length - prompt_len) equals this whenever prompt_len + 8000 * page_count <= max_length, which is verified from native prompt_token_ids after every call; otherwise CONTEXT_BUDGET_EXCEEDED (failed, never truncated)",
+      "ngram_window": "1024 if page_count > 1 else 128 (upstream README evaluation setup), no whitelist",
+      "eval_mode": "explicit native default False: native TextStreamer stays on (stdout captured, bounded); unrelated to the eval() save path",
+      "stop": "native only: EOS -> finish_reason 'stop'; max_new_tokens or max_length -> 'length' (TRUNCATION failure); native PageCountGuard forces <PAGE>/EOS"
+    }
+  },
+  "guards": {
+    "timeouts_s": {
+      "preflight": 1800,
+      "load": 1800,
+      "call_pages_1": 1800,
+      "call_pages_3": 3600,
+      "session": 21600
+    },
+    "stall_s": 300,
+    "heartbeat_interval_s": 5,
+    "max_log_bytes": 67108864,
+    "max_raw_output_bytes": 16777216,
+    "basis": "Harness policy, not measured performance. Phase timeouts bound the run; stall = no native model-forward return for stall_s inside a call (suspected WDDM paging stall). Revisit only through review, never mid-run."
+  },
+  "gpu": {
+    "uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+    "name_contains": "RTX 5070 Ti",
+    "concurrency": 1,
+    "observer": {
+      "gpu_fields": [
+        "timestamp",
+        "uuid",
+        "name",
+        "driver_version",
+        "compute_cap",
+        "memory.total",
+        "memory.used",
+        "memory.free",
+        "utilization.gpu",
+        "pstate"
+      ],
+      "commands": [
+        [
+          "nvidia-smi",
+          "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+          "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate",
+          "--format=csv,noheader,nounits"
+        ],
+        [
+          "nvidia-smi",
+          "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+          "--query-compute-apps=pid,process_name,used_memory",
+          "--format=csv,noheader,nounits"
+        ]
+      ],
+      "every_s": 60,
+      "reconciliation": "The /002 checkpoint's single command combining --query-gpu and --query-compute-apps was never validated and is replaced by two separate read-only queries, the forms already executed successfully in the Astra /001 host receipt (2c32dde:qualification/q0/preflight/host-receipt.json: gpu line incl. compute_cap 12.0; compute-apps rows with used_memory [N/A] under WDDM). The q0.py host-precheck command validates both against this host before any lease. Per-process VRAM is unsupported telemetry on WDDM; device memory.used is a whole-GPU observation that includes desktop/other processes (confounder, never a reason to stop another process)."
+    }
+  },
+  "read_only_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+  "model_relative": "models\\Unlimited_OCR_2_04809669",
+  "notice_relative": "notices\\Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a",
+  "runtime_roots": {
+    "author": "C:/Users/jackg/eLedgerCare-Coverage/WP-0011/author",
+    "reviewer": "C:/Users/jackg/eLedgerCare-Coverage/WP-0011/reviewer"
+  },
+  "storage_cap_bytes": 4294967296,
+  "free_floor_bytes": 21474836480,
+  "measured_calls_per_document": 1,
+  "warmups": [
+    "SYN-WO-01-v0-clean",
+    "SYN-MP-01-v0-clean"
+  ],
+  "warmup_policy": "one excluded dev call per 1/3-page category after each cold load",
+  "sentinel_policy": {
+    "chosen_by": "root-fixed before outputs",
+    "required_categories": [
+      "one_page_degraded"
+    ],
+    "measured_document_count": 1,
+    "page_counts": [
+      1
+    ],
+    "fixture_id": "WP11-F03-degraded-v0",
+    "ids_bound_in_release": true,
+    "limit": "One sentinel is a reproducibility check, not coverage of every family/condition."
+  },
+  "failure_policy": "First failure stops; all later scheduled primary rows are not_run_after_failure. No retries or replacement.",
+  "comparator_source": "522f15f1f6e399c36b9c6c107fc08f51862f1fc1",
+  "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+  "public_reservation_path": "docs/evaluation/WP-0011/reservation/reservation.json",
+  "public_reservation_commit": "98a3a3f73df0e578ae98ebf3923db7ba4882d018",
+  "publication_prefix": "evaluation/coverage_v1/",
+  "reviewer_sentinel": "WP11-F03-degraded-v0",
+  "source_review_path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+  "admission_review_path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+  "fresh_fixtures": [
+    {
+      "fixture_id": "WP11-F01-control-v0",
+      "family_id": "WP11-F01",
+      "condition": "control",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F01-control-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F01-control-v0.pdf",
+          "bytes": 2062,
+          "sha256": "0615dc167fc7539faa6334a2b009ef72ffd97ed9a2865a236289052b3dc70699"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-control-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F01-control-v0.json",
+          "bytes": 5762,
+          "sha256": "ae978641e6b214aa56c1f5a27d9be2d3b4ec864468f216e8555cb961f9e7d3b8"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F01-control-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F01-control-v0.json",
+          "bytes": 11514,
+          "sha256": "7f89a47c47f7efa9639f6bcd877cc11a660b932b27a672502f701bd5480b2c65"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F01-control-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F01-control-v0.json",
+          "bytes": 4298,
+          "sha256": "e2a6c42213e1482410629cc21fe3a1cc238b1e64aff90a82032efa80dae569ab"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F01-layout-v0",
+      "family_id": "WP11-F01",
+      "condition": "layout",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F01-layout-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F01-layout-v0.pdf",
+          "bytes": 2067,
+          "sha256": "73ae79cb0e1dd07a561aaf282ffc384d366debb828d35ba84cbf19758adc0825"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F01-layout-v0.json",
+          "bytes": 5772,
+          "sha256": "a36e7214f5fc7d4c34456abfd25b48f44fe53657f3faec70b2fd3b089fff882b"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F01-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F01-layout-v0.json",
+          "bytes": 11512,
+          "sha256": "dd0d39a63d8a55007dfe352d0dffb93f7a1bdf1f90e757b75a17992d6380a51a"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F01-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F01-layout-v0.json",
+          "bytes": 4294,
+          "sha256": "f2b6598a21fcca521d9646aa02a1aa29de828f39ef39b17a1cf680360dfa96ca"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F01-vocabulary-v0",
+      "family_id": "WP11-F01",
+      "condition": "vocabulary",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F01-vocabulary-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F01-vocabulary-v0.pdf",
+          "bytes": 2072,
+          "sha256": "70f012fd092c88255d2f3940381a60cd02e7aad94823c53dccb32a2901b33a22"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F01-vocabulary-v0.json",
+          "bytes": 5777,
+          "sha256": "1f54ad3574cf9fc6ec29518c475a72a9a6b1df7ce40548acfb256fdfb4858c4b"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F01-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F01-vocabulary-v0.json",
+          "bytes": 11514,
+          "sha256": "47d1be0e35e3a67cd3baedbabdfda60421485c9febdafbb7c87c55be2d8dc48d"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F01-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F01-vocabulary-v0.json",
+          "bytes": 4304,
+          "sha256": "c3b83e4e94c766f5368cd6c9c958934fcb0b5b9c01d713d04350720365df1cb0"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F01-degraded-v0",
+      "family_id": "WP11-F01",
+      "condition": "degraded",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F01-degraded-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F01-degraded-v0.pdf",
+          "bytes": 434412,
+          "sha256": "80fd53e2542387c76f5aef16d391af3cefb7077d068b5bdfa2e0ac46c23312f2"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F01-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F01-degraded-v0.json",
+          "bytes": 5781,
+          "sha256": "5b9e450fcbc82ffb17c72178cd1189b89506696de2010cb4a5fd4e6ad637c437"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F01-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F01-degraded-v0.json",
+          "bytes": 13439,
+          "sha256": "80de073d27d243368c1b7f42972ad797828c782526ed22781b354d8b797e932e"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F01-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F01-degraded-v0.json",
+          "bytes": 4300,
+          "sha256": "fb4bc4e0c7ba8b6d8f2068a198a50d4f4e8cc3544a3775139bd42e84ba34d575"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F02-control-v0",
+      "family_id": "WP11-F02",
+      "condition": "control",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F02-control-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F02-control-v0.pdf",
+          "bytes": 2322,
+          "sha256": "b79355bfc926c858ca5b5704694f9c127583f2f6b45d9e7db2bbefa8ef61f49a"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-control-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F02-control-v0.json",
+          "bytes": 12558,
+          "sha256": "edbf8063746afa23988b7e5e82e3b379541b461f5a27e2d43bc71ba604864ab8"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F02-control-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F02-control-v0.json",
+          "bytes": 21414,
+          "sha256": "b7071df1c921269a9611446ab27c92c305099c6b029fe9969de59d3cf487afb0"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F02-control-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F02-control-v0.json",
+          "bytes": 5951,
+          "sha256": "7a40d72e97e4c87752a5db955d0c0f8cd7cac22e3c045dc7800f037c4a8f0d6d"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F02-layout-v0",
+      "family_id": "WP11-F02",
+      "condition": "layout",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F02-layout-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F02-layout-v0.pdf",
+          "bytes": 2336,
+          "sha256": "1467a5dc3681018b2c240a5a45f43b020fa73f7b8a32d0132e040cc172f803e4"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F02-layout-v0.json",
+          "bytes": 12564,
+          "sha256": "ad95e22b19e747ff540b73bc6d9d9567da5784be387c97ff0a5d086116b03872"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F02-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F02-layout-v0.json",
+          "bytes": 21412,
+          "sha256": "e668a078886cdf9582a3544382852bab524084c978882103ec0a57f0bf924c69"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F02-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F02-layout-v0.json",
+          "bytes": 5949,
+          "sha256": "4e5c4f51e8539fe2e8528ffc12ad0c83bee913553807b5e8788e5c2a8cd93d44"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F02-vocabulary-v0",
+      "family_id": "WP11-F02",
+      "condition": "vocabulary",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F02-vocabulary-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F02-vocabulary-v0.pdf",
+          "bytes": 2304,
+          "sha256": "dad8b8af2ae53895eda2cf4a35128d78025dc73ef7ee312bbf0c97da4d8bf233"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F02-vocabulary-v0.json",
+          "bytes": 12555,
+          "sha256": "b6732ebaee6b0e56e2af1b93c9cb466784e9e950a559709c39b86f1c2b580c96"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F02-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F02-vocabulary-v0.json",
+          "bytes": 21357,
+          "sha256": "d65fec1071eed2c0d524ad24a88b52bc0f13d3d5f4928d32892283687f15594f"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F02-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F02-vocabulary-v0.json",
+          "bytes": 5903,
+          "sha256": "629f5170b1db4947e0c5fab98190e66d62c3ef64bbf71ae055462932aefae4d2"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F02-degraded-v0",
+      "family_id": "WP11-F02",
+      "condition": "degraded",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F02-degraded-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F02-degraded-v0.pdf",
+          "bytes": 531338,
+          "sha256": "4e6fe0ce51f40fbce4b8bcda3af6874c752ef8dc590b6c949a812cd0d8013df7"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F02-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F02-degraded-v0.json",
+          "bytes": 12577,
+          "sha256": "654e5c13353235be50e58bca6bbeb583d65adc9809eaeb9ff66ae9d22ca2bd9d"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F02-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F02-degraded-v0.json",
+          "bytes": 23339,
+          "sha256": "13e9c5ba76af0cbccf7451814ea0f552ac219f7973c704ed51fa40ee44809616"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F02-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F02-degraded-v0.json",
+          "bytes": 5953,
+          "sha256": "5c8c3aa527cbceac85b1e5b821acbaf0ccce85d5110f63ea654858229f61fa0e"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F03-control-v0",
+      "family_id": "WP11-F03",
+      "condition": "control",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F03-control-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F03-control-v0.pdf",
+          "bytes": 2063,
+          "sha256": "41887ab42c06ad683c454fd8feea8c2fd0d0b3559f53e773766276e1ce757358"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-control-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F03-control-v0.json",
+          "bytes": 5522,
+          "sha256": "902827c96d6430990f4c84bc9b70aa55cc893ee29c51b9be72ea250da45dc9bc"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F03-control-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F03-control-v0.json",
+          "bytes": 10899,
+          "sha256": "c04180ae4e6a92edd5be176433538ea27ee5815377fe7ff2f65e75fdb3bb9295"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F03-control-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F03-control-v0.json",
+          "bytes": 4011,
+          "sha256": "a3ac77a347dc540db6038e573b4b3594d3fc1f1eabc0938ef45cb0fecf7ea70c"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F03-layout-v0",
+      "family_id": "WP11-F03",
+      "condition": "layout",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F03-layout-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F03-layout-v0.pdf",
+          "bytes": 2070,
+          "sha256": "7b9eefb12e1300ad0137c7b0529d341bbec29deb5c99594f2d7181d402047d12"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F03-layout-v0.json",
+          "bytes": 5531,
+          "sha256": "4a842de4ba71401628670b7e492b450f29e6595f0127337709258fed22d2b545"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F03-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F03-layout-v0.json",
+          "bytes": 10897,
+          "sha256": "3ba5ca13c7a9e3aff29a6b806444ffcb5f3f01d5c61d8ddb5f548ad31efc2541"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F03-layout-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F03-layout-v0.json",
+          "bytes": 4009,
+          "sha256": "ed3c040b0f0713833c3394e9ac937e095734edf258efd5600ef037edad6d28cf"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F03-vocabulary-v0",
+      "family_id": "WP11-F03",
+      "condition": "vocabulary",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F03-vocabulary-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F03-vocabulary-v0.pdf",
+          "bytes": 2040,
+          "sha256": "8b1d46800965cb9d4ad1c52a5c7fc5fb3a316982af6785919a637c5f7370c532"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F03-vocabulary-v0.json",
+          "bytes": 5539,
+          "sha256": "3ff2e3448c0571e7b3cc2662527d0008016f9c1f0954c69e08d85c68c994aa30"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F03-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F03-vocabulary-v0.json",
+          "bytes": 10886,
+          "sha256": "5f1a89c3331c437320e910e6ea55c06b674e187629cb96f73568c9ba52bf98b9"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F03-vocabulary-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F03-vocabulary-v0.json",
+          "bytes": 4003,
+          "sha256": "e4b98b490def857b56f78bd72e58d8fd297348e177b81496d3f1f9e4db390404"
+        }
+      ]
+    },
+    {
+      "fixture_id": "WP11-F03-degraded-v0",
+      "family_id": "WP11-F03",
+      "condition": "degraded",
+      "page_count": 1,
+      "artifacts": [
+        {
+          "role": "pdf",
+          "path": "evaluation/coverage_v1/corpus/r1/pdfs/WP11-F03-degraded-v0.pdf",
+          "sealed_relative_path": "corpus/r1/pdfs/WP11-F03-degraded-v0.pdf",
+          "bytes": 416569,
+          "sha256": "81d8f5333f210d913b65fbcc3eb6b803bdf8d92952da390e6ab79d36da8aebaa"
+        },
+        {
+          "role": "expected",
+          "path": "evaluation/coverage_v1/corpus/r1/expected/WP11-F03-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/expected/WP11-F03-degraded-v0.json",
+          "bytes": 5541,
+          "sha256": "e018092c70d2d4c43160bfa78ffec0fb848ed8c31fb3bbf935a7705c5223715e"
+        },
+        {
+          "role": "reference",
+          "path": "evaluation/coverage_v1/corpus/r1/reference/WP11-F03-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/reference/WP11-F03-degraded-v0.json",
+          "bytes": 12824,
+          "sha256": "e0596c3f952ffaea25b59542b18e15db4791c340f3d22f80e7628f6ffbddf6d9"
+        },
+        {
+          "role": "annotations",
+          "path": "evaluation/coverage_v1/corpus/r1/annotations/WP11-F03-degraded-v0.json",
+          "sealed_relative_path": "corpus/r1/annotations/WP11-F03-degraded-v0.json",
+          "bytes": 4013,
+          "sha256": "b267f0d081703e1687aff45d5af4aed7988dbdce727fefab4699cee1db7f46a1"
+        }
+      ]
+    }
+  ],
+  "historical_warmups": [
+    {
+      "fixture_id": "SYN-WO-01-v0-clean",
+      "family_id": "F01",
+      "split": "dev",
+      "variant_kind": "v0_clean",
+      "file_path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v0-clean.pdf",
+      "size_bytes": 3482,
+      "sha256": "893d08ddfc87ef6a18f846d9119d9ba68566d7914aef4bcdc47de0f991c7026f",
+      "page_count": 1,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-WO-01-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "2299f16b53ab01d7b2078439f81de2dba260de803393ae39fba7e28b5faa4b71",
+      "source_record_path": "evaluation/synthetic/sources/F01_SYN-WO-01_source.json",
+      "source_record_sha256": "761ffc1e42b61c14a620d2fe3a207f4b29b53a78a0718d35840015a2b1bcf579"
+    },
+    {
+      "fixture_id": "SYN-MP-01-v0-clean",
+      "family_id": "F07",
+      "split": "dev",
+      "variant_kind": "v0_clean",
+      "file_path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v0-clean.pdf",
+      "size_bytes": 8422,
+      "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+      "page_count": 3,
+      "expected_ground_truth_path": "evaluation/synthetic/expected/SYN-MP-01-v0-clean_expected.json",
+      "expected_ground_truth_sha256": "ba7852dd2c4bd26d1dd213e4a1ebad8170f35a6d200861c54b4af0efb74945e6",
+      "source_record_path": "evaluation/synthetic/sources/F07_SYN-MP-01_source.json",
+      "source_record_sha256": "1dc20052c8619bab7bee28d49e341bf0983d860623704d34dfd9b24b73f2d4fb"
+    }
+  ],
+  "primary_metric": "No collapsed causal metric: report per-stage numerators/denominators/unavailable, twelve primary documents/three matched families, plus unchanged B0/v1 end-to-end metrics.",
+  "paired_design": "One unchanged native extraction feeds frozen B0 and mapping_v1. Reference-side diagnostic metrics are separately versioned and never modify those predictions/scores.",
+  "public_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+  "gpu_process_policy": {
+    "lease_scope": "sole_model_job",
+    "coordinator_duty": "Review fresh retained process/owner evidence before exact lease; resolve unknown/model processes without terminating other owners",
+    "runtime_observations": "Successful exact-device captures and complete process rows retained; no automatic desktop classification or empty-list requirement",
+    "limits": "WDDM [N/A] and desktop GPU sharing remain confounders; no OS-exclusive hardware assurance",
+    "retained_policy_evidence": "docs/coordination/WP-0007/gpu-reviewer-heldout-release/host-before.json"
+  },
+  "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+  "mapping_v1_source": "23e023045b335540d830ce01b75be247552a63f1",
+  "diagnostic_matrix": {
+    "families": [
+      "WP11-F01",
+      "WP11-F02",
+      "WP11-F03"
+    ],
+    "conditions": [
+      "control",
+      "layout",
+      "vocabulary",
+      "degraded"
+    ],
+    "order": "family-major then declared condition order",
+    "primary_documents": 12,
+    "independent_families": 3,
+    "author_total_calls": 14,
+    "reviewer_total_calls": 3,
+    "pairing": "each condition versus its own clean control; all9 pairs retained including unavailable",
+    "order_limit": "fixed order confounds condition with elapsed session time; no causal/generalization estimate from12 independent samples"
+  },
+  "diagnostic_schema": "eld-coverage-annotations/1",
+  "historical_primary_metric": "printed field exact match; equal documents within family then equal families; primary and recovery separate",
+  "stage_measurements": {
+    "visible_presence": "NFC plus whitespace collapse; case-sensitive whole-word-boundary exact substring in decoded visible payload leaves, same page; tags/attributes/coordinates excluded.",
+    "ambiguity": "Retain occurrence count, repeated expected value count, exact raw block/row/cell anchors, unsupported/unadjudicated flags; presence is not semantic association.",
+    "parse": "End-to-end parse errors unchanged; globally ineligible stage rates unavailable; locally decoded positive payload evidence retained separately, never absence inferred from incomplete parsing.",
+    "row_binding": "Unique same-page row key at annotated canonical column index, exact row width and unit spans; no cross-row value substitution.",
+    "conditionals": "Exact payload presence over eligible slots; printed credit given supported unique/local payload; typed credit given printed exact; each with unavailable/excluded counts.",
+    "normalization": "Original typed conversion untouched; separate literal printed-unit agreement and identifier exactness including leading zeroes.",
+    "pairing": "Fixed family-major controls; all nine condition-control pairs remain; presence deltas only when both documents eligible; historical score deltas preserve failed denominators.",
+    "absence": "Original explicit blank/unmapped/violation counts retained; no mapped violation does not establish no inventions.",
+    "attribution": "Overlapping evidence flags and unadjudicated cases, not forced mutually exclusive causes or percentages."
+  }
+}
