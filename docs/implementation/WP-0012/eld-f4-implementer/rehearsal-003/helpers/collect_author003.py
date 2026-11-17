@@ -29,6 +29,13 @@ def main():
     assert not git("status","--porcelain","--untracked-files=all").strip(),"Collection must start clean"
     changed=git("diff","--name-only",EXEC_HEAD,head).decode().splitlines()
     assert all(x.startswith("docs/implementation/WP-0012/eld-f4-implementer/rehearsal-003/") for x in changed),changed
+    assert not git("diff","--diff-filter=MD","--name-only",EXEC_HEAD,head).strip(),"Inherited files changed"
+    source_inventory=[]
+    for rel in changed:
+        raw=(ROOT/rel).read_bytes()
+        assert raw==git("show",f"{head}:{rel}"),rel
+        source_inventory.append({"path":rel,"bytes":len(raw),"sha256":sha(raw),"git_blob_oid":git("rev-parse",f"{head}:{rel}").decode().strip()})
+    preserved_count=len(git("ls-tree","-r","--name-only",EXEC_HEAD).decode().splitlines())
     assert not OUT.exists(),"Never overwrite collected evidence"
     launch=json.loads((SCRATCH/"launcher-receipt.json").read_text(encoding="utf-8"))
     assert launch.get("ended_utc") and "wrapper_exit_code" in launch,"Invocation still running"
@@ -128,7 +135,7 @@ def main():
         if ident.get("create_filetime") and drv.is_exact_process_alive(int(ident["pid"]),int(ident["create_filetime"])): live.append(ident)
     assert not live,live
     assert drv.count_ocr_worker_processes()==0
-    manifest={"schema":"eledgercare.wp0012.author003-collection/1","collected_utc":utc(),"runtime_executing_head":EXEC_HEAD,"collector_frozen_head":head,"release_commit":RELEASE,"accepting007":REVIEW,"lease_id":LEASE,"runtime_and_launch_artifacts":entries,"git_release_inputs":git_inputs,"lease_return":lease_return,"launcher_exit":launch["wrapper_exit_code"],"database_table_row_counts":{k:len(v) for k,v in database.items()},"retained_databases":preservation,"owned_identities_observed_exited":identities,"ports_after_accounting":ports,"ocr_worker_processes":0,"no_additional_model_calls":True,"copied_files":[{"path":p.relative_to(ROOT).as_posix(),"bytes":p.stat().st_size,"sha256":sha(p.read_bytes())} for p in sorted(OUT.rglob("*")) if p.is_file()]}
+    manifest={"schema":"eledgercare.wp0012.author003-collection/1","collected_utc":utc(),"runtime_executing_head":EXEC_HEAD,"collector_frozen_head":head,"collector_source_inventory":source_inventory,"inherited_paths_verified_unchanged":preserved_count,"release_commit":RELEASE,"accepting007":REVIEW,"lease_id":LEASE,"runtime_and_launch_artifacts":entries,"git_release_inputs":git_inputs,"lease_return":lease_return,"launcher_exit":launch["wrapper_exit_code"],"database_table_row_counts":{k:len(v) for k,v in database.items()},"retained_databases":preservation,"owned_identities_observed_exited":identities,"ports_after_accounting":ports,"ocr_worker_processes":0,"no_additional_model_calls":True,"copied_files":[{"path":p.relative_to(ROOT).as_posix(),"bytes":p.stat().st_size,"sha256":sha(p.read_bytes())} for p in sorted(OUT.rglob("*")) if p.is_file()]}
     js("collection-inventory.json",manifest)
     print(json.dumps({"status":"collected","runtime_files":sum(x["source_root"]==str(RUNTIME) for x in entries),"copied_files":len(manifest["copied_files"]),"cache_files_retained_only":sum(x["disposition"]=="retained-only-generated-cache" for x in entries),"table_rows":manifest["database_table_row_counts"],"ports":ports}))
 if __name__=="__main__": main()
