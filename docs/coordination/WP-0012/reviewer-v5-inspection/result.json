@@ -1,0 +1,118 @@
+{
+  "schema": "eld-wp12-root-v5-cpu-inspection/1",
+  "utc": "2026-11-17T16:51:14.053947+00:00",
+  "root_frozen_head": "6015e56610a2ed89401b68410eee8e92b31f4e8d",
+  "reviewer_publication": "1851fc06f0384712a41563e80a0b45f6e43548c6",
+  "helper_path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v5.py",
+  "helper_sha256": "dd2b84d5acbf6fd6d3ce9baf2c9a1ef56deec4859d7f6258f341299088d13330",
+  "synthetic_test_only": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "actual accepting007 Git report",
+      "passed": true
+    },
+    {
+      "check": "existing commit without accepting007 f1b8306ef62bf1c82a9106509ce31988e94b1dab",
+      "passed": true
+    },
+    {
+      "check": "existing commit without accepting007 379d8c5d607fd248d7f272e412b4ed4a97bc64f6",
+      "passed": true
+    },
+    {
+      "check": "explicit synthetic clean author return",
+      "passed": true
+    },
+    {
+      "check": "empty author return",
+      "passed": true
+    },
+    {
+      "check": "reject author return lease_returned=False",
+      "passed": true
+    },
+    {
+      "check": "reject author return lease_returned='true'",
+      "passed": true
+    },
+    {
+      "check": "reject author return clean_return_verified=False",
+      "passed": true
+    },
+    {
+      "check": "reject author return owner='other'",
+      "passed": true
+    },
+    {
+      "check": "reject author return lease_id=''",
+      "passed": true
+    },
+    {
+      "check": "reject author return returned_utc=None",
+      "passed": true
+    },
+    {
+      "check": "reject author return ocr_worker_processes_running=False",
+      "passed": true
+    },
+    {
+      "check": "reject author return ocr_worker_processes_running=1",
+      "passed": true
+    },
+    {
+      "check": "reject author return lingering_attempt_processes=[123]",
+      "passed": true
+    },
+    {
+      "check": "reject author return cleanup_errors=['injected']",
+      "passed": true
+    },
+    {
+      "check": "reject author return status='cleanup_failed_lease_unreturned'",
+      "passed": true
+    },
+    {
+      "check": "synthetic complete clean return",
+      "passed": true
+    },
+    {
+      "check": "failed workflow with verified cleanup returns resource",
+      "passed": true
+    },
+    {
+      "check": "unreturned reviewer resource ports_after",
+      "passed": true
+    },
+    {
+      "check": "unreturned reviewer resource ports_after",
+      "passed": true
+    },
+    {
+      "check": "unreturned reviewer resource pg_ctl_status_exit_code",
+      "passed": true
+    },
+    {
+      "check": "unreturned reviewer resource api_stop_receipts",
+      "passed": true
+    },
+    {
+      "check": "unreturned reviewer resource ui_stop_receipts",
+      "passed": true
+    },
+    {
+      "check": "unreturned reviewer resource post_ownership",
+      "passed": true
+    },
+    {
+      "check": "unreturned reviewer resource q0_model_immutability_verified",
+      "passed": true
+    },
+    {
+      "check": "unreturned reviewer resource cleanup_errors",
+      "passed": true
+    }
+  ],
+  "live_process_service_gpu_activity": false,
+  "limits": "Focused independent real-Git acceptance and pure receipt guards only. No complete live004 workflow claim, no model/renderer import, no actual lease or resource observation. Root must semantically accept actual003 and independently acknowledge its return before004."
+}

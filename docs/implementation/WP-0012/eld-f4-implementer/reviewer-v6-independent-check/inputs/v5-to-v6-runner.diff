@@ -1,0 +1,249 @@
+diff --git a/docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v5.py b/docs/reviews/WP-0012/eld-f4-reviewer/live-004/preflight-correction/helpers/run_wp0012_reviewer_rehearsal_v6.py
+index 6e2e72f..0d26a74 100644
+--- a/docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/helpers/run_wp0012_reviewer_rehearsal_v5.py
++++ b/docs/reviews/WP-0012/eld-f4-reviewer/live-004/preflight-correction/helpers/run_wp0012_reviewer_rehearsal_v6.py
+@@ -1,4 +1,10 @@
+-"""Native continuation reviewer helper v5 for WP-0012 (`eld-f4-reviewer`).
++"""Native continuation reviewer helper v6 for WP-0012 (`eld-f4-reviewer`).
++
++WP-0012 /008 changes only ownership observation/classification after the first
++/004 preflight refusal: ownership_v6 binds explicitly accounted idle Ollama and
++the exact observer identity/query, failing closed on failed/malformed inputs.
++V5, /007 and the original refusal remain immutable. The additional ownership
++module is committed-byte-bound alongside this launcher and the browser helper.
+ 
+ Derived from Carbon's unfinished v4, preserved unchanged in checkpoint 8729db9.
+ Native continuation /root/product_reviewer_continuation uses requested xhigh;
+@@ -38,6 +44,8 @@ sequence & failed-cleanup requirements in `docs/kickoffs/WP-0012-eld-f4-reviewer
+ 
+ from __future__ import annotations
+ 
++import ownership_v6
++
+ import argparse
+ from datetime import datetime, timezone
+ import hashlib
+@@ -197,6 +205,7 @@ PROTECTED_RETAINED_PREFIXES = (
+     "docs/reviews/wp-0012/eld-f4-reviewer/preparation",
+     "docs/reviews/wp-0012/eld-f4-reviewer/author-001-review",
+     "docs/reviews/wp-0012/eld-f4-reviewer/correction-006-review",
++    "docs/reviews/wp-0012/eld-f4-reviewer/live-004/preflight-correction",
+     "docs/reviews/wp-0010",
+     "docs/reviews/wp-0008",
+     "docs/reviews/wp-0006",
+@@ -857,119 +866,14 @@ def validate_reviewer_release_contract(
+     }
+ 
+ 
+-def evaluate_gpu_and_model_ownership(
+-    snapshot: dict,
+-    *,
+-    pre_lease_blobs: dict[str, dict] | None = None,
+-    self_pid: int | None = None,
+-) -> dict:
+-    """RG-02: Distinguishes benign Windows desktop/WDDM GPU sharing from competing model work."""
+-    my_pid = self_pid if self_pid is not None else os.getpid()
+-    accounted_non_model_pids: set[int] = set()
+-    for blob in (pre_lease_blobs or {}).values():
+-        if not isinstance(blob, dict):
+-            continue
+-        for proc_row in blob.get("candidate_and_gpu_processes") or blob.get("processes") or []:
+-            if isinstance(proc_row, dict) and "ProcessId" in proc_row:
+-                p_name = Path(str(proc_row.get("Name") or "")).name.lower()
+-                p_exe = str(proc_row.get("ExecutablePath") or "")
+-                p_cmd = str(proc_row.get("CommandLine") or "")
+-                if (
+-                    not MODEL_SERVER_BASENAME_RE.match(p_name)
+-                    and not PYTHON_BASENAME_RE.match(p_name)
+-                    and not MODEL_WORKLOAD_TOKEN_RE.search(p_exe)
+-                    and not MODEL_WORKLOAD_TOKEN_RE.search(p_cmd)
+-                ):
+-                    accounted_non_model_pids.add(int(proc_row["ProcessId"]))
+-
+-    wddm_entries: list[dict] = []
+-    competing_violations: list[dict] = []
+-
+-    proc_by_pid: dict[int, dict] = {}
+-    for p in snapshot.get("candidate_and_gpu_processes") or []:
+-        if isinstance(p, dict) and p.get("ProcessId") is not None:
+-            proc_by_pid[int(p["ProcessId"])] = p
+-
+-    for raw_line in snapshot.get("apps") or []:
+-        line = str(raw_line).strip()
+-        if not line or line.lower().startswith("no running"):
+-            continue
+-        parts = [seg.strip() for seg in line.split(",")]
+-        if len(parts) < 2 or not parts[0].isdigit():
+-            competing_violations.append({"source": "nvidia_smi_compute_apps_unparsed", "line": line})
+-            continue
+-        pid = int(parts[0])
+-        if pid == my_pid:
+-            continue
+-        proc_path_str = parts[1]
+-        base = Path(proc_path_str.replace("\\", "/")).name.lower()
+-        used_mem = parts[2] if len(parts) >= 3 else ""
+-        proc_detail = proc_by_pid.get(pid, {})
+-        exe_path = str(proc_detail.get("ExecutablePath") or proc_path_str)
+-        cmd_line = str(proc_detail.get("CommandLine") or "")
+-
+-        if (
+-            MODEL_SERVER_BASENAME_RE.match(base)
+-            or PYTHON_BASENAME_RE.match(base)
+-            or MODEL_WORKLOAD_TOKEN_RE.search(exe_path)
+-            or MODEL_WORKLOAD_TOKEN_RE.search(cmd_line)
+-        ):
+-            competing_violations.append({
+-                "source": "gpu_compute_app",
+-                "pid": pid,
+-                "name": base,
+-                "executable": exe_path,
+-                "used_memory_mib": used_mem,
+-            })
+-        elif base in BENIGN_WDDM_DESKTOP_BASENAMES or pid in accounted_non_model_pids:
+-            wddm_entries.append({
+-                "pid": pid,
+-                "name": base,
+-                "used_memory_mib": used_mem,
+-                "classification": "benign_wddm_or_accounted_desktop_process",
+-            })
+-        else:
+-            competing_violations.append({
+-                "source": "unaccounted_gpu_compute_process",
+-                "pid": pid,
+-                "name": base,
+-                "executable": exe_path,
+-                "used_memory_mib": used_mem,
+-            })
+-
+-    for pid, p in sorted(proc_by_pid.items()):
+-        if pid == my_pid:
+-            continue
+-        name = Path(str(p.get("Name") or "")).name.lower()
+-        exe_path = str(p.get("ExecutablePath") or "")
+-        cmd_line = str(p.get("CommandLine") or "")
+-        if MODEL_SERVER_BASENAME_RE.match(name):
+-            competing_violations.append({"source": "host_model_server", "pid": pid, "name": name, "executable": exe_path})
+-        elif MODEL_WORKLOAD_TOKEN_RE.search(exe_path) or MODEL_WORKLOAD_TOKEN_RE.search(cmd_line):
+-            competing_violations.append({
+-                "source": "host_ocr_or_qualification_worker",
+-                "pid": pid,
+-                "name": name,
+-                "executable": exe_path,
+-            })
+-
+-    ollama_lines = [str(x).strip() for x in (snapshot.get("ollama_ps") or []) if str(x).strip()]
+-    if len(ollama_lines) >= 2 and ollama_lines[0].upper().startswith("NAME"):
+-        for active_row in ollama_lines[1:]:
+-            competing_violations.append({"source": "ollama_ps_active_model", "row": active_row})
+-
+-    if competing_violations:
+-        raise CompetingModelOwnershipError(
+-            f"Unaccounted competing model/GPU workload detected: {json.dumps(competing_violations)}"
+-        )
+-
+-    return {
+-        "sole_model_job_verified": True,
+-        "hardware_exclusivity_claimed": False,
+-        "wddm_desktop_sharing_observed": len(wddm_entries) > 0,
+-        "wddm_desktop_sharing_entries": wddm_entries,
+-        "competing_model_violations": [],
+-    }
++def evaluate_gpu_and_model_ownership(snapshot, *, pre_lease_blobs=None, self_pid=None):
++    try:
++        return ownership_v6.evaluate(snapshot, pre_lease_blobs=pre_lease_blobs, self_pid=self_pid,
++            expected_gpu_uuid=EXPECTED_GPU_UUID, model_server_re=MODEL_SERVER_BASENAME_RE,
++            python_re=PYTHON_BASENAME_RE, workload_re=MODEL_WORKLOAD_TOKEN_RE,
++            benign_names=BENIGN_WDDM_DESKTOP_BASENAMES)
++    except ownership_v6.ObservationError as exc:
++        raise CompetingModelOwnershipError(str(exc)) from exc
+ 
+ 
+ def build_reviewer_lease_return_receipt(
+@@ -1048,55 +952,11 @@ def build_reviewer_lease_return_receipt(
+     }
+ 
+ 
+-def collect_live_ownership_snapshot(repo_root: Path) -> dict:
+-    """Collects live GPU & candidate-process snapshot during a leased /004 run (NEVER called in CPU mode)."""
+-    gpu_cp = run_cmd(
+-        [
+-            "nvidia-smi",
+-            f"--id={EXPECTED_GPU_UUID}",
+-            "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free",
+-            "--format=csv,noheader,nounits",
+-        ],
+-        cwd=repo_root,
+-    )
+-    apps_cp = run_cmd(
+-        [
+-            "nvidia-smi",
+-            f"--id={EXPECTED_GPU_UUID}",
+-            "--query-compute-apps=pid,process_name,used_memory",
+-            "--format=csv,noheader,nounits",
+-        ],
+-        cwd=repo_root,
+-    )
+-    if gpu_cp.returncode != 0 or apps_cp.returncode != 0:
+-        raise ReviewerLeaseGuardError(f"nvidia-smi query failed on {EXPECTED_GPU_UUID}: {apps_cp.stderr}")
+-
+-    ps_procs = (
+-        "@(Get-CimInstance Win32_Process | Where-Object { "
+-        "$_.Name -match '^(python(w)?|ollama|llama(-server|-cli)?|vllm|lm.?studio|koboldcpp)\\.exe$' -or "
+-        "$_.CommandLine -match '(local_ocr|run_worker|q0harness|qualification[/\\\\.](coverage_v1|mapping_v1|mapping_v2|baseline|q0))' "
+-        "} | ForEach-Object { @{ ProcessId = [int]$_.ProcessId; Name = $_.Name; ExecutablePath = $_.ExecutablePath; "
+-        "CommandLine = $_.CommandLine } }) | ConvertTo-Json -Compress -Depth 4"
+-    )
+-    procs_cp = run_cmd(["pwsh", "-NoProfile", "-Command", ps_procs], cwd=repo_root)
+-    raw_procs = json.loads(procs_cp.stdout) if procs_cp.returncode == 0 and procs_cp.stdout.strip() else []
+-    if isinstance(raw_procs, dict):
+-        raw_procs = [raw_procs]
+-
+-    ollama_exe = shutil.which("ollama")
+-    ollama_lines = None
+-    if ollama_exe:
+-        ocp = run_cmd([ollama_exe, "ps"], cwd=repo_root)
+-        if ocp.returncode == 0:
+-            ollama_lines = ocp.stdout.splitlines()
+-
+-    return {
+-        "observed_utc": datetime.now(timezone.utc).isoformat(),
+-        "gpu": [ln for ln in gpu_cp.stdout.splitlines() if ln.strip()],
+-        "apps": [ln for ln in apps_cp.stdout.splitlines() if ln.strip()],
+-        "candidate_and_gpu_processes": raw_procs,
+-        "ollama_ps": ollama_lines,
+-    }
++def collect_live_ownership_snapshot(repo_root):
++    try:
++        return ownership_v6.collect(repo_root, EXPECTED_GPU_UUID, run_cmd)
++    except ownership_v6.ObservationError as exc:
++        raise ReviewerLeaseGuardError(str(exc)) from exc
+ 
+ 
+ def inspect_process(pid: int, cwd: Path) -> dict | None:
+@@ -1256,7 +1116,7 @@ def start_owned_services_atomic(
+ 
+ 
+ def main(argv: list[str] | None = None) -> int:
+-    parser = argparse.ArgumentParser(description="Native WP-0012 reviewer helper v5 (CPU contract check & held /004 live mode).")
++    parser = argparse.ArgumentParser(description="Native WP-0012 reviewer helper v6 (CPU contract check & held /004 live mode).")
+     parser.add_argument("--mode", choices=("validate-release-cpu", "live-leased-rehearsal"), required=True)
+     parser.add_argument("--release-commit", required=True, help="40-hex coordinator Git commit containing the release JSON")
+     parser.add_argument("--release-path", required=True, help="Git-relative path under docs/coordination/WP-0012*/*.json")
+@@ -1268,7 +1128,7 @@ def main(argv: list[str] | None = None) -> int:
+     args = parser.parse_args(argv)
+ 
+     script_path = Path(__file__).resolve()
+-    repo_root = script_path.parents[6]
++    repo_root = script_path.parents[7]
+     edge_driver = (
+         repo_root / "docs" / "reviews" / "WP-0012" / "eld-f4-reviewer" / "preparation" / "helpers" / "drive_wp0012_edge_workflow.mjs"
+     ).resolve()
+@@ -1313,7 +1173,7 @@ def main(argv: list[str] | None = None) -> int:
+             now_utc=datetime.now(timezone.utc),
+             blob_loader=lambda p: git_bytes(repo_root, "cat-file", "-p", f"{rc}:{p}"),
+             commit_exists_fn=lambda sha: git_object_exists(repo_root, f"{sha}^{{commit}}"),
+-            helper_paths_to_bind=(script_path, edge_driver),
++            helper_paths_to_bind=(script_path, Path(ownership_v6.__file__).resolve(), edge_driver),
+             require_clean_worktree=True,
+             allow_synthetic_test_only=False,
+         )

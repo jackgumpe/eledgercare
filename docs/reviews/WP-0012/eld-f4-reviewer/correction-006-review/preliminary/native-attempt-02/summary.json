@@ -1,0 +1,421 @@
+{
+  "schema": "eledgercare.wp0012.native-reviewer-preparation/1",
+  "utc": "2026-11-17T16:22:01.814215+00:00",
+  "executing_head": "66b7144722036e4280003e2f1330d5e3c586735c",
+  "checkpoint": "8729db9323e4d2945a30d525b0d67e5ad2a1692e",
+  "authority": "3bc2ba5cf5db6698d71c99fccc957e54936fb6c2",
+  "canonical_007": "held",
+  "author_correction_executed": false,
+  "old_001_baseline": {
+    "P06-01_old_001_partial_startup_leaks_detected": true,
+    "P06-01_detail": {
+      "ui_early_exit_leaked_api_proc": true,
+      "ui_early_exit_leaked_api_fh": true,
+      "ui_timeout_leaked_both_api_and_ui_procs": true
+    },
+    "P06-02_and_03_old_001_lacks_failure_lease_return_and_unreturned_cleanup_guard": true,
+    "P06-04_old_001_allows_existing_ev_out_dir_exist_ok_true": true,
+    "P06-05_old_001_key_mismatch_and_002_changes_requested_not_excluded": true,
+    "P06-06_old_001_edge_lacks_workerEnabled_api_assertion": true
+  },
+  "tests_run": 22,
+  "tests_passed": true,
+  "exception": null,
+  "own_resources_idle": true,
+  "findings": {
+    "carbon_v4_stop_exception": {
+      "receipt": null,
+      "calls": {
+        "browser": 1,
+        "stop": 1,
+        "status": 0,
+        "ports": 1
+      },
+      "exit_code": null,
+      "error": "TimeoutExpired: Command 'synthetic stop' timed out after 1 seconds",
+      "simulation_only": true,
+      "actual_services_started": false
+    },
+    "native_v5_all_exit_simulations": {
+      "clean": {
+        "receipt": {
+          "schema": "eledgercare.wp-0012.reviewer-lease-return/3",
+          "recorded_utc": "2026-11-17T16:21:59.946658+00:00",
+          "lease_returned": true,
+          "clean_return_verified": true,
+          "returned_utc": "2026-11-17T16:21:59.946658+00:00",
+          "reviewer": "eld-f4-reviewer",
+          "lease_id": "WP-0012-SYNTHETIC",
+          "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+          "status": "failed_stopped_lease_returned",
+          "failure_detail": "Phase 1 live Edge workflow stopped/failed (exit 1)",
+          "cleanup_errors": [],
+          "persisted_counts": {
+            "documents": 0
+          },
+          "run_directories": [],
+          "ports_after": {
+            "5690": [],
+            "4710": [],
+            "55439": []
+          },
+          "ports_unbound_verified": true,
+          "pg_ctl_status_exit_code": 3,
+          "postmaster_recorded": {
+            "pid": 999999
+          },
+          "api_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "ui_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "pre_ownership": {
+            "sole_model_job_verified": true
+          },
+          "post_ownership": {
+            "sole_model_job_verified": true
+          },
+          "q0_model_immutability_verified": true
+        },
+        "calls": {
+          "browser": 1,
+          "stop": 1,
+          "status": 1,
+          "ports": 2
+        },
+        "exit_code": null,
+        "error": "RuntimeError: Phase 1 live Edge workflow stopped/failed (exit 1)",
+        "simulation_only": true,
+        "actual_services_started": false
+      },
+      "stop": {
+        "receipt": {
+          "schema": "eledgercare.wp-0012.reviewer-lease-return/3",
+          "recorded_utc": "2026-11-17T16:21:59.972138+00:00",
+          "lease_returned": false,
+          "clean_return_verified": false,
+          "returned_utc": null,
+          "reviewer": "eld-f4-reviewer",
+          "lease_id": "WP-0012-SYNTHETIC",
+          "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+          "status": "cleanup_failed_lease_unreturned",
+          "failure_detail": "Phase 1 live Edge workflow stopped/failed (exit 1)",
+          "cleanup_errors": [
+            "stop_cluster_exception: Command 'synthetic stop' timed out after 1 seconds"
+          ],
+          "persisted_counts": {
+            "documents": 0
+          },
+          "run_directories": [],
+          "ports_after": {
+            "5690": [],
+            "4710": [],
+            "55439": []
+          },
+          "ports_unbound_verified": true,
+          "pg_ctl_status_exit_code": 3,
+          "postmaster_recorded": {
+            "pid": 999999
+          },
+          "api_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "ui_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "pre_ownership": {
+            "sole_model_job_verified": true
+          },
+          "post_ownership": {
+            "sole_model_job_verified": true
+          },
+          "q0_model_immutability_verified": true
+        },
+        "calls": {
+          "browser": 1,
+          "stop": 1,
+          "status": 1,
+          "ports": 2
+        },
+        "exit_code": 2,
+        "error": null,
+        "simulation_only": true,
+        "actual_services_started": false
+      },
+      "status": {
+        "receipt": {
+          "schema": "eledgercare.wp-0012.reviewer-lease-return/3",
+          "recorded_utc": "2026-11-17T16:21:59.997146+00:00",
+          "lease_returned": false,
+          "clean_return_verified": false,
+          "returned_utc": null,
+          "reviewer": "eld-f4-reviewer",
+          "lease_id": "WP-0012-SYNTHETIC",
+          "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+          "status": "cleanup_failed_lease_unreturned",
+          "failure_detail": "Phase 1 live Edge workflow stopped/failed (exit 1)",
+          "cleanup_errors": [
+            "pg_status_failed: synthetic status failure",
+            "pg_ctl_status_exit_code=None (expected 3 stopped)"
+          ],
+          "persisted_counts": {
+            "documents": 0
+          },
+          "run_directories": [],
+          "ports_after": {
+            "5690": [],
+            "4710": [],
+            "55439": []
+          },
+          "ports_unbound_verified": true,
+          "pg_ctl_status_exit_code": null,
+          "postmaster_recorded": {
+            "pid": 999999
+          },
+          "api_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "ui_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "pre_ownership": {
+            "sole_model_job_verified": true
+          },
+          "post_ownership": {
+            "sole_model_job_verified": true
+          },
+          "q0_model_immutability_verified": true
+        },
+        "calls": {
+          "browser": 1,
+          "stop": 1,
+          "status": 1,
+          "ports": 2
+        },
+        "exit_code": 2,
+        "error": null,
+        "simulation_only": true,
+        "actual_services_started": false
+      },
+      "ports": {
+        "receipt": {
+          "schema": "eledgercare.wp-0012.reviewer-lease-return/3",
+          "recorded_utc": "2026-11-17T16:22:00.023814+00:00",
+          "lease_returned": false,
+          "clean_return_verified": false,
+          "returned_utc": null,
+          "reviewer": "eld-f4-reviewer",
+          "lease_id": "WP-0012-SYNTHETIC",
+          "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+          "status": "cleanup_failed_lease_unreturned",
+          "failure_detail": "Phase 1 live Edge workflow stopped/failed (exit 1)",
+          "cleanup_errors": [
+            "ports_observation_failed: synthetic ports observation failure",
+            "reviewer_ports_still_bound={}"
+          ],
+          "persisted_counts": {
+            "documents": 0
+          },
+          "run_directories": [],
+          "ports_after": {},
+          "ports_unbound_verified": false,
+          "pg_ctl_status_exit_code": 3,
+          "postmaster_recorded": {
+            "pid": 999999
+          },
+          "api_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "ui_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "pre_ownership": {
+            "sole_model_job_verified": true
+          },
+          "post_ownership": {
+            "sole_model_job_verified": true
+          },
+          "q0_model_immutability_verified": true
+        },
+        "calls": {
+          "browser": 1,
+          "stop": 1,
+          "status": 1,
+          "ports": 2
+        },
+        "exit_code": 2,
+        "error": null,
+        "simulation_only": true,
+        "actual_services_started": false
+      },
+      "scrub": {
+        "receipt": {
+          "schema": "eledgercare.wp-0012.reviewer-lease-return/3",
+          "recorded_utc": "2026-11-17T16:22:00.047873+00:00",
+          "lease_returned": false,
+          "clean_return_verified": false,
+          "returned_utc": null,
+          "reviewer": "eld-f4-reviewer",
+          "lease_id": "WP-0012-SYNTHETIC",
+          "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+          "status": "cleanup_failed_lease_unreturned",
+          "failure_detail": "Phase 1 live Edge workflow stopped/failed (exit 1)",
+          "cleanup_errors": [
+            "log_scrub_failed owned-api-5690.log: synthetic log read failure"
+          ],
+          "persisted_counts": {
+            "documents": 0
+          },
+          "run_directories": [],
+          "ports_after": {
+            "5690": [],
+            "4710": [],
+            "55439": []
+          },
+          "ports_unbound_verified": true,
+          "pg_ctl_status_exit_code": 3,
+          "postmaster_recorded": {
+            "pid": 999999
+          },
+          "api_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "ui_stop_receipts": [
+            {
+              "aliveAfter": false
+            }
+          ],
+          "pre_ownership": {
+            "sole_model_job_verified": true
+          },
+          "post_ownership": {
+            "sole_model_job_verified": true
+          },
+          "q0_model_immutability_verified": true
+        },
+        "calls": {
+          "browser": 1,
+          "stop": 1,
+          "status": 1,
+          "ports": 2
+        },
+        "exit_code": 2,
+        "error": null,
+        "simulation_only": true,
+        "actual_services_started": false
+      },
+      "child": {
+        "receipt": {
+          "schema": "eledgercare.wp-0012.reviewer-lease-return/3",
+          "recorded_utc": "2026-11-17T16:22:00.076278+00:00",
+          "lease_returned": false,
+          "clean_return_verified": false,
+          "returned_utc": null,
+          "reviewer": "eld-f4-reviewer",
+          "lease_id": "WP-0012-SYNTHETIC",
+          "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+          "status": "cleanup_failed_lease_unreturned",
+          "failure_detail": "Phase 1 live Edge workflow stopped/failed (exit 1)",
+          "cleanup_errors": [
+            "ui_stop_failed: synthetic child-stop failure",
+            "api_stop_failed: synthetic child-stop failure"
+          ],
+          "persisted_counts": {
+            "documents": 0
+          },
+          "run_directories": [],
+          "ports_after": {
+            "5690": [],
+            "4710": [],
+            "55439": []
+          },
+          "ports_unbound_verified": true,
+          "pg_ctl_status_exit_code": 3,
+          "postmaster_recorded": {
+            "pid": 999999
+          },
+          "api_stop_receipts": [],
+          "ui_stop_receipts": [],
+          "pre_ownership": {
+            "sole_model_job_verified": true
+          },
+          "post_ownership": {
+            "sole_model_job_verified": true
+          },
+          "q0_model_immutability_verified": true
+        },
+        "calls": {
+          "browser": 1,
+          "stop": 1,
+          "status": 1,
+          "ports": 2
+        },
+        "exit_code": 2,
+        "error": null,
+        "simulation_only": true,
+        "actual_services_started": false
+      }
+    },
+    "missing_return_proof": {
+      "carbon_v4_accepted": 3,
+      "native_v5_rejected": 3
+    },
+    "missing_report": {
+      "carbon_v4_accepted": true,
+      "native_v5_rejected": true,
+      "real_commit": "8729db9323e4d2945a30d525b0d67e5ad2a1692e"
+    },
+    "missing_ports": {
+      "carbon_v4_claimed_return": true,
+      "native_v5_return": {
+        "schema": "eledgercare.wp-0012.reviewer-lease-return/3",
+        "recorded_utc": "2026-11-17T16:22:00.223215+00:00",
+        "lease_returned": false,
+        "clean_return_verified": false,
+        "returned_utc": null,
+        "reviewer": "eld-f4-reviewer",
+        "lease_id": "WP-0012-SYNTHETIC-REVIEWER",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "status": "cleanup_failed_lease_unreturned",
+        "failure_detail": "Attempt 1 failed",
+        "cleanup_errors": [
+          "reviewer_ports_still_bound={}"
+        ],
+        "persisted_counts": {},
+        "run_directories": [],
+        "ports_after": {},
+        "ports_unbound_verified": false,
+        "pg_ctl_status_exit_code": 3,
+        "postmaster_recorded": null,
+        "api_stop_receipts": [],
+        "ui_stop_receipts": [],
+        "pre_ownership": {
+          "sole_model_job_verified": true
+        },
+        "post_ownership": {
+          "sole_model_job_verified": true
+        },
+        "q0_model_immutability_verified": true
+      }
+    }
+  }
+}

@@ -1,0 +1,582 @@
+{
+  "schema": "eledgercare.wp0012.independent-return-probe/1",
+  "utc": "2026-11-17T16:25:49.209236+00:00",
+  "source_candidate": "6d055395b2a4cf22a7926f1728bc31dbe2f315a3",
+  "reviewer_frozen_head": "24b19113715dbc3f4ec5672525de9236783285c5",
+  "inputs": [
+    {
+      "commit": "ad5202a029a7a86bea5fa3e3d97760d0a9cc673a",
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/helpers/run_wp0012_rehearsal.py",
+      "bytes": 61950,
+      "sha256_raw": "8105ff614280d624f11da14651838e00b3d38b726e08f70252adb12fe73046a5",
+      "sha256_git": "8105ff614280d624f11da14651838e00b3d38b726e08f70252adb12fe73046a5"
+    },
+    {
+      "commit": "6d055395b2a4cf22a7926f1728bc31dbe2f315a3",
+      "path": "docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers/run_wp0012_rehearsal.py",
+      "bytes": 90684,
+      "sha256_raw": "89ad1f1fbbfb265f331d5bb775d24d423433302e826228631c2ec462007957e9",
+      "sha256_git": "89ad1f1fbbfb265f331d5bb775d24d423433302e826228631c2ec462007957e9"
+    }
+  ],
+  "checks": {
+    "old_first_failure_no_receipt_reproduced": true,
+    "new_clean_stop_verified": true,
+    "new_clean_stop_scrubbed": true,
+    "all_new_failures_stop_after_first_browser": true,
+    "all_cleanup_failures_emit_unclean_receipt": true,
+    "all_cleanup_failures_explicitly_unreturned": false
+  },
+  "results": {
+    "old_first_failure": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 0,
+        "stop_pg": 1,
+        "worker_observations": 0,
+        "attempt_query": 0,
+        "q0_observations": 1,
+        "port_observations": 1
+      },
+      "exception": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\jackg\\\\AppData\\\\Local\\\\Temp\\\\wp0012-independent-return-akvu_8_r\\\\rehearsal-evidence\\\\WP-0012-independent-synthetic\\\\logs\\\\synthetic-api.log'",
+      "receipt": null,
+      "synthetic_secret_removed_from_outputs": true
+    },
+    "new_clean_stop": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 2,
+        "attempt_query": 1,
+        "q0_observations": 2,
+        "port_observations": 2
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-2h9l94eu\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": {
+        "schema": "eledgercare.wp0012-owner-lease-return/1",
+        "status": "failed_stopped",
+        "clean_return_verified": true,
+        "failure_stage": "phase-a-live-browser",
+        "failure_error": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-2h9l94eu\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+        "cleanup_errors": [],
+        "returned_utc": "2026-11-17T16:25:49.047820+00:00",
+        "owner": "eld-f4-implementer",
+        "lease_id": "WP-0012-independent-synthetic",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "model_attempts_executed": 1,
+        "persisted_attempts_query_verified": true,
+        "persisted_attempts": [
+          {
+            "attempt_id": "synthetic-1",
+            "status": "failed"
+          }
+        ],
+        "lingering_attempt_processes": [],
+        "lingering_service_processes": [],
+        "new_run_directories": [],
+        "prior_run_directories_preserved": [],
+        "recorded_service_identities": [
+          {
+            "role": "postgres-phase-a",
+            "pid": 999999,
+            "alive": false,
+            "create_filetime": 3
+          },
+          {
+            "role": "api-phase-a",
+            "pid": 999998,
+            "create_filetime": 1
+          },
+          {
+            "role": "ui-phase-a",
+            "pid": 999997,
+            "create_filetime": 2
+          }
+        ],
+        "memory_telemetry": {},
+        "ocr_worker_processes_running": 0,
+        "ports_after_shutdown": {
+          "5590": [],
+          "4610": [],
+          "55438": []
+        },
+        "ports_unbound_verified": true,
+        "q0_model_18_objects_sha256_verified_after_run": true,
+        "logs_scrubbed": true,
+        "scrubbed_artifact_count": 1
+      },
+      "synthetic_secret_removed_from_outputs": true
+    },
+    "new_worker_remains": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 2,
+        "attempt_query": 1,
+        "q0_observations": 2,
+        "port_observations": 2
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-e3vavi21\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": {
+        "schema": "eledgercare.wp0012-owner-lease-return/1",
+        "status": "failed_stopped",
+        "clean_return_verified": false,
+        "failure_stage": "phase-a-live-browser",
+        "failure_error": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-e3vavi21\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+        "cleanup_errors": [
+          "ocr_worker_processes_running=1"
+        ],
+        "returned_utc": "2026-11-17T16:25:49.075028+00:00",
+        "owner": "eld-f4-implementer",
+        "lease_id": "WP-0012-independent-synthetic",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "model_attempts_executed": 1,
+        "persisted_attempts_query_verified": true,
+        "persisted_attempts": [
+          {
+            "attempt_id": "synthetic-1",
+            "status": "failed"
+          }
+        ],
+        "lingering_attempt_processes": [],
+        "lingering_service_processes": [],
+        "new_run_directories": [],
+        "prior_run_directories_preserved": [],
+        "recorded_service_identities": [
+          {
+            "role": "postgres-phase-a",
+            "pid": 999999,
+            "alive": false,
+            "create_filetime": 3
+          },
+          {
+            "role": "api-phase-a",
+            "pid": 999998,
+            "create_filetime": 1
+          },
+          {
+            "role": "ui-phase-a",
+            "pid": 999997,
+            "create_filetime": 2
+          }
+        ],
+        "memory_telemetry": {},
+        "ocr_worker_processes_running": 1,
+        "ports_after_shutdown": {
+          "5590": [],
+          "4610": [],
+          "55438": []
+        },
+        "ports_unbound_verified": true,
+        "q0_model_18_objects_sha256_verified_after_run": true,
+        "logs_scrubbed": true,
+        "scrubbed_artifact_count": 1
+      },
+      "synthetic_secret_removed_from_outputs": true
+    },
+    "new_postgres_stop": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 2,
+        "attempt_query": 1,
+        "q0_observations": 2,
+        "port_observations": 2
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-ebqz6l11\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": {
+        "schema": "eledgercare.wp0012-owner-lease-return/1",
+        "status": "failed_stopped",
+        "clean_return_verified": false,
+        "failure_stage": "phase-a-live-browser",
+        "failure_error": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-ebqz6l11\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+        "cleanup_errors": [
+          "postgres_stop_failed: Command 'synthetic stop' timed out after 1 seconds"
+        ],
+        "returned_utc": "2026-11-17T16:25:49.096333+00:00",
+        "owner": "eld-f4-implementer",
+        "lease_id": "WP-0012-independent-synthetic",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "model_attempts_executed": 1,
+        "persisted_attempts_query_verified": true,
+        "persisted_attempts": [
+          {
+            "attempt_id": "synthetic-1",
+            "status": "failed"
+          }
+        ],
+        "lingering_attempt_processes": [],
+        "lingering_service_processes": [],
+        "new_run_directories": [],
+        "prior_run_directories_preserved": [],
+        "recorded_service_identities": [
+          {
+            "role": "postgres-phase-a",
+            "pid": 999999,
+            "alive": false,
+            "create_filetime": 3
+          },
+          {
+            "role": "api-phase-a",
+            "pid": 999998,
+            "create_filetime": 1
+          },
+          {
+            "role": "ui-phase-a",
+            "pid": 999997,
+            "create_filetime": 2
+          }
+        ],
+        "memory_telemetry": {},
+        "ocr_worker_processes_running": 0,
+        "ports_after_shutdown": {
+          "5590": [],
+          "4610": [],
+          "55438": []
+        },
+        "ports_unbound_verified": true,
+        "q0_model_18_objects_sha256_verified_after_run": true,
+        "logs_scrubbed": true,
+        "scrubbed_artifact_count": 1
+      },
+      "synthetic_secret_removed_from_outputs": true
+    },
+    "new_query": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 2,
+        "attempt_query": 1,
+        "q0_observations": 2,
+        "port_observations": 2
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-6lj17235\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": {
+        "schema": "eledgercare.wp0012-owner-lease-return/1",
+        "status": "failed_stopped",
+        "clean_return_verified": false,
+        "failure_stage": "phase-a-live-browser",
+        "failure_error": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-6lj17235\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+        "cleanup_errors": [
+          "persisted_attempts_query_failed: synthetic query unavailable"
+        ],
+        "returned_utc": "2026-11-17T16:25:49.115707+00:00",
+        "owner": "eld-f4-implementer",
+        "lease_id": "WP-0012-independent-synthetic",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "model_attempts_executed": null,
+        "persisted_attempts_query_verified": false,
+        "persisted_attempts": [],
+        "lingering_attempt_processes": [],
+        "lingering_service_processes": [],
+        "new_run_directories": [],
+        "prior_run_directories_preserved": [],
+        "recorded_service_identities": [
+          {
+            "role": "postgres-phase-a",
+            "pid": 999999,
+            "alive": false,
+            "create_filetime": 3
+          },
+          {
+            "role": "api-phase-a",
+            "pid": 999998,
+            "create_filetime": 1
+          },
+          {
+            "role": "ui-phase-a",
+            "pid": 999997,
+            "create_filetime": 2
+          }
+        ],
+        "memory_telemetry": {},
+        "ocr_worker_processes_running": 0,
+        "ports_after_shutdown": {
+          "5590": [],
+          "4610": [],
+          "55438": []
+        },
+        "ports_unbound_verified": true,
+        "q0_model_18_objects_sha256_verified_after_run": true,
+        "logs_scrubbed": true,
+        "scrubbed_artifact_count": 1
+      },
+      "synthetic_secret_removed_from_outputs": true
+    },
+    "new_q0": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 2,
+        "attempt_query": 1,
+        "q0_observations": 2,
+        "port_observations": 2
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-e_vq0z1o\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": {
+        "schema": "eledgercare.wp0012-owner-lease-return/1",
+        "status": "failed_stopped",
+        "clean_return_verified": false,
+        "failure_stage": "phase-a-live-browser",
+        "failure_error": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-e_vq0z1o\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+        "cleanup_errors": [
+          "post_run_q0_model_check_failed: synthetic q0 check failed"
+        ],
+        "returned_utc": "2026-11-17T16:25:49.137129+00:00",
+        "owner": "eld-f4-implementer",
+        "lease_id": "WP-0012-independent-synthetic",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "model_attempts_executed": 1,
+        "persisted_attempts_query_verified": true,
+        "persisted_attempts": [
+          {
+            "attempt_id": "synthetic-1",
+            "status": "failed"
+          }
+        ],
+        "lingering_attempt_processes": [],
+        "lingering_service_processes": [],
+        "new_run_directories": [],
+        "prior_run_directories_preserved": [],
+        "recorded_service_identities": [
+          {
+            "role": "postgres-phase-a",
+            "pid": 999999,
+            "alive": false,
+            "create_filetime": 3
+          },
+          {
+            "role": "api-phase-a",
+            "pid": 999998,
+            "create_filetime": 1
+          },
+          {
+            "role": "ui-phase-a",
+            "pid": 999997,
+            "create_filetime": 2
+          }
+        ],
+        "memory_telemetry": {},
+        "ocr_worker_processes_running": 0,
+        "ports_after_shutdown": {
+          "5590": [],
+          "4610": [],
+          "55438": []
+        },
+        "ports_unbound_verified": true,
+        "q0_model_18_objects_sha256_verified_after_run": false,
+        "logs_scrubbed": true,
+        "scrubbed_artifact_count": 1
+      },
+      "synthetic_secret_removed_from_outputs": true
+    },
+    "new_ports": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 2,
+        "attempt_query": 1,
+        "q0_observations": 2,
+        "port_observations": 2
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-lmdoaz41\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": {
+        "schema": "eledgercare.wp0012-owner-lease-return/1",
+        "status": "failed_stopped",
+        "clean_return_verified": false,
+        "failure_stage": "phase-a-live-browser",
+        "failure_error": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-lmdoaz41\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+        "cleanup_errors": [
+          "ports_not_unbound: synthetic ports unavailable"
+        ],
+        "returned_utc": "2026-11-17T16:25:49.156794+00:00",
+        "owner": "eld-f4-implementer",
+        "lease_id": "WP-0012-independent-synthetic",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "model_attempts_executed": 1,
+        "persisted_attempts_query_verified": true,
+        "persisted_attempts": [
+          {
+            "attempt_id": "synthetic-1",
+            "status": "failed"
+          }
+        ],
+        "lingering_attempt_processes": [],
+        "lingering_service_processes": [],
+        "new_run_directories": [],
+        "prior_run_directories_preserved": [],
+        "recorded_service_identities": [
+          {
+            "role": "postgres-phase-a",
+            "pid": 999999,
+            "alive": false,
+            "create_filetime": 3
+          },
+          {
+            "role": "api-phase-a",
+            "pid": 999998,
+            "create_filetime": 1
+          },
+          {
+            "role": "ui-phase-a",
+            "pid": 999997,
+            "create_filetime": 2
+          }
+        ],
+        "memory_telemetry": {},
+        "ocr_worker_processes_running": 0,
+        "ports_after_shutdown": {},
+        "ports_unbound_verified": false,
+        "q0_model_18_objects_sha256_verified_after_run": true,
+        "logs_scrubbed": true,
+        "scrubbed_artifact_count": 1
+      },
+      "synthetic_secret_removed_from_outputs": true
+    },
+    "new_child_stop": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 2,
+        "attempt_query": 1,
+        "q0_observations": 2,
+        "port_observations": 2
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-dgo_41oq\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": {
+        "schema": "eledgercare.wp0012-owner-lease-return/1",
+        "status": "failed_stopped",
+        "clean_return_verified": false,
+        "failure_stage": "phase-a-live-browser",
+        "failure_error": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-dgo_41oq\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+        "cleanup_errors": [
+          "ui_stop_failed: synthetic child stop failed",
+          "api_stop_failed: synthetic child stop failed"
+        ],
+        "returned_utc": "2026-11-17T16:25:49.177139+00:00",
+        "owner": "eld-f4-implementer",
+        "lease_id": "WP-0012-independent-synthetic",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "model_attempts_executed": 1,
+        "persisted_attempts_query_verified": true,
+        "persisted_attempts": [
+          {
+            "attempt_id": "synthetic-1",
+            "status": "failed"
+          }
+        ],
+        "lingering_attempt_processes": [],
+        "lingering_service_processes": [],
+        "new_run_directories": [],
+        "prior_run_directories_preserved": [],
+        "recorded_service_identities": [
+          {
+            "role": "postgres-phase-a",
+            "pid": 999999,
+            "alive": false,
+            "create_filetime": 3
+          },
+          {
+            "role": "api-phase-a",
+            "pid": 999998,
+            "create_filetime": 1
+          },
+          {
+            "role": "ui-phase-a",
+            "pid": 999997,
+            "create_filetime": 2
+          }
+        ],
+        "memory_telemetry": {},
+        "ocr_worker_processes_running": 0,
+        "ports_after_shutdown": {
+          "5590": [],
+          "4610": [],
+          "55438": []
+        },
+        "ports_unbound_verified": true,
+        "q0_model_18_objects_sha256_verified_after_run": true,
+        "logs_scrubbed": true,
+        "scrubbed_artifact_count": 1
+      },
+      "synthetic_secret_removed_from_outputs": true
+    },
+    "new_scrub": {
+      "simulation_only": true,
+      "calls": {
+        "browser": 1,
+        "stop_pg": 1,
+        "worker_observations": 2,
+        "attempt_query": 1,
+        "q0_observations": 2,
+        "port_observations": 2
+      },
+      "exception": "RuntimeError: Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-kqwypw77\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+      "receipt": {
+        "schema": "eledgercare.wp0012-owner-lease-return/1",
+        "status": "failed_stopped",
+        "clean_return_verified": false,
+        "failure_stage": "phase-a-live-browser",
+        "failure_error": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\wp0012-independent-return-kqwypw77\\rehearsal-evidence\\WP-0012-independent-synthetic\\logs\\phase-a-edge.log",
+        "cleanup_errors": [
+          "log_scrub_failed: synthetic scrub failed"
+        ],
+        "returned_utc": "2026-11-17T16:25:49.194061+00:00",
+        "owner": "eld-f4-implementer",
+        "lease_id": "WP-0012-independent-synthetic",
+        "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "model_attempts_executed": 1,
+        "persisted_attempts_query_verified": true,
+        "persisted_attempts": [
+          {
+            "attempt_id": "synthetic-1",
+            "status": "failed"
+          }
+        ],
+        "lingering_attempt_processes": [],
+        "lingering_service_processes": [],
+        "new_run_directories": [],
+        "prior_run_directories_preserved": [],
+        "recorded_service_identities": [
+          {
+            "role": "postgres-phase-a",
+            "pid": 999999,
+            "alive": false,
+            "create_filetime": 3
+          },
+          {
+            "role": "api-phase-a",
+            "pid": 999998,
+            "create_filetime": 1
+          },
+          {
+            "role": "ui-phase-a",
+            "pid": 999997,
+            "create_filetime": 2
+          }
+        ],
+        "memory_telemetry": {},
+        "ocr_worker_processes_running": 0,
+        "ports_after_shutdown": {
+          "5590": [],
+          "4610": [],
+          "55438": []
+        },
+        "ports_unbound_verified": true,
+        "q0_model_18_objects_sha256_verified_after_run": true,
+        "logs_scrubbed": false,
+        "scrubbed_artifact_count": 0
+      },
+      "synthetic_secret_removed_from_outputs": false
+    }
+  },
+  "actual_service_model_gpu_activity": false,
+  "author_resources_touched": false
+}
