@@ -89,8 +89,8 @@ def collect(out, return_commit):
         copy(path.read_bytes(), 'scores.json' if path.name == 'scores.json' else 'launch/' + path.name, str(path))
     proofs = [{'commit': AUTHORITY, 'path': RELEASE, 'sha256': sha(obj(AUTHORITY, RELEASE))},
               release['source_review'], release['admission_review'], release['unseal'], *release['lease']['observations']]
-    return_paths = git('ls-tree', '-r', '--name-only', return_commit, '--', 'docs/coordination/WP-0013/author-after').decode().splitlines()
-    assert return_paths, 'Exact root return proof missing'
+    return_paths = git('ls-tree', '-r', '--name-only', return_commit, '--', 'docs/coordination/WP-0013/author-failed-after').decode().splitlines()
+    assert 'docs/coordination/WP-0013/author-failed-after/lease-return.json' in return_paths, 'Exact root return proof missing'
     proofs += [{'commit': return_commit, 'path': path, 'sha256': sha(obj(return_commit, path))} for path in return_paths]
     for index, proof in enumerate(proofs):
         data = obj(proof['commit'], proof['path']); assert sha(data) == proof['sha256']
