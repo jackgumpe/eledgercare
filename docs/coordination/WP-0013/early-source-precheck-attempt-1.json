@@ -1,0 +1,9 @@
+{
+  "tool_chunk": "6c4bbb",
+  "exit_code": 1,
+  "error": "AssertionError at checkpoint addition-path check",
+  "root_assumption": "Expected every checkpoint addition directly below evidence/attempt-1. The checkpoint also adds the owned .gitattributes needed to preserve evidence bytes.",
+  "diagnosis_tool_chunk": "61b2d0",
+  "correction": "Allow that exact additional owned .gitattributes path; verify every other addition is under the evidence directory and the mapping_v2 source tree is unchanged.",
+  "effects": "No commit, merge, push, source edit or review dispatch followed the failed check."
+}
