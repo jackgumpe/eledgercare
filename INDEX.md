@@ -842,3 +842,33 @@ WP-0011 actual author005 RUNNING_CONFIRMED2026-11-17T09:54:24.1581107Z, supervis
 
 
 WP-0010 author003 PUBLISHED7c578be6e8abff4d285ea1b519bbcfaeba1bb8c7, tested source/helperc383021be1774451ba3034d89255b38b4267353b, evidenceceec957733d6c00c6b4277e7db3f391ab6ccb6b4. Root verified52 source/38 evidence+inventory/35 manifest/2743 protected paths/report-only/exact origin, actual15step success and owned service absence. CLI resultERROR after publication due providerDNS; no CLI SUCCESS claim. Independent004 RELEASED under exact runtime kickoff to same Carbon reviewer; product acceptance/integration pending. Root metadata edit attempt a2a67b failed decoding INDEX under Windows default encoding before staging/commits; rewritten from HEAD using explicit UTF8, preserving original text.
+
+
+WP-0010 independent004 RUNNING_CONFIRMED same Carbon61105d43-7706-45f2-9176-69d3256248e0, PID35324/tool40674, authorityd8e4c9b86af5e61157bf55675037c6ddd95efeff. WP-0011 author execute completed14/14 calls with no run failure; supervisor0/child0 and CPUscore0 at bound65f24d3. Root independently verifies post-model18/notice/host, bound15344/14864/25204/8072 absent, desktop-only GPU/idleOllama; lease RETURNED_OBSERVED. No current model lease or reviewer inference release. Actual author005 evidence publication and independent006 remain pending.
+
+
+WP-0011 author005 PUBLISHED97821f17926f9a6c409fe4c3b409b66f1cd9b824, deliverable367bcd93cfa4913c4b7b6fb98931bdd34c3296d8/inventory94a05113ced0473bc89afb5c7396c4bb6963ed14. Root verified134original run files/107published run copies/27retained caches/136source copies/50inputs/146deliverable entries/3064preserved paths. Reviewer execution preparation08313e4bc3457dab2c0cee0ff238b3c61c668ddb verified15artifacts+inventory/3096preserved paths/5CPU groups. Separate reviewer lease now RELEASED at that held cleanHEAD, exactly2warmups+preselected1primary, fresh observed source/model/notices/host/ownership, author lease returned. Full12 author CPU comparison spec bound at3a9c333b4aff66699e78af7d28f875798ccefb72. No tuning/retry/newsource or product promotion.
+
+
+WP-0011 independent006 RUNNING_CONFIRMED10:59:31Z at clean08313e4bc3457dab2c0cee0ff238b3c61c668ddb, authority6ad846322afeb3781c50cc70d3144bc1d456f24b. Wrapper32048/supervisor6556/heartbeatworker24624, owner tool22202, run20261117T105934Z-63dbbc52. Root observed bound processes and exact3call plan; actual completion/score/cleanup pending. No further inference authorized.
+
+
+WP-0011 reviewer006 execute tool22202/fd9abd exit0, all3scheduled calls complete/no failure; score608a5e exit0 at same clean08313e4bc3457dab2c0cee0ff238b3c61c668ddb. Root independently observes32048/6556/36532/24624/37844/6184 absent11:09:42Z and post-model18/notices/host pass. Reviewer lease RETURNED_OBSERVED; no active model lease or further inference. Full12 CPU comparison/combined sentinel comparison and final006 publication pending.
+
+
+## WP-0010 narrow search-navigation reconciliation (2026-11-17 UTC)
+
+Original independent152f8ac83f2ce4ffb8061a2e85fbb5f68fc18bfb evidence passed final runtime, while retained prefreeze06 demonstrates a pending-navigation input overwrite. Root holds final005 for a bounded correction within existing F4-04; no new feature or user permission. Exact kickoff WP-0010-eld-f4-search-navigation-correction.md.
+
+| Packet / sequence | Owner / category | Branch / worktree | Exact report path | State |
+| --- | --- | --- | --- | --- |
+| WP-0010 / 006 | eld-f4-implementer / implementation | feature/wp-0010-f4-archive; eledgercare-worktrees/eld-f4-implementer | docs/agent-reports/eld-f4-implementer/WP-0010/006_2026-11-17_implementation_eld-f4-implementer.md | RELEASED narrow search-navigation correction |
+| WP-0010 / 007 | eld-f4-reviewer / review | review/wp-0010-f4; eledgercare-worktrees/eld-f4-reviewer | docs/agent-reports/eld-f4-reviewer/WP-0010/007_2026-11-17_review_eld-f4-reviewer.md | HELD exact006 independent reconciliation |
+
+Original003/004 and all failed/passing evidence remain immutable. Same Carbon conversations/high effort; no fresh Codex agent. Root sole coordinator/source author separation retained. Final005 stays reserved and uncompleted.
+
+
+WP-0010 author006 correction RUNNING_CONFIRMED same Carbonb7c54417-db09-49bd-8d2b-7cc808f113be/high, PID37504/tool44693, authoritycd5237303beaa374c3a60e9de58e45808b55435f. Prior author CLI ended/absent, DNS resolved. Independent original004 packaging continues;007 held until exact006 and ended prior reviewer CLI. WP-0011 independent combined comparison reports full equality including fixed-sentinel raw/token/raster/fullscores/diagnostics; final006 publication pending. Both model leases returned; no new inference.
+
+
+WP-0010 independent004 PUBLISHED324f09934b0aa2ee8e7bed7e8118c6109effb918, helpers85d3c36c874026a8e9166f29259fb44755422de0, inventory41efc840a874601acfa711f27073d2c90ad35c32. Root verified53artifacts/3153preservedpaths/87reportlinks/16steps/34assertions/exactorigin and10boundservice PIDs absent/ports free. CLI ended provider resultERROR with wrapper0 (fac02d); no CLI SUCCESS claim. Original reviewer acceptance preserved; root final acceptance held for observed navigation-input overlap correction. Independent007 CPU/browser preparation and one evidence reconciliation now released by kickoff addendum, exact author006 review/canonical007 still held.
