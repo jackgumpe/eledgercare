@@ -869,3 +869,6 @@ Original003/004 and all failed/passing evidence remain immutable. Same Carbon co
 
 
 WP-0010 author006 correction RUNNING_CONFIRMED same Carbonb7c54417-db09-49bd-8d2b-7cc808f113be/high, PID37504/tool44693, authoritycd5237303beaa374c3a60e9de58e45808b55435f. Prior author CLI ended/absent, DNS resolved. Independent original004 packaging continues;007 held until exact006 and ended prior reviewer CLI. WP-0011 independent combined comparison reports full equality including fixed-sentinel raw/token/raster/fullscores/diagnostics; final006 publication pending. Both model leases returned; no new inference.
+
+
+WP-0010 independent004 PUBLISHED324f09934b0aa2ee8e7bed7e8118c6109effb918, helpers85d3c36c874026a8e9166f29259fb44755422de0, inventory41efc840a874601acfa711f27073d2c90ad35c32. Root verified53artifacts/3153preservedpaths/87reportlinks/16steps/34assertions/exactorigin and10boundservice PIDs absent/ports free. CLI ended provider resultERROR with wrapper0 (fac02d); no CLI SUCCESS claim. Original reviewer acceptance preserved; root final acceptance held for observed navigation-input overlap correction. Independent007 CPU/browser preparation and one evidence reconciliation now released by kickoff addendum, exact author006 review/canonical007 still held.
