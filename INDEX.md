@@ -947,3 +947,6 @@ WP-0013 early private admission inspection RELEASED on immutable85core files/12p
 
 
 WP-0013 final reservation PUBLISHED/VERIFIEDb50b2a3bc22927890c8f391943f2a3fe9168d0da, reservationSHA533f4be35fb89efd9e288c0470201457b5ab32373eab3112ae283b42febcfea5. Root verifies4public additions/3706preserved paths,118private inventory entries/120complete files/5270705bytes,48descriptors and unchanged116early private objects. Independent admission actualstart14:50:51.9214018Z atbddb01f is confirmed; canonical004 now released on final binding. CPU mapper005 RELEASED under new implementation kickoff; actual dispatch follows integrated revision. Canonical003 still waits004, fresh content/model/unseal held.
+
+
+WP-0013 implementation005 RUNNING_CONFIRMED at clean exactad7309f2079ed11bc4a63e52567e6a1e5fba1868, same native mapping_author/requestedxhigh (actual backend/effort unexposed). Accepted protocol and final reservation precede actual start. New mapper/runtime files only; accepted protocol/scorers/old namespaces preserved; no private content/model access. Receipt implementation-dispatch.json.
