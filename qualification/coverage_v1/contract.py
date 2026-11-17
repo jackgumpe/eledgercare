@@ -12,6 +12,11 @@ def box(value):
     return (isinstance(value,list) and len(value)==4 and all(type(v) in (int,float) and math.isfinite(v) and v>=0 for v in value)
             and value[0]<value[2] and value[1]<value[3])
 
+def unit_metadata(value):
+    require('quantity_unit' not in value or (isinstance(value['quantity_unit'],str) and bool(value['quantity_unit'])),'Explicit quantity_unit must be nonempty string')
+
+def unit_signature(value):return ('quantity_unit' in value,value.get('quantity_unit'))
+
 def validate(expected,reference,annotations):
     a=annotations;e=expected
     require(a['schema']=='eld-coverage-annotations/1','Annotation schema')
@@ -31,13 +36,17 @@ def validate(expected,reference,annotations):
     af={(f['page_number'],f['field_id']):f for f in a['fields']}
     require(len(fs)==len(e['expected_fields']) and len(af)==len(a['fields']) and fs.keys()==af.keys(),'Unique complete field annotations')
     for key,f in fs.items():
+        unit_metadata(f)
         require(key[0]==1 and isinstance(f['printed_text'],str) and f['printed_text']!='' and isinstance(f['normalized_value'],str) and isinstance(f['value_type'],str),'Field metadata')
         require(isinstance(f['label_printed'],str) and f['label_printed']==af[key]['label_printed'],'Exact field label')
         require(box(af[key]['label_bbox_pt']) and box(af[key]['value_bbox_pt']),'Field boxes')
     absences={(f['page_number'],f['field_id']):f for f in e['expected_absences']}
     aa={(f['page_number'],f['field_id']):f for f in a['absences']}
     require(len(absences)==len(e['expected_absences']) and len(aa)==len(a['absences']) and absences.keys()==aa.keys() and not fs.keys()&absences.keys(),'Unique complete absence slots')
-    for key,f in aa.items():require(key[0]==1 and isinstance(f['label_printed'],str) and box(f['label_bbox_pt']),'Absence annotation')
+    for key,f in aa.items():
+        require(key[0]==1 and isinstance(f['label_printed'],str) and box(f['label_bbox_pt']),'Absence annotation')
+        require(absences[key].get('expected_state')=='absent_blank','Explicit absent_blank semantics required')
+        require(absences[key].get('label_printed')==f['label_printed'],'Expected/annotation absence label mismatch')
     tables={t['table_id']:t for t in e['expected_tables']};at={t['table_id']:t for t in a['tables']}
     require(len(tables)==len(e['expected_tables']) and len(at)==len(a['tables']) and tables.keys()==at.keys(),'Unique complete tables')
     for tid,t in tables.items():
@@ -49,15 +58,16 @@ def validate(expected,reference,annotations):
         keys=[]
         for row in t['rows']:
             require(row['page_number']==1 and set(row['cells'])==set(cols),'Complete row columns')
-            for cell in row['cells'].values():require(all(isinstance(cell[k],str) for k in ('printed_text','normalized_value','value_type')),'Cell metadata')
+            for cell in row['cells'].values():
+                require(all(isinstance(cell[k],str) for k in ('printed_text','normalized_value','value_type')),'Cell metadata');unit_metadata(cell)
             keys.append(norm(row['cells'][x['row_key_column']]['printed_text']))
         require(all(keys) and len(set(keys))==len(keys),'Unique nonempty expected row-key values')
     return e,reference,a
 
 def semantic_signature(e):
-    fields=sorted((f['field_id'],f['page_number'],f['printed_text'],f['normalized_value'],f['value_type']) for f in e['expected_fields'])
-    cells=sorted((t['table_id'],r['row_id'],r['page_number'],col,c['printed_text'],c['normalized_value'],c['value_type']) for t in e['expected_tables'] for r in t['rows'] for col,c in r['cells'].items())
-    absent=sorted((f['field_id'],f['page_number']) for f in e['expected_absences'])
+    fields=sorted((f['field_id'],f['page_number'],f['printed_text'],f['normalized_value'],f['value_type'],unit_signature(f)) for f in e['expected_fields'])
+    cells=sorted((t['table_id'],r['row_id'],r['page_number'],col,c['printed_text'],c['normalized_value'],c['value_type'],unit_signature(c)) for t in e['expected_tables'] for r in t['rows'] for col,c in r['cells'].items())
+    absent=sorted((f['field_id'],f['page_number'],f.get('expected_state')) for f in e['expected_absences'])
     return {'fields':fields,'cells':cells,'absences':absent,'page_count':e['page_count']}
 
 def validate_family(records):

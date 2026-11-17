@@ -24,7 +24,7 @@ def visible_units(prediction):
                 for ri,row in enumerate(block['rows']):
                     for ci,cell in enumerate(row):
                         units.append({'page':page['page'],'block':bi,'row':ri,'cell':ci,'text':surface(cell['text'])})
-            elif block['kind']!='unparsed':
+            elif block['kind'] not in ('unparsed','table'):
                 visible=Visible();visible.feed(block['text']);visible.close()
                 units.append({'page':page['page'],'block':bi,'text':surface(''.join(visible.parts))})
     return units
@@ -66,7 +66,7 @@ def diagnose(raw,expected,reference,completion='completed',annotations=None,prec
     if annotations is not None:validate(expected,reference,annotations)
     pair=paired(raw or '',expected,reference,completion) if precomputed is None else precomputed
     pred=pair['predictions']['b0'];eligible=raw is not None and completion=='completed' and not pred['parse_errors']
-    units=visible_units(pred) if eligible else [];rules=mapping()
+    units=visible_units(pred) if raw is not None else [];rules=mapping()
     labels={x['label']:x['field_id'] for x in rules['labels']}
     ta={x['table_id']:x for x in annotations['tables']} if annotations else {}
     slots=[]
@@ -99,6 +99,9 @@ def diagnose(raw,expected,reference,completion='completed',annotations=None,prec
     records=[]
     for slot in slots:
         meta=slot['metadata'];value=presence(meta['printed_text'],slot['page'],units,eligible)
+        local_visible=presence(meta['printed_text'],slot['page'],units,raw is not None and bool(pred['pages']))
+        if not eligible and local_visible['count']==0:
+            local_visible={'status':'unavailable_incomplete_output_or_parse','count':None,'locations':[]}
         reuse=value_multiplicity[slot['page'],surface(meta['printed_text'])]
         per_mapper={}
         for name in ('b0','mapping_v1'):
@@ -116,6 +119,7 @@ def diagnose(raw,expected,reference,completion='completed',annotations=None,prec
                     anchored=(slot['kind']=='field' and value['count']==1 and reuse==1 and (slot['label_presence'] or {}).get('count')==1)
                     anchored=anchored or (slot['kind']=='cell' and local['status']=='one' and local['cell']['observed_exact'])
                     if anchored:causes.append('mapped_slot_mismatch_despite_local_or_unique_exact_payload')
+                    if slot['kind']=='field' and anchored:causes.append('field_relationship_unadjudicated_by_presence')
                     if not causes:causes.append('unadjudicated')
                 if printed['credited_exact'] and not typed['credited_exact']:causes.append('typed_conversion_or_target_boundary')
             per_mapper[name]={'printed':printed,'typed':typed,'evidence_flags_nonexclusive':causes,
@@ -123,17 +127,38 @@ def diagnose(raw,expected,reference,completion='completed',annotations=None,prec
                 'identifier_printed_exact':None if meta['value_type']!='identifier' else printed['observed_exact']}
         records.append({k:v for k,v in slot.items() if k not in ('metadata','ordinal')}|{'expected_printed':meta['printed_text'],
             'value_type':meta['value_type'],'expected_normalized':meta['normalized_value'],'expected_same_page_value_multiplicity':reuse,
-            'value_presence':value,'mappers':per_mapper})
+            'value_presence':value,'local_visible_payload_evidence_not_rate':local_visible,'mappers':per_mapper})
     counts=Counter(r['value_presence']['status'] for r in records)
     result={'schema':'eld-coverage-diagnostic/1','fixture_id':expected['fixture_id'],'family_id':expected['family_id'],
         'condition':None if annotations is None else annotations['condition'],'completion':completion,'raw_available':raw is not None,
         'raw_sha256':None if raw is None else sha(raw.encode()),'eligible_for_presence':eligible,'parse_errors':pred['parse_errors'],
+        'page_structure':[{'page':p['page'],'blocks':len(p['blocks']),'parsed_table_blocks':sum(bool(b['rows']) for b in p['blocks']),
+            'unparsed_or_rejected_blocks':sum(b['kind']=='unparsed' or (b['kind']=='table' and not b['rows']) for b in p['blocks']),
+            'visible_leaf_count':sum(u['page']==p['page'] for u in units)} for p in pred['pages']],
         'slots':records,'presence_denominator':{'all_expected_slots':len(records),'eligible_slots':len(records) if eligible else 0,
             'unavailable_slots':0 if eligible else len(records),'statuses':dict(counts)},
         'historical_scores':pair['scores'],'prediction_summary':{name:{'field_candidates':len(p['fields']),'tables':len(p['tables']),
             'unmapped_records':len(p['unmapped'])} for name,p in pair['predictions'].items()},
         'semantic_signature':semantic_signature(expected),
         'interpretation':'Nonexclusive stage evidence, not exhaustive causal attribution. Exact text presence never itself proves correct semantic association.'}
+    stage={}
+    def measure(numerator,denominator,unavailable):
+        return {'numerator':numerator,'denominator':denominator,'unavailable':unavailable,'rate':numerator/denominator if denominator else None}
+    for kind in ('field','cell'):
+        rows=[r for r in records if r['kind']==kind];usable=[r for r in rows if r['value_presence']['count'] is not None]
+        stage[kind]={'exact_visible_payload_presence':measure(sum(r['value_presence']['count']>0 for r in usable),len(usable),len(rows)-len(usable)),
+            'ambiguous_value_occurrences_or_reuse':sum(r['value_presence']['count']>1 or r['expected_same_page_value_multiplicity']>1 for r in usable),
+            'schema_supported':measure(sum(r['label_or_header_support'] is True for r in rows),sum(r['label_or_header_support'] is not None for r in rows),sum(r['label_or_header_support'] is None for r in rows))}
+        candidates=[r for r in usable if r['label_or_header_support'] is True and
+            ((kind=='field' and r['value_presence']['count']==1 and r['expected_same_page_value_multiplicity']==1 and (r['label_presence'] or {}).get('count')==1) or
+             (kind=='cell' and r['local_binding']['status']=='one' and r['local_binding']['cell']['observed_exact']))]
+        for name in ('b0','mapping_v1'):
+            correct=[r for r in rows if r['mappers'][name]['printed']['credited_exact']]
+            stage[kind][name]={'printed_correct_given_supported_exact_payload':measure(sum(r['mappers'][name]['printed']['credited_exact'] for r in candidates),len(candidates),len(rows)-len(usable)),
+                'typed_correct_given_printed_exact':measure(sum(r['mappers'][name]['typed']['credited_exact'] for r in correct),len(correct),len(rows)-len(usable)),
+                'excluded_from_supported_payload_condition':len(usable)-len(candidates),
+                'evidence_flags_nonexclusive':dict(Counter(flag for r in rows for flag in r['mappers'][name]['evidence_flags_nonexclusive']))}
+    result['stage_metrics']=stage
     if annotations is not None:
         ideal=paired(annotations['ideal_native'],expected,reference,'completed')
         result['ideal_witness_scores']=ideal['scores']

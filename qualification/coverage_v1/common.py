@@ -1,7 +1,7 @@
 """Pinned read-only reuse of accepted B0/v1 primitives."""
 import json
 from pathlib import Path
-from qualification.mapping_v1.common import (ROOT,sha,git,tree,load_json,write,safe_repo_path,
+from qualification.mapping_v1.common import (ROOT,BASELINE,sha,git,tree,load_json,write,safe_repo_path,
     verify_comparator,BASELINE_TREE,norm,parse_native,ParseError,mapping,score_document,summarize)
 from qualification.mapping_v1.scoring import paired
 
