@@ -608,11 +608,20 @@ def main() -> None:
             )
         )
 
-        # 02. Offline locked .NET restore & Release solution build
+        # 02a & 02b. Offline locked .NET restore & Release solution build
         steps.append(
             run_logged_step(
-                "02-dotnet-restore-and-build-release",
-                ["dotnet", "build", "ELedgerCare.slnx", "-c", "Release", "--locked-mode", "--configfile", ".local/nuget/offline.nuget.config"],
+                "02a-dotnet-restore-locked",
+                ["dotnet", "restore", "ELedgerCare.slnx", "--locked-mode", "--configfile", ".local/nuget/offline.nuget.config"],
+                REPO_ROOT,
+                secrets,
+                extra_env=dotnet_env,
+            )
+        )
+        steps.append(
+            run_logged_step(
+                "02b-dotnet-build-release",
+                ["dotnet", "build", "ELedgerCare.slnx", "-c", "Release", "--no-restore"],
                 REPO_ROOT,
                 secrets,
                 extra_env=dotnet_env,
