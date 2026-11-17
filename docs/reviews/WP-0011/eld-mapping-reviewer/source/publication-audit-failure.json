@@ -1,0 +1,12 @@
+{
+  "type": "Transcribed original tool receipt; no original stdout file existed",
+  "helper_commit": "39cd1c1b43e3f615ffde9f8ae3e0d30f1c53fd04",
+  "tool_chunk": "ce5c71",
+  "exit_code": 1,
+  "wall_seconds": 7.2509816,
+  "failure": "publication_audit.py:54 equality assertion comparing final Git-object JSON (UTF-8 decoded by json.loads(bytes)) with preliminary worktree JSON read via Windows default locale encoding",
+  "cause": "The reviewer omitted explicit UTF-8 on Path.read_text. Non-ASCII evidence strings were decoded differently, despite unchanged underlying candidate data.",
+  "diagnostic_tool_chunk": "15865a",
+  "diagnostic_result": "Read-only comparison of both worktree ledgers under the same decoding found no differences in documents, supplement, reused anchors or prior counterfactual.",
+  "correction": "Versioned publication_audit_v2.py explicitly uses encoding='utf-8' for every JSON text-file read. The original helper is unchanged. No source, author evidence or test outputs are modified or rerun."
+}

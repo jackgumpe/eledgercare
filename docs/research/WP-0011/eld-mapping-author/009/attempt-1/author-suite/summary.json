@@ -1,0 +1,56 @@
+{
+  "source_commit": "d2a877f1907faaf5c7d490496184462b45fd43d2",
+  "source_tree": "830d22452f2128b6183dc6af3752519dc101113c",
+  "tests": {
+    "source_commit": "d2a877f1907faaf5c7d490496184462b45fd43d2",
+    "run": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "original_primary_full_scores_reproduced": 26,
+  "exposed_wp9_full_predictions_scores_reproduced": 4,
+  "separate_recovery_reproduced": 1,
+  "primary_documents": 30,
+  "completed_primary_documents": 29,
+  "expected_field_cell_slots": 2291,
+  "presence_eligible_slots": 1849,
+  "presence_unavailable_slots": 442,
+  "flags_nonexclusive": {
+    "b0": {
+      "exact_value_not_observed_recognition_omission_or_segmentation_ambiguous": 71,
+      "mapped_slot_mismatch_despite_local_or_unique_exact_payload": 96,
+      "field_relationship_unadjudicated_by_presence": 96,
+      "reused_value_or_multiple_occurrences_ambiguous": 309,
+      "unadjudicated": 449,
+      "unavailable_output_or_parse": 442,
+      "exact_visible_label_or_header_unsupported": 101,
+      "typed_conversion_or_target_boundary": 6
+    },
+    "mapping_v1": {
+      "exact_value_not_observed_recognition_omission_or_segmentation_ambiguous": 71,
+      "mapped_slot_mismatch_despite_local_or_unique_exact_payload": 79,
+      "field_relationship_unadjudicated_by_presence": 79,
+      "unadjudicated": 449,
+      "reused_value_or_multiple_occurrences_ambiguous": 301,
+      "unavailable_output_or_parse": 442,
+      "exact_visible_label_or_header_unsupported": 101,
+      "typed_conversion_or_target_boundary": 6
+    }
+  },
+  "reused_prior_category_counts": {
+    "text_recognition_or_omission": 61,
+    "native_parse_or_structure": 12,
+    "field_table_mapping": 873,
+    "typed_conversion_or_scoring": 16,
+    "runtime_unavailable_output": 195,
+    "ambiguous_unadjudicated": 150
+  },
+  "limitations": [
+    "Historical and WP9 documents are exposed; no generalization claim.",
+    "Exact payload presence is not semantic or association correctness.",
+    "No WP11 private payload read.",
+    "Original failure stays primary; recovery separate.",
+    "Counterfactual and observed unit evidence remain distinct."
+  ]
+}

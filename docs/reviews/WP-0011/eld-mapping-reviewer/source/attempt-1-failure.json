@@ -1,0 +1,11 @@
+{
+  "kind": "Transcribed original tool receipt; no original stdout file existed",
+  "helper_commit": "cdb6f7069ffe29e7a56f6a9169716ef7e5773b78",
+  "tool_chunk_id": "41443e",
+  "exit_code": 1,
+  "wall_time_seconds": 1.3353847,
+  "command": "python -I -B docs/reviews/WP-0011/eld-mapping-reviewer/source/probes.py docs/reviews/WP-0011/eld-mapping-reviewer/source/attempt-1",
+  "failure": "FileNotFoundError at probes.py:150, mapping_v1/common.py:32: attempted exclusive creation of attempt-1/probes.json without creating its parent directory",
+  "evidence_limit": "Probe computations ran but no result packet was retained. Their outcomes are not claimed from this failed attempt. Mock temporary files were cleaned normally; no actual model, observer, or service ran.",
+  "correction": "Versioned probes_v2.py creates the previously absent owned output directory after clean/frozen source checks and before probe execution. Original probes.py preserved unchanged."
+}

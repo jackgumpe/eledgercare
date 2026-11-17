@@ -1,0 +1,32 @@
+# Independent visual inspection, 2026-11-17 UTC
+
+Reviewer: eld-mapping-reviewer, same native Codex session, requested xhigh; backend identity/actual effort not exposed. Inspection completed before this record was written. Each of the twelve PNG files below was individually loaded through `view_image` from `attempt-1/`. These are the independent 300-DPI PDFium renders produced by frozen `audit.py`, bound by raw-pixel hashes in `attempt-1/audit.json` and by file hashes in the final inventory. No generative image tool, image alteration, model output or custodian screenshot was substituted for the actual render.
+
+An earlier attempt to return four full-size renders in one tool call returned `Output exceeded the available model context and was truncated`. That output was not counted as inspection. All twelve pages were subsequently viewed individually, including the first four. This was a presentation/tool-output failure, not a corpus check failure. The original PNG files were unchanged; no regeneration or input adjustment was performed to resolve it.
+
+## Actual page observations
+
+| Render | Observed and checked against source/expected/reference |
+| --- | --- |
+| WP11-F01-control-v0.png | Seven clear labeled values; WO-0008645 and Unit 007C leading zeros visible. Both stock rows readable, including SKUs 00091284/00046193, bins S-006/S-021 and quantities 3.00/6.00. Resident Contact box visibly blank. No clipping, overlap, or extraneous value in the absence region. |
+| WP11-F01-layout-v0.png | Same words, facts, labels, fonts and two complete table rows. Table moved above the fields; fields use paired label-over-value blocks. Associations remain visually unambiguous. Blank absence and fictional notice retained. |
+| WP11-F01-vocabulary-v0.png | Only label/header wording changes; values and rows remain in the control positions. Repair record, Premises name, Place within site, Opened on, Work discipline, Worker assigned, Job state and alternate headers convey the same roles. Occupant callback box is blank. All text fits without wrapping or collision. |
+| WP11-F01-degraded-v0.png | Visibly blurred, lower contrast control raster. All values, leading zeros, table cells, decimal points, status punctuation and blank region remain readable. Page boundaries and complete content retained. |
+| WP11-F02-control-v0.png | Ten clear fields and three nine-cell rows. IV-0005638, WO-0003827, dates and all leading-zero SKUs visible. K17/K18/K19 quantities 4.00 EA/1.25 HR/2.00 KT and corresponding prices/net lines match truth. Subtotal 145.20, tax 10.89 and total/due 156.09 visible; blank Customer PO / CapEx Code box. |
+| WP11-F02-layout-v0.png | Same three complete rows moved above ten paired label-over-value fields. All invoice facts and units preserved. Tax/subtotal labels and total/due values remain distinct and legible; no table/field/absence collision. |
+| WP11-F02-vocabulary-v0.png | Label/header replacements only at control positions; three row identities, all nine cells per row, quantity units and values unchanged. The local levy label retains 7.50%; matching levy basis and amount preserve financial meaning. Buyer purchase reference is visibly blank. |
+| WP11-F02-degraded-v0.png | Entire control page is visibly softened and lower contrast. Smallest table values, all SKU digits, decimal punctuation, currency symbols and EA/HR/KT suffixes remain distinguishable. No cropping/resampling displacement changes the document meaning. |
+| WP11-F03-control-v0.png | Six labeled values with CK-0007516, Room 009, date, technician and WH-0002841 clearly visible. [X] is visibly checked. T-071/T-072 task keys and corresponding area/action/58.00/57.50 cells match expected truth. Secondary Vendor PO box blank. |
+| WP11-F03-layout-v0.png | Same complete two-row table above paired label-over-value fields. The checked [X], identifiers and all text remain visible with unchanged wording/style; absence box retained. |
+| WP11-F03-vocabulary-v0.png | Only labels/headers differ; inspection/equipment/isolation terms preserve intended roles. Gauge PSI retains the visible unit. All values, row keys and actions stay at control positions. Outside order reference box blank. |
+| WP11-F03-degraded-v0.png | Fixed preselected sentinel. Blurred/lower-contrast control remains readable, including [X], leading zeros, T-071/T-072 and 58.00/57.50. No content loss or ambiguous absence region observed. No selection change or model result was consulted. |
+
+All pages visibly identify their records as synthetic and fictional. No private page content was transmitted to the mapping author or published before unseal. All twelve visible pages agree with independently decoded operators/reference runs and expected field/cell/absence truth. The actual images support readability at the inspected display resolution; this is an informed reviewer judgment, not a human-subject readability study or assurance of OCR success.
+
+## Admission limits and non-blocking interpretation
+
+There are three independent content families and twelve paired documents, not twelve independent samples. No representative-population or quality-improvement claim follows. The scan treatment is one frozen composite condition; it does not identify separate effects of blur, contrast, resampling or grayscale. Vocabulary changes alter ink widths while preserving text anchors, fixed reserved regions, font and surrounding content; no wrap, clipping or collision was observed. Layout changes alter reading geometry as intended.
+
+Both frozen mappers fully recover the intended clean-control slots under the ideal-native witnesses. Those witnesses are visible-content support evidence, not observed OCR or a guarantee that a model will produce that serialization. Original B0/v1 numeric scoring remains unchanged; the independently checked quantity-unit identity and explicit blank-absence semantics remain reference-side admission requirements. Public interface checkpoint 63a14cafa1dee7db7cb70aca00cee529c46452fc has separately reported metadata validation gaps; the sealed candidate is valid under the stronger independent checks and requires no corpus change. Final author source/protocol review is still held for its exact candidate.
+
+Disposition: accept the exact sealed corpus receipt 6583715067d3a027dd2502ed9623cf02c545391d / core b5f33a65d463d4b9a5463fdb93353c0c7ac7c7f3 for this bounded diagnostic experiment. No source/protocol/runtime/model/product acceptance is implied.

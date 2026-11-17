@@ -1,0 +1,21 @@
+Command: pwsh -NoProfile -File .scratch/bootstrap_local_tools.ps1
+Timestamp (UTC): 2026-11-17T08:59:24Z
+Exit code: 1
+Reason: `dotnet build` forwarded `--locked-mode` to MSBuild (`MSB1001: Unknown switch`), whereas `--locked-mode` belongs on `dotnet restore` (followed by `dotnet build -c Release --no-restore`). PostgreSQL 18.7 staging and `dotnet-ef 10.0.15` offline tool restore succeeded prior to line 31.
+Resolution: Separated `dotnet restore ELedgerCare.slnx --locked-mode --configfile .local/offline.nuget.config` from `dotnet build ELedgerCare.slnx -c Release --no-restore`.
+
+--- Raw output ---
+postgres (PostgreSQL) 18.7
+Tool 'dotnet-ef' (version '10.0.15') was restored. Available commands: dotnet-ef
+
+Restore was successful.
+MSBUILD : error MSB1001: Unknown switch.
+  Switches appended by response files:
+Switch: --locked-mode
+
+For switch syntax, type "MSBuild -help"
+Exception: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\.scratch\bootstrap_local_tools.ps1:31
+Line |
+  31 |  … ITCODE -ne 0) { throw "dotnet build failed with exit $LASTEXITCODE" }
+     |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | dotnet build failed with exit 1

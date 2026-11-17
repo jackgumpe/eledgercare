@@ -1,0 +1,141 @@
+{
+  "family_id": "WP11-F03",
+  "doc_kind": "inspection_service_checklist",
+  "title": "Water service inspection checklist",
+  "subtitle": "Fictional Silver Badger training facilities",
+  "fields": [
+    {
+      "field_id": "work_order_id",
+      "control_label": "Ticket Number",
+      "vocabulary_label": "Inspection record",
+      "printed_text": "CK-0007516",
+      "normalized_value": "CK-0007516",
+      "value_type": "identifier"
+    },
+    {
+      "field_id": "property_unit",
+      "control_label": "Property / Unit",
+      "vocabulary_label": "Inspection place",
+      "printed_text": "Fictional Silver Badger / Room 009",
+      "normalized_value": "Fictional Silver Badger / Room 009",
+      "value_type": "text"
+    },
+    {
+      "field_id": "requested_date",
+      "control_label": "Requested Date",
+      "vocabulary_label": "Check day",
+      "printed_text": "2026-03-26",
+      "normalized_value": "2026-03-26",
+      "value_type": "date_iso"
+    },
+    {
+      "field_id": "assigned_tech",
+      "control_label": "Assigned Technician",
+      "vocabulary_label": "Examiner assigned",
+      "printed_text": "Fictional Iris Moth",
+      "normalized_value": "Fictional Iris Moth",
+      "value_type": "text"
+    },
+    {
+      "field_id": "equipment_asset_tag",
+      "control_label": "Water Heater Asset Tag",
+      "vocabulary_label": "Equipment reference",
+      "printed_text": "WH-0002841",
+      "normalized_value": "WH-0002841",
+      "value_type": "identifier"
+    },
+    {
+      "field_id": "water_isolated",
+      "control_label": "Branch Isolation Tested",
+      "vocabulary_label": "Isolation verified",
+      "printed_text": "[X]",
+      "normalized_value": "true",
+      "value_type": "boolean_mark"
+    }
+  ],
+  "absence": {
+    "field_id": "secondary_vendor_po",
+    "control_label": "Secondary Vendor PO",
+    "vocabulary_label": "Outside order reference"
+  },
+  "table": {
+    "table_id": "turnover_tasks",
+    "row_key_column": "task_code",
+    "columns": [
+      "task_code",
+      "fixture_area",
+      "action_taken",
+      "pressure_psi"
+    ],
+    "headers": [
+      "Task Code",
+      "Fixture / Area",
+      "Action Performed",
+      "Test PSI"
+    ],
+    "vocabulary_headers": [
+      "Check ref",
+      "Inspection zone",
+      "Observed work",
+      "Gauge PSI"
+    ],
+    "widths": [
+      80,
+      126,
+      242,
+      84
+    ],
+    "rows": [
+      {
+        "row_id": "I-A",
+        "cells": {
+          "task_code": {
+            "printed_text": "T-071",
+            "normalized_value": "T-071",
+            "value_type": "identifier"
+          },
+          "fixture_area": {
+            "printed_text": "Cold feed",
+            "normalized_value": "Cold feed",
+            "value_type": "text"
+          },
+          "action_taken": {
+            "printed_text": "Static gauge reading recorded",
+            "normalized_value": "Static gauge reading recorded",
+            "value_type": "text"
+          },
+          "pressure_psi": {
+            "printed_text": "58.00",
+            "normalized_value": "58.00",
+            "value_type": "decimal_2"
+          }
+        }
+      },
+      {
+        "row_id": "I-B",
+        "cells": {
+          "task_code": {
+            "printed_text": "T-072",
+            "normalized_value": "T-072",
+            "value_type": "identifier"
+          },
+          "fixture_area": {
+            "printed_text": "Branch outlet",
+            "normalized_value": "Branch outlet",
+            "value_type": "text"
+          },
+          "action_taken": {
+            "printed_text": "Valve reopened; gauge steady",
+            "normalized_value": "Valve reopened; gauge steady",
+            "value_type": "text"
+          },
+          "pressure_psi": {
+            "printed_text": "57.50",
+            "normalized_value": "57.50",
+            "value_type": "decimal_2"
+          }
+        }
+      }
+    ]
+  }
+}

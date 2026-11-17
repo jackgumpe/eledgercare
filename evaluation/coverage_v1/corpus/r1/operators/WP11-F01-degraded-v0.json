@@ -1,0 +1,64 @@
+{
+  "fixture_id": "WP11-F01-degraded-v0",
+  "page_size_pt": [
+    612.0,
+    792.24
+  ],
+  "pages": [
+    [
+      "q 612.00 0 0 792.24 0.00 0.00 cm /Im1 Do Q"
+    ]
+  ],
+  "canonical_text_operator_parent": "WP11-F01-control-v0",
+  "raster_recipe": {
+    "id": "scan-r1-fixed",
+    "parent": "same-family control canonical model-input raster",
+    "renderer": "pypdfium2 5.15.2 / PDFium 159.0.8149.0",
+    "render_scale": 4.166666666666667,
+    "canonical_size_px": [
+      2550,
+      3301
+    ],
+    "page_size_pt": [
+      612.0,
+      792.24
+    ],
+    "steps": [
+      {
+        "operation": "grayscale",
+        "mode": "L"
+      },
+      {
+        "operation": "downsample",
+        "size_px": [
+          850,
+          1100
+        ],
+        "resampling": "BOX"
+      },
+      {
+        "operation": "upsample",
+        "size_px": [
+          2550,
+          3301
+        ],
+        "resampling": "BILINEAR"
+      },
+      {
+        "operation": "gaussian_blur",
+        "radius_px": 0.5
+      },
+      {
+        "operation": "fixed_tone_lut",
+        "formula": "round(40 + 0.80 * input)",
+        "range": [
+          40,
+          244
+        ]
+      }
+    ],
+    "embedding": "lossless Flate RGB, unchanged page box; final render must equal transformed pixels exactly",
+    "severity_selection": "fixed before first generation; no model-based selection or severity search",
+    "interpretation": "One composite scan-quality condition, not separate attribution among recipe components."
+  }
+}
