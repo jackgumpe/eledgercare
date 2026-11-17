@@ -1,0 +1,392 @@
+{
+  "schema": "eledgercare.wp-0012.reviewer-execution-summary/1",
+  "generated_utc": "2026-11-17T14:37:17.151771+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "conversation_id": "61105d43-7706-45f2-9176-69d3256248e0",
+  "model": "gemini-4-carbon-high",
+  "effort": "high",
+  "mode": "cpu-prep-validation",
+  "live_rehearsal_executed": false,
+  "model_or_venv_imported_in_this_run": false,
+  "canonical_002_published": false,
+  "canonical_004_published": false,
+  "branch": "review/wp-0012-product-rehearsal",
+  "executing_head_sha": "c09cf1aa8282e440e364c6020152dd257355643b",
+  "accepted_product_base_sha": "73c8d3c4f0a00312e3444328331b6cbd6406e882",
+  "authority_wp0012_sha": "47fbc7612e4a08cf1960ad7ac01bd2843ae645e5",
+  "preserved_tree_oids": {
+    "src": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+    "tests": "25c21310699086acb818549b2a4c0b99469208f1",
+    "web": "50fbbee1f58aace4e6ec36bd64203146d23aa96f",
+    "deploy": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "workers": "9b548ddcc73cfba8e7683d132840b08afa5a67a3",
+    "evaluation": "9324848e739aff2b9b649cf69513d620b25c2135",
+    "qualification": "44c2861ede14c9802b4c03e4a702852711d0fc00",
+    "research": "5036d17e55f96af3bdeea82a20a32eb54a26ddca"
+  },
+  "helpers": {
+    "run_wp0012_reviewer_rehearsal_py_sha256_lf": "6a3a4b7f366517d97d23831567418c97809b9d74cc79b8cb871ac8e3df86a81f",
+    "drive_wp0012_edge_workflow_mjs_sha256_lf": "c8cd73a9a10af0dcf77b517f84684c0772de9ac31b2c6332a496e266dcfb8443"
+  },
+  "owned_resources": {
+    "ports": {
+      "api": 5690,
+      "ui": 4710,
+      "postgres": 55439
+    },
+    "demo_database": "eledgercare_demo_wp0012_reviewer",
+    "writable_demo_root": "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer",
+    "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005"
+  },
+  "demo_database_final_state": {
+    "counts": {
+      "documents": 0,
+      "original_artifacts": 0,
+      "processing_jobs": 0,
+      "execution_attempts": 0,
+      "extraction_results": 0,
+      "work_order_review_heads": 0,
+      "work_order_review_revisions": 0,
+      "work_order_review_fields": 0
+    },
+    "projections": {
+      "projection_tables_sha256": "13af57efae27a7bccf9cbc4ff064c6a90f34472a5ea40bda8e5ed728d17b0107",
+      "projection_count": 0,
+      "unit_count": 0
+    },
+    "fencing_seq": {
+      "last_value": 1,
+      "is_called": false
+    }
+  },
+  "assertion_count": 32,
+  "assertions": [
+    {
+      "check": "clean_worktree_before_run",
+      "passed": true,
+      "detail": {
+        "status": ""
+      }
+    },
+    {
+      "check": "owned_wp0012_branch_and_ancestry",
+      "passed": true,
+      "detail": {
+        "branch": "review/wp-0012-product-rehearsal",
+        "head_sha": "c09cf1aa8282e440e364c6020152dd257355643b",
+        "anc_base": true,
+        "anc_auth": true
+      }
+    },
+    {
+      "check": "unchanged_tree:src",
+      "passed": true,
+      "detail": {
+        "oid": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e"
+      }
+    },
+    {
+      "check": "unchanged_tree:tests",
+      "passed": true,
+      "detail": {
+        "oid": "25c21310699086acb818549b2a4c0b99469208f1"
+      }
+    },
+    {
+      "check": "unchanged_tree:web",
+      "passed": true,
+      "detail": {
+        "oid": "50fbbee1f58aace4e6ec36bd64203146d23aa96f"
+      }
+    },
+    {
+      "check": "unchanged_tree:deploy",
+      "passed": true,
+      "detail": {
+        "oid": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1"
+      }
+    },
+    {
+      "check": "unchanged_tree:ELedgerCare.slnx",
+      "passed": true,
+      "detail": {
+        "oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976"
+      }
+    },
+    {
+      "check": "unchanged_tree:workers",
+      "passed": true,
+      "detail": {
+        "oid": "9b548ddcc73cfba8e7683d132840b08afa5a67a3"
+      }
+    },
+    {
+      "check": "unchanged_tree:evaluation",
+      "passed": true,
+      "detail": {
+        "oid": "9324848e739aff2b9b649cf69513d620b25c2135"
+      }
+    },
+    {
+      "check": "unchanged_tree:qualification",
+      "passed": true,
+      "detail": {
+        "oid": "44c2861ede14c9802b4c03e4a702852711d0fc00"
+      }
+    },
+    {
+      "check": "unchanged_tree:research",
+      "passed": true,
+      "detail": {
+        "oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca"
+      }
+    },
+    {
+      "check": "permitted_fixture_digests",
+      "passed": true,
+      "detail": {
+        "syn_wo_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "syn_mp_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+      }
+    },
+    {
+      "check": "worker_source_and_config_digests",
+      "passed": true,
+      "detail": {
+        "worker_source_sha256": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "1p": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+        "2p": "e4df504ddb51dcc8fb137e97f5af97c735252374738b1a1754a88b16a05de5df",
+        "3p": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86"
+      }
+    },
+    {
+      "check": "q0_readonly_pure_stdlib_manifest_verified",
+      "passed": true,
+      "detail": {
+        "verified_model_file_count": 18,
+        "total_model_bytes": 6699195181,
+        "locked_distribution_count": 32
+      }
+    },
+    {
+      "check": "writable_demo_root_isolated_and_within_bounds",
+      "passed": true,
+      "detail": {
+        "writable_demo_root": "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer",
+        "free_disk_bytes": 41900789760
+      }
+    },
+    {
+      "check": "disjoint_reviewer_ports_idle_before_start",
+      "passed": true,
+      "detail": {
+        "4710": [],
+        "5690": [],
+        "55439": []
+      }
+    },
+    {
+      "check": "pg18_subset_manifest_verified",
+      "passed": true,
+      "detail": {
+        "file_count": 1597,
+        "subset_manifest_sha256": "47c3deb9c917f79c353b3683b2c2611ee975285ea06226c8f72444c96ce9051f",
+        "authenticode_status": "Valid"
+      }
+    },
+    {
+      "check": "offline_dotnet_release_build_succeeded",
+      "passed": true,
+      "detail": {
+        "exit_code": 0
+      }
+    },
+    {
+      "check": "live_mode_fails_closed_without_valid_reviewer_lease",
+      "passed": true,
+      "detail": [
+        {
+          "case": "missing_lease_arg",
+          "returncode": 2,
+          "refused_fail_closed": true,
+          "stderr": "Refusing live-leased-rehearsal: --lease-json is required."
+        },
+        {
+          "case": "wrong_owner_agent",
+          "returncode": 2,
+          "refused_fail_closed": true,
+          "stderr": "Refusing live-leased-rehearsal: owner_agent must be 'eld-f4-reviewer', got 'eld-f4-implementer'"
+        },
+        {
+          "case": "wrong_packet_id",
+          "returncode": 2,
+          "refused_fail_closed": true,
+          "stderr": "Refusing live-leased-rehearsal: packet_id must be 'WP-0012', got 'WP-0006'"
+        },
+        {
+          "case": "attempt_cap_above_two",
+          "returncode": 2,
+          "refused_fail_closed": true,
+          "stderr": "Refusing live-leased-rehearsal: max_attempts must equal 2, got 3"
+        },
+        {
+          "case": "missing_gpu_uuid",
+          "returncode": 2,
+          "refused_fail_closed": true,
+          "stderr": "Refusing live-leased-rehearsal: invalid gpu_uuid ''"
+        }
+      ]
+    },
+    {
+      "check": "pg_cluster_55439_started",
+      "passed": true,
+      "detail": {
+        "exit_code": 0
+      }
+    },
+    {
+      "check": "historical_wp0010_databases_intact_before",
+      "passed": true,
+      "detail": {
+        "seed_f3_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "migrated_proj_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa"
+      }
+    },
+    {
+      "check": "prepare_demo_db_succeeded",
+      "passed": true,
+      "detail": {
+        "exit_code": 0
+      }
+    },
+    {
+      "check": "demo_db_four_migrations_applied",
+      "passed": true,
+      "detail": [
+        "20261114182147_InitialDurableIntake",
+        "20261116052029_AddLocalExtraction",
+        "20261116200918_AddWorkOrderReview",
+        "20261117091519_AddSourceLinkedArchive"
+      ]
+    },
+    {
+      "check": "demo_db_app_role_least_privilege_enforced",
+      "passed": true,
+      "detail": [
+        {
+          "verb": "DELETE",
+          "returncode": 3,
+          "denied": true
+        },
+        {
+          "verb": "TRUNCATE",
+          "returncode": 3,
+          "denied": true
+        },
+        {
+          "verb": "UPDATE",
+          "returncode": 3,
+          "denied": true
+        },
+        {
+          "verb": "UPDATE",
+          "returncode": 3,
+          "denied": true
+        },
+        {
+          "verb": "DELETE",
+          "returncode": 3,
+          "denied": true
+        },
+        {
+          "verb": "CREATE",
+          "returncode": 3,
+          "denied": true
+        }
+      ]
+    },
+    {
+      "check": "prepare_scratch_preflight_db",
+      "passed": true,
+      "detail": {
+        "exit_code": 0
+      }
+    },
+    {
+      "check": "edge_cpu_preflight_scratch_guard_passed",
+      "passed": true,
+      "detail": {
+        "stderr": ""
+      }
+    },
+    {
+      "check": "scratch_pg_restart_clean",
+      "passed": true,
+      "detail": {
+        "stop_rc": 0,
+        "start_rc": 0
+      }
+    },
+    {
+      "check": "edge_cpu_preflight_post_restart_passed",
+      "passed": true,
+      "detail": {
+        "stderr": ""
+      }
+    },
+    {
+      "check": "edge_empty_ready_demo_db_verified",
+      "passed": true,
+      "detail": {
+        "stderr": ""
+      }
+    },
+    {
+      "check": "demo_db_and_runs_dir_completely_empty_for_future_004",
+      "passed": true,
+      "detail": {
+        "demo_counts": {
+          "documents": 0,
+          "original_artifacts": 0,
+          "processing_jobs": 0,
+          "execution_attempts": 0,
+          "extraction_results": 0,
+          "work_order_review_heads": 0,
+          "work_order_review_revisions": 0,
+          "work_order_review_fields": 0
+        },
+        "demo_projections": {
+          "projection_tables_sha256": "13af57efae27a7bccf9cbc4ff064c6a90f34472a5ea40bda8e5ed728d17b0107",
+          "projection_count": 0,
+          "unit_count": 0
+        },
+        "fencing_seq": {
+          "last_value": 1,
+          "is_called": false
+        },
+        "run_dir_entries": 0
+      }
+    },
+    {
+      "check": "historical_databases_and_q0_root_unchanged_after_cpu_prep",
+      "passed": true,
+      "detail": {
+        "seed_f3_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "migrated_proj_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa"
+      }
+    },
+    {
+      "check": "all_owned_services_stopped_and_ports_released",
+      "passed": true,
+      "detail": {
+        "pg_ctl_status_exit": 3,
+        "ports_after": {
+          "5690": [],
+          "4710": [],
+          "55439": []
+        }
+      }
+    }
+  ]
+}
