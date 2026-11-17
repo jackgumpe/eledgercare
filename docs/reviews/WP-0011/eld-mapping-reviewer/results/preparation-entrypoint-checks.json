@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-17T10:25:57.3535645Z",
+  "helper_commit": "b1299ba5ff20b0e77f816859dc1785402eb24cb4",
+  "checks": [
+    {
+      "helper": "execute_wrapper.py",
+      "sha256": "aca42eeaae34c9b6443c8cec1a8bbe4becec85389a8d0b5f473166597a627808",
+      "command": "python -I -B docs/reviews/WP-0011/eld-mapping-reviewer/results/execute_wrapper.py --help",
+      "exit_code": 0,
+      "stdout": "usage: execute_wrapper.py [-h] --authority AUTHORITY --attempt ATTEMPT\n                          [--run RUN]\n                          {execute,score}\n\npositional arguments:\n  {execute,score}\n\noptions:\n  -h, --help            show this help message and exit\n  --authority AUTHORITY\n  --attempt ATTEMPT\n  --run RUN",
+      "scope": "Argument parsing/import only; no actual runtime or resource access"
+    },
+    {
+      "helper": "collect_evidence_v2.py",
+      "sha256": "1fd6d886edd1a143fa2c83bf7d05088454beeb4860004a660e4c92cff72ecb21",
+      "command": "python -I -B docs/reviews/WP-0011/eld-mapping-reviewer/results/collect_evidence_v2.py --help",
+      "exit_code": 0,
+      "stdout": "usage: collect_evidence_v2.py [-h] --authority AUTHORITY --after AFTER --run\n                              RUN --attempt ATTEMPT --destination DESTINATION\n\noptions:\n  -h, --help            show this help message and exit\n  --authority AUTHORITY\n  --after AFTER\n  --run RUN\n  --attempt ATTEMPT\n  --destination DESTINATION",
+      "scope": "Argument parsing/import only; no actual runtime or resource access"
+    }
+  ]
+}

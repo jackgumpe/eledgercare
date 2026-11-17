@@ -1,0 +1,38 @@
+{
+  "initial_cached_check": {
+    "chunk": "0c404e",
+    "exit": 1,
+    "limit": "Original tool returned truncated display; exact committed diff rechecked below. Preserved CRLF evidence is intentional, never normalized."
+  },
+  "followup_checks": [
+    {
+      "name": "default",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "08313e4bc3457dab2c0cee0ff238b3c61c668ddb",
+        "HEAD"
+      ],
+      "returncode": 2,
+      "stdout_bytes": 79416,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "cr-at-eol",
+      "command": [
+        "git",
+        "-c",
+        "core.whitespace=cr-at-eol",
+        "diff",
+        "--check",
+        "08313e4bc3457dab2c0cee0ff238b3c61c668ddb",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    }
+  ],
+  "timestamp": "2026-11-17T11:13:01.009620+00:00"
+}
