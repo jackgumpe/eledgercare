@@ -1,0 +1,18 @@
+PRE-FREEZE SCRATCH DRY-RUN (--skip-heavy-suites-dryrun):
+
+COMMAND:
+python -B docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/run_f4_independent_review.py --skip-heavy-suites-dryrun --output .scratch/rt-dryrun/summary.json --resource-return-output .scratch/rt-dryrun/resource-return.json --explain-output .scratch/rt-dryrun/explain-plans.txt --logs-dir .scratch/rt-dryrun/logs --screenshots-dir .scratch/rt-dryrun/screenshots --edge-before-output .scratch/rt-dryrun/edge-before.json --edge-after-output .scratch/rt-dryrun/edge-after.json --demo-smoke-output .scratch/rt-dryrun/demo-smoke.json
+
+EXIT CODE: 1 (finally: block cleanly stopped all owned services)
+
+UNALTERED STDOUT / STDERR:
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 1750, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 1092, in main
+    queries_before_restart = run_saved_archive_query_suite(API_PORT)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 622, in run_saved_archive_query_suite
+    raise AssertionError(f"Expected SEED-R01 Bldg 204 match to be strictly machine, got {r01_in_bldg204_all['contributingSources']}")
+AssertionError: Expected SEED-R01 Bldg 204 match to be strictly machine, got ['reviewed', 'machine']

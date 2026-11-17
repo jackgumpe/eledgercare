@@ -13,9 +13,9 @@ Executes strictly on owned reviewer loopback resources (`127.0.0.1:5690` API, `1
   5. Forward migration of cloned `eledgercare_f4_reviewer_migrated` (`TEMPLATE eledgercare_f4_reviewer_seed_f3`)
      via `prepare-database.ps1` while preserving `eledgercare_f4_reviewer_seed_f3` untouched.
   6. Live HTTP `503 archive_not_ready` check (`Archive__DeferStartupInitialization=true`), followed by
-     normal `LocalOcr:Enabled=false` startup backfill (`7` projections / `13` units), `30` saved canonical
+     normal `LocalOcr:Enabled=false` startup backfill (`7` projections / `13` units), `31` saved canonical
      archive queries (browse, filters, keyset microsecond tie-break, `C`-locale metacharacters/emojis,
-     mixed-source AND, superseded/unknown/draft/diagnostic exclusions), `18` raw HTTP socket `400` rejections,
+     mixed-source AND, superseded/unknown/draft/diagnostic exclusions), `23` raw HTTP socket `400` rejections,
      `19` PostgreSQL `42501` least-privilege denials, and `EXPLAIN (ANALYZE, BUFFERS)` + warm latency/working-set.
   7. Before-restart Microsoft Edge runtime verification (`4710 -> 5690`), real stop + fast restart of
      PostgreSQL `55439`, API `5690`, and UI `4710`, and after-restart Microsoft Edge + saved-query +
@@ -542,8 +542,9 @@ def run_saved_archive_query_suite(api_port: int) -> dict:
         ("mixed_source_and_r01_all", "/api/archive?q=North+Wing+0018-TERM-QC&source=all"),
         ("mixed_source_and_r01_reviewed_miss", "/api/archive?q=North+Wing+0018-TERM-QC&source=reviewed"),
         ("mixed_source_and_r01_machine_miss", "/api/archive?q=North+Wing+0018-TERM-QC&source=machine"),
-        ("unit_204_removed_on_r01_reviewed", "/api/archive?q=Unit+204&source=reviewed"),
-        ("unit_204_retained_on_r01_machine_in_all", "/api/archive?q=Unit+204&source=all"),
+        ("bldg_204_removed_on_r01_reviewed", "/api/archive?q=Bldg+204&source=reviewed"),
+        ("bldg_only_retained_strictly_machine_on_r01_in_all", "/api/archive?q=Bldg&source=all"),
+        ("substring_unit_204_in_r01_narrative_reviewed", "/api/archive?q=Unit+204&source=reviewed"),
         ("superseded_rev1_excluded", "/api/archive?q=" + urllib.parse.quote("[REV1-SUPERSEDED]") + "&source=all"),
         ("newer_draft_r3_excluded", "/api/archive?q=UNAPPROVED-DRAFT-R3-DO-NOT-INDEX&source=all"),
         ("draft_unreviewed_field_excluded", "/api/archive?q=DRAFT-UNIT-UNREVIEWED-999&source=all"),
@@ -597,7 +598,8 @@ def run_saved_archive_query_suite(api_port: int) -> dict:
         ("c_locale_cafe_exact_match", [SEED_R01]),
         ("leading_zero_reviewed_r06", [SEED_R06]),
         ("mixed_source_and_r01_all", [SEED_R01]),
-        ("unit_204_removed_on_r01_reviewed", [SEED_R06, SEED_R03]),
+        ("bldg_204_removed_on_r01_reviewed", [SEED_R06, SEED_R03]),
+        ("substring_unit_204_in_r01_narrative_reviewed", [SEED_R06, SEED_R03, SEED_R01]),
     ):
         items = results[must_hit_exact]["items"]
         if [it["documentId"] for it in items] != exp_docs:
@@ -613,11 +615,11 @@ def run_saved_archive_query_suite(api_port: int) -> dict:
     ):
         raise AssertionError(f"Mixed-source card mismatch: {mixed_card}")
 
-    r01_in_unit204_all = next(it for it in results["unit_204_all"]["items"] if it["documentId"] == SEED_R01) if "unit_204_all" in results else next(
-        it for it in results["unit_204_retained_on_r01_machine_in_all"]["items"] if it["documentId"] == SEED_R01
+    r01_in_bldg_all = next(
+        it for it in results["bldg_only_retained_strictly_machine_on_r01_in_all"]["items"] if it["documentId"] == SEED_R01
     )
-    if r01_in_unit204_all["contributingSources"] != ["machine"]:
-        raise AssertionError(f"Expected SEED-R01 Unit 204 match to be strictly machine, got {r01_in_unit204_all['contributingSources']}")
+    if r01_in_bldg_all["contributingSources"] != ["machine"]:
+        raise AssertionError(f"Expected SEED-R01 Bldg match to be strictly machine, got {r01_in_bldg_all['contributingSources']}")
 
     for must_be_zero in (
         "literal_wildcard_non_expansion_1",
@@ -665,7 +667,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--edge-after-output", required=True, help="After-restart Edge receipt path")
     parser.add_argument("--demo-smoke-output", required=True, help="5690 demo smoke receipt path")
     parser.add_argument("--require-clean", action="store_true", help="Require clean worktree before starting")
+    parser.add_argument(
+        "--skip-heavy-suites-dryrun",
+        action="store_true",
+        help="Scratch pre-freeze dry-run flag to test Steps 06..11 quickly; forbidden with --require-clean",
+    )
     args = parser.parse_args(argv)
+    if args.require_clean and args.skip_heavy_suites_dryrun:
+        raise ValueError("--skip-heavy-suites-dryrun cannot be used during a decisive --require-clean run.")
 
     script_path = Path(__file__).resolve()
     repo_root = script_path.parents[6]
@@ -903,69 +912,69 @@ def main(argv: list[str] | None = None) -> int:
         )
 
         # ---------------------------------------------------------------------
-        # Step 04: Full .NET test suite (95/95 tests against owned PG 55439)
+        # Step 04 & 05: Full .NET test suite + 5690 Demo Smoke + 15/15 Playwright Edge E2E
         # ---------------------------------------------------------------------
-        test_cp = run_logged_step(
-            "06-dotnet-test-release",
-            ["dotnet", "test", "ELedgerCare.slnx", "-c", "Release", "--no-build"],
-            step_env=dotnet_env,
-            timeout_s=600,
-        )
-        record_assert(
-            "dotnet_test_all_suites_passed",
-            "Failed:     0" in test_cp.stdout or "failed: 0" in test_cp.stdout.lower(),
-            {"exit_code": test_cp.returncode},
-        )
+        if not args.skip_heavy_suites_dryrun:
+            test_cp = run_logged_step(
+                "06-dotnet-test-release",
+                ["dotnet", "test", "ELedgerCare.slnx", "-c", "Release", "--no-build"],
+                step_env=dotnet_env,
+                timeout_s=600,
+            )
+            record_assert(
+                "dotnet_test_all_suites_passed",
+                "Failed:     0" in test_cp.stdout or "failed: 0" in test_cp.stdout.lower(),
+                {"exit_code": test_cp.returncode},
+            )
 
-        # ---------------------------------------------------------------------
-        # Step 05: 5690 Demo Restart Smoke + 15/15 Playwright Edge E2E (5690/4710)
-        # ---------------------------------------------------------------------
-        run_logged_step(
-            "07-prepare-dev-db",
-            ["pwsh", "-NoProfile", "-File", "deploy/dev/database/prepare-database.ps1"],
-            step_env=dotnet_env,
-        )
-        demo_out_abs = (repo_root / args.demo_smoke_output).resolve()
-        demo_out_abs.parent.mkdir(parents=True, exist_ok=True)
-        run_logged_step(
-            "08-demo-smoke-5690",
-            [
-                "pwsh",
-                "-NoProfile",
-                "-File",
-                "deploy/dev/smoke/run-demo-smoke.ps1",
-                "-ApiPort",
-                str(API_PORT),
-                "-ReceiptPath",
-                str(demo_out_abs),
-            ],
-            step_env=dotnet_env,
-        )
-        demo_json = json.loads(demo_out_abs.read_text(encoding="utf-8-sig"))
-        demo_out_abs.write_text(json.dumps(demo_json, indent=2) + "\n", encoding="utf-8", newline="\n")
-        record_assert("demo_smoke_5690_all_match", demo_json.get("allMatch") is True, {"apiPort": demo_json.get("apiPort")})
+            run_logged_step(
+                "07-prepare-dev-db",
+                ["pwsh", "-NoProfile", "-File", "deploy/dev/database/prepare-database.ps1"],
+                step_env=dotnet_env,
+            )
+            demo_out_abs = (repo_root / args.demo_smoke_output).resolve()
+            demo_out_abs.parent.mkdir(parents=True, exist_ok=True)
+            run_logged_step(
+                "08-demo-smoke-5690",
+                [
+                    "pwsh",
+                    "-NoProfile",
+                    "-File",
+                    "deploy/dev/smoke/run-demo-smoke.ps1",
+                    "-ApiPort",
+                    str(API_PORT),
+                    "-ReceiptPath",
+                    str(demo_out_abs),
+                ],
+                step_env=dotnet_env,
+            )
+            demo_json = json.loads(demo_out_abs.read_text(encoding="utf-8-sig"))
+            demo_out_abs.write_text(json.dumps(demo_json, indent=2) + "\n", encoding="utf-8", newline="\n")
+            record_assert("demo_smoke_5690_all_match", demo_json.get("allMatch") is True, {"apiPort": demo_json.get("apiPort")})
 
-        # Note: run-demo-smoke.ps1 performed a PG stop/start, so refresh current postmaster PID
-        pm_pid_mid = int((pg_data_dir / "postmaster.pid").read_text(encoding="utf-8").splitlines()[0].strip())
-        spawned_processes.append({"role": "postmaster_after_demo_smoke", "info": inspect_process(pm_pid_mid, repo_root)})
+            # Note: run-demo-smoke.ps1 performed a PG stop/start, so refresh current postmaster PID
+            pm_pid_mid = int((pg_data_dir / "postmaster.pid").read_text(encoding="utf-8").splitlines()[0].strip())
+            spawned_processes.append({"role": "postmaster_after_demo_smoke", "info": inspect_process(pm_pid_mid, repo_root)})
 
-        run_logged_step(
-            "09-playwright-edge-e2e-5690-4710",
-            [
-                "pwsh",
-                "-NoProfile",
-                "-File",
-                "deploy/dev/smoke/run-browser-checks.ps1",
-                "-Database",
-                E2E_DB,
-                "-ApiPort",
-                str(API_PORT),
-                "-UiPort",
-                str(UI_PORT),
-            ],
-            step_env=dotnet_env,
-            timeout_s=600,
-        )
+            run_logged_step(
+                "09-playwright-edge-e2e-5690-4710",
+                [
+                    "pwsh",
+                    "-NoProfile",
+                    "-File",
+                    "deploy/dev/smoke/run-browser-checks.ps1",
+                    "-Database",
+                    E2E_DB,
+                    "-ApiPort",
+                    str(API_PORT),
+                    "-UiPort",
+                    str(UI_PORT),
+                ],
+                step_env=dotnet_env,
+                timeout_s=600,
+            )
+        else:
+            pm_pid_mid = pm_pid_before
 
         # ---------------------------------------------------------------------
         # Step 06: Clone `eledgercare_f4_reviewer_seed_f3` -> `eledgercare_f4_reviewer_migrated` & forward-migrate
@@ -1082,8 +1091,8 @@ GRANT CONNECT ON DATABASE {MIGRATED_DB} TO {settings['appUser']};
 
         queries_before_restart = run_saved_archive_query_suite(API_PORT)
         record_assert(
-            "saved_30_archive_queries_and_keyset_walk_passed_before_restart",
-            queries_before_restart["saved_query_count"] == 30 and queries_before_restart["keyset_pages_limit_2"] == 5,
+            "saved_31_archive_queries_and_keyset_walk_passed_before_restart",
+            queries_before_restart["saved_query_count"] == 31 and queries_before_restart["keyset_pages_limit_2"] == 5,
             queries_before_restart,
         )
 

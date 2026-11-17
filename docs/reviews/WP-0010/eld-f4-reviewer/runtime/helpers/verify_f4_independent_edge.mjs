@@ -140,7 +140,7 @@ async function main() {
     );
 
     await expect(page.getByTestId(`archive-doc-status-${SEED_R09}`)).toHaveText('Awaiting extraction');
-    await expect(page.getByTestId(`archive-doc-status-${SEED_R08}`)).toHaveText('Failed');
+    await expect(page.getByTestId(`archive-doc-status-${SEED_R08}`)).toHaveText('Extraction failed');
     await expect(page.getByTestId(`archive-review-badge-${SEED_R05}`)).toContainText(
       'Draft (Revision #2 — unreviewed)',
     );
@@ -285,7 +285,7 @@ async function main() {
       'Newer draft exists (head Revision #3)',
     );
     await expect(page.getByTestId(`witness-source-label-${SEED_R01}-0`)).toHaveText(
-      'Property Name · Reviewed Revision #2',
+      'Property · Reviewed Revision #2',
     );
     await expect(page.getByTestId(`witness-consulted-page-${SEED_R01}-0`)).toHaveCount(0);
 
@@ -322,14 +322,22 @@ async function main() {
 
     await page.getByTestId('review-back-to-archive').click();
     await expect(page).toHaveURL(/\/archive\?q=7.50%25%20Cap_Rate%20%5C&source=reviewed$/);
+    await expect(page.getByTestId(`archive-card-${SEED_R01}`)).toBeVisible({ timeout: 15000 });
 
     // -------------------------------------------------------------------------
     // E4. Obsolete response suppression + unsaved review guard across query & route transitions
     // -------------------------------------------------------------------------
+    let slowStaleEnteredWire = false;
     let slowStaleFulfilled = false;
+    let markSlowEnteredWire;
+    const slowEnteredWirePromise = new Promise((resolve) => {
+      markSlowEnteredWire = resolve;
+    });
     await page.route('**/api/archive?*', async (route) => {
       const reqUrl = new URL(route.request().url());
       if (reqUrl.searchParams.get('q') === 'SLOW-REVIEWER-STALE-1') {
+        slowStaleEnteredWire = true;
+        markSlowEnteredWire();
         await new Promise((r) => setTimeout(r, 650));
         slowStaleFulfilled = true;
         await route.fulfill({
@@ -353,11 +361,18 @@ async function main() {
 
     await page.getByTestId('archive-query-input').fill('SLOW-REVIEWER-STALE-1');
     await page.getByTestId('archive-submit-btn').click();
+    await expect(page).toHaveURL(/\/archive\?q=SLOW-REVIEWER-STALE-1&source=reviewed$/);
+    await slowEnteredWirePromise;
+
     await page.getByTestId('archive-query-input').fill('WO-009901-CLEAN-HEAD');
     await page.getByTestId('archive-submit-btn').click();
 
     await expect(page.getByTestId(`archive-card-${SEED_R03}`)).toBeVisible({ timeout: 15000 });
     await page.waitForTimeout(850);
+    assertCond('slow_stale_request_entered_wire_while_superseded', slowStaleEnteredWire, {
+      slowStaleEnteredWire,
+      slowStaleFulfilled,
+    });
     await expect(page.getByTestId(`archive-card-${SEED_R03}`)).toBeVisible();
     await expect(page.getByTestId('archive-empty')).toHaveCount(0);
     await page.unroute('**/api/archive?*');
