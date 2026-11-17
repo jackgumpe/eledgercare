@@ -1,0 +1,2514 @@
+{
+  "started_utc": "2026-11-17T09:06:20.694061+00:00",
+  "executing_head": "c23a2f0cff3621f05fe1caa77b170167a2406876",
+  "source_commit": "adb51ac317db18950f3f1ef4629864127956eddc",
+  "source_tree": "ed07a273a57a71b43b0fed9cea12a2245d7c7958",
+  "helper_sha256": "a769688115efe7e29bf01c2c5214807f88800e28858381f250635d2e51be88e0",
+  "visible": [
+    {
+      "case": "br_false_positive",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK>RED<br>BLUE",
+      "target": "REDBLUE",
+      "expected_count": 0,
+      "actual_count": 1,
+      "pass": false,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "one",
+        "count": 1,
+        "locations": [
+          {
+            "page": 1,
+            "block": 0,
+            "span": [
+              0,
+              7
+            ],
+            "quote": "REDBLUE",
+            "visible_leaf_sha256": "b4174fa36f368e32a23f3f71001573f51e3db0b6aea28b1851ec61f2bdab934f"
+          }
+        ]
+      }
+    },
+    {
+      "case": "paragraph_false_positive",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK><p>RED</p><p>BLUE</p>",
+      "target": "REDBLUE",
+      "expected_count": 0,
+      "actual_count": 1,
+      "pass": false,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "one",
+        "count": 1,
+        "locations": [
+          {
+            "page": 1,
+            "block": 0,
+            "span": [
+              0,
+              7
+            ],
+            "quote": "REDBLUE",
+            "visible_leaf_sha256": "b4174fa36f368e32a23f3f71001573f51e3db0b6aea28b1851ec61f2bdab934f"
+          }
+        ]
+      }
+    },
+    {
+      "case": "br_space",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK>RED<br>BLUE",
+      "target": "RED BLUE",
+      "expected_count": 1,
+      "actual_count": 0,
+      "pass": false,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "none",
+        "count": 0,
+        "locations": []
+      }
+    },
+    {
+      "case": "inline_concatenation",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK><span>RED</span><span>BLUE</span>",
+      "target": "REDBLUE",
+      "expected_count": 1,
+      "actual_count": 1,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "one",
+        "count": 1,
+        "locations": [
+          {
+            "page": 1,
+            "block": 0,
+            "span": [
+              0,
+              7
+            ],
+            "quote": "REDBLUE",
+            "visible_leaf_sha256": "b4174fa36f368e32a23f3f71001573f51e3db0b6aea28b1851ec61f2bdab934f"
+          }
+        ]
+      }
+    },
+    {
+      "case": "hidden_metadata",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK><span data-id=\"REDBLUE\">OTHER</span><!--REDBLUE--><script>REDBLUE</script><style>REDBLUE</style>",
+      "target": "REDBLUE",
+      "expected_count": 0,
+      "actual_count": 0,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "none",
+        "count": 0,
+        "locations": []
+      }
+    },
+    {
+      "case": "entity",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK>X&amp;Y",
+      "target": "X&Y",
+      "expected_count": 1,
+      "actual_count": 1,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "one",
+        "count": 1,
+        "locations": [
+          {
+            "page": 1,
+            "block": 0,
+            "span": [
+              0,
+              3
+            ],
+            "quote": "X&Y",
+            "visible_leaf_sha256": "2981d667ad53657a256a67cf96d388a45f9d15a64a159b267b9985b645b60052"
+          }
+        ]
+      }
+    },
+    {
+      "case": "strict_identifier",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK>X0042",
+      "target": "0042",
+      "expected_count": 0,
+      "actual_count": 0,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "none",
+        "count": 0,
+        "locations": []
+      }
+    }
+  ],
+  "contract": [
+    {
+      "case": "unit_present",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "unit_value",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "unit_null",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "unit_empty",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "absence_state",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "absence_label",
+      "rejected": true,
+      "pass": true
+    }
+  ],
+  "supervisor": [
+    {
+      "case": "nonzero_return",
+      "exit": 0,
+      "pass": false,
+      "expected": "Non-successful/unavailable post observation cannot be successful final observation",
+      "run_result": {
+        "schema": "eld-coverage-v1-run/1",
+        "run": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpsqxcxwfs\\runtime\\runs\\author\\20261117T090620Z-795651b0",
+        "executing_head": "public-cpu-mock-head",
+        "release": {
+          "schema": "eld-coverage-v1-release/1",
+          "owner": "author",
+          "source_commit": "1111111111111111111111111111111111111111",
+          "executing_head": "2222222222222222222222222222222222222222",
+          "source_tree": "3333333333333333333333333333333333333333",
+          "protocol_sha256": "b5b2b051d7b154d2696c83b99ce7712490686508147fe267a462c7b73db56ec8",
+          "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+          "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+          "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+          "reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+          "corpus_commit": "6666666666666666666666666666666666666666",
+          "runtime_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpsqxcxwfs\\runtime",
+          "issued_utc": "2026-11-17T09:05:50.756357+00:00",
+          "expires_utc": "2026-11-17T10:06:20.756357+00:00",
+          "schedule": [
+            {
+              "fixture_id": "SYN-WO-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "SYN-MP-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "WP11-F01-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            }
+          ],
+          "source_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_source_commit": "1111111111111111111111111111111111111111"
+          },
+          "admission_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc"
+          },
+          "unseal": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/coordination/WP-0011/unseal.json",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "lease": {
+            "id": "CPU-ONLY-TEST",
+            "owner": "author",
+            "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "sole_lease": true,
+            "scope": "sole_model_job",
+            "observations": [
+              {
+                "commit": "4444444444444444444444444444444444444444",
+                "path": "docs/coordination/WP-0011/observation.json",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            ]
+          },
+          "torchvision_local_sha256_TOFU_accepted": true
+        },
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          }
+        ],
+        "failure": null,
+        "supervisor_error": null,
+        "secondary_errors": [],
+        "finalization_errors": [],
+        "final_observation_status": {
+          "post_observers": "available",
+          "worker_outcome": "available",
+          "free_bytes_after": "available",
+          "owned_bytes_after": "available"
+        },
+        "child_launcher_pid": 654321,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "elapsed_s": 0.03200000000651926,
+        "observers": [
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpsqxcxwfs\\runtime\\runs\\author\\20261117T090620Z-795651b0\\pre-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpsqxcxwfs\\runtime\\runs\\author\\20261117T090620Z-795651b0\\pre-1.txt"
+          },
+          {
+            "returncode": 1,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpsqxcxwfs\\runtime\\runs\\author\\20261117T090620Z-795651b0\\post-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpsqxcxwfs\\runtime\\runs\\author\\20261117T090620Z-795651b0\\post-1.txt"
+          }
+        ],
+        "gpu_process_checks": [
+          {
+            "stage": "pre",
+            "expected_device_observed": true,
+            "process_observation_text": "",
+            "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+          }
+        ],
+        "free_bytes_after": 42829762560,
+        "owned_bytes_after": 6330
+      },
+      "stdout": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpsqxcxwfs\\runtime\\runs\\author\\20261117T090620Z-795651b0\n"
+    },
+    {
+      "case": "timeout_row",
+      "exit": 0,
+      "pass": false,
+      "expected": "Non-successful/unavailable post observation cannot be successful final observation",
+      "run_result": {
+        "schema": "eld-coverage-v1-run/1",
+        "run": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpt0slru4e\\runtime\\runs\\author\\20261117T090620Z-1aee6289",
+        "executing_head": "public-cpu-mock-head",
+        "release": {
+          "schema": "eld-coverage-v1-release/1",
+          "owner": "author",
+          "source_commit": "1111111111111111111111111111111111111111",
+          "executing_head": "2222222222222222222222222222222222222222",
+          "source_tree": "3333333333333333333333333333333333333333",
+          "protocol_sha256": "b5b2b051d7b154d2696c83b99ce7712490686508147fe267a462c7b73db56ec8",
+          "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+          "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+          "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+          "reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+          "corpus_commit": "6666666666666666666666666666666666666666",
+          "runtime_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpt0slru4e\\runtime",
+          "issued_utc": "2026-11-17T09:05:50.808687+00:00",
+          "expires_utc": "2026-11-17T10:06:20.808687+00:00",
+          "schedule": [
+            {
+              "fixture_id": "SYN-WO-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "SYN-MP-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "WP11-F01-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            }
+          ],
+          "source_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_source_commit": "1111111111111111111111111111111111111111"
+          },
+          "admission_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc"
+          },
+          "unseal": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/coordination/WP-0011/unseal.json",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "lease": {
+            "id": "CPU-ONLY-TEST",
+            "owner": "author",
+            "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "sole_lease": true,
+            "scope": "sole_model_job",
+            "observations": [
+              {
+                "commit": "4444444444444444444444444444444444444444",
+                "path": "docs/coordination/WP-0011/observation.json",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            ]
+          },
+          "torchvision_local_sha256_TOFU_accepted": true
+        },
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          }
+        ],
+        "failure": null,
+        "supervisor_error": null,
+        "secondary_errors": [],
+        "finalization_errors": [],
+        "final_observation_status": {
+          "post_observers": "available",
+          "worker_outcome": "available",
+          "free_bytes_after": "available",
+          "owned_bytes_after": "available"
+        },
+        "child_launcher_pid": 654321,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "elapsed_s": 0.03200000000651926,
+        "observers": [
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpt0slru4e\\runtime\\runs\\author\\20261117T090620Z-1aee6289\\pre-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpt0slru4e\\runtime\\runs\\author\\20261117T090620Z-1aee6289\\pre-1.txt"
+          },
+          {
+            "returncode": null,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpt0slru4e\\runtime\\runs\\author\\20261117T090620Z-1aee6289\\post-0.txt",
+            "error": "TimeoutExpired"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpt0slru4e\\runtime\\runs\\author\\20261117T090620Z-1aee6289\\post-1.txt"
+          }
+        ],
+        "gpu_process_checks": [
+          {
+            "stage": "pre",
+            "expected_device_observed": true,
+            "process_observation_text": "",
+            "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+          }
+        ],
+        "free_bytes_after": 42829762560,
+        "owned_bytes_after": 6279
+      },
+      "stdout": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpt0slru4e\\runtime\\runs\\author\\20261117T090620Z-1aee6289\n"
+    },
+    {
+      "case": "wrong_device",
+      "exit": 0,
+      "pass": false,
+      "expected": "Non-successful/unavailable post observation cannot be successful final observation",
+      "run_result": {
+        "schema": "eld-coverage-v1-run/1",
+        "run": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpaflfhi6u\\runtime\\runs\\author\\20261117T090620Z-a63ca8e1",
+        "executing_head": "public-cpu-mock-head",
+        "release": {
+          "schema": "eld-coverage-v1-release/1",
+          "owner": "author",
+          "source_commit": "1111111111111111111111111111111111111111",
+          "executing_head": "2222222222222222222222222222222222222222",
+          "source_tree": "3333333333333333333333333333333333333333",
+          "protocol_sha256": "b5b2b051d7b154d2696c83b99ce7712490686508147fe267a462c7b73db56ec8",
+          "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+          "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+          "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+          "reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+          "corpus_commit": "6666666666666666666666666666666666666666",
+          "runtime_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpaflfhi6u\\runtime",
+          "issued_utc": "2026-11-17T09:05:50.867913+00:00",
+          "expires_utc": "2026-11-17T10:06:20.867913+00:00",
+          "schedule": [
+            {
+              "fixture_id": "SYN-WO-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "SYN-MP-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "WP11-F01-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            }
+          ],
+          "source_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_source_commit": "1111111111111111111111111111111111111111"
+          },
+          "admission_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc"
+          },
+          "unseal": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/coordination/WP-0011/unseal.json",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "lease": {
+            "id": "CPU-ONLY-TEST",
+            "owner": "author",
+            "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "sole_lease": true,
+            "scope": "sole_model_job",
+            "observations": [
+              {
+                "commit": "4444444444444444444444444444444444444444",
+                "path": "docs/coordination/WP-0011/observation.json",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            ]
+          },
+          "torchvision_local_sha256_TOFU_accepted": true
+        },
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          }
+        ],
+        "failure": null,
+        "supervisor_error": null,
+        "secondary_errors": [],
+        "finalization_errors": [],
+        "final_observation_status": {
+          "post_observers": "available",
+          "worker_outcome": "available",
+          "free_bytes_after": "available",
+          "owned_bytes_after": "available"
+        },
+        "child_launcher_pid": 654321,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "elapsed_s": 0.030999999959021807,
+        "observers": [
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpaflfhi6u\\runtime\\runs\\author\\20261117T090620Z-a63ca8e1\\pre-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpaflfhi6u\\runtime\\runs\\author\\20261117T090620Z-a63ca8e1\\pre-1.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpaflfhi6u\\runtime\\runs\\author\\20261117T090620Z-a63ca8e1\\post-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpaflfhi6u\\runtime\\runs\\author\\20261117T090620Z-a63ca8e1\\post-1.txt"
+          }
+        ],
+        "gpu_process_checks": [
+          {
+            "stage": "pre",
+            "expected_device_observed": true,
+            "process_observation_text": "",
+            "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+          }
+        ],
+        "free_bytes_after": 42829762560,
+        "owned_bytes_after": 6302
+      },
+      "stdout": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmpaflfhi6u\\runtime\\runs\\author\\20261117T090620Z-a63ca8e1\n"
+    },
+    {
+      "case": "empty_capture",
+      "exit": 0,
+      "pass": false,
+      "expected": "Non-successful/unavailable post observation cannot be successful final observation",
+      "run_result": {
+        "schema": "eld-coverage-v1-run/1",
+        "run": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmplseujn7o\\runtime\\runs\\author\\20261117T090620Z-5af4da19",
+        "executing_head": "public-cpu-mock-head",
+        "release": {
+          "schema": "eld-coverage-v1-release/1",
+          "owner": "author",
+          "source_commit": "1111111111111111111111111111111111111111",
+          "executing_head": "2222222222222222222222222222222222222222",
+          "source_tree": "3333333333333333333333333333333333333333",
+          "protocol_sha256": "b5b2b051d7b154d2696c83b99ce7712490686508147fe267a462c7b73db56ec8",
+          "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+          "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+          "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+          "reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+          "corpus_commit": "6666666666666666666666666666666666666666",
+          "runtime_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmplseujn7o\\runtime",
+          "issued_utc": "2026-11-17T09:05:50.922424+00:00",
+          "expires_utc": "2026-11-17T10:06:20.922424+00:00",
+          "schedule": [
+            {
+              "fixture_id": "SYN-WO-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "SYN-MP-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "WP11-F01-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            }
+          ],
+          "source_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_source_commit": "1111111111111111111111111111111111111111"
+          },
+          "admission_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc"
+          },
+          "unseal": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/coordination/WP-0011/unseal.json",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "lease": {
+            "id": "CPU-ONLY-TEST",
+            "owner": "author",
+            "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "sole_lease": true,
+            "scope": "sole_model_job",
+            "observations": [
+              {
+                "commit": "4444444444444444444444444444444444444444",
+                "path": "docs/coordination/WP-0011/observation.json",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            ]
+          },
+          "torchvision_local_sha256_TOFU_accepted": true
+        },
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          }
+        ],
+        "failure": null,
+        "supervisor_error": null,
+        "secondary_errors": [],
+        "finalization_errors": [],
+        "final_observation_status": {
+          "post_observers": "available",
+          "worker_outcome": "available",
+          "free_bytes_after": "available",
+          "owned_bytes_after": "available"
+        },
+        "child_launcher_pid": 654321,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "elapsed_s": 0.01600000000325963,
+        "observers": [
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmplseujn7o\\runtime\\runs\\author\\20261117T090620Z-5af4da19\\pre-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmplseujn7o\\runtime\\runs\\author\\20261117T090620Z-5af4da19\\pre-1.txt"
+          }
+        ],
+        "gpu_process_checks": [
+          {
+            "stage": "pre",
+            "expected_device_observed": true,
+            "process_observation_text": "",
+            "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+          }
+        ],
+        "free_bytes_after": 42829238272,
+        "owned_bytes_after": 6330
+      },
+      "stdout": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-reviewer\\.scratch\\wp0011-reviewer-source\\tmplseujn7o\\runtime\\runs\\author\\20261117T090620Z-5af4da19\n"
+    }
+  ],
+  "score_state": {
+    "case": "completed_after_failed_warmup",
+    "pass": false,
+    "rejection": null,
+    "calls": [
+      {
+        "fixture_id": "SYN-WO-01-v0-clean",
+        "kind": "warmup",
+        "excluded": true,
+        "status": "failed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "SYN-MP-01-v0-clean",
+        "kind": "warmup",
+        "excluded": true,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F01-control-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F01-layout-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F01-vocabulary-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F01-degraded-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F02-control-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F02-layout-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F02-vocabulary-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F02-degraded-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F03-control-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F03-layout-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F03-vocabulary-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F03-degraded-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      }
+    ],
+    "actual_historical_summary": {
+      "b0": {
+        "diagnostic_eval": {
+          "document_denominator": 12,
+          "completed_documents": 12,
+          "families": {
+            "WP11-F01": {
+              "documents": 4,
+              "completed": 4,
+              "metrics": {
+                "fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "documents_with_denominator": 4
+                }
+              }
+            },
+            "WP11-F02": {
+              "documents": 4,
+              "completed": 4,
+              "metrics": {
+                "fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "documents_with_denominator": 4
+                }
+              }
+            },
+            "WP11-F03": {
+              "documents": 4,
+              "completed": 4,
+              "metrics": {
+                "fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "documents_with_denominator": 4
+                }
+              }
+            }
+          },
+          "family_macro": {
+            "fields": {
+              "mean": 1.0,
+              "families_with_denominator": 3
+            },
+            "cells": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "normalized_fields": {
+              "mean": 1.0,
+              "families_with_denominator": 3
+            },
+            "normalized_cells": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "rows": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "expected_absences": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "page_count": {
+              "mean": 1.0,
+              "families_with_denominator": 3
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.0,
+              "families_with_denominator": 3
+            }
+          },
+          "variants": {
+            "control": {
+              "documents": 3,
+              "completed": 3,
+              "family_macro": {
+                "fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "families_with_denominator": 3
+                }
+              }
+            },
+            "degraded": {
+              "documents": 3,
+              "completed": 3,
+              "family_macro": {
+                "fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "families_with_denominator": 3
+                }
+              }
+            },
+            "layout": {
+              "documents": 3,
+              "completed": 3,
+              "family_macro": {
+                "fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "families_with_denominator": 3
+                }
+              }
+            },
+            "vocabulary": {
+              "documents": 3,
+              "completed": 3,
+              "family_macro": {
+                "fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "families_with_denominator": 3
+                }
+              }
+            }
+          }
+        }
+      },
+      "mapping_v1": {
+        "diagnostic_eval": {
+          "document_denominator": 12,
+          "completed_documents": 12,
+          "families": {
+            "WP11-F01": {
+              "documents": 4,
+              "completed": 4,
+              "metrics": {
+                "fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "documents_with_denominator": 4
+                }
+              }
+            },
+            "WP11-F02": {
+              "documents": 4,
+              "completed": 4,
+              "metrics": {
+                "fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "documents_with_denominator": 4
+                }
+              }
+            },
+            "WP11-F03": {
+              "documents": 4,
+              "completed": 4,
+              "metrics": {
+                "fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "documents_with_denominator": 4
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "documents_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "documents_with_denominator": 4
+                }
+              }
+            }
+          },
+          "family_macro": {
+            "fields": {
+              "mean": 1.0,
+              "families_with_denominator": 3
+            },
+            "cells": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "normalized_fields": {
+              "mean": 1.0,
+              "families_with_denominator": 3
+            },
+            "normalized_cells": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "rows": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "expected_absences": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "page_count": {
+              "mean": 1.0,
+              "families_with_denominator": 3
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.0,
+              "families_with_denominator": 3
+            }
+          },
+          "variants": {
+            "control": {
+              "documents": 3,
+              "completed": 3,
+              "family_macro": {
+                "fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "families_with_denominator": 3
+                }
+              }
+            },
+            "degraded": {
+              "documents": 3,
+              "completed": 3,
+              "family_macro": {
+                "fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "families_with_denominator": 3
+                }
+              }
+            },
+            "layout": {
+              "documents": 3,
+              "completed": 3,
+              "family_macro": {
+                "fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "families_with_denominator": 3
+                }
+              }
+            },
+            "vocabulary": {
+              "documents": 3,
+              "completed": 3,
+              "family_macro": {
+                "fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "normalized_fields": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "normalized_cells": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "rows": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "expected_absences": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "page_count": {
+                  "mean": 1.0,
+                  "families_with_denominator": 3
+                },
+                "page_sentinels": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "adjacency": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "cross_page_links": {
+                  "mean": null,
+                  "families_with_denominator": 0
+                },
+                "text_error_rate": {
+                  "mean": 0.0,
+                  "families_with_denominator": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "actual_pairing": {
+      "primary_documents": 12,
+      "independent_families": 3,
+      "paired_comparisons": 9,
+      "eligible_presence_pairs": 9,
+      "unavailable_presence_pairs": 0,
+      "pairs": [
+        {
+          "family_id": "WP11-F01",
+          "condition": "layout",
+          "control_fixture_id": "WP11-F01-control-v0",
+          "fixture_id": "WP11-F01-layout-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        },
+        {
+          "family_id": "WP11-F01",
+          "condition": "vocabulary",
+          "control_fixture_id": "WP11-F01-control-v0",
+          "fixture_id": "WP11-F01-vocabulary-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        },
+        {
+          "family_id": "WP11-F01",
+          "condition": "degraded",
+          "control_fixture_id": "WP11-F01-control-v0",
+          "fixture_id": "WP11-F01-degraded-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        },
+        {
+          "family_id": "WP11-F02",
+          "condition": "layout",
+          "control_fixture_id": "WP11-F02-control-v0",
+          "fixture_id": "WP11-F02-layout-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        },
+        {
+          "family_id": "WP11-F02",
+          "condition": "vocabulary",
+          "control_fixture_id": "WP11-F02-control-v0",
+          "fixture_id": "WP11-F02-vocabulary-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        },
+        {
+          "family_id": "WP11-F02",
+          "condition": "degraded",
+          "control_fixture_id": "WP11-F02-control-v0",
+          "fixture_id": "WP11-F02-degraded-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        },
+        {
+          "family_id": "WP11-F03",
+          "condition": "layout",
+          "control_fixture_id": "WP11-F03-control-v0",
+          "fixture_id": "WP11-F03-layout-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        },
+        {
+          "family_id": "WP11-F03",
+          "condition": "vocabulary",
+          "control_fixture_id": "WP11-F03-control-v0",
+          "fixture_id": "WP11-F03-vocabulary-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        },
+        {
+          "family_id": "WP11-F03",
+          "condition": "degraded",
+          "control_fixture_id": "WP11-F03-control-v0",
+          "fixture_id": "WP11-F03-degraded-v0",
+          "presence_pair_eligible": true,
+          "presence_pair_unavailable": false,
+          "historical_score_delta_including_failed_denominators": {
+            "b0": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            },
+            "mapping_v1": {
+              "fields": 0.0,
+              "cells": null,
+              "normalized_fields": 0.0,
+              "normalized_cells": null,
+              "rows": null
+            }
+          },
+          "presence_count_delta": 0
+        }
+      ],
+      "limit": "Each degraded result is paired with its own clean control. Twelve conditions are not twelve independent families."
+    }
+  },
+  "finished_utc": "2026-11-17T09:06:21.052060+00:00"
+}
