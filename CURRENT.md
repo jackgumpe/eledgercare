@@ -2,7 +2,11 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## Authorized lane complete: WP-0008 F3 and WP-0009 one mapping change
+## Active authorized lane: WP-0010 F4 and WP-0011 controlled diagnosis
+
+Jack said "good proceed" on 2026-11-17 to [this bounded lane](docs/coordination/WP-0010-0011-authority.md). Accepted starting base 956c056be2ec970340074871ecdd7e1a9855d944. F4 source-linked keyword archive retrieval proceeds through coordinator design, independent Carbon design review, separate Carbon implementation and independent actual verification. Existing native author/custodian/reviewer independently handle CPU diagnosis, protected three-family/four-condition fixture preparation, protocol/corpus acceptance, then later exactly released finite diagnostic inference. New worktrees/branches and canonical reports are reserved in INDEX.md. Actual dispatch is PREPARED, not yet running. No further permission is pending. Product implementation waits for independent design acceptance; GPU execution waits for exact accepted protocol/input/source and observed sole lease. Product and R&D completion are independent. Prior conclusions and artifacts below remain unchanged; older boundary text describes those completed lanes and is superseded only by the new exact authority.
+
+## Previously completed: WP-0008 F3 and WP-0009 one mapping change
 
 Both tracks are independently accepted, integrated and published. No technical work, agent response or user permission remains pending for this lane. Jack authorized the [bounded scope](docs/coordination/WP-0008-0009-authority.md) from accepted base `5e1241d6d365d664f12619d415f48ec3d3b7ddca`. Root coordinated, designed, reviewed evidence and integrated; assigned authors implemented. Fresh Codex sessions remain restricted to requested `xhigh`; separately assigned Carbon roles retained `gemini-4-carbon-high/high`.
 
