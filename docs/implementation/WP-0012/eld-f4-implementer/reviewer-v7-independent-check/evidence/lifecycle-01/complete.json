@@ -1,0 +1,992 @@
+{
+  "scenario": "complete",
+  "cpu_only": true,
+  "runtime_authority": false,
+  "model_calls": 0,
+  "uploads": 0,
+  "synthetic_phase_ids": {
+    "wo": "11111111-1111-4111-8111-111111111111",
+    "mp": "33333333-3333-4333-8333-333333333333"
+  },
+  "commands": [
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$out = @{}; foreach ($p in @(5690,4710,55439)) { $conns = @(Get-NetTCPConnection -State Listen -LocalPort $p -ErrorAction SilentlyContinue | ForEach-Object { @{ localAddress = $_.LocalAddress; localPort = [int]$_.LocalPort; owningPid = [int]$_.OwningProcess } }); $out[\"$p\"] = $conns }; $out | ConvertTo-Json -Compress -Depth 4"
+      ],
+      "returncode": 0,
+      "stdout": "{\"55439\":[],\"5690\":[],\"4710\":[]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\deploy\\dev\\postgres\\start-cluster.ps1"
+      ],
+      "returncode": 0,
+      "stdout": "Owned cluster started: postmaster PID 26708, started 2026-11-17T17:55:29.2219952Z, data C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\.local\\postgres-data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 26708 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"startUtc\":\"2026-11-17T17:55:29.2219952Z\",\"name\":\"postgres\",\"pid\":26708}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 32024 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"startUtc\":\"2026-11-17T17:55:30.3142629Z\",\"name\":\"dotnet\",\"pid\":32024}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 17000 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"name\":\"node\",\"pid\":17000,\"startUtc\":\"2026-11-17T17:55:31.3466791Z\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 17000 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"startUtc\":\"2026-11-17T17:55:31.3466791Z\",\"name\":\"node\",\"pid\":17000}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 17000 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "null\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 32024 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"startUtc\":\"2026-11-17T17:55:30.3142629Z\",\"name\":\"dotnet\",\"pid\":32024}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 32024 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "null\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\deploy\\dev\\postgres\\stop-cluster.ps1"
+      ],
+      "returncode": 0,
+      "stdout": "waiting for server to shut down.... done\nserver stopped\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\deploy\\dev\\postgres\\start-cluster.ps1"
+      ],
+      "returncode": 0,
+      "stdout": "Owned cluster started: postmaster PID 12148, started 2026-11-17T17:55:40.1674228Z, data C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\.local\\postgres-data\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 12148 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"pid\":12148,\"startUtc\":\"2026-11-17T17:55:40.1674228Z\",\"name\":\"postgres\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 28972 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"pid\":28972,\"name\":\"dotnet\",\"startUtc\":\"2026-11-17T17:55:40.8772625Z\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 29572 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"name\":\"node\",\"startUtc\":\"2026-11-17T17:55:41.9108557Z\",\"pid\":29572}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 29572 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"startUtc\":\"2026-11-17T17:55:41.9108557Z\",\"name\":\"node\",\"pid\":29572}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 29572 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "null\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 28972 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "{\"startUtc\":\"2026-11-17T17:55:40.8772625Z\",\"name\":\"dotnet\",\"pid\":28972}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$p = Get-Process -Id 28972 -ErrorAction SilentlyContinue; if ($null -eq $p) { 'null' } else { @{ pid = [int]$p.Id; name = $p.ProcessName; startUtc = $p.StartTime.ToUniversalTime().ToString('o') } | ConvertTo-Json -Compress }"
+      ],
+      "returncode": 0,
+      "stdout": "null\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\deploy\\dev\\postgres\\stop-cluster.ps1"
+      ],
+      "returncode": 0,
+      "stdout": "waiting for server to shut down.... done\nserver stopped\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\.local\\tools\\pgsql-18.7-1\\bin\\pg_ctl.exe",
+        "status",
+        "-D",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\.local\\postgres-data"
+      ],
+      "returncode": 3,
+      "stdout": "pg_ctl: no server running\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-Command",
+        "$out = @{}; foreach ($p in @(5690,4710,55439)) { $conns = @(Get-NetTCPConnection -State Listen -LocalPort $p -ErrorAction SilentlyContinue | ForEach-Object { @{ localAddress = $_.LocalAddress; localPort = [int]$_.LocalPort; owningPid = [int]$_.OwningProcess } }); $out[\"$p\"] = $conns }; $out | ConvertTo-Json -Compress -Depth 4"
+      ],
+      "returncode": 0,
+      "stdout": "{\"55439\":[],\"4710\":[],\"5690\":[]}\n",
+      "stderr": ""
+    }
+  ],
+  "api_launches": [
+    {
+      "pid": 32024,
+      "requested_by_unmodified_main": "true",
+      "actual_child_ocr_enabled": false
+    },
+    {
+      "pid": 28972,
+      "requested_by_unmodified_main": "false",
+      "actual_child_ocr_enabled": false
+    }
+  ],
+  "browser_phases": [
+    {
+      "intercepted_live_mode": "live-phase1-leased",
+      "live_mode_executed": false,
+      "received_argv": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0012\\eld-f4-reviewer\\preparation\\helpers\\drive_wp0012_edge_workflow.mjs",
+        "--mode",
+        "live-phase1-leased",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\edge-live-phase1.json",
+        "--screenshot-dir",
+        "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\synthetic-phase-screenshots"
+      ],
+      "actual_cpu_argv": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0012\\eld-f4-reviewer\\preparation\\helpers\\drive_wp0012_edge_workflow.mjs",
+        "--mode",
+        "cpu-preflight",
+        "--target",
+        "empty-ready-db",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\actual-empty-browser-1.json",
+        "--screenshot-dir",
+        "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\actual-empty-browser-1-screenshots"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "actual_cpu_browser": {
+        "schema": "eledgercare.wp-0012.edge-cpu-preflight-empty-ready/1",
+        "verifiedUtc": "2026-11-17T17:55:36.940Z",
+        "browserChannel": "msedge",
+        "browserVersion": "157.0.4341.60",
+        "uiPort": 4710,
+        "apiPort": 5690,
+        "allEmptyCount": 0,
+        "machineEmptyCount": 0,
+        "reviewedEmptyCount": 0,
+        "nonGetApiCallCount": 0,
+        "storageCounts": {
+          "localKeys": [],
+          "sessionKeys": []
+        },
+        "screenshot": "../../../eLedgerCare-Demo/WP-0012/reviewer/independent-011/run-01/complete/actual-empty-browser-1-screenshots/cpu-preflight-empty-archive.png"
+      }
+    },
+    {
+      "intercepted_live_mode": "live-phase2-post-restart",
+      "live_mode_executed": false,
+      "received_argv": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0012\\eld-f4-reviewer\\preparation\\helpers\\drive_wp0012_edge_workflow.mjs",
+        "--mode",
+        "live-phase2-post-restart",
+        "--wo-document-id",
+        "11111111-1111-4111-8111-111111111111",
+        "--mp-document-id",
+        "33333333-3333-4333-8333-333333333333",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\edge-live-phase2-post-restart.json",
+        "--screenshot-dir",
+        "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\synthetic-phase-screenshots"
+      ],
+      "actual_cpu_argv": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0012\\eld-f4-reviewer\\preparation\\helpers\\drive_wp0012_edge_workflow.mjs",
+        "--mode",
+        "cpu-preflight",
+        "--target",
+        "empty-ready-db",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\actual-empty-browser-2.json",
+        "--screenshot-dir",
+        "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\actual-empty-browser-2-screenshots"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "actual_cpu_browser": {
+        "schema": "eledgercare.wp-0012.edge-cpu-preflight-empty-ready/1",
+        "verifiedUtc": "2026-11-17T17:55:47.508Z",
+        "browserChannel": "msedge",
+        "browserVersion": "157.0.4341.60",
+        "uiPort": 4710,
+        "apiPort": 5690,
+        "allEmptyCount": 0,
+        "machineEmptyCount": 0,
+        "reviewedEmptyCount": 0,
+        "nonGetApiCallCount": 0,
+        "storageCounts": {
+          "localKeys": [],
+          "sessionKeys": []
+        },
+        "screenshot": "../../../eLedgerCare-Demo/WP-0012/reviewer/independent-011/run-01/complete/actual-empty-browser-2-screenshots/cpu-preflight-empty-archive.png"
+      }
+    }
+  ],
+  "q0_receipts": [
+    {
+      "schema": "eledgercare.wp-0012.q0-readonly-manifest-check/1",
+      "checked_utc": "2026-11-17T17:55:26.987559+00:00",
+      "execution_method": "pure_python_stdlib_stat_and_hash_zero_venv_or_model_execution",
+      "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+      "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+      "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+      "verified_model_file_count": 18,
+      "total_model_bytes": 6699195181,
+      "tolerated_download_metadata_entries": [
+        ".cache"
+      ],
+      "unexpected_extra_model_entries": [],
+      "verified_model_files": [
+        {
+          "path": "_sparse_base_impl.py",
+          "size": 221755,
+          "mtime_ns": 1794772843620111400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "3291637638c1366b7b6cd20fd53b6efafcea8a65"
+        },
+        {
+          "path": "config.json",
+          "size": 5525,
+          "mtime_ns": 1794772843759423100,
+          "digest_kind": "git_blob_sha1",
+          "digest": "a1ea89c4c965d5c5bd5c77b21b928aa710aa7af6"
+        },
+        {
+          "path": "configuration_deepseek_v2.py",
+          "size": 10720,
+          "mtime_ns": 1794772843707873900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "1c28cf39e8b821ec2623d3762f08ffd77050e8f8"
+        },
+        {
+          "path": "conversation.py",
+          "size": 9253,
+          "mtime_ns": 1794772843813710800,
+          "digest_kind": "git_blob_sha1",
+          "digest": "65c295e81cd804080ec238b31d1922f33e1f9405"
+        },
+        {
+          "path": "dash_attention.py",
+          "size": 71465,
+          "mtime_ns": 1794772843691376200,
+          "digest_kind": "git_blob_sha1",
+          "digest": "891d2ff7b5f9dc282cf702f34d7d2cfd69528011"
+        },
+        {
+          "path": "deepencoder.py",
+          "size": 37939,
+          "mtime_ns": 1794772843744432400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6b10ea1b896cffb8e6cfb4d799d4b11479d519b8"
+        },
+        {
+          "path": "generation_config.json",
+          "size": 111,
+          "mtime_ns": 1794772843659745400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6f7f9313195af78c979fc889accc234edb6e0d3c"
+        },
+        {
+          "path": "model-00001-of-00002.safetensors",
+          "size": 4998430312,
+          "mtime_ns": 1794773743449486600,
+          "digest_kind": "lfs_sha256",
+          "digest": "4c40b740f209fd7682040d4ebf19409208acde5c401ccd2dde426d0f41542f18"
+        },
+        {
+          "path": "model-00002-of-00002.safetensors",
+          "size": 1689875264,
+          "mtime_ns": 1794773345752580900,
+          "digest_kind": "lfs_sha256",
+          "digest": "9490b82fa47f89e5110eb5577f8ab1b6694c12121905dbc086ddb10207a4ba0c"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "size": 254054,
+          "mtime_ns": 1794772843803181100,
+          "digest_kind": "git_blob_sha1",
+          "digest": "bc164961600a572ed4ff5215eee526d9fe706774"
+        },
+        {
+          "path": "modeling_deepseekv2.py",
+          "size": 25572,
+          "mtime_ns": 1794772843828207900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6cf69a31cbfb09f8d9d54fba51af21ebffc695dc"
+        },
+        {
+          "path": "modeling_unlimitedocr.py",
+          "size": 55724,
+          "mtime_ns": 1794772843846100900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "2a717b55c0509995978d0a1e78802a997c26660e"
+        },
+        {
+          "path": "packing_patch.py",
+          "size": 8110,
+          "mtime_ns": 1794772843933945000,
+          "digest_kind": "git_blob_sha1",
+          "digest": "f01b4bd31cffe43135a8b86d5436f04d3a69146b"
+        },
+        {
+          "path": "sparse_gather_e2e_triton.py",
+          "size": 18058,
+          "mtime_ns": 1794772843933945000,
+          "digest_kind": "git_blob_sha1",
+          "digest": "021575ce952bbded01bbfa99eb95641d271cad7d"
+        },
+        {
+          "path": "sparse_gather_triton.py",
+          "size": 23860,
+          "mtime_ns": 1794772843966683400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6621872e78cd318e4bb55aa70c1c8813973c78e7"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "size": 549,
+          "mtime_ns": 1794772843966101600,
+          "digest_kind": "git_blob_sha1",
+          "digest": "ae2383ca05f494aa736e72e6a874332cd2f1c67e"
+        },
+        {
+          "path": "tokenizer.json",
+          "size": 9980278,
+          "mtime_ns": 1794772844661064400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "d5909a7c1e63a78be90fe2bde6c8464e6e9e8540"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "size": 166632,
+          "mtime_ns": 1794772844047233300,
+          "digest_kind": "git_blob_sha1",
+          "digest": "e97c1bb98fa1de585d85259b77e4785bf1c195a2"
+        }
+      ],
+      "verified_notices": [
+        {
+          "path": "README.md",
+          "size": 14107,
+          "mtime_ns": 1794773746275071200,
+          "git_blob_sha1": "c79e1e3362c8fd2f9193d79c1db80fbf7f041c45"
+        }
+      ],
+      "locked_distribution_count": 32,
+      "missing_or_mismatched_distributions": [],
+      "forbidden_modules_present": [],
+      "venv_python_stat": {
+        "size": 274424,
+        "mtime_ns": 1794769323670444200
+      }
+    },
+    {
+      "schema": "eledgercare.wp-0012.q0-readonly-manifest-check/1",
+      "checked_utc": "2026-11-17T17:55:55.819887+00:00",
+      "execution_method": "pure_python_stdlib_stat_and_hash_zero_venv_or_model_execution",
+      "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+      "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+      "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+      "verified_model_file_count": 18,
+      "total_model_bytes": 6699195181,
+      "tolerated_download_metadata_entries": [
+        ".cache"
+      ],
+      "unexpected_extra_model_entries": [],
+      "verified_model_files": [
+        {
+          "path": "_sparse_base_impl.py",
+          "size": 221755,
+          "mtime_ns": 1794772843620111400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "3291637638c1366b7b6cd20fd53b6efafcea8a65"
+        },
+        {
+          "path": "config.json",
+          "size": 5525,
+          "mtime_ns": 1794772843759423100,
+          "digest_kind": "git_blob_sha1",
+          "digest": "a1ea89c4c965d5c5bd5c77b21b928aa710aa7af6"
+        },
+        {
+          "path": "configuration_deepseek_v2.py",
+          "size": 10720,
+          "mtime_ns": 1794772843707873900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "1c28cf39e8b821ec2623d3762f08ffd77050e8f8"
+        },
+        {
+          "path": "conversation.py",
+          "size": 9253,
+          "mtime_ns": 1794772843813710800,
+          "digest_kind": "git_blob_sha1",
+          "digest": "65c295e81cd804080ec238b31d1922f33e1f9405"
+        },
+        {
+          "path": "dash_attention.py",
+          "size": 71465,
+          "mtime_ns": 1794772843691376200,
+          "digest_kind": "git_blob_sha1",
+          "digest": "891d2ff7b5f9dc282cf702f34d7d2cfd69528011"
+        },
+        {
+          "path": "deepencoder.py",
+          "size": 37939,
+          "mtime_ns": 1794772843744432400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6b10ea1b896cffb8e6cfb4d799d4b11479d519b8"
+        },
+        {
+          "path": "generation_config.json",
+          "size": 111,
+          "mtime_ns": 1794772843659745400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6f7f9313195af78c979fc889accc234edb6e0d3c"
+        },
+        {
+          "path": "model-00001-of-00002.safetensors",
+          "size": 4998430312,
+          "mtime_ns": 1794773743449486600,
+          "digest_kind": "lfs_sha256",
+          "digest": "4c40b740f209fd7682040d4ebf19409208acde5c401ccd2dde426d0f41542f18"
+        },
+        {
+          "path": "model-00002-of-00002.safetensors",
+          "size": 1689875264,
+          "mtime_ns": 1794773345752580900,
+          "digest_kind": "lfs_sha256",
+          "digest": "9490b82fa47f89e5110eb5577f8ab1b6694c12121905dbc086ddb10207a4ba0c"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "size": 254054,
+          "mtime_ns": 1794772843803181100,
+          "digest_kind": "git_blob_sha1",
+          "digest": "bc164961600a572ed4ff5215eee526d9fe706774"
+        },
+        {
+          "path": "modeling_deepseekv2.py",
+          "size": 25572,
+          "mtime_ns": 1794772843828207900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6cf69a31cbfb09f8d9d54fba51af21ebffc695dc"
+        },
+        {
+          "path": "modeling_unlimitedocr.py",
+          "size": 55724,
+          "mtime_ns": 1794772843846100900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "2a717b55c0509995978d0a1e78802a997c26660e"
+        },
+        {
+          "path": "packing_patch.py",
+          "size": 8110,
+          "mtime_ns": 1794772843933945000,
+          "digest_kind": "git_blob_sha1",
+          "digest": "f01b4bd31cffe43135a8b86d5436f04d3a69146b"
+        },
+        {
+          "path": "sparse_gather_e2e_triton.py",
+          "size": 18058,
+          "mtime_ns": 1794772843933945000,
+          "digest_kind": "git_blob_sha1",
+          "digest": "021575ce952bbded01bbfa99eb95641d271cad7d"
+        },
+        {
+          "path": "sparse_gather_triton.py",
+          "size": 23860,
+          "mtime_ns": 1794772843966683400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6621872e78cd318e4bb55aa70c1c8813973c78e7"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "size": 549,
+          "mtime_ns": 1794772843966101600,
+          "digest_kind": "git_blob_sha1",
+          "digest": "ae2383ca05f494aa736e72e6a874332cd2f1c67e"
+        },
+        {
+          "path": "tokenizer.json",
+          "size": 9980278,
+          "mtime_ns": 1794772844661064400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "d5909a7c1e63a78be90fe2bde6c8464e6e9e8540"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "size": 166632,
+          "mtime_ns": 1794772844047233300,
+          "digest_kind": "git_blob_sha1",
+          "digest": "e97c1bb98fa1de585d85259b77e4785bf1c195a2"
+        }
+      ],
+      "verified_notices": [
+        {
+          "path": "README.md",
+          "size": 14107,
+          "mtime_ns": 1794773746275071200,
+          "git_blob_sha1": "c79e1e3362c8fd2f9193d79c1db80fbf7f041c45"
+        }
+      ],
+      "locked_distribution_count": 32,
+      "missing_or_mismatched_distributions": [],
+      "forbidden_modules_present": [],
+      "venv_python_stat": {
+        "size": 274424,
+        "mtime_ns": 1794769323670444200
+      }
+    }
+  ],
+  "database_receipts": [
+    {
+      "demo": {
+        "canonical_8table_sha256": "6b489e0be3310550bd0d8531f534024743f077f99392dce2617e4c94c169066b",
+        "counts": {
+          "documents": 0,
+          "original_artifacts": 0,
+          "processing_jobs": 0,
+          "execution_attempts": 0,
+          "extraction_results": 0,
+          "work_order_review_heads": 0,
+          "work_order_review_revisions": 0,
+          "work_order_review_fields": 0
+        },
+        "fencing_seq": {
+          "last_value": 1,
+          "is_called": false
+        }
+      },
+      "demo_projection": {
+        "projection_tables_sha256": "13af57efae27a7bccf9cbc4ff064c6a90f34472a5ea40bda8e5ed728d17b0107",
+        "projection_count": 0,
+        "unit_count": 0
+      },
+      "historical": {
+        "seed8": {
+          "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+          "counts": {
+            "documents": 9,
+            "original_artifacts": 9,
+            "processing_jobs": 9,
+            "execution_attempts": 9,
+            "extraction_results": 7,
+            "work_order_review_heads": 5,
+            "work_order_review_revisions": 8,
+            "work_order_review_fields": 40
+          },
+          "fencing_seq": {
+            "last_value": 9,
+            "is_called": true
+          }
+        },
+        "migrated8": {
+          "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+          "counts": {
+            "documents": 9,
+            "original_artifacts": 9,
+            "processing_jobs": 9,
+            "execution_attempts": 9,
+            "extraction_results": 7,
+            "work_order_review_heads": 5,
+            "work_order_review_revisions": 8,
+            "work_order_review_fields": 40
+          },
+          "fencing_seq": {
+            "last_value": 9,
+            "is_called": true
+          }
+        },
+        "migrated_projection": {
+          "projection_tables_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa",
+          "projection_count": 7,
+          "unit_count": 13
+        }
+      }
+    },
+    {
+      "demo": {
+        "canonical_8table_sha256": "6b489e0be3310550bd0d8531f534024743f077f99392dce2617e4c94c169066b",
+        "counts": {
+          "documents": 0,
+          "original_artifacts": 0,
+          "processing_jobs": 0,
+          "execution_attempts": 0,
+          "extraction_results": 0,
+          "work_order_review_heads": 0,
+          "work_order_review_revisions": 0,
+          "work_order_review_fields": 0
+        },
+        "fencing_seq": {
+          "last_value": 1,
+          "is_called": false
+        }
+      },
+      "demo_projection": {
+        "projection_tables_sha256": "13af57efae27a7bccf9cbc4ff064c6a90f34472a5ea40bda8e5ed728d17b0107",
+        "projection_count": 0,
+        "unit_count": 0
+      },
+      "historical": {
+        "seed8": {
+          "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+          "counts": {
+            "documents": 9,
+            "original_artifacts": 9,
+            "processing_jobs": 9,
+            "execution_attempts": 9,
+            "extraction_results": 7,
+            "work_order_review_heads": 5,
+            "work_order_review_revisions": 8,
+            "work_order_review_fields": 40
+          },
+          "fencing_seq": {
+            "last_value": 9,
+            "is_called": true
+          }
+        },
+        "migrated8": {
+          "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+          "counts": {
+            "documents": 9,
+            "original_artifacts": 9,
+            "processing_jobs": 9,
+            "execution_attempts": 9,
+            "extraction_results": 7,
+            "work_order_review_heads": 5,
+            "work_order_review_revisions": 8,
+            "work_order_review_fields": 40
+          },
+          "fencing_seq": {
+            "last_value": 9,
+            "is_called": true
+          }
+        },
+        "migrated_projection": {
+          "projection_tables_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa",
+          "projection_count": 7,
+          "unit_count": 13
+        }
+      }
+    }
+  ],
+  "before_ports": {
+    "55439": [],
+    "5690": [],
+    "4710": []
+  },
+  "started_utc": "2026-11-17T17:55:22.390389+00:00",
+  "main_argv": [
+    "--mode",
+    "live-leased-rehearsal",
+    "--release-commit",
+    "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "--release-path",
+    "docs/coordination/WP-0012/cpu-independent011-synthetic.json",
+    "--summary-output",
+    "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\main-summary.json",
+    "--q0-check-output",
+    "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\main-q0.json",
+    "--resource-return-output",
+    "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\main-resource-return.json",
+    "--logs-dir",
+    "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\logs",
+    "--screenshots-dir",
+    "C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\reviewer\\independent-011\\run-01\\complete\\synthetic-phase-screenshots"
+  ],
+  "main_return_code": 0,
+  "after_ports": {
+    "4710": [],
+    "55439": [],
+    "5690": []
+  },
+  "pg_status_after": 3,
+  "retained_child_exit_codes": [
+    {
+      "pid": 32024,
+      "exit_code": 1
+    },
+    {
+      "pid": 17000,
+      "exit_code": 1
+    },
+    {
+      "pid": 28972,
+      "exit_code": 1
+    },
+    {
+      "pid": 29572,
+      "exit_code": 1
+    }
+  ],
+  "run_directories_after": [],
+  "main_resource_return": {
+    "schema": "eledgercare.wp-0012.reviewer-lease-return/3",
+    "recorded_utc": "2026-11-17T17:55:55.819887+00:00",
+    "lease_returned": true,
+    "clean_return_verified": true,
+    "returned_utc": "2026-11-17T17:55:55.819887+00:00",
+    "reviewer": "eld-f4-reviewer",
+    "lease_id": "CPU-ONLY-INDEPENDENT011-complete",
+    "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+    "status": "completed",
+    "failure_detail": null,
+    "cleanup_errors": [],
+    "persisted_counts": {
+      "documents": 0,
+      "original_artifacts": 0,
+      "processing_jobs": 0,
+      "execution_attempts": 0,
+      "extraction_results": 0,
+      "work_order_review_heads": 0,
+      "work_order_review_revisions": 0,
+      "work_order_review_fields": 0
+    },
+    "run_directories": [],
+    "ports_after": {
+      "55439": [],
+      "4710": [],
+      "5690": []
+    },
+    "ports_unbound_verified": true,
+    "pg_ctl_status_exit_code": 3,
+    "postmaster_recorded": {
+      "pid": 12148,
+      "startUtc": "2026-11-17T17:55:40.1674228Z",
+      "name": "postgres"
+    },
+    "api_stop_receipts": [
+      {
+        "pid": 32024,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T17:55:30.3142629Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      },
+      {
+        "pid": 28972,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T17:55:40.8772625Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    ],
+    "ui_stop_receipts": [
+      {
+        "pid": 17000,
+        "name": "node",
+        "startUtc": "2026-11-17T17:55:31.3466791Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      },
+      {
+        "pid": 29572,
+        "name": "node",
+        "startUtc": "2026-11-17T17:55:41.9108557Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    ],
+    "pre_ownership": {
+      "sole_model_job_verified": true,
+      "hardware_exclusivity_claimed": false,
+      "cpu_test_placeholder": true,
+      "actual_gpu_observation": false
+    },
+    "post_ownership": {
+      "sole_model_job_verified": true,
+      "hardware_exclusivity_claimed": false,
+      "cpu_test_placeholder": true,
+      "actual_gpu_observation": false
+    },
+    "q0_model_immutability_verified": true
+  },
+  "main_summary": {
+    "schema": "eledgercare.wp-0012.reviewer-live-summary/3",
+    "completed_utc": "2026-11-17T17:55:55.819887+00:00",
+    "lease_id": "CPU-ONLY-INDEPENDENT011-complete",
+    "persisted_counts": {
+      "documents": 0,
+      "original_artifacts": 0,
+      "processing_jobs": 0,
+      "execution_attempts": 0,
+      "extraction_results": 0,
+      "work_order_review_heads": 0,
+      "work_order_review_revisions": 0,
+      "work_order_review_fields": 0
+    },
+    "pre_ownership": {
+      "sole_model_job_verified": true,
+      "hardware_exclusivity_claimed": false,
+      "cpu_test_placeholder": true,
+      "actual_gpu_observation": false
+    }
+  },
+  "checks": {
+    "expected_main_outcome": true,
+    "real_api_launches": true,
+    "all_api_ocr_disabled": true,
+    "expected_browser_boundaries": true,
+    "actual_pre_post_q0": true,
+    "actual_pre_final_db": true,
+    "all_eight_demo_counts_zero": true,
+    "demo_projections_zero": true,
+    "historical_database_snapshots_unchanged": true,
+    "clean_return": true,
+    "correct_return_status": true,
+    "ports_unbound": true,
+    "pg_stopped": true,
+    "owned_children_exited": true,
+    "runs_still_empty": true
+  },
+  "passed": true,
+  "finished_utc": "2026-11-17T17:55:56.986115+00:00",
+  "live_model_success_claimed": false,
+  "live_browser_two_attempt_assertion_executed": false,
+  "live_browser_requirement": "Still requires actual two successful attempts; CPU empty archive with zero attempts/results does not satisfy it."
+}
