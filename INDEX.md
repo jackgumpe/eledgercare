@@ -915,3 +915,6 @@ Jack: "I authorize it". Accepted base73c8d3c4f0a00312e3444328331b6cbd6406e882. E
 
 
 WP-0012/001 preparation and independent preparation RUNNING_CONFIRMED at authority47fbc7612e4a08cf1960ad7ac01bd2843ae645e5: Carbon author b7c54417 CLI32800/tool35055, reviewer61105d43 CLI13000/tool85226; both gemini-4-carbon-high/high. WP-0013 native author/custodian/reviewer independently confirm clean new worktrees and actual CPU start at same authority; existing requested xhigh, actual backend/effort not exposed. Initial receipts under docs/coordination/WP-0012 and WP-0013. No GPU lease/inference released.
+
+
+WP-0013 private foundations PUBLISHED/VERIFIED51b02bf592c766334694f005939cff9b4400794f; root hash/custody audit verifies12private tracked files/69,982bytes,10inventory entries,clean/no-remote and exact original working/Git bytes. Public3additions preserve all3615authority paths. No private content disclosed; no final PDFs or corpus admission. Final reservation still waits accepted001/002, and mapper005 remains held. Custodian foundation phase complete/idle.
