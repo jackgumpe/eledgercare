@@ -996,3 +996,5 @@ WP-0012 first reviewer004 invocation STOPPED before Q0/services/model, validatio
 | Packet / sequence | Owner / category | Canonical path | State |
 | --- | --- | --- | --- |
 | WP-0012 / 008 | eld-f4-reviewer / implementation | docs/agent-reports/eld-f4-reviewer/WP-0012/008_2026-11-17_implementation_eld-f4-reviewer.md | RELEASED own-helper CPU correction only; root independent source/test acceptance before new004 lease |
+
+| WP-0012 / 009 | eld-f4-implementer / review | docs/agent-reports/eld-f4-implementer/WP-0012/009_2026-11-17_review_eld-f4-implementer.md | RELEASED independent CPU review of reviewer-owned v6 guard; final waits exact008/source |
