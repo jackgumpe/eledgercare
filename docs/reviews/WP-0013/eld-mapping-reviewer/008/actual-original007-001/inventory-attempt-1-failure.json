@@ -1,0 +1,13 @@
+{
+  "schema": "eld-reviewer-packaging-failure/1",
+  "tool_chunk": "9da683",
+  "tool_exit_code": 1,
+  "exception": "KeyError: 'git_blob'",
+  "stage": "Inline publication inventory source descriptor loop",
+  "cause": "Three Q0 metadata source descriptors declare working bytes/sha256 only; the initial loop assumed all92 included Git/working descriptor pairs",
+  "affected_paths": ["qualification/q0/harness/protocol.json", "qualification/q0/harness/locks/dependency-lock.json", "qualification/q0/harness/manifests/model-files.json"],
+  "comparison_unchanged": true,
+  "inventory_written": false,
+  "correction": "Freeze inventory_v2.py and verify each declared descriptor schema explicitly; retain Git object identity for the working-only metadata too",
+  "source_or_model_changes": false
+}
