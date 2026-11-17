@@ -1,0 +1,113 @@
+diff --git a/docs/reviews/WP-0012/eld-f4-reviewer/live-004/preflight-correction/helpers/run_wp0012_reviewer_rehearsal_v6.py b/docs/reviews/WP-0012/eld-f4-reviewer/live-004/integration-correction/helpers/run_wp0012_reviewer_rehearsal_v7.py
+index 0d26a74..232eb86 100644
+--- a/docs/reviews/WP-0012/eld-f4-reviewer/live-004/preflight-correction/helpers/run_wp0012_reviewer_rehearsal_v6.py
++++ b/docs/reviews/WP-0012/eld-f4-reviewer/live-004/integration-correction/helpers/run_wp0012_reviewer_rehearsal_v7.py
+@@ -1,6 +1,11 @@
+-"""Native continuation reviewer helper v6 for WP-0012 (`eld-f4-reviewer`).
++"""Native continuation reviewer helper v7 for WP-0012 (`eld-f4-reviewer`).
+ 
+-WP-0012 /008 changes only ownership observation/classification after the first
++WP-0012 /010 preserves v6 and corrects the actual Q0/disk integration contract.
++Disk capacity is measured from the owned runtime root independently of Q0's
++model/dependency receipt. Actual Q0 receipt conditions are checked pre/post.
++No CPU integration adapter or synthetic phase output exists in this runtime.
++
++WP-0012 /008 changed only ownership observation/classification after the first
+ /004 preflight refusal: ownership_v6 binds explicitly accounted idle Ollama and
+ the exact observer identity/query, failing closed on failed/malformed inputs.
+ V5, /007 and the original refusal remain immutable. The additional ownership
+@@ -206,6 +211,7 @@ PROTECTED_RETAINED_PREFIXES = (
+     "docs/reviews/wp-0012/eld-f4-reviewer/author-001-review",
+     "docs/reviews/wp-0012/eld-f4-reviewer/correction-006-review",
+     "docs/reviews/wp-0012/eld-f4-reviewer/live-004/preflight-correction",
++    "docs/reviews/wp-0012/eld-f4-reviewer/live-004/integration-correction",
+     "docs/reviews/wp-0010",
+     "docs/reviews/wp-0008",
+     "docs/reviews/wp-0006",
+@@ -1115,8 +1121,61 @@ def start_owned_services_atomic(
+         raise
+ 
+ 
++def verify_q0_receipt_contract(receipt: dict, prep_mod) -> None:
++    """Consume the actual verifier schema; disk data belongs to a separate check."""
++    if not isinstance(receipt, dict):
++        raise ReviewerLeaseGuardError("Q0 verifier returned a malformed receipt")
++    expected = {
++        "schema": "eledgercare.wp-0012.q0-readonly-manifest-check/1",
++        "model_manifest_sha256": prep_mod.MODEL_MANIFEST_SHA256,
++        "dependency_lock_sha256": prep_mod.DEPENDENCY_LOCK_SHA256,
++        "verified_model_file_count": 18,
++        "total_model_bytes": 6_699_195_181,
++        "unexpected_extra_model_entries": [],
++        "missing_or_mismatched_distributions": [],
++        "forbidden_modules_present": [],
++    }
++    for key, value in expected.items():
++        if key not in receipt or receipt[key] != value:
++            raise ReviewerLeaseGuardError(f"Q0 verification condition failed: {key}")
++    files = receipt.get("verified_model_files")
++    if not isinstance(files, list) or len(files) != 18 or not all(isinstance(row, dict) and {"path", "size", "mtime_ns", "digest_kind", "digest"}.issubset(row) for row in files):
++        raise ReviewerLeaseGuardError("Q0 verified model file inventory is malformed")
++
++
++def measure_owned_demo_storage(root: Path) -> dict:
++    """Measure current owned-root bytes and actual volume free space, failing closed."""
++    if not root.is_dir() or is_reparse_or_link(root):
++        raise ReviewerLeaseGuardError("Owned demo root is missing or linked")
++    total, files = 0, 0
++    def fail_walk(error):
++        raise ReviewerLeaseGuardError("Owned demo tree enumeration failed") from error
++    for directory, dirnames, filenames in os.walk(root, followlinks=False, onerror=fail_walk):
++        for name in dirnames + filenames:
++            path = Path(directory) / name
++            if is_reparse_or_link(path):
++                raise ReviewerLeaseGuardError("Owned demo tree contains a linked entry")
++        for name in filenames:
++            path = Path(directory) / name
++            if not path.is_file():
++                raise ReviewerLeaseGuardError("Owned demo tree contains a non-file entry")
++            total += path.stat().st_size
++            files += 1
++    free = shutil.disk_usage(root).free
++    if type(free) is not int or free < 0:
++        raise ReviewerLeaseGuardError("Owned demo free-space observation is malformed")
++    observed = {"schema": "eledgercare.wp0012.owned-demo-storage/1",
++                "observed_utc": datetime.now(timezone.utc).isoformat(),
++                "root": str(root.resolve()), "file_count": files,
++                "demo_root_bytes": total, "demo_drive_free_bytes": free,
++                "storage_cap_bytes": STORAGE_CAP_BYTES, "free_floor_bytes": MIN_FREE_DISK_BYTES}
++    if total > STORAGE_CAP_BYTES or free < MIN_FREE_DISK_BYTES:
++        raise ReviewerLeaseGuardError(f"Demo disk/storage bounds failed: bytes={total}, free={free}")
++    return observed
++
++
+ def main(argv: list[str] | None = None) -> int:
+-    parser = argparse.ArgumentParser(description="Native WP-0012 reviewer helper v6 (CPU contract check & held /004 live mode).")
++    parser = argparse.ArgumentParser(description="Native WP-0012 reviewer helper v7 (CPU contract check & held /004 live mode).")
+     parser.add_argument("--mode", choices=("validate-release-cpu", "live-leased-rehearsal"), required=True)
+     parser.add_argument("--release-commit", required=True, help="40-hex coordinator Git commit containing the release JSON")
+     parser.add_argument("--release-path", required=True, help="Git-relative path under docs/coordination/WP-0012*/*.json")
+@@ -1198,11 +1257,10 @@ def main(argv: list[str] | None = None) -> int:
+         )
+ 
+         q0_pre = prep_mod.verify_q0_readonly_pure_stdlib(repo_root)
+-        q0_out.write_text(json.dumps(q0_pre, indent=2) + "\n", encoding="utf-8", newline="\n")
+-        if q0_pre["demo_root_bytes"] > STORAGE_CAP_BYTES or q0_pre["demo_drive_free_bytes"] < MIN_FREE_DISK_BYTES:
+-            raise ReviewerLeaseGuardError(
+-                f"Demo disk/storage bounds failed: bytes={q0_pre['demo_root_bytes']}, free={q0_pre['demo_drive_free_bytes']}"
+-            )
++        verify_q0_receipt_contract(q0_pre, prep_mod)
++        disk_pre = measure_owned_demo_storage(WRITABLE_DEMO_ROOT)
++        q0_evidence = {**q0_pre, "owned_demo_storage": disk_pre}
++        q0_out.write_text(json.dumps(q0_evidence, indent=2) + "\n", encoding="utf-8", newline="\n")
+ 
+         ports_before = observe_ports(REVIEWER_PORTS, repo_root)
+         if any(len(ports_before[str(p)]) != 0 for p in REVIEWER_PORTS):
+@@ -1462,6 +1520,7 @@ def main(argv: list[str] | None = None) -> int:
+             q0_immutable = False
+             try:
+                 q0_post = prep_mod.verify_q0_readonly_pure_stdlib(repo_root)
++                verify_q0_receipt_contract(q0_post, prep_mod)
+                 q0_immutable = q0_post["verified_model_files"] == q0_pre["verified_model_files"]
+             except Exception as q0_exc:
+                 cleanup_errors.append(f"q0_post_check_failed: {q0_exc}")
