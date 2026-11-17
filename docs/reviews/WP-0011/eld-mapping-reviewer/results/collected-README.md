@@ -1,0 +1,13 @@
+# WP-0011 /006 intermediate immutable reviewer evidence
+
+This packet precedes the final combined comparison and canonical /006 disposition. It does not claim the sentinel equals the author output.
+
+Exact released execution remained at clean HEAD `08313e4bc3457dab2c0cee0ff238b3c61c668ddb` through CPU scoring. Runtime authority `6ad846322afeb3781c50cc70d3144bc1d456f24b` bound the one reviewer lease and unchanged accepted source `253519e07e7d45cf1f5ecb3e03053582f7f7d4cc`. Two excluded warmups and fixed `WP11-F03-degraded-v0` completed once; supervisor and worker exits were 0, with no runtime failure or secondary/finalization error. Execute ran 10:59:31.883512–11:08:36.086720 UTC on 2026-11-17; CPU score ran 11:08:48.081906–11:08:51.327315, exit 0. Actual tool/session/PID receipts are preserved separately from child outcomes.
+
+Root independently returned the lease at `36e6c639a1993583c756620b88b8f3cc1c875579`, observing all six bound PIDs absent and qualified model18/notices/host checks passing. No more model work follows. Desktop sharing and WDDM unavailable memory remain disclosed.
+
+Frozen `collect_evidence_v2.py` collected 41 runtime files and 12 wrapper/score/tool artifacts exactly, plus nine immutable root proof objects. All 31 cache files remain in the original owned runtime root with explicit sizes/digests; no missing wrapper artifacts or fabricated empty files. The collector actual tool chunk `9253cd` exited 0. Original caches, model dependencies and prior evidence are retained. The transient stale functions wait-cell error is recorded in the direct tool attestation; original session 22202 resumed without rerunning execute or score.
+
+The unchanged frozen comparison helper independently reproduced all twelve author full prediction/score/diagnostic records and all nine paired conditions from author publication `97821f17926f9a6c409fe4c3b409b66f1cd9b824`, using normalized root specification `3a9c333b4aff66699e78af7d28f875798ccefb72:docs/coordination/WP-0011/actual-results/author-spec.json`. The actual comparison exited 0 with status AUDITED, twelve completed primaries, no metadata issues, 264 eligible presence slots, 27 field gains and no losses. Full object equality is retained in `../comparison-preparation/actual-author-001/audit.json`; AUDITED is not a final acceptance by itself.
+
+`package_results.py` is frozen before checking all added paths, original/copied/root-proof bytes, all retained caches and preserved base mode/type/blob identities. Complete inventory follows this deliverable commit. Root supplies an exact normalized reviewer specification for the combined comparison; canonical /006 remains pending it.

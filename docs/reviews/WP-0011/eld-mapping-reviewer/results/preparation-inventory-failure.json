@@ -1,0 +1,11 @@
+{
+  "kind": "Transcribed original tool receipt; no original stdout file existed",
+  "command": "python -I -B docs/reviews/WP-0011/eld-mapping-reviewer/results/package_preparation.py",
+  "executing_head": "3a8f2aee02963dbcb0d14e0efb28a5cdd3cd506c",
+  "tool_chunk": "5930bf",
+  "exit_code": 1,
+  "wall_time_seconds": 0.2044634,
+  "failure": "ModuleNotFoundError: No module named execute_wrapper at package_preparation.py line 4",
+  "cause": "Python -I omits the script directory from import search; test runner had explicitly inserted it, masking the standalone collector/package entry-point import omission.",
+  "correction": "Preserve original helpers. Versioned collect_evidence_v2.py and package_preparation_v2.py explicitly add their own directory before importing the unchanged frozen wrapper. Pure collector functions and all accepted source remain unchanged. Check actual isolated CLI entry points before final inventory."
+}
