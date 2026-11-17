@@ -1,0 +1,456 @@
+{
+  "schema": "eld-wp0010-author-preparation-inventory/1",
+  "utc": "2026-11-17T08:43:53.210496+00:00",
+  "status": "AUTHOR_PREPARATION_COMPLETE_AWAITING_DESIGN_ACCEPTANCE",
+  "author": "eld-f4-implementer",
+  "conversation_id": "b7c54417-db09-49bd-8d2b-7cc808f113be",
+  "model": "Gemini 4 Carbon (High)",
+  "effort": "high",
+  "branch": "feature/wp-0010-f4-archive",
+  "initial_base": "956c056be2ec970340074871ecdd7e1a9855d944",
+  "initial_authority": "8d23d755a35be26ff29c319c527bd770abdcae4b",
+  "merged_coordinator_authority": "419159c0c35f8adccae88ca65b5d7d72ccdde729",
+  "helper_freeze": "6e5590be39fd6dbb7eb00c672da5c0a954d9cb2c",
+  "deliverable": "9dff237c99853e0d7b276ffcddcdc00728b3ce0d",
+  "unchanged_base_paths": 2717,
+  "added_paths_in_deliverable": 17,
+  "protected_identities_unchanged": {
+    "AGENTS.md": "7ab4dc0b1f8feeb6550c7050c78458676558425e",
+    "START_HERE.md": "422e7540fc1f0bd4c57aeb621c67e26f94b756ef",
+    "CURRENT.md": "9dc3a2931ca1c1cf26bdab2a37e180e40edcf362",
+    "INDEX.md": "3d9ad2dd7bfbb9ecaf208938f33e73e937e8d97b",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "Directory.Build.props": "abc535eeaea0896c860984c7359a66c33ec30cf4",
+    "Directory.Packages.props": "95976cb437a7a7747d38df3d6b2a0b5ca94bf2fc",
+    "NuGet.Config": "bbb60f7e64cbe6a191284cbbb76e59b3641204a8",
+    "src": "e0dc8651c9fefb228ad26e17f62da6c20fd59ae0",
+    "web": "381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd",
+    "tests": "838979ed5f81050c2cc7b7938aa9ae5eb641bbbb",
+    "deploy": "4c410b6cff7575a522d38e3c191db33924214841",
+    "workers/local_ocr": "dc9b69e480f93db1e73ebdd65719efaa9aeab298",
+    "workers/local_ocr/README.md": "83ed6624f95c48bfbae4c466201774824f63ef5e",
+    "evaluation": "c9d3ff5a1f3f060169f1a8a0a6452827eae3e188",
+    "qualification": "9a98eaa342722eff675ff9948947d5f9be6d33b3",
+    "research": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+    "docs/design": "b7c60a6ec2f31d393c0d046f7bed6f16a1dff099",
+    "docs/coordination": "97bf083abb74941671565857e9f94e4c0c99a89a",
+    "docs/kickoffs": "d022ab3c4c09fb1604ff5edf10c21de013b8dd66",
+    "docs/reviews": "ff492e1ddfb2b7cbf13999c7859245c75ebb7a6f",
+    "docs/agent-reports": "6ab8294b269605e3dcf78b856a7e0ab85f3bbb41"
+  },
+  "input_artifacts": [
+    {
+      "path": "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+      "git_blob": "532f8edf85d04a4e8f81834bf9dd7753e5b4c8af",
+      "bytes": 372258,
+      "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+    },
+    {
+      "path": "tests/fixtures/SYN-MP-01-v0-clean.pdf",
+      "git_blob": "63469e783b65f27893c9bfff94728a8feb44f12f",
+      "bytes": 8422,
+      "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+    },
+    {
+      "path": "tests/fixtures/F1-SWO-001.pdf",
+      "git_blob": "8efeb269eb908f03bfd102dd63dcd42abcf0778b",
+      "bytes": 887,
+      "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/trial-summary-reviewer-v2.json",
+      "git_blob": "2c403d1b8a6d2678b1fda9c6afaf7de785391ed1",
+      "bytes": 69467,
+      "sha256": "188d4b69c374667113fe493e752366ee34c62c2b42dbcb9fd167a4d1431c4bd7"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/raw_output.utf8.bin",
+      "git_blob": "af55bc76f279a34f39210261a4dee8838e7bc40a",
+      "bytes": 3236,
+      "sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/envelope.json",
+      "git_blob": "04205f4ce4ec61704ca42b8a8973923d8c420578",
+      "bytes": 2909,
+      "sha256": "8e6e5b81c5bc1fb6e102438daef815bf19f4722994ba5acf737b732e703779ee"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/raw_output.utf8.bin",
+      "git_blob": "681eae57d1154afb005c7baf2971358b0cd98e72",
+      "bytes": 7511,
+      "sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/envelope.json",
+      "git_blob": "32bd639765daeee88ba338a95b2dae8e8991abec",
+      "bytes": 3281,
+      "sha256": "7fd536919461171d933cb1e8db36a21164db5b7b04bcf364c094cace3c012d96"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e579-4599-7bed-acdc-2863c448c6fa/output/raw_output.utf8.bin",
+      "git_blob": "af55bc76f279a34f39210261a4dee8838e7bc40a",
+      "bytes": 3236,
+      "sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e579-4599-7bed-acdc-2863c448c6fa/output/envelope.json",
+      "git_blob": "32119ef501b4df81560ae5dff1bf5920e3538084",
+      "bytes": 2912,
+      "sha256": "69beaeb5ad2c6f7baec71a500d3c8c919ab9292805789e64b5392d7639cbafd8"
+    }
+  ],
+  "entries": [
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/.gitattributes",
+      "phase": "helper_freeze",
+      "git_blob": "494c684bafb06e57b36200696bf1e7344a94ef29",
+      "bytes": 131,
+      "sha256": "2fd5deca0fd081a4120997bc0faa2a3d5affd87d0b17869ea264a36e817a165c"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "phase": "helper_freeze",
+      "git_blob": "e3847e3bb9f873b74c2d2a809c87fe5cd2dae248",
+      "bytes": 13695,
+      "sha256": "1876eb038d30f4a9c6da1a4771fecb050208766d2b857b4925f724faca15b20b"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "f76dd9c24bc40ffe9fdecf3dccb7eb66a28cc2db",
+      "bytes": 10425,
+      "sha256": "2d42a7aa9a38c7fdcd64d5cd50b3fb32de6165b44863c8e3ca24a3f623c98885"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/helpers/prepare_and_verify_f3_seed.py",
+      "phase": "helper_freeze",
+      "git_blob": "0f965d74bd0770e02a4b93d3361e7064ffd75494",
+      "bytes": 111013,
+      "sha256": "0bb4bb8e5b774073cad02098ff83816987ae1bb2bbf4c8d66737ff467aad9368"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/helpers/verify_f3_seed_ui_edge.mjs",
+      "phase": "helper_freeze",
+      "git_blob": "542fb6c87e830ed3fa88ccff4cbf05d3ebd90be8",
+      "bytes": 6419,
+      "sha256": "631cfe4cd18e24ab1af7cb247cdb02deb7d9923cc9c8388fa066a12555144d49"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/edge-ui-smoke-receipt.json",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "1bf68ef5cc62e69b0be7f0ba5942883f536b25ad",
+      "bytes": 1309,
+      "sha256": "c945064e92d4a5ea993b38b1a7ee46bf0f0ca4ce087e45f423bec3e8533bed39"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/01-pg-cluster-start.log",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "e079e0dc161b23f5d11f384110030a0dd3ff93e6",
+      "bytes": 254,
+      "sha256": "780fba48b5263086b2f8bf1b0c355e2973864cd9a5117f1536651a0d5da3f7ae"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/02-prepare-f3-seed-db.log",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "241393b77a700220f6a189dce727a48ca04e32b9",
+      "bytes": 1814,
+      "sha256": "dd7ab4e93a1e4df07e43cab12850d49d1c48536ad78547a493471974caa9b471"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/03-edge-ui-readonly-smoke.log",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "12e29def970b6cc6465ee954a580915553c09fb0",
+      "bytes": 181,
+      "sha256": "71609ac163e9c050ea93a977e504620b24dff5b8565e7900e476f23fb5f09020"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/04-pg-cluster-stop.log",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "b8ee8198ea4fb8edb651104d949ba5f5c0a1df60",
+      "bytes": 127,
+      "sha256": "9db23101587ecfac53e97cbe0022a720500912e9729580f739ebbff85f20ace2"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/owned-api-5590.log",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "672ee59efa8b6dc7080659024ccb92436a72b202",
+      "bytes": 421,
+      "sha256": "f3ef24dadcb5561957c01b820f4501af1469e1be0d60d3889bf0e00aed471651"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/owned-ui-4610.log",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "fe985811db8e0c600e037e606bb2e10a25d6059b",
+      "bytes": 488,
+      "sha256": "ad604b5b1652cc6cd71c58c72ca2b15b876b3c25ebd8da8e4ac5f4c40341f362"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/preparation-seed-receipt.json",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "37f49400565049be19a8fd59694fd8d0fc61cbe2",
+      "bytes": 74934,
+      "sha256": "2e7a6034d2a48a4bdd63f5c2fa48eb098f1ad610884d3efe957ec152d85db9cc"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/resource-return.json",
+      "phase": "decisive_preparation_evidence",
+      "git_blob": "8d588a45d85c0e69d5c2f76aef064b4b8bd93826",
+      "bytes": 2663,
+      "sha256": "ebb963bc04487933149c2f42fd24c0e533ebf0b9be1e1ce7d2c4a8b1dc2a2726"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/README.md",
+      "phase": "helper_freeze",
+      "git_blob": "05c9e5e4232ae7245aa4dbd8d66d18c65a4269a9",
+      "bytes": 1356,
+      "sha256": "0c5f061dcb6af4741bbdf9222692e0ed3ed4ba85de23aedb163736e0eceddfc0"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/prefreeze-setup-failure-01.txt",
+      "phase": "helper_freeze",
+      "git_blob": "d6ad6ffb19c7ba419a43af742c4f4f7a03fe4850",
+      "bytes": 1024,
+      "sha256": "07f7c9ba535700bdd6d074b6be61988f50483c34981539622104c313ca122e41"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/prefreeze-setup-failure-02.txt",
+      "phase": "helper_freeze",
+      "git_blob": "04ec711b0790a6dea5fd838886f6ebd433cf0247",
+      "bytes": 204,
+      "sha256": "d031cfa219fa79e2ddca3789d37fab4628860122306ff869a2fba1896805e744"
+    }
+  ],
+  "checked_markdown_links_count": 44,
+  "checked_markdown_links": [
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../kickoffs/WP-0010-eld-f4-implementer-preparation.md",
+      "resolved": "docs/kickoffs/WP-0010-eld-f4-implementer-preparation.md"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../design/F4-source-linked-archive.md",
+      "resolved": "docs/design/F4-source-linked-archive.md"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "resolved": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../design/F4-source-linked-archive.md",
+      "resolved": "docs/design/F4-source-linked-archive.md"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs",
+      "resolved": "src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../deploy/dev/postgres/setup-cluster.ps1",
+      "resolved": "deploy/dev/postgres/setup-cluster.ps1"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../Directory.Build.props",
+      "resolved": "Directory.Build.props"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../web/src/app/app.routes.ts",
+      "resolved": "web/src/app/app.routes.ts"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../web/src/app/review/pdf-preview-url.ts",
+      "resolved": "web/src/app/review/pdf-preview-url.ts"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../src/ELedgerCare.Application/Review/SaveWorkOrderReviewRevision.cs",
+      "resolved": "src/ELedgerCare.Application/Review/SaveWorkOrderReviewRevision.cs"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md",
+      "target": "../../../../../src/ELedgerCare.Api/DocumentEndpoints.cs",
+      "resolved": "src/ELedgerCare.Api/DocumentEndpoints.cs"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../coordination/WP-0010-0011-authority.md",
+      "resolved": "docs/coordination/WP-0010-0011-authority.md"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../kickoffs/WP-0010-eld-f4-implementer-preparation.md",
+      "resolved": "docs/kickoffs/WP-0010-eld-f4-implementer-preparation.md"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "helpers/prepare_and_verify_f3_seed.py",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/helpers/prepare_and_verify_f3_seed.py"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "helpers/verify_f3_seed_ui_edge.mjs",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/helpers/verify_f3_seed_ui_edge.mjs"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "F4-SOURCE-AND-DESIGN-NOTES.md",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/F4-SOURCE-AND-DESIGN-NOTES.md"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "retained-failures/README.md",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/README.md"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "retained-failures/prefreeze-setup-failure-01.txt",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/prefreeze-setup-failure-01.txt"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "retained-failures/prefreeze-setup-failure-02.txt",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/prefreeze-setup-failure-02.txt"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "observations/preparation-seed-receipt.json",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/preparation-seed-receipt.json"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "observations/logs/01-pg-cluster-start.log",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/01-pg-cluster-start.log"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "observations/logs/02-prepare-f3-seed-db.log",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/02-prepare-f3-seed-db.log"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../reviews/WP-0006/eld-next-reviewer/runtime-execution/trial-summary-reviewer-v2.json",
+      "resolved": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/trial-summary-reviewer-v2.json"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "observations/logs/owned-api-5590.log",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/owned-api-5590.log"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../../tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+      "resolved": "tests/fixtures/SYN-WO-01-v1-raster300.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../../tests/fixtures/SYN-MP-01-v0-clean.pdf",
+      "resolved": "tests/fixtures/SYN-MP-01-v0-clean.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../../tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+      "resolved": "tests/fixtures/SYN-WO-01-v1-raster300.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../../tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+      "resolved": "tests/fixtures/SYN-WO-01-v1-raster300.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../../tests/fixtures/SYN-MP-01-v0-clean.pdf",
+      "resolved": "tests/fixtures/SYN-MP-01-v0-clean.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../../tests/fixtures/F1-SWO-001.pdf",
+      "resolved": "tests/fixtures/F1-SWO-001.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "../../../../../tests/fixtures/F1-SWO-001.pdf",
+      "resolved": "tests/fixtures/F1-SWO-001.pdf"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "observations/logs/owned-ui-4610.log",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/owned-ui-4610.log"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "observations/edge-ui-smoke-receipt.json",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/edge-ui-smoke-receipt.json"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "observations/logs/03-edge-ui-readonly-smoke.log",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/03-edge-ui-readonly-smoke.log"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "observations/logs/04-pg-cluster-stop.log",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/observations/logs/04-pg-cluster-stop.log"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "resource-return.json",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/resource-return.json"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+      "target": "preparation-inventory.json",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/preparation-inventory.json"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/README.md",
+      "target": "prefreeze-setup-failure-01.txt",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/prefreeze-setup-failure-01.txt"
+    },
+    {
+      "source": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/README.md",
+      "target": "prefreeze-setup-failure-02.txt",
+      "resolved": "docs/implementation/WP-0010/eld-f4-implementer/preparation/retained-failures/prefreeze-setup-failure-02.txt"
+    }
+  ],
+  "retained_seed_database": {
+    "database": "eledgercare_f4_author_seed_f3",
+    "postgres_port": 55438,
+    "canonical_8_table_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "services_stopped_and_ports_5590_4610_55438_free": true
+  },
+  "post_deliverable_metadata": [
+    "docs/implementation/WP-0010/eld-f4-implementer/preparation/preparation-inventory.json"
+  ]
+}
