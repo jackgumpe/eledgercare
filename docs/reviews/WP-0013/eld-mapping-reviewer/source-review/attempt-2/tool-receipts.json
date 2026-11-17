@@ -1,0 +1,61 @@
+{
+  "schema": "eld-wp13-independent-source-additional-tools/1",
+  "helper_freeze": "e4e0377f6d6028795cb16a6367d7fe010862adca",
+  "actual_clean_execution_head": "8a1f7545c8ce1e570589f01ee30ad2ac32be1be5",
+  "runs": [
+    {
+      "mode": "runtime",
+      "launch": {
+        "status": "fulfilled",
+        "value": {
+          "mode": "runtime",
+          "cmd": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/source-review/runtime_review.py --out docs/reviews/WP-0013/eld-mapping-reviewer/source-review/attempt-2/runtime",
+          "chunk_id": "8857cb",
+          "wall_time_seconds": 10.004388,
+          "session_id": 36782,
+          "original_token_count": 0,
+          "output": ""
+        }
+      },
+      "completion": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "1bf914",
+          "wall_time_seconds": 0.0000107,
+          "exit_code": 0,
+          "original_token_count": 17,
+          "output": "{\"status\": \"PASS\", \"checks\": 24, \"failure\": null, \"failed\": []}\r\n"
+        }
+      }
+    },
+    {
+      "mode": "audit",
+      "launch": {
+        "status": "fulfilled",
+        "value": {
+          "mode": "audit",
+          "cmd": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/source-review/audit_inventory.py author --out docs/reviews/WP-0013/eld-mapping-reviewer/source-review/attempt-2/author-audit.json",
+          "chunk_id": "6bb810",
+          "wall_time_seconds": 10.0049411,
+          "session_id": 41792,
+          "original_token_count": 0,
+          "output": ""
+        }
+      },
+      "completion": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "81c984",
+          "wall_time_seconds": 0.0000091,
+          "exit_code": 0,
+          "original_token_count": 15,
+          "output": "{\"status\": \"PASS\", \"input_count\": 193, \"report_links\": 12}\r\n"
+        }
+      }
+    }
+  ],
+  "notes": [
+    "attempt-2 is an additional check phase after final publication binding, not a rerun of failed phase-1 checks.",
+    "All generated runtime records are explicit public CPU fakes; no live observer, model, service or fresh artifact was accessed."
+  ]
+}
