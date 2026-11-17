@@ -1,0 +1,20 @@
+COMMAND:
+python -B docs/reviews/WP-0010/eld-f4-reviewer/preparation/helpers/prepare_and_verify_f3_seed.py --output .scratch/dryrun-seed-receipt.json --resource-return-output .scratch/dryrun-resource-return.json --logs-dir .scratch/dryrun-logs --edge-receipt-output .scratch/dryrun-edge-receipt.json
+
+EXIT CODE: 1
+
+STDOUT / STDERR (prepare_and_verify_f3_seed.py):
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\preparation\helpers\prepare_and_verify_f3_seed.py", line 1908, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\preparation\helpers\prepare_and_verify_f3_seed.py", line 1631, in main
+    record_assert("edge_ui_readonly_smoke_passed", edge_cp.returncode == 0, {"stdout": edge_cp.stdout.strip()})
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\preparation\helpers\prepare_and_verify_f3_seed.py", line 697, in record_assert
+    raise AssertionError(f"Preparation assertion failed [{name}]: {detail}")
+AssertionError: Preparation assertion failed [edge_ui_readonly_smoke_passed]: {'stdout': ''}
+
+INNER STEP LOG (.scratch/dryrun-logs/03-edge-ui-readonly-smoke.log):
+Error: Edge UI smoke assertion failed [r04_page_2_label]: {"r04PageLabel":"· Page 1 of 3"}
+    at assertCond (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/reviews/WP-0010/eld-f4-reviewer/preparation/helpers/verify_f3_seed_ui_edge.mjs:42:11)
+    at main (file:///C:/Users/jackg/Asp.net%20Projects/eledgercare-worktrees/eld-f4-reviewer/docs/reviews/WP-0010/eld-f4-reviewer/preparation/helpers/verify_f3_seed_ui_edge.mjs:172:5)

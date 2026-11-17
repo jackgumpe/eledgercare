@@ -1,0 +1,21 @@
+Command: pwsh -NoProfile -File .scratch/bootstrap_local_tools.ps1
+Timestamp (UTC): 2026-11-17T09:01:26Z
+Exit code: 1
+Reason: Global `%USERPROFILE%\.nuget\packages` did not contain the isolated worktree-cached `Microsoft.EntityFrameworkCore`, `Npgsql.EntityFrameworkCore.PostgreSQL`, `PdfPig`, or `xunit.v3 4.0.3` packages (`NU1101` / `NU1102`), which reside in the historical reviewer worktree's isolated `.local\nuget\packages` cache.
+Resolution: Copied `..\eld-f3-reviewer\.local\nuget\packages` and `..\eld-f3-reviewer\.local\npm-cache` read-only into owned `.local\nuget\packages` and `.local\npm-cache`, pointing `.local\nuget\offline.nuget.config` and `--cache` strictly to owned `.local\` caches with zero network access.
+
+--- Representative raw output ---
+postgres (PostgreSQL) 18.7
+  Determining projects to restore...
+src\ELedgerCare.Infrastructure\ELedgerCare.Infrastructure.csproj : error NU1101: Unable to find package Microsoft.EntityFrameworkCore. No packages exist with this id in source(s): C:\Program Files\dotnet\library-packs, local-global-packages [ELedgerCare.slnx]
+tests\ELedgerCare.Infrastructure.Tests\ELedgerCare.Infrastructure.Tests.csproj : error NU1102: Unable to find package xunit.v3 with version (>= 4.0.3) — Found 1 version(s) in local-global-packages [ Nearest version: 4.0.2 ] [ELedgerCare.slnx]
+src\ELedgerCare.Infrastructure\ELedgerCare.Infrastructure.csproj : error NU1101: Unable to find package Npgsql.EntityFrameworkCore.PostgreSQL. [ELedgerCare.slnx]
+src\ELedgerCare.Infrastructure\ELedgerCare.Infrastructure.csproj : error NU1101: Unable to find package PdfPig. [ELedgerCare.slnx]
+  Restored src\ELedgerCare.Domain\ELedgerCare.Domain.csproj (in 103 ms).
+  Restored src\ELedgerCare.Application\ELedgerCare.Application.csproj (in 114 ms).
+  Failed to restore src\ELedgerCare.Infrastructure\ELedgerCare.Infrastructure.csproj (in 115 ms).
+  Failed to restore src\ELedgerCare.Api\ELedgerCare.Api.csproj (in 115 ms).
+  Failed to restore tests\ELedgerCare.Domain.Tests\ELedgerCare.Domain.Tests.csproj (in 115 ms).
+  Failed to restore tests\ELedgerCare.Infrastructure.Tests\ELedgerCare.Infrastructure.Tests.csproj (in 115 ms).
+  Failed to restore tests\ELedgerCare.Acceptance.Tests\ELedgerCare.Acceptance.Tests.csproj (in 115 ms).
+Exception: dotnet restore failed with exit 1
