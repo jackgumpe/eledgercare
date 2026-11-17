@@ -108,8 +108,14 @@ is not substituted or pooled into primaries.
 
 ## Preservation, failures and remaining gates
 
-No executed review check failed. Expected CPU fault injections and negative
-cases remain visible in their original records. The author inventory has one
+No executed semantic, runtime or author-publication check failed. Expected CPU
+fault injections and negative cases remain visible in their original records.
+The first own-inventory attempt failed because Windows Git rejected a long
+revision:path argument. The original helper, failed deliverable-inventory.json
+and inventory-failure-tool.json are retained. The separately frozen v2 helper
+reads exact blob SHAs from the candidate tree with git cat-file blob. Only
+inventory verification is repeated; no source or semantic check changes.
+The author inventory has one
 newline-only reviewer checkout difference: .gitattributes is 30 original/Git
 bytes versus 31 reviewer bytes. Both representations were verified explicitly;
 all three original execution captures and all evidence bytes are exact.
