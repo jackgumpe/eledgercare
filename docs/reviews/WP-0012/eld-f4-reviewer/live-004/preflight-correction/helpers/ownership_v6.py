@@ -202,6 +202,18 @@ def popen_creation_utc(proc):
     return (datetime(1601, 1, 1, tzinfo=timezone.utc) + timedelta(microseconds=ticks // 10)).isoformat(timespec="microseconds")
 
 
+def popen_image(proc):
+    """Resolve the executed image from the retained handle, including app aliases."""
+    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel.QueryFullProcessImageNameW.argtypes = [wintypes.HANDLE, wintypes.DWORD, wintypes.LPWSTR, ctypes.POINTER(wintypes.DWORD)]
+    kernel.QueryFullProcessImageNameW.restype = wintypes.BOOL
+    buffer = ctypes.create_unicode_buffer(32768)
+    size = wintypes.DWORD(len(buffer))
+    require(kernel.QueryFullProcessImageNameW(wintypes.HANDLE(int(proc._handle)), 0, buffer, ctypes.byref(size)), "Cannot record observer executed image")
+    require(bool(buffer.value), "Observer executed image is empty")
+    return buffer.value
+
+
 def collect(repo_root, expected_gpu_uuid, run_cmd):
     result = {}
     for key, query in (("gpu", "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free"),
@@ -219,6 +231,7 @@ def collect(repo_root, expected_gpu_uuid, run_cmd):
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
         creation = popen_creation_utc(proc)
+        executed_image = popen_image(proc)
         stdout, stderr = proc.communicate(timeout=60)
     except BaseException:
         if proc.poll() is None:
@@ -235,7 +248,9 @@ def collect(repo_root, expected_gpu_uuid, run_cmd):
     by_pid = processes(rows)
     observer = dict(by_pid.get(proc.pid) or {})
     require(bool(observer) and utc(observer.get("CreationDate")) == utc(creation), "Observer creation identity differs from retained process handle")
-    require(exe(observer.get("ExecutablePath")) == exe(str(Path(powershell).resolve())), "Observer executable differs from issued command")
+    require(exe(observer.get("ExecutablePath")) == exe(executed_image), "Observer executable differs from retained process image")
+    observer["issued_executable"] = powershell
+    observer["retained_process_image"] = executed_image
     observer["query_sha256"] = hashlib.sha256(script.encode()).hexdigest()
     result.update(processes_exit=proc.returncode, observer=observer, candidate_and_gpu_processes=rows)
     ollama = shutil.which("ollama")
