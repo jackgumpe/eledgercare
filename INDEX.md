@@ -854,3 +854,15 @@ WP-0011 independent006 RUNNING_CONFIRMED10:59:31Z at clean08313e4bc3457dab2c0cee
 
 
 WP-0011 reviewer006 execute tool22202/fd9abd exit0, all3scheduled calls complete/no failure; score608a5e exit0 at same clean08313e4bc3457dab2c0cee0ff238b3c61c668ddb. Root independently observes32048/6556/36532/24624/37844/6184 absent11:09:42Z and post-model18/notices/host pass. Reviewer lease RETURNED_OBSERVED; no active model lease or further inference. Full12 CPU comparison/combined sentinel comparison and final006 publication pending.
+
+
+## WP-0010 narrow search-navigation reconciliation (2026-11-17 UTC)
+
+Original independent152f8ac83f2ce4ffb8061a2e85fbb5f68fc18bfb evidence passed final runtime, while retained prefreeze06 demonstrates a pending-navigation input overwrite. Root holds final005 for a bounded correction within existing F4-04; no new feature or user permission. Exact kickoff WP-0010-eld-f4-search-navigation-correction.md.
+
+| Packet / sequence | Owner / category | Branch / worktree | Exact report path | State |
+| --- | --- | --- | --- | --- |
+| WP-0010 / 006 | eld-f4-implementer / implementation | feature/wp-0010-f4-archive; eledgercare-worktrees/eld-f4-implementer | docs/agent-reports/eld-f4-implementer/WP-0010/006_2026-11-17_implementation_eld-f4-implementer.md | RELEASED narrow search-navigation correction |
+| WP-0010 / 007 | eld-f4-reviewer / review | review/wp-0010-f4; eledgercare-worktrees/eld-f4-reviewer | docs/agent-reports/eld-f4-reviewer/WP-0010/007_2026-11-17_review_eld-f4-reviewer.md | HELD exact006 independent reconciliation |
+
+Original003/004 and all failed/passing evidence remain immutable. Same Carbon conversations/high effort; no fresh Codex agent. Root sole coordinator/source author separation retained. Final005 stays reserved and uncompleted.
