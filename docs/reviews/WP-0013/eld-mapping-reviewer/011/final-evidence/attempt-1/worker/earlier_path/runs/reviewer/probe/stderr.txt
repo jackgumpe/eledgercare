@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\docs\reviews\WP-0013\eld-mapping-reviewer\011\final-reconciliation\worker_probe.py", line 33, in main
+    runtime.worker(c['authority'],c['release_path'],'reviewer',c['run'],c['job'])
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\mapping_v2\runtime.py", line 181, in worker
+    verify_bare_git_lookup(os.environ)  # Actual worker image/caller cwd, before frozen bare-Git checks.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\mapping_v2\runtime_git.py", line 43, in verify_bare_git_lookup
+    raise PermissionError('Bare Git is shadowed before the validated executable: ' + str(candidate))
+PermissionError: Bare Git is shadowed before the validated executable: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\.scratch\wp0013-reviewer-011-final\worker-attempt-1\earlier_path\venv\Scripts\git.exe

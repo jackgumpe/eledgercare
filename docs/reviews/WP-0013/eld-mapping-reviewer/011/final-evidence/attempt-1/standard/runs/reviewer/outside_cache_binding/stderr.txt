@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\docs\reviews\WP-0013\eld-mapping-reviewer\011\final-reconciliation\probe_v3.py", line 54, in main
+    corrected_env = enable_pinned_git_lookup(dict(original_env), root=Path(config['root']), owner='reviewer', run_dir=Path(config['run_dir']))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\mapping_v2\runtime.py", line 40, in enable_pinned_git_lookup
+    audit_child_env(env,root=root,owner=owner,run_dir=run_dir)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\q0\harness\q0harness\environment.py", line 225, in audit_child_env
+    raise Q0Failure("STORAGE_NOT_OWNED", f"{k} missing or outside the owned root")
+q0harness.outcome.Q0Failure: STORAGE_NOT_OWNED: HF_HOME missing or outside the owned root

@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "source": "ae790497f3fdd10573e8179757416bc2d1736250",
+  "helper_head": "76741706e58467fedfa6bc142551c1c1264388e0",
+  "changed_paths": [
+    "qualification/mapping_v2/runtime.py",
+    "qualification/mapping_v2/runtime_git.py",
+    "qualification/mapping_v2/runtime_protocol.json",
+    "qualification/mapping_v2/tests/test_runtime.py"
+  ],
+  "runtime_ast_only_bound_changes": true,
+  "worker_body_only_pre_release_gate": true,
+  "protocol_changed_keys": [
+    "source_review_path"
+  ],
+  "protected_identities": {
+    "qualification/mapping_v2/protocol": "2c6b1010d5fd17f3fcb7e45f9b336ab5cf5e9c00",
+    "qualification/mapping_v2/mapper.py": "3d2c40ec92f86e182222202d780676e05f6e5240",
+    "qualification/mapping_v2/scoring.py": "dbcc32a36acd2abcf08893c36bd320f7e1120d3f",
+    "qualification/mapping_v2/release.py": "ee66a3def475012b2dbde6903bbfd80b5cb39c33",
+    "qualification/baseline": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+    "qualification/mapping_v1": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+    "qualification/coverage_v1": "6bdab544c9fe26cbf093cc765212db2a2e7a97a5",
+    "qualification/q0": "5ca1507d0fb3f5905c9af1cb358642972e9c15dc",
+    "evaluation/mapping_v2": "af22f632c2b69531f61866ca467c6f04f386df7e"
+  },
+  "affected_unit_methods": [
+    "test_runtime_worker_and_model_settings_preserve_accepted_source",
+    "test_success_and_failure_retention",
+    "test_returned_pre_and_post_observer_failures"
+  ],
+  "tests_run": 3,
+  "unit_start_utc": "2026-11-17T19:13:11.622514+00:00",
+  "unit_end_utc": "2026-11-17T19:13:12.649211+00:00",
+  "stdout_sha256": "194c81073294e77bc46a139c12c640fc0fbd2247d4fa4d8dacc0183e71c43579",
+  "stderr_sha256": "3d0bf750dc8476abb19c073c31168589484122db559d95445deded10896b340b",
+  "model_calls": 0,
+  "live_observers": 0,
+  "limit": "Three affected existing methods rerun; no unrelated full score suite. Final author013 publication audited separately."
+}

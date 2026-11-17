@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\docs\reviews\WP-0013\eld-mapping-reviewer\011\final-reconciliation\worker_probe.py", line 33, in main
+    runtime.worker(c['authority'],c['release_path'],'reviewer',c['run'],c['job'])
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\mapping_v2\runtime.py", line 182, in worker
+    r=read_release(authority,release_path,owner);p=protocol();run=Path(run_dir).resolve();root=Path(r['runtime_root']).resolve()
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\docs\reviews\WP-0013\eld-mapping-reviewer\011\final-reconciliation\worker_probe.py", line 30, in observed_read
+    return actual_read(*args,execution=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\mapping_v2\release.py", line 92, in read_release
+    verify_frozen_mappers()
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\docs\reviews\WP-0013\eld-mapping-reviewer\011\final-reconciliation\worker_probe.py", line 27, in pins_stop
+    raise CpuPinBoundary('CPU-only post-pin stop; no model, plan or corpus continuation')
+CpuPinBoundary: CPU-only post-pin stop; no model, plan or corpus continuation

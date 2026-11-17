@@ -1,0 +1,88 @@
+{
+  "attribution": "Actual independent reviewer tool outcomes, transcribed from tool receipts; detailed child executions remain original files.",
+  "source": "ae790497f3fdd10573e8179757416bc2d1736250",
+  "tools": [
+    {
+      "phase": "selection",
+      "launch_tool": "7174c0",
+      "session": null,
+      "completion_tool": null,
+      "command": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/011/final-reconciliation/run_selection.py --source ae790497f3fdd10573e8179757416bc2d1736250 --tree 8fd68c96bb18ca0177f227ad9a82505090d997b0 --attempt selection-attempt-1",
+      "helper_freeze": "8be8176432e2c43f359b803145bc7ed40d506ee7",
+      "exit_code": 0,
+      "wall_time_seconds": 2.0303997
+    },
+    {
+      "phase": "standard",
+      "launch_tool": "f36793",
+      "session": null,
+      "completion_tool": null,
+      "command": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/011/final-reconciliation/run_v3.py final-standard-attempt-1",
+      "helper_freeze": "0ee395d7fb1df1a036a974dd890babc3d619c9c3",
+      "exit_code": 0,
+      "wall_time_seconds": 8.8282099
+    },
+    {
+      "phase": "worker",
+      "launch_tool": "b9d9f6",
+      "session": null,
+      "completion_tool": null,
+      "command": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/011/final-reconciliation/run_worker.py",
+      "helper_freeze": "0ee395d7fb1df1a036a974dd890babc3d619c9c3",
+      "exit_code": 0,
+      "wall_time_seconds": 2.5795588
+    },
+    {
+      "phase": "source",
+      "launch_tool": "c8a804",
+      "session": null,
+      "completion_tool": null,
+      "command": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/011/final-reconciliation/audit_final_source.py",
+      "helper_freeze": "76741706e58467fedfa6bc142551c1c1264388e0",
+      "exit_code": 0,
+      "wall_time_seconds": 2.501663
+    },
+    {
+      "phase": "recovery-binding",
+      "launch_tool": "79ed26",
+      "session": null,
+      "completion_tool": null,
+      "command": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/011/final-reconciliation/test_recovery_binding.py",
+      "helper_freeze": "76741706e58467fedfa6bc142551c1c1264388e0",
+      "exit_code": 0,
+      "wall_time_seconds": 0.6717194
+    },
+    {
+      "phase": "publication",
+      "launch_tool": "84cb80",
+      "session": 94473,
+      "completion_tool": "448a99",
+      "command": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/011/final-reconciliation/audit_publication.py",
+      "helper_freeze": "20a65e5465d7e8dc4e2c27b48efd0f011518a293",
+      "exit_code": 0,
+      "wall_time_seconds": null
+    },
+    {
+      "phase": "collection",
+      "launch_tool": "783d1f",
+      "session": null,
+      "completion_tool": null,
+      "command": "python -I -B docs/reviews/WP-0013/eld-mapping-reviewer/011/final-reconciliation/collect_final.py",
+      "helper_freeze": "20a65e5465d7e8dc4e2c27b48efd0f011518a293",
+      "exit_code": 0,
+      "wall_time_seconds": 0.8357203
+    }
+  ],
+  "capture_limits": "All final child streams and affected-unit stdout/stderr are collected. Tool summaries are separately transcribed, not claimed as original log files. Author26/61 are inspected, not reviewer executions.",
+  "final_checks_failed": 0,
+  "prior_failed_reviewer_shadow_check": "5a138e exit1 retained in shadow-attempt-1; expected193 versus actual216; no rerun relabeling.",
+  "packaging_incident": {
+    "tool": "d73662",
+    "parent_exit": 1,
+    "command": "git diff --cached --check",
+    "command_exit": 2,
+    "cause": "Default whitespace check treated byte-preserved original CRLF stdout/stderr carriage returns as trailing whitespace.",
+    "scope": "No semantic failure or evidence changes; check output was tool-streamed/truncated, not an original log file.",
+    "resolution": "Run identical staged diff check with core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol, retaining all raw bytes."
+  }
+}

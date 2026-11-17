@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\docs\reviews\WP-0013\eld-mapping-reviewer\011\final-reconciliation\selection_probe.py", line 32, in main
+    new=enable_pinned_git_lookup(dict(old),root=Path(config['root']),owner='reviewer',run_dir=run)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\mapping_v2\runtime.py", line 43, in enable_pinned_git_lookup
+    verify_bare_git_lookup(env)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\mapping_v2\runtime_git.py", line 43, in verify_bare_git_lookup
+    raise PermissionError('Bare Git is shadowed before the validated executable: ' + str(candidate))
+PermissionError: Bare Git is shadowed before the validated executable: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\.scratch\wp0013-reviewer-011-final\selection-attempt-1\current_directory\runs\reviewer\probe\child-current-directory\git.exe
