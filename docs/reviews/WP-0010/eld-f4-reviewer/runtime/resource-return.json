@@ -1,0 +1,142 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-runtime-resource-return/1",
+  "observed_at_utc": "2026-11-17T11:12:06.141574+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "owned_ports": {
+    "api": 5690,
+    "ui": 4710,
+    "postgres": 55439
+  },
+  "ports_before": {
+    "4710": [],
+    "5690": [],
+    "55439": []
+  },
+  "ports_after": {
+    "55439": [],
+    "5690": [],
+    "4710": []
+  },
+  "pg_ctl_status_exit_after_stop": 3,
+  "spawned_processes": [
+    {
+      "role": "postmaster_initial",
+      "info": {
+        "pid": 32092,
+        "startUtc": "2026-11-17T11:06:19.9106021Z",
+        "name": "postgres",
+        "workingSetBytes": 27062272
+      }
+    },
+    {
+      "role": "postmaster_after_demo_smoke",
+      "info": {
+        "workingSetBytes": 27136000,
+        "name": "postgres",
+        "pid": 22004,
+        "startUtc": "2026-11-17T11:09:30.7341561Z"
+      }
+    },
+    {
+      "role": "api_5690_deferred_503",
+      "stop": {
+        "pid": 38908,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T11:10:55.9081793Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    },
+    {
+      "role": "ui_4710_before_restart",
+      "stop": {
+        "pid": 19316,
+        "name": "node",
+        "startUtc": "2026-11-17T11:11:05.0391309Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    },
+    {
+      "role": "api_5690_before_restart",
+      "stop": {
+        "pid": 20700,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T11:10:59.0277218Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    },
+    {
+      "role": "postmaster_after_restart",
+      "info": {
+        "workingSetBytes": 27074560,
+        "pid": 16508,
+        "startUtc": "2026-11-17T11:11:26.9022634Z",
+        "name": "postgres"
+      }
+    },
+    {
+      "role": "ui_4710_after_restart",
+      "stop": {
+        "pid": 20228,
+        "name": "node",
+        "startUtc": "2026-11-17T11:11:31.4586256Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    },
+    {
+      "role": "api_5690_after_restart",
+      "stop": {
+        "pid": 36992,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T11:11:28.6583229Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    },
+    {
+      "role": "api_5690_fallback_probe",
+      "stop": {
+        "pid": 27864,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T11:11:57.2061440Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    },
+    {
+      "role": "api_5690_conflict_503",
+      "stop": {
+        "pid": 18528,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T11:12:01.4076273Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    }
+  ],
+  "retained_databases_on_disk": [
+    {
+      "database": "eledgercare_f4_reviewer_seed_f3",
+      "role": "untouched pre-F4 F3 baseline seed",
+      "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993"
+    },
+    {
+      "database": "eledgercare_f4_reviewer_migrated",
+      "role": "forward-migrated + backfilled F4 verification database",
+      "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+      "projection_tables_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa"
+    },
+    {
+      "database": "eledgercare_f4_reviewer_e2e",
+      "role": "Playwright Microsoft Edge E2E database (5690/4710)"
+    }
+  ],
+  "dropped_temporary_databases": [
+    "eledgercare_f4_reviewer_probe"
+  ],
+  "credentials_gitignored": true,
+  "gpu_or_model_processes_started": 0
+}
