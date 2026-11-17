@@ -1,0 +1,352 @@
+{
+  "packet": "WP-0010",
+  "slice": "F4 source-linked archive retrieval",
+  "author": "eld-f4-implementer",
+  "started_utc": "2026-11-17T09:54:29.140416+00:00",
+  "completed_utc": "2026-11-17T10:00:25.359332+00:00",
+  "static_and_git_audit": {
+    "clean_worktree": true,
+    "frozen_head_sha": "c383021be1774451ba3034d89255b38b4267353b",
+    "dispatch_authority_sha": "7345ef03dfa4d5f039259d0b8b9505685112469d",
+    "packet_base_sha": "956c056be2ec970340074871ecdd7e1a9855d944",
+    "accepted_design_sha": "01a6dab0695c93246b4cf04d1a2098d3b77248d8",
+    "product_trees": {
+      "src": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+      "web": "2aeddf8ec2e1f3d4e3dc40517866d975efadcd3e",
+      "tests": "25c21310699086acb818549b2a4c0b99469208f1",
+      "deploy": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1",
+      "workers_local_ocr": "dc9b69e480f93db1e73ebdd65719efaa9aeab298"
+    },
+    "audited_cs_files": 71,
+    "audited_ts_files": 15,
+    "protected_paths_verified_unchanged": 20,
+    "violations": 0
+  },
+  "retained_seed_preservation": {
+    "seed_database": "eledgercare_f4_author_seed_f3",
+    "expected_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "observed_before_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "observed_after_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "unchanged": true
+  },
+  "forward_migration_and_restart": {
+    "migrated_database": "eledgercare_f4_author_migrated",
+    "pre_migration_clone_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "core_8_table_data_sha256_before_migration": "ad4f44bcf7c0f7163e91cad81f569bfc4642cbb167c1eaf6c3d1ab9984b2e6d0",
+    "core_8_table_data_sha256_after_migration": "ad4f44bcf7c0f7163e91cad81f569bfc4642cbb167c1eaf6c3d1ab9984b2e6d0",
+    "core_8_table_data_sha256_after_restart": "ad4f44bcf7c0f7163e91cad81f569bfc4642cbb167c1eaf6c3d1ab9984b2e6d0",
+    "core_data_unchanged_across_migration_backfill_and_restart": true,
+    "applied_migrations": [
+      "20261114182147_InitialDurableIntake",
+      "20261116052029_AddLocalExtraction",
+      "20261116200918_AddWorkOrderReview",
+      "20261117091519_AddSourceLinkedArchive"
+    ],
+    "backfilled_projection_count": 5,
+    "backfilled_unit_count": 9,
+    "projection_tables_sha256_before_restart": "78f0f273dbdb48629924752cba6f863f11f62764e27161d8df1549ad75ce2ac3",
+    "projection_tables_sha256_after_restart": "78f0f273dbdb48629924752cba6f863f11f62764e27161d8df1549ad75ce2ac3",
+    "saved_queries_sha256_before_restart": "4d314f16874de13aefbc6378f560a3db115d2a8bf492e35b7a23be5642bcae7d",
+    "saved_queries_sha256_after_restart": "4d314f16874de13aefbc6378f560a3db115d2a8bf492e35b7a23be5642bcae7d",
+    "postmaster_pid_before_restart": 10440,
+    "postmaster_pid_after_restart": 36852,
+    "api_pid_before_restart": 9088,
+    "api_pid_after_restart": 29436,
+    "ui_pid_before_restart": 36080,
+    "ui_pid_after_restart": 31232
+  },
+  "runtime_privilege_audit": {
+    "probe_count": 13,
+    "all_denied_42501": true
+  },
+  "explain_and_modest_measurements": {
+    "explain_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/explain-plans.txt",
+    "explain_sha256": "48981c70d196bd3c20cc7510a7b07edcac620229e9c1336501bab74226b3558a",
+    "uses_documents_keyset_index": true,
+    "api_pid": 9088,
+    "working_set_bytes": 104341504,
+    "working_set_mib": 99.51,
+    "warm_query_count": 10,
+    "p50_ms": 16.05,
+    "max_ms": 218.45,
+    "samples_ms": [
+      218.45,
+      115.36,
+      16.05,
+      11.51,
+      22.17,
+      12.51,
+      6.32,
+      30.25,
+      9.77,
+      5.98
+    ],
+    "scope_note": "Measured on owned local loopback 7-seed archive; not a large-corpus scalability claim."
+  },
+  "steps": [
+    {
+      "step": "01-worker-cpu-tests",
+      "command": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "workers/local_ocr/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:54:31.457917+00:00",
+      "elapsed_ms": 754.9,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/01-worker-cpu-tests.log",
+      "log_sha256": "2dfa1adb5933be6b83590973b8ded4a250b77f88db29eadb75e26a3a592f157a"
+    },
+    {
+      "step": "02-dotnet-restore-locked",
+      "command": [
+        "dotnet",
+        "restore",
+        "ELedgerCare.slnx",
+        "--locked-mode",
+        "--configfile",
+        ".local/nuget/offline.nuget.config"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:54:32.222697+00:00",
+      "elapsed_ms": 1764.6,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/02-dotnet-restore-locked.log",
+      "log_sha256": "7d1cfbeea6a6a091dd8872e8ac3fbde6ef5e2f1b9514bda4f86615a9a0caf485"
+    },
+    {
+      "step": "03-dotnet-build-release",
+      "command": [
+        "dotnet",
+        "build",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:54:33.995000+00:00",
+      "elapsed_ms": 3511.9,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/03-dotnet-build-release.log",
+      "log_sha256": "b3f5b9b5cccde66424cfd5706bba20c8452e72265e7389897c131a08a5e4abd6"
+    },
+    {
+      "step": "04-ng-build-production",
+      "command": [
+        "node",
+        "node_modules/@angular/cli/bin/ng.js",
+        "build"
+      ],
+      "cwd": "web",
+      "started_utc": "2026-11-17T09:54:37.512681+00:00",
+      "elapsed_ms": 4512.4,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/04-ng-build-production.log",
+      "log_sha256": "0c223bf5398b51e67538de0a0c513c01f6c18a188d195ca29392ee6df1780591"
+    },
+    {
+      "step": "05-pg-cluster-start",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/start-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:54:42.032684+00:00",
+      "elapsed_ms": 1489.3,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/05-pg-cluster-start.log",
+      "log_sha256": "c47923e74176ec1ec7c48054e5b4f982943e451f08288926d601ae368771c8f1"
+    },
+    {
+      "step": "06-dotnet-test-release",
+      "command": [
+        "dotnet",
+        "test",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:54:43.683460+00:00",
+      "elapsed_ms": 175463.2,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/06-dotnet-test-release.log",
+      "log_sha256": "624cffaa32414c6dca545b0e659bfcec60e17eb2a5d5eb5057c584711832d702"
+    },
+    {
+      "step": "07-prepare-dev-db",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:57:39.153627+00:00",
+      "elapsed_ms": 8862.7,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/07-prepare-dev-db.log",
+      "log_sha256": "de1f2ecae9380b765f2312d369ffe0fd26fb277d177644fb3a36770c2f9569ab"
+    },
+    {
+      "step": "08-demo-smoke-5590",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-demo-smoke.ps1",
+        "-ApiPort",
+        "5590",
+        "-ReceiptPath",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0010\\eld-f4-implementer\\evidence\\demo-smoke-receipt.json"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:57:48.027773+00:00",
+      "elapsed_ms": 10084.7,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/08-demo-smoke-5590.log",
+      "log_sha256": "99dca4f92d8b38711698a65e51195818e3fc1461d5bf1bdc8d430d5b6ac770ad"
+    },
+    {
+      "step": "09-playwright-edge-e2e",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-browser-checks.ps1",
+        "-Database",
+        "eledgercare_f4_e2e",
+        "-ApiPort",
+        "5590",
+        "-UiPort",
+        "4610"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:57:58.120052+00:00",
+      "elapsed_ms": 81601.0,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/09-playwright-edge-e2e.log",
+      "log_sha256": "85d42711a0303c788dc97527bcf7e7a101abc5531d75dfe054fe531e8b3f7d38"
+    },
+    {
+      "step": "10-forward-migrate-retained-seed-clone",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1",
+        "-Database",
+        "eledgercare_f4_author_migrated"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:59:21.095370+00:00",
+      "elapsed_ms": 7334.3,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/10-forward-migrate-retained-seed-clone.log",
+      "log_sha256": "af95cf92aef50da6a6234dcfbb2b55d32e917f33556f683f22f33dcd752bf802"
+    },
+    {
+      "step": "11-edge-f4-before-restart",
+      "command": [
+        "node",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0010\\eld-f4-implementer\\scripts\\verify_f4_restart_edge.mjs",
+        "--phase",
+        "before-restart",
+        "--api-port",
+        "5590",
+        "--ui-port",
+        "4610",
+        "--output",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0010\\eld-f4-implementer\\evidence\\edge-f4-before-restart.json",
+        "--screenshot-dir",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0010\\eld-f4-implementer\\evidence\\screenshots"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:59:42.906834+00:00",
+      "elapsed_ms": 9886.6,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/11-edge-f4-before-restart.log",
+      "log_sha256": "0440d353a6ed6c221b64830469b81b6c45091f21dea76f3d5d3e94a21560e138"
+    },
+    {
+      "step": "12-pg-cluster-stop-for-restart",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/stop-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:59:53.955710+00:00",
+      "elapsed_ms": 1483.7,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/12-pg-cluster-stop-for-restart.log",
+      "log_sha256": "abb3018e667fbe8e59e07c10f22a18e1d6ba1db3821a352603f86fb243d46872"
+    },
+    {
+      "step": "13-pg-cluster-start-after-restart",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/start-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T09:59:57.994795+00:00",
+      "elapsed_ms": 2573.2,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/13-pg-cluster-start-after-restart.log",
+      "log_sha256": "5ee50273139d699d420a2ae08c197302544a3d2390ec899540d38e6e7453de3b"
+    },
+    {
+      "step": "14-edge-f4-after-restart-reopen",
+      "command": [
+        "node",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0010\\eld-f4-implementer\\scripts\\verify_f4_restart_edge.mjs",
+        "--phase",
+        "after-restart",
+        "--api-port",
+        "5590",
+        "--ui-port",
+        "4610",
+        "--output",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0010\\eld-f4-implementer\\evidence\\edge-f4-after-restart.json",
+        "--screenshot-dir",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0010\\eld-f4-implementer\\evidence\\screenshots"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T10:00:09.975628+00:00",
+      "elapsed_ms": 10588.2,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/14-edge-f4-after-restart-reopen.log",
+      "log_sha256": "26dbdf61c64476d6c4416f34d84f0091a696fdd4b700e1447e6fe93955266986"
+    },
+    {
+      "step": "15-pg-cluster-stop-final",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/stop-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T10:00:21.728134+00:00",
+      "elapsed_ms": 623.3,
+      "exit_code": 0,
+      "log_relpath": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/15-pg-cluster-stop-final.log",
+      "log_sha256": "1c19ab0a9ce0ed6eb859dfa94dd4515f78b666da90458de961b0418cb3a31fa1"
+    }
+  ],
+  "zero_ocr_worker_processes": true,
+  "all_ports_unbound_after_cleanup": true
+}

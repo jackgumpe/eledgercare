@@ -1,0 +1,736 @@
+{
+  "packet": "WP-0010",
+  "author": "eld-f4-implementer",
+  "branch": "feature/wp-0010-f4-archive",
+  "packet_base_sha": "956c056be2ec970340074871ecdd7e1a9855d944",
+  "prior_preparation_publication_sha": "033d1dabb348b4dd6ba450ae9397c9f901a8b97b",
+  "dispatch_base_sha": "7345ef03dfa4d5f039259d0b8b9505685112469d",
+  "initial_frozen_candidate_sha": "74555395e8ed55020ffd004369b30581bfa7963c",
+  "final_frozen_deliverable_sha": "c383021be1774451ba3034d89255b38b4267353b",
+  "product_trees_identical_between_74555395_and_c383021b": true,
+  "base_to_deliverable_count": 52,
+  "base_to_deliverable_paths": [
+    {
+      "action": "M",
+      "path": "deploy/dev/database/grant-runtime.sql",
+      "bytes": 1924,
+      "sha256": "a0f6dbee2f99df326013c270a27f2ae7e212b588bab2bae4e43c4ac80c379156",
+      "git_blob_oid": "51dbe05b36f8433889e8405361f3bfa0ea016faf"
+    },
+    {
+      "action": "M",
+      "path": "deploy/dev/postgres/setup-cluster.ps1",
+      "bytes": 5470,
+      "sha256": "73aefe6045c64f55d9ff310200574265cfb83f0ffac640ff60418d5358a7a3a3",
+      "git_blob_oid": "fd177a5766bc00a887aa9340dc39bd9e3f79ef5f"
+    },
+    {
+      "action": "M",
+      "path": "deploy/dev/smoke/run-browser-checks.ps1",
+      "bytes": 2079,
+      "sha256": "1a58742c6c5282ba8d2519459bcf9fa3b445e415f3d7b80aae4d1d69f9c0228d",
+      "git_blob_oid": "f588b5a7855bcc7e4b8127d0d08757fc18388595"
+    },
+    {
+      "action": "M",
+      "path": "deploy/dev/smoke/run-demo-smoke.ps1",
+      "bytes": 7394,
+      "sha256": "72b1077bfb95645f907fc173c1eaeb72f657a60cbcc5b1494065179f3eda6ff2",
+      "git_blob_oid": "429b4faa20f3e7a0761a7536b257c001ee010c50"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/.gitattributes",
+      "bytes": 20,
+      "sha256": "e97602ab9cac70102245345c5ab0fc9830df8b17f1072b188265a662a3a547ae",
+      "git_blob_oid": "bd2de00cda30e433943ceb23971ade38d5a3fc86"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/contract-freeze.md",
+      "bytes": 6122,
+      "sha256": "2f7f26b1559f5e6fcc274d7b87b28569977e4530aca5fb98fd1787ceeaae8b0a",
+      "git_blob_oid": "fb7e9410b6edd70dfe76d617ca3773e9349a89cf"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/resource-ledger.md",
+      "bytes": 3847,
+      "sha256": "41b874149c9fda0d5997618d8a8511d50f06314b1d0091d45e1b2898c85ac8f1",
+      "git_blob_oid": "630aed8b2bb69cd1c84250982ae7f19e013bc8cb"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/retained-failures/74555395-11-edge-f4-before-restart.log",
+      "bytes": 937,
+      "sha256": "fa31c099961ad0a1259fc03ac04a90af5a9427415dcf74863d890f6b46ff2442",
+      "git_blob_oid": "f150e9adc2a11562106f835815100357738ae6ac"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/retained-failures/74555395-task-525.log",
+      "bytes": 983,
+      "sha256": "ad2c72daa25be20f3da3e79f448252a42b6b5b86bdac5d15a9a80efad4646c5a",
+      "git_blob_oid": "61f960e2cccb4e7d3c0f798640eed131adc54448"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/retained-failures/README.md",
+      "bytes": 4361,
+      "sha256": "fca2096ba18fe5ae9fca34cdc7423bde83cad16af1da7b17e55d5120058fa614",
+      "git_blob_oid": "c83a4758a32d87a2e200100de4119529949b9190"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/scripts/run_f4_decisive_verification.py",
+      "bytes": 49069,
+      "sha256": "8e1f858c1316599571c14347a8ebd79d06a73c047a6bb52ec28589f559ccab88",
+      "git_blob_oid": "2bd72fea380850de88d08edbc6e2f90703a55473"
+    },
+    {
+      "action": "A",
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/scripts/verify_f4_restart_edge.mjs",
+      "bytes": 15847,
+      "sha256": "5b9dcd5419aa6d6a51d0ab50868f706f054ba7627ed0f2b8a5587374ca9c982b",
+      "git_blob_oid": "a0b3cd1b9a3237703b39849a8bbe53c0590e5ab9"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Api/ArchiveEndpoints.cs",
+      "bytes": 2746,
+      "sha256": "f86a09601b8bbabaf0fbcbbce8656a041ea2eab74938daa420f132cdaf2d20a1",
+      "git_blob_oid": "3662393425da65a0029d9728abcc446300964343"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Api/ArchiveResponses.cs",
+      "bytes": 6472,
+      "sha256": "612d4b90ec24fe2ec420d3cc3b7dcfc5486ff6b4adf8e142ad7064f229f17f76",
+      "git_blob_oid": "6cab32c1af2f8436445e4d6848ddf0f8e94b4b49"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Api/Program.cs",
+      "bytes": 3840,
+      "sha256": "d66b96f09c36b193d46b682b964c59cae04f1c48e5eaa7e1731e65e067d9f85c",
+      "git_blob_oid": "b38607eb230d341a8b596e6c016154a28b4c5a15"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Api/appsettings.json",
+      "bytes": 504,
+      "sha256": "ddca0dad1118ffe6e802a7a34856335bac13ccd9636bf8fd8ed0774ed9a473bb",
+      "git_blob_oid": "636802fefdd8214bfdbcb1b68dd9f46cf9f92260"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Application/Archive/IArchiveStore.cs",
+      "bytes": 2060,
+      "sha256": "6f82763c18161dcf7a936087316927b03d23511625e6efb086cc5c01d11a2c8c",
+      "git_blob_oid": "13bff6e9cf6ebd46d651c44dec6f3f807bcfb3e5"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Application/Archive/SearchArchive.cs",
+      "bytes": 1163,
+      "sha256": "07de10b0f3e8c84e374b88b267d9924e363f40892058dc6e53b73e4944fc7184",
+      "git_blob_oid": "0a2da3e5529f30f05271220a0abb1e9e8620820e"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Archive/ArchiveCursor.cs",
+      "bytes": 9019,
+      "sha256": "dd162c39e8a054a64de78db094692e607616a51905921242d8706e8c9eb6ef02",
+      "git_blob_oid": "f26295dde82d71747f7685d25663d0482e7ccd46"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Archive/ArchiveProjectionEntities.cs",
+      "bytes": 22535,
+      "sha256": "b7ed1536857002eabb2400519477ca60ee32806e5e1d7d0df28852bad8ea576b",
+      "git_blob_oid": "e000497ec4504a939ef27a6de370248db1a9d118"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Archive/ArchiveQueryValidator.cs",
+      "bytes": 14526,
+      "sha256": "0c99b3be3700eb6c80398a3571d7fac1fedd9183b25f5b2da0987d2190d8d707",
+      "git_blob_oid": "0b3c752ce7185f961f2300596a6e6fc32feed7db"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Archive/ArchiveSchema.cs",
+      "bytes": 1889,
+      "sha256": "866414c176fd44dcf0f3a4ef6923827aa614754583f61d57f458c762504933e7",
+      "git_blob_oid": "5768e5aedebf46ac5bcbd8e2150fdcbfa1efdc9a"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Archive/ArchiveSnippetBuilder.cs",
+      "bytes": 11304,
+      "sha256": "5de6eb159d062caef8dc0084199687e23956e4ca5c0f244146d778a177243ea6",
+      "git_blob_oid": "fc2883516a0cc2cc17e72739bfda8d61a60e5b91"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Domain/Archive/CLocaleTextMatcher.cs",
+      "bytes": 2840,
+      "sha256": "5f3e8200046e5558e946bea4dee5c068b084f22eca4585b8c00abab720a4ae62",
+      "git_blob_oid": "595ffb4fc364c78ba9f2dde3a1fefbed50735e3e"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Infrastructure/InfrastructureServices.cs",
+      "bytes": 2289,
+      "sha256": "e141c4ce0f62fe6a18b7bb6a482b2b4354bbf85c62444833339decd755372286",
+      "git_blob_oid": "bc09f9564728663f712130a4c9963dd3b155415c"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/ArchiveProjectionInitializer.cs",
+      "bytes": 23484,
+      "sha256": "a46851663557861a2b5e87af2ad34846f6bfedaa4657a7705ef683ec2a289dbc",
+      "git_blob_oid": "0b5b509a61d725e4f19747fdcf7028537760fee2"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/ArchiveStore.cs",
+      "bytes": 23642,
+      "sha256": "4d6b13307eefbcfc76c264c514a7d78e9638dfc515dc2fb2e141ca0b1fa7c00a",
+      "git_blob_oid": "419be0c32a32d1ce56d9f249b66dddc4d8df544c"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs",
+      "bytes": 38530,
+      "sha256": "532175ba0407a50af89f98f765522ace0eac83773b5ebe1dc2166355d9463fc8",
+      "git_blob_oid": "82fe70878250f1f06842b2cd00c0026e049b20e8"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+      "bytes": 31290,
+      "sha256": "e8678d04b38ae54d3408f3e89ad9bb6601959631e9b2a563d57101a53a68ce70",
+      "git_blob_oid": "4ebb6c301474a2759b9b0be67822cdb7da14d250"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/Migrations/20261117091519_AddSourceLinkedArchive.Designer.cs",
+      "bytes": 48939,
+      "sha256": "ba4746bb2bf2f00c12ad124490f2479b7493669682a780c7c2e10e6c9e5ce27b",
+      "git_blob_oid": "5256b40c3d19bc6dce98539ef5fba7f62abb8046"
+    },
+    {
+      "action": "A",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/Migrations/20261117091519_AddSourceLinkedArchive.cs",
+      "bytes": 6949,
+      "sha256": "b62797cedd14cf31d3efd96341a3e92a835596391b61df3cae092382ee459747",
+      "git_blob_oid": "5527c1227581e9f414cf0789f98637b103d6a47b"
+    },
+    {
+      "action": "M",
+      "path": "src/ELedgerCare.Infrastructure/Persistence/Migrations/ELedgerCareDbContextModelSnapshot.cs",
+      "bytes": 48828,
+      "sha256": "cdb0096ce8c52240a4b9171d82f14cc27af267385ef41122ec61638afabef37b",
+      "git_blob_oid": "5c1c54042df808dff11f5d7b1d6475a9685c7622"
+    },
+    {
+      "action": "A",
+      "path": "tests/ELedgerCare.Acceptance.Tests/ArchiveAcceptanceTests.cs",
+      "bytes": 44796,
+      "sha256": "1bfbdcafb001266e0875ee443d4062b4f28affe0b86a5c4e6798a4ac69016598",
+      "git_blob_oid": "59c086433a2446954b4db9abdb70ed1ef87fb8c1"
+    },
+    {
+      "action": "M",
+      "path": "tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs",
+      "bytes": 51311,
+      "sha256": "4f27a6f0f39a24a7afd7568d801b8e9440fd1c7ed16a031fbb75b85a668b6118",
+      "git_blob_oid": "88dc624dba4bfd5e270db80e26d6e503a49150dc"
+    },
+    {
+      "action": "A",
+      "path": "tests/ELedgerCare.Domain.Tests/ArchiveDomainTests.cs",
+      "bytes": 13364,
+      "sha256": "f1d1308810e86d0870136e31bcd5f8fc814d915f56092558b23cd0572db7f0bc",
+      "git_blob_oid": "a04007ccd8df51f58b64c08020fa4630c364204f"
+    },
+    {
+      "action": "M",
+      "path": "tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs",
+      "bytes": 5368,
+      "sha256": "2712e81dece67bc514ffbb3a5563f05f6577329a794425e2c154be184622fab0",
+      "git_blob_oid": "d9d4467dc1d344ab7eeaabfed5ddf20a8e9e8654"
+    },
+    {
+      "action": "A",
+      "path": "web/e2e/archive.spec.ts",
+      "bytes": 22814,
+      "sha256": "ed660fe7b15b00a8b0a472e8be99d184f8166f1ac05c9f24af7859b0b19b2442",
+      "git_blob_oid": "d75ece90b461e52eebf63311b928a2e6ef46d984"
+    },
+    {
+      "action": "M",
+      "path": "web/e2e/owned-api.ts",
+      "bytes": 3272,
+      "sha256": "d93f6acadbe8c90dd67dbe0b8a6533cd6f5bec6d2fe11fc98140232245692138",
+      "git_blob_oid": "70bcfd2bc2a41103fe40368e3dc81fd91bdc999f"
+    },
+    {
+      "action": "M",
+      "path": "web/package.json",
+      "bytes": 884,
+      "sha256": "5310bec58b215b74fa673cc71e7a2c005bd036f2f8b823cbc04752a293ee9910",
+      "git_blob_oid": "078fd6ea2143d9db3b87adce566268b1cf8bcf59"
+    },
+    {
+      "action": "M",
+      "path": "web/playwright.config.ts",
+      "bytes": 1296,
+      "sha256": "7fb4d827d1e6eb1592db99c1a6e2921a2258fbe6cd0c851e907e34f32c8197ab",
+      "git_blob_oid": "ab05e0ad7112bf1fc59fc745c1105457da892b8f"
+    },
+    {
+      "action": "M",
+      "path": "web/proxy.conf.json",
+      "bytes": 105,
+      "sha256": "afbb9d64a25b7baaa7212a28ab45d61473036736bdd9aabca1527ec5deb7ea79",
+      "git_blob_oid": "2afa3edfc51d97047d67a83daaaf65de08da984e"
+    },
+    {
+      "action": "M",
+      "path": "web/proxy.conf.mjs",
+      "bytes": 187,
+      "sha256": "e89fc629af827ffe6bce802d2371d4f64bb6a6d8b2d734093fd6408c9abd2334",
+      "git_blob_oid": "804b4e781519f039708fecfc75d34956717a3078"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/app.routes.ts",
+      "bytes": 1149,
+      "sha256": "4fa435740f3a9cb5a69a596f657182f7a0f453ba1fac63e9d0dde6d6bf4c7b69",
+      "git_blob_oid": "8a76d68796fbccc117f9c3fc6cfa5f592a2d17b6"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/app.ts",
+      "bytes": 710,
+      "sha256": "61c6373441b097c44eb0e1e97ab63c30dbd4d1fd801a51c9cb092f2b73d52654",
+      "git_blob_oid": "a1e6546f89b8b5f0e447257f550d4d150e425cef"
+    },
+    {
+      "action": "A",
+      "path": "web/src/app/archive/archive-api.ts",
+      "bytes": 1019,
+      "sha256": "348e04af96025110b5fd4cc68c336e00e6952ec446bcd5ed78a6242bd45eecd1",
+      "git_blob_oid": "531881fa198b0f0fa8e9c9e9bcb7ab06ea527bfa"
+    },
+    {
+      "action": "A",
+      "path": "web/src/app/archive/archive-models.ts",
+      "bytes": 2065,
+      "sha256": "34ac0f2b3efeb9475dd3577e49d3cb1cfd6263a828ac9bd92ef52b44b223f5af",
+      "git_blob_oid": "75c637f7dca2b4b8ce05b50642d9b241eb848321"
+    },
+    {
+      "action": "A",
+      "path": "web/src/app/archive/archive-page.ts",
+      "bytes": 23426,
+      "sha256": "e119c0cc25d8df5b5b4ad1d4cc0883cb7fa7c0c71818e66dd30569d24e5c94b0",
+      "git_blob_oid": "37bed587cc5db4c95f69b2f91c781dbf146df3a5"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/intake/document-page.ts",
+      "bytes": 22896,
+      "sha256": "a45cca2e608d01c6def6db37cdb24e883b35d6961b47993f4230079d681c25bc",
+      "git_blob_oid": "4c990abf78f782d2d4541c75ebc2fd463217f7be"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/intake/intake-page.ts",
+      "bytes": 7897,
+      "sha256": "c86066292e8c71b06f030c4b97c40b16ed0cf0aea1c9db5239536eeabb5d517e",
+      "git_blob_oid": "e15f03c5c616a982943a011f2d7e16c21356b229"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/review/pdf-preview-url.ts",
+      "bytes": 1739,
+      "sha256": "048aa9c39940ea78a5547798acd9c2280faa74ae30e4d4ceaefa6cb12f80b28b",
+      "git_blob_oid": "b36a4b8672dc8ed68aa0b112d233e4dfb6e98060"
+    },
+    {
+      "action": "M",
+      "path": "web/src/app/review/work-order-review-page.ts",
+      "bytes": 63582,
+      "sha256": "67c7720d4d64d696c443f8399854ce983eb6f476fe203a373288ac1735e48871",
+      "git_blob_oid": "cc5d650c88c92bf4e095d15e863b0d8e5267d88c"
+    },
+    {
+      "action": "M",
+      "path": "web/src/styles.css",
+      "bytes": 9234,
+      "sha256": "ee9f648cb971e56803c2377fa9f0ea638b30fb69c27402f01d105c4a073d9162",
+      "git_blob_oid": "516e0fbcb7f7258039268ef720f42e07a7a0869c"
+    }
+  ],
+  "preserved_identities": [
+    {
+      "path": "AGENTS.md",
+      "base_oid": "7ab4dc0b1f8feeb6550c7050c78458676558425e",
+      "deliverable_oid": "7ab4dc0b1f8feeb6550c7050c78458676558425e",
+      "unchanged": true
+    },
+    {
+      "path": "START_HERE.md",
+      "base_oid": "422e7540fc1f0bd4c57aeb621c67e26f94b756ef",
+      "deliverable_oid": "422e7540fc1f0bd4c57aeb621c67e26f94b756ef",
+      "unchanged": true
+    },
+    {
+      "path": "CURRENT.md",
+      "base_oid": "a65f1b0bc6699c23e3ee910f37872c0e37153d67",
+      "deliverable_oid": "a65f1b0bc6699c23e3ee910f37872c0e37153d67",
+      "unchanged": true
+    },
+    {
+      "path": "INDEX.md",
+      "base_oid": "973e26cf8ef39905b2bdb964fa609b37ed13c53e",
+      "deliverable_oid": "973e26cf8ef39905b2bdb964fa609b37ed13c53e",
+      "unchanged": true
+    },
+    {
+      "path": "ELedgerCare.slnx",
+      "base_oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+      "deliverable_oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+      "unchanged": true
+    },
+    {
+      "path": "Directory.Build.props",
+      "base_oid": "abc535eeaea0896c860984c7359a66c33ec30cf4",
+      "deliverable_oid": "abc535eeaea0896c860984c7359a66c33ec30cf4",
+      "unchanged": true
+    },
+    {
+      "path": "Directory.Packages.props",
+      "base_oid": "95976cb437a7a7747d38df3d6b2a0b5ca94bf2fc",
+      "deliverable_oid": "95976cb437a7a7747d38df3d6b2a0b5ca94bf2fc",
+      "unchanged": true
+    },
+    {
+      "path": "NuGet.Config",
+      "base_oid": "bbb60f7e64cbe6a191284cbbb76e59b3641204a8",
+      "deliverable_oid": "bbb60f7e64cbe6a191284cbbb76e59b3641204a8",
+      "unchanged": true
+    },
+    {
+      "path": "web/package-lock.json",
+      "base_oid": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+      "deliverable_oid": "b2b8106ec1e831d6acc748161c65c11a96c503cf",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures",
+      "base_oid": "2e86c686d2dc6baf40c1907b685f77a0d48de54c",
+      "deliverable_oid": "2e86c686d2dc6baf40c1907b685f77a0d48de54c",
+      "unchanged": true
+    },
+    {
+      "path": "workers/local_ocr",
+      "base_oid": "dc9b69e480f93db1e73ebdd65719efaa9aeab298",
+      "deliverable_oid": "dc9b69e480f93db1e73ebdd65719efaa9aeab298",
+      "unchanged": true
+    },
+    {
+      "path": "workers/local_ocr/README.md",
+      "base_oid": "83ed6624f95c48bfbae4c466201774824f63ef5e",
+      "deliverable_oid": "83ed6624f95c48bfbae4c466201774824f63ef5e",
+      "unchanged": true
+    },
+    {
+      "path": "evaluation",
+      "base_oid": "c9d3ff5a1f3f060169f1a8a0a6452827eae3e188",
+      "deliverable_oid": "c9d3ff5a1f3f060169f1a8a0a6452827eae3e188",
+      "unchanged": true
+    },
+    {
+      "path": "qualification",
+      "base_oid": "9a98eaa342722eff675ff9948947d5f9be6d33b3",
+      "deliverable_oid": "9a98eaa342722eff675ff9948947d5f9be6d33b3",
+      "unchanged": true
+    },
+    {
+      "path": "research",
+      "base_oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+      "deliverable_oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+      "unchanged": true
+    },
+    {
+      "path": "docs/design",
+      "base_oid": "b7c60a6ec2f31d393c0d046f7bed6f16a1dff099",
+      "deliverable_oid": "b7c60a6ec2f31d393c0d046f7bed6f16a1dff099",
+      "unchanged": true
+    },
+    {
+      "path": "docs/coordination",
+      "base_oid": "951aeb25cdbe0924bd9b0b9e67e692e638faa713",
+      "deliverable_oid": "951aeb25cdbe0924bd9b0b9e67e692e638faa713",
+      "unchanged": true
+    },
+    {
+      "path": "docs/kickoffs",
+      "base_oid": "7d0ee4821daa36a2a37c250b03dc26781e6bae1e",
+      "deliverable_oid": "7d0ee4821daa36a2a37c250b03dc26781e6bae1e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/reviews",
+      "base_oid": "0db1de249404279a314b47e3f63152081a80c73c",
+      "deliverable_oid": "0db1de249404279a314b47e3f63152081a80c73c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/agent-reports",
+      "base_oid": "33e8090993349aeee349de42d75e8c397f7c71a3",
+      "deliverable_oid": "33e8090993349aeee349de42d75e8c397f7c71a3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/preparation",
+      "base_oid": "074385689de5bc3b80829ded4040cda4ee95037b",
+      "deliverable_oid": "074385689de5bc3b80829ded4040cda4ee95037b",
+      "unchanged": true
+    }
+  ],
+  "attributed_inputs": [
+    {
+      "path": "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+      "role": "unchanged synthetic 1-page raster PDF",
+      "bytes": 372258,
+      "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+    },
+    {
+      "path": "tests/fixtures/SYN-MP-01-v0-clean.pdf",
+      "role": "unchanged synthetic 3-page clean PDF",
+      "bytes": 8422,
+      "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+    },
+    {
+      "path": "tests/fixtures/F1-SWO-001.pdf",
+      "role": "unchanged synthetic F1 intake PDF",
+      "bytes": 887,
+      "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/raw_output.utf8.bin",
+      "role": "attributed WP-0006 F2 raw output for SYN-WO-01",
+      "bytes": 3236,
+      "sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95"
+    },
+    {
+      "path": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/raw_output.utf8.bin",
+      "role": "attributed WP-0006 F2 raw output for SYN-MP-01",
+      "bytes": 7511,
+      "sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639"
+    }
+  ],
+  "retained_seed_database": {
+    "name": "eledgercare_f4_author_seed_f3",
+    "preserved_canonical_sha256": "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085",
+    "forward_migrated_clone_name": "eledgercare_f4_author_migrated"
+  },
+  "post_deliverable_evidence_count": 38,
+  "post_deliverable_evidence_paths": [
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/README.md",
+      "bytes": 13792,
+      "sha256": "39b39e3915e0aaeff1ac7d5b59661b72b3b6a86824d09f99a5e8072554c26194"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/resource-return.json",
+      "bytes": 775,
+      "sha256": "18f4b829b8327862b76e09cfd56748366355d3e157d76f86f92a8f982d40c3bc"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/demo-smoke-receipt.json",
+      "bytes": 1746,
+      "sha256": "3b6d852f08571218499fe09c31c2520b7bb5e3e5bbcb662dcb619eee82088577"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/edge-f4-after-restart.json",
+      "bytes": 1217,
+      "sha256": "b78720a576d1d4d3b9ce8236fae6ca4a5722763c38263e2d4815dc5daa30ef60"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/edge-f4-before-restart.json",
+      "bytes": 1222,
+      "sha256": "f6b1e26afdfffe6efb3f7d592de03df2d8c5c49dfcfb38feda552618b7332317"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/evidence-manifest.json",
+      "bytes": 8140,
+      "sha256": "c17c4172d9320be57d2e4e1e402ee668d6d87f92ddfca5884aeb876599358dff"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/explain-plans.txt",
+      "bytes": 4127,
+      "sha256": "48981c70d196bd3c20cc7510a7b07edcac620229e9c1336501bab74226b3558a"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/01-worker-cpu-tests.log",
+      "bytes": 1819,
+      "sha256": "2dfa1adb5933be6b83590973b8ded4a250b77f88db29eadb75e26a3a592f157a"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/02-dotnet-restore-locked.log",
+      "bytes": 702,
+      "sha256": "7d1cfbeea6a6a091dd8872e8ac3fbde6ef5e2f1b9514bda4f86615a9a0caf485"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/03-dotnet-build-release.log",
+      "bytes": 1459,
+      "sha256": "b3f5b9b5cccde66424cfd5706bba20c8452e72265e7389897c131a08a5e4abd6"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/04-ng-build-production.log",
+      "bytes": 639,
+      "sha256": "0c223bf5398b51e67538de0a0c513c01f6c18a188d195ca29392ee6df1780591"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/05-pg-cluster-start.log",
+      "bytes": 304,
+      "sha256": "c47923e74176ec1ec7c48054e5b4f982943e451f08288926d601ae368771c8f1"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/06-dotnet-test-release.log",
+      "bytes": 1969,
+      "sha256": "624cffaa32414c6dca545b0e659bfcec60e17eb2a5d5eb5057c584711832d702"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/07-prepare-dev-db.log",
+      "bytes": 1354,
+      "sha256": "de1f2ecae9380b765f2312d369ffe0fd26fb277d177644fb3a36770c2f9569ab"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/08-demo-smoke-5590.log",
+      "bytes": 2234,
+      "sha256": "99dca4f92d8b38711698a65e51195818e3fc1461d5bf1bdc8d430d5b6ac770ad"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/09-playwright-edge-e2e.log",
+      "bytes": 6323,
+      "sha256": "85d42711a0303c788dc97527bcf7e7a101abc5531d75dfe054fe531e8b3f7d38"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/10-forward-migrate-retained-seed-clone.log",
+      "bytes": 1398,
+      "sha256": "af95cf92aef50da6a6234dcfbb2b55d32e917f33556f683f22f33dcd752bf802"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/11-edge-f4-before-restart.log",
+      "bytes": 742,
+      "sha256": "0440d353a6ed6c221b64830469b81b6c45091f21dea76f3d5d3e94a21560e138"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/12-pg-cluster-stop-for-restart.log",
+      "bytes": 177,
+      "sha256": "abb3018e667fbe8e59e07c10f22a18e1d6ba1db3821a352603f86fb243d46872"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/13-pg-cluster-start-after-restart.log",
+      "bytes": 304,
+      "sha256": "5ee50273139d699d420a2ae08c197302544a3d2390ec899540d38e6e7453de3b"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/14-edge-f4-after-restart-reopen.log",
+      "bytes": 740,
+      "sha256": "26dbdf61c64476d6c4416f34d84f0091a696fdd4b700e1447e6fe93955266986"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/15-pg-cluster-stop-final.log",
+      "bytes": 176,
+      "sha256": "1c19ab0a9ce0ed6eb859dfa94dd4515f78b666da90458de961b0418cb3a31fa1"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/owned-api-5590-after-restart.log",
+      "bytes": 629,
+      "sha256": "f32c784234007ebdb6a0425f280c92e40edafc24176ef97cf163ecbbf84827a1"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/owned-api-5590-before-restart.log",
+      "bytes": 629,
+      "sha256": "13118ee6d01093c94d5cd85e9a1a68cedf250607fb7308817d35c64689dfbf48"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/owned-ui-4610-after-restart.log",
+      "bytes": 488,
+      "sha256": "69df2917ca9ca1b7d4ac8611e4bf2e864527418bf761a4805e3a882fa8403f4f"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/logs/owned-ui-4610-before-restart.log",
+      "bytes": 488,
+      "sha256": "37e426d75e6695ce40daf0c65f20b168023488d5868b452031bb4d4a42a0f4b1"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/after-restart-01-archive-browse-7-seeds.png",
+      "bytes": 90303,
+      "sha256": "2c3c71a5cae7ac804c082a2b257883543763fcc02e54b990a333c7642f1551be"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/after-restart-02-seed2-mp01-page2-pdf-preview.png",
+      "bytes": 126051,
+      "sha256": "79cc19209b3b1cd03b21b6193ea36fdfb4459fb8750a98944eb26f45f90d62de"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/after-restart-03-seed1-pinned-rev2-history.png",
+      "bytes": 170957,
+      "sha256": "c2b0f6c5b2124b582caf3deac28d03c2e21d4b1aefc2cc735df7ed58708c4c1d"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/after-restart-04-seed5-reviewed-page2-two-pane.png",
+      "bytes": 148302,
+      "sha256": "3ce4824325129b0ed9120a336931dd36ed6cc51266eab1cc87451ec935ae3f3e"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/before-restart-01-archive-browse-7-seeds.png",
+      "bytes": 90303,
+      "sha256": "2c3c71a5cae7ac804c082a2b257883543763fcc02e54b990a333c7642f1551be"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/before-restart-02-seed2-mp01-page2-pdf-preview.png",
+      "bytes": 126051,
+      "sha256": "79cc19209b3b1cd03b21b6193ea36fdfb4459fb8750a98944eb26f45f90d62de"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/before-restart-03-seed1-pinned-rev2-history.png",
+      "bytes": 170957,
+      "sha256": "c2b0f6c5b2124b582caf3deac28d03c2e21d4b1aefc2cc735df7ed58708c4c1d"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/before-restart-04-seed5-reviewed-page2-two-pane.png",
+      "bytes": 148302,
+      "sha256": "3ce4824325129b0ed9120a336931dd36ed6cc51266eab1cc87451ec935ae3f3e"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/f4-01-document-mp01-page2-preview.png",
+      "bytes": 125395,
+      "sha256": "041d7e7e3977c597dc75b15c729ff6fc161e050ba3c1a485cbb5ed6b52438937"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/f4-02-archive-reviewed-hit-newer-draft.png",
+      "bytes": 84386,
+      "sha256": "5bc2cb62cfb1c058a14c1e75fa7536deba6112e316e9b59e298799e2e117593f"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/screenshots/f4-03-pinned-historical-rev2-focused.png",
+      "bytes": 170129,
+      "sha256": "b1d40705b0a33890024290c4eeb51e8fa9975966e86b215cac04a8ae374691e1"
+    },
+    {
+      "path": "docs/implementation/WP-0010/eld-f4-implementer/evidence/verification-summary.json",
+      "bytes": 13366,
+      "sha256": "8a6ad15e622572917aad786e6bbd9de789006807f5c1cbc0667ad140f6300ee1"
+    }
+  ]
+}
