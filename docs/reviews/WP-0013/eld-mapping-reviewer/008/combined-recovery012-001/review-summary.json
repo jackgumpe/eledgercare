@@ -1,0 +1,999 @@
+{
+  "comparison_sha256": "869248735d0fc6473f73b18ef1be816f514e14e8826258b066d84ba2f6162008",
+  "sentinel_comparison": {
+    "fixture_id": "WP13-F04-conflict-v0",
+    "author_denominator": 12,
+    "reviewer_denominator": 1,
+    "both_completed": true,
+    "raw_bytes_equal": true,
+    "token_ids_equal": true,
+    "full_scores_equal": true,
+    "full_predictions_equal": true,
+    "full_policy_scores_equal": true,
+    "author_raw_sha256": "6765de153bd318a03d5339966349f5ddc484ba03ef694ae1a9cf6f485c702d05",
+    "reviewer_raw_sha256": "6765de153bd318a03d5339966349f5ddc484ba03ef694ae1a9cf6f485c702d05",
+    "author_token_sequence_sha256": "3c774db374974759a356224e3b86d467d6c4862283d190703f0ce4c03977d20d",
+    "reviewer_token_sequence_sha256": "3c774db374974759a356224e3b86d467d6c4862283d190703f0ce4c03977d20d",
+    "render_rasters_equal": true,
+    "author_status": "completed",
+    "reviewer_status": "completed",
+    "interpretation": "Empirical equality/differences, not GPU determinism. If either call is unavailable, score/policy equality describes accounting only; no observed-output equality is inferred."
+  },
+  "populations": {
+    "author": {
+      "documents": 12,
+      "completed": 12,
+      "metadata_issues": [],
+      "mappers": {
+        "b0": {
+          "metrics": {
+            "fields": {
+              "correct": 0,
+              "total": 87
+            },
+            "cells": {
+              "correct": 0,
+              "total": 153
+            },
+            "rows": {
+              "correct": 0,
+              "total": 27
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 12
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 87
+            },
+            "normalized_cells": {
+              "correct": 0,
+              "total": 153
+            },
+            "page_count": {
+              "correct": 12,
+              "total": 12
+            }
+          },
+          "policy": {
+            "abstentions": 255,
+            "abstentions_truth_ambiguous": 3,
+            "abstentions_truth_known": 252,
+            "abstentions_truth_unknown": 0,
+            "ambiguous_truth_assignments": 0,
+            "correct_assignments": 0,
+            "covered_slots": 0,
+            "eligible_candidates": 0,
+            "eligible_required_abstentions": 89,
+            "eligible_slots": 255,
+            "eligible_truth_ambiguous": 3,
+            "eligible_truth_known": 252,
+            "eligible_truth_unknown": 0,
+            "incorrect_assignments": 0,
+            "observed_candidates": 0,
+            "observed_surplus_output_candidates": 0,
+            "required_abstention_observed": 89,
+            "required_abstention_observed_truth_ambiguous": 3,
+            "required_abstention_observed_truth_known": 86,
+            "required_abstention_observed_truth_unknown": 0,
+            "required_abstention_slots": 89,
+            "required_abstention_violations": 0,
+            "slots": 255,
+            "strict_correct_known_slots": 0,
+            "surplus_candidates_within_slots": 0,
+            "surplus_output_candidates": 0,
+            "truth_ambiguous": 3,
+            "truth_known": 252,
+            "truth_unknown": 0,
+            "unavailable_required_abstentions": 0,
+            "unavailable_slots": 0,
+            "unavailable_truth_ambiguous": 0,
+            "unavailable_truth_known": 0,
+            "unavailable_truth_unknown": 0,
+            "unexpected_abstentions": 166,
+            "unknown_truth_assignments": 0
+          },
+          "equal_family_means": {
+            "fields": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "cells": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "normalized_fields": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "normalized_cells": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "rows": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "expected_absences": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "page_count": {
+              "mean": 1.0,
+              "families_with_denominator": 4
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.0013736263736263737,
+              "families_with_denominator": 4
+            }
+          }
+        },
+        "mapping_v1": {
+          "metrics": {
+            "fields": {
+              "correct": 1,
+              "total": 87
+            },
+            "cells": {
+              "correct": 0,
+              "total": 153
+            },
+            "rows": {
+              "correct": 0,
+              "total": 27
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 12
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 87
+            },
+            "normalized_cells": {
+              "correct": 0,
+              "total": 153
+            },
+            "page_count": {
+              "correct": 12,
+              "total": 12
+            }
+          },
+          "policy": {
+            "abstentions": 251,
+            "abstentions_truth_ambiguous": 0,
+            "abstentions_truth_known": 251,
+            "abstentions_truth_unknown": 0,
+            "ambiguous_truth_assignments": 3,
+            "correct_assignments": 1,
+            "covered_slots": 4,
+            "eligible_candidates": 4,
+            "eligible_required_abstentions": 89,
+            "eligible_slots": 255,
+            "eligible_truth_ambiguous": 3,
+            "eligible_truth_known": 252,
+            "eligible_truth_unknown": 0,
+            "incorrect_assignments": 0,
+            "observed_candidates": 4,
+            "observed_surplus_output_candidates": 0,
+            "required_abstention_observed": 85,
+            "required_abstention_observed_truth_ambiguous": 0,
+            "required_abstention_observed_truth_known": 85,
+            "required_abstention_observed_truth_unknown": 0,
+            "required_abstention_slots": 89,
+            "required_abstention_violations": 4,
+            "slots": 255,
+            "strict_correct_known_slots": 1,
+            "surplus_candidates_within_slots": 0,
+            "surplus_output_candidates": 0,
+            "truth_ambiguous": 3,
+            "truth_known": 252,
+            "truth_unknown": 0,
+            "unavailable_required_abstentions": 0,
+            "unavailable_slots": 0,
+            "unavailable_truth_ambiguous": 0,
+            "unavailable_truth_known": 0,
+            "unavailable_truth_unknown": 0,
+            "unexpected_abstentions": 166,
+            "unknown_truth_assignments": 0
+          },
+          "equal_family_means": {
+            "fields": {
+              "mean": 0.011904761904761904,
+              "families_with_denominator": 4
+            },
+            "cells": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "normalized_fields": {
+              "mean": 0.011904761904761904,
+              "families_with_denominator": 4
+            },
+            "normalized_cells": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "rows": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "expected_absences": {
+              "mean": 0.0,
+              "families_with_denominator": 4
+            },
+            "page_count": {
+              "mean": 1.0,
+              "families_with_denominator": 4
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.0013736263736263737,
+              "families_with_denominator": 4
+            }
+          }
+        },
+        "mapping_v2": {
+          "metrics": {
+            "fields": {
+              "correct": 37,
+              "total": 87
+            },
+            "cells": {
+              "correct": 48,
+              "total": 153
+            },
+            "rows": {
+              "correct": 12,
+              "total": 27
+            },
+            "expected_absences": {
+              "correct": 6,
+              "total": 12
+            },
+            "normalized_fields": {
+              "correct": 37,
+              "total": 87
+            },
+            "normalized_cells": {
+              "correct": 48,
+              "total": 153
+            },
+            "page_count": {
+              "correct": 12,
+              "total": 12
+            }
+          },
+          "policy": {
+            "abstentions": 164,
+            "abstentions_truth_ambiguous": 3,
+            "abstentions_truth_known": 161,
+            "abstentions_truth_unknown": 0,
+            "ambiguous_truth_assignments": 0,
+            "correct_assignments": 91,
+            "covered_slots": 91,
+            "eligible_candidates": 91,
+            "eligible_required_abstentions": 89,
+            "eligible_slots": 255,
+            "eligible_truth_ambiguous": 3,
+            "eligible_truth_known": 252,
+            "eligible_truth_unknown": 0,
+            "incorrect_assignments": 0,
+            "observed_candidates": 91,
+            "observed_surplus_output_candidates": 0,
+            "required_abstention_observed": 89,
+            "required_abstention_observed_truth_ambiguous": 3,
+            "required_abstention_observed_truth_known": 86,
+            "required_abstention_observed_truth_unknown": 0,
+            "required_abstention_slots": 89,
+            "required_abstention_violations": 0,
+            "slots": 255,
+            "strict_correct_known_slots": 91,
+            "surplus_candidates_within_slots": 0,
+            "surplus_output_candidates": 0,
+            "truth_ambiguous": 3,
+            "truth_known": 252,
+            "truth_unknown": 0,
+            "unavailable_required_abstentions": 0,
+            "unavailable_slots": 0,
+            "unavailable_truth_ambiguous": 0,
+            "unavailable_truth_known": 0,
+            "unavailable_truth_unknown": 0,
+            "unexpected_abstentions": 75,
+            "unknown_truth_assignments": 0
+          },
+          "equal_family_means": {
+            "fields": {
+              "mean": 0.4880952380952381,
+              "families_with_denominator": 4
+            },
+            "cells": {
+              "mean": 0.5,
+              "families_with_denominator": 4
+            },
+            "normalized_fields": {
+              "mean": 0.4880952380952381,
+              "families_with_denominator": 4
+            },
+            "normalized_cells": {
+              "mean": 0.5,
+              "families_with_denominator": 4
+            },
+            "rows": {
+              "mean": 0.5,
+              "families_with_denominator": 4
+            },
+            "expected_absences": {
+              "mean": 0.5,
+              "families_with_denominator": 4
+            },
+            "page_count": {
+              "mean": 1.0,
+              "families_with_denominator": 4
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.0013736263736263737,
+              "families_with_denominator": 4
+            }
+          }
+        }
+      },
+      "transitions": {
+        "b0_to_mapping_v1": {
+          "fields": {
+            "gains": 1,
+            "losses": 0,
+            "neutral_credit": 86,
+            "total": 87
+          },
+          "cells": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 153,
+            "total": 153
+          },
+          "rows": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 27,
+            "total": 27
+          },
+          "expected_absences": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 12,
+            "total": 12
+          },
+          "normalized_fields": {
+            "gains": 1,
+            "losses": 0,
+            "neutral_credit": 86,
+            "total": 87
+          },
+          "normalized_cells": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 153,
+            "total": 153
+          }
+        },
+        "b0_to_mapping_v2": {
+          "fields": {
+            "gains": 37,
+            "losses": 0,
+            "neutral_credit": 50,
+            "total": 87
+          },
+          "cells": {
+            "gains": 48,
+            "losses": 0,
+            "neutral_credit": 105,
+            "total": 153
+          },
+          "rows": {
+            "gains": 12,
+            "losses": 0,
+            "neutral_credit": 15,
+            "total": 27
+          },
+          "expected_absences": {
+            "gains": 6,
+            "losses": 0,
+            "neutral_credit": 6,
+            "total": 12
+          },
+          "normalized_fields": {
+            "gains": 37,
+            "losses": 0,
+            "neutral_credit": 50,
+            "total": 87
+          },
+          "normalized_cells": {
+            "gains": 48,
+            "losses": 0,
+            "neutral_credit": 105,
+            "total": 153
+          }
+        },
+        "mapping_v1_to_mapping_v2": {
+          "fields": {
+            "gains": 37,
+            "losses": 1,
+            "neutral_credit": 49,
+            "total": 87
+          },
+          "cells": {
+            "gains": 48,
+            "losses": 0,
+            "neutral_credit": 105,
+            "total": 153
+          },
+          "rows": {
+            "gains": 12,
+            "losses": 0,
+            "neutral_credit": 15,
+            "total": 27
+          },
+          "expected_absences": {
+            "gains": 6,
+            "losses": 0,
+            "neutral_credit": 6,
+            "total": 12
+          },
+          "normalized_fields": {
+            "gains": 37,
+            "losses": 1,
+            "neutral_credit": 49,
+            "total": 87
+          },
+          "normalized_cells": {
+            "gains": 48,
+            "losses": 0,
+            "neutral_credit": 105,
+            "total": 153
+          }
+        }
+      },
+      "descriptive_telemetry": {
+        "primary_call_wall_s": [
+          36.1058129,
+          43.3593717,
+          36.6359282,
+          62.4486508,
+          68.7935848,
+          62.126795,
+          38.7616178,
+          43.158837,
+          38.9658653,
+          39.9959777,
+          48.871019,
+          40.3318212
+        ],
+        "sum_s": 559.5552814,
+        "mean_s": 46.62960678333334,
+        "max_cuda_allocated": 7293335040,
+        "max_cuda_reserved": 7480541184,
+        "sampled_host_private_peak_lower_bound": 10881638400,
+        "sampled_host_working_set_peak_lower_bound": 2388942848
+      }
+    },
+    "reviewer": {
+      "documents": 1,
+      "completed": 1,
+      "metadata_issues": [],
+      "mappers": {
+        "b0": {
+          "metrics": {
+            "fields": {
+              "correct": 0,
+              "total": 6
+            },
+            "cells": {
+              "correct": 0,
+              "total": 8
+            },
+            "rows": {
+              "correct": 0,
+              "total": 2
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 1
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 6
+            },
+            "normalized_cells": {
+              "correct": 0,
+              "total": 8
+            },
+            "page_count": {
+              "correct": 1,
+              "total": 1
+            }
+          },
+          "policy": {
+            "abstentions": 16,
+            "abstentions_truth_ambiguous": 1,
+            "abstentions_truth_known": 15,
+            "abstentions_truth_unknown": 0,
+            "ambiguous_truth_assignments": 0,
+            "correct_assignments": 0,
+            "covered_slots": 0,
+            "eligible_candidates": 0,
+            "eligible_required_abstentions": 1,
+            "eligible_slots": 16,
+            "eligible_truth_ambiguous": 1,
+            "eligible_truth_known": 15,
+            "eligible_truth_unknown": 0,
+            "incorrect_assignments": 0,
+            "observed_candidates": 0,
+            "observed_surplus_output_candidates": 0,
+            "required_abstention_observed": 1,
+            "required_abstention_observed_truth_ambiguous": 1,
+            "required_abstention_observed_truth_known": 0,
+            "required_abstention_observed_truth_unknown": 0,
+            "required_abstention_slots": 1,
+            "required_abstention_violations": 0,
+            "slots": 16,
+            "strict_correct_known_slots": 0,
+            "surplus_candidates_within_slots": 0,
+            "surplus_output_candidates": 0,
+            "truth_ambiguous": 1,
+            "truth_known": 15,
+            "truth_unknown": 0,
+            "unavailable_required_abstentions": 0,
+            "unavailable_slots": 0,
+            "unavailable_truth_ambiguous": 0,
+            "unavailable_truth_known": 0,
+            "unavailable_truth_unknown": 0,
+            "unexpected_abstentions": 15,
+            "unknown_truth_assignments": 0
+          },
+          "equal_family_means": {
+            "fields": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "cells": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "normalized_fields": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "normalized_cells": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "rows": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "expected_absences": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "page_count": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            }
+          }
+        },
+        "mapping_v1": {
+          "metrics": {
+            "fields": {
+              "correct": 0,
+              "total": 6
+            },
+            "cells": {
+              "correct": 0,
+              "total": 8
+            },
+            "rows": {
+              "correct": 0,
+              "total": 2
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 1
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 6
+            },
+            "normalized_cells": {
+              "correct": 0,
+              "total": 8
+            },
+            "page_count": {
+              "correct": 1,
+              "total": 1
+            }
+          },
+          "policy": {
+            "abstentions": 15,
+            "abstentions_truth_ambiguous": 0,
+            "abstentions_truth_known": 15,
+            "abstentions_truth_unknown": 0,
+            "ambiguous_truth_assignments": 1,
+            "correct_assignments": 0,
+            "covered_slots": 1,
+            "eligible_candidates": 1,
+            "eligible_required_abstentions": 1,
+            "eligible_slots": 16,
+            "eligible_truth_ambiguous": 1,
+            "eligible_truth_known": 15,
+            "eligible_truth_unknown": 0,
+            "incorrect_assignments": 0,
+            "observed_candidates": 1,
+            "observed_surplus_output_candidates": 0,
+            "required_abstention_observed": 0,
+            "required_abstention_observed_truth_ambiguous": 0,
+            "required_abstention_observed_truth_known": 0,
+            "required_abstention_observed_truth_unknown": 0,
+            "required_abstention_slots": 1,
+            "required_abstention_violations": 1,
+            "slots": 16,
+            "strict_correct_known_slots": 0,
+            "surplus_candidates_within_slots": 0,
+            "surplus_output_candidates": 0,
+            "truth_ambiguous": 1,
+            "truth_known": 15,
+            "truth_unknown": 0,
+            "unavailable_required_abstentions": 0,
+            "unavailable_slots": 0,
+            "unavailable_truth_ambiguous": 0,
+            "unavailable_truth_known": 0,
+            "unavailable_truth_unknown": 0,
+            "unexpected_abstentions": 15,
+            "unknown_truth_assignments": 0
+          },
+          "equal_family_means": {
+            "fields": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "cells": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "normalized_fields": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "normalized_cells": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "rows": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "expected_absences": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            },
+            "page_count": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            }
+          }
+        },
+        "mapping_v2": {
+          "metrics": {
+            "fields": {
+              "correct": 6,
+              "total": 6
+            },
+            "cells": {
+              "correct": 8,
+              "total": 8
+            },
+            "rows": {
+              "correct": 2,
+              "total": 2
+            },
+            "expected_absences": {
+              "correct": 1,
+              "total": 1
+            },
+            "normalized_fields": {
+              "correct": 6,
+              "total": 6
+            },
+            "normalized_cells": {
+              "correct": 8,
+              "total": 8
+            },
+            "page_count": {
+              "correct": 1,
+              "total": 1
+            }
+          },
+          "policy": {
+            "abstentions": 1,
+            "abstentions_truth_ambiguous": 1,
+            "abstentions_truth_known": 0,
+            "abstentions_truth_unknown": 0,
+            "ambiguous_truth_assignments": 0,
+            "correct_assignments": 15,
+            "covered_slots": 15,
+            "eligible_candidates": 15,
+            "eligible_required_abstentions": 1,
+            "eligible_slots": 16,
+            "eligible_truth_ambiguous": 1,
+            "eligible_truth_known": 15,
+            "eligible_truth_unknown": 0,
+            "incorrect_assignments": 0,
+            "observed_candidates": 15,
+            "observed_surplus_output_candidates": 0,
+            "required_abstention_observed": 1,
+            "required_abstention_observed_truth_ambiguous": 1,
+            "required_abstention_observed_truth_known": 0,
+            "required_abstention_observed_truth_unknown": 0,
+            "required_abstention_slots": 1,
+            "required_abstention_violations": 0,
+            "slots": 16,
+            "strict_correct_known_slots": 15,
+            "surplus_candidates_within_slots": 0,
+            "surplus_output_candidates": 0,
+            "truth_ambiguous": 1,
+            "truth_known": 15,
+            "truth_unknown": 0,
+            "unavailable_required_abstentions": 0,
+            "unavailable_slots": 0,
+            "unavailable_truth_ambiguous": 0,
+            "unavailable_truth_known": 0,
+            "unavailable_truth_unknown": 0,
+            "unexpected_abstentions": 0,
+            "unknown_truth_assignments": 0
+          },
+          "equal_family_means": {
+            "fields": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "cells": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "normalized_fields": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "normalized_cells": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "rows": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "expected_absences": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "page_count": {
+              "mean": 1.0,
+              "families_with_denominator": 1
+            },
+            "page_sentinels": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "adjacency": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "cross_page_links": {
+              "mean": null,
+              "families_with_denominator": 0
+            },
+            "text_error_rate": {
+              "mean": 0.0,
+              "families_with_denominator": 1
+            }
+          }
+        }
+      },
+      "transitions": {
+        "b0_to_mapping_v1": {
+          "fields": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 6,
+            "total": 6
+          },
+          "cells": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 8,
+            "total": 8
+          },
+          "rows": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 2,
+            "total": 2
+          },
+          "expected_absences": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 1,
+            "total": 1
+          },
+          "normalized_fields": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 6,
+            "total": 6
+          },
+          "normalized_cells": {
+            "gains": 0,
+            "losses": 0,
+            "neutral_credit": 8,
+            "total": 8
+          }
+        },
+        "b0_to_mapping_v2": {
+          "fields": {
+            "gains": 6,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 6
+          },
+          "cells": {
+            "gains": 8,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 8
+          },
+          "rows": {
+            "gains": 2,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 2
+          },
+          "expected_absences": {
+            "gains": 1,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 1
+          },
+          "normalized_fields": {
+            "gains": 6,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 6
+          },
+          "normalized_cells": {
+            "gains": 8,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 8
+          }
+        },
+        "mapping_v1_to_mapping_v2": {
+          "fields": {
+            "gains": 6,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 6
+          },
+          "cells": {
+            "gains": 8,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 8
+          },
+          "rows": {
+            "gains": 2,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 2
+          },
+          "expected_absences": {
+            "gains": 1,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 1
+          },
+          "normalized_fields": {
+            "gains": 6,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 6
+          },
+          "normalized_cells": {
+            "gains": 8,
+            "losses": 0,
+            "neutral_credit": 0,
+            "total": 8
+          }
+        }
+      },
+      "descriptive_telemetry": {
+        "primary_call_wall_s": [
+          50.1797538
+        ],
+        "sum_s": 50.1797538,
+        "mean_s": 50.1797538,
+        "max_cuda_allocated": 7293335040,
+        "max_cuda_reserved": 7480541184,
+        "sampled_host_private_peak_lower_bound": 10856280064,
+        "sampled_host_working_set_peak_lower_bound": 2372788224
+      }
+    }
+  }
+}
