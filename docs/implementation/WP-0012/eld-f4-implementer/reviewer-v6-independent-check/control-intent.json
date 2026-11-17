@@ -1,0 +1,142 @@
+{
+  "authority": "bdd717446bdfac536537187716f7e647b1e2a430",
+  "independence": "eld-f4-implementer did not author reviewer process helper",
+  "source_binding": "Wait for root exact frozen v6",
+  "controls": [
+    {
+      "id": "old-idle",
+      "condition": "Original v5 rejects root-observed idle Ollama alone",
+      "expected": "reject-old"
+    },
+    {
+      "id": "old-observer",
+      "condition": "Original v5 rejects exact query text in its observer command",
+      "expected": "reject-old"
+    },
+    {
+      "id": "idle-matched",
+      "condition": "Root-accounted PID+creation+exe, same-blob row/header-only ps/no GPU; fresh exact live identity",
+      "expected": "accept"
+    },
+    {
+      "id": "idle-utc-equivalent",
+      "condition": "Creation identity expressed as2026-11-12T11:09:34.549904-05:00 versus2026-11-12T16:09:34.549904+00:00 denotes the same instant",
+      "expected": "accept"
+    },
+    {
+      "id": "idle-offset-changed-instant",
+      "condition": "Same wall-clock CreationDate with changed offset denotes a different creation instant",
+      "expected": "reject"
+    },
+    {
+      "id": "idle-with-own-observer",
+      "condition": "Exact same safe idle state plus actual own observer identity and query",
+      "expected": "accept"
+    },
+    {
+      "id": "idle-unaccounted",
+      "condition": "Same server absent from root accounting",
+      "expected": "reject"
+    },
+    {
+      "id": "idle-reused-pid",
+      "condition": "Same PID with changed creation identity",
+      "expected": "reject"
+    },
+    {
+      "id": "idle-changed-exe",
+      "condition": "Same PID/creation with different executable",
+      "expected": "reject"
+    },
+    {
+      "id": "idle-new-pid",
+      "condition": "Same executable/creation with new PID",
+      "expected": "reject"
+    },
+    {
+      "id": "loaded-current",
+      "condition": "Current ps contains a loaded model row",
+      "expected": "reject"
+    },
+    {
+      "id": "idle-on-gpu",
+      "condition": "Root-accounted idle process gains a GPU row",
+      "expected": "reject"
+    },
+    {
+      "id": "root-row-mismatch",
+      "condition": "Accounting record mismatches the same blob process row",
+      "expected": "reject"
+    },
+    {
+      "id": "root-row-missing",
+      "condition": "Accounting record has no same-blob process row",
+      "expected": "reject"
+    },
+    {
+      "id": "root-loaded",
+      "condition": "Root blob shows a loaded model though current ps is empty",
+      "expected": "reject"
+    },
+    {
+      "id": "root-gpu",
+      "condition": "Root blob shows accounted server GPU row",
+      "expected": "reject"
+    },
+    {
+      "id": "observer-reused-pid",
+      "condition": "Observer PID matches but creation differs",
+      "expected": "reject"
+    },
+    {
+      "id": "observer-changed-exe",
+      "condition": "Observer identity executable differs",
+      "expected": "reject"
+    },
+    {
+      "id": "observer-query-mismatch",
+      "condition": "Same observer identity but command/query mismatch",
+      "expected": "reject"
+    },
+    {
+      "id": "other-powershell",
+      "condition": "Different pwsh process with model-workload command",
+      "expected": "reject"
+    },
+    {
+      "id": "other-python",
+      "condition": "Different Python process with worker command",
+      "expected": "reject"
+    },
+    {
+      "id": "unknown-gpu",
+      "condition": "Unknown executable has a GPU row",
+      "expected": "reject"
+    },
+    {
+      "id": "process-observation-failed",
+      "condition": "Process query nonzero result",
+      "expected": "reject"
+    },
+    {
+      "id": "process-observation-malformed",
+      "condition": "Malformed JSON or malformed process records",
+      "expected": "reject"
+    },
+    {
+      "id": "ollama-observation-failed",
+      "condition": "Relevant Ollama ps nonzero/missing result",
+      "expected": "reject"
+    },
+    {
+      "id": "ollama-observation-malformed",
+      "condition": "Empty or malformed non-header output",
+      "expected": "reject"
+    },
+    {
+      "id": "actual-readonly",
+      "condition": "Exact candidate actual read-only collector and classification, no model import/start or services",
+      "expected": "observe-and-verify"
+    }
+  ]
+}
