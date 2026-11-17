@@ -1,0 +1,31 @@
+{
+  "started_utc": "2026-11-17T18:25:36.690322+00:00",
+  "finished_utc": "2026-11-17T18:25:39.781845+00:00",
+  "root_ack": "6a3408747201693a45aa09228af58420ea07cdef",
+  "commands": [
+    {
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/start-cluster.ps1"
+      ],
+      "exit_code": 0,
+      "utc": "2026-11-17T18:25:38.036528+00:00",
+      "stdout": "Owned cluster started: postmaster PID 24744, started 2026-11-17T18:25:37.7872778Z, data C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\.local\\postgres-data\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/stop-cluster.ps1"
+      ],
+      "exit_code": 0,
+      "utc": "2026-11-17T18:25:39.781845+00:00",
+      "stdout": "waiting for server to shut down.... done\nserver stopped\n",
+      "stderr": ""
+    }
+  ]
+}
