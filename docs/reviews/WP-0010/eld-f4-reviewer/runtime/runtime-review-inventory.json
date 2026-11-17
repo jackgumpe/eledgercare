@@ -1,0 +1,564 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-runtime-inventory/1",
+  "generated_at_utc": "2026-11-17T11:16:44.521587+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "conversation_id": "61105d43-7706-45f2-9176-69d3256248e0",
+  "branch": "review/wp-0010-f4",
+  "merged_review_base_sha": "8f2932c00fa01b46a8262fe7965d953cc966146e",
+  "root_runtime_authority_sha": "d8e4c9b86af5e61157bf55675037c6ddd95efeff",
+  "author_tested_candidate_sha": "c383021be1774451ba3034d89255b38b4267353b",
+  "author_evidence_sha": "ceec957733d6c00c6b4277e7db3f391ab6ccb6b4",
+  "author_003_publication_sha": "7c578be6e8abff4d285ea1b519bbcfaeba1bb8c7",
+  "frozen_reviewer_helpers_sha": "85d3c36c874026a8e9166f29259fb44755422de0",
+  "preserved_tree_oids": {
+    "AGENTS.md": "7ab4dc0b1f8feeb6550c7050c78458676558425e",
+    "START_HERE.md": "422e7540fc1f0bd4c57aeb621c67e26f94b756ef",
+    "CURRENT.md": "135eaf8243e4e89cbf743c636b60fd45b4ac46b8",
+    "INDEX.md": "a89ab47332b005212855bfddb3b862bb746d731a",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "src": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+    "tests": "25c21310699086acb818549b2a4c0b99469208f1",
+    "web": "2aeddf8ec2e1f3d4e3dc40517866d975efadcd3e",
+    "deploy": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1",
+    "workers": "9b548ddcc73cfba8e7683d132840b08afa5a67a3",
+    "evaluation": "9324848e739aff2b9b649cf69513d620b25c2135",
+    "qualification": "44c2861ede14c9802b4c03e4a702852711d0fc00",
+    "research": "5036d17e55f96af3bdeea82a20a32eb54a26ddca",
+    "docs/design": "b7c60a6ec2f31d393c0d046f7bed6f16a1dff099",
+    "docs/reviews/WP-0010/eld-f4-reviewer/design": "fcd69027f52241b89d199b223a522b24a35fff3c",
+    "docs/reviews/WP-0010/eld-f4-reviewer/preparation": "569277890655fc60e492284b42eb8b1d3690f99f",
+    "docs/implementation/WP-0010/eld-f4-implementer": "17ec95ddd040a4150d28baa66c0ec3d04eadfa84",
+    "docs/agent-reports/eld-f4-implementer/WP-0010": "abc0c564de485c086276d5a33852eb70d83d2d1f",
+    "docs/agent-reports/eld-f4-reviewer/WP-0010/002_2026-11-17_review_eld-f4-reviewer.md": "140b73d0aaa7ba0f097d5ecd6f95a28cd1d19501"
+  },
+  "decisive_summary": {
+    "logged_step_count": 16,
+    "assertion_count": 34,
+    "retained_seed_f3_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "migrated_projection_tables_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa",
+    "migrated_saved_queries_sha256": "53d353351b8cababc0daa6b37dd2f96d4e48c890c7b9b9242cb2b3c85d566e4d"
+  },
+  "service_state_verified": {
+    "ports_listening": {
+      "5690": [],
+      "4710": [],
+      "55439": []
+    },
+    "pg_ctl_status_exit_code": 3,
+    "postgres_data_retained": true
+  },
+  "markdown_links_verified_count": 63,
+  "sibling_file_count": 53,
+  "files": [
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/.gitattributes",
+      "is_binary": false,
+      "bytes_raw": 115,
+      "bytes_lf": 115,
+      "sha256_raw": "b3e0756d8aa1967dbf5bff566b571bef804fcc386a4b69ec1c4fbd7928124322",
+      "sha256_lf": "b3e0756d8aa1967dbf5bff566b571bef804fcc386a4b69ec1c4fbd7928124322",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "38483d79e132b71e9a900825da8987dd519c795f"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/build_runtime_review_inventory.py",
+      "is_binary": false,
+      "bytes_raw": 12065,
+      "bytes_lf": 12065,
+      "sha256_raw": "cd0b49e42ad51ee7b31d1c578d494a97d6d68522ba8022e55c779ce22738bb60",
+      "sha256_lf": "cd0b49e42ad51ee7b31d1c578d494a97d6d68522ba8022e55c779ce22738bb60",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "4ee6d55d1fd94b29e67d8aa8378d7435d31bf1b5"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/run_f4_independent_review.py",
+      "is_binary": false,
+      "bytes_raw": 85240,
+      "bytes_lf": 85240,
+      "sha256_raw": "22f554fba1d35582e302ef0e007ca763a02921ae9b8e5097ad0d8f52adb266ae",
+      "sha256_lf": "22f554fba1d35582e302ef0e007ca763a02921ae9b8e5097ad0d8f52adb266ae",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "226ca4dd846279f3743bba7dc63d7ad789014ce1"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/verify_f4_independent_edge.mjs",
+      "is_binary": false,
+      "bytes_raw": 21963,
+      "bytes_lf": 21963,
+      "sha256_raw": "5b2fb58b2ca9c73174e400bd3b3bd20ec2930c074f9fbe6cdd820ac50c513492",
+      "sha256_lf": "5b2fb58b2ca9c73174e400bd3b3bd20ec2930c074f9fbe6cdd820ac50c513492",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "96761cc8d0ae73fff0fc393d920288fe9695e3ed"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/demo-smoke-5690-receipt.json",
+      "is_binary": false,
+      "bytes_raw": 1695,
+      "bytes_lf": 1695,
+      "sha256_raw": "2f6f7440f97f92f62d5b5740ba57deb848fa16dce884a6cff8a2ce07e6b18f20",
+      "sha256_lf": "2f6f7440f97f92f62d5b5740ba57deb848fa16dce884a6cff8a2ce07e6b18f20",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/edge-f4-after-restart.json",
+      "is_binary": false,
+      "bytes_raw": 2297,
+      "bytes_lf": 2297,
+      "sha256_raw": "eafd7f3270e34f084b1531a0a5488bff985439a384b5fb89c3950cd4e2424d9d",
+      "sha256_lf": "eafd7f3270e34f084b1531a0a5488bff985439a384b5fb89c3950cd4e2424d9d",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/edge-f4-before-restart.json",
+      "is_binary": false,
+      "bytes_raw": 2303,
+      "bytes_lf": 2303,
+      "sha256_raw": "85759f8b187a094977d81f21f7955a8f28d10b8b0c931501ee1d399be9cbc8e2",
+      "sha256_lf": "85759f8b187a094977d81f21f7955a8f28d10b8b0c931501ee1d399be9cbc8e2",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/explain-plans.txt",
+      "is_binary": false,
+      "bytes_raw": 4764,
+      "bytes_lf": 4764,
+      "sha256_raw": "164df615e343b6b3236f955102633abea213a6052ce3828f01718de304dc1e1b",
+      "sha256_lf": "164df615e343b6b3236f955102633abea213a6052ce3828f01718de304dc1e1b",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/01-worker-cpu-tests.log",
+      "is_binary": false,
+      "bytes_raw": 1638,
+      "bytes_lf": 1638,
+      "sha256_raw": "a0b7ed479fda5513f705625cffff30b85a2c170881486eb337b67f7c9c725439",
+      "sha256_lf": "a0b7ed479fda5513f705625cffff30b85a2c170881486eb337b67f7c9c725439",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/02-dotnet-restore-offline.log",
+      "is_binary": false,
+      "bytes_raw": 538,
+      "bytes_lf": 538,
+      "sha256_raw": "a32db9500598ced12cdec54ddd26fbf8557b51ae59625b55f0ec31115dd4744c",
+      "sha256_lf": "a32db9500598ced12cdec54ddd26fbf8557b51ae59625b55f0ec31115dd4744c",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/03-dotnet-build-release.log",
+      "is_binary": false,
+      "bytes_raw": 1322,
+      "bytes_lf": 1322,
+      "sha256_raw": "9dea5baaf2db9e234e229cafd9b4d821bd46d38e0d2e582dd27956e14c28337b",
+      "sha256_lf": "9dea5baaf2db9e234e229cafd9b4d821bd46d38e0d2e582dd27956e14c28337b",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/04-angular-production-build.log",
+      "is_binary": false,
+      "bytes_raw": 527,
+      "bytes_lf": 527,
+      "sha256_raw": "3a04a78d5bd83908f6dd564abcf0654cdf6981d87faf1bbe19800a331391d841",
+      "sha256_lf": "3a04a78d5bd83908f6dd564abcf0654cdf6981d87faf1bbe19800a331391d841",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/05-pg-cluster-start-initial.log",
+      "is_binary": false,
+      "bytes_raw": 179,
+      "bytes_lf": 179,
+      "sha256_raw": "e2ea2a68230aef7f65cb6178ac5c04684498f610cffcda373d71b74a8dae7339",
+      "sha256_lf": "e2ea2a68230aef7f65cb6178ac5c04684498f610cffcda373d71b74a8dae7339",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/06-dotnet-test-release.log",
+      "is_binary": false,
+      "bytes_raw": 1835,
+      "bytes_lf": 1835,
+      "sha256_raw": "8a3a72f6c7d1f55b664e2d008aecca53757b212f67f2f745a2e14ac6b768f531",
+      "sha256_lf": "8a3a72f6c7d1f55b664e2d008aecca53757b212f67f2f745a2e14ac6b768f531",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/07-prepare-dev-db.log",
+      "is_binary": false,
+      "bytes_raw": 1229,
+      "bytes_lf": 1229,
+      "sha256_raw": "01b187ba1ca02235b616aa2f2b73ea7a258a58fc8ced394a62d107601330dc12",
+      "sha256_lf": "01b187ba1ca02235b616aa2f2b73ea7a258a58fc8ced394a62d107601330dc12",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/08-demo-smoke-5690.log",
+      "is_binary": false,
+      "bytes_raw": 1930,
+      "bytes_lf": 1930,
+      "sha256_raw": "632bdce28453cab0795db9d4661df22f145f0d52d9e212dcaae38f01b96c3ac0",
+      "sha256_lf": "632bdce28453cab0795db9d4661df22f145f0d52d9e212dcaae38f01b96c3ac0",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/09-playwright-edge-e2e-5690-4710.log",
+      "is_binary": false,
+      "bytes_raw": 6078,
+      "bytes_lf": 6078,
+      "sha256_raw": "25d9e89495cc030edc0689dc1e85766527617897f4cbbf91e51be6be841a7de4",
+      "sha256_lf": "25d9e89495cc030edc0689dc1e85766527617897f4cbbf91e51be6be841a7de4",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/10-forward-migrate-reviewer-seed-clone.log",
+      "is_binary": false,
+      "bytes_raw": 1234,
+      "bytes_lf": 1234,
+      "sha256_raw": "24eaed2d31243f931391f59010987692a0d467142e9cee9e909dc234c771ae92",
+      "sha256_lf": "24eaed2d31243f931391f59010987692a0d467142e9cee9e909dc234c771ae92",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/11-edge-f4-before-restart.log",
+      "is_binary": false,
+      "bytes_raw": 141,
+      "bytes_lf": 141,
+      "sha256_raw": "94f09d01c84b03d1f9e6031693c94d5334da4315a077db288fe3cdd81b8af2d3",
+      "sha256_lf": "94f09d01c84b03d1f9e6031693c94d5334da4315a077db288fe3cdd81b8af2d3",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/12-pg-cluster-stop-for-restart.log",
+      "is_binary": false,
+      "bytes_raw": 56,
+      "bytes_lf": 56,
+      "sha256_raw": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d",
+      "sha256_lf": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/13-pg-cluster-start-after-restart.log",
+      "is_binary": false,
+      "bytes_raw": 179,
+      "bytes_lf": 179,
+      "sha256_raw": "c910fe955f57cc809cfc56384d928edfcc08c7088446f87771025dddd2f7ef4e",
+      "sha256_lf": "c910fe955f57cc809cfc56384d928edfcc08c7088446f87771025dddd2f7ef4e",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/14-edge-f4-after-restart-reopen.log",
+      "is_binary": false,
+      "bytes_raw": 140,
+      "bytes_lf": 140,
+      "sha256_raw": "50e222cc806adcf3dd3a27e0affe6493d9f90e89230968096c6abc1542431a75",
+      "sha256_lf": "50e222cc806adcf3dd3a27e0affe6493d9f90e89230968096c6abc1542431a75",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/15-prepare-scratch-fallback-probe-db.log",
+      "is_binary": false,
+      "bytes_raw": 2037,
+      "bytes_lf": 2037,
+      "sha256_raw": "d5ea709d53f575308e56ef2e3b1fc053705042294480b61f4c210674df8a3477",
+      "sha256_lf": "d5ea709d53f575308e56ef2e3b1fc053705042294480b61f4c210674df8a3477",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/16-pg-cluster-stop-final.log",
+      "is_binary": false,
+      "bytes_raw": 56,
+      "bytes_lf": 56,
+      "sha256_raw": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d",
+      "sha256_lf": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/owned-api-5690-after-restart.log",
+      "is_binary": false,
+      "bytes_raw": 626,
+      "bytes_lf": 626,
+      "sha256_raw": "a210385f0d7beb3bbe6567cbdf074822912ea781c27810cacc6bf9037f0b127c",
+      "sha256_lf": "a210385f0d7beb3bbe6567cbdf074822912ea781c27810cacc6bf9037f0b127c",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/owned-api-5690-before-restart.log",
+      "is_binary": false,
+      "bytes_raw": 626,
+      "bytes_lf": 626,
+      "sha256_raw": "7c2ff2aeabbadad2c1d9eb66c54cd8db6f2d3643a7045757e628c95ac876b9d9",
+      "sha256_lf": "7c2ff2aeabbadad2c1d9eb66c54cd8db6f2d3643a7045757e628c95ac876b9d9",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/owned-api-5690-conflict-503.log",
+      "is_binary": false,
+      "bytes_raw": 632,
+      "bytes_lf": 632,
+      "sha256_raw": "0006e46e2fb232a47d9272f5ede0cd3e2fb87a93ccb221281c2da7e5ec665976",
+      "sha256_lf": "0006e46e2fb232a47d9272f5ede0cd3e2fb87a93ccb221281c2da7e5ec665976",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/owned-api-5690-deferred-503.log",
+      "is_binary": false,
+      "bytes_raw": 418,
+      "bytes_lf": 418,
+      "sha256_raw": "9a4b5554ae8d05e8e20b6484cae43dd883c0ff63f347419952704e71e64d1881",
+      "sha256_lf": "9a4b5554ae8d05e8e20b6484cae43dd883c0ff63f347419952704e71e64d1881",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/owned-api-5690-fallback-probe.log",
+      "is_binary": false,
+      "bytes_raw": 626,
+      "bytes_lf": 626,
+      "sha256_raw": "08ff09aec12910a777edd9ed59c6f9a75cca97e68ca50909083be8f6b1cbf984",
+      "sha256_lf": "08ff09aec12910a777edd9ed59c6f9a75cca97e68ca50909083be8f6b1cbf984",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/owned-ui-4710-after-restart.log",
+      "is_binary": false,
+      "bytes_raw": 488,
+      "bytes_lf": 488,
+      "sha256_raw": "4c8510a04f86199b8edbd5f611e6710aa7a28cb8553e0ca15e2473de86df3dee",
+      "sha256_lf": "4c8510a04f86199b8edbd5f611e6710aa7a28cb8553e0ca15e2473de86df3dee",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/owned-ui-4710-before-restart.log",
+      "is_binary": false,
+      "bytes_raw": 488,
+      "bytes_lf": 488,
+      "sha256_raw": "1d83e104529a64f856baf2df51b429b1e4f38a05340688be72af163219566474",
+      "sha256_lf": "1d83e104529a64f856baf2df51b429b1e4f38a05340688be72af163219566474",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/after-restart-01-archive-browse-9-seeds.png",
+      "is_binary": true,
+      "bytes_raw": 86795,
+      "sha256_raw": "980963e87807925e43c5f30f8eeb17ad98eb5b60cd53bd8decc10d89e73f1c5a",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/after-restart-02-seed-r02-mp01-page2-pdf.png",
+      "is_binary": true,
+      "bytes_raw": 126051,
+      "sha256_raw": "79cc19209b3b1cd03b21b6193ea36fdfb4459fb8750a98944eb26f45f90d62de",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/after-restart-03-seed-r04-pinned-rev1-page2.png",
+      "is_binary": true,
+      "bytes_raw": 150220,
+      "sha256_raw": "cfa54788bed028fd9eb01cdf0f2e232c7916cc8e9520b14e81b880c9dfa8f8b3",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/after-restart-04-seed-r01-metachar-newer-draft.png",
+      "is_binary": true,
+      "bytes_raw": 86266,
+      "sha256_raw": "20ab0cffc356e9bc46f531723612025bd06c54016c08128130361d422396c4b4",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/after-restart-05-seed-r01-pinned-rev2-noprov.png",
+      "is_binary": true,
+      "bytes_raw": 170615,
+      "sha256_raw": "80f886aced2bdeef3b0fb677941a59c080f3150ea1da7b5cae041020c0559c4c",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/before-restart-01-archive-browse-9-seeds.png",
+      "is_binary": true,
+      "bytes_raw": 86795,
+      "sha256_raw": "980963e87807925e43c5f30f8eeb17ad98eb5b60cd53bd8decc10d89e73f1c5a",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/before-restart-02-seed-r02-mp01-page2-pdf.png",
+      "is_binary": true,
+      "bytes_raw": 126051,
+      "sha256_raw": "79cc19209b3b1cd03b21b6193ea36fdfb4459fb8750a98944eb26f45f90d62de",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/before-restart-03-seed-r04-pinned-rev1-page2.png",
+      "is_binary": true,
+      "bytes_raw": 150220,
+      "sha256_raw": "cfa54788bed028fd9eb01cdf0f2e232c7916cc8e9520b14e81b880c9dfa8f8b3",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/before-restart-04-seed-r01-metachar-newer-draft.png",
+      "is_binary": true,
+      "bytes_raw": 86266,
+      "sha256_raw": "20ab0cffc356e9bc46f531723612025bd06c54016c08128130361d422396c4b4",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots/before-restart-05-seed-r01-pinned-rev2-noprov.png",
+      "is_binary": true,
+      "bytes_raw": 170615,
+      "sha256_raw": "80f886aced2bdeef3b0fb677941a59c080f3150ea1da7b5cae041020c0559c4c",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/verification-summary.json",
+      "is_binary": false,
+      "bytes_raw": 21905,
+      "bytes_lf": 21905,
+      "sha256_raw": "410d6df4ae84030f59a1c6558b91ea214fa0490412ce058719eee6a856d7e0b7",
+      "sha256_lf": "410d6df4ae84030f59a1c6558b91ea214fa0490412ce058719eee6a856d7e0b7",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/README.md",
+      "is_binary": false,
+      "bytes_raw": 10820,
+      "bytes_lf": 10820,
+      "sha256_raw": "d4cde981852692223235155068c4319d8cfbe4174eebdd68d9ee566cf4d69abd",
+      "sha256_lf": "d4cde981852692223235155068c4319d8cfbe4174eebdd68d9ee566cf4d69abd",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/resource-return.json",
+      "is_binary": false,
+      "bytes_raw": 3567,
+      "bytes_lf": 3567,
+      "sha256_raw": "83e21925a6e9f19d83c7e69bfe98a89355a872b13452a2828c65e5ce138bb784",
+      "sha256_lf": "83e21925a6e9f19d83c7e69bfe98a89355a872b13452a2828c65e5ce138bb784",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/152f8ac8-inventory-link-depth-failure-07.txt",
+      "is_binary": false,
+      "bytes_raw": 1176,
+      "bytes_lf": 1176,
+      "sha256_raw": "65c26c27e983b444adeea012a4440a40604b9ccdbd9bd466c3769572bec09ab8",
+      "sha256_lf": "65c26c27e983b444adeea012a4440a40604b9ccdbd9bd466c3769572bec09ab8",
+      "in_frozen_deliverable": false,
+      "frozen_git_blob_oid": null
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/e7736520-static-scan-failure-01.txt",
+      "is_binary": false,
+      "bytes_raw": 1926,
+      "bytes_lf": 1926,
+      "sha256_raw": "899f4d45b07f1ec51c1a43ed5159cd67cafab39e9be39b0f4b904205375a12a0",
+      "sha256_lf": "899f4d45b07f1ec51c1a43ed5159cd67cafab39e9be39b0f4b904205375a12a0",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "846c5a5bf2bc6335f31b07bd8df5f92a603855d6"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/fbf6a1a4-saved-query-substring-failure-02.txt",
+      "is_binary": false,
+      "bytes_raw": 2435,
+      "bytes_lf": 2435,
+      "sha256_raw": "33fc489e004046a06646fb24241b4937b01e69b621e269aeb604aa018eb4f2cf",
+      "sha256_lf": "33fc489e004046a06646fb24241b4937b01e69b621e269aeb604aa018eb4f2cf",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "d722158086407d765f99b12a194f74746d49413f"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/prefreeze-dryrun-failure-03.txt",
+      "is_binary": false,
+      "bytes_raw": 1711,
+      "bytes_lf": 1711,
+      "sha256_raw": "0371e82abc5ed3f707a8b4e235004b92d41d6716a468d1980130b635a66fd87e",
+      "sha256_lf": "0371e82abc5ed3f707a8b4e235004b92d41d6716a468d1980130b635a66fd87e",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "abca5a70f20427be55655579edb8ae1c95f6ce1d"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/prefreeze-dryrun-failure-04.txt",
+      "is_binary": false,
+      "bytes_raw": 1032,
+      "bytes_lf": 1032,
+      "sha256_raw": "5739d34c052e63ba7b3d35f65950d8454eb73f4aec4913ba9548a98c3bb5b851",
+      "sha256_lf": "5739d34c052e63ba7b3d35f65950d8454eb73f4aec4913ba9548a98c3bb5b851",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "46fa7b3715e230a4cf19ad804c991d3c0a43419a"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/prefreeze-dryrun-failure-05.txt",
+      "is_binary": false,
+      "bytes_raw": 1605,
+      "bytes_lf": 1605,
+      "sha256_raw": "f15dd9aaea0c5aa0d7bfb7dccf69a39eba891aebf3c46cf97c90a94d084b9c8b",
+      "sha256_lf": "f15dd9aaea0c5aa0d7bfb7dccf69a39eba891aebf3c46cf97c90a94d084b9c8b",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "26cec6c4240b1e7e4f6a8b5a0bab0f41efa4a49b"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/prefreeze-dryrun-failure-06.txt",
+      "is_binary": false,
+      "bytes_raw": 2769,
+      "bytes_lf": 2769,
+      "sha256_raw": "298277b30ed80ff52029408f5752c8c645869359c4131a7f732ec9a3f503015f",
+      "sha256_lf": "298277b30ed80ff52029408f5752c8c645869359c4131a7f732ec9a3f503015f",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "4d2a8c06e72bd867835eb567e292175fc4fb09b2"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/README.md",
+      "is_binary": false,
+      "bytes_raw": 4594,
+      "bytes_lf": 4594,
+      "sha256_raw": "75d964ff057f4a612d75a62a2e8624d1cb7ec0c3bef046e9618c343719161fc3",
+      "sha256_lf": "75d964ff057f4a612d75a62a2e8624d1cb7ec0c3bef046e9618c343719161fc3",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "dc9fc004063c4f5915cbde81eb5e9115e77c23cc"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/SOURCE-AND-DESIGN-AUDIT.md",
+      "is_binary": false,
+      "bytes_raw": 14934,
+      "bytes_lf": 14934,
+      "sha256_raw": "9249e8302e8a8686635f92f2395f305556f6e9ec2255b243f5775740a099b730",
+      "sha256_lf": "9249e8302e8a8686635f92f2395f305556f6e9ec2255b243f5775740a099b730",
+      "in_frozen_deliverable": true,
+      "frozen_git_blob_oid": "7fccebd6d64c4f49636dd4a27eecaf36548ef866"
+    }
+  ]
+}
