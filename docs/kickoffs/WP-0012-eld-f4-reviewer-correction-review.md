@@ -19,3 +19,7 @@ Publish a small preliminary inspection/probe checkpoint on your own branch when 
 ## Exact frozen correction source released for independent checks
 
 Native author candidate6d055395b2a4cf22a7926f1728bc31dbe2f315a3 is published and source-scope verified against base379d8c5d607fd248d7f272e412b4ed4a97bc64f6, with all3,683 earlier paths preserved and14 owned additions. Root now releases exact independent source checks against that candidate; author reports31 decisive CPU passes and evidence900cc1775fc9ab40b02b2bb8f318f4f3f4684acb. Freeze your own helpers before execution. Canonical007 still waits exact final006 publication binding. No runtime lease. See correction-006-source-precheck.json.
+
+## Final author006 publication binding
+
+Root verified final006 publication f1b8306ef62bf1c82a9106509ce31988e94b1dab, frozen corrected source4ca6bc2dfba3548c6d0dfb820594d25e9c2c9cd4, final evidence/inventory c801f5920dd06f083ccf8ff3554d998317435dca. Audit docs/coordination/WP-0012/author-006-publication-audit.json binds22 frozen artifacts,6 final evidence files,3683 unchanged prior paths,7 byte-preserved first-run evidence/inventory files,5 prior helper inputs,2 fixtures and14 report links. Canonical007 is now released after reconciliation of this final report and actual complete independent review. Keep initial002 changes-requested and all control/setup limitations explicit. No live lease follows automatically.
