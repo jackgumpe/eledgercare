@@ -24,8 +24,8 @@ def main():
     parser.add_argument('--out', required=True)
     args = parser.parse_args()
     target = (ROOT / args.out).resolve()
-    boundary = (ROOT / 'docs/coordination/WP-0012-0013').resolve()
-    if not target.is_relative_to(boundary) or target == boundary or target.exists():
+    boundaries = [(ROOT / ('docs/coordination/' + packet)).resolve() for packet in ('WP-0012-0013', 'WP-0012', 'WP-0013')]
+    if not any(target.is_relative_to(boundary) and target != boundary for boundary in boundaries) or target.exists():
         raise ValueError('Require a new coordinator observation directory')
     protocol_path = ROOT / 'qualification/coverage_v1/protocol.json'
     protocol_bytes = protocol_path.read_bytes()
