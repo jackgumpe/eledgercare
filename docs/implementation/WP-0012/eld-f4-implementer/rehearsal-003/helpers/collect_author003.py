@@ -1,0 +1,141 @@
+"""Accounting-only collection of the one authorized author003 invocation. No inference."""
+from pathlib import Path
+from datetime import datetime, timezone
+import ast, hashlib, json, os, re, subprocess, sys
+ROOT=Path(subprocess.check_output(["git","rev-parse","--show-toplevel"],text=True).strip())
+EXEC_HEAD="f1b8306ef62bf1c82a9106509ce31988e94b1dab"
+RELEASE="0815c028e706751deea13781cb0a08f8d1afc8aa"
+REVIEW="1851fc06f0384712a41563e80a0b45f6e43548c6"
+LEASE="WP-0012-author-003-20261117T164734Z"
+RUNTIME=Path("C:/Users/jackg/eLedgerCare-Demo/WP-0012/author")
+SCRATCH=ROOT/".local/wp0012-author003-20261117T164734Z"
+DOSSIER=ROOT/"docs/implementation/WP-0012/eld-f4-implementer/rehearsal-003"
+OUT=DOSSIER/"evidence"
+sys.path.insert(0,str(ROOT/"docs/implementation/WP-0012/eld-f4-implementer/correction-006/helpers"))
+import run_wp0012_rehearsal as drv
+
+def utc(): return datetime.now(timezone.utc).isoformat()
+def sha(data): return hashlib.sha256(data).hexdigest()
+def git(*args): return subprocess.check_output(["git",*args],cwd=ROOT)
+def put(rel,raw):
+    dest=OUT/rel
+    dest.parent.mkdir(parents=True,exist_ok=True)
+    assert not dest.exists(),dest
+    dest.write_bytes(raw)
+    return {"path":dest.relative_to(ROOT).as_posix(),"bytes":len(raw),"sha256":sha(raw)}
+def js(rel,obj): return put(rel,(json.dumps(obj,indent=2,ensure_ascii=False)+"\n").encode("utf-8"))
+def main():
+    head=git("rev-parse","HEAD").decode().strip()
+    assert not git("status","--porcelain","--untracked-files=all").strip(),"Collection must start clean"
+    changed=git("diff","--name-only",EXEC_HEAD,head).decode().splitlines()
+    assert all(x.startswith("docs/implementation/WP-0012/eld-f4-implementer/rehearsal-003/") for x in changed),changed
+    assert not git("diff","--diff-filter=MD","--name-only",EXEC_HEAD,head).strip(),"Inherited files changed"
+    source_inventory=[]
+    for rel in changed:
+        raw=(ROOT/rel).read_bytes()
+        assert raw==git("show",f"{head}:{rel}"),rel
+        source_inventory.append({"path":rel,"bytes":len(raw),"sha256":sha(raw),"git_blob_oid":git("rev-parse",f"{head}:{rel}").decode().strip()})
+    preserved_count=len(git("ls-tree","-r","--name-only",EXEC_HEAD).decode().splitlines())
+    assert not OUT.exists(),"Never overwrite collected evidence"
+    launch=json.loads((SCRATCH/"launcher-receipt.json").read_text(encoding="utf-8"))
+    assert launch.get("ended_utc") and "wrapper_exit_code" in launch,"Invocation still running"
+    lease_return=json.loads((RUNTIME/f"rehearsal-evidence/{LEASE}/owner-lease-return.json").read_text(encoding="utf-8"))
+    assert lease_return["lease_id"]==LEASE
+    assert len([x for x in launch["invocations"] if x["mode"]=="--execute-live"])==1
+    OUT.mkdir(parents=True,exist_ok=False)
+    settings=json.loads((ROOT/".local/secrets/pg-local.json").read_text(encoding="utf-8"))
+    secrets=drv.load_local_secrets(settings)
+    entries=[]
+    for path in sorted(RUNTIME.rglob("*")):
+        if not path.is_file(): continue
+        assert not path.is_symlink() and not drv.is_reparse_point(path),path
+        rel=path.relative_to(RUNTIME)
+        raw=path.read_bytes()
+        item={"source_root":str(RUNTIME),"source_path":rel.as_posix(),"bytes":len(raw),"sha256":sha(raw)}
+        if "cache" in rel.parts:
+            item["disposition"]="retained-only-generated-cache"
+        else:
+            if rel.parts[0]=="runs": target=Path("attempts")/Path(*rel.parts[1:])
+            else:
+                assert rel.parts[:2]==("rehearsal-evidence",LEASE),rel
+                target=Path("browser")/Path(*rel.parts[2:])
+            assert all(sec.encode() not in raw for sec in secrets),"Runtime artifact contains local credential; stop and account explicitly"
+            item["copy"]=put(target,raw)
+            item["disposition"]="copied-byte-identical"
+        entries.append(item)
+    scratch_names=["launch_once.py","launcher-receipt.json","tool-dispatch.json","tool-completion.json","validate-release.stdout.log","validate-release.stderr.log","execute-live.stdout.log","execute-live.stderr.log","progress-observations.jsonl"]
+    for name in scratch_names:
+        path=SCRATCH/name
+        if not path.exists():
+            if name=="progress-observations.jsonl": continue
+            raise RuntimeError(f"Missing original launch/exit artifact: {name}")
+        raw=path.read_bytes()
+        clean=drv.scrub_text(raw.decode("utf-8"),secrets).encode("utf-8") if name.endswith(".log") else raw
+        assert all(sec.encode() not in clean for sec in secrets),"Scratch credential requires explicit sanitation"
+        entries.append({"source_root":str(SCRATCH),"source_path":name,"bytes":len(raw),"sha256":sha(raw),"disposition":"copied-byte-identical" if raw==clean else "sanitized-copy-original-retained-external","copy":put(Path("launch")/name,clean)})
+    release=json.loads(git("show",f"{RELEASE}:docs/coordination/WP-0012/releases/author-003.json"))
+    bindings=[(RELEASE,"docs/coordination/WP-0012/releases/author-003.json"),(RELEASE,"docs/kickoffs/WP-0012-eld-f4-implementer-live-003.md"),(REVIEW,"docs/agent-reports/eld-f4-reviewer/WP-0012/007_2026-11-17_review_eld-f4-reviewer.md")]
+    bindings += [(RELEASE,v["path"]) for v in release["observation_files"].values()]
+    git_inputs=[]
+    for commit,path in bindings:
+        raw=git("show",f"{commit}:{path}")
+        assert all(sec.encode() not in raw for sec in secrets)
+        git_inputs.append({"commit":commit,"path":path,"git_blob_oid":git("rev-parse",f"{commit}:{path}").decode().strip(),"sha256":sha(raw),"copy":put(Path("release-inputs")/Path(path).name,raw)})
+    # Capture durable state using only an owned PostgreSQL restart and read-only queries.
+    # API/UI/model stay stopped. No restore, migration, writes or retry is performed.
+    drv.assert_ports_unbound((5590,4610,55438))
+    commands=[]
+    def command(argv):
+        cp=subprocess.run(argv,cwd=ROOT,capture_output=True,text=True,encoding="utf-8",errors="replace")
+        commands.append({"command":argv,"exit_code":cp.returncode,"stdout":drv.scrub_text(cp.stdout,secrets),"stderr":drv.scrub_text(cp.stderr,secrets),"utc":utc()})
+        if cp.returncode: raise RuntimeError(f"Accounting command failed (exit {cp.returncode}): {argv[0]}")
+        return cp
+    def query(db,sql):
+        argv=[str(ROOT/".local/tools/pgsql-18.7-1/bin/psql.exe"),"-X","-A","-t","-v","ON_ERROR_STOP=1","-h",settings["host"],"-p",str(settings["port"]),"-U",settings["adminUser"],"-d",db,"-c",sql]
+        cp=subprocess.run(argv,cwd=ROOT,env={**os.environ,"PGPASSWORD":settings["adminPassword"],"PGOPTIONS":"-c default_transaction_read_only=on"},capture_output=True,text=True,encoding="utf-8",errors="strict")
+        if cp.returncode: raise RuntimeError(drv.scrub_text(cp.stderr,secrets))
+        return cp.stdout.strip()
+    preservation={}
+    database={}
+    try:
+        command(["pwsh","-NoProfile","-File","deploy/dev/postgres/start-cluster.ps1"])
+        tables=query(drv.OWNED_REHEARSAL_DB,"SELECT tablename FROM pg_tables WHERE schemaname='eledgercare' ORDER BY tablename;").splitlines()
+        for table in tables:
+            assert re.fullmatch(r"[A-Za-z0-9_]+",table)
+            sql = "SELECT coalesce(jsonb_agg(to_jsonb(t) ORDER BY to_jsonb(t)::text), '[]'::jsonb) FROM eledgercare." + chr(34) + table + chr(34) + " t;"
+            database[table]=json.loads(query(drv.OWNED_REHEARSAL_DB,sql))
+        js("database/author-post-restart-tables.json",database)
+        # Reuse immutable001 SQL definitions as data; do not execute/import its verifier.
+        old=ROOT/"docs/implementation/WP-0012/eld-f4-implementer/helpers/validate_wp0012_preparation_cpu.py"
+        constants={}
+        for node in ast.parse(old.read_text(encoding="utf-8")).body:
+            if isinstance(node,ast.Assign) and len(node.targets)==1 and isinstance(node.targets[0],ast.Name) and node.targets[0].id in ("CANONICAL_8_TABLE_SQL","PROJECTION_TABLES_SQL"):
+                constants[node.targets[0].id]=ast.literal_eval(node.value)
+        for db in ("eledgercare_f4_author_seed_f3","eledgercare_f4_author_migrated"):
+            parsed=json.loads(query(db,constants["CANONICAL_8_TABLE_SQL"]))
+            digest=lambda obj:sha(json.dumps(obj,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode())
+            preservation[db]={"full_sha256":digest(parsed),"core_sha256":digest({k:v for k,v in parsed.items() if k!="migrations"})}
+            if db.endswith("migrated"):
+                preservation[db]["projection_sha256"]=digest(json.loads(query(db,constants["PROJECTION_TABLES_SQL"])))
+        assert preservation["eledgercare_f4_author_seed_f3"]["full_sha256"]=="76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085"
+        assert preservation["eledgercare_f4_author_migrated"]["core_sha256"]=="ad4f44bcf7c0f7163e91cad81f569bfc4642cbb167c1eaf6c3d1ab9984b2e6d0"
+        assert preservation["eledgercare_f4_author_migrated"]["projection_sha256"]=="78f0f273dbdb48629924752cba6f863f11f62764e27161d8df1549ad75ce2ac3"
+    finally:
+        command(["pwsh","-NoProfile","-File","deploy/dev/postgres/stop-cluster.ps1"])
+        js("database/accounting-commands.json",commands)
+    js("database/retained-database-preservation.json",preservation)
+    ports=drv.assert_ports_unbound((5590,4610,55438))
+    identities=[launch["wrapper_identity"],*[x["identity"] for x in launch["invocations"]],*lease_return["recorded_service_identities"]]
+    for attempt in lease_return["persisted_attempts"]:
+        for role in ("supervisor","launcher","worker"):
+            if attempt.get(role+"_pid") and attempt.get(role+"_create_filetime"):
+                identities.append({"role":role,"pid":attempt[role+"_pid"],"create_filetime":attempt[role+"_create_filetime"]})
+    live=[]
+    for ident in identities:
+        if ident.get("create_filetime") and drv.is_exact_process_alive(int(ident["pid"]),int(ident["create_filetime"])): live.append(ident)
+    assert not live,live
+    assert drv.count_ocr_worker_processes()==0
+    manifest={"schema":"eledgercare.wp0012.author003-collection/1","collected_utc":utc(),"runtime_executing_head":EXEC_HEAD,"collector_frozen_head":head,"collector_source_inventory":source_inventory,"inherited_paths_verified_unchanged":preserved_count,"release_commit":RELEASE,"accepting007":REVIEW,"lease_id":LEASE,"runtime_and_launch_artifacts":entries,"git_release_inputs":git_inputs,"lease_return":lease_return,"launcher_exit":launch["wrapper_exit_code"],"database_table_row_counts":{k:len(v) for k,v in database.items()},"retained_databases":preservation,"owned_identities_observed_exited":identities,"ports_after_accounting":ports,"ocr_worker_processes":0,"no_additional_model_calls":True,"copied_files":[{"path":p.relative_to(ROOT).as_posix(),"bytes":p.stat().st_size,"sha256":sha(p.read_bytes())} for p in sorted(OUT.rglob("*")) if p.is_file()]}
+    js("collection-inventory.json",manifest)
+    print(json.dumps({"status":"collected","runtime_files":sum(x["source_root"]==str(RUNTIME) for x in entries),"copied_files":len(manifest["copied_files"]),"cache_files_retained_only":sum(x["disposition"]=="retained-only-generated-cache" for x in entries),"table_rows":manifest["database_table_row_counts"],"ports":ports}))
+if __name__=="__main__": main()
