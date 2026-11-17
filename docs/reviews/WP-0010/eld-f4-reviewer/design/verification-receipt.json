@@ -1,0 +1,812 @@
+{
+  "schema": "eledgercare.wp-0010.f4-design-review-receipt/1",
+  "generated_at_utc": "2026-11-17T08:37:49.316871+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "branch": "review/wp-0010-f4",
+  "frozen_head_sha": "0584e68d7fa494e1d8c442a9642c9e1edbbe5655",
+  "packet_base_sha": "956c056be2ec970340074871ecdd7e1a9855d944",
+  "authority_sha": "8d23d755a35be26ff29c319c527bd770abdcae4b",
+  "reviewed_design_candidate_sha": "01a6dab0695c93246b4cf04d1a2098d3b77248d8",
+  "reviewed_root_report_001_sha": "3a59f78df399da449028edb1839be3a5ee457f90",
+  "accepted_f3_source_sha": "dda4b4d5856ac45105c31ba1d6d6813debdab8a7",
+  "accepted_f3_review_007_sha": "299b9ee81528191e4d964b9e22745f477f2c4e8c",
+  "accepted_f3_closure_005_sha": "3282b9db7b7f05bbb14fd000591a732bbda581bc",
+  "reviewed_blobs": {
+    "docs/design/F4-source-linked-archive.md": "f821581ccb32d545bed51a80f316613286ead3bf",
+    "docs/kickoffs/WP-0010-eld-f4-reviewer-design.md": "8a7fd82e6d504da5da5a5898440eae55c9031973",
+    "docs/coordination/WP-0010-0011-authority.md": "3479b028d80d75f246233ef286fd000864708fa7",
+    "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md": "fe3532d6e3e2ac4e9ba89b94dad68c8493dffced"
+  },
+  "helper_path": "docs/reviews/WP-0010/eld-f4-reviewer/design/verify_f4_design.py",
+  "helper_sha256_raw": "e1163edcbe9e111db6f7b69f62b606ec515c3dd0a6efc68f0d7b6aa20875832f",
+  "helper_sha256_lf": "e1163edcbe9e111db6f7b69f62b606ec515c3dd0a6efc68f0d7b6aa20875832f",
+  "verdicts": {
+    "f4_design": "accepted",
+    "concrete_design_blockers": 0,
+    "kickoff_bindings": [
+      "F4-KR-01"
+    ],
+    "implementation_checkpoints": [
+      "F4-BIC-01",
+      "F4-BIC-02",
+      "F4-BIC-03",
+      "F4-BIC-04",
+      "F4-BIC-05",
+      "F4-BIC-06",
+      "F4-BIC-07",
+      "F4-BIC-08"
+    ]
+  },
+  "preserved_tree_oids": {
+    "src": "e0dc8651c9fefb228ad26e17f62da6c20fd59ae0",
+    "tests": "838979ed5f81050c2cc7b7938aa9ae5eb641bbbb",
+    "web": "381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd",
+    "deploy": "4c410b6cff7575a522d38e3c191db33924214841",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "workers": "9b548ddcc73cfba8e7683d132840b08afa5a67a3",
+    "evaluation": "c9d3ff5a1f3f060169f1a8a0a6452827eae3e188",
+    "qualification": "9a98eaa342722eff675ff9948947d5f9be6d33b3",
+    "research": "5036d17e55f96af3bdeea82a20a32eb54a26ddca"
+  },
+  "genuine_f2_projection_summary": {
+    "syn_wo_01": {
+      "raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+      "unit_count": 1,
+      "has_fallback": false,
+      "projection_sha256": "49550af1e6ccbef531482e140cfa4ec306c10ce17658ac53e0634eea910c0dfe"
+    },
+    "syn_mp_01": {
+      "raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+      "unit_count": 3,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "has_fallback": false,
+      "projection_sha256": "9d89469460663002ff943f9be9e00a9da944f066e2a4382d93ec6e3d45bcf8c1"
+    }
+  },
+  "checked_markdown_links": [
+    {
+      "source": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "target": "../WP-0008/005_2026-11-16_verification_eld-coordinator.md",
+      "resolved": "docs/agent-reports/eld-coordinator/WP-0008/005_2026-11-16_verification_eld-coordinator.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "target": "../WP-0009/009_2026-11-16_verification_eld-coordinator.md",
+      "resolved": "docs/agent-reports/eld-coordinator/WP-0009/009_2026-11-16_verification_eld-coordinator.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "target": "../../../design/F4-source-linked-archive.md",
+      "resolved": "docs/design/F4-source-linked-archive.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "target": "../../../coordination/WP-0010-0011-authority.md",
+      "resolved": "docs/coordination/WP-0010-0011-authority.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "target": "../../../design/F4-source-linked-archive.md",
+      "resolved": "docs/design/F4-source-linked-archive.md"
+    },
+    {
+      "source": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "target": "../../../kickoffs/WP-0010-eld-f4-reviewer-design.md",
+      "resolved": "docs/kickoffs/WP-0010-eld-f4-reviewer-design.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../design/F4-source-linked-archive.md",
+      "resolved": "docs/design/F4-source-linked-archive.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "resolved": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "README.md",
+      "resolved": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../../deploy/dev/postgres/setup-cluster.ps1",
+      "resolved": "deploy/dev/postgres/setup-cluster.ps1"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../../tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs",
+      "resolved": "tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../../tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs",
+      "resolved": "tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../../web/src/app/intake/document-page.ts",
+      "resolved": "web/src/app/intake/document-page.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+      "target": "../../../../../web/src/app/review/work-order-review-page.ts",
+      "resolved": "web/src/app/review/work-order-review-page.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../design/F4-source-linked-archive.md",
+      "resolved": "docs/design/F4-source-linked-archive.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "resolved": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "preparation-findings.md",
+      "resolved": "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../kickoffs/WP-0010-eld-f4-reviewer-design.md",
+      "resolved": "docs/kickoffs/WP-0010-eld-f4-reviewer-design.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+      "resolved": "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/postgres/setup-cluster.ps1",
+      "resolved": "deploy/dev/postgres/setup-cluster.ps1"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/database/prepare-database.ps1",
+      "resolved": "deploy/dev/database/prepare-database.ps1"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Domain/Processing/ExtractionResult.cs",
+      "resolved": "src/ELedgerCare.Domain/Processing/ExtractionResult.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs",
+      "resolved": "src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Domain/Processing/DiagnosticTextSanitizer.cs",
+      "resolved": "src/ELedgerCare.Domain/Processing/DiagnosticTextSanitizer.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/raw_output.utf8.bin",
+      "resolved": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/raw_output.utf8.bin"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/raw_output.utf8.bin",
+      "resolved": "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/raw_output.utf8.bin"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Domain/Review/WorkOrderReviewEntities.cs",
+      "resolved": "src/ELedgerCare.Domain/Review/WorkOrderReviewEntities.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Persistence/WorkOrderReviewStore.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Persistence/WorkOrderReviewStore.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs",
+      "resolved": "tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs",
+      "resolved": "tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../tests/ELedgerCare.Acceptance.Tests/Harness/GenuineF2Seeds.cs",
+      "resolved": "tests/ELedgerCare.Acceptance.Tests/Harness/GenuineF2Seeds.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../web/e2e/review.spec.ts",
+      "resolved": "web/e2e/review.spec.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Application/Intake/SubmitDocument.cs",
+      "resolved": "src/ELedgerCare.Application/Intake/SubmitDocument.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../web/src/app/app.routes.ts",
+      "resolved": "web/src/app/app.routes.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../web/src/app/intake/document-page.ts",
+      "resolved": "web/src/app/intake/document-page.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../web/src/app/review/pdf-preview-url.ts",
+      "resolved": "web/src/app/review/pdf-preview-url.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../web/src/app/review/work-order-review-page.ts",
+      "resolved": "web/src/app/review/work-order-review-page.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../deploy/dev/database/grant-runtime.sql",
+      "resolved": "deploy/dev/database/grant-runtime.sql"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs",
+      "resolved": "src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs",
+      "resolved": "tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs",
+      "resolved": "tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+      "resolved": "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../web/src/app/intake/document-page.ts",
+      "resolved": "web/src/app/intake/document-page.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../web/src/app/review/pdf-preview-url.ts",
+      "resolved": "web/src/app/review/pdf-preview-url.ts"
+    },
+    {
+      "source": "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+      "target": "../../../../../web/src/app/review/work-order-review-page.ts",
+      "resolved": "web/src/app/review/work-order-review-page.ts"
+    }
+  ],
+  "opened_repo_paths": [
+    "deploy/dev/database/grant-runtime.sql",
+    "deploy/dev/postgres/setup-cluster.ps1",
+    "docs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md",
+    "docs/coordination/WP-0010-0011-authority.md",
+    "docs/design/F4-source-linked-archive.md",
+    "docs/implementation/WP-0006/runtime-author-v2/runs/attempt-01a1e509-f5d4-7a01-80f1-4f23fe282930/output/raw_output.utf8.bin",
+    "docs/implementation/WP-0006/runtime-author-v2/runs/attempt-01a1e50c-bdb9-7477-a96a-abb58323c615/output/raw_output.utf8.bin",
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4/output/raw_output.utf8.bin",
+    "docs/reviews/WP-0006/eld-next-reviewer/runtime-execution/runs/attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d/output/raw_output.utf8.bin",
+    "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+    "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+    "src/ELedgerCare.Domain/Processing/SafeNativeDisplayParser.cs",
+    "src/ELedgerCare.Infrastructure/Persistence/ELedgerCareDbContext.cs",
+    "src/ELedgerCare.Infrastructure/Persistence/ExtractionStore.cs",
+    "src/ELedgerCare.Infrastructure/Persistence/WorkOrderReviewStore.cs",
+    "tests/ELedgerCare.Acceptance.Tests/DurableIntakeTests.cs",
+    "tests/ELedgerCare.Infrastructure.Tests/PersistenceMappingTests.cs",
+    "tests/fixtures/F1-SWO-001.pdf",
+    "tests/fixtures/SYN-MP-01-v0-clean.pdf",
+    "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
+    "web/src/app/review/pdf-preview-url.ts",
+    "web/src/app/review/work-order-review-page.ts"
+  ],
+  "assertion_count": 56,
+  "all_assertions_passed": true,
+  "assertions": [
+    {
+      "check": "clean_worktree_before_execution",
+      "passed": true,
+      "detail": {
+        "status_porcelain": ""
+      }
+    },
+    {
+      "check": "owned_branch_identity",
+      "passed": true,
+      "detail": {
+        "branch": "review/wp-0010-f4",
+        "head": "0584e68d7fa494e1d8c442a9642c9e1edbbe5655"
+      }
+    },
+    {
+      "check": "dispatch_001_is_ancestor_of_head",
+      "passed": true,
+      "detail": {
+        "dispatch_001": "3a59f78df399da449028edb1839be3a5ee457f90",
+        "head": "0584e68d7fa494e1d8c442a9642c9e1edbbe5655"
+      }
+    },
+    {
+      "check": "exact_7_path_authority_diff",
+      "passed": true,
+      "detail": {
+        "count": 7,
+        "paths": [
+          "AGENTS.md",
+          "CURRENT.md",
+          "INDEX.md",
+          "docs/coordination/WP-0010-0011-authority.md",
+          "docs/kickoffs/WP-0011-eld-eval-custodian.md",
+          "docs/kickoffs/WP-0011-eld-mapping-author.md",
+          "docs/kickoffs/WP-0011-eld-mapping-reviewer.md"
+        ]
+      }
+    },
+    {
+      "check": "exact_9_path_candidate_diff",
+      "passed": true,
+      "detail": {
+        "count": 9,
+        "paths": [
+          "AGENTS.md",
+          "CURRENT.md",
+          "INDEX.md",
+          "docs/coordination/WP-0010-0011-authority.md",
+          "docs/design/F4-source-linked-archive.md",
+          "docs/kickoffs/WP-0010-eld-f4-reviewer-design.md",
+          "docs/kickoffs/WP-0011-eld-eval-custodian.md",
+          "docs/kickoffs/WP-0011-eld-mapping-author.md",
+          "docs/kickoffs/WP-0011-eld-mapping-reviewer.md"
+        ]
+      }
+    },
+    {
+      "check": "report_001_single_file_addition",
+      "passed": true,
+      "detail": {
+        "diff": [
+          "A\tdocs/agent-reports/eld-coordinator/WP-0010/001_2026-11-17_design_eld-coordinator.md"
+        ]
+      }
+    },
+    {
+      "check": "reviewer_owned_paths_only",
+      "passed": true,
+      "detail": {
+        "owned_diff_paths": [
+          "docs/reviews/WP-0010/eld-f4-reviewer/design/README.md",
+          "docs/reviews/WP-0010/eld-f4-reviewer/design/preparation-findings.md",
+          "docs/reviews/WP-0010/eld-f4-reviewer/design/verify_f4_design.py"
+        ]
+      }
+    },
+    {
+      "check": "preserved_oid:src",
+      "passed": true,
+      "detail": {
+        "oid": "e0dc8651c9fefb228ad26e17f62da6c20fd59ae0"
+      }
+    },
+    {
+      "check": "preserved_oid:tests",
+      "passed": true,
+      "detail": {
+        "oid": "838979ed5f81050c2cc7b7938aa9ae5eb641bbbb"
+      }
+    },
+    {
+      "check": "preserved_oid:web",
+      "passed": true,
+      "detail": {
+        "oid": "381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd"
+      }
+    },
+    {
+      "check": "preserved_oid:deploy",
+      "passed": true,
+      "detail": {
+        "oid": "4c410b6cff7575a522d38e3c191db33924214841"
+      }
+    },
+    {
+      "check": "preserved_oid:ELedgerCare.slnx",
+      "passed": true,
+      "detail": {
+        "oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976"
+      }
+    },
+    {
+      "check": "preserved_oid:workers",
+      "passed": true,
+      "detail": {
+        "oid": "9b548ddcc73cfba8e7683d132840b08afa5a67a3"
+      }
+    },
+    {
+      "check": "preserved_oid:evaluation",
+      "passed": true,
+      "detail": {
+        "oid": "c9d3ff5a1f3f060169f1a8a0a6452827eae3e188"
+      }
+    },
+    {
+      "check": "preserved_oid:qualification",
+      "passed": true,
+      "detail": {
+        "oid": "9a98eaa342722eff675ff9948947d5f9be6d33b3"
+      }
+    },
+    {
+      "check": "preserved_oid:research",
+      "passed": true,
+      "detail": {
+        "oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca"
+      }
+    },
+    {
+      "check": "matches_accepted_f3_source:src",
+      "passed": true,
+      "detail": {
+        "oid": "e0dc8651c9fefb228ad26e17f62da6c20fd59ae0"
+      }
+    },
+    {
+      "check": "matches_accepted_f3_source:tests",
+      "passed": true,
+      "detail": {
+        "oid": "838979ed5f81050c2cc7b7938aa9ae5eb641bbbb"
+      }
+    },
+    {
+      "check": "matches_accepted_f3_source:web",
+      "passed": true,
+      "detail": {
+        "oid": "381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd"
+      }
+    },
+    {
+      "check": "matches_accepted_f3_source:deploy",
+      "passed": true,
+      "detail": {
+        "oid": "4c410b6cff7575a522d38e3c191db33924214841"
+      }
+    },
+    {
+      "check": "matches_accepted_f3_source:ELedgerCare.slnx",
+      "passed": true,
+      "detail": {
+        "oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976"
+      }
+    },
+    {
+      "check": "matches_accepted_f3_source:workers",
+      "passed": true,
+      "detail": {
+        "oid": "9b548ddcc73cfba8e7683d132840b08afa5a67a3"
+      }
+    },
+    {
+      "check": "historical_reports_immutable",
+      "passed": true,
+      "detail": {
+        "base_count": 68,
+        "tip_001_count": 69
+      }
+    },
+    {
+      "check": "reviewed_blob_oids_match_and_pinned_in_dossier",
+      "passed": true,
+      "detail": {
+        "design_blob": "f821581ccb32d545bed51a80f316613286ead3bf",
+        "kickoff_blob": "8a7fd82e6d504da5da5a5898440eae55c9031973",
+        "authority_blob": "3479b028d80d75f246233ef286fd000864708fa7",
+        "report_001_blob": "fe3532d6e3e2ac4e9ba89b94dad68c8493dffced"
+      }
+    },
+    {
+      "check": "primary_source_anchors_verified",
+      "passed": true,
+      "detail": {
+        "pg_initdb_locale": "C (--no-locale)",
+        "current_fk_count": 15
+      }
+    },
+    {
+      "check": "genuine_f2_seed_digests_and_author_reviewer_parity",
+      "passed": true,
+      "detail": {
+        "syn_wo_01_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "syn_mp_01_raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639"
+      }
+    },
+    {
+      "check": "genuine_f2_machine_projections_clean_and_markup_free",
+      "passed": true,
+      "detail": {
+        "wo_unit_count": 1,
+        "mp_pages": [
+          1,
+          2,
+          3
+        ],
+        "wo_projection_sha256": "49550af1e6ccbef531482e140cfa4ec306c10ce17658ac53e0634eea910c0dfe",
+        "mp_projection_sha256": "9d89469460663002ff943f9be9e00a9da944f066e2a4382d93ec6e3d45bcf8c1"
+      }
+    },
+    {
+      "check": "bic02_projection_fallbacks_nul_safety_and_empty_marker",
+      "passed": true,
+      "detail": {
+        "naive_rows_dropped_caption": true,
+        "fallback_preserved_caption": true,
+        "missing_page_coordinate": null,
+        "empty_marker_unit_count": 0
+      }
+    },
+    {
+      "check": "bic01_literal_like_escaping_and_c_locale_collation",
+      "passed": true,
+      "detail": {
+        "escaped_backslash_pattern": "%\\\\%"
+      }
+    },
+    {
+      "check": "query_rejection:unknown_param",
+      "passed": true,
+      "detail": {
+        "code": "unknown_query_parameter",
+        "parameter": "foo"
+      }
+    },
+    {
+      "check": "query_rejection:dup_q",
+      "passed": true,
+      "detail": {
+        "code": "duplicate_query_parameter",
+        "parameter": "q"
+      }
+    },
+    {
+      "check": "query_rejection:empty_source",
+      "passed": true,
+      "detail": {
+        "code": "invalid_source_filter"
+      }
+    },
+    {
+      "check": "query_rejection:bad_source",
+      "passed": true,
+      "detail": {
+        "code": "invalid_source_filter"
+      }
+    },
+    {
+      "check": "query_rejection:zero_limit",
+      "passed": true,
+      "detail": {
+        "code": "invalid_limit"
+      }
+    },
+    {
+      "check": "query_rejection:leading_zero_limit",
+      "passed": true,
+      "detail": {
+        "code": "invalid_limit"
+      }
+    },
+    {
+      "check": "query_rejection:over_max_limit",
+      "passed": true,
+      "detail": {
+        "code": "invalid_limit"
+      }
+    },
+    {
+      "check": "query_rejection:nul_in_q",
+      "passed": true,
+      "detail": {
+        "code": "null_character_forbidden"
+      }
+    },
+    {
+      "check": "query_rejection:lone_high_surrogate",
+      "passed": true,
+      "detail": {
+        "code": "unpaired_surrogate_forbidden"
+      }
+    },
+    {
+      "check": "query_rejection:lone_low_surrogate",
+      "passed": true,
+      "detail": {
+        "code": "unpaired_surrogate_forbidden"
+      }
+    },
+    {
+      "check": "query_rejection:bell_control",
+      "passed": true,
+      "detail": {
+        "code": "control_character_forbidden"
+      }
+    },
+    {
+      "check": "query_rejection:nine_terms",
+      "passed": true,
+      "detail": {
+        "code": "too_many_query_terms"
+      }
+    },
+    {
+      "check": "query_rejection:term_65_chars",
+      "passed": true,
+      "detail": {
+        "code": "query_term_too_long"
+      }
+    },
+    {
+      "check": "query_rejection:total_161_chars",
+      "passed": true,
+      "detail": {
+        "code": "query_too_long"
+      }
+    },
+    {
+      "check": "utf16_astral_term_length_ceiling",
+      "passed": true,
+      "detail": {
+        "wrench_32_utf16_units": 64,
+        "wrench_33_utf16_units": 66
+      }
+    },
+    {
+      "check": "bic06_surrogate_safe_240_snippet_and_inert_xss_segments",
+      "passed": true,
+      "detail": {
+        "snippet_utf16_length": 240,
+        "segment_count": 3
+      }
+    },
+    {
+      "check": "not_ready_returns_503",
+      "passed": true,
+      "detail": {
+        "code": "archive_not_ready"
+      }
+    },
+    {
+      "check": "two_initializers_idempotent_reconciliation",
+      "passed": true,
+      "detail": {
+        "projected_results": 2
+      }
+    },
+    {
+      "check": "conflicting_projection_fails_closed_503",
+      "passed": true,
+      "detail": {
+        "conflict_error": "projection_conflict:res-wo"
+      }
+    },
+    {
+      "check": "fenced_and_rolled_back_publishes_expose_nothing",
+      "passed": true,
+      "detail": {
+        "unproc_status": "awaiting_extraction"
+      }
+    },
+    {
+      "check": "draft_only_not_searched_and_excluded_from_reviewed_filter",
+      "passed": true,
+      "detail": {
+        "draft_hits": 0
+      }
+    },
+    {
+      "check": "f4_02_03_revision_replacement_unknown_draft_provenance_and_and_semantics",
+      "passed": true,
+      "detail": {
+        "latest_reviewed": 3,
+        "current_head_draft": 4,
+        "cross_source_witness_count": 2
+      }
+    },
+    {
+      "check": "f4_04_deterministic_keyset_pagination_and_cursor_binding",
+      "passed": true,
+      "detail": {
+        "page_1_ids": [
+          "01a20000-0000-7000-8000-000000000001",
+          "01a20000-0000-7000-8000-000000000003"
+        ],
+        "page_2_ids": [
+          "01a20000-0000-7000-8000-000000000002"
+        ]
+      }
+    },
+    {
+      "check": "port_disjointness_across_f1_f2_f3_f4",
+      "passed": true,
+      "detail": {
+        "distinct_port_count": 24,
+        "f4_author": [
+          5590,
+          4610,
+          55438
+        ],
+        "f4_reviewer": [
+          5690,
+          4710,
+          55439
+        ]
+      }
+    },
+    {
+      "check": "local_markdown_links_resolve",
+      "passed": true,
+      "detail": {
+        "checked_link_count": 50
+      }
+    },
+    {
+      "check": "safe_repo_reader_refuses_wp0011_and_external_paths",
+      "passed": true,
+      "detail": {
+        "refused_probes": [
+          "docs/kickoffs/WP-0011-eld-eval-custodian.md",
+          "../eld-coverage-custodian/README.md",
+          "../../eLedgerCare-Q0/WP-0005"
+        ]
+      }
+    },
+    {
+      "check": "zero_sealed_or_wp0011_paths_opened",
+      "passed": true,
+      "detail": {
+        "opened_file_count": 22
+      }
+    }
+  ]
+}
