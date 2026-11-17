@@ -29,6 +29,19 @@ def verify_device_observation(observed,p):
             'limit':'Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance.'}
 
 
+def enable_pinned_git_lookup(env,*,root,owner,run_dir):
+    """Let frozen bare-Git readers use only the audited explicit Git installation.
+
+    Append to the already allowlisted child PATH; never import host PATH or alter
+    Git configuration. The original audit rejects missing/mutable-root Git pins.
+    """
+    from q0harness.environment import audit_child_env
+    audit_child_env(env,root=root,owner=owner,run_dir=run_dir)
+    env['PATH']+=os.pathsep+str(Path(env['Q0_GIT_EXECUTABLE']).parent)
+    audit_child_env(env,root=root,owner=owner,run_dir=run_dir)
+    return env
+
+
 def execute(authority,release_path,owner):
     r=read_release(authority,release_path,owner);p=protocol();q0_imports()
     from q0harness.environment import build_child_env,resolve_host_git,audit_child_env
@@ -49,7 +62,7 @@ def execute(authority,release_path,owner):
     for key,suffix in [('HF_HOME','hf-home'),('HF_HUB_CACHE','hf-home/hub'),('HUGGINGFACE_HUB_CACHE','hf-home/hub'),('TRANSFORMERS_CACHE','hf-home/transformers')]:env[key]=str(run/suffix)
     for key in ['TEMP','TMP','TMPDIR','HF_HOME','HF_MODULES_CACHE','CUDA_CACHE_PATH','TORCH_HOME','TORCHINDUCTOR_CACHE_DIR','USERPROFILE']:
         Path(env[key]).mkdir(parents=True,exist_ok=True)
-    audit_child_env(env,root=root,owner=owner,run_dir=run)
+    enable_pinned_git_lookup(env,root=root,owner=owner,run_dir=run)
     plan=schedule(p,owner)
     executing_head=git('rev-parse','HEAD').decode().strip()
     jobname='Local\\eLedgerCare-MappingV2-'+uuid.uuid4().hex

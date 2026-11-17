@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\010\restricted_probe.py", line 99, in <module>
+    try: main(args, receipt); receipt['status'] = 'returned'
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\010\restricted_probe.py", line 84, in main
+    result = release.read_release(SYNTHETIC, RELEASE, 'author', execution=False)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\release.py", line 102, in read_release
+    bound_object(r['source_review']); bound_object(r['admission_review'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\release.py", line 80, in bound_object
+    require(data.strip() and sha(data) == binding['sha256'], 'Immutable evidence digest mismatch')
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\release.py", line 16, in require
+    if not condition: raise PermissionError(reason)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: Immutable evidence digest mismatch

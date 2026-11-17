@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\010\restricted_probe.py", line 99, in <module>
+    try: main(args, receipt); receipt['status'] = 'returned'
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\010\restricted_probe.py", line 44, in main
+    runtime.enable_pinned_git_lookup(env, root=root, owner='author', run_dir=run)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\runtime.py", line 39, in enable_pinned_git_lookup
+    audit_child_env(env,root=root,owner=owner,run_dir=run_dir)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\q0\harness\q0harness\environment.py", line 219, in audit_child_env
+    _audit_git_pin(env, root=root, run_dir=run_dir)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\q0\harness\q0harness\environment.py", line 204, in _audit_git_pin
+    git_exe = validate_git_executable(env.get(GIT_EXECUTABLE_VAR, ""))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\q0\harness\q0harness\environment.py", line 109, in validate_git_executable
+    raise Q0Failure("HOST_PRECHECK_FAILED", f"Git executable is missing or not a git binary: {raw}")
+q0harness.outcome.Q0Failure: HOST_PRECHECK_FAILED: Git executable is missing or not a git binary: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\.scratch\wp0013-runtime-correction\attempt-1\owned-runtime\missing\git.exe

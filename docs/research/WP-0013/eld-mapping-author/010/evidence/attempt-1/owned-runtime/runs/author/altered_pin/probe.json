@@ -1,0 +1,21 @@
+{
+  "case": "altered_pin",
+  "started_utc": "2026-11-17T18:38:50.159587+00:00",
+  "identity": {
+    "pid": 1368,
+    "creation_filetime_100ns": 134394143299840398,
+    "created_utc": "2026-11-17T18:38:49.984039+00:00",
+    "source": "Windows GetProcessTimes on explicitly owned PID"
+  },
+  "python": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+  "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts;C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-correction\\attempt-1\\owned-runtime\\venv\\Scripts;C:\\WINDOWS\\System32;C:\\WINDOWS;C:\\Program Files\\Git\\cmd",
+  "git_pin": "C:\\Program Files\\Git\\cmd\\git.exe",
+  "model_imports_prohibited": true,
+  "status": "raised",
+  "error_type": "ValueError",
+  "error": "Protected tree changed: qualification/baseline",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\010\\restricted_probe.py\", line 99, in <module>\n    try: main(args, receipt); receipt['status'] = 'returned'\n         ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\010\\restricted_probe.py\", line 49, in main\n    verify_frozen_mappers()  # Real original Git lookups and original full pin guards.\n    ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\common.py\", line 17, in verify_frozen_mappers\n    verify_pins()\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\protocol\\common.py\", line 49, in verify_pins\n    require(git('rev-parse', 'HEAD:' + path).decode().strip() == expected, 'Protected tree changed: ' + path)\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\protocol\\common.py\", line 44, in require\n    raise ValueError(message)\nValueError: Protected tree changed: qualification/baseline\n",
+  "finished_utc": "2026-11-17T18:38:50.198435+00:00",
+  "exit_code": 1,
+  "prohibited_imports_present": []
+}

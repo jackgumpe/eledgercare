@@ -1,0 +1,21 @@
+{
+  "case": "missing_pin",
+  "started_utc": "2026-11-17T18:38:50.427829+00:00",
+  "identity": {
+    "pid": 36376,
+    "creation_filetime_100ns": 134394143302475708,
+    "created_utc": "2026-11-17T18:38:50.247570+00:00",
+    "source": "Windows GetProcessTimes on explicitly owned PID"
+  },
+  "python": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+  "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts;C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-correction\\attempt-1\\owned-runtime\\venv\\Scripts;C:\\WINDOWS\\System32;C:\\WINDOWS;C:\\Program Files\\Git\\cmd",
+  "git_pin": "C:\\Program Files\\Git\\cmd\\git.exe",
+  "model_imports_prohibited": true,
+  "status": "raised",
+  "error_type": "CalledProcessError",
+  "error": "Command '['git', 'rev-parse', 'HEAD:qualification/does-not-exist-WP13-CPU']' returned non-zero exit status 128.",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\010\\restricted_probe.py\", line 99, in <module>\n    try: main(args, receipt); receipt['status'] = 'returned'\n         ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\010\\restricted_probe.py\", line 49, in main\n    verify_frozen_mappers()  # Real original Git lookups and original full pin guards.\n    ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\common.py\", line 17, in verify_frozen_mappers\n    verify_pins()\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\protocol\\common.py\", line 49, in verify_pins\n    require(git('rev-parse', 'HEAD:' + path).decode().strip() == expected, 'Protected tree changed: ' + path)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\protocol\\common.py\", line 31, in git\n    return subprocess.check_output(['git', *args], cwd=ROOT)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\subprocess.py\", line 466, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD:qualification/does-not-exist-WP13-CPU']' returned non-zero exit status 128.\n",
+  "finished_utc": "2026-11-17T18:38:50.780568+00:00",
+  "exit_code": 1,
+  "prohibited_imports_present": []
+}
