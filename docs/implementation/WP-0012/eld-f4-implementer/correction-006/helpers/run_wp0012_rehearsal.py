@@ -1868,6 +1868,7 @@ def execute_live_rehearsal(
         )
         final_status = "completed" if (failure_exc is None and clean_return_ok) else "failed_stopped"
 
+        receipt_utc = utc_now()
         lease_return = {
             "schema": "eledgercare.wp0012-owner-lease-return/1",
             "status": final_status,
@@ -1875,7 +1876,9 @@ def execute_live_rehearsal(
             "failure_stage": failure_stage if failure_exc is not None else ("cleanup" if cleanup_errors else None),
             "failure_error": scrub_text(str(failure_exc), secrets) if failure_exc is not None else None,
             "cleanup_errors": [scrub_text(err, secrets) for err in cleanup_errors],
-            "returned_utc": utc_now(),
+            "receipt_utc": receipt_utc,
+            "lease_returned": clean_return_ok,
+            "returned_utc": receipt_utc if clean_return_ok else None,
             "owner": EXPECTED_OWNER,
             "lease_id": validated["lease_id"],
             "gpu_uuid": EXPECTED_GPU_UUID,
