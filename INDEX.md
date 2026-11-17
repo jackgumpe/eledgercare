@@ -950,3 +950,6 @@ WP-0013 final reservation PUBLISHED/VERIFIEDb50b2a3bc22927890c8f391943f2a3fe9168
 
 
 WP-0013 implementation005 RUNNING_CONFIRMED at clean exactad7309f2079ed11bc4a63e52567e6a1e5fba1868, same native mapping_author/requestedxhigh (actual backend/effort unexposed). Accepted protocol and final reservation precede actual start. New mapper/runtime files only; accepted protocol/scorers/old namespaces preserved; no private content/model access. Receipt implementation-dispatch.json.
+
+
+WP-0013 independent admission004 ACCEPTED/PUBLISHED321afab409989a1eafcb1b43f433d784d2658711. Root verifies4public deliverables+2metadata/report,3720preserved paths,8links and6private receipt bindings; full37file private evidence audit verifies109inputs/77sources and exact bytes. Actual50CPU groups/12visual pages/120custody files pass; no corpus correction. Custodian canonical003 RELEASED under admitted-report kickoff; no unseal/model/source006 acceptance.
