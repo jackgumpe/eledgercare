@@ -1,0 +1,1525 @@
+{
+  "independent_helper_commit": "c23a2f0cff3621f05fe1caa77b170167a2406876",
+  "helper_path": "docs/reviews/WP-0011/eld-mapping-reviewer/source/probes_v2.py",
+  "helper_sha256": "a769688115efe7e29bf01c2c5214807f88800e28858381f250635d2e51be88e0",
+  "visible": [
+    {
+      "case": "br_false_positive",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK>RED<br>BLUE",
+      "target": "REDBLUE",
+      "expected_count": 0,
+      "actual_count": 0,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "none",
+        "count": 0,
+        "locations": []
+      }
+    },
+    {
+      "case": "paragraph_false_positive",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK><p>RED</p><p>BLUE</p>",
+      "target": "REDBLUE",
+      "expected_count": 0,
+      "actual_count": 0,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "none",
+        "count": 0,
+        "locations": []
+      }
+    },
+    {
+      "case": "br_space",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK>RED<br>BLUE",
+      "target": "RED BLUE",
+      "expected_count": 1,
+      "actual_count": 1,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "one",
+        "count": 1,
+        "locations": [
+          {
+            "page": 1,
+            "block": 0,
+            "span": [
+              0,
+              8
+            ],
+            "quote": "RED BLUE",
+            "visible_leaf_sha256": "d6c3e71c703748ffc0550fd892b7cce90237f0e7c211a3783b0019a9b35dc619"
+          }
+        ]
+      }
+    },
+    {
+      "case": "inline_concatenation",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK><span>RED</span><span>BLUE</span>",
+      "target": "REDBLUE",
+      "expected_count": 1,
+      "actual_count": 1,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "one",
+        "count": 1,
+        "locations": [
+          {
+            "page": 1,
+            "block": 0,
+            "span": [
+              0,
+              7
+            ],
+            "quote": "REDBLUE",
+            "visible_leaf_sha256": "b4174fa36f368e32a23f3f71001573f51e3db0b6aea28b1851ec61f2bdab934f"
+          }
+        ]
+      }
+    },
+    {
+      "case": "hidden_metadata",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK><span data-id=\"REDBLUE\">OTHER</span><!--REDBLUE--><script>REDBLUE</script><style>REDBLUE</style>",
+      "target": "REDBLUE",
+      "expected_count": 0,
+      "actual_count": 0,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "none",
+        "count": 0,
+        "locations": []
+      }
+    },
+    {
+      "case": "entity",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK>X&amp;Y",
+      "target": "X&Y",
+      "expected_count": 1,
+      "actual_count": 1,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "one",
+        "count": 1,
+        "locations": [
+          {
+            "page": 1,
+            "block": 0,
+            "span": [
+              0,
+              3
+            ],
+            "quote": "X&Y",
+            "visible_leaf_sha256": "2981d667ad53657a256a67cf96d388a45f9d15a64a159b267b9985b645b60052"
+          }
+        ]
+      }
+    },
+    {
+      "case": "strict_identifier",
+      "raw": "<PAGE><BLOCK>text[0,0,900,30]<FORK>X0042",
+      "target": "0042",
+      "expected_count": 0,
+      "actual_count": 0,
+      "pass": true,
+      "eligible": true,
+      "parse_errors": [],
+      "presence": {
+        "status": "none",
+        "count": 0,
+        "locations": []
+      }
+    }
+  ],
+  "contract": [
+    {
+      "case": "unit_present",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "unit_value",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "unit_null",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "unit_empty",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "absence_state",
+      "rejected": true,
+      "pass": true
+    },
+    {
+      "case": "absence_label",
+      "rejected": true,
+      "pass": true
+    }
+  ],
+  "supervisor": [
+    {
+      "case": "nonzero_return",
+      "exit": 1,
+      "pass": true,
+      "expected": "Non-successful/unavailable post observation cannot be successful final observation",
+      "run_result": {
+        "schema": "eld-coverage-v1-run/1",
+        "run": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmp5kdlvbtf\\runtime\\runs\\author\\20261117T091921Z-4770c4ac",
+        "executing_head": "public-cpu-mock-head",
+        "release": {
+          "schema": "eld-coverage-v1-release/1",
+          "owner": "author",
+          "source_commit": "1111111111111111111111111111111111111111",
+          "executing_head": "2222222222222222222222222222222222222222",
+          "source_tree": "3333333333333333333333333333333333333333",
+          "protocol_sha256": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000",
+          "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+          "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+          "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+          "reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+          "corpus_commit": "6666666666666666666666666666666666666666",
+          "runtime_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmp5kdlvbtf\\runtime",
+          "issued_utc": "2026-11-17T09:18:51.581619+00:00",
+          "expires_utc": "2026-11-17T10:19:21.581619+00:00",
+          "schedule": [
+            {
+              "fixture_id": "SYN-WO-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "SYN-MP-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "WP11-F01-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            }
+          ],
+          "source_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_source_commit": "1111111111111111111111111111111111111111"
+          },
+          "admission_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc"
+          },
+          "unseal": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/coordination/WP-0011/unseal.json",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "lease": {
+            "id": "CPU-ONLY-TEST",
+            "owner": "author",
+            "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "sole_lease": true,
+            "scope": "sole_model_job",
+            "observations": [
+              {
+                "commit": "4444444444444444444444444444444444444444",
+                "path": "docs/coordination/WP-0011/observation.json",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            ]
+          },
+          "torchvision_local_sha256_TOFU_accepted": true
+        },
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          }
+        ],
+        "failure": "SUPERVISOR_FINALIZATION_ERROR:PermissionError('GPU observation unavailable/truncated')",
+        "supervisor_error": {
+          "type": "PermissionError",
+          "message": "GPU observation unavailable/truncated",
+          "filename": null,
+          "errno": null,
+          "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 63, in finish\n    try:return action()\n               ^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 118, in <lambda>\n    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 19, in verify_device_observation\n    raise PermissionError('GPU observation unavailable/truncated')\nPermissionError: GPU observation unavailable/truncated\n",
+          "active_phase": null,
+          "stage": "post_observer_validation"
+        },
+        "secondary_errors": [],
+        "finalization_errors": [
+          {
+            "type": "PermissionError",
+            "message": "GPU observation unavailable/truncated",
+            "filename": null,
+            "errno": null,
+            "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 63, in finish\n    try:return action()\n               ^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 118, in <lambda>\n    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 19, in verify_device_observation\n    raise PermissionError('GPU observation unavailable/truncated')\nPermissionError: GPU observation unavailable/truncated\n",
+            "active_phase": null,
+            "stage": "post_observer_validation"
+          }
+        ],
+        "final_observation_status": {
+          "post_observers": "unavailable",
+          "worker_outcome": "available",
+          "free_bytes_after": "available",
+          "owned_bytes_after": "available"
+        },
+        "child_launcher_pid": 654321,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "elapsed_s": 0.031000000017229468,
+        "observers": [
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmp5kdlvbtf\\runtime\\runs\\author\\20261117T091921Z-4770c4ac\\pre-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmp5kdlvbtf\\runtime\\runs\\author\\20261117T091921Z-4770c4ac\\pre-1.txt"
+          },
+          {
+            "returncode": 1,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmp5kdlvbtf\\runtime\\runs\\author\\20261117T091921Z-4770c4ac\\post-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmp5kdlvbtf\\runtime\\runs\\author\\20261117T091921Z-4770c4ac\\post-1.txt"
+          }
+        ],
+        "gpu_process_checks": [
+          {
+            "stage": "pre",
+            "expected_device_observed": true,
+            "process_observation_text": "",
+            "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+          }
+        ],
+        "free_bytes_after": 44684795904,
+        "owned_bytes_after": 6332
+      },
+      "stdout": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmp5kdlvbtf\\runtime\\runs\\author\\20261117T091921Z-4770c4ac\n"
+    },
+    {
+      "case": "timeout_row",
+      "exit": 1,
+      "pass": true,
+      "expected": "Non-successful/unavailable post observation cannot be successful final observation",
+      "run_result": {
+        "schema": "eld-coverage-v1-run/1",
+        "run": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpstw42fr8\\runtime\\runs\\author\\20261117T091921Z-8af243ee",
+        "executing_head": "public-cpu-mock-head",
+        "release": {
+          "schema": "eld-coverage-v1-release/1",
+          "owner": "author",
+          "source_commit": "1111111111111111111111111111111111111111",
+          "executing_head": "2222222222222222222222222222222222222222",
+          "source_tree": "3333333333333333333333333333333333333333",
+          "protocol_sha256": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000",
+          "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+          "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+          "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+          "reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+          "corpus_commit": "6666666666666666666666666666666666666666",
+          "runtime_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpstw42fr8\\runtime",
+          "issued_utc": "2026-11-17T09:18:51.639697+00:00",
+          "expires_utc": "2026-11-17T10:19:21.639697+00:00",
+          "schedule": [
+            {
+              "fixture_id": "SYN-WO-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "SYN-MP-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "WP11-F01-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            }
+          ],
+          "source_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_source_commit": "1111111111111111111111111111111111111111"
+          },
+          "admission_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc"
+          },
+          "unseal": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/coordination/WP-0011/unseal.json",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "lease": {
+            "id": "CPU-ONLY-TEST",
+            "owner": "author",
+            "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "sole_lease": true,
+            "scope": "sole_model_job",
+            "observations": [
+              {
+                "commit": "4444444444444444444444444444444444444444",
+                "path": "docs/coordination/WP-0011/observation.json",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            ]
+          },
+          "torchvision_local_sha256_TOFU_accepted": true
+        },
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          }
+        ],
+        "failure": "SUPERVISOR_FINALIZATION_ERROR:PermissionError('GPU observation unavailable/truncated')",
+        "supervisor_error": {
+          "type": "PermissionError",
+          "message": "GPU observation unavailable/truncated",
+          "filename": null,
+          "errno": null,
+          "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 63, in finish\n    try:return action()\n               ^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 118, in <lambda>\n    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 19, in verify_device_observation\n    raise PermissionError('GPU observation unavailable/truncated')\nPermissionError: GPU observation unavailable/truncated\n",
+          "active_phase": null,
+          "stage": "post_observer_validation"
+        },
+        "secondary_errors": [],
+        "finalization_errors": [
+          {
+            "type": "PermissionError",
+            "message": "GPU observation unavailable/truncated",
+            "filename": null,
+            "errno": null,
+            "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 63, in finish\n    try:return action()\n               ^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 118, in <lambda>\n    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 19, in verify_device_observation\n    raise PermissionError('GPU observation unavailable/truncated')\nPermissionError: GPU observation unavailable/truncated\n",
+            "active_phase": null,
+            "stage": "post_observer_validation"
+          }
+        ],
+        "final_observation_status": {
+          "post_observers": "unavailable",
+          "worker_outcome": "available",
+          "free_bytes_after": "available",
+          "owned_bytes_after": "available"
+        },
+        "child_launcher_pid": 654321,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "elapsed_s": 0.031000000017229468,
+        "observers": [
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpstw42fr8\\runtime\\runs\\author\\20261117T091921Z-8af243ee\\pre-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpstw42fr8\\runtime\\runs\\author\\20261117T091921Z-8af243ee\\pre-1.txt"
+          },
+          {
+            "returncode": null,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpstw42fr8\\runtime\\runs\\author\\20261117T091921Z-8af243ee\\post-0.txt",
+            "error": "TimeoutExpired"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpstw42fr8\\runtime\\runs\\author\\20261117T091921Z-8af243ee\\post-1.txt"
+          }
+        ],
+        "gpu_process_checks": [
+          {
+            "stage": "pre",
+            "expected_device_observed": true,
+            "process_observation_text": "",
+            "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+          }
+        ],
+        "free_bytes_after": 44684795904,
+        "owned_bytes_after": 6281
+      },
+      "stdout": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpstw42fr8\\runtime\\runs\\author\\20261117T091921Z-8af243ee\n"
+    },
+    {
+      "case": "wrong_device",
+      "exit": 1,
+      "pass": true,
+      "expected": "Non-successful/unavailable post observation cannot be successful final observation",
+      "run_result": {
+        "schema": "eld-coverage-v1-run/1",
+        "run": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpp66cuceu\\runtime\\runs\\author\\20261117T091921Z-d947e7a8",
+        "executing_head": "public-cpu-mock-head",
+        "release": {
+          "schema": "eld-coverage-v1-release/1",
+          "owner": "author",
+          "source_commit": "1111111111111111111111111111111111111111",
+          "executing_head": "2222222222222222222222222222222222222222",
+          "source_tree": "3333333333333333333333333333333333333333",
+          "protocol_sha256": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000",
+          "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+          "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+          "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+          "reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+          "corpus_commit": "6666666666666666666666666666666666666666",
+          "runtime_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpp66cuceu\\runtime",
+          "issued_utc": "2026-11-17T09:18:51.699889+00:00",
+          "expires_utc": "2026-11-17T10:19:21.699889+00:00",
+          "schedule": [
+            {
+              "fixture_id": "SYN-WO-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "SYN-MP-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "WP11-F01-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            }
+          ],
+          "source_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_source_commit": "1111111111111111111111111111111111111111"
+          },
+          "admission_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc"
+          },
+          "unseal": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/coordination/WP-0011/unseal.json",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "lease": {
+            "id": "CPU-ONLY-TEST",
+            "owner": "author",
+            "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "sole_lease": true,
+            "scope": "sole_model_job",
+            "observations": [
+              {
+                "commit": "4444444444444444444444444444444444444444",
+                "path": "docs/coordination/WP-0011/observation.json",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            ]
+          },
+          "torchvision_local_sha256_TOFU_accepted": true
+        },
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          }
+        ],
+        "failure": "SUPERVISOR_FINALIZATION_ERROR:PermissionError('GPU observation capture size mismatch')",
+        "supervisor_error": {
+          "type": "PermissionError",
+          "message": "GPU observation capture size mismatch",
+          "filename": null,
+          "errno": null,
+          "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 63, in finish\n    try:return action()\n               ^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 118, in <lambda>\n    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 22, in verify_device_observation\n    raise PermissionError('GPU observation capture size mismatch')\nPermissionError: GPU observation capture size mismatch\n",
+          "active_phase": null,
+          "stage": "post_observer_validation"
+        },
+        "secondary_errors": [],
+        "finalization_errors": [
+          {
+            "type": "PermissionError",
+            "message": "GPU observation capture size mismatch",
+            "filename": null,
+            "errno": null,
+            "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 63, in finish\n    try:return action()\n               ^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 118, in <lambda>\n    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 22, in verify_device_observation\n    raise PermissionError('GPU observation capture size mismatch')\nPermissionError: GPU observation capture size mismatch\n",
+            "active_phase": null,
+            "stage": "post_observer_validation"
+          }
+        ],
+        "final_observation_status": {
+          "post_observers": "unavailable",
+          "worker_outcome": "available",
+          "free_bytes_after": "available",
+          "owned_bytes_after": "available"
+        },
+        "child_launcher_pid": 654321,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "elapsed_s": 0.031000000017229468,
+        "observers": [
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpp66cuceu\\runtime\\runs\\author\\20261117T091921Z-d947e7a8\\pre-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpp66cuceu\\runtime\\runs\\author\\20261117T091921Z-d947e7a8\\pre-1.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpp66cuceu\\runtime\\runs\\author\\20261117T091921Z-d947e7a8\\post-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpp66cuceu\\runtime\\runs\\author\\20261117T091921Z-d947e7a8\\post-1.txt"
+          }
+        ],
+        "gpu_process_checks": [
+          {
+            "stage": "pre",
+            "expected_device_observed": true,
+            "process_observation_text": "",
+            "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+          }
+        ],
+        "free_bytes_after": 44684795904,
+        "owned_bytes_after": 6304
+      },
+      "stdout": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpp66cuceu\\runtime\\runs\\author\\20261117T091921Z-d947e7a8\n"
+    },
+    {
+      "case": "empty_capture",
+      "exit": 1,
+      "pass": true,
+      "expected": "Non-successful/unavailable post observation cannot be successful final observation",
+      "run_result": {
+        "schema": "eld-coverage-v1-run/1",
+        "run": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpqervcueh\\runtime\\runs\\author\\20261117T091921Z-02e70191",
+        "executing_head": "public-cpu-mock-head",
+        "release": {
+          "schema": "eld-coverage-v1-release/1",
+          "owner": "author",
+          "source_commit": "1111111111111111111111111111111111111111",
+          "executing_head": "2222222222222222222222222222222222222222",
+          "source_tree": "3333333333333333333333333333333333333333",
+          "protocol_sha256": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000",
+          "comparator_tree": "deae8e826f4770e880374c68e6a56c8c65b6f8a3",
+          "mapping_v1_tree": "59f66d0d3d9be145a43efcc9258eb260d3ef2f00",
+          "q0_core_tree": "fee7218eb233438cce7c583be1527b5c549930f0",
+          "reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc",
+          "corpus_commit": "6666666666666666666666666666666666666666",
+          "runtime_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpqervcueh\\runtime",
+          "issued_utc": "2026-11-17T09:18:51.755205+00:00",
+          "expires_utc": "2026-11-17T10:19:21.755205+00:00",
+          "schedule": [
+            {
+              "fixture_id": "SYN-WO-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "SYN-MP-01-v0-clean",
+              "kind": "warmup",
+              "excluded": true
+            },
+            {
+              "fixture_id": "WP11-F01-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F01-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F02-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-control-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-layout-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-vocabulary-v0",
+              "kind": "measured",
+              "excluded": false
+            },
+            {
+              "fixture_id": "WP11-F03-degraded-v0",
+              "kind": "measured",
+              "excluded": false
+            }
+          ],
+          "source_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/002_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_source_commit": "1111111111111111111111111111111111111111"
+          },
+          "admission_review": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/agent-reports/eld-mapping-reviewer/WP-0011/004_2026-11-17_review_eld-mapping-reviewer.md",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+            "decision": "accepted",
+            "reviewed_reservation_sha256": "ac58c97459b199232cb541ba2216159cada61db73b8e44abaa4128a22284cddc"
+          },
+          "unseal": {
+            "commit": "4444444444444444444444444444444444444444",
+            "path": "docs/coordination/WP-0011/unseal.json",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "lease": {
+            "id": "CPU-ONLY-TEST",
+            "owner": "author",
+            "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+            "sole_lease": true,
+            "scope": "sole_model_job",
+            "observations": [
+              {
+                "commit": "4444444444444444444444444444444444444444",
+                "path": "docs/coordination/WP-0011/observation.json",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            ]
+          },
+          "torchvision_local_sha256_TOFU_accepted": true
+        },
+        "calls": [
+          {
+            "fixture_id": "SYN-WO-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-WO-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "SYN-MP-01-v0-clean",
+            "kind": "warmup",
+            "excluded": true,
+            "status": "completed",
+            "observation": "evidence\\SYN-MP-01-v0-clean.warmup.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F01-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F01-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F02-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F02-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-control-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-control-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-layout-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-layout-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-vocabulary-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-vocabulary-v0.measured.observation.json",
+            "observation_status": "available"
+          },
+          {
+            "fixture_id": "WP11-F03-degraded-v0",
+            "kind": "measured",
+            "excluded": false,
+            "status": "completed",
+            "observation": "evidence\\WP11-F03-degraded-v0.measured.observation.json",
+            "observation_status": "available"
+          }
+        ],
+        "failure": "SUPERVISOR_FINALIZATION_ERROR:PermissionError('GPU observation unavailable/truncated')",
+        "supervisor_error": {
+          "type": "PermissionError",
+          "message": "GPU observation unavailable/truncated",
+          "filename": null,
+          "errno": null,
+          "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 63, in finish\n    try:return action()\n               ^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 118, in <lambda>\n    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 19, in verify_device_observation\n    raise PermissionError('GPU observation unavailable/truncated')\nPermissionError: GPU observation unavailable/truncated\n",
+          "active_phase": null,
+          "stage": "post_observer_validation"
+        },
+        "secondary_errors": [],
+        "finalization_errors": [
+          {
+            "type": "PermissionError",
+            "message": "GPU observation unavailable/truncated",
+            "filename": null,
+            "errno": null,
+            "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 63, in finish\n    try:return action()\n               ^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 118, in <lambda>\n    post_check=finish('post_observer_validation',lambda:verify_device_observation(post,p)) if post is not None else None\n                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\qualification\\coverage_v1\\runtime.py\", line 19, in verify_device_observation\n    raise PermissionError('GPU observation unavailable/truncated')\nPermissionError: GPU observation unavailable/truncated\n",
+            "active_phase": null,
+            "stage": "post_observer_validation"
+          }
+        ],
+        "final_observation_status": {
+          "post_observers": "unavailable",
+          "worker_outcome": "available",
+          "free_bytes_after": "available",
+          "owned_bytes_after": "available"
+        },
+        "child_launcher_pid": 654321,
+        "child_returncode": 0,
+        "observed_child_exit": true,
+        "elapsed_s": 0.03200000000651926,
+        "observers": [
+          {
+            "returncode": 0,
+            "bytes": 51,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpqervcueh\\runtime\\runs\\author\\20261117T091921Z-02e70191\\pre-0.txt"
+          },
+          {
+            "returncode": 0,
+            "bytes": 0,
+            "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpqervcueh\\runtime\\runs\\author\\20261117T091921Z-02e70191\\pre-1.txt"
+          }
+        ],
+        "gpu_process_checks": [
+          {
+            "stage": "pre",
+            "expected_device_observed": true,
+            "process_observation_text": "",
+            "limit": "Process rows, including desktop sharing and WDDM [N/A], are retained without automatic classification. Root grants the sole model-job lease from reviewed process evidence; no OS-exclusive hardware assurance."
+          }
+        ],
+        "free_bytes_after": 44684795904,
+        "owned_bytes_after": 6332
+      },
+      "stdout": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-coverage-author\\.scratch\\wp0011-coverage-correction\\tmpqervcueh\\runtime\\runs\\author\\20261117T091921Z-02e70191\n"
+    }
+  ],
+  "score_state": {
+    "case": "completed_after_failed_warmup",
+    "pass": true,
+    "rejection": "PermissionError('Malformed run result')",
+    "calls": [
+      {
+        "fixture_id": "SYN-WO-01-v0-clean",
+        "kind": "warmup",
+        "excluded": true,
+        "status": "failed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "SYN-MP-01-v0-clean",
+        "kind": "warmup",
+        "excluded": true,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F01-control-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F01-layout-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F01-vocabulary-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F01-degraded-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F02-control-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F02-layout-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F02-vocabulary-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F02-degraded-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F03-control-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F03-layout-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F03-vocabulary-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      },
+      {
+        "fixture_id": "WP11-F03-degraded-v0",
+        "kind": "measured",
+        "excluded": false,
+        "status": "completed",
+        "observation": "obs.json"
+      }
+    ],
+    "actual_historical_summary": null,
+    "actual_pairing": null
+  }
+}
