@@ -1,0 +1,16 @@
+Pre-freeze `.scratch/rt-dryrun` helper verification failure #05 (`2026-11-17`, prior to final helper freeze):
+Command:
+  python -B docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/run_f4_independent_review.py --skip-heavy-suites-dryrun --output .scratch/rt-dryrun/verification-summary.json ...
+Outcome:
+  Passed forward migration, 503 archive_not_ready, startup backfill (7 projections / 13 units), all 31 saved HTTP queries, all 23 raw HTTP 400 rejections, all 19 PostgreSQL 42501 privilege denials, EXPLAIN plans, and Microsoft Edge runtime checks E1 (9-seed browse), E2 (SYN-MP-01 #page=2/#page=3 PDF preview), and E3A (SEED-R04 pinned Revision #1 #page=2).
+  Failed at Step 11 (`11-edge-f4-before-restart.log`, exit 1; `finally:` stopped API 5690, UI 4710, and PostgreSQL 55439 cleanly):
+    ExpectError: expect(locator).toHaveText(expected) failed
+    Locator:  getByTestId('witness-source-label-01a1e571-2838-714b-861b-bf0835d7c90a-0')
+    Expected: "Property Name · Reviewed Revision #2"
+    Received: "Property · Reviewed Revision #2"
+    at verify_f4_independent_edge.mjs:287:74
+
+Root cause (reviewer helper label mismatch, NOT a product defect):
+  `WorkOrderReviewSchema` defines `DisplayLabel = "Property"` for `fieldKey = "property_name"` (see `src/ELedgerCare.Domain/Reviews/WorkOrderReviewSchema.cs`), so `ArchiveStore` and `ArchivePage` accurately render `"Property · Reviewed Revision #2"`.
+Resolution before final helper freeze:
+  Updated `verify_f4_independent_edge.mjs` line 288 expectation from `'Property Name · Reviewed Revision #2'` to `'Property · Reviewed Revision #2'`.

@@ -1,0 +1,14 @@
+PRE-FREEZE SCRATCH DRY-RUN (--skip-heavy-suites-dryrun):
+
+COMMAND:
+python -B docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/run_f4_independent_review.py --skip-heavy-suites-dryrun --output .scratch/rt-dryrun/summary.json --resource-return-output .scratch/rt-dryrun/resource-return.json --explain-output .scratch/rt-dryrun/explain-plans.txt --logs-dir .scratch/rt-dryrun/logs --screenshots-dir .scratch/rt-dryrun/screenshots --edge-before-output .scratch/rt-dryrun/edge-before.json --edge-after-output .scratch/rt-dryrun/edge-after.json --demo-smoke-output .scratch/rt-dryrun/demo-smoke.json
+
+EXIT CODE: 1 (after passing all 31 saved queries, 23 raw HTTP 400 checks, 19 privilege denials, and EXPLAIN plans; finally: cleanly stopped all services)
+
+INNER EDGE LOG (.scratch/rt-dryrun/logs/11-edge-f4-before-restart.log):
+ExpectError: expect(locator).toHaveText(expected) failed
+
+Locator:  getByTestId('archive-doc-status-01a1e8cf-ec7a-744c-bbd4-04074813c931')
+Expected: "Failed"
+Received: " Extraction failed "
+Timeout:  5000ms

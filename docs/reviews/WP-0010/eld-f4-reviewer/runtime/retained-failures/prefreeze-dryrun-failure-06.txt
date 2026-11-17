@@ -1,0 +1,19 @@
+Pre-freeze `.scratch/rt-dryrun` helper verification failure #06 (`2026-11-17`, prior to final helper freeze):
+Command:
+  python -B docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/run_f4_independent_review.py --skip-heavy-suites-dryrun --output .scratch/rt-dryrun/verification-summary.json ...
+Outcome:
+  Step `11-edge-f4-before-restart` PASSED 100% (`Edge 157.0.4341.60`), Steps `12`/`13` stopped and restarted PostgreSQL 55439 + API 5690 + UI 4710 cleanly, and post-restart 31 saved HTTP queries matched pre-restart digest identically.
+  Step `14-edge-f4-after-restart-reopen` (`14-edge-f4-after-restart-reopen.log`, exit 1; `finally:` stopped API 5690, UI 4710, and PostgreSQL 55439 cleanly) failed in section E4:
+    ExpectError: expect(locator).toBeVisible() failed
+    Locator: getByTestId('archive-card-01a1e578-8f3a-7e0c-826b-a2c9dc066a8f')
+    Timeout: 15000ms
+    ariaSnapshot showed:
+      - searchbox "Keyword query(max 160 characters, up to 8 words)": WO-009901-CLEAN-HEAD
+      - strong: Search results for “SLOW-REVIEWER-STALE-1” (reviewed values only)
+
+Root cause (sub-3ms programmatic input before Angular Router microtask committed queryParams):
+  In `web/src/app/archive/archive-page.ts` (`L521-526`), `applyNewQueryAndNavigate` calls asynchronous `void this.router.navigate(['/archive'], { queryParams })` alongside `this.executeSearch(...)`. When `verify_f4_independent_edge.mjs` did not await either the restored card after `review-back-to-archive` (`this.response()` was still `null`) or the ~2ms URL transition (`?q=SLOW-REVIEWER-STALE-1`) before calling `fill('WO-009901-CLEAN-HEAD')`, Angular Router's microtask committed `this.q = 'SLOW-REVIEWER-STALE-1'` in the ~2ms gap *between* `fill('WO-009901-CLEAN-HEAD')` and the second `click()`, triggering `effect()` (`L365-381`, `this.draftQuery.set(urlQ)`) and resetting `draftQuery` to `'SLOW-REVIEWER-STALE-1'` right before the second `click()`.
+  A human user cannot click Search, refocus `<input>`, and type a new query in `< 3ms`; once the ~2ms URL transition settles (while the 650ms slow HTTP request is still in flight), `ArchivePage` reliably cancels/ignores the obsolete in-flight response via `cancelInFlight()` and `seq !== this.activeRequestSeq` (`L537`).
+Resolution before final helper freeze:
+  1. Documented the `< 3ms` `router.navigate` / `effect()` microtask race as non-blocking technical observation #3 in `SOURCE-AND-DESIGN-AUDIT.md` and `/004`.
+  2. Updated `verify_f4_independent_edge.mjs` to assert `archive-card-${SEED_R01}` visibility after `review-back-to-archive` and await `toHaveURL(/q=SLOW-REVIEWER-STALE-1/)` + wire-level route entry before submitting `WO-009901-CLEAN-HEAD` while the 650ms `SLOW-REVIEWER-STALE-1` HTTP request remains actively in flight.

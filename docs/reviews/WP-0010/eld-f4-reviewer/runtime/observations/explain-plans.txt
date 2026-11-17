@@ -1,0 +1,71 @@
+=== 1. DEFAULT 9-ROW KEYSET BROWSE PLAN ===
+Limit  (cost=1.28..1.30 rows=9 width=24) (actual time=0.016..0.017 rows=9.00 loops=1)
+  Buffers: shared hit=1
+  ->  Sort  (cost=1.28..1.30 rows=9 width=24) (actual time=0.016..0.016 rows=9.00 loops=1)
+        Sort Key: submitted_at DESC, document_id DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=1
+        ->  Seq Scan on documents d  (cost=0.00..1.14 rows=9 width=24) (actual time=0.008..0.009 rows=9.00 loops=1)
+              Filter: (ROW(submitted_at, document_id) < ROW('2098-12-31 19:00:00-05'::timestamp with time zone, 'ffffffff-ffff-ffff-ffff-ffffffffffff'::uuid))
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=51
+Planning Time: 0.986 ms
+Execution Time: 0.036 ms
+=== 2. FORCED INDEX-SCAN KEYSET BROWSE PLAN (enable_seqscan = off) ===
+Limit  (cost=0.14..12.29 rows=9 width=24) (actual time=0.006..0.008 rows=9.00 loops=1)
+  Buffers: shared hit=2
+  ->  Index Only Scan using ix_documents_submitted_at_document_id_desc on documents d  (cost=0.14..12.29 rows=9 width=24) (actual time=0.005..0.007 rows=9.00 loops=1)
+        Index Cond: (ROW(submitted_at, document_id) < ROW('2098-12-31 19:00:00-05'::timestamp with time zone, 'ffffffff-ffff-ffff-ffff-ffffffffffff'::uuid))
+        Heap Fetches: 9
+        Index Searches: 1
+        Buffers: shared hit=2
+Planning:
+  Buffers: shared hit=2
+Planning Time: 0.047 ms
+Execution Time: 0.016 ms
+=== 3. SINGLE-SNAPSHOT MIXED-SOURCE KEYWORD + LATERAL LATEST-REVIEWED PLAN ===
+Limit  (cost=58.14..58.16 rows=7 width=40) (actual time=0.185..0.186 rows=1.00 loops=1)
+  Buffers: shared hit=16
+  ->  Sort  (cost=58.14..58.16 rows=7 width=40) (actual time=0.184..0.185 rows=1.00 loops=1)
+        Sort Key: d.submitted_at DESC, d.document_id DESC
+        Sort Method: quicksort  Memory: 25kB
+        Buffers: shared hit=16
+        ->  Nested Loop Left Join  (cost=2.33..58.04 rows=7 width=40) (actual time=0.139..0.182 rows=1.00 loops=1)
+              Filter: (((er.result_id IS NOT NULL) OR (r.revision_id IS NOT NULL)) AND ((ANY (d.document_id = (hashed SubPlan 2).col1)) OR ((r.revision_id IS NOT NULL) AND (ANY (r.revision_id = (hashed SubPlan 4).col1)))))
+              Rows Removed by Filter: 8
+              Buffers: shared hit=16
+              ->  Hash Right Join  (cost=1.20..3.30 rows=9 width=40) (actual time=0.028..0.034 rows=9.00 loops=1)
+                    Hash Cond: (er.document_id = d.document_id)
+                    Buffers: shared hit=3
+                    ->  Seq Scan on extraction_results er  (cost=0.00..2.07 rows=7 width=32) (actual time=0.005..0.006 rows=7.00 loops=1)
+                          Buffers: shared hit=2
+                    ->  Hash  (cost=1.09..1.09 rows=9 width=24) (actual time=0.015..0.015 rows=9.00 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                          Buffers: shared hit=1
+                          ->  Seq Scan on documents d  (cost=0.00..1.09 rows=9 width=24) (actual time=0.011..0.012 rows=9.00 loops=1)
+                                Buffers: shared hit=1
+              ->  Limit  (cost=1.13..1.14 rows=1 width=20) (actual time=0.005..0.005 rows=0.44 loops=9)
+                    Buffers: shared hit=9
+                    ->  Sort  (cost=1.13..1.14 rows=1 width=20) (actual time=0.004..0.005 rows=0.44 loops=9)
+                          Sort Key: r.revision_number DESC
+                          Sort Method: quicksort  Memory: 25kB
+                          Buffers: shared hit=9
+                          ->  Seq Scan on work_order_review_revisions r  (cost=0.00..1.12 rows=1 width=20) (actual time=0.002..0.002 rows=0.56 loops=9)
+                                Filter: ((document_id = d.document_id) AND (status = 'reviewed'::text))
+                                Rows Removed by Filter: 7
+                                Buffers: shared hit=9
+              SubPlan 2
+                ->  Seq Scan on archive_projection_units apu  (cost=0.00..3.19 rows=1 width=16) (actual time=0.065..0.065 rows=0.00 loops=1)
+                      Filter: ((search_text ~~* '%North%'::text) AND (projection_version = 'archive-machine-projection/1'::text))
+                      Rows Removed by Filter: 13
+                      Buffers: shared hit=3
+              SubPlan 4
+                ->  Seq Scan on work_order_review_fields rf  (cost=0.00..1.60 rows=1 width=16) (actual time=0.012..0.026 rows=1.00 loops=1)
+                      Filter: ((human_value IS NOT NULL) AND (decision = ANY ('{accepted,edited}'::text[])) AND (human_value ~~* '%North%'::text))
+                      Rows Removed by Filter: 39
+                      Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=228
+Planning Time: 8.087 ms
+Execution Time: 0.232 ms

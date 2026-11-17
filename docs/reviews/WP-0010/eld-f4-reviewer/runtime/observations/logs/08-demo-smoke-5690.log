@@ -1,0 +1,54 @@
+waiting for server to shut down.... done
+server stopped
+Owned cluster started: postmaster PID 22004, started 2026-11-17T11:09:30.7341561Z, data C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\.local\postgres-data
+{
+  "fixtureId": "F1-SWO-001",
+  "fixtureSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+  "fixtureBytes": 887,
+  "apiPort": 5690,
+  "database": "eledgercare_product_dev",
+  "submit": {
+    "status": 201,
+    "documentId": "01a1e932-928f-7bd9-8c11-dedd52cfab33",
+    "jobId": "01a1e932-928f-77fc-a21a-50bf9cfdf669",
+    "receiptStatus": "awaiting_extraction",
+    "sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "disabledByDefaultExtraction": {
+    "workerEnabled": false,
+    "postStatus": 503,
+    "statusAfter503": "awaiting_extraction"
+  },
+  "apiProcesses": [
+    {
+      "pid": 34248,
+      "startUtc": "2026-11-17T11:09:26.2382641Z",
+      "role": "submit + disabled-worker check, then terminated"
+    },
+    {
+      "pid": 31812,
+      "startUtc": "2026-11-17T11:09:28.6040034Z",
+      "role": "after API restart"
+    },
+    {
+      "pid": 16104,
+      "startUtc": "2026-11-17T11:09:31.0711112Z",
+      "role": "after PostgreSQL fast restart"
+    }
+  ],
+  "afterApiRestart": {
+    "documentId": "01a1e932-928f-7bd9-8c11-dedd52cfab33",
+    "admittedPageCount": 1,
+    "status": "awaiting_extraction",
+    "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "afterPostgresRestart": {
+    "postmasterPid": 22004,
+    "documentId": "01a1e932-928f-7bd9-8c11-dedd52cfab33",
+    "status": "awaiting_extraction",
+    "extractionStatus": "awaiting_extraction",
+    "originalSha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "allMatch": true,
+  "limits": "Stage 1 CPU/DB restart smoke with LocalOcr:Enabled=false default; not a GPU run or power-loss test."
+}

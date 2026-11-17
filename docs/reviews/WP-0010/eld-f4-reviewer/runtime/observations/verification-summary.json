@@ -1,0 +1,659 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-f4-runtime-verification-summary/1",
+  "generated_at_utc": "2026-11-17T11:12:06.141017+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "conversation_id": "61105d43-7706-45f2-9176-69d3256248e0",
+  "branch": "review/wp-0010-f4",
+  "executing_head_sha": "85d3c36c874026a8e9166f29259fb44755422de0",
+  "design_candidate_sha": "01a6dab0695c93246b4cf04d1a2098d3b77248d8",
+  "prior_design_002_sha": "85d879a1adc0ee62090f4c6a5c9a7fb8eb5f3a96",
+  "reviewer_preparation_sha": "349c29773009abdf1bc228d01696d58a83d3eaa2",
+  "root_runtime_authority_sha": "d8e4c9b86af5e61157bf55675037c6ddd95efeff",
+  "author_revisions": {
+    "base_sha": "7345ef03dfa4d5f039259d0b8b9505685112469d",
+    "first_helper_candidate_sha": "74555395e8ed55020ffd004369b30581bfa7963c",
+    "tested_candidate_sha": "c383021be1774451ba3034d89255b38b4267353b",
+    "evidence_sha": "ceec957733d6c00c6b4277e7db3f391ab6ccb6b4",
+    "report_003_publication_sha": "7c578be6e8abff4d285ea1b519bbcfaeba1bb8c7"
+  },
+  "verified_product_trees": {
+    "src": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+    "web": "2aeddf8ec2e1f3d4e3dc40517866d975efadcd3e",
+    "tests": "25c21310699086acb818549b2a4c0b99469208f1",
+    "deploy": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "workers": "9b548ddcc73cfba8e7683d132840b08afa5a67a3"
+  },
+  "tool_versions": {
+    "git": "git version 2.55.0.windows.1",
+    "python": "3.12.10",
+    "dotnet_sdk": "10.0.403",
+    "dotnet_ef": "10.0.15",
+    "node": "v24.18.0",
+    "postgres": "psql (PostgreSQL) 18.7"
+  },
+  "helpers": {
+    "run_f4_independent_review_py_sha256": "22f554fba1d35582e302ef0e007ca763a02921ae9b8e5097ad0d8f52adb266ae",
+    "verify_f4_independent_edge_mjs_sha256": "5b2fb58b2ca9c73174e400bd3b3bd20ec2930c074f9fbe6cdd820ac50c513492",
+    "build_runtime_review_inventory_py_sha256": "cd0b49e42ad51ee7b31d1c578d494a97d6d68522ba8022e55c779ce22738bb60"
+  },
+  "retained_seed_preservation": {
+    "database": "eledgercare_f4_reviewer_seed_f3",
+    "expected_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "observed_before_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "observed_after_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "unchanged": true
+  },
+  "forward_migration_and_restart": {
+    "migrated_database": "eledgercare_f4_reviewer_migrated",
+    "applied_migrations": [
+      "20261114182147_InitialDurableIntake",
+      "20261116052029_AddLocalExtraction",
+      "20261116200918_AddWorkOrderReview",
+      "20261117091519_AddSourceLinkedArchive"
+    ],
+    "core_8table_sha256_before_migration": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "core_8table_sha256_after_migration": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "core_8table_sha256_after_restart": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "projection_count": 7,
+    "projection_unit_count": 13,
+    "projection_tables_sha256_before_restart": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa",
+    "projection_tables_sha256_after_restart": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa",
+    "saved_queries_sha256_before_restart": "53d353351b8cababc0daa6b37dd2f96d4e48c890c7b9b9242cb2b3c85d566e4d",
+    "saved_queries_sha256_after_restart": "53d353351b8cababc0daa6b37dd2f96d4e48c890c7b9b9242cb2b3c85d566e4d",
+    "postmaster_pid_before_restart": 22004,
+    "postmaster_pid_after_restart": 16508,
+    "execution_attempts_count_unchanged": 9
+  },
+  "modest_archive_measurements": {
+    "declared_archive_documents": 9,
+    "declared_projected_results": 7,
+    "warm_query_count": 10,
+    "p50_ms": 4.81,
+    "max_ms": 25.41,
+    "samples_ms": [
+      22.57,
+      21.81,
+      25.41,
+      14.69,
+      4.72,
+      4.81,
+      4.73,
+      4.82,
+      4.57,
+      4.64
+    ],
+    "api_working_set_bytes": 111943680,
+    "api_working_set_mib": 106.76,
+    "scope_note": "Local synthetic 9-document reviewer archive on loopback; not an enterprise scalability claim."
+  },
+  "logged_steps": [
+    {
+      "step": "01-worker-cpu-tests",
+      "command": [
+        "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "workers/local_ocr/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:05:59.471300+00:00",
+      "elapsed_ms": 1218.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/01-worker-cpu-tests.log",
+      "log_sha256": "a0b7ed479fda5513f705625cffff30b85a2c170881486eb337b67f7c9c725439"
+    },
+    {
+      "step": "02-dotnet-restore-offline",
+      "command": [
+        "dotnet",
+        "restore",
+        "ELedgerCare.slnx",
+        "--locked-mode",
+        "--configfile",
+        ".local/nuget/offline.nuget.config"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:06:00.700513+00:00",
+      "elapsed_ms": 2500.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/02-dotnet-restore-offline.log",
+      "log_sha256": "a32db9500598ced12cdec54ddd26fbf8557b51ae59625b55f0ec31115dd4744c"
+    },
+    {
+      "step": "03-dotnet-build-release",
+      "command": [
+        "dotnet",
+        "build",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:06:03.215618+00:00",
+      "elapsed_ms": 9859.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/03-dotnet-build-release.log",
+      "log_sha256": "9dea5baaf2db9e234e229cafd9b4d821bd46d38e0d2e582dd27956e14c28337b"
+    },
+    {
+      "step": "04-angular-production-build",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "node_modules/@angular/cli/bin/ng.js",
+        "build"
+      ],
+      "cwd": "web",
+      "started_utc": "2026-11-17T11:06:13.091793+00:00",
+      "elapsed_ms": 5406.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/04-angular-production-build.log",
+      "log_sha256": "3a04a78d5bd83908f6dd564abcf0654cdf6981d87faf1bbe19800a331391d841"
+    },
+    {
+      "step": "05-pg-cluster-start-initial",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/start-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:06:18.498081+00:00",
+      "elapsed_ms": 1672.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/05-pg-cluster-start-initial.log",
+      "log_sha256": "e2ea2a68230aef7f65cb6178ac5c04684498f610cffcda373d71b74a8dae7339"
+    },
+    {
+      "step": "06-dotnet-test-release",
+      "command": [
+        "dotnet",
+        "test",
+        "ELedgerCare.slnx",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:06:20.907104+00:00",
+      "elapsed_ms": 177234.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/06-dotnet-test-release.log",
+      "log_sha256": "8a3a72f6c7d1f55b664e2d008aecca53757b212f67f2f745a2e14ac6b768f531"
+    },
+    {
+      "step": "07-prepare-dev-db",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:09:18.154864+00:00",
+      "elapsed_ms": 6984.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/07-prepare-dev-db.log",
+      "log_sha256": "01b187ba1ca02235b616aa2f2b73ea7a258a58fc8ced394a62d107601330dc12"
+    },
+    {
+      "step": "08-demo-smoke-5690",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-demo-smoke.ps1",
+        "-ApiPort",
+        "5690",
+        "-ReceiptPath",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0010\\eld-f4-reviewer\\runtime\\observations\\demo-smoke-5690-receipt.json"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:09:25.145582+00:00",
+      "elapsed_ms": 7579.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/08-demo-smoke-5690.log",
+      "log_sha256": "632bdce28453cab0795db9d4661df22f145f0d52d9e212dcaae38f01b96c3ac0"
+    },
+    {
+      "step": "09-playwright-edge-e2e-5690-4710",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-browser-checks.ps1",
+        "-Database",
+        "eledgercare_f4_reviewer_e2e",
+        "-ApiPort",
+        "5690",
+        "-UiPort",
+        "4710"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:09:33.096590+00:00",
+      "elapsed_ms": 70500.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/09-playwright-edge-e2e-5690-4710.log",
+      "log_sha256": "25d9e89495cc030edc0689dc1e85766527617897f4cbbf91e51be6be841a7de4"
+    },
+    {
+      "step": "10-forward-migrate-reviewer-seed-clone",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1",
+        "-Database",
+        "eledgercare_f4_reviewer_migrated"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:10:48.974637+00:00",
+      "elapsed_ms": 5625.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/10-forward-migrate-reviewer-seed-clone.log",
+      "log_sha256": "24eaed2d31243f931391f59010987692a0d467142e9cee9e909dc234c771ae92"
+    },
+    {
+      "step": "11-edge-f4-before-restart",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0010\\eld-f4-reviewer\\runtime\\helpers\\verify_f4_independent_edge.mjs",
+        "--phase",
+        "before-restart",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/edge-f4-before-restart.json",
+        "--screenshot-dir",
+        "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:11:08.849503+00:00",
+      "elapsed_ms": 12093.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/11-edge-f4-before-restart.log",
+      "log_sha256": "94f09d01c84b03d1f9e6031693c94d5334da4315a077db288fe3cdd81b8af2d3"
+    },
+    {
+      "step": "12-pg-cluster-stop-for-restart",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/stop-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:11:22.224662+00:00",
+      "elapsed_ms": 1265.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/12-pg-cluster-stop-for-restart.log",
+      "log_sha256": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d"
+    },
+    {
+      "step": "13-pg-cluster-start-after-restart",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/start-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:11:25.490875+00:00",
+      "elapsed_ms": 1672.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/13-pg-cluster-start-after-restart.log",
+      "log_sha256": "c910fe955f57cc809cfc56384d928edfcc08c7088446f87771025dddd2f7ef4e"
+    },
+    {
+      "step": "14-edge-f4-after-restart-reopen",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0010\\eld-f4-reviewer\\runtime\\helpers\\verify_f4_independent_edge.mjs",
+        "--phase",
+        "after-restart",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/edge-f4-after-restart.json",
+        "--screenshot-dir",
+        "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:11:35.785283+00:00",
+      "elapsed_ms": 12234.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/14-edge-f4-after-restart-reopen.log",
+      "log_sha256": "50e222cc806adcf3dd3a27e0affe6493d9f90e89230968096c6abc1542431a75"
+    },
+    {
+      "step": "15-prepare-scratch-fallback-probe-db",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/database/prepare-database.ps1",
+        "-Database",
+        "eledgercare_f4_reviewer_probe"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:11:49.721856+00:00",
+      "elapsed_ms": 6031.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/15-prepare-scratch-fallback-probe-db.log",
+      "log_sha256": "d5ea709d53f575308e56ef2e3b1fc053705042294480b61f4c210674df8a3477"
+    },
+    {
+      "step": "16-pg-cluster-stop-final",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/stop-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T11:12:03.554998+00:00",
+      "elapsed_ms": 453.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs/16-pg-cluster-stop-final.log",
+      "log_sha256": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d"
+    }
+  ],
+  "assertion_count": 34,
+  "all_assertions_passed": true,
+  "assertions": [
+    {
+      "check": "clean_worktree_before_decisive_run",
+      "passed": true,
+      "detail": {
+        "status": ""
+      }
+    },
+    {
+      "check": "owned_review_branch",
+      "passed": true,
+      "detail": {
+        "branch": "review/wp-0010-f4",
+        "head": "85d3c36c874026a8e9166f29259fb44755422de0"
+      }
+    },
+    {
+      "check": "ancestor_verified:design_002",
+      "passed": true,
+      "detail": {
+        "sha": "85d879a1adc0ee62090f4c6a5c9a7fb8eb5f3a96"
+      }
+    },
+    {
+      "check": "ancestor_verified:reviewer_prep",
+      "passed": true,
+      "detail": {
+        "sha": "349c29773009abdf1bc228d01696d58a83d3eaa2"
+      }
+    },
+    {
+      "check": "ancestor_verified:root_runtime_authority",
+      "passed": true,
+      "detail": {
+        "sha": "d8e4c9b86af5e61157bf55675037c6ddd95efeff"
+      }
+    },
+    {
+      "check": "ancestor_verified:author_003_pub",
+      "passed": true,
+      "detail": {
+        "sha": "7c578be6e8abff4d285ea1b519bbcfaeba1bb8c7"
+      }
+    },
+    {
+      "check": "ancestor_verified:merged_review_base",
+      "passed": true,
+      "detail": {
+        "sha": "8f2932c00fa01b46a8262fe7965d953cc966146e"
+      }
+    },
+    {
+      "check": "product_tree_oid_exact:src",
+      "passed": true,
+      "detail": {
+        "oid": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e"
+      }
+    },
+    {
+      "check": "product_tree_oid_exact:web",
+      "passed": true,
+      "detail": {
+        "oid": "2aeddf8ec2e1f3d4e3dc40517866d975efadcd3e"
+      }
+    },
+    {
+      "check": "product_tree_oid_exact:tests",
+      "passed": true,
+      "detail": {
+        "oid": "25c21310699086acb818549b2a4c0b99469208f1"
+      }
+    },
+    {
+      "check": "product_tree_oid_exact:deploy",
+      "passed": true,
+      "detail": {
+        "oid": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1"
+      }
+    },
+    {
+      "check": "product_tree_oid_exact:ELedgerCare.slnx",
+      "passed": true,
+      "detail": {
+        "oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976"
+      }
+    },
+    {
+      "check": "product_tree_oid_exact:workers",
+      "passed": true,
+      "detail": {
+        "oid": "9b548ddcc73cfba8e7683d132840b08afa5a67a3"
+      }
+    },
+    {
+      "check": "immutable_002_design_and_preparation_untouched",
+      "passed": true,
+      "detail": {
+        "diff": ""
+      }
+    },
+    {
+      "check": "author_commit_structure_and_dependency_pins_preserved",
+      "passed": true,
+      "detail": {
+        "candidate_paths": 52,
+        "evidence_paths": 39,
+        "report_only_pub": true,
+        "dependency_or_worker_edits": 0
+      }
+    },
+    {
+      "check": "production_cs_and_ts_static_boundary_scan_clean",
+      "passed": true,
+      "detail": {
+        "cs_files": 71,
+        "ts_files": 15,
+        "violations": []
+      }
+    },
+    {
+      "check": "reviewer_ports_5690_4710_55439_free_before_start",
+      "passed": true,
+      "detail": {
+        "4710": [],
+        "5690": [],
+        "55439": []
+      }
+    },
+    {
+      "check": "dotnet_release_build_zero_warnings_and_errors",
+      "passed": true,
+      "detail": {
+        "dll_exists": true
+      }
+    },
+    {
+      "check": "retained_f3_seed_intact_before_tests",
+      "passed": true,
+      "detail": {
+        "seed_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "counts": {
+          "documents": 9,
+          "original_artifacts": 9,
+          "processing_jobs": 9,
+          "execution_attempts": 9,
+          "extraction_results": 7,
+          "work_order_review_heads": 5,
+          "work_order_review_revisions": 8,
+          "work_order_review_fields": 40
+        }
+      }
+    },
+    {
+      "check": "dotnet_test_all_suites_passed",
+      "passed": true,
+      "detail": {
+        "exit_code": 0
+      }
+    },
+    {
+      "check": "demo_smoke_5690_all_match",
+      "passed": true,
+      "detail": {
+        "apiPort": 5690
+      }
+    },
+    {
+      "check": "cloned_db_matches_seed_before_forward_migration",
+      "passed": true,
+      "detail": {
+        "pre_migration_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993"
+      }
+    },
+    {
+      "check": "forward_migration_preserves_all_8_core_tables_and_adds_f4_schema",
+      "passed": true,
+      "detail": {
+        "applied_migrations": [
+          "20261114182147_InitialDurableIntake",
+          "20261116052029_AddLocalExtraction",
+          "20261116200918_AddWorkOrderReview",
+          "20261117091519_AddSourceLinkedArchive"
+        ],
+        "post_migration_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "projections_before_api_startup": 0
+      }
+    },
+    {
+      "check": "deferred_startup_serves_503_archive_not_ready_never_empty_200",
+      "passed": true,
+      "detail": {
+        "status": 503,
+        "code": "archive_not_ready",
+        "retry_after": "1"
+      }
+    },
+    {
+      "check": "startup_backfill_projected_all_7_genuine_results_and_13_units_with_ocr_disabled",
+      "passed": true,
+      "detail": {
+        "projection_count": 7,
+        "unit_count": 13,
+        "projection_tables_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa"
+      }
+    },
+    {
+      "check": "saved_31_archive_queries_and_keyset_walk_passed_before_restart",
+      "passed": true,
+      "detail": {
+        "saved_query_count": 31,
+        "keyset_pages_limit_2": 5,
+        "saved_queries_sha256": "53d353351b8cababc0daa6b37dd2f96d4e48c890c7b9b9242cb2b3c85d566e4d"
+      }
+    },
+    {
+      "check": "raw_http_socket_400_validation_matrix_passed",
+      "passed": true,
+      "detail": {
+        "tested_count": 23
+      }
+    },
+    {
+      "check": "least_privilege_denies_all_19_mutations_including_f4_projections",
+      "passed": true,
+      "detail": {
+        "denied_count": 19
+      }
+    },
+    {
+      "check": "explain_plans_captured_and_keyset_index_usable",
+      "passed": true,
+      "detail": {
+        "explain_sha256": "164df615e343b6b3236f955102633abea213a6052ce3828f01718de304dc1e1b"
+      }
+    },
+    {
+      "check": "all_ports_unbound_during_full_restart_gap",
+      "passed": true,
+      "detail": {
+        "5690": [],
+        "4710": [],
+        "55439": []
+      }
+    },
+    {
+      "check": "restart_invariance_verified_for_queries_projections_8tables_and_seed_f3",
+      "passed": true,
+      "detail": {
+        "saved_queries_sha256": "53d353351b8cababc0daa6b37dd2f96d4e48c890c7b9b9242cb2b3c85d566e4d",
+        "projection_tables_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa",
+        "migrated_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "retained_seed_f3_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "execution_attempts_unchanged": 9
+      }
+    },
+    {
+      "check": "live_http_fallback_caption_nofork_nul_and_unbound_page_verified",
+      "passed": true,
+      "detail": {
+        "unbound_page_number": null
+      }
+    },
+    {
+      "check": "live_http_503_archive_projection_conflict_preserves_document_endpoint",
+      "passed": true,
+      "detail": {
+        "archive_status": 503,
+        "code": "archive_projection_conflict",
+        "doc_status": 200
+      }
+    },
+    {
+      "check": "all_owned_services_stopped_and_ports_5690_4710_55439_released",
+      "passed": true,
+      "detail": {
+        "pg_ctl_status_exit": 3,
+        "ports_after": {
+          "55439": [],
+          "5690": [],
+          "4710": []
+        },
+        "postgres_data_retained": true
+      }
+    }
+  ],
+  "zero_gpu_or_ocr_worker_processes": true
+}

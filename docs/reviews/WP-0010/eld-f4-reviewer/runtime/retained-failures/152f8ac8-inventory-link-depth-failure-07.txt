@@ -1,0 +1,11 @@
+Inventory Markdown link-depth check failure #07 (`2026-11-17`, during post-verification inventory build):
+Command:
+  python -B docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/build_runtime_review_inventory.py --frozen-sha 85d3c36c874026a8e9166f29259fb44755422de0
+Outcome (`exit 1` before writing `runtime-review-inventory.json`):
+  FileNotFoundError: Broken Markdown link in ...\docs\reviews\WP-0010\eld-f4-reviewer\runtime\retained-failures\README.md:
+    ../../../../../web/src/app/intake/submission-api.ts -> ...\docs\web\src\app\intake\submission-api.ts
+
+Root cause:
+  `docs/reviews/WP-0010/eld-f4-reviewer/runtime/retained-failures/` is 6 directories deep from repo root (not 5), so relative links to `web/src/app/intake/{submission-api,receipt}.ts` in `retained-failures/README.md` required `../../../../../../web/...` instead of `../../../../../web/...`.
+Resolution:
+  Fixed the two relative Markdown links in `retained-failures/README.md` (`6` `../` segments) without modifying any frozen helper script (`85d3c36c874026a8e9166f29259fb44755422de0`), then re-ran `build_runtime_review_inventory.py --frozen-sha 85d3c36c874026a8e9166f29259fb44755422de0` (`exit 0`).

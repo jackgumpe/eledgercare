@@ -1,0 +1,61 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-search-navigation-resource-return/1",
+  "observed_at_utc": "2026-11-17T11:40:51.190099+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "owned_ports": {
+    "api": 5690,
+    "ui": 4710,
+    "postgres": 55439
+  },
+  "ports_before": {
+    "5690": [],
+    "55439": [],
+    "4710": []
+  },
+  "ports_after": {
+    "55439": [],
+    "4710": [],
+    "5690": []
+  },
+  "pg_ctl_status_exit_after_stop": 3,
+  "spawned_processes": [
+    {
+      "role": "postmaster_55439",
+      "info": {
+        "pid": 19196,
+        "workingSetBytes": 27074560,
+        "startUtc": "2026-11-17T11:40:35.5726384Z",
+        "name": "postgres"
+      }
+    },
+    {
+      "role": "ui_4710",
+      "stop": {
+        "pid": 13028,
+        "name": "node",
+        "startUtc": "2026-11-17T11:40:39.9782286Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    },
+    {
+      "role": "api_5690",
+      "stop": {
+        "pid": 4500,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T11:40:37.5161786Z",
+        "exitCode": 1,
+        "aliveAfter": false
+      }
+    }
+  ],
+  "retained_databases": {
+    "eledgercare_f4_reviewer_seed_f3": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "eledgercare_f4_reviewer_migrated": {
+      "core_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+      "projections_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa"
+    }
+  },
+  "credentials_gitignored": true,
+  "gpu_or_model_processes_started": 0
+}

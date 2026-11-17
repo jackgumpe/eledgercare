@@ -1,0 +1,63 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-final-navigation-extras-receipt/1",
+  "verified_at_utc": "2026-11-17T12:06:51.212Z",
+  "reviewer": "eld-f4-reviewer",
+  "arbitrary_sleep_calls": 0,
+  "browser_channel": "msedge",
+  "browser_version": "157.0.4341.60",
+  "ui_port": 4710,
+  "api_port": 5690,
+  "observed_api_get_count": 9,
+  "observed_non_get_api_count": 0,
+  "local_storage_keys": 0,
+  "session_storage_keys": 0,
+  "checks": [
+    {
+      "id": "FX-01",
+      "passed": true,
+      "detail": {
+        "initialDeepLinkRequests": 1,
+        "urlWhileLatched": "?source=reviewed",
+        "duplicateRequestsOnSettle": 0,
+        "historyStateCheck": {
+          "keys": [
+            "navigationId"
+          ],
+          "hasSourceComponent": false,
+          "hasCommandSeq": false
+        },
+        "screenshot": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/final-fx01-preserved-draft-submitted-r04.png"
+      }
+    },
+    {
+      "id": "FX-02",
+      "passed": true,
+      "detail": {
+        "sameUrlResubmitDelta": 1,
+        "redundantNavClickDelta": 0
+      }
+    },
+    {
+      "id": "FX-03",
+      "passed": true,
+      "detail": {
+        "late503Suppressed": true,
+        "staleCardsClearedOn400": true,
+        "screenshot": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/final-fx03-400-error-clears-stale-cards.png"
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/final-fx01-preserved-draft-submitted-r04.png",
+      "bytes": 79898,
+      "sha256": "8832cd1fae07f7518552ff86b0bae44e38dfa8c5ab3c5d642e3045fee1b8e3f3"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/final-fx03-400-error-clears-stale-cards.png",
+      "bytes": 48737,
+      "sha256": "39b7dc9a4892a2de2ee944517dde0faf571c5bcf8a19de717462d353cf759717"
+    }
+  ],
+  "all_passed": true
+}

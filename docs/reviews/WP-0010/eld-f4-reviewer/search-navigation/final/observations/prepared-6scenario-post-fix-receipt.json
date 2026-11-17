@@ -1,0 +1,146 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-search-navigation-probe-receipt/1",
+  "verified_at_utc": "2026-11-17T12:06:48.948Z",
+  "reviewer": "eld-f4-reviewer",
+  "mode": "enforce-ownership",
+  "tag": "c1fed680-fixed",
+  "arbitrary_sleep_calls": 0,
+  "browser_channel": "msedge",
+  "browser_version": "157.0.4341.60",
+  "ui_port": 4710,
+  "api_port": 5690,
+  "passed_scenario_ids": [
+    "SN-01A",
+    "SN-01B",
+    "SN-02A",
+    "SN-02B",
+    "SN-03",
+    "SN-04"
+  ],
+  "failed_scenario_ids": [],
+  "all_ownership_passed": true,
+  "observed_api_get_count": 25,
+  "observed_non_get_api_count": 0,
+  "local_storage_keys": 0,
+  "session_storage_keys": 0,
+  "screenshots": [
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/c1fed680-fixed-01-sn01a-pending-promise-draft.png",
+      "bytes": 79626,
+      "sha256": "9d5afd28662b9792e103f8b2a14326e51a1a0770b68603eba1d1017c08d9c3f3"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/c1fed680-fixed-02-sn01b-post-pushstate-pre-zoneless-effect.png",
+      "bytes": 79898,
+      "sha256": "8832cd1fae07f7518552ff86b0bae44e38dfa8c5ab3c5d642e3045fee1b8e3f3"
+    },
+    {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/c1fed680-fixed-03-sn03-prefreeze06-deterministic-repro.png",
+      "bytes": 79626,
+      "sha256": "9d5afd28662b9792e103f8b2a14326e51a1a0770b68603eba1d1017c08d9c3f3"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SN-01A",
+      "name": "pending_router_promise_draft_survives_and_submits_authoritatively",
+      "passed": true,
+      "detail": {
+        "searchBeforeClick": "?source=reviewed",
+        "searchImmediatelyAfterClick": "?source=reviewed",
+        "routerWasPendingAtEdit": true,
+        "domValueImmediatelyAfterEdit": "WO-009901-CLEAN-HEAD",
+        "domValueAfterFirstNavSettled": "WO-009901-CLEAN-HEAD",
+        "secondClickSubmittedQ": "WO-009901-CLEAN-HEAD",
+        "domValueAfterSecondClick": "WO-009901-CLEAN-HEAD",
+        "finalUrl": "http://127.0.0.1:4710/archive?q=WO-009901-CLEAN-HEAD&source=reviewed",
+        "r03Visible": true,
+        "emptyVisible": false,
+        "emittedRequestsDuringSecondClick": [
+          {
+            "method": "GET",
+            "pathname": "/api/archive",
+            "search": "?q=WO-009901-CLEAN-HEAD&source=reviewed",
+            "q": "WO-009901-CLEAN-HEAD",
+            "source": "reviewed"
+          }
+        ],
+        "screenshot": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/c1fed680-fixed-01-sn01a-pending-promise-draft.png"
+      }
+    },
+    {
+      "id": "SN-01B",
+      "name": "post_pushstate_pre_zoneless_effect_draft_survives_and_submits_authoritatively",
+      "passed": true,
+      "detail": {
+        "historyHookTriggered": true,
+        "locationAtHistoryCommit": "?q=FIRST-PENDING-NAV-B&source=reviewed",
+        "domValueAfterZonelessFlush": "WO-004724-MP-LINKED",
+        "domValueBeforeSecondSubmit": "WO-004724-MP-LINKED",
+        "secondSubmittedQ": "WO-004724-MP-LINKED",
+        "finalUrl": "http://127.0.0.1:4710/archive?q=WO-004724-MP-LINKED&source=reviewed",
+        "r04Visible": true,
+        "screenshot": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/c1fed680-fixed-02-sn01b-post-pushstate-pre-zoneless-effect.png"
+      }
+    },
+    {
+      "id": "SN-02A",
+      "name": "pending_nav_draft_plus_source_filter_change_beats_out_of_order_older_http",
+      "passed": true,
+      "detail": {
+        "filterSubmittedQ": "Refrigerator Evaporator",
+        "selectedSourceAfter": "machine",
+        "inputAfter": "Refrigerator Evaporator",
+        "finalUrl": "http://127.0.0.1:4710/archive?q=Refrigerator%20Evaporator&source=machine",
+        "r02Visible": true,
+        "r04Visible": true,
+        "emptyVisible": false
+      }
+    },
+    {
+      "id": "SN-02B",
+      "name": "same_turn_rapid_double_submit_keeps_newest_query_and_url",
+      "passed": true,
+      "detail": {
+        "older2BIntercepted": true,
+        "inputAfter": "WO-009901-CLEAN-HEAD",
+        "finalUrl": "http://127.0.0.1:4710/archive?q=WO-009901-CLEAN-HEAD&source=reviewed",
+        "r03Visible": true,
+        "emptyVisible": false
+      }
+    },
+    {
+      "id": "SN-03",
+      "name": "null_response_back_from_review_pending_nav_rapid_resubmit_deterministic",
+      "passed": true,
+      "detail": {
+        "secondClickWireQ": "WO-009901-CLEAN-HEAD",
+        "stale1RequestCount": 1,
+        "domInputAfter": "WO-009901-CLEAN-HEAD",
+        "finalUrl": "http://127.0.0.1:4710/archive?q=WO-009901-CLEAN-HEAD&source=reviewed",
+        "r03Visible": true,
+        "emptyVisible": false,
+        "screenshot": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots/c1fed680-fixed-03-sn03-prefreeze06-deterministic-repro.png"
+      }
+    },
+    {
+      "id": "SN-04",
+      "name": "external_deep_link_browser_back_forward_and_clear_consistency",
+      "passed": true,
+      "detail": {
+        "deepLinkInput": "WO-009901-CLEAN-HEAD",
+        "deepLinkSource": "reviewed",
+        "back1Input": "Cedar Hollow",
+        "back1Source": "all",
+        "back2Input": "WO-009901-CLEAN-HEAD",
+        "back2Source": "reviewed",
+        "forward1Input": "Cedar Hollow",
+        "forward1Source": "all",
+        "clearInput": "",
+        "clearSource": "all",
+        "pageIndicator": "· Page 1",
+        "clearOrderMatchesExpected": true
+      }
+    }
+  ]
+}

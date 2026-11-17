@@ -1,0 +1,18 @@
+FROZEN HELPER CANDIDATE: fbf6a1a4535121e9c364de7e5b5accff4e158c89
+
+COMMAND:
+python -B docs/reviews/WP-0010/eld-f4-reviewer/runtime/helpers/run_f4_independent_review.py --require-clean --output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/verification-summary.json --resource-return-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/resource-return.json --explain-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/explain-plans.txt --logs-dir docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/logs --screenshots-dir docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/screenshots --edge-before-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/edge-f4-before-restart.json --edge-after-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/edge-f4-after-restart.json --demo-smoke-output docs/reviews/WP-0010/eld-f4-reviewer/runtime/observations/demo-smoke-5690-receipt.json
+
+EXIT CODE: 1 (after passing Steps 01..10: 9/9 worker CPU, Release .NET/Angular builds, 95/95 .NET tests, 5690 demo smoke, 15/15 Playwright Edge E2E on 5690/4710, forward migration, 503 archive_not_ready, and 7-result/13-unit startup backfill; finally: block cleanly stopped all owned services)
+
+UNALTERED STDOUT / STDERR:
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 1741, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 1083, in main
+    queries_before_restart = run_saved_archive_query_suite(API_PORT)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-f4-reviewer\docs\reviews\WP-0010\eld-f4-reviewer\runtime\helpers\run_f4_independent_review.py", line 604, in run_saved_archive_query_suite
+    raise AssertionError(f"Query {must_hit_exact} expected {exp_docs}, got {[it['documentId'] for it in items]}")
+AssertionError: Query unit_204_removed_on_r01_reviewed expected ['01a20400-0000-7000-8000-000000000006', '01a1e578-8f3a-7e0c-826b-a2c9dc066a8f'], got ['01a20400-0000-7000-8000-000000000006', '01a1e578-8f3a-7e0c-826b-a2c9dc066a8f', '01a1e571-2838-714b-861b-bf0835d7c90a']

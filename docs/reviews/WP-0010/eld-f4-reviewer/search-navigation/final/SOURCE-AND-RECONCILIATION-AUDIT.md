@@ -1,0 +1,47 @@
+# WP-0010 / 007 Final Primary-Source & Evidence Reconciliation Audit (`eld-f4-reviewer`)
+
+- **Reviewer / Session Disclosure:** `eld-f4-reviewer` — continued independent Google DeepMind Gemini 4 Carbon (High) product reviewer in Antigravity CLI conversation `61105d43-7706-45f2-9176-69d3256248e0` (`effort: high`; backend checkpoint identifier not separately exposed).
+- **Prior Immutable Publications & CLI Status Disclosure:**
+  - `WP-0010 / 002`: [002_2026-11-17_review_eld-f4-reviewer.md](../../../../../agent-reports/eld-f4-reviewer/WP-0010/002_2026-11-17_review_eld-f4-reviewer.md) (`85d879a1adc0ee62090f4c6a5c9a7fb8eb5f3a96`).
+  - Resource preparation: [preparation/README.md](../../preparation/README.md) (`349c29773009abdf1bc228d01696d58a83d3eaa2`).
+  - `WP-0010 / 004`: [004_2026-11-17_review_eld-f4-reviewer.md](../../../../../agent-reports/eld-f4-reviewer/WP-0010/004_2026-11-17_review_eld-f4-reviewer.md) (`324f09934b0aa2ee8e7bed7e8118c6109effb918`, helpers `85d3c36c874026a8e9166f29259fb44755422de0`, inventory `41efc840a874601acfa711f27073d2c90ad35c32`, [independent004-audit.json](../../../../../coordination/WP-0010/independent004-audit.json)).
+  - `/007` preparation & evidence reconciliation: [search-navigation/README.md](../README.md) & [EVIDENCE-RECONCILIATION.md](../EVIDENCE-RECONCILIATION.md) (`b12664dfbfd533f177a4e1089c983952d485b8c2`, frozen helpers `32836fbbac3eebf2773711f51557c4a128463e98`, [search-navigation-preparation-audit.json](../../../../../coordination/WP-0010/search-navigation-preparation-audit.json)).
+  - All four prior CLI turns ended post-publication with provider `resultERROR`/`ERROR` (`OS wrapper 0`); CLI `SUCCESS` is never claimed on any prior turn, and every historical report, helper, probe, screenshot, and inventory remains 100% preserved.
+- **Bound Kickoff & Merged Base (`review/wp-0010-f4`):** [WP-0010-eld-f4-reviewer-navigation-final.md](../../../../../kickoffs/WP-0010-eld-f4-reviewer-navigation-final.md) at coordinator authority `deba1aeba80967ca6d0bce2f14da09716118ba44` (merged at `9b29124ccc8ea76f0a6dbe810dd05f17bb59bb63`), followed by clean merge of author `/006` publication [006_2026-11-17_implementation_eld-f4-implementer.md](../../../../../agent-reports/eld-f4-implementer/WP-0010/006_2026-11-17_implementation_eld-f4-implementer.md) (`0f689d9b6eaf415d17095f14ad57dff2d716bac5`, [search-navigation-author-audit.json](../../../../../coordination/WP-0010/search-navigation-author-audit.json)) at **`b9bf6f1d99617445b7b1b91c09088c8ecac70f1c`**.
+- **Reviewed Author `/006` Revisions (`eld-f4-implementer`):**
+  - Frozen source & helpers: **`c1fed68020ae67e8b4763bc6ea5473adaa86de2b`** (superseding initial helper commit `eefa6377646cfaa5c7a531298563d2f47d77bdf3` with identical `web` tree `50fbbee1f58aace4e6ec36bd64203146d23aa96f`; `src` `9760402fa88dcb343c28b14ad4de1bcb2fbafb2e`, `tests` `25c21310699086acb818549b2a4c0b99469208f1`, `deploy` `86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1`, `ELedgerCare.slnx` `c00c2bc5ef46019fb4452fdf0bba7ca2271fc976`, and `workers` `9b548ddcc73cfba8e7683d132840b08afa5a67a3` **100% unchanged** from `c383021be1774451ba3034d89255b38b4267353b`).
+  - Post-freeze author evidence & inventory: **`9e1d6c4211daadfb82f67911ece04568ed8610fe`**.
+  - Canonical `/006` report publication: **`0f689d9b6eaf415d17095f14ad57dff2d716bac5`**.
+
+---
+
+## 1. Line-by-Line Inspection of Author `/006` Source Diff (`c383021b..c1fed680`)
+
+Verified that only **two** existing repository paths changed in `4b8e9b8231b9543b9a09cc8514a6876a70940d7b..c1fed68020ae67e8b4763bc6ea5473adaa86de2b`: [archive-page.ts](../../../../../../web/src/app/archive/archive-page.ts) and [archive.spec.ts](../../../../../../web/e2e/archive.spec.ts) (plus `9` scoped dossier paths under `docs/implementation/WP-0010/eld-f4-implementer/search-navigation/`). Inspected [archive-page.ts](../../../../../../web/src/app/archive/archive-page.ts) (`L14–28`, `L351–630`) directly against installed `@angular/router` `22.2.6` (`_router-chunk.mjs` `L3869–4064`):
+
+1. **Local Submission & Route-Completion Ownership (`SelfArchiveNavigationInfo`, `L14–28`, `L392–398`, `L561–590`):**
+   - Removed the deferred `withComponentInputBinding()` `input()` + `effect()` dual-writer path that caused `c383021b` to clobber `draftQuery` and fire duplicate `response() === null` searches.
+   - `applyNewQueryAndNavigate(nextQ, nextSource)` (`L561–572`) increments `commandSeq = ++this.latestCommandSeq`, updates `draftQuery`, `activeQuery`, `selectedSource`, resets pagination (`cursorStack = []`, `currentCursor = null`, `pageNumber = 1`), triggers `navigateForActiveState(commandSeq)` with `NavigationBehaviorOptions.info = { sourceComponent: this, commandSeq }`, and executes `executeSearch(nextQ, nextSource, null)`.
+   - In `@angular/router` `22.2.6` (`_router-chunk.mjs` `L3869`, `L3888`, `L4044`, `L4062`), `this.currentNavigation` holds `extras.info` synchronously throughout `NavigationSkipped` and `NavigationEnd` emission (clearing to `null` only afterward in `finalize`). Therefore `isSelfArchiveNavigationInfo(navInfo, this)` (`L393`) reliably identifies `ArchivePage`'s own route completions:
+     - Self-initiated completions **never** overwrite `draftQuery` (preserving any newer typed draft in both signal and DOM `<input>.value`), never reset pagination, and never issue duplicate HTTP requests.
+     - If an older self-navigation (`navInfo.commandSeq < this.latestCommandSeq`) ever settled after a newer command, `this.navigateForActiveState(this.latestCommandSeq)` (`L394–396`) immediately re-syncs the URL to the authoritative `(activeQuery, selectedSource)` state.
+   - Because `NavigationBehaviorOptions.info` is transient in-memory router metadata, **`window.history.state` stays free of component references or sequence counters** (`0` storage or `history.state` leaks).
+
+2. **Initial Mount, External Deep Links, & Browser `Back`/`Forward` (`L374–410`, `L548–559`):**
+   - `constructor()` reads `this.route.snapshot.queryParamMap` synchronously during `ActivateRoutes` (`L376`), records `initialNavigationId = this.router.currentNavigation()?.id ?? null` (`L375`), and skips the matching initial `NavigationEnd` (`L385–387`) so deep-links execute **exactly `1` HTTP request**.
+   - Browser `Back`/`Forward` (`popstate`), external deep-links, and cross-route `routerLink="/archive"` transitions arrive with `navInfo === undefined`, pass `isArchiveRouteCurrentlyActive()` (`L388`), increment `++this.latestCommandSeq`, synchronize `draftQuery`/`activeQuery`/`selectedSource`, reset pagination to `Page 1`, and run `executeSearch(urlQ, urlSource, null)`.
+
+3. **Same-URL `NavigationSkipped` Semantics (`L382–409`):**
+   - Re-clicking `Search` on the already-committed `(q, source)` triggers a self-tagged `NavigationSkipped` (ignored at `L393–397`) while `applyNewQueryAndNavigate` (`L571`) refreshes Page `1` once.
+   - Clicking external `<a routerLink="/archive">` when already at `/archive`: if `activeQuery()` or `selectedSource()` had diverged before URL commit (`activeChanged === true`), `L405–409` still calls `syncFromExternalQueryParams(params)` to restore `/archive` browse state; if `!activeChanged`, `L405–406` avoids an unnecessary duplicate `/api/archive` fetch.
+
+4. **Teardown, Obsolete HTTP Responses, & Stale-Result Clearing (`L379–390`, `L412–417`, `L592–629`):**
+   - Leaving `/archive` guards `routerEventsSub` via `isArchiveRouteCurrentlyActive()` (`L388`, `L544–546`) and unsubscribes both `routerEventsSub` and `inFlightSub` in `DestroyRef.onDestroy` (`L412–417`), setting `this.destroyed = true`.
+   - `executeSearch(...)` (`L592–622`) cancels any prior request (`cancelInFlight()`), increments `activeRequestSeq`, ignores late `200` and `4xx`/`5xx` callbacks when `destroyed || seq !== activeRequestSeq`, and immediately clears `this.response.set(null)` (`L597`) so stale cards, headers, and `nextCursor` tokens never linger during loading or beneath an `HTTP 400`/`503` error banner.
+
+---
+
+## 2. Preserved Reconciliation & Small-Table `EXPLAIN` Precision Note
+
+1. **Retracted `1–3ms` timing inference preserved:** As documented in [EVIDENCE-RECONCILIATION.md](../EVIDENCE-RECONCILIATION.md) (without modifying immutable `/004`), observed local Router duration was never a scheduling guarantee under `provideZonelessChangeDetection()` and created an indefinite DOM-vs.-signal split-brain on `c383021b` ([c383-reproduction-probe-receipt.json](../observations/c383-reproduction-probe-receipt.json): `SN-01A`, `SN-01B`, `SN-02A`, `SN-03` failed; `SN-02B`, `SN-04` passed). Re-running the **identical** unchanged 6-scenario probe ([probe_f4_search_navigation.mjs](../helpers/probe_f4_search_navigation.mjs)) against `c1fed68020ae67e8b4763bc6ea5473adaa86de2b` provides an exact causal before-vs.-after proof (`4 failed / 2 passed` on `c383021b` -> `0 failed / 6 passed` on `c1fed680`).
+2. **PostgreSQL small-seed `EXPLAIN` precision (Kickoff L17):** In both author `/003` (`7` rows) and independent `/004` ([explain-plans.txt](../../runtime/observations/explain-plans.txt), `9` rows, `1` heap page), PostgreSQL's default cost-based planner selected `Seq Scan` + `quicksort` (`cost=1.28`), **not** default index adoption. Running `SET LOCAL enable_seqscan = off` verified only schema index existence and tuple-comparison structural usability of `ix_documents_submitted_at_document_id_desc`, **not** measured default planner adoption or any speed/scalability benefit beyond the local synthetic 1–3-page scope.
