@@ -802,3 +802,6 @@ WP-0011 frozen corpus reservation PUBLISHED98a3a3f73df0e578ae98ebf3923db7ba4882d
 
 
 WP-0011 independent004 actual native admission RUNNING_CONFIRMED at2026-11-17T08:14:31.9136074Z, clean startingHEAD68ed24346039c6b26a8c2010ca0956f958a1e4dc under exactauthorityd04cebad972e6e2dcfc4b5eb290c49546b4e9b19. Private evidence in owned /admission; no private identifying content to author/public. Custodian metadata-only048719ca3f403d37fbe715ac53fa98288d92b2bd adds verification.json without changing reserved bytes; exact origin/delta verified. Admission/canonical003 and protocol002 remain pending.
+
+
+WP-0011 independent004 ACCEPTED/PUBLISHED021dc265790c90ae83f1afa24fc3f2a71eae41e1, deliverable0979750ed48e686cc41854b7f14c1338a356f852/inventory832645cfa2be0069c95fed58d618ede0a45f5008. Root verifies10 public artifact committed/working identities,27 private entries plus inventory,2724 preserved public paths,12 additions/report-only/exact origin. Accepted unchanged sealed6583715067d3a027dd2502ed9623cf02c545391d/coreb5f33a65d463d4b9a5463fdb93353c0c7ac7c7f3.17groups/12visualpages/70regeneratedfiles/6control-support checks pass; private evidencea9a7ca6ae1b2d0e8536e00c190accd520b2a75ee remains sealed. Display/CRLF inventory failures and both byte representations preserved. Custodian003 finalization RELEASED now; source002/unseal/runtime remain separate pending gates.
