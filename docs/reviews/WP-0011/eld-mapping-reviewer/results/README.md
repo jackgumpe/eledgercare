@@ -1,0 +1,30 @@
+# WP-0011 /006 independent execution preparation
+
+Preparation only, root authority `ba3debdf4f9ec866e52739640e0f837721ac7550`. Actual clean start at that HEAD, `2026-11-17T10:18:29.6466918Z`, normally fast-forwarded from comparison preparation `55412990da2af89761979536b0add815e21e492a`. Same independent eld-mapping-reviewer native session, requested xhigh; actual backend/effort not exposed. No subagents. The comparison helper and accepted source remain unchanged.
+
+Accepted source `253519e07e7d45cf1f5ecb3e03053582f7f7d4cc`, coverage tree `6bdab544c9fe26cbf093cc765212db2a2e7a97a5`, protocol SHA256 `03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000`. Root has independently returned the author lease, but author /005 is still being packaged. No unfinished author packet is read or accepted here. Root supplies the final author publication, normalized comparison specification and proofs later.
+
+## Frozen wrapper and later invocation
+
+`execute_wrapper.py` imports no backend or observer. Its actual `execute` entry requires a separate exact root runtime authority at `docs/coordination/WP-0011/releases/reviewer.json`, uses accepted `read_release` to verify the clean HEAD/source/input/review/unseal/lease bindings, and launches the unchanged `qualification/coverage_v1/cli.py execute --owner reviewer` once. There are no model settings or schedule overrides. An exclusive per-lease scratch marker and exclusive attempt files prevent accidental retries. Wrapper artifacts stay under `.scratch/wp0011-reviewer-execution/`.
+
+After root binds the returned clean executing HEAD, do not merge or commit through execute and CPU scoring. Read/fetch the later runtime authority as an immutable Git object. Later commands, only under that explicit release:
+
+1. `python -I -B docs/reviews/WP-0011/eld-mapping-reviewer/results/execute_wrapper.py execute --authority <exact-runtime-authority> --attempt .scratch/wp0011-reviewer-execution/006-attempt-1`.
+2. Report the tool session and actual wrapper/supervisor PIDs from the immediate STARTED event. Read only the owned newly created run's plan/heartbeat as needed to identify its exact path and progress; no extra GPU/process query is required. The accepted supervisor retains its own observations. One cold load executes two excluded historical warmups and `WP11-F03-degraded-v0` once, with first failure/no retry unchanged.
+3. Preserve the actual tool return separately from wrapper, supervisor and worker receipts. `invoke` captures actual subprocess wait/exit, command, timestamps/PIDs and explicit binary stdout/stderr files, even if empty. A wrapper exception is explicit and does not invent child exit or process absence. Root resolves any remaining owned-process cleanup before returning the lease.
+4. At the same clean HEAD, run wrapper `score --authority <same-authority> --attempt <same-attempt> --run <exact-owned-run>`. CPU score-run has separate launch/start/completion and binary logs; failures remain evidence. No inference is repeated for collection or logging errors.
+
+The runtime root is exclusively the accepted `C:/Users/jackg/eLedgerCare-Coverage/WP-0011/reviewer`. No such root is created by this preparation. Root performs fresh resource observations and grants the exact sole model-job lease; desktop/WDDM sharing remains disclosed. This wrapper does not assert hardware exclusivity, inspect unrelated processes or terminate another owner's process.
+
+## Collection and proof procedure
+
+After separately committed root reviewer lease-return (`RETURNED_OBSERVED`, matching owner/lease ID), `collect_evidence.py` takes explicit authority, after-authority, run, wrapper attempt and new `docs/evidence/WP-0011/eld-mapping-reviewer/006/<attempt>` destination. It copies top-level run records and all `evidence/` bytes, preserving original paths, failures, unavailable records and exact stdout/stderr. It copies actual wrapper artifacts and root after-receipts. It creates no empty substitute for missing files. The earlier WP9 missing score-log failure motivates explicit file creation and absent-file recording here; original WP9 code/evidence is unchanged.
+
+The no-follow walker rejects symlinks/junctions before traversing them. Only declared runtime cache directories are excluded from publication, with complete per-file size/hash inventory; originals are retained. Unknown subtrees/extensions fail explicitly. Direct original reads are rehashed after copying. Namespace attributes preserve bytes through Git. The collector generates the normalized `eld-review-run-copy-manifest/1` required by the existing comparison helper. Root/publication inventory and runtime proof normalization retain exact provenance; no schema guessing or live original substitution is allowed. Failed collection retains partial files and its failure receipt in a new attempt namespace; do not overwrite or rerun inference.
+
+Final independent review must separately inspect the original supervisor tool exit, exact source/head/release/lease, complete 14/3 outcomes, process return, post model/notice identity, collection/publication byte inventory and both full score/diagnostic packets. Actual-author and combined comparison outputs may be new failure-preserving directories beneath the unchanged comparison helper's own namespace, as allowed by the addendum. No canonical /006 is written during preparation.
+
+## CPU preparation validation
+
+Freeze helpers before `python -I -B docs/reviews/WP-0011/eld-mapping-reviewer/results/check_preparation.py`. Tests use only owned temporary fixtures and three short standard-library child processes: actual success/nonzero exit and exact mixed-newline output capture. Other checks cover absent logs, failed-run collection, cache inventory, no overwrite, path escapes, reparse rejection and unclassified subtrees. No actual runtime/model/observer is launched and no accepted source suite is rerun. All preparation attempts and original logs are retained; full source/helper and output inventory follows.
