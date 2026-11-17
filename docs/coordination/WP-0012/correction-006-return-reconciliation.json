@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-17T16:30:58.059245+00:00",
+  "finding": "F12-B2 explicit unreturned receipt semantics",
+  "candidate": "6d055395b2a4cf22a7926f1728bc31dbe2f315a3",
+  "reviewer_publication": "0575d9354fa6b7be90ea1a2b6d4fed161f5fb934",
+  "probe_helper": "24b19113715dbc3f4ec5672525de9236783285c5",
+  "evidence_path": "docs/reviews/WP-0012/eld-f4-reviewer/correction-006-review/final/candidate-6d055395-return-01/return-probe.json",
+  "evidence_sha256": "589d5c6f765642d6ec8baa2545ee0fb50a0541448362bcbb2300c19e3d5605fc",
+  "observed": "Seven simulated cleanup failures report clean_return_verified=false but non-null returned_utc and no lease_returned flag. No observed live resource leak.",
+  "authorized_author_fix": "Always receipt_utc; lease_returned equals clean_return_verified; returned_utc only if true, otherwise null. Preserve prior source/evidence and freeze/check forward candidate.",
+  "control_limitation": "Old-first-failure probe control did not reach intended browser path due missing synthetic-api.log; reviewer instructed to retain and label, not claim it reproduces that path. Other new-helper cases remain applicable.",
+  "canonical006": "unpublished and held for narrow reconciliation",
+  "runtime_lease": false
+}
