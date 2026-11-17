@@ -1000,3 +1000,10 @@ WP-0012 first reviewer004 invocation STOPPED before Q0/services/model, validatio
 | WP-0012 / 009 | eld-f4-implementer / review | docs/agent-reports/eld-f4-implementer/WP-0012/009_2026-11-17_review_eld-f4-implementer.md | RELEASED independent CPU review of reviewer-owned v6 guard; final waits exact008/source |
 
 WP-0012 correction008ae71a736 and independent009b2cca522 ACCEPTED/VERIFIED on source6fe4a537; root audits29+43artifacts/3801+3773preserved paths. Final51independent controls/3originaldefect reproductions/actualreadonlyprobe pass, own48controls/actualprobe pass; originalv5 refusal and aliasfailure preserved. New sole004 leaseWP-0012-reviewer-004-r2-20261117T173846Z released at cleanHEADae71a736 with v6 and explicit exactidlebinding/new native-02 outputs. Originalleaseclosed/zero modelattempts consumed. Actual renewed dispatch pending; all R&D inference held.
+
+WP-0012 renewed004 STOPPED before services/model: actual Q0 verification passes, inherited caller reads missing demo_root_bytes. Validation0/live1/wrapper1/tool1, zero modelattempts; missing originalsummary/return preserved. Root independently verifies absent processes/emptyports/runs and closes r2lease. Bounded new no-model integration correction/review released:
+
+| Packet / sequence | Owner / category | Canonical path | State |
+| --- | --- | --- | --- |
+| WP-0012 / 010 | eld-f4-reviewer / implementation | docs/agent-reports/eld-f4-reviewer/WP-0012/010_2026-11-17_implementation_eld-f4-reviewer.md | RELEASED actual Q0/disk boundary repair and complete OCR-disabled no-upload setup/restart/cleanup integration |
+| WP-0012 / 011 | eld-f4-implementer / review | docs/agent-reports/eld-f4-implementer/WP-0012/011_2026-11-17_review_eld-f4-implementer.md | RELEASED independent exact v7/full-boundary review; final waits010 |
