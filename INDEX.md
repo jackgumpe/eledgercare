@@ -990,3 +990,9 @@ WP-0012 author003 actual runtime COMPLETED16:59:53Z: two completed attempts/exit
 WP-0012 author003 PUBLISHED/VERIFIEDbd21e07eb322ea64dee59ba5562ee6b03087d079, evidence5d0814a1b28117a048d6b76bfb1ec1d7a9d7358a, accounting269f4e7. Root audit60new paths/3713preserved/54copies/101externalinputs/6Gitbindings/11reportlinks/exact origin and actual durable two-attempt workflow passes. Four post-restart screenshots independently inspected; original OCR mistakes retained. Independent004 released for final preparation, with exact sole runtime lease still separate.
 
 WP-0012 reviewer004 sole lease WP-0012-reviewer-004-20261117T171225Z released after audited author003 and observed return; clean executingHEAD36580948f4efe28e35f08762e6bcc1cc4368bb55, unchanged v5, native requestedxhigh. Exact release and kickoff bind2fresh attempts/no retries/new external outputs. Actual invocation pending; all R&D inference held.
+
+WP-0012 first reviewer004 invocation STOPPED before Q0/services/model, validation0/live2/wrapper2/tool1. Original refusal flags idleOllama and own observer PowerShell; no extraction attempt consumed, no retry. Root releases narrow CPU-only reviewer v6 ownership classification correction, preserving all original records, under new reservation:
+
+| Packet / sequence | Owner / category | Canonical path | State |
+| --- | --- | --- | --- |
+| WP-0012 / 008 | eld-f4-reviewer / implementation | docs/agent-reports/eld-f4-reviewer/WP-0012/008_2026-11-17_implementation_eld-f4-reviewer.md | RELEASED own-helper CPU correction only; root independent source/test acceptance before new004 lease |
