@@ -26,9 +26,12 @@ catalog_sha256 (exact catalog.json bytes), ideal_native (nonempty faithful ideal
 native witness), tables and slots. Profile here is reference-side metadata only;
 the future mapper must infer context solely from native output. Each tables entry
 has table_id, column_ids (catalog canonical order) and unique nonempty row_ids in
-source row order. Expected tables retain the same table and row order, including
-empty cells objects when all row truth is ambiguous. Original exact scoring only
-has adjudicable known cells in its denominator; the full policy universe remains.
+source row order. Expected tables retain the same table and row order. Every row
+must have a known canonical row-key cell, so empty expected cells objects are
+rejected. Other ambiguous cells remain in the policy universe. Original row
+credit means agreement on declared known cells, not proof that unknown cells are
+correct; each row's known/ambiguous/unknown counts remain explicit. Original exact
+cell scoring only has adjudicable known cells in its denominator.
 
 Each slot has kind (`field`, `cell`, `absence`), page_number=1,
 truth_status (`known`, `ambiguous`, `unknown`), action (`assign`, `abstain`), reason,

@@ -69,7 +69,9 @@ remain visible. In a unique profile its canonical fields use the same guards.
 
 Any catalog alias header or collision in a table's first nonempty row marks the
 corresponding schema affected; its v1 table output is suppressed before guarded
-resolution. Multiple-profile/duplicate-schema context suppresses all involved
+resolution. Canonical-only tables in the uniquely active profile are also
+affected: their v1 output is suppressed and all row/key/span guards apply.
+Multiple-profile/duplicate-schema context suppresses all involved
 catalog tables. Unaffected v1 predictions are copied unchanged. This permits an
 explicit regression where a formerly credited first candidate is now withheld.
 The later mapper must retain reasons/native locations in a diagnostic decision
@@ -86,6 +88,14 @@ ordinal table-row semantics are preserved, including surplus accounting. Typed
 quantity credit validates supported units but compares numeric magnitude; it is
 not unit-semantic correctness. Literal quantity-unit/identifier diagnostics from
 coverage_v1 may be retained separately without changing scores.
+Every reference row retains at least its known canonical row-key cell. Empty
+expected rows are rejected because B0 otherwise credits them vacuously. Partially
+known rows are explicitly identified: original row credit is agreement on the
+declared known cells and never certifies ambiguous or unknown cells.
+Original `extra_cells` subtracts known expected-cell count from physical row
+width. With partial truth it can include declared ambiguous/unknown cells; retain
+that metric unchanged but do not call those cells invented columns. The separate
+full policy-universe surplus count is the appropriate declared-opportunity check.
 
 Separate policy scoring groups all field candidates by page/field identity and
 cell candidates by page/table/zero-based row ordinal/canonical column. Row ordinal
