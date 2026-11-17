@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\docs\reviews\WP-0013\eld-mapping-reviewer\011\preparation\probe.py", line 51, in main
+    audit_child_env(dict(os.environ), root=Path(config['root']), owner='reviewer',
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\q0\harness\q0harness\environment.py", line 219, in audit_child_env
+    _audit_git_pin(env, root=root, run_dir=run_dir)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\q0\harness\q0harness\environment.py", line 204, in _audit_git_pin
+    git_exe = validate_git_executable(env.get(GIT_EXECUTABLE_VAR, ""))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-reviewer\qualification\q0\harness\q0harness\environment.py", line 106, in validate_git_executable
+    raise Q0Failure("HOST_PRECHECK_FAILED", f"Git executable must be an absolute path, got {path!r}")
+q0harness.outcome.Q0Failure: HOST_PRECHECK_FAILED: Git executable must be an absolute path, got 'git'
