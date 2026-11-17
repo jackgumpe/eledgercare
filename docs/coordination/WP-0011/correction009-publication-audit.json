@@ -1,0 +1,63 @@
+{
+  "utc": "2026-11-17T09:26:18.358214+00:00",
+  "publication": "495e0885ba010c79321bbc1d7ff80c3e632e7eb1",
+  "source_commit": "253519e07e7d45cf1f5ecb3e03053582f7f7d4cc",
+  "source_tree": "6bdab544c9fe26cbf093cc765212db2a2e7a97a5",
+  "protocol_sha256": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000",
+  "deliverable": "937a79c1e2544d864a03e266d557b34a32adebe6",
+  "inventory_commit": "0c41d751b163243d335668602cf30f85a128831b",
+  "inventory_sha256": "31d6e7349bacbf68324fc102d49f6935b7b633ed04aed87cdac0725dbdae147f",
+  "verified_changed_or_added_artifacts": 27,
+  "modified_source_paths": 8,
+  "preserved_base_paths": 2806,
+  "report_only_publication": true,
+  "exact_origin": true,
+  "log_representations": [
+    {
+      "path": "docs/research/WP-0011/eld-mapping-author/009/attempt-1/stderr.txt",
+      "git_bytes": 4018,
+      "git_sha256": "93a0cc648212fa752bb19472ca5d621fdfafcf454e9a51a5fda695f40d6ad8f5",
+      "retained_working_bytes": 4049,
+      "retained_working_sha256": "e96573786f917d5688ffdf5d6d45ff08d136b7fd59739e723e58bc1e1d9d0dab",
+      "difference": "Working CRLF versus Git LF; newline-equivalent, not byte-identical raw log."
+    },
+    {
+      "path": "docs/research/WP-0011/eld-mapping-author/009/attempt-1/stdout.txt",
+      "git_bytes": 11892,
+      "git_sha256": "6a425a78077fd2631bc2b42767882541509f5b40676a80b9e1d826473aee4cba",
+      "retained_working_bytes": 11976,
+      "retained_working_sha256": "54fc00909126e30572b9e9ad39bb01e81fd3ceb8766b07793eafb64db67959ef",
+      "difference": "Working CRLF versus Git LF; newline-equivalent, not byte-identical raw log."
+    },
+    {
+      "path": "docs/research/WP-0011/eld-mapping-author/009/attempt-2/stderr.txt",
+      "git_bytes": 4205,
+      "git_sha256": "169acd62f77297cd3ce706f922d77cb7a2b96af63ce2657afc8017ad660461b3",
+      "retained_working_bytes": 4237,
+      "retained_working_sha256": "8d3f52966384ac139aa08220e5c253f9dc16a1cf8ee3395b533124546a5cfe02",
+      "difference": "Working CRLF versus Git LF; newline-equivalent, not byte-identical raw log."
+    },
+    {
+      "path": "docs/research/WP-0011/eld-mapping-author/009/attempt-2/stdout.txt",
+      "git_bytes": 11892,
+      "git_sha256": "b6630ae7cecd501fcd518bc7666da150d7224b762e1cdb0a1588e42f53607840",
+      "retained_working_bytes": 11976,
+      "retained_working_sha256": "9c00139c24bd4bd9bbe98afd571d381f6a90100f0ee467961a419cf36a6d5fa7",
+      "difference": "Working CRLF versus Git LF; newline-equivalent, not byte-identical raw log."
+    }
+  ],
+  "audit_attempts": [
+    {
+      "tool_chunk": "03ea14",
+      "result": "failed_before_mutation",
+      "reason": "Root incorrectly asserted every new working artifact equals its Git bytes; four text logs use workingCRLF/GitLF. Inventory explicitly binds Git representation."
+    },
+    {
+      "result": "pass",
+      "reason": "Verified all declared Git hashes and separately inventoried both four-log representations; no raw-byte equivalence claim."
+    }
+  ],
+  "scope": "Root source/tree/artifact/preservation/remote audit, not independent rerun. Independent final002 reconciliation has reported pass; canonical disposition and inventory still pending.",
+  "diagnostic_measurement_limit": "247 additional historical slots unavailable under conservative unknown-markup grammar; unchanged end-to-end scorer/predictions. Eligible1849/unavailable442/total2291.",
+  "unseal": false
+}
