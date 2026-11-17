@@ -1,0 +1,76 @@
+{
+  "startedUtc": "2026-11-17T11:49:02.691Z",
+  "mode": "post-fix",
+  "edgeBrowserVersion": "157.0.4341.60",
+  "apiPort": 5590,
+  "uiPort": 4610,
+  "checks": {
+    "c1_pending_nav_preserves_newer_draft": {
+      "httpCompletedWhileRoutePending": true,
+      "pendingBeforeEdit": {
+        "count": 1,
+        "targets": [
+          {
+            "id": 1,
+            "targetQueryParams": {
+              "q": "REV2-ACTIVE-HAWTHORNE",
+              "source": "reviewed"
+            }
+          }
+        ],
+        "browserSearch": ""
+      },
+      "releasedNav1": {
+        "id": 1,
+        "targetQueryParams": {
+          "q": "REV2-ACTIVE-HAWTHORNE",
+          "source": "reviewed"
+        }
+      },
+      "draftBeforeRelease": "MULTIPAGE-REVIEWED-ALDER-P2",
+      "draftAfterRelease": "MULTIPAGE-REVIEWED-ALDER-P2",
+      "sourceAfterRelease": "reviewed",
+      "urlAfterRelease": "http://127.0.0.1:4610/archive?q=REV2-ACTIVE-HAWTHORNE&source=reviewed",
+      "headerAfterRelease": "Search results for “REV2-ACTIVE-HAWTHORNE” (reviewed values only)  · Page 1 Next page →",
+      "httpRequestsDuringSubmit1": 1,
+      "duplicateHttpRequestsOnRouteSettle": 0,
+      "passed": true
+    },
+    "c2a_newer_submit_and_clear_supersede_pending_nav": {
+      "passed": true,
+      "finalUrl": "http://127.0.0.1:4610/archive",
+      "finalDraft": "",
+      "finalSource": "all"
+    },
+    "c2b_out_of_order_http_suppressed": {
+      "passed": true,
+      "slowSuccessFulfilled": true,
+      "slowErrorFulfilled": true,
+      "errBannerCount": 0,
+      "seed5StillVisible": true,
+      "headerAfterStaleHttp": "Search results for “MULTIPAGE-REVIEWED-ALDER-P2” (reviewed values only)  · Page 1 Next page →"
+    },
+    "c3_external_deeplink_back_forward_and_header": {
+      "passed": true,
+      "deepLinkInitialHttpRequests": 1
+    },
+    "c4_consistency_and_zero_storage": {
+      "passed": true,
+      "staleResultsDuringError": 0,
+      "browserStateAudit": {
+        "localStorageKeys": [],
+        "sessionStorageKeys": [],
+        "historyStateKeys": [
+          "navigationId"
+        ]
+      }
+    }
+  },
+  "screenshots": [
+    "docs/implementation/WP-0010/eld-f4-implementer/search-navigation/evidence/screenshots/sn-01-newer-draft-preserved-after-nav-settle.png",
+    "docs/implementation/WP-0010/eld-f4-implementer/search-navigation/evidence/screenshots/sn-02-external-back-forward-and-header-reset.png"
+  ],
+  "status": "passed",
+  "failureError": null,
+  "completedUtc": "2026-11-17T11:49:05.801Z"
+}

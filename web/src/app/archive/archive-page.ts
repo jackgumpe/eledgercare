@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, DestroyRef, effect, inject, input, signal, untracked } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, NavigationSkipped, ParamMap, Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProblemBody, statusLabel } from '../intake/receipt';
 import { ArchiveApi } from './archive-api';
@@ -10,6 +10,22 @@ import {
   ArchiveSourceFilterWire,
   normalizeArchiveSourceParam,
 } from './archive-models';
+
+interface SelfArchiveNavigationInfo {
+  readonly sourceComponent: ArchivePage;
+  readonly commandSeq: number;
+}
+
+function isSelfArchiveNavigationInfo(info: unknown, owner: ArchivePage): info is SelfArchiveNavigationInfo {
+  return (
+    typeof info === 'object' &&
+    info !== null &&
+    'sourceComponent' in info &&
+    (info as SelfArchiveNavigationInfo).sourceComponent === owner &&
+    'commandSeq' in info &&
+    typeof (info as SelfArchiveNavigationInfo).commandSeq === 'number'
+  );
+}
 
 /**
  * Source-linked maintenance archive browse & keyword search screen (/archive).
@@ -335,15 +351,14 @@ import {
 export class ArchivePage {
   private readonly api = inject(ArchiveApi);
   private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
   private readonly destroyRef = inject(DestroyRef);
 
   private activeRequestSeq = 0;
+  private latestCommandSeq = 0;
   private inFlightSub: Subscription | null = null;
+  private routerEventsSub: Subscription | null = null;
   private destroyed = false;
-
-  // Bound from URL query parameters (?q=...&source=...) via withComponentInputBinding().
-  readonly q = input<string | undefined>(undefined);
-  readonly source = input<string | undefined>(undefined);
 
   protected readonly draftQuery = signal('');
   protected readonly activeQuery = signal('');
@@ -357,27 +372,48 @@ export class ArchivePage {
   protected readonly response = signal<ArchiveSearchResponse | null>(null);
 
   constructor() {
-    this.destroyRef.onDestroy(() => {
-      this.destroyed = true;
-      this.cancelInFlight();
+    const initialNavigationId = this.router.currentNavigation()?.id ?? null;
+    this.syncFromExternalQueryParams(this.route.snapshot.queryParamMap);
+
+    this.routerEventsSub = this.router.events.subscribe((event) => {
+      if (this.destroyed) {
+        return;
+      }
+      if (!(event instanceof NavigationEnd || event instanceof NavigationSkipped)) {
+        return;
+      }
+      if (initialNavigationId !== null && event.id === initialNavigationId) {
+        return;
+      }
+      if (!this.isArchiveRouteCurrentlyActive()) {
+        return;
+      }
+
+      const navInfo = this.router.currentNavigation()?.extras.info;
+      if (isSelfArchiveNavigationInfo(navInfo, this)) {
+        if (navInfo.commandSeq < this.latestCommandSeq) {
+          this.navigateForActiveState(this.latestCommandSeq);
+        }
+        return;
+      }
+
+      const params = this.route.snapshot.queryParamMap;
+      const urlQ = params.get('q') ?? '';
+      const urlSource = normalizeArchiveSourceParam(params.get('source'));
+      const activeChanged = urlQ !== this.activeQuery() || urlSource !== this.selectedSource();
+
+      if (event instanceof NavigationSkipped && !activeChanged) {
+        return;
+      }
+
+      this.syncFromExternalQueryParams(params);
     });
 
-    effect(() => {
-      const urlQ = this.q() ?? '';
-      const urlSource = normalizeArchiveSourceParam(this.source());
-
-      untracked(() => {
-        const queryChanged = urlQ !== this.activeQuery() || urlSource !== this.selectedSource() || this.response() === null;
-        this.draftQuery.set(urlQ);
-        this.activeQuery.set(urlQ);
-        this.selectedSource.set(urlSource);
-        if (queryChanged) {
-          this.cursorStack.set([]);
-          this.currentCursor.set(null);
-          this.pageNumber.set(1);
-          this.executeSearch(urlQ, urlSource, null);
-        }
-      });
+    this.destroyRef.onDestroy(() => {
+      this.destroyed = true;
+      this.routerEventsSub?.unsubscribe();
+      this.routerEventsSub = null;
+      this.cancelInFlight();
     });
   }
 
@@ -505,7 +541,25 @@ export class ArchivePage {
     return params;
   }
 
+  private isArchiveRouteCurrentlyActive(): boolean {
+    return this.router.routerState.snapshot.root.firstChild?.routeConfig?.path === 'archive';
+  }
+
+  private syncFromExternalQueryParams(params: ParamMap): void {
+    const urlQ = params.get('q') ?? '';
+    const urlSource = normalizeArchiveSourceParam(params.get('source'));
+    ++this.latestCommandSeq;
+    this.draftQuery.set(urlQ);
+    this.activeQuery.set(urlQ);
+    this.selectedSource.set(urlSource);
+    this.cursorStack.set([]);
+    this.currentCursor.set(null);
+    this.pageNumber.set(1);
+    this.executeSearch(urlQ, urlSource, null);
+  }
+
   private applyNewQueryAndNavigate(nextQ: string, nextSource: ArchiveSourceFilterWire): void {
+    const commandSeq = ++this.latestCommandSeq;
     this.draftQuery.set(nextQ);
     this.activeQuery.set(nextQ);
     this.selectedSource.set(nextSource);
@@ -513,6 +567,13 @@ export class ArchivePage {
     this.currentCursor.set(null);
     this.pageNumber.set(1);
 
+    this.navigateForActiveState(commandSeq);
+    this.executeSearch(nextQ, nextSource, null);
+  }
+
+  private navigateForActiveState(commandSeq: number): void {
+    const nextQ = this.activeQuery();
+    const nextSource = this.selectedSource();
     const queryParams: Record<string, string | null> = {
       q: nextQ.length > 0 ? nextQ : null,
       source: nextSource !== 'all' ? nextSource : null,
@@ -521,9 +582,11 @@ export class ArchivePage {
     void this.router.navigate(['/archive'], {
       queryParams,
       replaceUrl: false,
+      info: {
+        sourceComponent: this,
+        commandSeq,
+      } satisfies SelfArchiveNavigationInfo,
     });
-
-    this.executeSearch(nextQ, nextSource, null);
   }
 
   private executeSearch(q: string, source: ArchiveSourceFilterWire, after: string | null): void {
@@ -531,6 +594,7 @@ export class ArchivePage {
     const seq = ++this.activeRequestSeq;
     this.loading.set(true);
     this.errorMessage.set(null);
+    this.response.set(null);
 
     this.inFlightSub = this.api.search({ q, source, after }).subscribe({
       next: (res) => {

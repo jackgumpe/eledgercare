@@ -1,0 +1,44 @@
+{
+  "startedUtc": "2026-11-17T11:37:38.034Z",
+  "mode": "pre-fix-c383021b",
+  "edgeBrowserVersion": "157.0.4341.60",
+  "apiPort": 5590,
+  "uiPort": 4610,
+  "checks": {
+    "c1_pending_nav_preserves_newer_draft": {
+      "httpCompletedWhileRoutePending": true,
+      "pendingBeforeEdit": {
+        "count": 1,
+        "targets": [
+          {
+            "id": 1,
+            "targetQueryParams": {
+              "q": "REV2-ACTIVE-HAWTHORNE",
+              "source": "reviewed"
+            }
+          }
+        ],
+        "browserSearch": ""
+      },
+      "releasedNav1": {
+        "id": 1,
+        "targetQueryParams": {
+          "q": "REV2-ACTIVE-HAWTHORNE",
+          "source": "reviewed"
+        }
+      },
+      "draftBeforeRelease": "MULTIPAGE-REVIEWED-ALDER-P2",
+      "draftAfterRelease": "REV2-ACTIVE-HAWTHORNE",
+      "sourceAfterRelease": "reviewed",
+      "urlAfterRelease": "http://127.0.0.1:4610/archive?q=REV2-ACTIVE-HAWTHORNE&source=reviewed",
+      "headerAfterRelease": "Search results for “REV2-ACTIVE-HAWTHORNE” (reviewed values only)  · Page 1 Next page →",
+      "httpRequestsDuringSubmit1": 1,
+      "duplicateHttpRequestsOnRouteSettle": 0,
+      "passed": false
+    }
+  },
+  "screenshots": [],
+  "status": "failed",
+  "failureError": "Criterion (1) FAILED: newer typed draft \"MULTIPAGE-REVIEWED-ALDER-P2\" was overwritten with \"REV2-ACTIVE-HAWTHORNE\" when earlier pending navigation settled.",
+  "completedUtc": "2026-11-17T11:37:39.036Z"
+}
