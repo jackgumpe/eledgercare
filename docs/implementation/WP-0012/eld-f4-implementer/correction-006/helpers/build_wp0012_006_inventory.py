@@ -100,17 +100,7 @@ def main() -> None:
                 }
             )
 
-    rr = CORRECTION_DIR / "resource-return.json"
-    rr_raw = rr.read_bytes()
-    post_freeze_entries = [
-        {
-            "path": rr.relative_to(REPO_ROOT).as_posix(),
-            "bytes": len(rr_raw),
-            "sha256": sha256_bytes(rr_raw),
-            "sha256_lf": sha256_bytes(rr_raw.replace(b"\r\n", b"\n")),
-        },
-        *evidence_entries,
-    ]
+    post_freeze_entries = evidence_entries
 
     # Verify links & zero secrets across all correction-006 artifacts
     settings = json.loads((REPO_ROOT / ".local" / "secrets" / "pg-local.json").read_text(encoding="utf-8"))
@@ -157,6 +147,9 @@ def main() -> None:
             "file_count": 44,
             "untouched": True,
         },
+        "native_handoff_authority_sha": "3bc2ba5cf5db6698d71c99fccc957e54936fb6c2",
+        "carbon_unmodified_checkpoint_sha": "d9de3bf1719384c8f6801d78278438a3fdde2e22",
+        "native_continuation": {"session": "/root/product_author_continuation", "model_marker": "native-codex-backend-unexposed", "effort": "xhigh-requested", "actual_backend_and_effort": "not exposed"},
         "correction_006_base_sha": CORRECTION_006_BASE_SHA,
         "frozen_006_deliverable_sha": deliverable_sha,
         "base_to_deliverable_count": len(deliverable_entries),
@@ -174,6 +167,16 @@ def main() -> None:
             "workers/local_ocr": git_out(["rev-parse", f"{deliverable_sha}:workers/local_ocr"]),
             "ELedgerCare.slnx": git_out(["rev-parse", f"{deliverable_sha}:ELedgerCare.slnx"]),
         },
+        "readonly_prior_helper_and_review_inputs": [
+            {"path": rel, "commit": CORRECTION_006_BASE_SHA, "git_blob_oid": git_out(["rev-parse", f"{CORRECTION_006_BASE_SHA}:{rel}"]), "sha256_git_bytes": sha256_bytes(subprocess.check_output(["git", "show", f"{CORRECTION_006_BASE_SHA}:{rel}"], cwd=str(REPO_ROOT)))}
+            for rel in (
+                "docs/implementation/WP-0012/eld-f4-implementer/helpers/run_wp0012_rehearsal.py",
+                "docs/implementation/WP-0012/eld-f4-implementer/helpers/drive_rehearsal_edge.mjs",
+                "docs/agent-reports/eld-f4-reviewer/WP-0012/002_2026-11-17_review_eld-f4-reviewer.md",
+                "docs/reviews/WP-0012/eld-f4-reviewer/author-001-review/AUTHOR-001-AUDIT-AND-GUARD-RECONCILIATION.md",
+                "docs/reviews/WP-0012/eld-f4-reviewer/author-001-review/observations/author-001-and-v3-verification.json",
+            )
+        ],
         "rehearsal_fixture_inputs": [
             {
                 "path": "tests/fixtures/SYN-WO-01-v1-raster300.pdf",
@@ -203,6 +206,8 @@ def main() -> None:
     }
 
     out = CORRECTION_DIR / "inventory.json"
+    if out.exists():
+        raise RuntimeError(f"Refusing existing inventory: {out}")
     out.write_text(json.dumps(inv, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(
         f"Wrote {out.relative_to(REPO_ROOT).as_posix()} "

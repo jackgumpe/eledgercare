@@ -1,6 +1,8 @@
 """Complete-workflow demonstration rehearsal orchestrator & fail-closed guard validator (WP-0012 / 006).
 
-Owner: eld-f4-implementer (conversation b7c54417-db09-49bd-8d2b-7cc808f113be, gemini-4-carbon-high/high).
+Owner: eld-f4-implementer, native continuation /root/product_author_continuation.
+Partial original author: Carbon/high b7c54417-db09-49bd-8d2b-7cc808f113be, preserved at d9de3bf.
+Native backend/actual effort unexposed; requested effort xhigh.
 
 Bounded WP-0012 / 006 corrections over immutable /001 helper (ad5202a0):
   - F12-B1: Internal partial-startup cleanup in `start_api_and_ui` terminating every already-spawned
@@ -74,9 +76,9 @@ REPORT_STATUS_RE = re.compile(r"^-\s*Status:\s*([A-Za-z0-9_-]+)\s*$", re.MULTILI
 
 EXPECTED_PACKET = "WP-0012"
 EXPECTED_OWNER = "eld-f4-implementer"
-EXPECTED_CONVERSATION_ID = "b7c54417-db09-49bd-8d2b-7cc808f113be"
-EXPECTED_MODEL = "gemini-4-carbon-high"
-EXPECTED_EFFORT = "high"
+EXPECTED_CONVERSATION_ID = "/root/product_author_continuation"
+EXPECTED_MODEL = "native-codex-backend-unexposed"
+EXPECTED_EFFORT = "xhigh-requested"
 EXPECTED_BRANCH = "rehearsal/wp-0012-product"
 EXPECTED_GPU_UUID = "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d"
 
@@ -303,22 +305,25 @@ def load_local_secrets(settings: dict | None = None) -> list[str]:
         return out
     for key in ("adminPassword", "migratorPassword", "appPassword"):
         val = str(cfg.get(key) or "")
-        if len(val) >= 4:
+        if val:
             out.append(val)
             quoted = urllib.parse.quote(val, safe="")
-            if len(quoted) >= 4 and quoted != val:
+            if quoted and quoted != val:
                 out.append(quoted)
     # Longest tokens first so substrings never partially mask longer secrets
     return sorted(set(out), key=len, reverse=True)
 
 
 def scrub_text(text: str, secrets: list[str] | None) -> str:
-    if not text or not secrets:
+    if not text:
         return text
     cleaned = text
-    for sec in secrets:
-        if sec and sec in cleaned:
-            cleaned = cleaned.replace(sec, "[REDACTED]")
+    for sec in secrets or []:
+        if sec:
+            if len(sec) < 4:
+                cleaned = re.sub(r"(?<![\w])" + re.escape(sec) + r"(?![\w])", "[REDACTED]", cleaned)
+            else:
+                cleaned = cleaned.replace(sec, "[REDACTED]")
     cleaned = re.sub(r"(?i)(Password\s*=\s*)([^\s;\"']+)", r"\1[REDACTED]", cleaned)
     return cleaned
 
@@ -328,8 +333,8 @@ def scrub_file_secrets(path: Path, secrets: list[str] | None) -> bool:
         return False
     try:
         raw = path.read_text(encoding="utf-8", errors="replace")
-    except Exception:
-        return False
+    except Exception as exc:
+        raise RuntimeError(f"Unable to read log for scrubbing: {path}") from exc
     cleaned = scrub_text(raw, secrets)
     if cleaned != raw:
         path.write_text(cleaned, encoding="utf-8", newline="\n")
@@ -603,6 +608,9 @@ def guard_decisive_output_destinations(
     repo_root: Path = REPO_ROOT,
 ) -> None:
     """Refuses overwriting existing decisive rehearsal outputs or writing into immutable/protected directories (F12-B2)."""
+    for anc in (ev_out_dir.absolute(), *ev_out_dir.absolute().parents):
+        if anc.exists() and is_reparse_point(anc):
+            raise RehearsalGuardError(f"Reparse point/symlink forbidden on output path: {anc}")
     ev_resolved = ev_out_dir.resolve()
     for anc in (ev_resolved, *ev_resolved.parents):
         if anc.exists() and is_reparse_point(anc):
@@ -613,6 +621,9 @@ def guard_decisive_output_destinations(
         )
 
     if explicit_output_path is not None:
+        for anc in (explicit_output_path.absolute(), *explicit_output_path.absolute().parents):
+            if anc.exists() and is_reparse_point(anc):
+                raise RehearsalGuardError(f"Reparse point/symlink forbidden on --output path: {anc}")
         out_res = explicit_output_path.resolve()
         for anc in (out_res, *out_res.parents):
             if anc.exists() and is_reparse_point(anc):
@@ -621,6 +632,7 @@ def guard_decisive_output_destinations(
             raise RehearsalGuardError(f"Refusing to overwrite existing --output target: {out_res}")
 
         protected_roots = [
+            EXPECTED_Q0_ROOT.resolve(),
             (repo_root / "src").resolve(),
             (repo_root / "web").resolve(),
             (repo_root / "tests").resolve(),
@@ -798,9 +810,9 @@ def validate_release_contract(
     has_accepting_007, bad_007_reason = _commit_inspects_as_accepting_007(root, rev_sha)
     if bad_007_reason:
         raise RehearsalGuardError(bad_007_reason)
-    if rev_sha == actual_head and not has_accepting_007:
+    if not has_accepting_007 and (rev_sha == actual_head or not (is_synth and allow_synthetic_test_only)):
         raise RehearsalGuardError(
-            f"Accepting review commit {rev_sha} cannot equal unreviewed author executing_head {actual_head}."
+            f"Accepting review commit {rev_sha} has no accepted independent WP-0012 / 007 report."
         )
 
     # Verify unchanged product & worker Git tree OIDs both locally and in release JSON
@@ -847,6 +859,7 @@ def validate_release_contract(
     lease_id = str(release_doc.get("lease_id") or "").strip()
     if (
         not lease_id
+        or not re.fullmatch(r"[A-Za-z0-9_.-]+", lease_id)
         or lease_id.startswith(REJECTED_LEASE_PREFIXES)
         or "WP-0012" not in lease_id
         or (not is_synth and "SYNTHETIC" in lease_id.upper())
@@ -1132,12 +1145,14 @@ def stop_proc(
                 can_taskkill_tree = bool(ident_now and ident_now.get("alive"))
 
             if can_taskkill_tree:
-                subprocess.run(
-                    ["taskkill", "/PID", str(pid), "/T", "/F"],
-                    cwd=str(REPO_ROOT),
-                    capture_output=True,
-                    check=False,
-                )
+                try:
+                    subprocess.run(
+                        ["taskkill", "/PID", str(pid), "/T", "/F"],
+                        cwd=str(REPO_ROOT), capture_output=True, check=False, timeout=15,
+                    )
+                except Exception:
+                    # Popen's retained process handle still identifies our original child.
+                    pass
             if proc.poll() is None:
                 try:
                     proc.terminate()
@@ -1155,14 +1170,14 @@ def stop_proc(
                     proc.wait(timeout=10)
                 except Exception:
                     pass
+            if proc.poll() is None:
+                raise RuntimeError(f"Owned child {pid} did not exit after cleanup")
     finally:
-        if fh is not None:
+        if fh is not None and not getattr(fh, "closed", False):
             try:
-                if not getattr(fh, "closed", False):
-                    fh.flush()
-                    fh.close()
-            except Exception:
-                pass
+                fh.flush()
+            finally:
+                fh.close()
 
 
 def start_api_and_ui(
@@ -1266,12 +1281,21 @@ def start_api_and_ui(
             ui_proc,
             {"pid": ui_proc.pid, "identity": ui_ident, "fh": ui_fh, "log": str(ui_log)},
         )
-    except BaseException:
-        stop_proc(ui_proc, ui_fh, expected_identity=ui_ident)
-        stop_proc(api_proc, api_fh, expected_identity=api_ident)
-        if secrets:
-            scrub_file_secrets(api_log, secrets)
-            scrub_file_secrets(ui_log, secrets)
+    except BaseException as exc:
+        cleanup_errors = []
+        for role, proc, fh, ident in (("ui", ui_proc, ui_fh, ui_ident), ("api", api_proc, api_fh, api_ident)):
+            try:
+                stop_proc(proc, fh, expected_identity=ident)
+            except Exception as stop_exc:
+                cleanup_errors.append(f"partial_start_{role}_stop_failed: {stop_exc}")
+        for log in (api_log, ui_log):
+            try:
+                scrub_file_secrets(log, secrets)
+            except Exception as scrub_exc:
+                cleanup_errors.append(f"partial_start_scrub_failed: {scrub_exc}")
+        exc.startup_cleanup_errors = cleanup_errors
+        for error in cleanup_errors:
+            exc.add_note(scrub_text(error, secrets))
         raise
 
 
@@ -1559,6 +1583,7 @@ def execute_live_rehearsal(
 
     try:
         failure_stage = "postgres-phase-a-start"
+        pg_started = True
         subprocess.run(
             ["pwsh", "-NoProfile", "-File", "deploy/dev/postgres/start-cluster.ps1"],
             cwd=str(REPO_ROOT),
@@ -1657,6 +1682,7 @@ def execute_live_rehearsal(
         assert_ports_unbound((5590, 4610, 55438))
 
         failure_stage = "phase-b-postgres-restart"
+        pg_started = True
         subprocess.run(
             ["pwsh", "-NoProfile", "-File", "deploy/dev/postgres/start-cluster.ps1"],
             cwd=str(REPO_ROOT),
@@ -1733,6 +1759,7 @@ def execute_live_rehearsal(
         failure_stage = None
     except BaseException as exc:
         failure_exc = exc
+        cleanup_errors.extend(getattr(exc, "startup_cleanup_errors", []))
     finally:
         if sampler is not None:
             try:
@@ -1740,29 +1767,32 @@ def execute_live_rehearsal(
             except Exception as s_exc:
                 cleanup_errors.append(f"memory_sampler_stop_failed: {s_exc}")
 
-        if pg_started and not persisted_attempts_queried:
+        # Stop producers before the final attempt query so startup/phase failures cannot race the audit.
+        for role, proc, meta in (("ui", ui_proc, ui_meta), ("api", api_proc, api_meta)):
+            try:
+                stop_proc(proc, meta["fh"] if meta else None, expected_identity=meta.get("identity") if meta else None)
+            except Exception as stop_exc:
+                cleanup_errors.append(f"{role}_stop_failed: {stop_exc}")
+
+        if pg_started:
             try:
                 raw_att = run_psql_query(settings, OWNED_REHEARSAL_DB, PERSISTED_ATTEMPTS_SQL)
-                parsed_att = json.loads(raw_att) if raw_att else []
-                if isinstance(parsed_att, list):
-                    persisted_attempts = parsed_att
+                parsed_att = json.loads(raw_att)
+                if not isinstance(parsed_att, list):
+                    raise RuntimeError("Persisted attempts query did not return a list")
+                persisted_attempts = parsed_att
+                persisted_attempts_queried = True
             except Exception as q_exc:
+                persisted_attempts_queried = False
                 cleanup_errors.append(f"persisted_attempts_query_failed: {q_exc}")
 
-        stop_proc(
-            ui_proc,
-            ui_meta["fh"] if ui_meta else None,
-            expected_identity=ui_meta.get("identity") if ui_meta else None,
-        )
-        stop_proc(
-            api_proc,
-            api_meta["fh"] if api_meta else None,
-            expected_identity=api_meta.get("identity") if api_meta else None,
-        )
-
-        lingering_final = _collect_lingering_attempt_processes(persisted_attempts, grace_s=5.0)
-        if lingering_final:
-            cleanup_errors.append(f"lingering_attempt_processes: {lingering_final}")
+        lingering_final = []
+        try:
+            lingering_final = _collect_lingering_attempt_processes(persisted_attempts, grace_s=5.0)
+            if lingering_final:
+                cleanup_errors.append(f"lingering_attempt_processes: {lingering_final}")
+        except Exception as audit_exc:
+            cleanup_errors.append(f"attempt_process_audit_failed: {audit_exc}")
 
         ocr_workers_after = -1
         try:
@@ -1773,16 +1803,27 @@ def execute_live_rehearsal(
             cleanup_errors.append(f"count_ocr_worker_processes_failed: {w_exc}")
 
         if pg_started:
-            cp_stop_pg = subprocess.run(
-                ["pwsh", "-NoProfile", "-File", "deploy/dev/postgres/stop-cluster.ps1"],
-                cwd=str(REPO_ROOT),
-                capture_output=True,
-                text=True,
-                encoding="utf-8",
-                check=False,
-            )
-            if cp_stop_pg.returncode != 0:
-                cleanup_errors.append(f"postgres_stop_failed ({cp_stop_pg.returncode}): {cp_stop_pg.stderr.strip()}")
+            try:
+                cp_stop_pg = subprocess.run(
+                    ["pwsh", "-NoProfile", "-File", "deploy/dev/postgres/stop-cluster.ps1"],
+                    cwd=str(REPO_ROOT), capture_output=True, text=True, encoding="utf-8", check=False, timeout=45,
+                )
+                if cp_stop_pg.returncode != 0:
+                    cleanup_errors.append(f"postgres_stop_failed ({cp_stop_pg.returncode}): {cp_stop_pg.stderr.strip()}")
+            except Exception as pg_exc:
+                cleanup_errors.append(f"postgres_stop_failed: {pg_exc}")
+
+        lingering_services = []
+        for identity in recorded_service_identities:
+            try:
+                if identity.get("create_filetime") is None:
+                    cleanup_errors.append(f"service_identity_missing: {identity['role']}")
+                elif is_exact_process_alive(int(identity["pid"]), int(identity["create_filetime"])):
+                    lingering_services.append(identity)
+            except Exception as identity_exc:
+                cleanup_errors.append(f"service_identity_check_failed: {identity_exc}")
+        if lingering_services:
+            cleanup_errors.append(f"lingering_service_processes: {lingering_services}")
 
         ports_unbound_verified = False
         final_ports: dict[str, list[dict]] = {}
@@ -1803,10 +1844,20 @@ def execute_live_rehearsal(
         except Exception as m_exc:
             cleanup_errors.append(f"post_run_q0_model_check_failed: {m_exc}")
 
-        new_run_dirs = sorted(
-            (set(p.name for p in runs_dir.iterdir() if p.is_dir()) if runs_dir.is_dir() else set()) - prior_run_dirs
-        )
-        scrubbed_count = scrub_directory_secrets(ev_out_dir, secrets)
+        new_run_dirs = []
+        try:
+            new_run_dirs = sorted(
+                (set(p.name for p in runs_dir.iterdir() if p.is_dir()) if runs_dir.is_dir() else set()) - prior_run_dirs
+            )
+        except Exception as dir_exc:
+            cleanup_errors.append(f"run_directory_audit_failed: {dir_exc}")
+        scrubbed_count = 0
+        logs_scrubbed = False
+        try:
+            scrubbed_count = scrub_directory_secrets(ev_out_dir, secrets)
+            logs_scrubbed = True
+        except Exception as scrub_exc:
+            cleanup_errors.append(f"log_scrub_failed: {scrub_exc}")
 
         clean_return_ok = (
             ocr_workers_after == 0
@@ -1828,9 +1879,11 @@ def execute_live_rehearsal(
             "owner": EXPECTED_OWNER,
             "lease_id": validated["lease_id"],
             "gpu_uuid": EXPECTED_GPU_UUID,
-            "model_attempts_executed": len(persisted_attempts),
+            "model_attempts_executed": len(persisted_attempts) if persisted_attempts_queried else None,
+            "persisted_attempts_query_verified": persisted_attempts_queried,
             "persisted_attempts": persisted_attempts,
             "lingering_attempt_processes": lingering_final,
+            "lingering_service_processes": lingering_services,
             "new_run_directories": new_run_dirs,
             "prior_run_directories_preserved": sorted(prior_run_dirs),
             "recorded_service_identities": recorded_service_identities,
@@ -1839,7 +1892,7 @@ def execute_live_rehearsal(
             "ports_after_shutdown": final_ports,
             "ports_unbound_verified": ports_unbound_verified,
             "q0_model_18_objects_sha256_verified_after_run": q0_model_verified,
-            "logs_scrubbed": True,
+            "logs_scrubbed": logs_scrubbed,
             "scrubbed_artifact_count": scrubbed_count,
         }
         write_json_lf(ev_out_dir / "owner-lease-return.json", lease_return)

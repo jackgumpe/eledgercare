@@ -1,18 +1,7 @@
-"""Decisive post-freeze CPU-only validator for WP-0012 / 006 bounded helper correction (eld-f4-implementer).
-
-Executes strictly on CPU without any model/GPU calls, without writing to C:\\Users\\jackg\\eLedgerCare-Demo\\WP-0012\\author,
-and without modifying any of the 3,683 preserved base/001/002 paths at 379d8c5d607fd248d7f272e412b4ed4a97bc64f6:
-  01. `node --check` syntax verification on corrected `drive_rehearsal_edge.mjs`.
-  02. CLI validation of `sample-synthetic-release.json` (`--validate-synthetic-sample`) + live-mode rejection.
-  03. 26 deterministic `Wp0012Correction006GuardTests` unit & short-lived CPU subprocess tests, including
-      old-fails / new-passes proofs for `F12-B1` (Cases A, B, C), `F12-B2` (stop-on-failure audits, secret
-      scrubbing, `owner-lease-return.json`, and existing-output refusal), `F12-B3` + `/002`-rejection/`/007`-gate,
-      and `F12-D4` (`workerEnabled === false` API assertion in `drive_rehearsal_edge.mjs`).
-  04. Owned PostgreSQL 18.7 (`55438`) startup + pre-run SHA-256 invariance check on `eledgercare_demo_wp0012_author`,
-      `eledgercare_f4_author_seed_f3`, and `eledgercare_f4_author_migrated`.
-  05. Corrected `run_wp0012_rehearsal.py --cpu-dry-run --with-disabled-ocr-smoke` (`5590 / 4610`, 0 documents,
-      0 attempts, 13/13 42501 privilege denials, Edge 157 empty-archive preflight, 0 OCR workers).
-  06. Post-run DB SHA-256 invariance verification + PostgreSQL shutdown + port/process/demo-root return check.
+"""CPU-only correction verification: syntax, synthetic release, actual old/new fault injection.
+No model/renderer imports, GPU queries, database startup or API/UI service startup.
+Original Carbon/high draft preserved at d9de3bf; native continuation keeps affected tests
+and removes the unnecessary broad live disabled-OCR and database rerun.
 """
 from __future__ import annotations
 
@@ -20,6 +9,7 @@ import argparse
 import ast
 import copy
 from datetime import datetime, timedelta, timezone
+from contextlib import ExitStack
 import hashlib
 import http.server
 import importlib.util
@@ -80,160 +70,7 @@ FORBIDDEN_IMPORT_PREFIXES = (
     "evaluation",
 )
 
-SEED_F3_DB = "eledgercare_f4_author_seed_f3"
-MIGRATED_F4_DB = "eledgercare_f4_author_migrated"
-EXPECTED_SEED_F3_SHA256 = "76e7970b50b8fbf968c44e534d6383bdd8251e9f285e2373ea026eeeea157085"
-EXPECTED_MIGRATED_CORE_SHA256 = "ad4f44bcf7c0f7163e91cad81f569bfc4642cbb167c1eaf6c3d1ab9984b2e6d0"
-EXPECTED_MIGRATED_PROJ_SHA256 = "78f0f273dbdb48629924752cba6f863f11f62764e27161d8df1549ad75ce2ac3"
-EXPECTED_EMPTY_DEMO_AUTHOR_SHA256 = "7e740159110da7da145bb805300cdaf9dff076c41127321cdd3fc418c097c7b5"
 EXPECTED_PRESERVED_006_BASE_COUNT = 3683
-
-CANONICAL_8_TABLE_SQL = """
-SELECT json_build_object(
-  'collation', (
-    SELECT json_build_object(
-      'datcollate', datcollate,
-      'datctype', datctype,
-      'encoding', pg_encoding_to_char(encoding)
-    ) FROM pg_database WHERE datname = current_database()
-  ),
-  'migrations', COALESCE((SELECT json_agg("MigrationId" ORDER BY "MigrationId") FROM eledgercare.__ef_migrations_history), '[]'::json),
-  'sequence', (SELECT json_build_object('last_value', last_value, 'is_called', is_called) FROM eledgercare.extraction_fencing_seq),
-  'row_counts', json_build_object(
-    'documents', (SELECT count(*) FROM eledgercare.documents),
-    'original_artifacts', (SELECT count(*) FROM eledgercare.original_artifacts),
-    'processing_jobs', (SELECT count(*) FROM eledgercare.processing_jobs),
-    'execution_attempts', (SELECT count(*) FROM eledgercare.execution_attempts),
-    'extraction_results', (SELECT count(*) FROM eledgercare.extraction_results),
-    'work_order_review_heads', (SELECT count(*) FROM eledgercare.work_order_review_heads),
-    'work_order_review_revisions', (SELECT count(*) FROM eledgercare.work_order_review_revisions),
-    'work_order_review_fields', (SELECT count(*) FROM eledgercare.work_order_review_fields)
-  ),
-  'documents', COALESCE((
-    SELECT json_agg(json_build_object(
-      'document_id', d.document_id::text,
-      'idempotency_key', d.idempotency_key::text,
-      'submitted_at', d.submitted_at,
-      'byte_length', a.byte_length,
-      'octet_length', octet_length(a.bytes),
-      'declared_sha256', encode(a.sha256, 'hex'),
-      'computed_sha256', encode(sha256(a.bytes), 'hex'),
-      'page_count', a.page_count,
-      'job_id', j.job_id::text,
-      'job_status', j.status,
-      'attempt_count', j.attempt_count,
-      'latest_fencing_token', j.latest_fencing_token,
-      'retried_from_attempt_id', j.retried_from_attempt_id::text
-    ) ORDER BY d.submitted_at DESC, d.document_id DESC)
-    FROM eledgercare.documents d
-    JOIN eledgercare.original_artifacts a ON a.document_id = d.document_id
-    JOIN eledgercare.processing_jobs j ON j.document_id = d.document_id
-  ), '[]'::json),
-  'attempts', COALESCE((
-    SELECT json_agg(json_build_object(
-      'attempt_id', at.attempt_id::text,
-      'document_id', at.document_id::text,
-      'attempt_number', at.attempt_number,
-      'fencing_token', at.fencing_token,
-      'retried_from_attempt_id', at.retried_from_attempt_id::text,
-      'status', at.status,
-      'phase', at.phase,
-      'failure_code', at.failure_code,
-      'exit_code', at.exit_code,
-      'has_diagnostic_raw_output', (at.diagnostic_raw_output_utf8 IS NOT NULL)
-    ) ORDER BY at.fencing_token)
-    FROM eledgercare.execution_attempts at
-  ), '[]'::json),
-  'results', COALESCE((
-    SELECT json_agg(json_build_object(
-      'result_id', r.result_id::text,
-      'document_id', r.document_id::text,
-      'attempt_id', r.attempt_id::text,
-      'fencing_token', r.fencing_token,
-      'schema_version', r.schema_version,
-      'input_sha256', encode(r.input_sha256, 'hex'),
-      'page_count', r.page_count,
-      'output_page_count', r.output_page_count,
-      'raw_output_byte_length', r.raw_output_byte_length,
-      'raw_octet_length', octet_length(r.raw_output_bytes),
-      'declared_raw_sha256', encode(r.raw_output_sha256, 'hex'),
-      'computed_raw_sha256', encode(sha256(r.raw_output_bytes), 'hex'),
-      'worker_source_sha256', encode(r.worker_source_digest, 'hex'),
-      'worker_config_sha256', encode(r.worker_config_digest, 'hex'),
-      'finish_reason', r.finish_reason
-    ) ORDER BY r.fencing_token)
-    FROM eledgercare.extraction_results r
-  ), '[]'::json),
-  'review_heads', COALESCE((
-    SELECT json_agg(json_build_object(
-      'document_id', h.document_id::text,
-      'profile_id', h.profile_id,
-      'current_revision_id', h.current_revision_id::text,
-      'current_revision_number', h.current_revision_number,
-      'current_status', h.current_status,
-      'active_reviewed_revision_id', h.active_reviewed_revision_id::text,
-      'active_reviewed_revision_number', h.active_reviewed_revision_number
-    ) ORDER BY h.document_id, h.profile_id)
-    FROM eledgercare.work_order_review_heads h
-  ), '[]'::json),
-  'review_revisions', COALESCE((
-    SELECT json_agg(json_build_object(
-      'revision_id', rv.revision_id::text,
-      'document_id', rv.document_id::text,
-      'profile_id', rv.profile_id,
-      'revision_number', rv.revision_number,
-      'status', rv.status,
-      'base_extraction_result_id', rv.base_extraction_result_id::text,
-      'prior_revision_id', rv.prior_revision_id::text,
-      'operator_label', rv.operator_label,
-      'idempotency_key', rv.idempotency_key::text,
-      'request_sha256', encode(rv.request_sha256, 'hex')
-    ) ORDER BY rv.document_id, rv.revision_number)
-    FROM eledgercare.work_order_review_revisions rv
-  ), '[]'::json),
-  'review_fields', COALESCE((
-    SELECT json_agg(json_build_object(
-      'revision_id', rf.revision_id::text,
-      'field_key', rf.field_key,
-      'decision', rf.decision,
-      'value_text', rf.value_text,
-      'normalized_date', rf.normalized_date::text,
-      'unknown_reason', rf.unknown_reason,
-      'suggestion_disposition', rf.suggestion_disposition,
-      'machine_value_text', rf.machine_value_text,
-      'machine_source_json', rf.machine_source_json::text,
-      'consulted_source_json', rf.consulted_source_json::text
-    ) ORDER BY rf.revision_id, rf.field_key)
-    FROM eledgercare.work_order_review_fields rf
-  ), '[]'::json)
-)::text;
-"""
-
-PROJECTION_DIGEST_SQL = """
-SELECT json_build_object(
-  'projections', COALESCE((
-    SELECT json_agg(json_build_object(
-      'result_id', result_id::text,
-      'document_id', document_id::text,
-      'projector_version', projector_version,
-      'raw_output_sha256', encode(raw_output_sha256, 'hex'),
-      'unit_count', unit_count
-    ) ORDER BY document_id)
-    FROM eledgercare.archive_result_projections
-  ), '[]'::json),
-  'units', COALESCE((
-    SELECT json_agg(json_build_object(
-      'result_id', result_id::text,
-      'unit_ordinal', unit_ordinal,
-      'page_number', page_number,
-      'block_index', block_index,
-      'block_label', block_label,
-      'search_text_sha256', encode(sha256(convert_to(search_text, 'UTF8')), 'hex')
-    ) ORDER BY result_id, unit_ordinal)
-    FROM eledgercare.archive_projection_units
-  ), '[]'::json)
-)::text;
-"""
 
 
 def make_synthetic_valid_006_release(actual_head: str, now_utc: datetime) -> tuple[dict, dict[str, bytes]]:
@@ -243,9 +80,9 @@ def make_synthetic_valid_006_release(actual_head: str, now_utc: datetime) -> tup
         "synthetic_test_only": True,
         "packet": "WP-0012",
         "owner": "eld-f4-implementer",
-        "conversation_id": "b7c54417-db09-49bd-8d2b-7cc808f113be",
-        "model": "gemini-4-carbon-high",
-        "effort": "high",
+        "conversation_id": "/root/product_author_continuation",
+        "model": "native-codex-backend-unexposed",
+        "effort": "xhigh-requested",
         "source_commit": drv.ACCEPTED_F4_FINAL_SOURCE_SHA,
         "executing_head": actual_head,
         "prior_changes_requested_review_002": drv.PRIOR_CHANGES_REQUESTED_REVIEW_002_SHA,
@@ -1234,6 +1071,112 @@ class Wp0012Correction006GuardTests(unittest.TestCase):
                         )
 
 
+    def test_27_cleanup_exceptions_preserve_primary_failure_and_honest_return(self) -> None:
+        # Exercise actual orchestrator finally under independent failure at each cleanup boundary.
+        for fault in ("stop_proc", "run_psql_query", "_collect_lingering_attempt_processes", "count_ocr_worker_processes", "postgres_stop", "scrub_directory_secrets"):
+            with self.subTest(fault=fault), tempfile.TemporaryDirectory() as td, ExitStack() as stack:
+                demo = Path(td) / "demo"
+                (demo / "runs").mkdir(parents=True)
+                original_read = Path.read_text
+                def read(path, *args, **kwargs):
+                    if path.name == "pg-local.json":
+                        return json.dumps({"host":"127.0.0.1", "port":55438, "appUser":"fake", "appPassword":"fake-password"})
+                    if path.name == "postmaster.pid":
+                        return "54321\n"
+                    return original_read(path, *args, **kwargs)
+                stack.enter_context(mock.patch.object(Path, "read_text", read))
+                stack.enter_context(mock.patch.object(drv, "EXPECTED_DEMO_RUNTIME_ROOT", demo))
+                stack.enter_context(mock.patch.object(drv, "git_object_exists", return_value=True))
+                stack.enter_context(mock.patch.object(drv, "git_bytes", return_value=b"{}"))
+                stack.enter_context(mock.patch.object(drv, "validate_release_contract", return_value={"lease_id":"WP-0012-cleanup-fault"}))
+                roots = stack.enter_context(mock.patch.object(drv, "inspect_readonly_q0_and_demo_roots_cpu", return_value={"writable_demo_root_exists":True}))
+                ports = stack.enter_context(mock.patch.object(drv, "assert_ports_unbound", return_value={"5590":[], "4610":[], "55438":[]}))
+                stack.enter_context(mock.patch.object(drv, "get_win32_process_identity", return_value={"pid":54321, "create_filetime":1, "alive":True}))
+                stack.enter_context(mock.patch.object(drv, "is_exact_process_alive", return_value=False))
+                stack.enter_context(mock.patch.object(drv, "start_api_and_ui", return_value=(mock.Mock(pid=11), {"fh":None,"identity":{"pid":11,"create_filetime":1}}, mock.Mock(pid=12), {"fh":None,"identity":{"pid":12,"create_filetime":1}})))
+                sampler = stack.enter_context(mock.patch.object(drv, "ProcessMemorySampler"))
+                sampler.return_value.stop.return_value = {}
+                stop = stack.enter_context(mock.patch.object(drv, "stop_proc", side_effect=OSError("injected-stop") if fault=="stop_proc" else None))
+                workers = stack.enter_context(mock.patch.object(drv, "count_ocr_worker_processes", side_effect=[0,OSError("injected-count")] if fault=="count_ocr_worker_processes" else [0,0]))
+                audit = stack.enter_context(mock.patch.object(drv, "_collect_lingering_attempt_processes", side_effect=OSError("injected-audit") if fault=="_collect_lingering_attempt_processes" else None, return_value=[]))
+                scrub = stack.enter_context(mock.patch.object(drv, "scrub_directory_secrets", side_effect=OSError("injected-scrub") if fault=="scrub_directory_secrets" else None, return_value=0))
+                def query(settings, db, sql, **kw):
+                    if "count(*)" in sql:
+                        return "0"
+                    if fault=="run_psql_query":
+                        raise OSError("injected-query")
+                    return "[]"
+                stack.enter_context(mock.patch.object(drv, "run_psql_query", side_effect=query))
+                calls=[]
+                def run(argv, **kw):
+                    calls.append(argv)
+                    if any("stop-cluster.ps1" in str(x) for x in argv) and fault=="postgres_stop":
+                        raise OSError("injected-pg-stop")
+                    edge = any("drive_rehearsal_edge.mjs" in str(x) for x in argv)
+                    return subprocess.CompletedProcess(argv, 1 if edge else 0, stdout="", stderr="PRIMARY")
+                stack.enter_context(mock.patch.object(drv.subprocess, "run", side_effect=run))
+                with self.assertRaisesRegex(RuntimeError, "Live Phase A stopped/failed"):
+                    drv.execute_live_rehearsal(release_commit="d"*40, release_path="docs/coordination/WP-0012/fake.json")
+                receipt=json.loads((demo/"rehearsal-evidence/WP-0012-cleanup-fault/owner-lease-return.json").read_text())
+                self.assertFalse(receipt["clean_return_verified"])
+                self.assertEqual(receipt["status"],"failed_stopped")
+                self.assertTrue(receipt["cleanup_errors"])
+                self.assertEqual(stop.call_count,2)
+                self.assertEqual(audit.call_count,1)
+                self.assertEqual(workers.call_count,2)
+                self.assertEqual(scrub.call_count,1)
+                self.assertEqual(roots.call_count,2)
+                self.assertEqual(ports.call_count,2)
+                self.assertTrue(any("stop-cluster.ps1" in str(x) for call in calls for x in call))
+                if fault=="run_psql_query":
+                    self.assertIsNone(receipt["model_attempts_executed"])
+                if fault=="scrub_directory_secrets":
+                    self.assertFalse(receipt["logs_scrubbed"])
+
+    def test_28_stop_proc_taskkill_error_still_reaps_exact_cpu_child(self) -> None:
+        child=subprocess.Popen([sys.executable,"-B","-c","import time; time.sleep(30)"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        identity=drv.get_win32_process_identity(child.pid)
+        fh=io.StringIO()
+        try:
+            with mock.patch.object(drv.subprocess,"run",side_effect=OSError("taskkill unavailable")):
+                drv.stop_proc(child,fh,expected_identity=identity)
+            self.assertIsNotNone(child.poll())
+            self.assertTrue(fh.closed)
+        finally:
+            if child.poll() is None:
+                child.kill()
+                child.wait(timeout=10)
+
+    def test_29_live_review_gate_rejects_no_report_and_accepts_007_status(self) -> None:
+        doc=copy.deepcopy(self.valid_rel)
+        doc["synthetic_test_only"]=False
+        doc["accepted_preparation_review"]="9"*40
+        doc["lease_id"]="WP-0012-author-003-test-contract-only"
+        with mock.patch.object(drv,"_commit_inspects_as_accepting_007",return_value=(False,None)):
+            with self.assertRaisesRegex(drv.RehearsalGuardError,"no accepted independent"):
+                self._validate(doc,release_commit="d"*40,allow_synthetic=False)
+        with mock.patch.object(drv,"_commit_inspects_as_accepting_007",return_value=(True,None)):
+            self._validate(doc,release_commit="d"*40,allow_synthetic=False)
+
+    def test_31_refuses_lease_path_escape_and_q0_output(self) -> None:
+        doc=copy.deepcopy(self.valid_rel)
+        doc["lease_id"]="WP-0012/../../escape"
+        with self.assertRaises(drv.RehearsalGuardError):
+            self._validate(doc)
+        with tempfile.TemporaryDirectory() as td:
+            with self.assertRaises(drv.RehearsalGuardError):
+                drv.guard_decisive_output_destinations(Path(td)/"new", drv.EXPECTED_Q0_ROOT/"never-write-correction006.json")
+
+    def test_30_short_password_scrub_preserves_status_and_always_scrubs_connection_password(self) -> None:
+        secrets=drv.load_local_secrets({"appPassword":"p"})
+        text='{"status":"failed_stopped", "password":"p", "connection":"Password=p;"}'
+        result=drv.scrub_text(text,secrets)
+        self.assertEqual(json.loads(result)["status"],"failed_stopped")
+        self.assertNotIn('"p"',result)
+        self.assertIn("Password=[REDACTED];",result)
+        self.assertEqual(drv.scrub_text("Password=short;",[]),"Password=[REDACTED];")
+
+
 def run_logged_step(
     step_name: str,
     cmd: list[str],
@@ -1275,25 +1218,6 @@ def run_logged_step(
         "log_relpath": log_path.relative_to(REPO_ROOT).as_posix(),
         "log_sha256": drv.sha256_file(log_path),
     }
-
-
-def query_canonical_8_table_digests(settings: dict, db_name: str) -> dict[str, str]:
-    raw = drv.run_psql_query(settings, db_name, CANONICAL_8_TABLE_SQL)
-    parsed = json.loads(raw)
-    full_canonical = json.dumps(parsed, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    core_obj = {k: v for k, v in parsed.items() if k != "migrations"}
-    core_canonical = json.dumps(core_obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    return {
-        "full_sha256": hashlib.sha256(full_canonical).hexdigest(),
-        "core_sha256": hashlib.sha256(core_canonical).hexdigest(),
-    }
-
-
-def query_projection_digest(settings: dict, db_name: str) -> str:
-    raw = drv.run_psql_query(settings, db_name, PROJECTION_DIGEST_SQL)
-    parsed = json.loads(raw)
-    canonical = json.dumps(parsed, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    return hashlib.sha256(canonical).hexdigest()
 
 
 def run_static_and_ast_audit(*, require_clean: bool) -> dict:
@@ -1375,262 +1299,48 @@ def run_static_and_ast_audit(*, require_clean: bool) -> dict:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Decisive post-freeze CPU validator for WP-0012 / 006.")
-    parser.add_argument("--require-clean", action="store_true", help="Fail closed if git status is not clean.")
+    global EVIDENCE_DIR, LOGS_DIR
+    parser = argparse.ArgumentParser(description="CPU-only frozen correction006 verification.")
+    parser.add_argument("--require-clean", action="store_true")
+    parser.add_argument("--evidence-name", default="evidence", help="New directory name inside correction-006; never overwritten.")
     args = parser.parse_args()
-
+    if not args.evidence_name or Path(args.evidence_name).name != args.evidence_name:
+        raise RuntimeError("evidence-name must be one directory name")
+    EVIDENCE_DIR = CORRECTION_DIR / args.evidence_name
+    LOGS_DIR = EVIDENCE_DIR / "logs"
     started_utc = drv.utc_now()
     static_audit = run_static_and_ast_audit(require_clean=args.require_clean)
-
     if EVIDENCE_DIR.exists():
-        shutil.rmtree(EVIDENCE_DIR)
-    LOGS_DIR.mkdir(parents=True, exist_ok=True)
-    SCREENSHOTS_DIR.mkdir(parents=True, exist_ok=True)
-
-    settings = json.loads((REPO_ROOT / ".local" / "secrets" / "pg-local.json").read_text(encoding="utf-8"))
-    secrets = drv.load_local_secrets(settings)
-
-    demo_entries_before = (
-        sorted(p.name for p in drv.EXPECTED_DEMO_RUNTIME_ROOT.iterdir())
-        if drv.EXPECTED_DEMO_RUNTIME_ROOT.exists()
-        else []
-    )
-    drv.assert_ports_unbound((5590, 4610, 55438))
-    if drv.count_ocr_worker_processes() != 0:
-        raise RuntimeError("Active local_ocr worker found before /006 CPU validation!")
-
-    steps: list[dict] = []
-
-    # Step 01: node --check on corrected Edge driver
-    steps.append(
-        run_logged_step(
-            "01-node-check-edge-driver",
-            ["node", "--check", str(HELPERS_DIR / "drive_rehearsal_edge.mjs")],
-            REPO_ROOT,
-            secrets,
-        )
-    )
-
-    # Step 02: CLI synthetic sample validation + live-mode rejection
-    synth_out = EVIDENCE_DIR / "synthetic-sample-validation.json"
-    steps.append(
-        run_logged_step(
-            "02-validate-synthetic-sample-cli",
-            [
-                sys.executable,
-                "-B",
-                str(HELPERS_DIR / "run_wp0012_rehearsal.py"),
-                "--validate-synthetic-sample",
-                str(CORRECTION_DIR / "sample-synthetic-release.json"),
-                "--output",
-                str(synth_out),
-            ],
-            REPO_ROOT,
-            secrets,
-        )
-    )
-
-    # Step 03: 26 old-fails / new-passes & guard unit/subprocess tests
-    t0_ut = time.monotonic()
-    ut_started = drv.utc_now()
+        raise RuntimeError(f"Refusing existing evidence directory: {EVIDENCE_DIR}")
+    # Observation only: no product service or model is started by this verifier.
+    final_ports = drv.assert_ports_unbound((5590, 4610, 55438))
+    demo_entries_before = sorted(p.name for p in drv.EXPECTED_DEMO_RUNTIME_ROOT.iterdir())
+    LOGS_DIR.mkdir(parents=True, exist_ok=False)
+    secrets = drv.load_local_secrets()
+    steps = []
+    steps.append(run_logged_step("01-node-check-edge-driver", ["node", "--check", str(HELPERS_DIR / "drive_rehearsal_edge.mjs")], REPO_ROOT, secrets))
+    steps.append(run_logged_step("02-validate-synthetic-sample-cli", [sys.executable, "-B", str(HELPERS_DIR / "run_wp0012_rehearsal.py"), "--validate-synthetic-sample", str(CORRECTION_DIR / "sample-synthetic-release.json"), "--output", str(EVIDENCE_DIR / "synthetic-sample-validation.json")], REPO_ROOT, secrets))
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(Wp0012Correction006GuardTests)
     stream = io.StringIO()
-    runner = unittest.TextTestRunner(stream=stream, verbosity=2)
-    ut_res = runner.run(suite)
-    ut_elapsed = round((time.monotonic() - t0_ut) * 1000.0, 1)
-    ut_log = LOGS_DIR / "03-old-fails-new-passes-and-guard-tests.log"
-    ut_log.write_text(drv.scrub_text(stream.getvalue(), secrets).replace("\r\n", "\n"), encoding="utf-8", newline="\n")
-    if not ut_res.wasSuccessful():
-        raise RuntimeError(f"Unit test suite failed:\n{stream.getvalue()}")
-    steps.append(
-        {
-            "step": "03-old-fails-new-passes-and-guard-tests",
-            "command": ["unittest", "Wp0012Correction006GuardTests"],
-            "cwd": ".",
-            "started_utc": ut_started,
-            "elapsed_ms": ut_elapsed,
-            "exit_code": 0,
-            "tests_run": ut_res.testsRun,
-            "log_relpath": ut_log.relative_to(REPO_ROOT).as_posix(),
-            "log_sha256": drv.sha256_file(ut_log),
-        }
-    )
-
-    # Step 04-06: Affected CPU dry-run + disabled-OCR Edge smoke + pre/post DB invariance
-    pg_started = False
-    pg_pid = None
-    try:
-        steps.append(
-            run_logged_step(
-                "04-pg-cluster-start",
-                ["pwsh", "-NoProfile", "-File", "deploy/dev/postgres/start-cluster.ps1"],
-                REPO_ROOT,
-                secrets,
-            )
-        )
-        pg_started = True
-        pg_pid = int((REPO_ROOT / ".local" / "postgres-data" / "postmaster.pid").read_text(encoding="utf-8").splitlines()[0])
-
-        demo_pre = query_canonical_8_table_digests(settings, drv.OWNED_REHEARSAL_DB)
-        seed_pre = query_canonical_8_table_digests(settings, SEED_F3_DB)
-        mig_pre = query_canonical_8_table_digests(settings, MIGRATED_F4_DB)
-        proj_pre = query_projection_digest(settings, MIGRATED_F4_DB)
-
-        if demo_pre["full_sha256"] != EXPECTED_EMPTY_DEMO_AUTHOR_SHA256:
-            raise RuntimeError(f"Unexpected pre-run digest on {drv.OWNED_REHEARSAL_DB}: {demo_pre}")
-        if seed_pre["full_sha256"] != EXPECTED_SEED_F3_SHA256:
-            raise RuntimeError(f"Retained {SEED_F3_DB} digest mismatch before /006 validation: {seed_pre}")
-        if mig_pre["core_sha256"] != EXPECTED_MIGRATED_CORE_SHA256 or proj_pre != EXPECTED_MIGRATED_PROJ_SHA256:
-            raise RuntimeError(f"Retained {MIGRATED_F4_DB} digest mismatch before /006 validation: {mig_pre} / {proj_pre}")
-
-        cpu_dryrun_json = EVIDENCE_DIR / "cpu-dry-run-receipt.json"
-        steps.append(
-            run_logged_step(
-                "05-cpu-dry-run-and-disabled-ocr-edge-smoke",
-                [
-                    sys.executable,
-                    "-B",
-                    str(HELPERS_DIR / "run_wp0012_rehearsal.py"),
-                    "--cpu-dry-run",
-                    "--with-disabled-ocr-smoke",
-                    "--output",
-                    str(cpu_dryrun_json),
-                ],
-                REPO_ROOT,
-                secrets,
-            )
-        )
-
-        demo_post = query_canonical_8_table_digests(settings, drv.OWNED_REHEARSAL_DB)
-        seed_post = query_canonical_8_table_digests(settings, SEED_F3_DB)
-        mig_post = query_canonical_8_table_digests(settings, MIGRATED_F4_DB)
-        proj_post = query_projection_digest(settings, MIGRATED_F4_DB)
-
-        if demo_post["full_sha256"] != EXPECTED_EMPTY_DEMO_AUTHOR_SHA256:
-            raise RuntimeError(f"{drv.OWNED_REHEARSAL_DB} mutated during /006 CPU validation!")
-        if seed_post["full_sha256"] != EXPECTED_SEED_F3_SHA256:
-            raise RuntimeError(f"Retained {SEED_F3_DB} mutated during /006 CPU validation!")
-        if mig_post["core_sha256"] != EXPECTED_MIGRATED_CORE_SHA256 or proj_post != EXPECTED_MIGRATED_PROJ_SHA256:
-            raise RuntimeError(f"Retained {MIGRATED_F4_DB} mutated during /006 CPU validation!")
-
-        retained_dbs = [
-            ln.strip()
-            for ln in drv.run_psql_query(
-                settings,
-                "postgres",
-                "SELECT datname FROM pg_database WHERE datistemplate = false AND datname <> 'postgres' ORDER BY datname;",
-            ).splitlines()
-            if ln.strip()
-        ]
-
-        steps.append(
-            run_logged_step(
-                "06-pg-cluster-stop-final",
-                ["pwsh", "-NoProfile", "-File", "deploy/dev/postgres/stop-cluster.ps1"],
-                REPO_ROOT,
-                secrets,
-            )
-        )
-        pg_started = False
-        final_ports = drv.assert_ports_unbound((5590, 4610, 55438))
-        worker_procs = drv.count_ocr_worker_processes()
-        if worker_procs != 0:
-            raise RuntimeError(f"Expected 0 OCR worker processes, found {worker_procs}")
-
-        demo_entries_after = (
-            sorted(p.name for p in drv.EXPECTED_DEMO_RUNTIME_ROOT.iterdir())
-            if drv.EXPECTED_DEMO_RUNTIME_ROOT.exists()
-            else []
-        )
-        if demo_entries_after != demo_entries_before:
-            raise RuntimeError(
-                f"Demo writable root mutated during CPU validation: before={demo_entries_before}, after={demo_entries_after}"
-            )
-
-        shutil.rmtree(REPO_ROOT / ".scratch", ignore_errors=True)
-        drv.scrub_directory_secrets(EVIDENCE_DIR, secrets)
-        completed_utc = drv.utc_now()
-
-        summary = {
-            "schema": "eledgercare.wp0012-correction-006-validation-summary/1",
-            "packet": "WP-0012",
-            "sequence": "006",
-            "phase": "Bounded CPU rehearsal-helper correction (F12-B1/B2/B3/D4 + F12-D1..D3 prose reconciliation)",
-            "author": "eld-f4-implementer",
-            "started_utc": started_utc,
-            "completed_utc": completed_utc,
-            "live_rehearsal_executed": False,
-            "model_imported_or_invoked": False,
-            "gpu_queries_or_inference_run": False,
-            "static_and_ast_audit": static_audit,
-            "reconciled_findings": {
-                "F12-B1": "start_api_and_ui wraps owned API/UI spawn & readiness polling in internal try/except cleanup (PID + CreateFileTime verified), closing open log handles and scrubbing secrets.",
-                "F12-B2": "execute_live_rehearsal refuses pre-existing decisive outputs, checks pre-launch worker count == 0, and executes failure-path persisted_attempts query, launcher/worker exit check, port/model checks, log secret scrubbing, and owner-lease-return.json emission.",
-                "F12-B3_and_007_gate": "Accepts all documented review keys (including accepted_preparation_review, accepted_review_007, independent_preparation_review_007_sha, and /001's independent_preparation_review_002_sha), explicitly rejects changes-requested WP-0012 / 002 (379d8c5d...) and all pre-/006 ancestors, and validates sample-synthetic-release.json on CPU while rejecting it in live mode.",
-                "F12-D4": "drive_rehearsal_edge.mjs asserts boolean workerEnabled === true in live-phase-a and workerEnabled === false in live-phase-b-reopen directly from /api/documents/{id}/extraction.",
-                "F12-D1_to_D3": "Reconciled CLI flags (--release-commit/--release-path), Edge modes (live-phase-a/live-phase-b-reopen), Git review commit checks, unit-vs-live guard descriptions, and archive projection table names in correction-006/RUNBOOK.md and canonical /006 report.",
-            },
-            "executed_steps": steps,
-            "database_state": {
-                "owned_rehearsal_database": drv.OWNED_REHEARSAL_DB,
-                "owned_rehearsal_empty_8_table_sha256_pre_and_post": demo_post["full_sha256"],
-                "documents_count": 0,
-                "execution_attempts_count": 0,
-                "extraction_results_count": 0,
-                "retained_f4_seed_db_preserved": SEED_F3_DB,
-                "retained_f4_seed_sha256": seed_post["full_sha256"],
-                "retained_f4_migrated_db_preserved": MIGRATED_F4_DB,
-                "retained_f4_migrated_core_sha256": mig_post["core_sha256"],
-                "retained_f4_migrated_projection_sha256": proj_post,
-            },
-            "attributed_unchanged_product_proofs": {
-                "accepted_product_source_sha": drv.ACCEPTED_F4_FINAL_SOURCE_SHA,
-                "accepted_packet_base_sha": drv.ACCEPTED_PACKET_BASE_SHA,
-                "unchanged_trees": drv.EXPECTED_PRODUCT_TREES,
-                "note": (
-                    "Zero production, worker, test, or deploy files changed; .NET/Angular Release builds from WP-0012 / 001 "
-                    "(32465da577237827c3ac9d8ed5ee608c8e5668cf) and unit/integration/E2E proofs from WP-0006/0008/0010 remain attributed."
-                ),
-            },
-            "unrun_live_steps_held_for_003_lease": [
-                "Independent WP-0012 / 007 acceptance of corrected /006 preparation by eld-f4-reviewer",
-                "Coordinator sole-GPU lease binding exact /006 executing_head, accepting /007 SHA, and observation_files",
-                "Live browser upload & real local OCR Attempt #1 (SYN-WO-01-v1-raster300.pdf, 1 page) + grounded review + newer draft",
-                "Live browser upload & real local OCR Attempt #2 (SYN-MP-01-v0-clean.pdf, 3 pages) + grounded review with 2 unknowns",
-                "Live API + PostgreSQL fast restart and disabled-OCR browser search/reopen verification (workerEnabled === false, 2 attempts unchanged)",
-            ],
-        }
-        drv.write_json_lf(EVIDENCE_DIR / "validation-summary.json", summary)
-
-        resource_return = {
-            "verified_utc": completed_utc,
-            "ports": {"5590": "FREE", "4610": "FREE", "55438": "FREE"},
-            "observed_listeners": final_ports,
-            "stopped_postmaster_pid": pg_pid,
-            "ocr_worker_processes_running": 0,
-            "scratch_directory_present": (REPO_ROOT / ".scratch").exists(),
-            "writable_demo_root_exists": drv.EXPECTED_DEMO_RUNTIME_ROOT.exists(),
-            "writable_demo_root_entries": demo_entries_after,
-            "writable_demo_root_mutated": False,
-            "databases_in_local_cluster": retained_dbs,
-            "owned_demo_author_empty_sha256": demo_post["full_sha256"],
-            "retained_seed_f3_sha256": seed_post["full_sha256"],
-            "retained_migrated_f4_core_sha256": mig_post["core_sha256"],
-            "retained_migrated_f4_projection_sha256": proj_post,
-        }
-        drv.write_json_lf(CORRECTION_DIR / "resource-return.json", resource_return)
-        print(
-            f"WP-0012 / 006 CPU validation PASSED "
-            f"({len(steps)}/{len(steps)} steps green; {ut_res.testsRun}/{ut_res.testsRun} guard & old-fails/new-passes tests green; all ports FREE)."
-        )
-    finally:
-        if pg_started:
-            subprocess.run(
-                ["pwsh", "-NoProfile", "-File", "deploy/dev/postgres/stop-cluster.ps1"],
-                cwd=str(REPO_ROOT),
-                capture_output=True,
-            )
-        shutil.rmtree(REPO_ROOT / ".scratch", ignore_errors=True)
+    t0 = time.monotonic()
+    result = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite)
+    log = LOGS_DIR / "03-old-fails-new-passes-and-guard-tests.log"
+    log.write_text(drv.scrub_text(stream.getvalue(), secrets), encoding="utf-8", newline="\n")
+    steps.append({"step": "03-old-fails-new-passes-and-guard-tests", "command": ["unittest", "Wp0012Correction006GuardTests"], "tests_run": result.testsRun, "elapsed_ms": round((time.monotonic()-t0)*1000, 1), "exit_code": 0 if result.wasSuccessful() else 1, "log_relpath": log.relative_to(REPO_ROOT).as_posix(), "log_sha256": drv.sha256_file(log)})
+    final_ports = drv.assert_ports_unbound((5590, 4610, 55438))
+    demo_entries_after = sorted(p.name for p in drv.EXPECTED_DEMO_RUNTIME_ROOT.iterdir())
+    if demo_entries_before != demo_entries_after:
+        raise RuntimeError("Runtime root entries changed during CPU verification")
+    pg_status = subprocess.run([str(REPO_ROOT / ".local/tools/pgsql-18.7-1/bin/pg_ctl.exe"), "status", "-D", str(REPO_ROOT / ".local/postgres-data")], capture_output=True, text=True)
+    if pg_status.returncode != 3:
+        raise RuntimeError(f"Owned PostgreSQL expected stopped, status={pg_status.returncode}")
+    summary = {"schema": "eledgercare.wp0012-correction-006-validation-summary/1", "packet": "WP-0012", "sequence": "006", "author": "eld-f4-implementer", "started_utc": started_utc, "completed_utc": drv.utc_now(), "passed": result.wasSuccessful(), "static_and_ast_audit": static_audit, "executed_steps": steps, "live_rehearsal_executed": False, "model_imported_or_invoked": False, "gpu_queries_or_inference_run": False, "product_services_or_databases_started": False, "database_preservation": "No database operations; prior001 evidence remains attributed, not rerun", "native_session": drv.EXPECTED_CONVERSATION_ID, "native_model_marker": drv.EXPECTED_MODEL, "effort_disclosure": drv.EXPECTED_EFFORT}
+    drv.write_json_lf(EVIDENCE_DIR / "validation-summary.json", summary)
+    returned = {"verified_utc": drv.utc_now(), "ports": final_ports, "postgres_status_exit": pg_status.returncode, "product_services_started": False, "database_operations": False, "gpu_queries": False, "model_calls": 0, "owned_cpu_children_reaped": result.wasSuccessful(), "writable_demo_root_entries_before": demo_entries_before, "writable_demo_root_entries_after": demo_entries_after, "writable_demo_root_mutated": False, "q0_accessed": "Read-only source/manifest guards; no model import or renderer", "tests_passed": result.wasSuccessful()}
+    drv.write_json_lf(EVIDENCE_DIR / "resource-return.json", returned)
+    if not result.wasSuccessful():
+        raise RuntimeError(f"CPU verification failed; preserved evidence in {EVIDENCE_DIR}")
+    print(f"PASS {result.testsRun} affected CPU tests; product ports free and PostgreSQL stopped; no live service/model calls.")
 
 
 if __name__ == "__main__":
