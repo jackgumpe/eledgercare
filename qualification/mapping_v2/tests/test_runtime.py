@@ -125,6 +125,7 @@ class RuntimeTests(unittest.TestCase):
                     elif fault=='error':rows[0]['error']='observer error despite zero exit'
                 return rows
             environment={k:str(scratch/'cache'/k) for k in ['TEMP','TMP','TMPDIR','HF_HOME','HF_MODULES_CACHE','CUDA_CACHE_PATH','TORCH_HOME','TORCHINDUCTOR_CACHE_DIR','USERPROFILE']};environment['PATH']=''
+            environment['Q0_GIT_EXECUTABLE']='git'  # Synthetic build/audit/host resolver are mocked together here.
             with contextlib.ExitStack() as stack:
                 for obj,name,kw in [(runtime,'read_release',{'return_value':r}),(runtime,'protocol',{'return_value':p}),
                     (runtime,'git',{'return_value':b'cpu-head'}),
