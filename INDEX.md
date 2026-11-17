@@ -918,3 +918,6 @@ WP-0012/001 preparation and independent preparation RUNNING_CONFIRMED at authori
 
 
 WP-0013 private foundations PUBLISHED/VERIFIED51b02bf592c766334694f005939cff9b4400794f; root hash/custody audit verifies12private tracked files/69,982bytes,10inventory entries,clean/no-remote and exact original working/Git bytes. Public3additions preserve all3615authority paths. No private content disclosed; no final PDFs or corpus admission. Final reservation still waits accepted001/002, and mapper005 remains held. Custodian foundation phase complete/idle.
+
+
+WP-0013 preliminary reviewer PUBLISHED/VERIFIEDfd9e6b9da0e8aa3aadaa18d9261f6e69b7ee4557; deliverabled551492618cd8521eb19886885eb2f195987fc83. Root verifies13artifacts/3615preserved paths/64legacy source identities/3exact proposal inputs/exact origin. Original13probes,corrected2invoice cases and3row probes retained; reviewer fixture typo accurately separated. P13-01empty/partial row metrics and P13-02canonical-only suppression are being addressed before author001; canonical002 remains held for exact runnable001. Reviewer preparation complete/idle.
