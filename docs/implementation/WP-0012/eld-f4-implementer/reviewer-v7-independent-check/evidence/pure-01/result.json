@@ -1,0 +1,385 @@
+{
+  "schema_audit": {
+    "preparation_calls": [
+      {
+        "function": "verify_q0_readonly_pure_stdlib",
+        "line": 1259,
+        "signature": "(repo_root: 'Path') -> 'dict'",
+        "positional": 1
+      },
+      {
+        "function": "compute_canonical_8table_snapshot",
+        "line": 1311,
+        "signature": "(psql_exe: 'Path', settings: 'dict', database: 'str', cwd: 'Path') -> 'dict'",
+        "positional": 4
+      },
+      {
+        "function": "verify_q0_readonly_pure_stdlib",
+        "line": 1522,
+        "signature": "(repo_root: 'Path') -> 'dict'",
+        "positional": 1
+      },
+      {
+        "function": "compute_canonical_8table_snapshot",
+        "line": 1472,
+        "signature": "(psql_exe: 'Path', settings: 'dict', database: 'str', cwd: 'Path') -> 'dict'",
+        "positional": 4
+      }
+    ],
+    "changed_existing_functions": [
+      "main"
+    ],
+    "new_functions": [
+      "measure_owned_demo_storage",
+      "verify_q0_receipt_contract"
+    ],
+    "unchanged_functions": [
+      "_extract_author_lease_return_binding",
+      "_extract_required_commit_binding",
+      "_validate_author_lease_return_payload",
+      "_verify_commit_has_no_non_accepting_007_report",
+      "build_reviewer_lease_return_receipt",
+      "collect_live_ownership_snapshot",
+      "compute_local_pinned_digests",
+      "compute_worker_config_sha256",
+      "compute_worker_source_sha256",
+      "evaluate_gpu_and_model_ownership",
+      "file_sha256_hex",
+      "git_bytes",
+      "git_is_ancestor",
+      "git_object_exists",
+      "guard_new_non_overwriting_output_targets",
+      "http_get_status",
+      "inspect_process",
+      "is_reparse_or_link",
+      "observe_ports",
+      "parse_utc_iso",
+      "redact_secrets",
+      "run_cmd",
+      "run_git",
+      "sha256_hex",
+      "start_owned_services_atomic",
+      "stop_owned_process",
+      "validate_reviewer_release_contract"
+    ]
+  },
+  "controls": [
+    {
+      "control": "actual-q0-schema-accepted",
+      "expected": "pass",
+      "actual": "pass",
+      "value": null,
+      "passed": true
+    },
+    {
+      "control": "q0-reject-schema",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: schema')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-model_manifest_sha256",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: model_manifest_sha256')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-dependency_lock_sha256",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: dependency_lock_sha256')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-verified_model_file_count",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: verified_model_file_count')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-total_model_bytes",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: total_model_bytes')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-unexpected_extra_model_entries",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: unexpected_extra_model_entries')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-missing_or_mismatched_distributions",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: missing_or_mismatched_distributions')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-forbidden_modules_present",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: forbidden_modules_present')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-verified_model_files",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verified model file inventory is malformed')",
+      "passed": true
+    },
+    {
+      "control": "q0-missing-field-no-default",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: total_model_bytes')",
+      "passed": true
+    },
+    {
+      "control": "q0-nondictionary",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verifier returned a malformed receipt')",
+      "passed": true
+    },
+    {
+      "control": "actual-file-lengths-and-volume-free",
+      "expected": "pass",
+      "actual": "pass",
+      "value": {
+        "schema": "eledgercare.wp0012.owned-demo-storage/1",
+        "observed_utc": "2026-11-17T17:50:27.831065+00:00",
+        "root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\.local\\independent011-storage-pure-01",
+        "file_count": 2,
+        "demo_root_bytes": 10,
+        "demo_drive_free_bytes": 40980234240,
+        "storage_cap_bytes": 4294967296,
+        "free_floor_bytes": 21474836480
+      },
+      "passed": true
+    },
+    {
+      "control": "missing-root-rejected",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo root is missing or linked')",
+      "passed": true
+    },
+    {
+      "control": "file-root-rejected",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo root is missing or linked')",
+      "passed": true
+    },
+    {
+      "control": "actual-bytes-over-cap",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Demo disk/storage bounds failed: bytes=10, free=40980234240')",
+      "passed": true
+    },
+    {
+      "control": "under-floor-observation",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Demo disk/storage bounds failed: bytes=10, free=21474836479')",
+      "passed": true
+    },
+    {
+      "control": "malformed-free-observation",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo free-space observation is malformed')",
+      "passed": true
+    },
+    {
+      "control": "linked-entry-observation",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo tree contains a linked entry')",
+      "passed": true
+    },
+    {
+      "control": "inaccessible-tree-observation",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo tree enumeration failed')",
+      "passed": true
+    }
+  ],
+  "actual_q0": {
+    "started_utc": "2026-11-17T17:50:23.070810+00:00",
+    "finished_utc": "2026-11-17T17:50:27.801440+00:00",
+    "receipt": {
+      "schema": "eledgercare.wp-0012.q0-readonly-manifest-check/1",
+      "checked_utc": "2026-11-17T17:50:27.801440+00:00",
+      "execution_method": "pure_python_stdlib_stat_and_hash_zero_venv_or_model_execution",
+      "readonly_q0_root": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005",
+      "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+      "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+      "verified_model_file_count": 18,
+      "total_model_bytes": 6699195181,
+      "tolerated_download_metadata_entries": [
+        ".cache"
+      ],
+      "unexpected_extra_model_entries": [],
+      "verified_model_files": [
+        {
+          "path": "_sparse_base_impl.py",
+          "size": 221755,
+          "mtime_ns": 1794772843620111400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "3291637638c1366b7b6cd20fd53b6efafcea8a65"
+        },
+        {
+          "path": "config.json",
+          "size": 5525,
+          "mtime_ns": 1794772843759423100,
+          "digest_kind": "git_blob_sha1",
+          "digest": "a1ea89c4c965d5c5bd5c77b21b928aa710aa7af6"
+        },
+        {
+          "path": "configuration_deepseek_v2.py",
+          "size": 10720,
+          "mtime_ns": 1794772843707873900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "1c28cf39e8b821ec2623d3762f08ffd77050e8f8"
+        },
+        {
+          "path": "conversation.py",
+          "size": 9253,
+          "mtime_ns": 1794772843813710800,
+          "digest_kind": "git_blob_sha1",
+          "digest": "65c295e81cd804080ec238b31d1922f33e1f9405"
+        },
+        {
+          "path": "dash_attention.py",
+          "size": 71465,
+          "mtime_ns": 1794772843691376200,
+          "digest_kind": "git_blob_sha1",
+          "digest": "891d2ff7b5f9dc282cf702f34d7d2cfd69528011"
+        },
+        {
+          "path": "deepencoder.py",
+          "size": 37939,
+          "mtime_ns": 1794772843744432400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6b10ea1b896cffb8e6cfb4d799d4b11479d519b8"
+        },
+        {
+          "path": "generation_config.json",
+          "size": 111,
+          "mtime_ns": 1794772843659745400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6f7f9313195af78c979fc889accc234edb6e0d3c"
+        },
+        {
+          "path": "model-00001-of-00002.safetensors",
+          "size": 4998430312,
+          "mtime_ns": 1794773743449486600,
+          "digest_kind": "lfs_sha256",
+          "digest": "4c40b740f209fd7682040d4ebf19409208acde5c401ccd2dde426d0f41542f18"
+        },
+        {
+          "path": "model-00002-of-00002.safetensors",
+          "size": 1689875264,
+          "mtime_ns": 1794773345752580900,
+          "digest_kind": "lfs_sha256",
+          "digest": "9490b82fa47f89e5110eb5577f8ab1b6694c12121905dbc086ddb10207a4ba0c"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "size": 254054,
+          "mtime_ns": 1794772843803181100,
+          "digest_kind": "git_blob_sha1",
+          "digest": "bc164961600a572ed4ff5215eee526d9fe706774"
+        },
+        {
+          "path": "modeling_deepseekv2.py",
+          "size": 25572,
+          "mtime_ns": 1794772843828207900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6cf69a31cbfb09f8d9d54fba51af21ebffc695dc"
+        },
+        {
+          "path": "modeling_unlimitedocr.py",
+          "size": 55724,
+          "mtime_ns": 1794772843846100900,
+          "digest_kind": "git_blob_sha1",
+          "digest": "2a717b55c0509995978d0a1e78802a997c26660e"
+        },
+        {
+          "path": "packing_patch.py",
+          "size": 8110,
+          "mtime_ns": 1794772843933945000,
+          "digest_kind": "git_blob_sha1",
+          "digest": "f01b4bd31cffe43135a8b86d5436f04d3a69146b"
+        },
+        {
+          "path": "sparse_gather_e2e_triton.py",
+          "size": 18058,
+          "mtime_ns": 1794772843933945000,
+          "digest_kind": "git_blob_sha1",
+          "digest": "021575ce952bbded01bbfa99eb95641d271cad7d"
+        },
+        {
+          "path": "sparse_gather_triton.py",
+          "size": 23860,
+          "mtime_ns": 1794772843966683400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "6621872e78cd318e4bb55aa70c1c8813973c78e7"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "size": 549,
+          "mtime_ns": 1794772843966101600,
+          "digest_kind": "git_blob_sha1",
+          "digest": "ae2383ca05f494aa736e72e6a874332cd2f1c67e"
+        },
+        {
+          "path": "tokenizer.json",
+          "size": 9980278,
+          "mtime_ns": 1794772844661064400,
+          "digest_kind": "git_blob_sha1",
+          "digest": "d5909a7c1e63a78be90fe2bde6c8464e6e9e8540"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "size": 166632,
+          "mtime_ns": 1794772844047233300,
+          "digest_kind": "git_blob_sha1",
+          "digest": "e97c1bb98fa1de585d85259b77e4785bf1c195a2"
+        }
+      ],
+      "verified_notices": [
+        {
+          "path": "README.md",
+          "size": 14107,
+          "mtime_ns": 1794773746275071200,
+          "git_blob_sha1": "c79e1e3362c8fd2f9193d79c1db80fbf7f041c45"
+        }
+      ],
+      "locked_distribution_count": 32,
+      "missing_or_mismatched_distributions": [],
+      "forbidden_modules_present": [],
+      "venv_python_stat": {
+        "size": 274424,
+        "mtime_ns": 1794769323670444200
+      }
+    }
+  },
+  "original_actual_schema_failure": {
+    "error": "KeyError('demo_root_bytes')",
+    "actual_q0_used": true,
+    "statement": "if q0_pre['demo_root_bytes'] > STORAGE_CAP_BYTES or q0_pre['demo_drive_free_bytes'] < MIN_FREE_DISK_BYTES:\n    raise ReviewerLeaseGuardError(f\"Demo disk/storage bounds failed: bytes={q0_pre['demo_root_bytes']}, free={q0_pre['demo_drive_free_bytes']}\")",
+    "services_started": false
+  },
+  "scratch_retained": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\.local\\independent011-storage-pure-01"
+}
