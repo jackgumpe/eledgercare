@@ -1,0 +1,12 @@
+$ powershell.exe inline Step A setup (2026-11-17T03:28:57-05:00 .. 2026-11-17T03:29:06-05:00, exit=1)
+1. Copying verified PostgreSQL 18.7 server subset read-only into owned .local/tools...
+2. Copying locked NuGet packages + dotnet-ef 10.0.15 feed read-only into owned .local/nuget...
+Set-Content : Cannot bind parameter 'Encoding'. Cannot convert value "utf8NoBOM" to type 
+"Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding". Error: "Unable to match the identifier name 
+utf8NoBOM to a valid enumerator name. Specify one of the following enumerator names and try again:
+Unknown, String, Unicode, Byte, BigEndianUnicode, UTF8, UTF7, UTF32, Ascii, Default, Oem, BigEndianUTF32"
+At line:42 char:28
++ "@ | Set-Content -Encoding utf8NoBOM -LiteralPath $offlineNuget
++                            ~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Content], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.SetContentCommand
