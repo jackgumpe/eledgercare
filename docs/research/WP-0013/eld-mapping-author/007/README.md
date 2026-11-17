@@ -134,6 +134,12 @@ all added files, exact evidence Git bytes, external originals, scheduled inputs
 and complete run-file coverage. Its inventory is committed after the deliverable.
 No repeated source suite or inference is warranted for packaging.
 
+The generic Git whitespace check reported the intentionally retained CRLF bytes
+in original evidence as trailing whitespace. Its actual exit2/output are retained
+under `publication-checks/`; evidence was not normalized to silence that check.
+Collection capture files also use byte-preserving attributes. The appropriate
+CR-at-EOL-aware check and exact byte verification are reported separately.
+
 Root has reserved separate runtime-only correction010, independent011 and
 possible later recovery012. They are outside this original failed record. No
 correction, retry, reviewer inference, promotion or favorable quality result is
