@@ -9,6 +9,7 @@ from pathlib import Path
 from .common import ROOT,HERE,sha,load_json,write,protocol,git
 from .release import read_release,schedule,fixture,pdf_bytes
 from .process_identity import process_identity
+from .runtime_git import verify_bare_git_lookup
 from qualification.baseline.runtime import directory_size,guard_reason,supervisor_diagnostic,q0_imports
 
 
@@ -32,13 +33,14 @@ def verify_device_observation(observed,p):
 def enable_pinned_git_lookup(env,*,root,owner,run_dir):
     """Let frozen bare-Git readers use only the audited explicit Git installation.
 
-    Append to the already allowlisted child PATH; never import host PATH or alter
-    Git configuration. The original audit rejects missing/mutable-root Git pins.
+    Append to the already allowlisted child PATH, then reject a prior Windows
+    search candidate. Never import host PATH or alter isolated Git configuration.
     """
     from q0harness.environment import audit_child_env
     audit_child_env(env,root=root,owner=owner,run_dir=run_dir)
     env['PATH']+=os.pathsep+str(Path(env['Q0_GIT_EXECUTABLE']).parent)
     audit_child_env(env,root=root,owner=owner,run_dir=run_dir)
+    verify_bare_git_lookup(env)
     return env
 
 
@@ -173,6 +175,10 @@ def execute(authority,release_path,owner):
 def worker(authority,release_path,owner,run_dir,job):
     import winjob
     winjob.join(job)  # Fail before model imports if supervisor ownership is unavailable.
+    q0_imports()
+    from q0harness.environment import audit_child_env
+    audit_child_env(dict(os.environ),root=Path(protocol()['runtime_roots'][owner]),owner=owner,run_dir=Path(run_dir))
+    verify_bare_git_lookup(os.environ)  # Actual worker image/caller cwd, before frozen bare-Git checks.
     r=read_release(authority,release_path,owner);p=protocol();run=Path(run_dir).resolve();root=Path(r['runtime_root']).resolve()
     run.relative_to(root/'runs'/owner)
     if not (run/'plan.json').is_file():raise PermissionError('Parent plan missing')
