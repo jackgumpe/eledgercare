@@ -1,0 +1,26 @@
+# Accepted: complete local workflow rehearsal
+
+WP-0012 is accepted within the local synthetic one-to-three-page profile. Two separate owners each uploaded the same one-page work order and three-page statement through the real browser and ran the actual local unmodified OCR worker. All four extraction attempts completed. Both sessions exercised source-backed correction, explicit unknowns, reviewed revisions/newer drafts, machine/reviewed archive search, matching source/history navigation and API/PostgreSQL restart with OCR disabled. No extra attempt appeared after restart.
+
+Accepted product source remains c1fed68020ae67e8b4763bc6ea5473adaa86de2b; no production code, dependency, fixture or model changed. Author003 is bd21e07eb322ea64dee59ba5562ee6b03087d079 and independent004 is a772984ae153a9d2bf4b2eb73df8fd3d7bdd1c98. Their exact envelopes/raw output, browser/database/return evidence and inventories are immutable. The two reviewer raw-output hashes match the author's outputs for the same inputs; this is observed reproducibility of two examples, not a determinism or accuracy guarantee.
+
+| Owner | One-page browser wait | Three-page browser wait | Outcome |
+| --- | --- | --- | --- |
+| Author | 193.899s | 347.019s | Two completed attempts; corrected reviewed values, two statement unknowns, reviewed1/draft2; persisted after restart |
+| Independent reviewer | 168.419s | 317.282s | Two completed attempts; three statement unknowns, corrected billing date, reviewed1/draft2; persisted after restart |
+
+Each database retains2documents/2attempts/2results,3review revisions,15review fields,2archive projections and4projection units. The operator choices on the multipage statement differ explicitly; no single work-order identity is fabricated. Raw machine mistakes, including the work-order parts text and statement billing year, remain untouched. Scripted review actions demonstrate software state, not authenticated human or customer sign-off.
+
+Root independently audited author003's60newpaths,54copies,101external original bindings and6Git inputs, then reviewer004's61artifacts,104external runtime/launch files,56copies,9Git inputs and4runtime source bindings. The reviewer ran20offline semantic checks; root checked actual restart payloads, original hashes, prior path preservation and four unedited screenshots. Author return8398165a1ba8ccb581af702744272aafa752698d and reviewer return6a3408747201693a45aa09228af58420ea07cdef are explicit. Both owners' accounting PostgreSQL instances are stopped; all retained databases and evidence remain in place.
+
+The [demonstration guide](DEMONSTRATION.md) summarizes the repeatable operator workflow and points to the accepted detailed resource/command runbook. It does not reuse an expired historical lease. The [author report](../../../agent-reports/eld-f4-implementer/WP-0012/003_2026-11-17_verification_eld-f4-implementer.md), [independent report](../../../agent-reports/eld-f4-reviewer/WP-0012/004_2026-11-17_review_eld-f4-reviewer.md), [root publication audit](../reviewer-004-publication-audit.json) and [visual observations](../reviewer-004-visual-audit.json) govern this acceptance.
+
+## Evidence limits and retained failures
+
+Immediate reviewer screenshot06 shows loading archive results;08/09 show unpainted native PDF panes, and04's native page had not caught up to the application page indicator. These are not visual proof of rendered result cards or painted target pages. Successful query/API/DOM assertions, source URLs with page fragments, readable original PDF ranges and later witness/history navigation are separate functional evidence. No product defect is inferred solely from the captures. Earlier author images provide their separately attributed visual record.
+
+Two reviewer invocations stopped before model/service work: first ownership classification rejected idle Ollama/its own observer; second accessed nonexistent disk fields in the actual Q0 receipt. Their original exits, missing returns and explicit root closures remain preserved. Bounded corrections008/010 were independently reviewed in009/011 before the successful third invocation. Initial alias/schema test failures, independent screenshot-copy failure and file-only recovery, Carbon credit exhaustion/attribution, and root's receipt-writer encoding typo/premature commit wording remain explicit. The first two refusals consumed zero model attempts; none is relabelled a passing live run.
+
+The model and all18runtime objects/notices were verified unchanged. Library offline settings do not establish OS-enforced outbound denial; GPU desktop sharing/WDDM confounds timing and memory observations. Two reused synthetic fixtures do not establish production reliability, general document accuracy or a speed benchmark. Customer data, deployment, model training and production research imports remain outside scope.
+
+WP-0012 requires no further implementation, rehearsal or independent review. Root publishes its final005 report and receipt next. WP-0013 remains separate: the initial trial failed before model load and is retained with all12primary cases unavailable; runtime correction and any separately released recovery do not alter this product acceptance.
