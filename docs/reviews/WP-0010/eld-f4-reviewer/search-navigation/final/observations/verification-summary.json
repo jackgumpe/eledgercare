@@ -1,0 +1,474 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-final-007-verification-summary/1",
+  "generated_at_utc": "2026-11-17T12:07:07.892788+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "conversation_id": "61105d43-7706-45f2-9176-69d3256248e0",
+  "branch": "review/wp-0010-f4",
+  "executing_head_sha": "fbbc46261b6dec4b1273c7391f58712f9ac17465",
+  "merged_final_007_base_sha": "b9bf6f1d99617445b7b1b91c09088c8ecac70f1c",
+  "root_final_authority_sha": "deba1aeba80967ca6d0bce2f14da09716118ba44",
+  "author_006_revisions": {
+    "base_sha": "4b8e9b8231b9543b9a09cc8514a6876a70940d7b",
+    "tested_candidate_sha": "c1fed68020ae67e8b4763bc6ea5473adaa86de2b",
+    "evidence_sha": "9e1d6c4211daadfb82f67911ece04568ed8610fe",
+    "report_006_publication_sha": "0f689d9b6eaf415d17095f14ad57dff2d716bac5",
+    "prior_c383_source_sha": "c383021be1774451ba3034d89255b38b4267353b"
+  },
+  "verified_trees": {
+    "src": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e",
+    "web": "50fbbee1f58aace4e6ec36bd64203146d23aa96f",
+    "tests": "25c21310699086acb818549b2a4c0b99469208f1",
+    "deploy": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1",
+    "ELedgerCare.slnx": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976",
+    "workers": "9b548ddcc73cfba8e7683d132840b08afa5a67a3"
+  },
+  "attributed_unchanged_004_backend_evidence": {
+    "report_004_publication_sha": "324f09934b0aa2ee8e7bed7e8118c6109effb918",
+    "evidence_sha": "41efc840a874601acfa711f27073d2c90ad35c32",
+    "unchanged_trees": [
+      "src",
+      "tests",
+      "deploy",
+      "ELedgerCare.slnx",
+      "workers"
+    ],
+    "attributed_checks": [
+      "9/9 worker CPU unit tests",
+      "95/95 Release .NET Domain/Infrastructure/Acceptance tests",
+      "5690 intake durability restart smoke",
+      "forward migration 20261117091519_AddSourceLinkedArchive + 7-result/13-unit backfill",
+      "23/23 raw HTTP socket 400 rejections",
+      "19/19 eledgercare_app PostgreSQL 42501 mutation denials",
+      "API + PostgreSQL fast-restart invariance and live fallback/503 conflict probes"
+    ]
+  },
+  "helpers": {
+    "run_f4_final_007_review_py_sha256": "d764029e1c525dcd2f77330aad7c2e6c5033950a929c43b0a52646e811b6f6e1",
+    "verify_f4_final_navigation_extras_mjs_sha256": "99e68f65d2af13b60e2e8c2cd0dceeed6d8c3d01a8dd3ecfd58a9105e13b176e",
+    "build_final_007_inventory_py_sha256": "9a542b03980fde09625f951e03c750ea755d774fcf97a492b7c38edeb07af4e9",
+    "reused_prepared_probe_mjs_sha256": "2e133f961f592fae2e1e9b604f4f794281624ca68640f0246c9f72de3795e6f0",
+    "reused_runtime_edge_helper_mjs_sha256": "5b2fb58b2ca9c73174e400bd3b3bd20ec2930c074f9fbe6cdd820ac50c513492"
+  },
+  "before_vs_after_6scenario_probe": {
+    "unchanged_c383_failed": [
+      "SN-01A",
+      "SN-01B",
+      "SN-02A",
+      "SN-03"
+    ],
+    "unchanged_c383_passed": [
+      "SN-02B",
+      "SN-04"
+    ],
+    "corrected_c1fed680_failed": [],
+    "corrected_c1fed680_passed": [
+      "SN-01A",
+      "SN-01B",
+      "SN-02A",
+      "SN-02B",
+      "SN-03",
+      "SN-04"
+    ],
+    "arbitrary_sleep_calls": 0
+  },
+  "retained_databases_verified_unchanged": {
+    "seed_f3_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "migrated_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "migrated_projections_sha256": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa",
+    "saved_31_queries_sha256": "53d353351b8cababc0daa6b37dd2f96d4e48c890c7b9b9242cb2b3c85d566e4d"
+  },
+  "logged_steps": [
+    {
+      "step": "01-angular-production-build",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "node_modules/@angular/cli/bin/ng.js",
+        "build"
+      ],
+      "cwd": "web",
+      "started_utc": "2026-11-17T12:05:21.081092+00:00",
+      "elapsed_ms": 3922.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/logs/01-angular-production-build.log",
+      "log_sha256": "bb3069e0088dc9cd68bbcb756eda11aea5184182e8cba81ef4d77942b42939a9"
+    },
+    {
+      "step": "02-pg-cluster-start",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/start-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T12:05:25.013509+00:00",
+      "elapsed_ms": 1485.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/logs/02-pg-cluster-start.log",
+      "log_sha256": "0075026cb99984b8d4549e1bac32b89ad7e9229ff7ac99f5209f84202b1ea7ca"
+    },
+    {
+      "step": "03-playwright-edge-16-e2e-5690-4710",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/smoke/run-browser-checks.ps1",
+        "-Database",
+        "eledgercare_f4_reviewer_007_e2e",
+        "-ApiPort",
+        "5690",
+        "-UiPort",
+        "4710"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T12:05:27.192261+00:00",
+      "elapsed_ms": 70407.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/logs/03-playwright-edge-16-e2e-5690-4710.log",
+      "log_sha256": "a7f0a1404d2fab65e7b659d015575adc443aae46721e504c1d8f8ea1aa5a1f6a"
+    },
+    {
+      "step": "04-prepared-6scenario-probe-post-fix",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0010\\eld-f4-reviewer\\search-navigation\\helpers\\probe_f4_search_navigation.mjs",
+        "--mode",
+        "enforce-ownership",
+        "--tag",
+        "c1fed680-fixed",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/prepared-6scenario-post-fix-receipt.json",
+        "--screenshot-dir",
+        "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T12:06:45.692305+00:00",
+      "elapsed_ms": 3516.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/logs/04-prepared-6scenario-probe-post-fix.log",
+      "log_sha256": "ff0dd8d83e906a1ddb99639537f3bc766f96f1a0c73395a4cfe694ce86b08628"
+    },
+    {
+      "step": "05-focused-navigation-extras-edge",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0010\\eld-f4-reviewer\\search-navigation\\final\\helpers\\verify_f4_final_navigation_extras.mjs",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/focused-navigation-extras-receipt.json",
+        "--screenshot-dir",
+        "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T12:06:49.207711+00:00",
+      "elapsed_ms": 2266.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/logs/05-focused-navigation-extras-edge.log",
+      "log_sha256": "66315742f4c128fa7ef94d09623e136efb3e040d5f2479f38c80decd2bd0b179"
+    },
+    {
+      "step": "06-saved-source-pdf-history-reopen-edge",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-reviewer\\docs\\reviews\\WP-0010\\eld-f4-reviewer\\runtime\\helpers\\verify_f4_independent_edge.mjs",
+        "--phase",
+        "post-006",
+        "--ui-port",
+        "4710",
+        "--api-port",
+        "5690",
+        "--output",
+        "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/edge-f4-reopen-post-006.json",
+        "--screenshot-dir",
+        "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/screenshots"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T12:06:51.845560+00:00",
+      "elapsed_ms": 11921.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/logs/06-saved-source-pdf-history-reopen-edge.log",
+      "log_sha256": "8a144e21f8d15ca258214ca206157ce2f3917ea1751218b90548db981585d438"
+    },
+    {
+      "step": "07-pg-cluster-stop-final",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "deploy/dev/postgres/stop-cluster.ps1"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-11-17T12:07:05.329571+00:00",
+      "elapsed_ms": 500.0,
+      "exit_code": 0,
+      "log_relpath": "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/observations/logs/07-pg-cluster-stop-final.log",
+      "log_sha256": "ca19178a35ab4153b75b494963b66ce8243e1b94c173107c87b44d09db23652d"
+    }
+  ],
+  "assertion_count": 30,
+  "all_assertions_passed": true,
+  "assertions": [
+    {
+      "check": "clean_worktree_before_decisive_run",
+      "passed": true,
+      "detail": {
+        "status": ""
+      }
+    },
+    {
+      "check": "owned_review_branch",
+      "passed": true,
+      "detail": {
+        "branch": "review/wp-0010-f4",
+        "head": "fbbc46261b6dec4b1273c7391f58712f9ac17465"
+      }
+    },
+    {
+      "check": "ancestor_verified:prior_002",
+      "passed": true,
+      "detail": {
+        "sha": "85d879a1adc0ee62090f4c6a5c9a7fb8eb5f3a96"
+      }
+    },
+    {
+      "check": "ancestor_verified:prior_prep",
+      "passed": true,
+      "detail": {
+        "sha": "349c29773009abdf1bc228d01696d58a83d3eaa2"
+      }
+    },
+    {
+      "check": "ancestor_verified:prior_004",
+      "passed": true,
+      "detail": {
+        "sha": "324f09934b0aa2ee8e7bed7e8118c6109effb918"
+      }
+    },
+    {
+      "check": "ancestor_verified:prior_sn_prep_frozen",
+      "passed": true,
+      "detail": {
+        "sha": "32836fbbac3eebf2773711f51557c4a128463e98"
+      }
+    },
+    {
+      "check": "ancestor_verified:prior_sn_prep_pub",
+      "passed": true,
+      "detail": {
+        "sha": "b12664dfbfd533f177a4e1089c983952d485b8c2"
+      }
+    },
+    {
+      "check": "ancestor_verified:root_final_authority",
+      "passed": true,
+      "detail": {
+        "sha": "deba1aeba80967ca6d0bce2f14da09716118ba44"
+      }
+    },
+    {
+      "check": "ancestor_verified:author_006_candidate",
+      "passed": true,
+      "detail": {
+        "sha": "c1fed68020ae67e8b4763bc6ea5473adaa86de2b"
+      }
+    },
+    {
+      "check": "ancestor_verified:author_006_evidence",
+      "passed": true,
+      "detail": {
+        "sha": "9e1d6c4211daadfb82f67911ece04568ed8610fe"
+      }
+    },
+    {
+      "check": "ancestor_verified:author_006_pub",
+      "passed": true,
+      "detail": {
+        "sha": "0f689d9b6eaf415d17095f14ad57dff2d716bac5"
+      }
+    },
+    {
+      "check": "ancestor_verified:merged_final_007_base",
+      "passed": true,
+      "detail": {
+        "sha": "b9bf6f1d99617445b7b1b91c09088c8ecac70f1c"
+      }
+    },
+    {
+      "check": "exact_tree_oid:src",
+      "passed": true,
+      "detail": {
+        "oid": "9760402fa88dcb343c28b14ad4de1bcb2fbafb2e"
+      }
+    },
+    {
+      "check": "exact_tree_oid:web",
+      "passed": true,
+      "detail": {
+        "oid": "50fbbee1f58aace4e6ec36bd64203146d23aa96f"
+      }
+    },
+    {
+      "check": "exact_tree_oid:tests",
+      "passed": true,
+      "detail": {
+        "oid": "25c21310699086acb818549b2a4c0b99469208f1"
+      }
+    },
+    {
+      "check": "exact_tree_oid:deploy",
+      "passed": true,
+      "detail": {
+        "oid": "86e0c73d4b4c07bbdf92ebcd65a0903fc9c039f1"
+      }
+    },
+    {
+      "check": "exact_tree_oid:ELedgerCare.slnx",
+      "passed": true,
+      "detail": {
+        "oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976"
+      }
+    },
+    {
+      "check": "exact_tree_oid:workers",
+      "passed": true,
+      "detail": {
+        "oid": "9b548ddcc73cfba8e7683d132840b08afa5a67a3"
+      }
+    },
+    {
+      "check": "author_006_scope_and_report_only_publication_verified",
+      "passed": true,
+      "detail": {
+        "cand_paths": 11,
+        "non_dossier_cand": [
+          "web/e2e/archive.spec.ts",
+          "web/src/app/archive/archive-page.ts"
+        ],
+        "pub_diff": [
+          "docs/agent-reports/eld-f4-implementer/WP-0010/006_2026-11-17_implementation_eld-f4-implementer.md"
+        ]
+      }
+    },
+    {
+      "check": "web_ts_static_xss_and_storage_scan_clean",
+      "passed": true,
+      "detail": {
+        "ts_count": 15,
+        "violations": []
+      }
+    },
+    {
+      "check": "reused_prepared_probe_and_runtime_helpers_unchanged_and_zero_sleeps",
+      "passed": true,
+      "detail": {
+        "prepared_probe_sha256": "2e133f961f592fae2e1e9b604f4f794281624ca68640f0246c9f72de3795e6f0",
+        "runtime_edge_helper_sha256": "5b2fb58b2ca9c73174e400bd3b3bd20ec2930c074f9fbe6cdd820ac50c513492"
+      }
+    },
+    {
+      "check": "only_final_namespace_added_since_merged_base",
+      "passed": true,
+      "detail": {
+        "paths": [
+          "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/.gitattributes",
+          "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/SOURCE-AND-RECONCILIATION-AUDIT.md",
+          "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/helpers/build_final_007_inventory.py",
+          "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/helpers/run_f4_final_007_review.py",
+          "docs/reviews/WP-0010/eld-f4-reviewer/search-navigation/final/helpers/verify_f4_final_navigation_extras.mjs"
+        ]
+      }
+    },
+    {
+      "check": "reviewer_ports_5690_4710_55439_free_before_start",
+      "passed": true,
+      "detail": {
+        "4710": [],
+        "55439": [],
+        "5690": []
+      }
+    },
+    {
+      "check": "angular_production_build_clean",
+      "passed": true,
+      "detail": {
+        "exit_code": 0
+      }
+    },
+    {
+      "check": "retained_seed_and_migrated_digests_intact_before_runs",
+      "passed": true,
+      "detail": {
+        "seed_before": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "mig_8_before": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "mig_proj_before": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa"
+      }
+    },
+    {
+      "check": "playwright_edge_16_e2e_all_passed",
+      "passed": true,
+      "detail": {
+        "exit_code": 0
+      }
+    },
+    {
+      "check": "saved_31_archive_queries_match_004_canonical_digest",
+      "passed": true,
+      "detail": {
+        "saved_query_count": 31,
+        "keyset_pages_limit_2": 5,
+        "saved_queries_sha256": "53d353351b8cababc0daa6b37dd2f96d4e48c890c7b9b9242cb2b3c85d566e4d"
+      }
+    },
+    {
+      "check": "retained_seed_and_migrated_digests_unchanged_after_runs",
+      "passed": true,
+      "detail": {
+        "seed_after": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "mig_8_after": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+        "mig_proj_after": "0faf93dc12d8596df7435628ac3b797b8a703c8f0cd68614e11b9d8bb39c63fa"
+      }
+    },
+    {
+      "check": "before_vs_after_6scenario_ownership_comparison_verified",
+      "passed": true,
+      "detail": {
+        "c383_failed": [
+          "SN-01A",
+          "SN-01B",
+          "SN-02A",
+          "SN-03"
+        ],
+        "c1fed680_passed": [
+          "SN-01A",
+          "SN-01B",
+          "SN-02A",
+          "SN-02B",
+          "SN-03",
+          "SN-04"
+        ],
+        "c1fed680_failed": []
+      }
+    },
+    {
+      "check": "all_owned_services_stopped_and_ports_5690_4710_55439_released",
+      "passed": true,
+      "detail": {
+        "pg_ctl_status_exit": 3,
+        "ports_after": {
+          "55439": [],
+          "4710": [],
+          "5690": []
+        }
+      }
+    }
+  ],
+  "zero_gpu_or_subagent_calls": true
+}
