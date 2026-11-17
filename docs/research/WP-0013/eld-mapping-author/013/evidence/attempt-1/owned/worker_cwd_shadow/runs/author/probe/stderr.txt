@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\013\restricted_probe.py", line 150, in <module>
+    try: main(args, receipt); receipt['status'] = 'returned'
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\docs\research\WP-0013\eld-mapping-author\013\restricted_probe.py", line 75, in main
+    runtime.worker(AUTHORITY, RELEASE, 'author', str(run), args.job)
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\runtime.py", line 181, in worker
+    verify_bare_git_lookup(os.environ)  # Actual worker image/caller cwd, before frozen bare-Git checks.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\qualification\mapping_v2\runtime_git.py", line 43, in verify_bare_git_lookup
+    raise PermissionError('Bare Git is shadowed before the validated executable: ' + str(candidate))
+PermissionError: Bare Git is shadowed before the validated executable: C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\eld-vocabulary-author\.scratch\wp0013-runtime-shadow\attempt-1\owned\worker_cwd_shadow\runs\author\probe\caller-cwd\git.exe
