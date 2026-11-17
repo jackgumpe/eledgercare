@@ -9,7 +9,7 @@ Jack explicitly said "I authorize it" to the [bounded plan](docs/coordination/WP
 | Track / owner | State | Exact scope / next gate |
 | --- | --- | --- |
 | Product eld-f4-implementer | PREPARATION001 PUBLISHED/VERIFIED; CLI ended | [WP-0012 preparation001](docs/kickoffs/WP-0012-eld-f4-implementer.md), publication165b2421/sourcead5202a0/evidence32465da5; next exact independent002 |
-| Product eld-f4-reviewer | RUNNING_CONFIRMED | [WP-0012 independent review](docs/kickoffs/WP-0012-eld-f4-reviewer.md), review/wp-0012-product-rehearsal; exact002 released on165b2421; dispatch follows current preparation turn |
+| Product eld-f4-reviewer | PREPARATION VERIFIED; exact002 dispatch pending | [WP-0012 independent review](docs/kickoffs/WP-0012-eld-f4-reviewer.md), review/wp-0012-product-rehearsal; initial preparation7f3f8626 verified; exact002 plus own-runtime guard reconciliation released on165b2421 |
 | R&D eld-mapping-author | PROTOCOL001/002 ACCEPTED; implementation held | [WP-0013 protocol001](docs/kickoffs/WP-0013-eld-mapping-author.md), publication9b90528f/source6207daf1/treee4249455; implementation005 held for exact final reservation |
 | R&D eld-eval-custodian | FINAL SEALED RESERVATION RUNNING_CONFIRMED | [WP-0013 custody003](docs/kickoffs/WP-0013-eld-eval-custodian.md), evaluation/wp-0013-vocabulary-families/new eld-vocabulary-custodian; foundation51b02bf verified12private files/69,982bytes; accepted001/002 now bound for final sealed bytes |
 | R&D eld-mapping-reviewer | PROTOCOL002 ACCEPTED/PUBLISHED; admission004 held | [WP-0013 independent review](docs/kickoffs/WP-0013-eld-mapping-reviewer.md), review/wp-0013-vocabulary/new eld-vocabulary-reviewer; independent002bb66c726/source6207daf1; later004 waits exact sealed reservation,006/008 separate |

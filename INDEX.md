@@ -935,3 +935,6 @@ WP-0013 independent protocol002 ACCEPTED/PUBLISHEDbb66c7261339a1e5b36a826e949b1e
 
 
 WP-0013 custodian final sealed reservation RUNNING_CONFIRMED at exact48ffd871eec58dac841e12a40c9d242aece2608c from clean51b02bf. Private foundations unchanged/clean; exact accepted catalog/interface bound. Receipt final-reservation-dispatch.json. Canonical003 waits004; mapper005 waits final bytes, and no model/private author exposure is released.
+
+
+WP-0012 reviewer initial preparation PUBLISHED/VERIFIED7f3f8626489e898a50d275e93ee904660e97fd59, helperc09cf1aa8282e440e364c6020152dd257355643b. Root verifies30artifacts+inventory,3615preserved paths,48links,32CPU assertions,empty ready DB and absent6boundPIDs/ownedports/exactorigin. CLI13000 endedpostpublication providerOAuthDNS/resultERROR, wrapper0. Exact002 on author165b2421 plus own-helper lease/WDDM/output-preservation reconciliation is released; actual new dispatch recorded separately. No actual004/model lease.
