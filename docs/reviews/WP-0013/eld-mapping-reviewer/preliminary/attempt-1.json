@@ -1,0 +1,4053 @@
+{
+  "schema": "eld-wp13-public-legacy-boundaries/1",
+  "status": "PASS",
+  "base_commit": "47fbc7612e4a08cf1960ad7ac01bd2843ae645e5",
+  "helper_commit": "04dbbfbad895cf41f25b9a5c48494916edffb83a",
+  "helper_sha256": "fb154cd8525002c8e2d7de77ce28340ca95656852cb00ec21c6a66d08f142e72",
+  "started_utc": "2026-11-17T13:56:57.918815+00:00",
+  "checks": [
+    {
+      "name": "duplicate_equal_first_credit",
+      "meaning": "Duplicate-equal candidates can receive original exact credit; required abstention needs independent cardinality accounting.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-0042<BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-0042",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "work_order_id",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              },
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  },
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              },
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  },
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "missing": 0,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": true,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "missing": 0,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": true,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "conflict_first_credit",
+      "meaning": "A conflicting surplus can coexist with full original field credit.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-0042<BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-9999",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "work_order_id",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              },
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-9999",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  },
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-9999",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-9999"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              },
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-9999",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  },
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-9999",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-9999"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "missing": 0,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": true,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "missing": 0,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": true,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "conflict_order_changes_credit",
+      "meaning": "Original scorer candidate order is not a conflict adjudication policy.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-9999<BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-0042",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "work_order_id",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-9999",
+                "location": [
+                  0
+                ]
+              },
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-9999",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-9999"
+                  },
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-9999",
+                "location": [
+                  0
+                ]
+              },
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-9999",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-9999"
+                  },
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-9999",
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "different"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {
+                "different_normalized_value": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-9999",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-9999",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": false,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-9999",
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "different"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {
+                "different_normalized_value": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-9999",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-9999",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": false,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "canonical_alias_duplicate_identity",
+      "meaning": "Two canonical legacy labels can name one field identity; guards must not count only identical spellings.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-0042<BLOCK>text[0,0,900,20]<FORK>Ticket Number: PUB-9999",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "work_order_id",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              },
+              {
+                "field_id": "work_order_id",
+                "label": "Ticket Number",
+                "page": 1,
+                "value": "PUB-9999",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  },
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Ticket Number: PUB-9999",
+                    "rows": [],
+                    "native_body": "Ticket Number: PUB-9999"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              },
+              {
+                "field_id": "work_order_id",
+                "label": "Ticket Number",
+                "page": 1,
+                "value": "PUB-9999",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  },
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Ticket Number: PUB-9999",
+                    "rows": [],
+                    "native_body": "Ticket Number: PUB-9999"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "missing": 0,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": true,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "missing": 0,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": true,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_guard_falls_back",
+      "meaning": "v1 rejecting its right-neighbor treatment is not a global abstention.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>table[0,0,900,900]<FORK><table><tr><td>Invoice No:</td><td>PUB-0042</td></tr><tr><td>Invoice No:</td><td>PUB-9999</td></tr></table>",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "invoice_no",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "invoice_number",
+                "label": "Invoice No",
+                "page": 1,
+                "value": "Invoice No:",
+                "location": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_table_row",
+                "values": [
+                  "Invoice No:",
+                  "PUB-0042"
+                ],
+                "location": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "page": 1,
+                "kind": "unmapped_table_row",
+                "values": [
+                  "Invoice No:",
+                  "PUB-9999"
+                ],
+                "location": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "table",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      900
+                    ],
+                    "text": "Invoice No: PUB-0042\nInvoice No: PUB-9999",
+                    "rows": [
+                      [
+                        {
+                          "text": "Invoice No:",
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "PUB-0042",
+                          "colspan": 1,
+                          "rowspan": 1
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Invoice No:",
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "PUB-9999",
+                          "colspan": 1,
+                          "rowspan": 1
+                        }
+                      ]
+                    ],
+                    "native_body": "<table><tr><td>Invoice No:</td><td>PUB-0042</td></tr><tr><td>Invoice No:</td><td>PUB-9999</td></tr></table>"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "invoice_number",
+                "label": "Invoice No",
+                "page": 1,
+                "value": "Invoice No:",
+                "location": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_table_row",
+                "values": [
+                  "Invoice No:",
+                  "PUB-0042"
+                ],
+                "location": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "page": 1,
+                "kind": "unmapped_table_row",
+                "values": [
+                  "Invoice No:",
+                  "PUB-9999"
+                ],
+                "location": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "table",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      900
+                    ],
+                    "text": "Invoice No: PUB-0042\nInvoice No: PUB-9999",
+                    "rows": [
+                      [
+                        {
+                          "text": "Invoice No:",
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "PUB-0042",
+                          "colspan": 1,
+                          "rowspan": 1
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Invoice No:",
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "PUB-9999",
+                          "colspan": 1,
+                          "rowspan": 1
+                        }
+                      ]
+                    ],
+                    "native_body": "<table><tr><td>Invoice No:</td><td>PUB-0042</td></tr><tr><td>Invoice No:</td><td>PUB-9999</td></tr></table>"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 1,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "invoice_no"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": null,
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "missing"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 0,
+              "uncredited_reasons": {
+                "missing": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "invoice_no"
+                  ],
+                  "raw": null,
+                  "value_type": "identifier",
+                  "slot": "invoice_no",
+                  "status": "missing",
+                  "canonical": null,
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": false,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 1,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "invoice_no"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": null,
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "missing"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 0,
+              "uncredited_reasons": {
+                "missing": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "invoice_no"
+                  ],
+                  "raw": null,
+                  "value_type": "identifier",
+                  "slot": "invoice_no",
+                  "status": "missing",
+                  "canonical": null,
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": false,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "ambiguous_orientation_falls_back",
+      "meaning": "Rejecting ambiguous right/below orientation can retain another legacy value.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>table[0,0,900,900]<FORK><table><tr><td>Invoice No:</td><td>PUB-0042</td></tr><tr><td>OTHER</td><td>MORE</td></tr></table>",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "invoice_no",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "invoice_number",
+                "label": "Invoice No",
+                "page": 1,
+                "value": "OTHER",
+                "location": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_table_row",
+                "values": [
+                  "Invoice No:",
+                  "PUB-0042"
+                ],
+                "location": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "page": 1,
+                "kind": "unmapped_table_row",
+                "values": [
+                  "OTHER",
+                  "MORE"
+                ],
+                "location": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "table",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      900
+                    ],
+                    "text": "Invoice No: PUB-0042\nOTHER MORE",
+                    "rows": [
+                      [
+                        {
+                          "text": "Invoice No:",
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "PUB-0042",
+                          "colspan": 1,
+                          "rowspan": 1
+                        }
+                      ],
+                      [
+                        {
+                          "text": "OTHER",
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "MORE",
+                          "colspan": 1,
+                          "rowspan": 1
+                        }
+                      ]
+                    ],
+                    "native_body": "<table><tr><td>Invoice No:</td><td>PUB-0042</td></tr><tr><td>OTHER</td><td>MORE</td></tr></table>"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "invoice_number",
+                "label": "Invoice No",
+                "page": 1,
+                "value": "OTHER",
+                "location": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_table_row",
+                "values": [
+                  "Invoice No:",
+                  "PUB-0042"
+                ],
+                "location": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "page": 1,
+                "kind": "unmapped_table_row",
+                "values": [
+                  "OTHER",
+                  "MORE"
+                ],
+                "location": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "table",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      900
+                    ],
+                    "text": "Invoice No: PUB-0042\nOTHER MORE",
+                    "rows": [
+                      [
+                        {
+                          "text": "Invoice No:",
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "PUB-0042",
+                          "colspan": 1,
+                          "rowspan": 1
+                        }
+                      ],
+                      [
+                        {
+                          "text": "OTHER",
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "MORE",
+                          "colspan": 1,
+                          "rowspan": 1
+                        }
+                      ]
+                    ],
+                    "native_body": "<table><tr><td>Invoice No:</td><td>PUB-0042</td></tr><tr><td>OTHER</td><td>MORE</td></tr></table>"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 1,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "invoice_no"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": null,
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "missing"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 0,
+              "uncredited_reasons": {
+                "missing": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "invoice_no"
+                  ],
+                  "raw": null,
+                  "value_type": "identifier",
+                  "slot": "invoice_no",
+                  "status": "missing",
+                  "canonical": null,
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": false,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 1,
+              "unmatched_candidates": 1,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "invoice_no"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": null,
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "missing"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 0,
+              "uncredited_reasons": {
+                "missing": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "invoice_no"
+                  ],
+                  "raw": null,
+                  "value_type": "identifier",
+                  "slot": "invoice_no",
+                  "status": "missing",
+                  "canonical": null,
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": false,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "unknown_prefix_contains_known_label",
+      "meaning": "Exact whole-label and contextual alias rules must be explicit; legacy inline matching accepts a known substring.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Unknown Work Order ID: PUB-0042",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "work_order_id",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Unknown Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Unknown Work Order ID: PUB-0042"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Unknown Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Unknown Work Order ID: PUB-0042"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": true,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": true,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "explicit_blank_is_verified_absence",
+      "meaning": "A recognized blank slot is different from no candidate.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Resident Contact",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [],
+          "expected_tables": [],
+          "expected_absences": [
+            {
+              "field_id": "resident_contact",
+              "page_number": 1,
+              "expected_state": "absent_blank"
+            }
+          ],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "resident_contact",
+                "label": "Resident Contact",
+                "page": 1,
+                "value": "",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Resident Contact",
+                    "rows": [],
+                    "native_body": "Resident Contact"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "resident_contact",
+                "label": "Resident Contact",
+                "page": 1,
+                "value": "",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Resident Contact",
+                    "rows": [],
+                    "native_body": "Resident Contact"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": []
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "parsed_candidates": 0,
+              "uncredited_reasons": {},
+              "details": [],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": [
+                {
+                  "field_id": "resident_contact",
+                  "page": 1,
+                  "values": [],
+                  "violation": false,
+                  "candidate_count": 1,
+                  "surplus_candidates": 0,
+                  "verified_absent": true,
+                  "unmapped": false
+                }
+              ]
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": []
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "parsed_candidates": 0,
+              "uncredited_reasons": {},
+              "details": [],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": [
+                {
+                  "field_id": "resident_contact",
+                  "page": 1,
+                  "values": [],
+                  "violation": false,
+                  "candidate_count": 1,
+                  "surplus_candidates": 0,
+                  "verified_absent": true,
+                  "unmapped": false
+                }
+              ]
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "no_candidate_is_not_verified_absence",
+      "meaning": "No assignment is not original factual absence credit or necessarily policy success.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Unknown record",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [],
+          "expected_tables": [],
+          "expected_absences": [
+            {
+              "field_id": "resident_contact",
+              "page_number": 1,
+              "expected_state": "absent_blank"
+            }
+          ],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_text",
+                "text": "Unknown record",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Unknown record",
+                    "rows": [],
+                    "native_body": "Unknown record"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_text",
+                "text": "Unknown record",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Unknown record",
+                    "rows": [],
+                    "native_body": "Unknown record"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": []
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "parsed_candidates": 0,
+              "uncredited_reasons": {},
+              "details": [],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": [
+                {
+                  "field_id": "resident_contact",
+                  "page": 1,
+                  "values": [],
+                  "violation": false,
+                  "candidate_count": 0,
+                  "surplus_candidates": 0,
+                  "verified_absent": false,
+                  "unmapped": true
+                }
+              ]
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": []
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "parsed_candidates": 0,
+              "uncredited_reasons": {},
+              "details": [],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": [
+                {
+                  "field_id": "resident_contact",
+                  "page": 1,
+                  "values": [],
+                  "violation": false,
+                  "candidate_count": 0,
+                  "surplus_candidates": 0,
+                  "verified_absent": false,
+                  "unmapped": true
+                }
+              ]
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "failed_completion_retains_denominator",
+      "meaning": "Observed-looking content from a failed call remains ineligible; unavailable must not become a compliant abstention.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-0042",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "work_order_id",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "failed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": false,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": false,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {
+                "document_ineligible": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": false,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": false,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {
+                "document_ineligible": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "parse_error_retains_denominator",
+      "meaning": "Invalid native evidence retains full denominators and cannot establish successful guard behavior.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Work Order ID: PUB-0042<BLOCK>invalid",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "work_order_id",
+              "page_number": 1,
+              "printed_text": "PUB-0042",
+              "normalized_value": "PUB-0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_text",
+                "text": "invalid",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  },
+                  {
+                    "kind": "unparsed",
+                    "bbox": null,
+                    "text": "invalid",
+                    "rows": []
+                  }
+                ]
+              }
+            ],
+            "parse_errors": [
+              "page_1:malformed_block_header"
+            ]
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "PUB-0042",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_text",
+                "text": "invalid",
+                "location": [
+                  1
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: PUB-0042",
+                    "rows": [],
+                    "native_body": "Work Order ID: PUB-0042"
+                  },
+                  {
+                    "kind": "unparsed",
+                    "bbox": null,
+                    "text": "invalid",
+                    "rows": []
+                  }
+                ]
+              }
+            ],
+            "parse_errors": [
+              "page_1:malformed_block_header"
+            ]
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": false,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": false,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {
+                "document_ineligible": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": [
+              "page_1:malformed_block_header"
+            ]
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": false,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "predicted": "PUB-0042",
+                  "observed_exact": true,
+                  "credited_exact": false,
+                  "status": "exact"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {
+                "document_ineligible": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "PUB-0042",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "PUB-0042",
+                  "expected_normalized": "PUB-0042",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": [
+              "page_1:malformed_block_header"
+            ]
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "valid_wrong_unit_can_get_numeric_credit",
+      "meaning": "Valid unit, exact numeric value and literal expected unit identity are different; original typed scores remain immutable.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Unknown quantity",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "qty_unit",
+              "page_number": 1,
+              "printed_text": "2.00 EA",
+              "normalized_value": "2.00",
+              "value_type": "decimal_2",
+              "quantity_unit": "EA"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "qty_unit",
+                "page": 1,
+                "value": "2.00 HR",
+                "label": "public synthetic candidate",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_text",
+                "text": "Unknown quantity",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Unknown quantity",
+                    "rows": [],
+                    "native_body": "Unknown quantity"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "qty_unit",
+                "page": 1,
+                "value": "2.00 HR",
+                "label": "public synthetic candidate",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [
+              {
+                "page": 1,
+                "kind": "unmapped_text",
+                "text": "Unknown quantity",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Unknown quantity",
+                    "rows": [],
+                    "native_body": "Unknown quantity"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "qty_unit"
+                  ],
+                  "expected_printed": "2.00 EA",
+                  "expected_normalized": "2.00",
+                  "predicted": "2.00 HR",
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "different"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "qty_unit"
+                  ],
+                  "raw": "2.00 HR",
+                  "value_type": "decimal_2",
+                  "slot": "qty_unit",
+                  "status": "parsed",
+                  "canonical": "2.00",
+                  "quantity_unit_observed": "HR",
+                  "expected_normalized": "2.00",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "qty_unit"
+                  ],
+                  "expected_printed": "2.00 EA",
+                  "expected_normalized": "2.00",
+                  "predicted": "2.00 HR",
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "different"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 1,
+              "total": 1,
+              "rate": 1.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {},
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "qty_unit"
+                  ],
+                  "raw": "2.00 HR",
+                  "value_type": "decimal_2",
+                  "slot": "qty_unit",
+                  "status": "parsed",
+                  "canonical": "2.00",
+                  "quantity_unit_observed": "HR",
+                  "expected_normalized": "2.00",
+                  "reference_status": "supported",
+                  "observed_exact": true,
+                  "credited_exact": true
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "identifier_zeroes_not_repaired",
+      "meaning": "Do not change identifier spelling to improve coverage.",
+      "evidence": {
+        "raw": "<PAGE><BLOCK>text[0,0,900,20]<FORK>Work Order ID: 42",
+        "expected": {
+          "fixture_id": "PUBLIC-PROBE",
+          "family_id": "PUBLIC-PROBE",
+          "split": "reviewer_public",
+          "variant_kind": "probe",
+          "page_count": 1,
+          "expected_fields": [
+            {
+              "field_id": "work_order_id",
+              "page_number": 1,
+              "printed_text": "0042",
+              "normalized_value": "0042",
+              "value_type": "identifier"
+            }
+          ],
+          "expected_tables": [],
+          "expected_absences": [],
+          "page_sentinels": [],
+          "expected_adjacent_page_pairs": [],
+          "cross_page_links": []
+        },
+        "completion": "completed",
+        "predictions": {
+          "b0": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "42",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: 42",
+                    "rows": [],
+                    "native_body": "Work Order ID: 42"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "schema": "eld-baseline-prediction/1",
+            "fields": [
+              {
+                "field_id": "work_order_id",
+                "label": "Work Order ID",
+                "page": 1,
+                "value": "42",
+                "location": [
+                  0
+                ]
+              }
+            ],
+            "tables": [],
+            "anchors": [],
+            "unmapped": [],
+            "pages": [
+              {
+                "page": 1,
+                "blocks": [
+                  {
+                    "kind": "text",
+                    "bbox": [
+                      0,
+                      0,
+                      900,
+                      20
+                    ],
+                    "text": "Work Order ID: 42",
+                    "rows": [],
+                    "native_body": "Work Order ID: 42"
+                  }
+                ]
+              }
+            ],
+            "parse_errors": []
+          }
+        },
+        "scores": {
+          "b0": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "0042",
+                  "expected_normalized": "0042",
+                  "predicted": "42",
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "different"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {
+                "different_normalized_value": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "42",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "42",
+                  "expected_normalized": "0042",
+                  "reference_status": "supported",
+                  "observed_exact": false,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          },
+          "mapping_v1": {
+            "eligible_for_exact_credit": true,
+            "fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "missing": 0,
+              "unmatched_candidates": 0,
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "expected_printed": "0042",
+                  "expected_normalized": "0042",
+                  "predicted": "42",
+                  "observed_exact": false,
+                  "credited_exact": false,
+                  "status": "different"
+                }
+              ]
+            },
+            "normalized_fields": {
+              "correct": 0,
+              "total": 1,
+              "rate": 0.0,
+              "parsed_candidates": 1,
+              "uncredited_reasons": {
+                "different_normalized_value": 1
+              },
+              "details": [
+                {
+                  "key": [
+                    1,
+                    "work_order_id"
+                  ],
+                  "raw": "42",
+                  "value_type": "identifier",
+                  "slot": "work_order_id",
+                  "status": "parsed",
+                  "canonical": "42",
+                  "expected_normalized": "0042",
+                  "reference_status": "supported",
+                  "observed_exact": false,
+                  "credited_exact": false
+                }
+              ],
+              "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+            },
+            "cells": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "extra_rows": 0,
+              "extra_cells": 0,
+              "missing_rows": 0,
+              "details": []
+            },
+            "expected_absences": {
+              "correct": 0,
+              "total": 0,
+              "rate": null,
+              "violations": 0,
+              "surplus_candidates": 0,
+              "details": []
+            },
+            "parse_errors": []
+          }
+        }
+      },
+      "status": "PASS"
+    }
+  ],
+  "scope": "Only unchanged B0/v1 public counterexamples. No v2 implementation, policy scorer, fresh fixture or protocol acceptance.",
+  "legacy_inputs": [
+    {
+      "path": "qualification/baseline/README.md",
+      "git_blob": "d3695acdb8e089ab96b759abcfaf9ce0726cdc13",
+      "bytes_git": 22649,
+      "sha256_git": "40b3ddfb8f1d2ff3a0adfcebd210468a5f05b0c87f3381a2288cbc02ef00142d",
+      "bytes_working": 22649,
+      "sha256_working": "40b3ddfb8f1d2ff3a0adfcebd210468a5f05b0c87f3381a2288cbc02ef00142d"
+    },
+    {
+      "path": "qualification/baseline/baseline.py",
+      "git_blob": "1aaf176886ba29ab41b2b6a875e4b0be539d8994",
+      "bytes_git": 6465,
+      "sha256_git": "7034792bbbcf3a16f45d3019d296d141271040c15d0cc15c1e03bff6b016f28a",
+      "bytes_working": 6465,
+      "sha256_working": "7034792bbbcf3a16f45d3019d296d141271040c15d0cc15c1e03bff6b016f28a"
+    },
+    {
+      "path": "qualification/baseline/corpus.py",
+      "git_blob": "36f79e03dd54962844bb3a4804013dbaa770224d",
+      "bytes_git": 3997,
+      "sha256_git": "2ed902e0b879989e63e161ac2a3e5040f801a64f3eb588de13dcbf4e6d01d74e",
+      "bytes_working": 3997,
+      "sha256_working": "2ed902e0b879989e63e161ac2a3e5040f801a64f3eb588de13dcbf4e6d01d74e"
+    },
+    {
+      "path": "qualification/baseline/mapping.json",
+      "git_blob": "cf5f73740b6c756bdab233b7dc3d33c3edf349a5",
+      "bytes_git": 8388,
+      "sha256_git": "eed1fba8aeee921e2f0f586cb4caf0b9ec0d4cd93d74df43d68c6358e1b21bf9",
+      "bytes_working": 8388,
+      "sha256_working": "eed1fba8aeee921e2f0f586cb4caf0b9ec0d4cd93d74df43d68c6358e1b21bf9"
+    },
+    {
+      "path": "qualification/baseline/native.py",
+      "git_blob": "10917b891e57d993176a19a8845dab917fa794c0",
+      "bytes_git": 9625,
+      "sha256_git": "67a0ee062b22e93978857f5f19ad3b72d43b0407f8545a5d594039b5c755997c",
+      "bytes_working": 9625,
+      "sha256_working": "67a0ee062b22e93978857f5f19ad3b72d43b0407f8545a5d594039b5c755997c"
+    },
+    {
+      "path": "qualification/baseline/prepare.py",
+      "git_blob": "1851b412e960d14fac09a9cb0da28766762c18df",
+      "bytes_git": 4372,
+      "sha256_git": "023a3f78d3e1530784d680887202a566ec09d387e64cfa7f5f8a0f24710f898b",
+      "bytes_working": 4372,
+      "sha256_working": "023a3f78d3e1530784d680887202a566ec09d387e64cfa7f5f8a0f24710f898b"
+    },
+    {
+      "path": "qualification/baseline/protocol.json",
+      "git_blob": "2c5c7fa9bb60d585e39a6fb27610c5cc5a5a85e9",
+      "bytes_git": 26651,
+      "sha256_git": "97ce68486813f34d04a61e24fc7b19f2c291e9062078fd6319bb0230812dbee8",
+      "bytes_working": 26651,
+      "sha256_working": "97ce68486813f34d04a61e24fc7b19f2c291e9062078fd6319bb0230812dbee8"
+    },
+    {
+      "path": "qualification/baseline/release.py",
+      "git_blob": "c3fb82f58a6c5f9044730436d3a00113c1431fc0",
+      "bytes_git": 8072,
+      "sha256_git": "8b9334d8e47fa3ec0df84e4d1c149b608c3f4f9ff3c98b7ac1eddc80f6738fe0",
+      "bytes_working": 8072,
+      "sha256_working": "8b9334d8e47fa3ec0df84e4d1c149b608c3f4f9ff3c98b7ac1eddc80f6738fe0"
+    },
+    {
+      "path": "qualification/baseline/run_checks.py",
+      "git_blob": "81a0e44c3c9bdaac5fafd76c1231941a79fa82e0",
+      "bytes_git": 3302,
+      "sha256_git": "cfd0c3bf37cedbc36b79f2893f13ebd15c262b41ae54dc9dd97ec96dfe776b7d",
+      "bytes_working": 3302,
+      "sha256_working": "cfd0c3bf37cedbc36b79f2893f13ebd15c262b41ae54dc9dd97ec96dfe776b7d"
+    },
+    {
+      "path": "qualification/baseline/runtime.py",
+      "git_blob": "65b8cec06b1ab0a9fe3c84c34bc5dadfb291e153",
+      "bytes_git": 16038,
+      "sha256_git": "ab10f03517891f2fef8fd1a1bee0f1b055b61598810d4f7ba69742e133617367",
+      "bytes_working": 16038,
+      "sha256_working": "ab10f03517891f2fef8fd1a1bee0f1b055b61598810d4f7ba69742e133617367"
+    },
+    {
+      "path": "qualification/baseline/score.py",
+      "git_blob": "cc58a16f4c3598f663b1e4aef506b45f3dc0ea16",
+      "bytes_git": 13637,
+      "sha256_git": "b63ad4e9cd930a628843ad41609099950f075bea7e2a115c0321c5b77590cf55",
+      "bytes_working": 13637,
+      "sha256_working": "b63ad4e9cd930a628843ad41609099950f075bea7e2a115c0321c5b77590cf55"
+    },
+    {
+      "path": "qualification/baseline/tests/run_runtime_checks.py",
+      "git_blob": "abe000ae97d0998b2009baf2cd66155e93900046",
+      "bytes_git": 2866,
+      "sha256_git": "de33d4e6e195163e491e4f27bec163d51acfb3f45576b2dcc903c4191d638c85",
+      "bytes_working": 2866,
+      "sha256_working": "de33d4e6e195163e491e4f27bec163d51acfb3f45576b2dcc903c4191d638c85"
+    },
+    {
+      "path": "qualification/baseline/tests/test_baseline.py",
+      "git_blob": "6da20cf09eeb225c01b275f4a5fb48a569fabc84",
+      "bytes_git": 20703,
+      "sha256_git": "68ef1d812082e9c98a96e49c4d9b918836a69f0219615b7d8d4e5fd4db02ee94",
+      "bytes_working": 20703,
+      "sha256_working": "68ef1d812082e9c98a96e49c4d9b918836a69f0219615b7d8d4e5fd4db02ee94"
+    },
+    {
+      "path": "qualification/baseline/tests/test_runtime_correction.py",
+      "git_blob": "330354f1d269390489ddabee5b071533e1e802fc",
+      "bytes_git": 23801,
+      "sha256_git": "cbc44fb84582bab8cb29f6eb9c1a2ae9b3d3afaf2b5ce6ad5c4df75e6520e418",
+      "bytes_working": 23801,
+      "sha256_working": "cbc44fb84582bab8cb29f6eb9c1a2ae9b3d3afaf2b5ce6ad5c4df75e6520e418"
+    },
+    {
+      "path": "qualification/baseline/typed_values.py",
+      "git_blob": "cdf154aad5e371af8ee52635d7d28973412c076a",
+      "bytes_git": 3239,
+      "sha256_git": "34081537f2df43c7ee5fabfb0f55aab61e3224cea99da3aa20b7bc3f7d41efa8",
+      "bytes_working": 3239,
+      "sha256_working": "34081537f2df43c7ee5fabfb0f55aab61e3224cea99da3aa20b7bc3f7d41efa8"
+    },
+    {
+      "path": "qualification/baseline/winjob.py",
+      "git_blob": "def16f401335b78799bbb5f048163aad8dc07e90",
+      "bytes_git": 2272,
+      "sha256_git": "6a02c0d1649b755b4f95a341bdb7a5533491edd96b26bd73fa9b43f013fd7b9c",
+      "bytes_working": 2272,
+      "sha256_working": "6a02c0d1649b755b4f95a341bdb7a5533491edd96b26bd73fa9b43f013fd7b9c"
+    },
+    {
+      "path": "qualification/mapping_v1/README.md",
+      "git_blob": "794a2eea44be34527f2ede8bc5e489a4459d4450",
+      "bytes_git": 11369,
+      "sha256_git": "ecaef870eff9670198608e7cea0be4b9c241cec4db29b0e888133c1cf04503f0",
+      "bytes_working": 11369,
+      "sha256_working": "ecaef870eff9670198608e7cea0be4b9c241cec4db29b0e888133c1cf04503f0"
+    },
+    {
+      "path": "qualification/mapping_v1/__init__.py",
+      "git_blob": "b1d62770eb1221f0744888a7d63e39398ea6a17a",
+      "bytes_git": 84,
+      "sha256_git": "f50379d81759a99815a3059f5fd240cb4b8b9530d3534a82cc7d624e9d2c5794",
+      "bytes_working": 84,
+      "sha256_working": "f50379d81759a99815a3059f5fd240cb4b8b9530d3534a82cc7d624e9d2c5794"
+    },
+    {
+      "path": "qualification/mapping_v1/cli.py",
+      "git_blob": "92a985ea128cb780b7a7c20ef8aa4b28588b40a9",
+      "bytes_git": 1249,
+      "sha256_git": "bab361d33a66d612bbf9909ad55107135ed58d6348d731b83e3cf8d625d99d8b",
+      "bytes_working": 1249,
+      "sha256_working": "bab361d33a66d612bbf9909ad55107135ed58d6348d731b83e3cf8d625d99d8b"
+    },
+    {
+      "path": "qualification/mapping_v1/common.py",
+      "git_blob": "9cda5d79c8314f19c1d15ee92482938eb6676bb3",
+      "bytes_git": 2616,
+      "sha256_git": "a25855a658fb10aeac63b6892db7ca547f319bd4a2c71948eea9e6b328509f13",
+      "bytes_working": 2616,
+      "sha256_working": "a25855a658fb10aeac63b6892db7ca547f319bd4a2c71948eea9e6b328509f13"
+    },
+    {
+      "path": "qualification/mapping_v1/mapper.py",
+      "git_blob": "3813daa2def596ec7178b142f2ea3ab9e3e769b5",
+      "bytes_git": 6553,
+      "sha256_git": "0cf84a41d18c73cafd4215acb90175958df02c1436f6dda7046f10ab144c664b",
+      "bytes_working": 6553,
+      "sha256_working": "0cf84a41d18c73cafd4215acb90175958df02c1436f6dda7046f10ab144c664b"
+    },
+    {
+      "path": "qualification/mapping_v1/protocol.json",
+      "git_blob": "a964e19cfb684356fb0d588cd78c2100cd0505f8",
+      "bytes_git": 15223,
+      "sha256_git": "f54214cc42307eb955f44f4c6470311f01ff7cf93887ea21d024feaa08a63e42",
+      "bytes_working": 15223,
+      "sha256_working": "f54214cc42307eb955f44f4c6470311f01ff7cf93887ea21d024feaa08a63e42"
+    },
+    {
+      "path": "qualification/mapping_v1/release.py",
+      "git_blob": "a58730d473737351bd69621d3b7816e11b0cd0ca",
+      "bytes_git": 8405,
+      "sha256_git": "139ec1507d3ac13e7ce03ca8a701410dbd92a74e339181a962de63129017ef0e",
+      "bytes_working": 8405,
+      "sha256_working": "139ec1507d3ac13e7ce03ca8a701410dbd92a74e339181a962de63129017ef0e"
+    },
+    {
+      "path": "qualification/mapping_v1/run_checks.py",
+      "git_blob": "521c47984d8f1c25bc0c3dacc63d0bb67d0b1da7",
+      "bytes_git": 9240,
+      "sha256_git": "53a50fd93e1e3ef53d2ec80ab44da477d79076bf83a9ec07cf33fbf9e3f2ca10",
+      "bytes_working": 9240,
+      "sha256_working": "53a50fd93e1e3ef53d2ec80ab44da477d79076bf83a9ec07cf33fbf9e3f2ca10"
+    },
+    {
+      "path": "qualification/mapping_v1/runtime.py",
+      "git_blob": "92cb336d48392fa582aabfaf5cf6539172d3c78d",
+      "bytes_git": 16866,
+      "sha256_git": "207f281bfadaa682305caea7c67a51ba6c52b9899c74266c3167984525c3b24e",
+      "bytes_working": 16866,
+      "sha256_working": "207f281bfadaa682305caea7c67a51ba6c52b9899c74266c3167984525c3b24e"
+    },
+    {
+      "path": "qualification/mapping_v1/scoring.py",
+      "git_blob": "ec52cc08ac170fd78e7d194067c2cc26f985b09a",
+      "bytes_git": 4749,
+      "sha256_git": "3618426c9bf1b058202d22f9d043bdee2fa590bab84c2faf3742e2d2b3f254ce",
+      "bytes_working": 4749,
+      "sha256_working": "3618426c9bf1b058202d22f9d043bdee2fa590bab84c2faf3742e2d2b3f254ce"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_mapping.py",
+      "git_blob": "e3a029804b12c62064e2edd21bfaab7656b1f903",
+      "bytes_git": 5961,
+      "sha256_git": "dc02f379fdb75e0c905a97032053adb3e2334d3e4977da30e506782ee8e688f4",
+      "bytes_working": 5961,
+      "sha256_working": "dc02f379fdb75e0c905a97032053adb3e2334d3e4977da30e506782ee8e688f4"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_release.py",
+      "git_blob": "9a530ad830609ed317c7f2f738776c7c7609d59d",
+      "bytes_git": 6778,
+      "sha256_git": "027d2d18b74e77ea3a5dcb36e2986b1825a80c546849c3243ea1c827b38cf713",
+      "bytes_working": 6778,
+      "sha256_working": "027d2d18b74e77ea3a5dcb36e2986b1825a80c546849c3243ea1c827b38cf713"
+    },
+    {
+      "path": "qualification/mapping_v1/tests/test_runtime.py",
+      "git_blob": "5750877e9034e8fae0aee891ed3414cdde9a8eed",
+      "bytes_git": 10581,
+      "sha256_git": "395897759e5f2aefdd527da5a9fe22c169d8147b20057b2d0f2f3c3da53b95bb",
+      "bytes_working": 10581,
+      "sha256_working": "395897759e5f2aefdd527da5a9fe22c169d8147b20057b2d0f2f3c3da53b95bb"
+    },
+    {
+      "path": "qualification/coverage_v1/INTERFACE.md",
+      "git_blob": "3fc80237a6ed9af2bd672574e7c5307aec1d6780",
+      "bytes_git": 5068,
+      "sha256_git": "febffc08c85eef7ac274ba6b9b72449db53720dcfb6deb57acd7e17a83ef850b",
+      "bytes_working": 5068,
+      "sha256_working": "febffc08c85eef7ac274ba6b9b72449db53720dcfb6deb57acd7e17a83ef850b"
+    },
+    {
+      "path": "qualification/coverage_v1/README.md",
+      "git_blob": "3f181a8f995e4f11ec3aedd31a0f7a22e603300b",
+      "bytes_git": 12421,
+      "sha256_git": "918c1aa1a61b772deecc189907f8a62e56c349ae55ff39f78a9c0396de36b10c",
+      "bytes_working": 12421,
+      "sha256_working": "918c1aa1a61b772deecc189907f8a62e56c349ae55ff39f78a9c0396de36b10c"
+    },
+    {
+      "path": "qualification/coverage_v1/__init__.py",
+      "git_blob": "5b43e8acc8f86f207cea4cd639c0a47627dc2a3a",
+      "bytes_git": 79,
+      "sha256_git": "f194c6f307b1dc8824edf2b0023d98e61f864a424d2dacc92f6572c6a5457cd7",
+      "bytes_working": 79,
+      "sha256_working": "f194c6f307b1dc8824edf2b0023d98e61f864a424d2dacc92f6572c6a5457cd7"
+    },
+    {
+      "path": "qualification/coverage_v1/cli.py",
+      "git_blob": "8b385a9f7d2583ed54ebc623410b3009c29977d8",
+      "bytes_git": 1721,
+      "sha256_git": "ae758ad88365c1bd27e57d00c069541b798febd5f9709aaf5001d697149382d7",
+      "bytes_working": 1721,
+      "sha256_working": "ae758ad88365c1bd27e57d00c069541b798febd5f9709aaf5001d697149382d7"
+    },
+    {
+      "path": "qualification/coverage_v1/common.py",
+      "git_blob": "0ab7bba38a78080ede1c26f59ce52891551b6597",
+      "bytes_git": 707,
+      "sha256_git": "48b443059adf2ec40b42958275d839320a783e4f165cc5d22e5b1e90816ced92",
+      "bytes_working": 707,
+      "sha256_working": "48b443059adf2ec40b42958275d839320a783e4f165cc5d22e5b1e90816ced92"
+    },
+    {
+      "path": "qualification/coverage_v1/contract.py",
+      "git_blob": "ea431b8cdf958e45460f3b62cc011d4365f9607a",
+      "bytes_git": 8041,
+      "sha256_git": "7437f87cc6cfc2df58ebd6102b95951d3b0199e609e85b39c965e648bf6ec73d",
+      "bytes_working": 8041,
+      "sha256_working": "7437f87cc6cfc2df58ebd6102b95951d3b0199e609e85b39c965e648bf6ec73d"
+    },
+    {
+      "path": "qualification/coverage_v1/diagnostics.py",
+      "git_blob": "8ac69d6fa8d43c985b492af7ecf26e9a83eb1a40",
+      "bytes_git": 16747,
+      "sha256_git": "6f6b9a9a593463d491ab35353f5d45a36ad73a8140a8d3d77c75d1b861f1c05d",
+      "bytes_working": 16747,
+      "sha256_working": "6f6b9a9a593463d491ab35353f5d45a36ad73a8140a8d3d77c75d1b861f1c05d"
+    },
+    {
+      "path": "qualification/coverage_v1/protocol.json",
+      "git_blob": "37e3aae44e995e64c3a501196f4cc0127c0c9128",
+      "bytes_git": 31241,
+      "sha256_git": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000",
+      "bytes_working": 31241,
+      "sha256_working": "03b13a41a0047c827af32e71209933700457a5dfd6d38ec106daed82ef5b9000"
+    },
+    {
+      "path": "qualification/coverage_v1/release.py",
+      "git_blob": "52169a6d9d530204101ac5c1db9c412b417ea00f",
+      "bytes_git": 9792,
+      "sha256_git": "d64644447a2edea5bb09933a8ed389afd8e79656f94ec1989fcbd934c23d944d",
+      "bytes_working": 9792,
+      "sha256_working": "d64644447a2edea5bb09933a8ed389afd8e79656f94ec1989fcbd934c23d944d"
+    },
+    {
+      "path": "qualification/coverage_v1/run_checks.py",
+      "git_blob": "2448c954ff9e1b8bb0dcff027a4d288da76fb072",
+      "bytes_git": 9250,
+      "sha256_git": "63af560c2ac535bd03711802949ff5689e01206e91095a409551fe2edf44add0",
+      "bytes_working": 9250,
+      "sha256_working": "63af560c2ac535bd03711802949ff5689e01206e91095a409551fe2edf44add0"
+    },
+    {
+      "path": "qualification/coverage_v1/runtime.py",
+      "git_blob": "4fdd3570c2af06c32a81d183948bac52c5980cc3",
+      "bytes_git": 17603,
+      "sha256_git": "291f0be82a44ce1412e882a54117f52f42cd057eb2c0633d0fc945e2079aafb2",
+      "bytes_working": 17603,
+      "sha256_working": "291f0be82a44ce1412e882a54117f52f42cd057eb2c0633d0fc945e2079aafb2"
+    },
+    {
+      "path": "qualification/coverage_v1/scoring.py",
+      "git_blob": "35a4c0d187617709a368b5c98e47749e64c4cb86",
+      "bytes_git": 5006,
+      "sha256_git": "9ee0780ddbe3e2b348dcbaf63eb76c22027215df3d4ef09c89dbae4aa532e760",
+      "bytes_working": 5006,
+      "sha256_working": "9ee0780ddbe3e2b348dcbaf63eb76c22027215df3d4ef09c89dbae4aa532e760"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_diagnostics.py",
+      "git_blob": "b83f730d547e832a0fbb831407c1e246d9037982",
+      "bytes_git": 9902,
+      "sha256_git": "22027732a74adaf02db4ed05a547bee6bb1702001ddb638364513e9f1a749ff4",
+      "bytes_working": 9902,
+      "sha256_working": "22027732a74adaf02db4ed05a547bee6bb1702001ddb638364513e9f1a749ff4"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_release.py",
+      "git_blob": "1c40806e74d52c16bb7c63ae3247bd1743ced141",
+      "bytes_git": 13519,
+      "sha256_git": "8fcd99747485f49ef97c04b0d042c7c07d86facb4a6be310a1969624ea694179",
+      "bytes_working": 13519,
+      "sha256_working": "8fcd99747485f49ef97c04b0d042c7c07d86facb4a6be310a1969624ea694179"
+    },
+    {
+      "path": "qualification/coverage_v1/tests/test_runtime.py",
+      "git_blob": "f8317773b5f7b18686e234f429dd0998bbce71c2",
+      "bytes_git": 13984,
+      "sha256_git": "3dfd307f8c67c349a07f6c72a201410b9cc3271e426d0527514699562f096352",
+      "bytes_working": 13984,
+      "sha256_working": "3dfd307f8c67c349a07f6c72a201410b9cc3271e426d0527514699562f096352"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/__init__.py",
+      "git_blob": "159e8487b2395614fbc8d9e2482c392421a4ee94",
+      "bytes_git": 526,
+      "sha256_git": "c42997c315f52c4b9d31a42d90c7ad9ea9870aa87f5e80fb146f56999013acb1",
+      "bytes_working": 526,
+      "sha256_working": "c42997c315f52c4b9d31a42d90c7ad9ea9870aa87f5e80fb146f56999013acb1"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/backend_torch.py",
+      "git_blob": "be1183130891b1770a6fcef639d9eeb5ad0175cc",
+      "bytes_git": 4546,
+      "sha256_git": "d6dad4d19dbec6988d4be8159fde68eea9c203546e07d018fdf6b1617cd7eda7",
+      "bytes_working": 4546,
+      "sha256_working": "d6dad4d19dbec6988d4be8159fde68eea9c203546e07d018fdf6b1617cd7eda7"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/environment.py",
+      "git_blob": "0ca99d8c4b84ec02ca9dc19ab855c1b0a120a274",
+      "bytes_git": 14098,
+      "sha256_git": "e160969d04093d5fd70499fab20d6062a8919509e8830aae562628be210f1f0f",
+      "bytes_working": 14098,
+      "sha256_working": "e160969d04093d5fd70499fab20d6062a8919509e8830aae562628be210f1f0f"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/fixtures.py",
+      "git_blob": "156b02108fccd5acb5e752985c48fcc69d3c5ef7",
+      "bytes_git": 5465,
+      "sha256_git": "13ad85f3847bb754c8c1c028bd28c1884b2836d5854d71c8fe88886b486f1cab",
+      "bytes_working": 5465,
+      "sha256_working": "13ad85f3847bb754c8c1c028bd28c1884b2836d5854d71c8fe88886b486f1cab"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/hashing.py",
+      "git_blob": "3317ef04145548f4c13f66a1ecfb51ff74033ab2",
+      "bytes_git": 1510,
+      "sha256_git": "ad61007cb6615c815f97ce253b8db8268a46049189ef7c6ec857d70f0bcc27af",
+      "bytes_working": 1510,
+      "sha256_working": "ad61007cb6615c815f97ce253b8db8268a46049189ef7c6ec857d70f0bcc27af"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/hostcheck.py",
+      "git_blob": "81baac5859aacb4560512f7a863b97fefc057c5f",
+      "bytes_git": 9659,
+      "sha256_git": "a4fa60ab7f1cde7f71e1a1b6ecbad82a87c4f752e5b7e5ee0367320495562754",
+      "bytes_working": 9659,
+      "sha256_working": "a4fa60ab7f1cde7f71e1a1b6ecbad82a87c4f752e5b7e5ee0367320495562754"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/locks.py",
+      "git_blob": "6167cf8c4dbeaf48d8753d10289ea22d67150718",
+      "bytes_git": 26495,
+      "sha256_git": "133c1cfcab1c2b0bad6433527b50694b88a634ffbe6873a3130b300f8d06edaf",
+      "bytes_working": 26495,
+      "sha256_working": "133c1cfcab1c2b0bad6433527b50694b88a634ffbe6873a3130b300f8d06edaf"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/logscan.py",
+      "git_blob": "d37c4dc7d8e4c5f66002f311227731499a9be1b1",
+      "bytes_git": 1992,
+      "sha256_git": "9bd65a8c6c4b3538965093c73a282786d08a61ebce83bea646824593b0684f4f",
+      "bytes_working": 1992,
+      "sha256_working": "9bd65a8c6c4b3538965093c73a282786d08a61ebce83bea646824593b0684f4f"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/modelfiles.py",
+      "git_blob": "bfcee168c5f955a73832d9d93d40190a314c125a",
+      "bytes_git": 10882,
+      "sha256_git": "b2490e546f8393b68107b8e283bd238c364f249524796c233920199d69cc1f75",
+      "bytes_working": 10882,
+      "sha256_working": "b2490e546f8393b68107b8e283bd238c364f249524796c233920199d69cc1f75"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/outcome.py",
+      "git_blob": "4665ed59ab22f77ec55fe5260457cba80071a9b1",
+      "bytes_git": 6137,
+      "sha256_git": "18781652d761bc379c44a3f513c95208c28c86282a5e73abf19b4a33bbdb0997",
+      "bytes_working": 6137,
+      "sha256_working": "18781652d761bc379c44a3f513c95208c28c86282a5e73abf19b4a33bbdb0997"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/preflight.py",
+      "git_blob": "daf5df737885b0eb9a571c7c5b8e2ea3c6bf859f",
+      "bytes_git": 2113,
+      "sha256_git": "5a44e13b2246a4a13ac66b3c85309fb3f90cacf0df0c0d1841d082a904017e2d",
+      "bytes_working": 2113,
+      "sha256_working": "5a44e13b2246a4a13ac66b3c85309fb3f90cacf0df0c0d1841d082a904017e2d"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/procmem.py",
+      "git_blob": "666a5ed54d9322ce07052f2161943305848d9c93",
+      "bytes_git": 3550,
+      "sha256_git": "970fb86b0c27655cea50f03b231a20f1678aa07ca6958f51967bef4ebf4c3274",
+      "bytes_working": 3550,
+      "sha256_working": "970fb86b0c27655cea50f03b231a20f1678aa07ca6958f51967bef4ebf4c3274"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/protocol.py",
+      "git_blob": "c3e6a60592687219acf7c2ffec4c4c99404a84c7",
+      "bytes_git": 11202,
+      "sha256_git": "8ec4aa9998a6a0ba1df766de896805350887e1501772de3f13dc6ca6a268c843",
+      "bytes_working": 11202,
+      "sha256_working": "8ec4aa9998a6a0ba1df766de896805350887e1501772de3f13dc6ca6a268c843"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/release.py",
+      "git_blob": "106c4b00ff4bcebb5a8b27168145e1ccd2f9792d",
+      "bytes_git": 3565,
+      "sha256_git": "55c2b154badc15201d336d317e8632aa86294e6423b9ea2c19a08796f679d216",
+      "bytes_working": 3565,
+      "sha256_working": "55c2b154badc15201d336d317e8632aa86294e6423b9ea2c19a08796f679d216"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/render.py",
+      "git_blob": "1551e6cdd5751bd38b2b6fbd0ac758e52c0e7d3b",
+      "bytes_git": 2194,
+      "sha256_git": "f9f70f7555c1c1779fa29aa0a3700c76b43e195f83ea3569e3f6716c174a4769",
+      "bytes_working": 2194,
+      "sha256_working": "f9f70f7555c1c1779fa29aa0a3700c76b43e195f83ea3569e3f6716c174a4769"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/session.py",
+      "git_blob": "8709ad91275c1890e3dfc2f187e208c60878ff4e",
+      "bytes_git": 21353,
+      "sha256_git": "06d5869406f8d5f8a78b6384f892ab123d63014bcfae604be1dc1129505bb96a",
+      "bytes_working": 21353,
+      "sha256_working": "06d5869406f8d5f8a78b6384f892ab123d63014bcfae604be1dc1129505bb96a"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/sourcecheck.py",
+      "git_blob": "6d7bd23c11ec5d9ce6e0f059cfbed18397be9a8b",
+      "bytes_git": 9617,
+      "sha256_git": "f13b68e494e75b95665635ee1b2acca932b50d5c056bc6208dd97a5d790cbf84",
+      "bytes_working": 9617,
+      "sha256_working": "f13b68e494e75b95665635ee1b2acca932b50d5c056bc6208dd97a5d790cbf84"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/supervisor.py",
+      "git_blob": "f1e3fd73e353544635467765b0c6d4e122fa460d",
+      "bytes_git": 6944,
+      "sha256_git": "fb45790e7e6bd61f7c40db5150b6ab8128e65940964bb0ac22a9818a26d812a4",
+      "bytes_working": 6944,
+      "sha256_working": "fb45790e7e6bd61f7c40db5150b6ab8128e65940964bb0ac22a9818a26d812a4"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/telemetry.py",
+      "git_blob": "5183528425d97da46019477962d0662f48f100c3",
+      "bytes_git": 17256,
+      "sha256_git": "a26a2df84249f698e91a83d2e59469128257b09e2ba159eac2ab2e9776930c89",
+      "bytes_working": 17256,
+      "sha256_working": "a26a2df84249f698e91a83d2e59469128257b09e2ba159eac2ab2e9776930c89"
+    },
+    {
+      "path": "qualification/q0/harness/q0harness/writer.py",
+      "git_blob": "811128b2834499ead8794f6532f5a88e12874700",
+      "bytes_git": 4286,
+      "sha256_git": "657c1e777859941efffd00ddca8c4c92f5e775bb084349140f446d17fe68198d",
+      "bytes_working": 4286,
+      "sha256_working": "657c1e777859941efffd00ddca8c4c92f5e775bb084349140f446d17fe68198d"
+    }
+  ],
+  "finished_utc": "2026-11-17T13:57:05.142850+00:00"
+}
