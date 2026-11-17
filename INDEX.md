@@ -842,3 +842,6 @@ WP-0011 actual author005 RUNNING_CONFIRMED2026-11-17T09:54:24.1581107Z, supervis
 
 
 WP-0010 author003 PUBLISHED7c578be6e8abff4d285ea1b519bbcfaeba1bb8c7, tested source/helperc383021be1774451ba3034d89255b38b4267353b, evidenceceec957733d6c00c6b4277e7db3f391ab6ccb6b4. Root verified52 source/38 evidence+inventory/35 manifest/2743 protected paths/report-only/exact origin, actual15step success and owned service absence. CLI resultERROR after publication due providerDNS; no CLI SUCCESS claim. Independent004 RELEASED under exact runtime kickoff to same Carbon reviewer; product acceptance/integration pending. Root metadata edit attempt a2a67b failed decoding INDEX under Windows default encoding before staging/commits; rewritten from HEAD using explicit UTF8, preserving original text.
+
+
+WP-0010 independent004 RUNNING_CONFIRMED same Carbon61105d43-7706-45f2-9176-69d3256248e0, PID35324/tool40674, authorityd8e4c9b86af5e61157bf55675037c6ddd95efeff. WP-0011 author execute completed14/14 calls with no run failure; supervisor0/child0 and CPUscore0 at bound65f24d3. Root independently verifies post-model18/notice/host, bound15344/14864/25204/8072 absent, desktop-only GPU/idleOllama; lease RETURNED_OBSERVED. No current model lease or reviewer inference release. Actual author005 evidence publication and independent006 remain pending.
