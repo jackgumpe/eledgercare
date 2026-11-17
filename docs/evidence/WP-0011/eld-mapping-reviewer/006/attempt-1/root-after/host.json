@@ -1,0 +1,101 @@
+{
+  "schema": "eldq0-host-precheck/1",
+  "stage": "during",
+  "started_utc": "2026-11-17T11:09:41.740735Z",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "executable": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+  "git_runtime": {
+    "present": true,
+    "executable": "C:\\Program Files\\Git\\cmd\\git.exe"
+  },
+  "msvc_runtime": [
+    {
+      "dll": "msvcp140.dll",
+      "present": true,
+      "size": 643512,
+      "sha256": "7c26614e1d733892c2deac7e245ce115504b1d80592dd0a01b08e3e5a55f89ca",
+      "file_version": "14.51.36247.0"
+    },
+    {
+      "dll": "vcruntime140.dll",
+      "present": true,
+      "size": 178616,
+      "sha256": "d1f4225df2cd877dbf130d5668a021dce3f94118455ff5ec952061c30afc9ce7",
+      "file_version": "14.51.36247.0"
+    },
+    {
+      "dll": "vcruntime140_1.dll",
+      "present": true,
+      "size": 50112,
+      "sha256": "a7146c08f89fe5b04541ab507cdb59ff7b44534d4ba3c668a426c6450a03434e",
+      "file_version": "14.51.36247.0"
+    }
+  ],
+  "long_paths_enabled": {
+    "value": 0,
+    "type": 4
+  },
+  "paging_files": {
+    "value": [
+      "?:\\pagefile.sys"
+    ],
+    "type": 7
+  },
+  "memory": {
+    "total_phys": 34264649728,
+    "avail_phys": 15043145728,
+    "commit_limit": 55739486208,
+    "commit_available": 28577042432,
+    "note": "commit_limit = physical RAM + current pagefile size; pagefile growth outside the task root is NOT bounded by the task budget"
+  },
+  "free_space": {
+    "volume": "C:\\",
+    "free_bytes": 43540496384,
+    "total_bytes": 491350462464,
+    "observed_utc": "2026-11-17T11:09:41.742326Z"
+  },
+  "storage_root_exists": true,
+  "known_paths": {
+    "paths": {
+      "model_file": 102,
+      "module_cache_file": 162,
+      "evidence_file": 113
+    },
+    "max_len": 162
+  },
+  "gpu_observer": [
+    {
+      "argv": [
+        "nvidia-smi",
+        "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "--query-gpu=timestamp,uuid,name,driver_version,compute_cap,memory.total,memory.used,memory.free,utilization.gpu,pstate",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "observed_utc": "2026-11-17T11:09:41.745842Z",
+      "stdout": "2026/11/17 06:09:41.787, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, NVIDIA GeForce RTX 5070 Ti, 621.01, 12.0, 16303, 1459, 14539, 2, P8\r\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "nvidia-smi",
+        "--id=GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "--query-compute-apps=pid,process_name,used_memory",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "observed_utc": "2026-11-17T11:09:41.798100Z",
+      "stdout": "4788, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\r\n6640, C:\\Windows\\explorer.exe, [N/A]\r\n9356, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\r\n9332, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\r\n6396, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\r\n12400, C:\\Users\\jackg\\AppData\\Local\\Programs\\Proton\\Drive\\ProtonDrive.exe, [N/A]\r\n14056, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\157.0.4341.46\\msedgewebview2.exe, [N/A]\r\n16904, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\r\n20016, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\r\n18392, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\r\n11612, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]\r\n12852, C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe, [N/A]\r\n21508, C:\\Program Files (x86)\\Steam\\steam.exe, [N/A]\r\n10700, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\r\n23960, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\r\n23284, C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.12741.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe, [N/A]\r\n17228, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2609.11.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]\r\n29172, C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe, [N/A]\r\n5588, C:\\Windows\\System32\\ShellHost.exe, [N/A]\r\n15044, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\copilotapp.exe, [N/A]\r\n32132, C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\undocked_copilot\\copilotapphost.exe, [N/A]\r\n35552, C:\\Users\\jackg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe, [N/A]\r\n23544, C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe, [N/A]\r\n",
+      "stderr": ""
+    }
+  ],
+  "limits": [
+    "DLL presence/version does not prove successful torch DLL resolution (later import gate).",
+    "Pagefile growth and OS/driver allocations outside the root are not bounded by the task budget.",
+    "nvidia-smi per-process used_memory is [N/A] under WDDM; per-process VRAM is unsupported telemetry.",
+    "No CUDA context is created; this is not GPU ownership or runtime qualification."
+  ],
+  "failures": [],
+  "status": "pass",
+  "finished_utc": "2026-11-17T11:09:41.860630Z"
+}
