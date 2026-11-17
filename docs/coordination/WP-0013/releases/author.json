@@ -1,10 +1,10 @@
 {
   "schema": "eld-mapping-v2-release/1",
   "owner": "author",
-  "source_commit": "c0a1af638e807803b6014b3a93ecb7f9946ce6e1",
-  "executing_head": "da6c91e0168f63843bd8d89ecf060834ccd07b9a",
-  "source_tree": "4477104eb2a3c73f496ef451cef9578f54d96518",
-  "protocol_sha256": "46a0d3e7bec0f14a3911eb7365385b7d132db8e8a72c8edb3f030aeeda124ec2",
+  "source_commit": "ae790497f3fdd10573e8179757416bc2d1736250",
+  "executing_head": "fbc2ab64e9ae1b4ff6655e427d78e69930d40b72",
+  "source_tree": "8fd68c96bb18ca0177f227ad9a82505090d997b0",
+  "protocol_sha256": "ef648a3cd52df16ed6ed352e666ffedf789148100d640e2582cf13f76b6f9783",
   "corpus_commit": "373106d94b56e619e2210308ca3bf237b45affc0",
   "reservation_sha256": "533f4be35fb89efd9e288c0470201457b5ab32373eab3112ae283b42febcfea5",
   "runtime_root": "C:/Users/jackg/eLedgerCare-Vocabulary/WP-0013/author",
@@ -16,11 +16,11 @@
   "accepted_protocol_sha256": "aa0d8f183f9f0161c6e47b56a6f2cd844d6ad3f31e772b9761aa0ad618f6a372",
   "accepted_catalog_sha256": "35a99a213b80476747c7a136a4109ac45bc7944c77b0a3dcf0f348f107dd37a2",
   "source_review": {
-    "commit": "bb2a731ef6969a6f87508cad4960ca5dc2bafeb1",
-    "path": "docs/agent-reports/eld-mapping-reviewer/WP-0013/006_2026-11-17_review_eld-mapping-reviewer.md",
-    "sha256": "d2de2b91bf7c5c7dcad8a358d46f51a376ff241884346ce57c0914a2ff5b1c95",
+    "commit": "b782c66990476e5cdefeaf6880aa7685debd222d",
+    "path": "docs/agent-reports/eld-mapping-reviewer/WP-0013/011_2026-11-17_review_eld-mapping-reviewer.md",
+    "sha256": "2c05dee17a2043890a5d171747e6e48190a5520625a9adcd8cd5599e509fb2e7",
     "decision": "accepted",
-    "reviewed_source_commit": "c0a1af638e807803b6014b3a93ecb7f9946ce6e1"
+    "reviewed_source_commit": "ae790497f3fdd10573e8179757416bc2d1736250"
   },
   "admission_review": {
     "commit": "321afab409989a1eafcb1b43f433d784d2658711",
@@ -30,9 +30,9 @@
     "reviewed_reservation_sha256": "533f4be35fb89efd9e288c0470201457b5ab32373eab3112ae283b42febcfea5"
   },
   "unseal": {
-    "commit": "e5c926890ae8c275a8782c8325a15b7d391f23ec",
-    "path": "docs/coordination/WP-0013/unseal.json",
-    "sha256": "ae4b55fa7a2a23add62340a2adb23cb8bdacf66c2971440690057a4149684a94"
+    "commit": "3e164bb73db512e915c38b694cf1754c4599d391",
+    "path": "docs/coordination/WP-0013/unseal-runtime-correction.json",
+    "sha256": "7d5a02b49453ab74e0a0d2b6720655a402894be664e83ab4be8162a7c4620888"
   },
   "schedule": [
     {
@@ -106,43 +106,47 @@
       "excluded": false
     }
   ],
-  "issued_utc": "2026-11-17T18:23:42.726934+00:00",
-  "expires_utc": "2026-11-18T00:23:42.726934+00:00",
+  "session": "/root/mapping_author",
+  "model": "native-codex-backend-unexposed",
+  "effort": "xhigh-requested",
+  "issued_utc": "2026-11-17T19:28:15.701465+00:00",
+  "expires_utc": "2026-11-18T01:28:15.701465+00:00",
   "lease": {
-    "id": "WP-0013-author-vocabulary-20261117T182342Z",
+    "id": "WP-0013-author-recovery012-20261117T192815Z",
     "owner": "author",
     "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
     "sole_lease": true,
     "scope": "sole_model_job",
     "observations": [
       {
-        "commit": "6a3408747201693a45aa09228af58420ea07cdef",
-        "path": "docs/coordination/WP-0012/reviewer-004-after/lease-return-ack.json",
-        "sha256": "e0cce9f1357197f90f7d927cb5c2a4be5074fd3d28f497118d0bc7d587535a0c"
+        "commit": "5c9dce356c9923a134b6002b19ae49a553a666a9",
+        "path": "docs/coordination/WP-0013/author-recovery-before/release-check/host.json",
+        "sha256": "4841b99d6f2e0741c93593e690efc97d623828a2be387157d936eb52f0510a18"
       },
       {
-        "commit": "6a3408747201693a45aa09228af58420ea07cdef",
-        "path": "docs/coordination/WP-0013/author-before/host.json",
-        "sha256": "7d8d69094e56af0115b076660c9c4e1175e5ea986b21d29a8361bb843d801fa6"
+        "commit": "5c9dce356c9923a134b6002b19ae49a553a666a9",
+        "path": "docs/coordination/WP-0013/author-recovery-before/release-check/model.json",
+        "sha256": "217276dcefe6fec48be108408f76199017eb14734019a3b45dfcb790668fa4e8"
       },
       {
-        "commit": "6a3408747201693a45aa09228af58420ea07cdef",
-        "path": "docs/coordination/WP-0013/author-before/model.json",
-        "sha256": "c868c9b0b20e4b5fb5859a5dbcef644804a496e337e6660d95796f1ba5d8cede"
+        "commit": "5c9dce356c9923a134b6002b19ae49a553a666a9",
+        "path": "docs/coordination/WP-0013/author-recovery-before/release-check/ownership.json",
+        "sha256": "2320fed1d11360f9ac0d05e0cfaf264f9e3aa90e5a55c4ffbba42e1dec5a5467"
       },
       {
-        "commit": "6a3408747201693a45aa09228af58420ea07cdef",
-        "path": "docs/coordination/WP-0013/author-before/ownership.json",
-        "sha256": "c81304a2e6d79be1a5d757715d1bf5b40fa4a6e2f40bf23c30ec9d9dae303b31"
-      },
-      {
-        "commit": "6a3408747201693a45aa09228af58420ea07cdef",
-        "path": "docs/coordination/WP-0013/author-before/ownership-decision.json",
-        "sha256": "53b70a951981e1527b3720de974631dfc5116c2b3eeda66ec8f8cdf80e6a5661"
+        "commit": "5c9dce356c9923a134b6002b19ae49a553a666a9",
+        "path": "docs/coordination/WP-0013/author-recovery-before/release-check/ownership-decision.json",
+        "sha256": "b776804f11b999911f4934dd77f380a99af2284dfcfebb28a5fd2e1e0ff46025"
       }
     ]
   },
-  "session": "/root/mapping_author",
-  "model": "native-codex-backend-unexposed",
-  "effort": "xhigh-requested"
+  "initial_failed_run": {
+    "publication": "0d610695c87f3998deee2b6b3d48f7c7d531eddb",
+    "authority": "6558c3d7cf12fd336fc277d3406b26ffe125960d",
+    "model_calls": 0,
+    "primary_unavailable": 12,
+    "original_denominator_preserved": true
+  },
+  "recovery_is_separate": true,
+  "fresh_material_already_exposed": true
 }
