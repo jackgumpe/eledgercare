@@ -1,0 +1,74 @@
+{
+  "schema": "eld-mapping-v2-author-lease-return/1",
+  "report": "WP-0013/012",
+  "timestamp_utc": "2026-11-17T19:47:29.8978374Z",
+  "lease": "WP-0013-author-recovery012-20261117T192815Z",
+  "status": "RETURNED_AWAITING_ROOT_ACK",
+  "runtime_authority": "73fbbd7856b61d227b4462c9120ca6d117316a04",
+  "executing_head": "fbc2ab64e9ae1b4ff6655e427d78e69930d40b72",
+  "run": "C:/Users/jackg/eLedgerCare-Vocabulary/WP-0013/author/runs/author/20261117T192905Z-c72cf92b",
+  "execution_exit_code": 0,
+  "child_exit_code": 0,
+  "observed_child_exit": true,
+  "score_exit_code": 0,
+  "calls_completed": 14,
+  "calls_not_run": 0,
+  "failure": null,
+  "finalization_errors": [],
+  "final_observation_status": {
+    "post_observers": "available",
+    "worker_outcome": "available",
+    "free_bytes_after": "available",
+    "owned_bytes_after": "available"
+  },
+  "checks": [
+    {
+      "expected": {
+        "pid": 28512,
+        "creation_filetime_100ns": 134394173420870216,
+        "created_utc": "2026-11-17T14:29:02.087021-05:00",
+        "source": "Windows GetProcessTimes on explicitly owned PID"
+      },
+      "observed_pid_present": false,
+      "observed_created_utc": null
+    },
+    {
+      "expected": {
+        "pid": 26836,
+        "creation_filetime_100ns": 134394173453665518,
+        "created_utc": "2026-11-17T14:29:05.366551-05:00",
+        "source": "Windows GetProcessTimes on explicitly owned PID"
+      },
+      "observed_pid_present": false,
+      "observed_created_utc": null
+    },
+    {
+      "expected": {
+        "created_utc": "2026-11-17T14:29:05.389056-05:00",
+        "creation_filetime_100ns": 134394173453890564,
+        "pid": 36624,
+        "source": "Windows GetProcessTimes on explicitly owned PID"
+      },
+      "observed_pid_present": false,
+      "observed_created_utc": null
+    },
+    {
+      "expected": {
+        "pid": 10620,
+        "created_utc": "2026-11-17T19:29:01.5858964Z",
+        "source": "Wrapper Get-Process StartTime"
+      },
+      "observed_pid_present": false,
+      "observed_created_utc": null
+    },
+    {
+      "expected": {
+        "pid": 34000,
+        "source": "CPU score wrapper recorded PID"
+      },
+      "observed_pid_present": false,
+      "observed_created_utc": null
+    }
+  ],
+  "scope": "Only explicitly bound owned PIDs queried; no process terminated. Root independently observes host/model and sole-model lease return."
+}

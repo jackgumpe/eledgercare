@@ -12,7 +12,7 @@ BASE = '73c8d3c4f0a00312e3444328331b6cbd6406e882'
 MUTABLE = {'AGENTS.md', 'CURRENT.md', 'INDEX.md'}
 ACCEPTED = {
     'c1fed68020ae67e8b4763bc6ea5473adaa86de2b': ['src', 'web', 'tests', 'deploy', 'workers/local_ocr'],
-    'b60624ac7a0ae23540ab019b63d7a7e904fb1c36': ['qualification/mapping_v2'],
+    'ae790497f3fdd10573e8179757416bc2d1736250': ['qualification/mapping_v2'],
     '373106d94b56e619e2210308ca3bf237b45affc0': ['evaluation/mapping_v2'],
 }
 
@@ -65,12 +65,12 @@ def main():
         subprocess.run(['git', 'merge-base', '--is-ancestor', rev, args.candidate], cwd=ROOT, check=True)
     # Runtime correction must preserve the complete frozen mapping/contract/scoring source.
     original_source = 'c0a1af638e807803b6014b3a93ecb7f9946ce6e1'
-    corrected_source = 'b60624ac7a0ae23540ab019b63d7a7e904fb1c36'
+    corrected_source = 'ae790497f3fdd10573e8179757416bc2d1736250'
     original_rows, corrected_rows = tree(original_source), tree(corrected_source)
     prefix = 'qualification/mapping_v2/'
     source_changes = {path for path in original_rows.keys() | corrected_rows.keys()
                       if path.startswith(prefix) and original_rows.get(path) != corrected_rows.get(path)}
-    allowed_runtime_changes = {prefix + name for name in ('runtime.py', 'runtime_protocol.json', 'tests/test_runtime.py')}
+    allowed_runtime_changes = {prefix + name for name in ('runtime.py', 'runtime_git.py', 'runtime_protocol.json', 'tests/test_runtime.py')}
     assert source_changes == allowed_runtime_changes, 'Runtime-only correction scope changed'
     old_protocol = json.loads(git('show', original_source + ':' + prefix + 'runtime_protocol.json'))
     new_protocol = json.loads(git('show', corrected_source + ':' + prefix + 'runtime_protocol.json'))
