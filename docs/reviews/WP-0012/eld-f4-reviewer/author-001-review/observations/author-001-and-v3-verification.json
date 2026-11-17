@@ -1,0 +1,71 @@
+{
+  "schema": "eledgercare.wp-0012.reviewer-002-verification/1",
+  "generated_utc": "2026-11-17T15:19:39.213233+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "conversation_id": "61105d43-7706-45f2-9176-69d3256248e0",
+  "model": "gemini-4-carbon-high",
+  "effort": "high",
+  "executing_head_sha": "0cabb137e71454d13342148a5652a5034df018ba",
+  "live_rehearsal_executed": false,
+  "model_or_venv_imported": false,
+  "disposition_on_author_001": "changes-requested",
+  "initial_reviewer_preparation_preserved": {
+    "publication_sha": "7f3f8626489e898a50d275e93ee904660e97fd59",
+    "helper_sha": "c09cf1aa8282e440e364c6020152dd257355643b",
+    "untouched": true
+  },
+  "author_001_audit": {
+    "author_deliverable_sha": "ad5202a029a7a86bea5fa3e3d97760d0a9cc673a",
+    "author_evidence_sha": "32465da577237827c3ac9d8ed5ee608c8e5668cf",
+    "author_publication_sha": "165b2421b297bf49181c91af8d05a449ad69e9b5",
+    "deliverable_file_count": 9,
+    "evidence_file_count": 14,
+    "publication_report_only": true,
+    "markdown_links_verified": 86,
+    "author_guard_unit_tests_run": 18,
+    "author_guard_unit_tests_passed": true,
+    "node_check_passed": true,
+    "ast_ml_import_violations": 0
+  },
+  "reproduced_author_findings": {
+    "F12-B1_partial_startup_orphan_process_leak": {
+      "reproduced": true,
+      "case_a_ui_early_exit": {
+        "exception": "Owned UI exited early (1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\tmpgqh_e263\\ui-4610-repro-b1a.log",
+        "api_proc_leaked_alive_after_exception": true,
+        "api_fh_leaked_open_after_exception": true,
+        "test_child_reaped_by_reviewer_harness": true
+      },
+      "case_b_api_bind_timeout": {
+        "exception": "Owned API did not bind 5590 within 45s",
+        "api_proc_leaked_alive_after_exception": true,
+        "test_child_reaped_by_reviewer_harness": true
+      }
+    },
+    "F12-B2_stop_on_failure_skips_lease_return_and_worker_audit": {
+      "reproduced": true,
+      "exception": "Live Phase A stopped/failed (exit=1); see C:\\Users\\jackg\\AppData\\Local\\Temp\\tmpawc1dtx0\\author-demo-sim\\rehearsal-evidence\\WP-0012-sim-stop-on-failure\\logs\\phase-a-edge.log",
+      "owner_lease_return_json_written_on_failure": false,
+      "post_failure_worker_process_checks_executed": 0
+    },
+    "F12-B3_and_001_prose_discrepancies": {
+      "F12-B3_handoff_key_independent_preparation_review_002_sha_rejected": true,
+      "F12-B3_error": "Missing independent WP-0012 / 002 review commit binding (accepted_preparation_review) in release JSON.",
+      "F12-D1_cli_release_shorthand_flag_rejected_returncode": 2,
+      "F12-D2_edge_modes_are_live_phase_a_and_b_not_phase1_phase2": true,
+      "F12-D3_002_review_sha_not_checked_via_merge_base_is_ancestor": true,
+      "F12-D4_phase_b_ocrEnabledDuringReopen_is_literal_without_workerEnabled_assertion": true
+    }
+  },
+  "reviewer_v3_guard_reconciliation": {
+    "helper_path": "docs/reviews/WP-0012/eld-f4-reviewer/author-001-review/helpers/run_wp0012_reviewer_rehearsal_v3.py",
+    "helper_sha256_lf": "2b27f9668310a6fd48be579e1137a67be479355aaf0966a62dc731603153f188",
+    "unit_tests_run": 24,
+    "unit_tests_passed": true,
+    "reconciled_root_concerns": [
+      "RG-01_exact_git_release_and_upstream_bindings",
+      "RG-02_wddm_vs_competing_model_ownership",
+      "RG-03_refusing_overwrite_new_destinations"
+    ]
+  }
+}

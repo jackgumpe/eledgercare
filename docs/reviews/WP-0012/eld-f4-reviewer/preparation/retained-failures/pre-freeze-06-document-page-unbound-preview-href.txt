@@ -1,0 +1,12 @@
+Pre-freeze dry-run failure #6 (2026-11-17 UTC, `.scratch/wp0012-dryrun`)
+Command:
+  python -B docs/reviews/WP-0012/eld-f4-reviewer/preparation/helpers/run_wp0012_reviewer_rehearsal.py --mode cpu-prep-validation ...
+Exit code: 1 (`finally:` stopped owned UI `4710`, API `5690`, and PostgreSQL `55439` cleanly)
+Observed error:
+  Edge workflow assertion failed [ocr_disabled_guard_enforced]:
+    {"btnDisabled":true,"frameSrc":"/api/documents/01a1e9ea-6f21-75a9-ba38-5dd6045568f0/preview","directPost":{"status":503,"body":{"code":"extraction_disabled"}}}
+Root cause & pre-freeze correction in helper only:
+  On `DocumentPage` (`web/src/app/intake/document-page.ts:71-78`), opening `/documents/:id` without a `?page=` query parameter
+  intentionally leaves `selectedPreviewPage()` unset (`no page claim`), mounting `/api/documents/<id>/preview` without `#page=1`
+  (whereas archive page-witness links pass `?page=2` and mount `/api/documents/<id>/preview#page=2`).
+  Updated `drive_wp0012_edge_workflow.mjs` `scratch-guard` assertion to expect `/api/documents/${docId}/preview` prior to freeze.
