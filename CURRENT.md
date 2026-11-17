@@ -43,4 +43,4 @@ All assigned execution has ended, owned product test services are stopped and bo
 
 ## Boundary
 
-Local synthetic one-to-three-page documents only. Preserve original extraction/provenance and explicit human-review state. Product imports no research/evaluation mapper. Offline library settings are documented accurately; OS outbound denial is not verified. No F4 search, E1-E3 model treatment, training, customer data, deployment or legacy migration is authorized. No other application, owner process or database may be changed.
+Local synthetic one-to-three-page documents only. Preserve original extraction/provenance and explicit human-review state. Product imports no research/evaluation mapper. Offline library settings are documented accurately; OS outbound denial is not verified. F4 and the finite controlled diagnosis are authorized only under the active assignments above. E1-E3 model treatment, training, customer data, deployment and legacy migration remain outside scope. No other application, owner process or database may be changed.
