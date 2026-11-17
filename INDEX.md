@@ -944,3 +944,6 @@ WP-0012 exact independent002 RUNNING_CONFIRMED under7af4cd0e2e8ffbcb9176fc78508b
 
 
 WP-0013 early private admission inspection RELEASED on immutable85core files/12pages/fourfamilies, manifest91c4a38adeef4ceb2c3fb399eac525e141e4821e9a7dcdf0fb82803e89b86319. Root verifies all core bytes/12preserved foundation files/exact original receipts; first root audit status-token assumption failure and corrected full check retained. Exact private binding sent only root/reviewer; final custody packaging continues. Canonical004 and author005 still wait complete final reservation audit; no unseal/model authority. See early-corpus-audit.json and WP-0013-eld-mapping-reviewer-corpus-admission.md.
+
+
+WP-0013 final reservation PUBLISHED/VERIFIEDb50b2a3bc22927890c8f391943f2a3fe9168d0da, reservationSHA533f4be35fb89efd9e288c0470201457b5ab32373eab3112ae283b42febcfea5. Root verifies4public additions/3706preserved paths,118private inventory entries/120complete files/5270705bytes,48descriptors and unchanged116early private objects. Independent admission actualstart14:50:51.9214018Z atbddb01f is confirmed; canonical004 now released on final binding. CPU mapper005 RELEASED under new implementation kickoff; actual dispatch follows integrated revision. Canonical003 still waits004, fresh content/model/unseal held.
