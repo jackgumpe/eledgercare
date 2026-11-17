@@ -8,7 +8,7 @@ Jack explicitly said "I authorize it" to the [bounded plan](docs/coordination/WP
 
 | Track / owner | State | Exact scope / next gate |
 | --- | --- | --- |
-| Product eld-f4-implementer | CORRECTION006 RELEASED; dispatch pending | [WP-0012 preparation001](docs/kickoffs/WP-0012-eld-f4-implementer.md), publication165b2421/sourcead5202a0/evidence32465da5; independent002 requests F12-B1..B3/D4 helper corrections; live003 held |
+| Product eld-f4-implementer | CORRECTION006 RUNNING_CONFIRMED | [WP-0012 preparation001](docs/kickoffs/WP-0012-eld-f4-implementer.md), publication165b2421/sourcead5202a0/evidence32465da5; independent002 requests F12-B1..B3/D4 helper corrections; live003 held |
 | Product eld-f4-reviewer | REVIEW002 PUBLISHED; changes requested | [WP-0012 independent review](docs/kickoffs/WP-0012-eld-f4-reviewer.md), review/wp-0012-product-rehearsal; initial preparation7f3f8626 verified; publication379d8c5d audited; own v3 guards pass24 CPU tests; next independent007 after correction006 |
 | R&D eld-mapping-author | IMPLEMENTATION005 PUBLISHED/VERIFIED | [WP-0013 protocol001](docs/kickoffs/WP-0013-eld-mapping-author.md), publication9b90528f/source6207daf1/treee4249455; final reservationb50b2a3b audited;005 e4e57231 verified; source c0a1af63/tree4477104e unchanged; independent006 running, private content held |
 | R&D eld-eval-custodian | CORPUS003/004 ACCEPTED; sealed handoff ready | [WP-0013 custody003](docs/kickoffs/WP-0013-eld-eval-custodian.md), evaluation/wp-0013-vocabulary-families/new eld-vocabulary-custodian; foundation51b02bf verified12private files/69,982bytes; finalb50b2a3b/120private files/48descriptors verified; custodian0030adccecc and independent004321afab4 accepted; no unseal |
