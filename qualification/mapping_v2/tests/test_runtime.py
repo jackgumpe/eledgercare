@@ -31,6 +31,9 @@ class RuntimeTests(unittest.TestCase):
         identity_block="    if parent_plan.get('supervisor_identity')!=process_identity(parent_plan['supervisor_pid']):\n        raise PermissionError('Supervisor creation identity changed')\n    worker_identity=process_identity(os.getpid())\n"
         self.assertIn(identity_block,current)
         current=current.replace(identity_block,'').replace(",'worker_identity':worker_identity",'')
+        git_guard="    q0_imports()\n    from q0harness.environment import audit_child_env\n    audit_child_env(dict(os.environ),root=Path(protocol()['runtime_roots'][owner]),owner=owner,run_dir=Path(run_dir))\n    verify_bare_git_lookup(os.environ)  # Actual worker image/caller cwd, before frozen bare-Git checks.\n"
+        self.assertIn(git_guard,current)
+        current=current.replace(git_guard,'')
         self.assertEqual(current,expected.split('\ndef worker(',1)[1])
         previous=json.loads(git('show','253519e07e7d45cf1f5ecb3e03053582f7f7d4cc:qualification/coverage_v1/protocol.json'))
         p=protocol()
@@ -124,8 +127,8 @@ class RuntimeTests(unittest.TestCase):
                     elif fault=='size_mismatch':rows[0]['bytes']+=1
                     elif fault=='error':rows[0]['error']='observer error despite zero exit'
                 return rows
-            environment={k:str(scratch/'cache'/k) for k in ['TEMP','TMP','TMPDIR','HF_HOME','HF_MODULES_CACHE','CUDA_CACHE_PATH','TORCH_HOME','TORCHINDUCTOR_CACHE_DIR','USERPROFILE']};environment['PATH']=''
-            environment['Q0_GIT_EXECUTABLE']='git'  # Synthetic build/audit/host resolver are mocked together here.
+            environment={k:str(scratch/'cache'/k) for k in ['TEMP','TMP','TMPDIR','HF_HOME','HF_MODULES_CACHE','CUDA_CACHE_PATH','TORCH_HOME','TORCHINDUCTOR_CACHE_DIR','USERPROFILE']};environment['PATH']=os.environ.get('SystemRoot',r'C:\Windows')
+            environment['Q0_GIT_EXECUTABLE']=env.resolve_host_git()  # Real lookup guard; other supervisor boundary effects remain mocked.
             with contextlib.ExitStack() as stack:
                 for obj,name,kw in [(runtime,'read_release',{'return_value':r}),(runtime,'protocol',{'return_value':p}),
                     (runtime,'git',{'return_value':b'cpu-head'}),
