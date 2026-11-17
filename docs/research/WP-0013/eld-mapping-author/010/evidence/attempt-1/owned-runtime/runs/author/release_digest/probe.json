@@ -1,0 +1,27 @@
+{
+  "case": "release_digest",
+  "started_utc": "2026-11-17T18:38:56.241560+00:00",
+  "identity": {
+    "pid": 32684,
+    "creation_filetime_100ns": 134394143360501960,
+    "created_utc": "2026-11-17T18:38:56.050196+00:00",
+    "source": "Windows GetProcessTimes on explicitly owned PID"
+  },
+  "python": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+  "path": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts;C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\.scratch\\wp0013-runtime-correction\\attempt-1\\owned-runtime\\venv\\Scripts;C:\\WINDOWS\\System32;C:\\WINDOWS;C:\\Program Files\\Git\\cmd",
+  "git_pin": "C:\\Program Files\\Git\\cmd\\git.exe",
+  "model_imports_prohibited": true,
+  "frozen_pins_verified": true,
+  "test_only_interceptions": [
+    "0000000000000000000000000000000000000000:docs/coordination/WP-0013/releases/author.json",
+    "0000000000000000000000000000000000000000:docs/agent-reports/eld-mapping-reviewer/WP-0013/011_2026-11-17_review_eld-mapping-reviewer.md"
+  ],
+  "synthetic_cpu_release_not_authority": true,
+  "status": "raised",
+  "error_type": "PermissionError",
+  "error": "Immutable evidence digest mismatch",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\010\\restricted_probe.py\", line 99, in <module>\n    try: main(args, receipt); receipt['status'] = 'returned'\n         ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\docs\\research\\WP-0013\\eld-mapping-author\\010\\restricted_probe.py\", line 84, in main\n    result = release.read_release(SYNTHETIC, RELEASE, 'author', execution=False)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\release.py\", line 102, in read_release\n    bound_object(r['source_review']); bound_object(r['admission_review'])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\release.py\", line 80, in bound_object\n    require(data.strip() and sha(data) == binding['sha256'], 'Immutable evidence digest mismatch')\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-vocabulary-author\\qualification\\mapping_v2\\release.py\", line 16, in require\n    if not condition: raise PermissionError(reason)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: Immutable evidence digest mismatch\n",
+  "finished_utc": "2026-11-17T18:38:58.027836+00:00",
+  "exit_code": 1,
+  "prohibited_imports_present": []
+}
