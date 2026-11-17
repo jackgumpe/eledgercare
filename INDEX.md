@@ -1021,3 +1021,5 @@ WP-0013 initial author007 actual invocation18:24:36Z stopped pre-model at18:24:4
 | WP-0013 /010 | eld-mapping-author / implementation | docs/agent-reports/eld-mapping-author/WP-0013/010_2026-11-17_implementation_eld-mapping-author.md | CPU-only runtime Git integration after007 publication |
 | WP-0013 /011 | eld-mapping-reviewer / review | docs/agent-reports/eld-mapping-reviewer/WP-0013/011_2026-11-17_review_eld-mapping-reviewer.md | Independent restricted-child verification; final waits exact010/source |
 | WP-0013 /012 | eld-mapping-author / research | docs/agent-reports/eld-mapping-author/WP-0013/012_2026-11-17_research_eld-mapping-author.md | RESERVED separate recovery; no inference lease |
+
+WP-0012 coordinator005 CLOSED/ACCEPTED publication68230cf7ddfb4d85e41e9d6718c822090a706631; disposition187f1bd01203a4859d982d1c7c47416c08df6410/preservation456591859342de863e6d98756881cc8981a3acf1. Author003bd21/independent004a772 verified,4completed attempts, no further product work. Exact receipt docs/coordination/WP-0012/final-disposition/publication-receipt.json. WP-0013 remains independently active.
