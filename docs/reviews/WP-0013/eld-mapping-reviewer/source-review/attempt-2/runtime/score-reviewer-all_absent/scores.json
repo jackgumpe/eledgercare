@@ -1,0 +1,1894 @@
+{
+  "schema": "eld-mapping-v2-paired/1",
+  "owner": "reviewer",
+  "executing_head": "2222222222222222222222222222222222222222",
+  "run_result_sha256": "3f430a197ea6133c3b548f288854329e134a9f3e410cc2d3eb8ee6936a9b8ee7",
+  "records": [
+    {
+      "fixture_id": "WP13-F04-conflict-v0",
+      "raw_available": false,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "completion": "not_run_after_failure",
+      "predictions": {
+        "b0": {
+          "schema": "eld-baseline-prediction/1",
+          "fields": [],
+          "tables": [],
+          "anchors": [],
+          "unmapped": [],
+          "pages": [],
+          "parse_errors": [
+            "no_page_markers"
+          ]
+        },
+        "mapping_v1": {
+          "schema": "eld-baseline-prediction/1",
+          "fields": [],
+          "tables": [],
+          "anchors": [],
+          "unmapped": [],
+          "pages": [],
+          "parse_errors": [
+            "no_page_markers"
+          ]
+        },
+        "mapping_v2": {
+          "schema": "eld-baseline-prediction/1",
+          "fields": [],
+          "tables": [],
+          "anchors": [],
+          "unmapped": [],
+          "pages": [],
+          "parse_errors": [
+            "no_page_markers"
+          ],
+          "mapping_v2_decisions": [
+            {
+              "kind": "document",
+              "action": "unchanged_ineligible",
+              "reason": "native_parse_error"
+            }
+          ],
+          "mapping_v2_decisions_omitted": 0
+        }
+      },
+      "scores": {
+        "b0": {
+          "schema": "eld-baseline-score/1",
+          "fixture_id": "WP13-F04-conflict-v0",
+          "family_id": "WP13-F04",
+          "split": "vocabulary_eval",
+          "variant_kind": "conflict",
+          "completion": "not_run_after_failure",
+          "eligible_for_exact_credit": false,
+          "document_denominator": 1,
+          "completed_documents": 0,
+          "parse_errors": [
+            "no_page_markers"
+          ],
+          "fields": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "missing": 1,
+            "unmatched_candidates": 0,
+            "details": [
+              {
+                "key": [
+                  1,
+                  "work_order_id"
+                ],
+                "expected_printed": "PUBLIC-0042",
+                "expected_normalized": "PUBLIC-0042",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false,
+                "status": "missing"
+              }
+            ]
+          },
+          "cells": {
+            "correct": 0,
+            "total": 4,
+            "rate": 0.0,
+            "extra_rows": 0,
+            "extra_cells": 0,
+            "missing_rows": 1,
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_sku",
+                "expected_printed": "PUBLIC-ROW-001",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_desc",
+                "expected_printed": "public-cell-1",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "bin_loc",
+                "expected_printed": "public-cell-2",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "qty_used",
+                "expected_printed": "public-cell-3",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ]
+          },
+          "normalized_fields": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "parsed_candidates": 0,
+            "uncredited_reasons": {
+              "missing": 1
+            },
+            "details": [
+              {
+                "key": [
+                  1,
+                  "work_order_id"
+                ],
+                "raw": null,
+                "value_type": "identifier",
+                "slot": "work_order_id",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "PUBLIC-0042",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ],
+            "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+          },
+          "normalized_cells": {
+            "correct": 0,
+            "total": 4,
+            "rate": 0.0,
+            "parsed_candidates": 0,
+            "uncredited_reasons": {
+              "missing": 4
+            },
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_sku",
+                "raw": null,
+                "value_type": "identifier",
+                "slot": "part_sku",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "PUBLIC-ROW-001",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_desc",
+                "raw": null,
+                "value_type": "text",
+                "slot": "part_desc",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-1",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "bin_loc",
+                "raw": null,
+                "value_type": "text",
+                "slot": "bin_loc",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-2",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "qty_used",
+                "raw": null,
+                "value_type": "text",
+                "slot": "qty_used",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-3",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ],
+            "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+          },
+          "rows": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "exact": false
+              }
+            ]
+          },
+          "expected_absences": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "violations": 0,
+            "surplus_candidates": 0,
+            "details": []
+          },
+          "page_count": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "predicted": 0,
+            "expected": 1
+          },
+          "page_sentinels": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "adjacency": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "cross_page_links": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "text": {
+            "status": "scored",
+            "reference_tokens": 14,
+            "prediction_tokens": 0,
+            "substitutions": 0,
+            "deletions": 14,
+            "insertions": 0,
+            "error_rate": 1.0,
+            "alignment": "SequenceMatcher-autojunk=False; not minimum Levenshtein WER"
+          },
+          "reference_coverage": {
+            "scope": "generic independent public policy probe only"
+          },
+          "unmapped_content": [],
+          "mapping_coverage": {
+            "fields_with_candidate": 0,
+            "expected_fields": 1,
+            "cells_with_candidate": 0,
+            "expected_cells": 4,
+            "unsupported_or_missing_table_rows": 1,
+            "unclassified_content_records": 0,
+            "unmapped_table_physical_rows": 0,
+            "unmapped_table_physical_cells": 0,
+            "short_table_rows": 0,
+            "failure_reasons": [
+              "no_exact_dev_header_or_missing_table_rows",
+              "missing_field_candidates",
+              "native_parse_error"
+            ],
+            "interpretation": "Field/cell mismatches combine extraction/mapping and recognition errors. Unmapped cells are not asserted character-reading errors; raw token errors are reported separately."
+          },
+          "invention_limit": "Unmatched fields/rows/cells and absence violations are schema-relative signals; unrecognized prose is retained, not asserted factual hallucination."
+        },
+        "mapping_v1": {
+          "schema": "eld-baseline-score/1",
+          "fixture_id": "WP13-F04-conflict-v0",
+          "family_id": "WP13-F04",
+          "split": "vocabulary_eval",
+          "variant_kind": "conflict",
+          "completion": "not_run_after_failure",
+          "eligible_for_exact_credit": false,
+          "document_denominator": 1,
+          "completed_documents": 0,
+          "parse_errors": [
+            "no_page_markers"
+          ],
+          "fields": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "missing": 1,
+            "unmatched_candidates": 0,
+            "details": [
+              {
+                "key": [
+                  1,
+                  "work_order_id"
+                ],
+                "expected_printed": "PUBLIC-0042",
+                "expected_normalized": "PUBLIC-0042",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false,
+                "status": "missing"
+              }
+            ]
+          },
+          "cells": {
+            "correct": 0,
+            "total": 4,
+            "rate": 0.0,
+            "extra_rows": 0,
+            "extra_cells": 0,
+            "missing_rows": 1,
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_sku",
+                "expected_printed": "PUBLIC-ROW-001",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_desc",
+                "expected_printed": "public-cell-1",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "bin_loc",
+                "expected_printed": "public-cell-2",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "qty_used",
+                "expected_printed": "public-cell-3",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ]
+          },
+          "normalized_fields": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "parsed_candidates": 0,
+            "uncredited_reasons": {
+              "missing": 1
+            },
+            "details": [
+              {
+                "key": [
+                  1,
+                  "work_order_id"
+                ],
+                "raw": null,
+                "value_type": "identifier",
+                "slot": "work_order_id",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "PUBLIC-0042",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ],
+            "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+          },
+          "normalized_cells": {
+            "correct": 0,
+            "total": 4,
+            "rate": 0.0,
+            "parsed_candidates": 0,
+            "uncredited_reasons": {
+              "missing": 4
+            },
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_sku",
+                "raw": null,
+                "value_type": "identifier",
+                "slot": "part_sku",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "PUBLIC-ROW-001",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_desc",
+                "raw": null,
+                "value_type": "text",
+                "slot": "part_desc",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-1",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "bin_loc",
+                "raw": null,
+                "value_type": "text",
+                "slot": "bin_loc",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-2",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "qty_used",
+                "raw": null,
+                "value_type": "text",
+                "slot": "qty_used",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-3",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ],
+            "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+          },
+          "rows": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "exact": false
+              }
+            ]
+          },
+          "expected_absences": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "violations": 0,
+            "surplus_candidates": 0,
+            "details": []
+          },
+          "page_count": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "predicted": 0,
+            "expected": 1
+          },
+          "page_sentinels": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "adjacency": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "cross_page_links": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "text": {
+            "status": "scored",
+            "reference_tokens": 14,
+            "prediction_tokens": 0,
+            "substitutions": 0,
+            "deletions": 14,
+            "insertions": 0,
+            "error_rate": 1.0,
+            "alignment": "SequenceMatcher-autojunk=False; not minimum Levenshtein WER"
+          },
+          "reference_coverage": {
+            "scope": "generic independent public policy probe only"
+          },
+          "unmapped_content": [],
+          "mapping_coverage": {
+            "fields_with_candidate": 0,
+            "expected_fields": 1,
+            "cells_with_candidate": 0,
+            "expected_cells": 4,
+            "unsupported_or_missing_table_rows": 1,
+            "unclassified_content_records": 0,
+            "unmapped_table_physical_rows": 0,
+            "unmapped_table_physical_cells": 0,
+            "short_table_rows": 0,
+            "failure_reasons": [
+              "no_exact_dev_header_or_missing_table_rows",
+              "missing_field_candidates",
+              "native_parse_error"
+            ],
+            "interpretation": "Field/cell mismatches combine extraction/mapping and recognition errors. Unmapped cells are not asserted character-reading errors; raw token errors are reported separately."
+          },
+          "invention_limit": "Unmatched fields/rows/cells and absence violations are schema-relative signals; unrecognized prose is retained, not asserted factual hallucination."
+        },
+        "mapping_v2": {
+          "schema": "eld-baseline-score/1",
+          "fixture_id": "WP13-F04-conflict-v0",
+          "family_id": "WP13-F04",
+          "split": "vocabulary_eval",
+          "variant_kind": "conflict",
+          "completion": "not_run_after_failure",
+          "eligible_for_exact_credit": false,
+          "document_denominator": 1,
+          "completed_documents": 0,
+          "parse_errors": [
+            "no_page_markers"
+          ],
+          "fields": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "missing": 1,
+            "unmatched_candidates": 0,
+            "details": [
+              {
+                "key": [
+                  1,
+                  "work_order_id"
+                ],
+                "expected_printed": "PUBLIC-0042",
+                "expected_normalized": "PUBLIC-0042",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false,
+                "status": "missing"
+              }
+            ]
+          },
+          "cells": {
+            "correct": 0,
+            "total": 4,
+            "rate": 0.0,
+            "extra_rows": 0,
+            "extra_cells": 0,
+            "missing_rows": 1,
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_sku",
+                "expected_printed": "PUBLIC-ROW-001",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_desc",
+                "expected_printed": "public-cell-1",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "bin_loc",
+                "expected_printed": "public-cell-2",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "qty_used",
+                "expected_printed": "public-cell-3",
+                "predicted": null,
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ]
+          },
+          "normalized_fields": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "parsed_candidates": 0,
+            "uncredited_reasons": {
+              "missing": 1
+            },
+            "details": [
+              {
+                "key": [
+                  1,
+                  "work_order_id"
+                ],
+                "raw": null,
+                "value_type": "identifier",
+                "slot": "work_order_id",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "PUBLIC-0042",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ],
+            "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+          },
+          "normalized_cells": {
+            "correct": 0,
+            "total": 4,
+            "rate": 0.0,
+            "parsed_candidates": 0,
+            "uncredited_reasons": {
+              "missing": 4
+            },
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_sku",
+                "raw": null,
+                "value_type": "identifier",
+                "slot": "part_sku",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "PUBLIC-ROW-001",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "part_desc",
+                "raw": null,
+                "value_type": "text",
+                "slot": "part_desc",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-1",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "bin_loc",
+                "raw": null,
+                "value_type": "text",
+                "slot": "bin_loc",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-2",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              },
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "row_id": "REVIEW-ROW",
+                "column": "qty_used",
+                "raw": null,
+                "value_type": "text",
+                "slot": "qty_used",
+                "status": "missing",
+                "canonical": null,
+                "expected_normalized": "public-cell-3",
+                "reference_status": "supported",
+                "observed_exact": false,
+                "credited_exact": false
+              }
+            ],
+            "interpretation": "Strict typed normalized-value accuracy; printed accuracy, mapping failures and excess accounting remain separate. Quantity units are validated but normalized quantity compares only the number."
+          },
+          "rows": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "details": [
+              {
+                "table": "stock_parts",
+                "page": 1,
+                "row_ordinal": 0,
+                "exact": false
+              }
+            ]
+          },
+          "expected_absences": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "violations": 0,
+            "surplus_candidates": 0,
+            "details": []
+          },
+          "page_count": {
+            "correct": 0,
+            "total": 1,
+            "rate": 0.0,
+            "predicted": 0,
+            "expected": 1
+          },
+          "page_sentinels": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "adjacency": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "cross_page_links": {
+            "correct": 0,
+            "total": 0,
+            "rate": null,
+            "details": []
+          },
+          "text": {
+            "status": "scored",
+            "reference_tokens": 14,
+            "prediction_tokens": 0,
+            "substitutions": 0,
+            "deletions": 14,
+            "insertions": 0,
+            "error_rate": 1.0,
+            "alignment": "SequenceMatcher-autojunk=False; not minimum Levenshtein WER"
+          },
+          "reference_coverage": {
+            "scope": "generic independent public policy probe only"
+          },
+          "unmapped_content": [],
+          "mapping_coverage": {
+            "fields_with_candidate": 0,
+            "expected_fields": 1,
+            "cells_with_candidate": 0,
+            "expected_cells": 4,
+            "unsupported_or_missing_table_rows": 1,
+            "unclassified_content_records": 0,
+            "unmapped_table_physical_rows": 0,
+            "unmapped_table_physical_cells": 0,
+            "short_table_rows": 0,
+            "failure_reasons": [
+              "no_exact_dev_header_or_missing_table_rows",
+              "missing_field_candidates",
+              "native_parse_error"
+            ],
+            "interpretation": "Field/cell mismatches combine extraction/mapping and recognition errors. Unmapped cells are not asserted character-reading errors; raw token errors are reported separately."
+          },
+          "invention_limit": "Unmatched fields/rows/cells and absence violations are schema-relative signals; unrecognized prose is retained, not asserted factual hallucination."
+        }
+      },
+      "v2_status": "provided_prediction",
+      "policy_scores": {
+        "b0": {
+          "schema": "eld-mapping-v2-policy-score/1",
+          "fixture_id": "WP13-F04-conflict-v0",
+          "family_id": "WP13-F04",
+          "case": "conflict",
+          "completion": "not_run_after_failure",
+          "document_denominator": 1,
+          "completed_documents": 0,
+          "eligible": false,
+          "parse_errors": [
+            "no_page_markers"
+          ],
+          "visibility_problems": [],
+          "metrics": {
+            "slots": 5,
+            "eligible_slots": 0,
+            "unavailable_slots": 5,
+            "observed_candidates": 0,
+            "eligible_candidates": 0,
+            "covered_slots": 0,
+            "abstentions": 0,
+            "correct_assignments": 0,
+            "incorrect_assignments": 0,
+            "ambiguous_truth_assignments": 0,
+            "unknown_truth_assignments": 0,
+            "strict_correct_known_slots": 0,
+            "surplus_candidates_within_slots": 0,
+            "required_abstention_slots": 1,
+            "eligible_required_abstentions": 0,
+            "unavailable_required_abstentions": 1,
+            "required_abstention_violations": 0,
+            "required_abstention_observed": 0,
+            "unexpected_abstentions": 0,
+            "surplus_output_candidates": 0,
+            "truth_known": 5,
+            "eligible_truth_known": 0,
+            "unavailable_truth_known": 5,
+            "abstentions_truth_known": 0,
+            "required_abstention_observed_truth_known": 0,
+            "truth_ambiguous": 0,
+            "eligible_truth_ambiguous": 0,
+            "unavailable_truth_ambiguous": 0,
+            "abstentions_truth_ambiguous": 0,
+            "required_abstention_observed_truth_ambiguous": 0,
+            "truth_unknown": 0,
+            "eligible_truth_unknown": 0,
+            "unavailable_truth_unknown": 0,
+            "abstentions_truth_unknown": 0,
+            "required_abstention_observed_truth_unknown": 0,
+            "observed_surplus_output_candidates": 0
+          },
+          "rates": {
+            "coverage_all_slots": {
+              "numerator": 0,
+              "denominator": 5,
+              "rate": 0.0
+            },
+            "coverage_eligible": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            },
+            "strict_known_exact": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            },
+            "required_abstention_violation": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            }
+          },
+          "slots": [
+            {
+              "target": [
+                "field",
+                1,
+                "work_order_id"
+              ],
+              "kind": "field",
+              "truth_status": "known",
+              "action": "abstain",
+              "reason": "duplicate_equal",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "part_sku"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "part_desc"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "bin_loc"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "qty_used"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            }
+          ],
+          "surplus_output": [],
+          "row_truth": [
+            {
+              "table_id": "stock_parts",
+              "row_ordinal": 0,
+              "row_id": "REVIEW-ROW",
+              "known": 4,
+              "ambiguous": 0,
+              "unknown": 0,
+              "original_row_credit_scope": "declared_known_cells_only"
+            }
+          ],
+          "interpretation": "Abstention observations are not exact-value credits. Original scores and every policy opportunity remain separate."
+        },
+        "mapping_v1": {
+          "schema": "eld-mapping-v2-policy-score/1",
+          "fixture_id": "WP13-F04-conflict-v0",
+          "family_id": "WP13-F04",
+          "case": "conflict",
+          "completion": "not_run_after_failure",
+          "document_denominator": 1,
+          "completed_documents": 0,
+          "eligible": false,
+          "parse_errors": [
+            "no_page_markers"
+          ],
+          "visibility_problems": [],
+          "metrics": {
+            "slots": 5,
+            "eligible_slots": 0,
+            "unavailable_slots": 5,
+            "observed_candidates": 0,
+            "eligible_candidates": 0,
+            "covered_slots": 0,
+            "abstentions": 0,
+            "correct_assignments": 0,
+            "incorrect_assignments": 0,
+            "ambiguous_truth_assignments": 0,
+            "unknown_truth_assignments": 0,
+            "strict_correct_known_slots": 0,
+            "surplus_candidates_within_slots": 0,
+            "required_abstention_slots": 1,
+            "eligible_required_abstentions": 0,
+            "unavailable_required_abstentions": 1,
+            "required_abstention_violations": 0,
+            "required_abstention_observed": 0,
+            "unexpected_abstentions": 0,
+            "surplus_output_candidates": 0,
+            "truth_known": 5,
+            "eligible_truth_known": 0,
+            "unavailable_truth_known": 5,
+            "abstentions_truth_known": 0,
+            "required_abstention_observed_truth_known": 0,
+            "truth_ambiguous": 0,
+            "eligible_truth_ambiguous": 0,
+            "unavailable_truth_ambiguous": 0,
+            "abstentions_truth_ambiguous": 0,
+            "required_abstention_observed_truth_ambiguous": 0,
+            "truth_unknown": 0,
+            "eligible_truth_unknown": 0,
+            "unavailable_truth_unknown": 0,
+            "abstentions_truth_unknown": 0,
+            "required_abstention_observed_truth_unknown": 0,
+            "observed_surplus_output_candidates": 0
+          },
+          "rates": {
+            "coverage_all_slots": {
+              "numerator": 0,
+              "denominator": 5,
+              "rate": 0.0
+            },
+            "coverage_eligible": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            },
+            "strict_known_exact": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            },
+            "required_abstention_violation": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            }
+          },
+          "slots": [
+            {
+              "target": [
+                "field",
+                1,
+                "work_order_id"
+              ],
+              "kind": "field",
+              "truth_status": "known",
+              "action": "abstain",
+              "reason": "duplicate_equal",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "part_sku"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "part_desc"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "bin_loc"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "qty_used"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            }
+          ],
+          "surplus_output": [],
+          "row_truth": [
+            {
+              "table_id": "stock_parts",
+              "row_ordinal": 0,
+              "row_id": "REVIEW-ROW",
+              "known": 4,
+              "ambiguous": 0,
+              "unknown": 0,
+              "original_row_credit_scope": "declared_known_cells_only"
+            }
+          ],
+          "interpretation": "Abstention observations are not exact-value credits. Original scores and every policy opportunity remain separate."
+        },
+        "mapping_v2": {
+          "schema": "eld-mapping-v2-policy-score/1",
+          "fixture_id": "WP13-F04-conflict-v0",
+          "family_id": "WP13-F04",
+          "case": "conflict",
+          "completion": "not_run_after_failure",
+          "document_denominator": 1,
+          "completed_documents": 0,
+          "eligible": false,
+          "parse_errors": [
+            "no_page_markers"
+          ],
+          "visibility_problems": [],
+          "metrics": {
+            "slots": 5,
+            "eligible_slots": 0,
+            "unavailable_slots": 5,
+            "observed_candidates": 0,
+            "eligible_candidates": 0,
+            "covered_slots": 0,
+            "abstentions": 0,
+            "correct_assignments": 0,
+            "incorrect_assignments": 0,
+            "ambiguous_truth_assignments": 0,
+            "unknown_truth_assignments": 0,
+            "strict_correct_known_slots": 0,
+            "surplus_candidates_within_slots": 0,
+            "required_abstention_slots": 1,
+            "eligible_required_abstentions": 0,
+            "unavailable_required_abstentions": 1,
+            "required_abstention_violations": 0,
+            "required_abstention_observed": 0,
+            "unexpected_abstentions": 0,
+            "surplus_output_candidates": 0,
+            "truth_known": 5,
+            "eligible_truth_known": 0,
+            "unavailable_truth_known": 5,
+            "abstentions_truth_known": 0,
+            "required_abstention_observed_truth_known": 0,
+            "truth_ambiguous": 0,
+            "eligible_truth_ambiguous": 0,
+            "unavailable_truth_ambiguous": 0,
+            "abstentions_truth_ambiguous": 0,
+            "required_abstention_observed_truth_ambiguous": 0,
+            "truth_unknown": 0,
+            "eligible_truth_unknown": 0,
+            "unavailable_truth_unknown": 0,
+            "abstentions_truth_unknown": 0,
+            "required_abstention_observed_truth_unknown": 0,
+            "observed_surplus_output_candidates": 0
+          },
+          "rates": {
+            "coverage_all_slots": {
+              "numerator": 0,
+              "denominator": 5,
+              "rate": 0.0
+            },
+            "coverage_eligible": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            },
+            "strict_known_exact": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            },
+            "required_abstention_violation": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": null
+            }
+          },
+          "slots": [
+            {
+              "target": [
+                "field",
+                1,
+                "work_order_id"
+              ],
+              "kind": "field",
+              "truth_status": "known",
+              "action": "abstain",
+              "reason": "duplicate_equal",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "part_sku"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "part_desc"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "bin_loc"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            },
+            {
+              "target": [
+                "cell",
+                1,
+                "stock_parts",
+                0,
+                "qty_used"
+              ],
+              "kind": "cell",
+              "truth_status": "known",
+              "action": "assign",
+              "reason": "supported",
+              "eligible": false,
+              "candidate_count": 0,
+              "candidates": [],
+              "strict_correct_known": null,
+              "required_abstention_violation": null,
+              "abstained": null
+            }
+          ],
+          "surplus_output": [],
+          "row_truth": [
+            {
+              "table_id": "stock_parts",
+              "row_ordinal": 0,
+              "row_id": "REVIEW-ROW",
+              "known": 4,
+              "ambiguous": 0,
+              "unknown": 0,
+              "original_row_credit_scope": "declared_known_cells_only"
+            }
+          ],
+          "interpretation": "Abstention observations are not exact-value credits. Original scores and every policy opportunity remain separate."
+        }
+      }
+    }
+  ],
+  "historical_summary": {
+    "b0": {
+      "vocabulary_eval": {
+        "document_denominator": 1,
+        "completed_documents": 0,
+        "families": {
+          "WP13-F04": {
+            "documents": 1,
+            "completed": 0,
+            "metrics": {
+              "fields": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "cells": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "normalized_fields": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "normalized_cells": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "rows": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "expected_absences": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "page_count": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "page_sentinels": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "adjacency": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "cross_page_links": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "text_error_rate": {
+                "mean": 1.0,
+                "documents_with_denominator": 1
+              }
+            }
+          }
+        },
+        "family_macro": {
+          "fields": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "cells": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "normalized_fields": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "normalized_cells": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "rows": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "expected_absences": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "page_count": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "page_sentinels": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "adjacency": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "cross_page_links": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "text_error_rate": {
+            "mean": 1.0,
+            "families_with_denominator": 1
+          }
+        },
+        "variants": {
+          "conflict": {
+            "documents": 1,
+            "completed": 0,
+            "family_macro": {
+              "fields": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "cells": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "normalized_fields": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "normalized_cells": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "rows": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "expected_absences": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "page_count": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "page_sentinels": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "adjacency": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "cross_page_links": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "text_error_rate": {
+                "mean": 1.0,
+                "families_with_denominator": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "mapping_v1": {
+      "vocabulary_eval": {
+        "document_denominator": 1,
+        "completed_documents": 0,
+        "families": {
+          "WP13-F04": {
+            "documents": 1,
+            "completed": 0,
+            "metrics": {
+              "fields": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "cells": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "normalized_fields": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "normalized_cells": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "rows": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "expected_absences": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "page_count": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "page_sentinels": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "adjacency": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "cross_page_links": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "text_error_rate": {
+                "mean": 1.0,
+                "documents_with_denominator": 1
+              }
+            }
+          }
+        },
+        "family_macro": {
+          "fields": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "cells": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "normalized_fields": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "normalized_cells": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "rows": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "expected_absences": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "page_count": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "page_sentinels": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "adjacency": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "cross_page_links": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "text_error_rate": {
+            "mean": 1.0,
+            "families_with_denominator": 1
+          }
+        },
+        "variants": {
+          "conflict": {
+            "documents": 1,
+            "completed": 0,
+            "family_macro": {
+              "fields": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "cells": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "normalized_fields": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "normalized_cells": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "rows": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "expected_absences": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "page_count": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "page_sentinels": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "adjacency": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "cross_page_links": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "text_error_rate": {
+                "mean": 1.0,
+                "families_with_denominator": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "mapping_v2": {
+      "vocabulary_eval": {
+        "document_denominator": 1,
+        "completed_documents": 0,
+        "families": {
+          "WP13-F04": {
+            "documents": 1,
+            "completed": 0,
+            "metrics": {
+              "fields": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "cells": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "normalized_fields": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "normalized_cells": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "rows": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "expected_absences": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "page_count": {
+                "mean": 0.0,
+                "documents_with_denominator": 1
+              },
+              "page_sentinels": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "adjacency": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "cross_page_links": {
+                "mean": null,
+                "documents_with_denominator": 0
+              },
+              "text_error_rate": {
+                "mean": 1.0,
+                "documents_with_denominator": 1
+              }
+            }
+          }
+        },
+        "family_macro": {
+          "fields": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "cells": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "normalized_fields": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "normalized_cells": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "rows": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "expected_absences": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "page_count": {
+            "mean": 0.0,
+            "families_with_denominator": 1
+          },
+          "page_sentinels": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "adjacency": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "cross_page_links": {
+            "mean": null,
+            "families_with_denominator": 0
+          },
+          "text_error_rate": {
+            "mean": 1.0,
+            "families_with_denominator": 1
+          }
+        },
+        "variants": {
+          "conflict": {
+            "documents": 1,
+            "completed": 0,
+            "family_macro": {
+              "fields": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "cells": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "normalized_fields": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "normalized_cells": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "rows": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "expected_absences": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "page_count": {
+                "mean": 0.0,
+                "families_with_denominator": 1
+              },
+              "page_sentinels": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "adjacency": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "cross_page_links": {
+                "mean": null,
+                "families_with_denominator": 0
+              },
+              "text_error_rate": {
+                "mean": 1.0,
+                "families_with_denominator": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "policy_summary": {
+    "sentinel_documents": 1,
+    "preselected_id": "WP13-F04-conflict-v0",
+    "limit": "Single prespecified sentinel; not the twelve-author-document population."
+  },
+  "interpretation": "Unchanged end-to-end metrics and accepted separate policy metrics on identical raw outputs. Gains, losses, neutral and unavailable all retained; abstentions are not correct values."
+}
