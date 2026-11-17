@@ -1,0 +1,5 @@
+# WP-0011 /001 runtime adapter scope clarification
+
+Within already authorized qualification/coverage_v1 ownership, author /001 includes actual bounded runtime/release adapter preparation and CPU guard/dry-run checks. This replaces the old runtime assumption of four fresh documents with the declared twelve-primary/two-warmup author and one-sentinel/two-warmup reviewer schedules. Existing Q0, baseline and mapping_v1 remain byte-identical. This is protocol plumbing, not a quality treatment. Independent /002 reviews actual adapter logic before fresh unseal. No model import/call, live GPU query or runtime directory creation is released by this clarification. Exact later execution requires root-bound candidate, admitted input/protocol and observed sole lease. Native public schema coordination and independent P11-01..06 checkpoints remain mandatory.
+
+Proposed later paths are evaluation/coverage_v1/ (preserving corpus/r1 relative layout), and C:/Users/jackg/eLedgerCare-Coverage/WP-0011/author and /reviewer. Custody remains /sealed. These are scoped future targets, not running resources.
