@@ -1013,3 +1013,11 @@ WP-0012 integration010bf2172c9 and independent011ed9651ed ACCEPTED/VERIFIED on s
 WP-0012 reviewer004 r3 RUNNING_CONFIRMED18:11:51.101510Z at held clean bf2172c9, authority2d19a46b, tool43402/chunkb8187f, livePID38196/create134394127111073911. Validation0; exactly2 attempts/no retries, actual outcomes and resource return pending. See reviewer-004-r3-dispatch.json. All R&D inference held.
 
 WP-0012 reviewer004 r3 actual live COMPLETED18:20:39Z,2attempts/results, validation/live/wrapper/tool0; root explicitACK6a34087418:23:11Z after12ownedPIDs/ports absent and Q0/model/notices verified. Earlier091 commit contains observations only; writer encoding typo and premature commit wording retained/corrected. Canonical004 packaging pending. WP-0013 author007 RELEASED at held HEADda6c91e0/source4477104e/corpusaf22f632, lease WP-0013-author-vocabulary-20261117T182342Z,2warmups+12primaries/no retry. Exact kickoff WP-0013-eld-mapping-author-execution-007.md; actual dispatch pending.
+
+WP-0013 initial author007 actual invocation18:24:36Z stopped pre-model at18:24:41Z: supervisor/child/tool1, bare Git missing in restricted child, all14not_run/all12primaries unavailable; sameHEAD CPUscore0. Root return observed/acknowledged; original007 preserved, no retry. CPU-only runtime correction/review released under WP-0013-runtime-correction-010-011.md; source/policy/corpus frozen except narrow runtime wiring and source-review report route.
+
+| Reservation | Owner/category | Canonical path | State |
+| --- | --- | --- | --- |
+| WP-0013 /010 | eld-mapping-author / implementation | docs/agent-reports/eld-mapping-author/WP-0013/010_2026-11-17_implementation_eld-mapping-author.md | CPU-only runtime Git integration after007 publication |
+| WP-0013 /011 | eld-mapping-reviewer / review | docs/agent-reports/eld-mapping-reviewer/WP-0013/011_2026-11-17_review_eld-mapping-reviewer.md | Independent restricted-child verification; final waits exact010/source |
+| WP-0013 /012 | eld-mapping-author / research | docs/agent-reports/eld-mapping-author/WP-0013/012_2026-11-17_research_eld-mapping-author.md | RESERVED separate recovery; no inference lease |
