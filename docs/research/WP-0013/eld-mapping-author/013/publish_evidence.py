@@ -89,6 +89,8 @@ def verify(deliverable, out):
     for row in manifest['copied_files']:
         original = Path(row['original']).read_bytes(); copied = (ROOT/row['published_path']).read_bytes()
         assert original == copied and len(copied) == row['bytes'] and sha(copied) == row['sha256']
+        assert row['published_path'] in after, 'Original copy omitted from Git publication'
+        assert git('cat-file', 'blob', after[row['published_path']][2]) == copied
     for row in manifest['input_files']:
         local = (ROOT/row['path']).read_bytes(); assert len(local) == row['bytes_worktree'] and sha(local) == row['sha256_worktree']
     for row in manifest['external_executables']:
