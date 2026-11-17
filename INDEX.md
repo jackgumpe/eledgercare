@@ -921,3 +921,6 @@ WP-0013 private foundations PUBLISHED/VERIFIED51b02bf592c766334694f005939cff9b44
 
 
 WP-0013 preliminary reviewer PUBLISHED/VERIFIEDfd9e6b9da0e8aa3aadaa18d9261f6e69b7ee4557; deliverabled551492618cd8521eb19886885eb2f195987fc83. Root verifies13artifacts/3615preserved paths/64legacy source identities/3exact proposal inputs/exact origin. Original13probes,corrected2invoice cases and3row probes retained; reviewer fixture typo accurately separated. P13-01empty/partial row metrics and P13-02canonical-only suppression are being addressed before author001; canonical002 remains held for exact runnable001. Reviewer preparation complete/idle.
+
+
+WP-0013 exact public protocol review RUNNING_CONFIRMED14:10:31Z at clean merged3ac149bdadb1484b2a07ce75441d27b3b1a2df13, author candidate66204677ee7c84a13c98bf1702d03640e603745f/treee224a4d66bc2ac59cf2253d5ec6248ceb20869cc over preliminaryfd9e6b9. This overlaps source/CPU inspection while author001 publication is packaged; canonical002 still waits root final001 audit/binding. No fresh-content or implementation/model gate released.
