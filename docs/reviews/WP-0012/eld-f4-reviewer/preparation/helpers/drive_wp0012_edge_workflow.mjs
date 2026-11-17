@@ -79,7 +79,7 @@ async function runArchiveSearch(page, query, source) {
     null,
     { timeout: 15_000 },
   );
-  const cards = page.locator('[data-testid^="archive-card-"]:not([data-testid^="archive-card-title-"])');
+  const cards = page.locator('article[data-testid^="archive-card-"]');
   const count = await cards.count();
   const ids = [];
   for (let i = 0; i < count; i++) {
@@ -215,6 +215,7 @@ async function main() {
         );
 
         const shotPath = path.join(screenshotDir, 'cpu-preflight-ocr-disabled-doc.png');
+        await page.waitForTimeout(800);
         await page.screenshot({ path: shotPath, fullPage: true });
 
         await page.getByTestId('document-open-archive').click();
@@ -224,7 +225,7 @@ async function main() {
         const reviewedBrowse = await runArchiveSearch(page, '', 'reviewed');
         assertCond(
           'scratch_archive_unprocessed_visibility',
-          allBrowse.documentIds.includes(docId) && machineBrowse.count === 0 && reviewedBrowse.count === 0,
+          allBrowse.count === 1 && allBrowse.documentIds[0] === docId && machineBrowse.count === 0 && reviewedBrowse.count === 0,
           { allBrowse, machineBrowse, reviewedBrowse },
         );
 

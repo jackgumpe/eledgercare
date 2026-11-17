@@ -1,0 +1,9 @@
+Helper selector refinement after inspecting v1 CPU-prep receipt (`234878326696800a16cb901913dbf732268578ea`, 2026-11-17 UTC)
+Observed in `edge-cpu-preflight-scratch.json`:
+  `"allBrowse": { "count": 2, "documentIds": ["list", "01a1e9ed-caf3-7efa-aa99-6906066fc663"] }`
+Root cause & helper-only refinement (`v2`):
+  `[data-testid^="archive-card-"]:not([data-testid^="archive-card-title-"])` matched both `<div data-testid="archive-card-list">`
+  (`web/src/app/archive/archive-page.ts:179`) and `<article data-testid="archive-card-<uuid>">`, inflating non-empty `count` by 1
+  (which would cause held `live-phase2-post-restart`'s `browseAll.count === 2` check to observe `3`).
+  Tightened selector in `drive_wp0012_edge_workflow.mjs` to `article[data-testid^="archive-card-"]` (plus an 800 ms settle before
+  full-page PDF iframe screenshots), froze helper `v2`, and re-executed the full `--require-clean` CPU preparation validation.
