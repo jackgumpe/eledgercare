@@ -1,0 +1,154 @@
+{"source": "5e75cacd11f18bf6135376e3e1e10887c1447e1f", "check_commit": "ff21272a0c45d2859e273003a61e5ff88be78abb", "started_utc": "2026-11-17T17:50:22.974246+00:00", "pid": 38860, "argv": ["C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\reviewer-v7-independent-check\\helpers\\check_boundaries.py", "--output", "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\docs\\implementation\\WP-0012\\eld-f4-implementer\\reviewer-v7-independent-check\\evidence\\pure-01"], "finished_utc": "2026-11-17T17:50:27.837434+00:00", "passed": true, "exit_code": 0}
+{
+  "controls": [
+    {
+      "control": "actual-q0-schema-accepted",
+      "expected": "pass",
+      "actual": "pass",
+      "value": null,
+      "passed": true
+    },
+    {
+      "control": "q0-reject-schema",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: schema')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-model_manifest_sha256",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: model_manifest_sha256')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-dependency_lock_sha256",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: dependency_lock_sha256')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-verified_model_file_count",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: verified_model_file_count')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-total_model_bytes",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: total_model_bytes')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-unexpected_extra_model_entries",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: unexpected_extra_model_entries')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-missing_or_mismatched_distributions",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: missing_or_mismatched_distributions')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-forbidden_modules_present",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: forbidden_modules_present')",
+      "passed": true
+    },
+    {
+      "control": "q0-reject-verified_model_files",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verified model file inventory is malformed')",
+      "passed": true
+    },
+    {
+      "control": "q0-missing-field-no-default",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verification condition failed: total_model_bytes')",
+      "passed": true
+    },
+    {
+      "control": "q0-nondictionary",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Q0 verifier returned a malformed receipt')",
+      "passed": true
+    },
+    {
+      "control": "actual-file-lengths-and-volume-free",
+      "expected": "pass",
+      "actual": "pass",
+      "value": {
+        "schema": "eledgercare.wp0012.owned-demo-storage/1",
+        "observed_utc": "2026-11-17T17:50:27.831065+00:00",
+        "root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-f4-implementer\\.local\\independent011-storage-pure-01",
+        "file_count": 2,
+        "demo_root_bytes": 10,
+        "demo_drive_free_bytes": 40980234240,
+        "storage_cap_bytes": 4294967296,
+        "free_floor_bytes": 21474836480
+      },
+      "passed": true
+    },
+    {
+      "control": "missing-root-rejected",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo root is missing or linked')",
+      "passed": true
+    },
+    {
+      "control": "file-root-rejected",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo root is missing or linked')",
+      "passed": true
+    },
+    {
+      "control": "actual-bytes-over-cap",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Demo disk/storage bounds failed: bytes=10, free=40980234240')",
+      "passed": true
+    },
+    {
+      "control": "under-floor-observation",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Demo disk/storage bounds failed: bytes=10, free=21474836479')",
+      "passed": true
+    },
+    {
+      "control": "malformed-free-observation",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo free-space observation is malformed')",
+      "passed": true
+    },
+    {
+      "control": "linked-entry-observation",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo tree contains a linked entry')",
+      "passed": true
+    },
+    {
+      "control": "inaccessible-tree-observation",
+      "expected": "reject",
+      "actual": "reject",
+      "error": "ReviewerLeaseGuardError('Owned demo tree enumeration failed')",
+      "passed": true
+    }
+  ]
+}
