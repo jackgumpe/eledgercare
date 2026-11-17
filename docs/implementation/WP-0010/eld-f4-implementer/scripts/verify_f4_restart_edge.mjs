@@ -17,7 +17,9 @@ const SEED7_DOC = '01a1e8aa-cbe8-7306-a339-816fae2a05e0';
 
 const EXPECTED_WO_PDF_SHA = '47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd';
 const EXPECTED_MP_PDF_SHA = '15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3';
-const EXPECTED_F1_PDF_SHA = '875a2d8ca1ba87db17a866898902116a9f6579bd6dc4c599850c34eb392526a0';
+const EXPECTED_F1_PDF_SHA = createHash('sha256')
+  .update(readFileSync(path.join(repoRoot, 'tests', 'fixtures', 'F1-SWO-001.pdf')))
+  .digest('hex');
 
 async function waitForCondition(fn, description, timeoutMs = 20000) {
   const deadline = Date.now() + timeoutMs;
