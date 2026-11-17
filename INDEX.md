@@ -938,3 +938,6 @@ WP-0013 custodian final sealed reservation RUNNING_CONFIRMED at exact48ffd871eec
 
 
 WP-0012 reviewer initial preparation PUBLISHED/VERIFIED7f3f8626489e898a50d275e93ee904660e97fd59, helperc09cf1aa8282e440e364c6020152dd257355643b. Root verifies30artifacts+inventory,3615preserved paths,48links,32CPU assertions,empty ready DB and absent6boundPIDs/ownedports/exactorigin. CLI13000 endedpostpublication providerOAuthDNS/resultERROR, wrapper0. Exact002 on author165b2421 plus own-helper lease/WDDM/output-preservation reconciliation is released; actual new dispatch recorded separately. No actual004/model lease.
+
+
+WP-0012 exact independent002 RUNNING_CONFIRMED under7af4cd0e2e8ffbcb9176fc78508b6cd601c16fc0, same Carbon61105d43/gemini-4-carbon-high/high, CLI14964/tool45949. Bound author165b2421/sourcead5202a0, preserving own prep7f3f8626; root-specific future004 guard reconciliation is included. Receipt reviewer-002-dispatch.json. CPU only; no live attempt or lease.
