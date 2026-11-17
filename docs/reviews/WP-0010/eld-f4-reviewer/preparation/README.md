@@ -1,0 +1,58 @@
+# WP-0010 Independent Reviewer Acceptance Resource Preparation (`eld-f4-reviewer`)
+
+- **Reviewer / Session Disclosure:** `eld-f4-reviewer` — continued independent Google DeepMind Gemini 4 Carbon (High) session in Antigravity CLI conversation `61105d43-7706-45f2-9176-69d3256248e0` (`effort: high`; backend checkpoint identifier not separately exposed; reporting recipient: `eld-coordinator`).
+- **Prior Turn Status Disclosure:** Prior immutable design review `WP-0010 / 002` ([002_2026-11-17_review_eld-f4-reviewer.md](../../../../agent-reports/eld-f4-reviewer/WP-0010/002_2026-11-17_review_eld-f4-reviewer.md) at `85d879a1adc0ee62090f4c6a5c9a7fb8eb5f3a96`) completed publication before a transient post-publication provider DNS `resultERROR` (`OS wrapper 0`), independently audited by `eld-coordinator` in [design-acceptance-audit.json](../../../../coordination/WP-0010/design-acceptance-audit.json); CLI `SUCCESS` is never claimed for that prior turn, and `/002` + [design/](../design/README.md) remain completely untouched.
+- **Canonical `/004` Gate:** **Not published.** Canonical `WP-0010 / 004` product-source and runtime review remains held until `eld-coordinator` binds exact author `/003` implementation revisions and evidence.
+- **Bound Kickoff & Authority:** [WP-0010-eld-f4-reviewer-preparation.md](../../../../kickoffs/WP-0010-eld-f4-reviewer-preparation.md) at coordinator authority `7345ef03dfa4d5f039259d0b8b9505685112469d` (unchanged accepted pre-F4 F3 product source `dda4b4d5856ac45105c31ba1d6d6813debdab8a7`).
+- **Frozen Deliverable Helpers Commit (`review/wp-0010-f4`):** `bd741ecd4181429b9d6903e59b91ab2d0ec7b7a3`
+  - [prepare_and_verify_f3_seed.py](helpers/prepare_and_verify_f3_seed.py) — `sha256_raw == sha256_lf == 070b88e19bcf00f2e6c70ef79774de667b442bde0ac8760df451947aa4450cd4`
+  - [verify_f3_seed_ui_edge.mjs](helpers/verify_f3_seed_ui_edge.mjs) — `sha256_raw == sha256_lf == bbf970dfe62d27f48cb0d6cdb31ccbb351c50b43e15aa33366c588561589e075`
+  - [build_preparation_inventory.py](helpers/build_preparation_inventory.py) — `sha256_raw == sha256_lf == c93ed693be9132ed5bf5e7231b295c2859b6427ae20bb2903a7ba3f0494427b4`
+  - [F4-ACCEPTANCE-PLAN.md](F4-ACCEPTANCE-PLAN.md) — forward-migration and `/004` verification plan
+
+## 1. Independent Attribution Boundary (Imported Fixtures vs. Live API Actions)
+
+Zero `eld-f4-implementer` author preparation helpers, seed databases, or assertions were read or copied, and zero GPU/model processes or network downloads were executed:
+
+1. **Imported Test-Only Extraction Fixtures (`SEED-R01`..`SEED-R07`, `7` completed `extraction_results`):** Seeded via least-privilege runtime role `eledgercare_app` advancing `eledgercare.extraction_fencing_seq` (`tokens 1..8`) from genuine accepted `WP-0006` independent reviewer runtime artifacts ([trial-summary-reviewer-v2.json](../../../WP-0006/eld-next-reviewer/runtime-execution/trial-summary-reviewer-v2.json) at `7f0ec3a9338606ce54c4c6d2eeabab8a2c245e2a`, `/004` report `c854a1d4c306c3b10d78df42a1a2552a06bb4a98`, product source `8a73b7a5dab51e3ccf803aceedded4929529dd35`):
+   - [SYN-WO-01-v1-raster300.pdf](../../../../../tests/fixtures/SYN-WO-01-v1-raster300.pdf) (`372,258` B, SHA-256 `47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd`) + raw model output (`3,236` B, SHA-256 `7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95`).
+   - [SYN-MP-01-v0-clean.pdf](../../../../../tests/fixtures/SYN-MP-01-v0-clean.pdf) (`8,422` B, `3` pages, SHA-256 `15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3`) + raw `colspan` table output (`7,511` B, SHA-256 `c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639`).
+   - `SEED-R01`..`SEED-R03` preserve exact `WP-0006` Scenario 1–3 UUIDs (including Scenario 3's interrupted Attempt #1 + completed Retry Attempt #2); `SEED-R04`..`SEED-R07` deterministically remap `document_id`/`job_id`/`attempt_id`/`result_id` to `01a20400-...-0004`..`0007` with identical verified PDF and raw UTF-8 digests.
+2. **Live Unchanged Pre-F4 F1/F3 HTTP API Operations (`127.0.0.1:5690`, `LocalOcr:Enabled=false`):**
+   - `SEED-R08` & `SEED-R09`: real `POST /api/documents` HTTP submissions of [F1-SWO-001.pdf](../../../../../tests/fixtures/F1-SWO-001.pdf) (`1,656` B, SHA-256 `875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb`), with `SEED-R08` transitioned via `eledgercare_app` (`token=9`) to `failed` carrying `diagnostic_raw_output_utf8 = '<PAGE><BLOCK>text[0,0,10,10]<FORK>DIAGNOSTIC-PARTIAL-RAW-NEVER-SEARCHABLE'` (`0` `extraction_results`) and `SEED-R09` retained at `awaiting_extraction` (`POST /extraction` verified `503 extraction_disabled`).
+   - `8` real `POST /api/documents/{documentId}/review/revisions` HTTP saves (`40` `work_order_review_fields` rows across `5` `work_order_review_heads`) executed against unchanged `ELedgerCare.Api`.
+
+## 2. Retained Pre-F4 F3 Seed Matrix (`eledgercare_f4_reviewer_seed_f3`)
+
+| Seed Key | `document_id` | `result_id` / `job_id` | Tokens | Origin | Live API Revisions (`revisionId`) | Latest Reviewed vs. Current Head |
+| --- | --- | --- | --- | --- | --- | --- |
+| **`SEED-R01`** | `01a1e571-2838-714b-861b-bf0835d7c90a` | Result `01a1e573-a855-7735-96e1-f5d14cada602` | `1` | Imported F2 Scen 1 (`SYN-WO-01`, exact IDs) | `#1` `reviewed` (`01a1e8cf-ede4-7613-ade2-a9811c7de9ad`), `#2` `reviewed` (`01a1e8cf-eebf-7b18-bf11-9344dcbee7ea`), `#3` `draft` (`01a1e8cf-eede-7b32-9e77-c0f100da697c`) | **Latest reviewed: `#2`** (null-prov literal `%`/`_`/`\`, `building_unit=unknown` + reason, astral `🔧` + `Café Élite`) · **Head: `#3` (`draft`)** |
+| **`SEED-R02`** | `01a1e573-ca14-72ba-a46a-c84690288e22` | Result `01a1e578-8bfa-7bba-b104-ea8309dbfd9e` | `2` | Imported F2 Scen 2 (`SYN-MP-01` `3`p `colspan`, exact IDs) | None | **Latest reviewed: `none`** · **Head: `Revision 0` (`unreviewed`)** |
+| **`SEED-R03`** | `01a1e578-8f3a-7e0c-826b-a2c9dc066a8f` | Result `01a1e57b-bfbd-7447-916c-92b386e5931d` | `3, 4` | Imported F2 Scen 3 (`SYN-WO-01` retry, exact IDs) | `#1` `reviewed` (`01a1e8cf-eee6-74be-b41d-b8e67d581109`) | **Latest reviewed: `#1`** (`WO-009901-CLEAN-HEAD`) · **Head: `#1` (`reviewed`)** |
+| **`SEED-R04`** | `01a20400-0000-7000-8000-000000000004` | Result `01a20400-4000-7000-8000-000000000004` | `5` | Imported F2 Scen 2 (`SYN-MP-01` `3`p, ID-remapped) | `#1` `reviewed` (`01a1e8cf-eeed-708c-b31a-dbaf1504898d`) | **Latest reviewed: `#1`** (Page-2 table prov `p2:b2:r3:c1` `"WO-004724"` + null-prov `"ZeroCoords"` edit) · **Head: `#1` (`reviewed`)** |
+| **`SEED-R05`** | `01a20400-0000-7000-8000-000000000005` | Result `01a20400-4000-7000-8000-000000000005` | `6` | Imported F2 Scen 1 (`SYN-WO-01`, ID-remapped) | `#1` `draft` (`01a1e8cf-ef01-7c17-be60-15009ee3315b`), `#2` `draft` (`01a1e8cf-ef08-7d58-9cbd-60d134bc5d78`) | **Latest reviewed: `none` (draft-only)** · **Head: `#2` (`draft`)** |
+| **`SEED-R06`** | `01a20400-0000-7000-8000-000000000006` | Result `01a20400-4000-7000-8000-000000000006` | `7` | Imported F2 Scen 1 (ID-remapped, `submitted_at=2026-11-16T18:00:00.123456Z`) | `#1` `reviewed` (`01a1e8cf-ef0f-72e8-963a-18bd5405209e`) | **Latest reviewed: `#1`** (`WO-0006-TIE-LOW`) · **Head: `#1` (`reviewed`)** |
+| **`SEED-R07`** | `01a20400-0000-7000-8000-000000000007` | Result `01a20400-4000-7000-8000-000000000007` | `8` | Imported F2 Scen 2 (`3`p, ID-remapped, `submitted_at=2026-11-16T18:00:00.123456Z`) | None | **Latest reviewed: `none`** · **Head: `Revision 0` (`unreviewed`)** |
+| **`SEED-R08`** | `01a1e8cf-ec7a-744c-bbd4-04074813c931` | Job `01a1e8cf-ec7a-756d-b3d4-8c7a8c1b6e11` | `9` | Live HTTP `POST /api/documents` (`F1-SWO-001.pdf`) + failed attempt (`01a20400-3000-...-0008`) | None (`409 extraction_not_completed`) | **`failed`** (`diagnostic_raw_output_utf8` present, `0` `extraction_results`) |
+| **`SEED-R09`** | `01a1e8cf-ed70-7826-a834-61d5a3ce13bd` | Job `01a1e8cf-ed70-7de6-a937-1052eeeee1bd` | — | Live HTTP `POST /api/documents` (`F1-SWO-001.pdf`) | None (`409 extraction_not_completed`) | **`awaiting_extraction`** (`0` attempts, `0` results) |
+
+## 3. Decisive Post-Freeze Verification & Canonical Table Digest
+
+Executed cleanly from frozen `bd741ecd4181429b9d6903e59b91ab2d0ec7b7a3` (`--require-clean`):
+
+- **Primary Receipt:** [preparation-seed-receipt.json](observations/preparation-seed-receipt.json) — **`37 / 37` assertions passed** (`0` failures post-freeze).
+- **Canonical 8-Table SHA-256 (`eledgercare_f4_reviewer_seed_f3`):** **`841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993`** (verified identical before and after historical idempotent replay `200`, API GET/Range checks, `13 / 13` `eledgercare_app` least-privilege SQL denials, and Microsoft Edge UI smoke).
+- **Table Counts & Fencing Sequence:** `documents=9`, `original_artifacts=9`, `processing_jobs=9`, `execution_attempts=9`, `extraction_results=7`, `work_order_review_heads=5`, `work_order_review_revisions=8`, `work_order_review_fields=40`, `extraction_fencing_seq = {last_value: 9, is_called: true}`.
+- **PostgreSQL 18.7 Cluster Integrity:** Verified `1,597` files (`151,078,582` B), subset manifest SHA-256 `47c3deb9c917f79c353b3683b2c2611ee975285ea06226c8f72444c96ce9051f`, Authenticode `Valid`, `127.0.0.1:55439`, `lc_collate=C`, `lc_ctype=C`, `data_checksums=on`, `fsync=on`, `full_page_writes=on`, `synchronous_commit=on`, `scram-sha-256`, and pre-F4 migrations `20261114182147_InitialDurableIntake`, `20261116052029_AddLocalExtraction`, `20261116200918_AddWorkOrderReview`.
+- **Microsoft Edge Read-Only UI Smoke (`127.0.0.1:4710` -> `127.0.0.1:5690`):** [edge-ui-smoke-receipt.json](observations/edge-ui-smoke-receipt.json) — Edge `157.0.4341.60` verified `SEED-R01` document screen, Draft `#3` head with prior-reviewed warning, pinned historical Reviewed `#2` (`/review/revisions/2`), and `SEED-R04` 3-page `#page=2` PDF preview navigation with `0` non-GET API requests and `0` `localStorage`/`sessionStorage` keys.
+- **Sanitized Step Logs:** [01-pg-cluster-start.log](observations/logs/01-pg-cluster-start.log), [02-prepare-f3-seed-db.log](observations/logs/02-prepare-f3-seed-db.log), [03-edge-ui-readonly-smoke.log](observations/logs/03-edge-ui-readonly-smoke.log), [04-pg-cluster-stop.log](observations/logs/04-pg-cluster-stop.log), [owned-api-5690.log](observations/logs/owned-api-5690.log), [owned-ui-4710.log](observations/logs/owned-ui-4710.log) (`0` credentials leaked).
+- **Retained Pre-Freeze Failures:** All 4 pre-freeze setup/dry-run errors are preserved unaltered in [retained-failures/README.md](retained-failures/README.md).
+
+## 4. Resource Return & External Effects Classification
+
+- **Resource Return Receipt:** [resource-return.json](resource-return.json) & complete file manifest [preparation-inventory.json](preparation-inventory.json).
+- **Owned Loopback Services Stopped:** `postgres` (`PID 17788`, `pg_ctl status` exit `3`), `dotnet` API on `5690` (`PID 8724`), and `node` Angular UI on `4710` (`PID 8580`) are all terminated; `127.0.0.1:5690`, `127.0.0.1:4710`, and `127.0.0.1:55439` all have **`0` active listeners**.
+- **Gitignored Local Effects Retained inside Owned Worktree (`eld-f4-reviewer`):**
+  - `.local/postgres-data` — stopped PostgreSQL `18.7` data directory retaining `eledgercare_f4_reviewer_seed_f3` (`841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993`) for later `WP-0010 / 004` forward-migration cloning.
+  - `.local/secrets/pg-local.json` — gitignored cluster credentials (never staged or echoed).
+  - `.local/tools/pgsql-18.7-1`, `.local/nuget`, `.local/dotnet-home`, `.local/npm-cache`, `web/node_modules`, `src/**/bin|obj`, and `.scratch/` — local offline build/test caches and scratch dry-run artifacts.

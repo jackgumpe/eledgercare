@@ -1,0 +1,2040 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-f3-seed-preparation-receipt/1",
+  "generated_at_utc": "2026-11-17T09:22:02.046945+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "conversation_id": "61105d43-7706-45f2-9176-69d3256248e0",
+  "branch": "review/wp-0010-f4",
+  "frozen_head_sha": "bd741ecd4181429b9d6903e59b91ab2d0ec7b7a3",
+  "prior_design_002_sha": "85d879a1adc0ee62090f4c6a5c9a7fb8eb5f3a96",
+  "authority_prep_sha": "7345ef03dfa4d5f039259d0b8b9505685112469d",
+  "accepted_f3_source_sha": "dda4b4d5856ac45105c31ba1d6d6813debdab8a7",
+  "imported_f2_provenance": {
+    "f2_source_sha": "8a73b7a5dab51e3ccf803aceedded4929529dd35",
+    "f2_executing_head_sha": "b343f6ff78aa41332ecbe957577b6776f8edc22f",
+    "f2_reviewer_evidence_sha": "7f0ec3a9338606ce54c4c6d2eeabab8a2c245e2a",
+    "f2_reviewer_004_report_sha": "c854a1d4c306c3b10d78df42a1a2552a06bb4a98",
+    "syn_wo_01_pdf_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+    "syn_wo_01_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+    "syn_mp_01_pdf_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+    "syn_mp_01_raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+    "f1_swo_001_pdf_sha256": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+  },
+  "helpers": {
+    "prepare_and_verify_f3_seed_py": {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/preparation/helpers/prepare_and_verify_f3_seed.py",
+      "sha256_raw": "070b88e19bcf00f2e6c70ef79774de667b442bde0ac8760df451947aa4450cd4",
+      "sha256_lf": "070b88e19bcf00f2e6c70ef79774de667b442bde0ac8760df451947aa4450cd4"
+    },
+    "verify_f3_seed_ui_edge_mjs": {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/preparation/helpers/verify_f3_seed_ui_edge.mjs",
+      "sha256_raw": "bbf970dfe62d27f48cb0d6cdb31ccbb351c50b43e15aa33366c588561589e075",
+      "sha256_lf": "bbf970dfe62d27f48cb0d6cdb31ccbb351c50b43e15aa33366c588561589e075"
+    },
+    "build_preparation_inventory_py": {
+      "path": "docs/reviews/WP-0010/eld-f4-reviewer/preparation/helpers/build_preparation_inventory.py",
+      "sha256_raw": "c93ed693be9132ed5bf5e7231b295c2859b6427ae20bb2903a7ba3f0494427b4",
+      "sha256_lf": "c93ed693be9132ed5bf5e7231b295c2859b6427ae20bb2903a7ba3f0494427b4"
+    }
+  },
+  "pg18_subset": {
+    "file_count": 1597,
+    "total_bytes": 151078582,
+    "missing_files": [],
+    "extra_files": [],
+    "mismatched_files": [],
+    "reparse_points": [],
+    "subset_manifest_sha256": "47c3deb9c917f79c353b3683b2c2611ee975285ea06226c8f72444c96ce9051f",
+    "central_directory_sha256": "3132ca63b424f7ec371eabe50753ad7cd036278d942a6ea465547b17bf90a149",
+    "authenticode_status": "Valid",
+    "versions": {
+      "postgres.exe": "postgres (PostgreSQL) 18.7",
+      "pg_ctl.exe": "pg_ctl (PostgreSQL) 18.7",
+      "initdb.exe": "initdb (PostgreSQL) 18.7",
+      "psql.exe": "psql (PostgreSQL) 18.7"
+    }
+  },
+  "pg_database_metadata": {
+    "server_version": "18.7",
+    "listen_addresses": "127.0.0.1",
+    "port": "55439",
+    "fsync": "on",
+    "full_page_writes": "on",
+    "synchronous_commit": "on",
+    "password_encryption": "scram-sha-256",
+    "data_checksums": "on",
+    "lc_collate": "C",
+    "lc_ctype": "C",
+    "migrations": [
+      "20261114182147_InitialDurableIntake",
+      "20261116052029_AddLocalExtraction",
+      "20261116200918_AddWorkOrderReview"
+    ]
+  },
+  "retained_database": "eledgercare_f4_reviewer_seed_f3",
+  "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+  "table_counts": {
+    "documents": 9,
+    "original_artifacts": 9,
+    "processing_jobs": 9,
+    "execution_attempts": 9,
+    "extraction_results": 7,
+    "work_order_review_heads": 5,
+    "work_order_review_revisions": 8,
+    "work_order_review_fields": 40
+  },
+  "fencing_sequence": {
+    "last_value": 9,
+    "is_called": true
+  },
+  "seed_attribution_summary": {
+    "imported_f2_extraction_documents": [
+      {
+        "seed_key": "SEED-R01",
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+        "fencing_tokens": [
+          1
+        ],
+        "remapped": false,
+        "live_api_revisions": [
+          1,
+          2,
+          3
+        ],
+        "latest_reviewed_revision": 2,
+        "current_head_revision": 3,
+        "current_head_status": "draft"
+      },
+      {
+        "seed_key": "SEED-R02",
+        "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+        "result_id": "01a1e578-8bfa-7bba-b104-ea8309dbfd9e",
+        "fencing_tokens": [
+          2
+        ],
+        "remapped": false,
+        "live_api_revisions": [],
+        "latest_reviewed_revision": null,
+        "current_head_revision": 0,
+        "current_head_status": "unreviewed"
+      },
+      {
+        "seed_key": "SEED-R03",
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "result_id": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+        "fencing_tokens": [
+          3,
+          4
+        ],
+        "remapped": false,
+        "live_api_revisions": [
+          1
+        ],
+        "latest_reviewed_revision": 1,
+        "current_head_revision": 1,
+        "current_head_status": "reviewed"
+      },
+      {
+        "seed_key": "SEED-R04",
+        "document_id": "01a20400-0000-7000-8000-000000000004",
+        "result_id": "01a20400-4000-7000-8000-000000000004",
+        "fencing_tokens": [
+          5
+        ],
+        "remapped": true,
+        "live_api_revisions": [
+          1
+        ],
+        "latest_reviewed_revision": 1,
+        "current_head_revision": 1,
+        "current_head_status": "reviewed"
+      },
+      {
+        "seed_key": "SEED-R05",
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "result_id": "01a20400-4000-7000-8000-000000000005",
+        "fencing_tokens": [
+          6
+        ],
+        "remapped": true,
+        "live_api_revisions": [
+          1,
+          2
+        ],
+        "latest_reviewed_revision": null,
+        "current_head_revision": 2,
+        "current_head_status": "draft"
+      },
+      {
+        "seed_key": "SEED-R06",
+        "document_id": "01a20400-0000-7000-8000-000000000006",
+        "result_id": "01a20400-4000-7000-8000-000000000006",
+        "fencing_tokens": [
+          7
+        ],
+        "remapped": true,
+        "live_api_revisions": [
+          1
+        ],
+        "latest_reviewed_revision": 1,
+        "current_head_revision": 1,
+        "current_head_status": "reviewed"
+      },
+      {
+        "seed_key": "SEED-R07",
+        "document_id": "01a20400-0000-7000-8000-000000000007",
+        "result_id": "01a20400-4000-7000-8000-000000000007",
+        "fencing_tokens": [
+          8
+        ],
+        "remapped": true,
+        "live_api_revisions": [],
+        "latest_reviewed_revision": null,
+        "current_head_revision": 0,
+        "current_head_status": "unreviewed"
+      }
+    ],
+    "live_f1_http_documents": [
+      {
+        "seed_key": "SEED-R08",
+        "document_id": "01a1e8cf-ec7a-744c-bbd4-04074813c931",
+        "job_id": "01a1e8cf-ec7a-756d-b3d4-8c7a8c1b6e11",
+        "attempt_id": "01a20400-3000-7000-8000-000000000008",
+        "fencing_tokens": [
+          9
+        ],
+        "status": "failed",
+        "has_diagnostic_partial_output": true
+      },
+      {
+        "seed_key": "SEED-R09",
+        "document_id": "01a1e8cf-ed70-7826-a834-61d5a3ce13bd",
+        "job_id": "01a1e8cf-ed70-7de6-a937-1052eeeee1bd",
+        "attempt_id": null,
+        "fencing_tokens": [],
+        "status": "awaiting_extraction",
+        "has_diagnostic_partial_output": false
+      }
+    ],
+    "created_review_revisions": [
+      {
+        "op": "r01_rev1_reviewed",
+        "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-ede4-7613-ade2-a9811c7de9ad",
+        "status": "reviewed",
+        "idempotencyKey": "01a20400-5000-7000-8000-000000000101"
+      },
+      {
+        "op": "r01_rev2_latest_reviewed",
+        "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "revisionNumber": 2,
+        "revisionId": "01a1e8cf-eebf-7b18-bf11-9344dcbee7ea",
+        "status": "reviewed",
+        "idempotencyKey": "01a20400-5000-7000-8000-000000000102"
+      },
+      {
+        "op": "r01_rev3_newer_draft_head",
+        "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "revisionNumber": 3,
+        "revisionId": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "status": "draft",
+        "idempotencyKey": "01a20400-5000-7000-8000-000000000103"
+      },
+      {
+        "op": "r03_rev1_clean_reviewed_head",
+        "documentId": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "status": "reviewed",
+        "idempotencyKey": "01a20400-5000-7000-8000-000000000301"
+      },
+      {
+        "op": "r04_rev1_p2_and_null_provenance",
+        "documentId": "01a20400-0000-7000-8000-000000000004",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "status": "reviewed",
+        "idempotencyKey": "01a20400-5000-7000-8000-000000000401"
+      },
+      {
+        "op": "r05_rev1_draft_only",
+        "documentId": "01a20400-0000-7000-8000-000000000005",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-ef01-7c17-be60-15009ee3315b",
+        "status": "draft",
+        "idempotencyKey": "01a20400-5000-7000-8000-000000000501"
+      },
+      {
+        "op": "r05_rev2_draft_only",
+        "documentId": "01a20400-0000-7000-8000-000000000005",
+        "revisionNumber": 2,
+        "revisionId": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "status": "draft",
+        "idempotencyKey": "01a20400-5000-7000-8000-000000000502"
+      },
+      {
+        "op": "r06_rev1_tie_low_leading_zeros",
+        "documentId": "01a20400-0000-7000-8000-000000000006",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "status": "reviewed",
+        "idempotencyKey": "01a20400-5000-7000-8000-000000000601"
+      }
+    ]
+  },
+  "canonical_snapshot": {
+    "fencing_seq": {
+      "last_value": 9,
+      "is_called": true
+    },
+    "documents": [
+      {
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "idempotency_key": "43858522-5c3d-47d2-be8c-66f7162a190e",
+        "submitted_at_utc": "2026-11-16T17:39:20.760256Z"
+      },
+      {
+        "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+        "idempotency_key": "92f639e5-321d-464a-9628-f056251495cb",
+        "submitted_at_utc": "2026-11-16T17:42:13.268798Z"
+      },
+      {
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "idempotency_key": "3e0e56be-5940-449c-9859-de4f022d4059",
+        "submitted_at_utc": "2026-11-16T17:47:25.882929Z"
+      },
+      {
+        "document_id": "01a1e8cf-ec7a-744c-bbd4-04074813c931",
+        "idempotency_key": "01a20400-1000-7000-8000-000000000008",
+        "submitted_at_utc": "2026-11-17T09:21:43.034712Z"
+      },
+      {
+        "document_id": "01a1e8cf-ed70-7826-a834-61d5a3ce13bd",
+        "idempotency_key": "01a20400-1000-7000-8000-000000000009",
+        "submitted_at_utc": "2026-11-17T09:21:43.280223Z"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000004",
+        "idempotency_key": "01a20400-1000-7000-8000-000000000004",
+        "submitted_at_utc": "2026-11-16T17:55:00.000000Z"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "idempotency_key": "01a20400-1000-7000-8000-000000000005",
+        "submitted_at_utc": "2026-11-16T17:58:00.000000Z"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000006",
+        "idempotency_key": "01a20400-1000-7000-8000-000000000006",
+        "submitted_at_utc": "2026-11-16T18:00:00.123456Z"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000007",
+        "idempotency_key": "01a20400-1000-7000-8000-000000000007",
+        "submitted_at_utc": "2026-11-16T18:00:00.123456Z"
+      }
+    ],
+    "original_artifacts": [
+      {
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "byte_length": 372258,
+        "media_type": "application/pdf",
+        "page_count": 1,
+        "sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "computed_bytes_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+      },
+      {
+        "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+        "byte_length": 8422,
+        "media_type": "application/pdf",
+        "page_count": 3,
+        "sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "computed_bytes_sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+      },
+      {
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "byte_length": 372258,
+        "media_type": "application/pdf",
+        "page_count": 1,
+        "sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "computed_bytes_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+      },
+      {
+        "document_id": "01a1e8cf-ec7a-744c-bbd4-04074813c931",
+        "byte_length": 887,
+        "media_type": "application/pdf",
+        "page_count": 1,
+        "sha256_hex": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+        "computed_bytes_sha256_hex": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+      },
+      {
+        "document_id": "01a1e8cf-ed70-7826-a834-61d5a3ce13bd",
+        "byte_length": 887,
+        "media_type": "application/pdf",
+        "page_count": 1,
+        "sha256_hex": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb",
+        "computed_bytes_sha256_hex": "875a2d8c83c1c1002b38840f8136b60bd5ebcfe8d2df47187bf36454c59497cb"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000004",
+        "byte_length": 8422,
+        "media_type": "application/pdf",
+        "page_count": 3,
+        "sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "computed_bytes_sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "byte_length": 372258,
+        "media_type": "application/pdf",
+        "page_count": 1,
+        "sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "computed_bytes_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000006",
+        "byte_length": 372258,
+        "media_type": "application/pdf",
+        "page_count": 1,
+        "sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "computed_bytes_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000007",
+        "byte_length": 8422,
+        "media_type": "application/pdf",
+        "page_count": 3,
+        "sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "computed_bytes_sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3"
+      }
+    ],
+    "processing_jobs": [
+      {
+        "job_id": "01a1e571-2838-7b9d-858e-d6ff2b8bf757",
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "status": "completed",
+        "attempt_count": 1,
+        "latest_fencing_token": 1,
+        "retried_from_attempt_id": null,
+        "requested_at_utc": "2026-11-16T17:39:20.760256Z",
+        "queued_at_utc": "2026-11-16T17:39:21.082069Z",
+        "updated_at_utc": "2026-11-16T17:42:04.629418Z"
+      },
+      {
+        "job_id": "01a1e573-ca14-7b6b-ba54-691edb3c51f9",
+        "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+        "status": "completed",
+        "attempt_count": 1,
+        "latest_fencing_token": 2,
+        "retried_from_attempt_id": null,
+        "requested_at_utc": "2026-11-16T17:42:13.268798Z",
+        "queued_at_utc": "2026-11-16T17:42:13.285264Z",
+        "updated_at_utc": "2026-11-16T17:47:25.050480Z"
+      },
+      {
+        "job_id": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "status": "completed",
+        "attempt_count": 2,
+        "latest_fencing_token": 4,
+        "retried_from_attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+        "requested_at_utc": "2026-11-16T17:47:25.882929Z",
+        "queued_at_utc": "2026-11-16T17:48:12.569418Z",
+        "updated_at_utc": "2026-11-16T17:50:54.909012Z"
+      },
+      {
+        "job_id": "01a1e8cf-ec7a-756d-b3d4-8c7a8c1b6e11",
+        "document_id": "01a1e8cf-ec7a-744c-bbd4-04074813c931",
+        "status": "failed",
+        "attempt_count": 1,
+        "latest_fencing_token": 9,
+        "retried_from_attempt_id": null,
+        "requested_at_utc": "2026-11-17T09:21:43.034712Z",
+        "queued_at_utc": "2026-11-17T09:21:43.372914Z",
+        "updated_at_utc": "2026-11-17T09:21:43.372914Z"
+      },
+      {
+        "job_id": "01a1e8cf-ed70-7de6-a937-1052eeeee1bd",
+        "document_id": "01a1e8cf-ed70-7826-a834-61d5a3ce13bd",
+        "status": "awaiting_extraction",
+        "attempt_count": 0,
+        "latest_fencing_token": 0,
+        "retried_from_attempt_id": null,
+        "requested_at_utc": "2026-11-17T09:21:43.280223Z",
+        "queued_at_utc": null,
+        "updated_at_utc": "2026-11-17T09:21:43.280223Z"
+      },
+      {
+        "job_id": "01a20400-2000-7000-8000-000000000004",
+        "document_id": "01a20400-0000-7000-8000-000000000004",
+        "status": "completed",
+        "attempt_count": 1,
+        "latest_fencing_token": 5,
+        "retried_from_attempt_id": null,
+        "requested_at_utc": "2026-11-16T17:55:00.000000Z",
+        "queued_at_utc": "2026-11-16T17:55:01.000000Z",
+        "updated_at_utc": "2026-11-16T17:56:00.000000Z"
+      },
+      {
+        "job_id": "01a20400-2000-7000-8000-000000000005",
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "status": "completed",
+        "attempt_count": 1,
+        "latest_fencing_token": 6,
+        "retried_from_attempt_id": null,
+        "requested_at_utc": "2026-11-16T17:58:00.000000Z",
+        "queued_at_utc": "2026-11-16T17:58:01.000000Z",
+        "updated_at_utc": "2026-11-16T17:59:00.000000Z"
+      },
+      {
+        "job_id": "01a20400-2000-7000-8000-000000000006",
+        "document_id": "01a20400-0000-7000-8000-000000000006",
+        "status": "completed",
+        "attempt_count": 1,
+        "latest_fencing_token": 7,
+        "retried_from_attempt_id": null,
+        "requested_at_utc": "2026-11-16T18:00:00.123456Z",
+        "queued_at_utc": "2026-11-16T18:00:01.000000Z",
+        "updated_at_utc": "2026-11-16T18:01:00.000000Z"
+      },
+      {
+        "job_id": "01a20400-2000-7000-8000-000000000007",
+        "document_id": "01a20400-0000-7000-8000-000000000007",
+        "status": "completed",
+        "attempt_count": 1,
+        "latest_fencing_token": 8,
+        "retried_from_attempt_id": null,
+        "requested_at_utc": "2026-11-16T18:00:00.123456Z",
+        "queued_at_utc": "2026-11-16T18:00:02.000000Z",
+        "updated_at_utc": "2026-11-16T18:02:00.000000Z"
+      }
+    ],
+    "execution_attempts": [
+      {
+        "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+        "job_id": "01a1e571-2838-7b9d-858e-d6ff2b8bf757",
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "attempt_number": 1,
+        "fencing_token": 1,
+        "retried_from_attempt_id": null,
+        "status": "completed",
+        "phase": "completed",
+        "run_directory_name": "attempt-01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+        "supervisor_instance_id": "01a1e571-0000-7000-8000-000000018496",
+        "supervisor_pid": 18496,
+        "supervisor_create_filetime": 134393243591895019,
+        "launcher_pid": 31000,
+        "launcher_create_filetime": 134393243611803382,
+        "worker_pid": 31540,
+        "worker_create_filetime": 134393243612105369,
+        "exit_code": 0,
+        "failure_code": null,
+        "failure_detail": null,
+        "diagnostic_raw_output_utf8": null,
+        "diagnostic_metadata_json": null,
+        "started_at_utc": "2026-11-16T17:39:21.082069Z",
+        "ended_at_utc": "2026-11-16T17:42:04.629418Z"
+      },
+      {
+        "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+        "job_id": "01a1e573-ca14-7b6b-ba54-691edb3c51f9",
+        "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+        "attempt_number": 1,
+        "fencing_token": 2,
+        "retried_from_attempt_id": null,
+        "status": "completed",
+        "phase": "completed",
+        "run_directory_name": "attempt-01a1e573-ca25-733e-b048-44c8ea2ac61d",
+        "supervisor_instance_id": "01a1e571-0000-7000-8000-000000018496",
+        "supervisor_pid": 18496,
+        "supervisor_create_filetime": 134393243591895019,
+        "launcher_pid": 29092,
+        "launcher_create_filetime": 134393245333046634,
+        "worker_pid": 32424,
+        "worker_create_filetime": 134393245333272975,
+        "exit_code": 0,
+        "failure_code": null,
+        "failure_detail": null,
+        "diagnostic_raw_output_utf8": null,
+        "diagnostic_metadata_json": null,
+        "started_at_utc": "2026-11-16T17:42:13.285264Z",
+        "ended_at_utc": "2026-11-16T17:47:25.050480Z"
+      },
+      {
+        "attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+        "job_id": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "attempt_number": 1,
+        "fencing_token": 3,
+        "retried_from_attempt_id": null,
+        "status": "interrupted",
+        "phase": "interrupted",
+        "run_directory_name": "attempt-01a1e578-8f49-75ab-89c7-4d184378bf28",
+        "supervisor_instance_id": "01a1e571-0000-7000-8000-000000018496",
+        "supervisor_pid": 18496,
+        "supervisor_create_filetime": 134393243591895019,
+        "launcher_pid": 11796,
+        "launcher_create_filetime": 134393248459247034,
+        "worker_pid": 32708,
+        "worker_create_filetime": 134393248459491329,
+        "exit_code": null,
+        "failure_code": "supervisor_interrupted",
+        "failure_detail": "The previous extraction attempt was interrupted before completion. You can explicitly retry extraction.",
+        "diagnostic_raw_output_utf8": null,
+        "diagnostic_metadata_json": null,
+        "started_at_utc": "2026-11-16T17:47:25.897550Z",
+        "ended_at_utc": "2026-11-16T17:48:09.538367Z"
+      },
+      {
+        "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+        "job_id": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "attempt_number": 2,
+        "fencing_token": 4,
+        "retried_from_attempt_id": "01a1e578-8f49-75ab-89c7-4d184378bf28",
+        "status": "completed",
+        "phase": "completed",
+        "run_directory_name": "attempt-01a1e579-4599-7bed-acdc-2863c448c6fa",
+        "supervisor_instance_id": "01a1e578-0000-7000-8000-000000029208",
+        "supervisor_pid": 29208,
+        "supervisor_create_filetime": 134393248883293427,
+        "launcher_pid": 23028,
+        "launcher_create_filetime": 134393248927989245,
+        "worker_pid": 24048,
+        "worker_create_filetime": 134393248928264151,
+        "exit_code": 0,
+        "failure_code": null,
+        "failure_detail": null,
+        "diagnostic_raw_output_utf8": null,
+        "diagnostic_metadata_json": null,
+        "started_at_utc": "2026-11-16T17:48:12.569418Z",
+        "ended_at_utc": "2026-11-16T17:50:54.909012Z"
+      },
+      {
+        "attempt_id": "01a20400-3000-7000-8000-000000000004",
+        "job_id": "01a20400-2000-7000-8000-000000000004",
+        "document_id": "01a20400-0000-7000-8000-000000000004",
+        "attempt_number": 1,
+        "fencing_token": 5,
+        "retried_from_attempt_id": null,
+        "status": "completed",
+        "phase": "completed",
+        "run_directory_name": "attempt-01a20400-3000-7000-8000-000000000004",
+        "supervisor_instance_id": "01a1e571-0000-7000-8000-000000018496",
+        "supervisor_pid": 18496,
+        "supervisor_create_filetime": 134393243591895019,
+        "launcher_pid": 29092,
+        "launcher_create_filetime": 134393245333046634,
+        "worker_pid": 32424,
+        "worker_create_filetime": 134393245333272975,
+        "exit_code": 0,
+        "failure_code": null,
+        "failure_detail": null,
+        "diagnostic_raw_output_utf8": null,
+        "diagnostic_metadata_json": null,
+        "started_at_utc": "2026-11-16T17:55:01.000000Z",
+        "ended_at_utc": "2026-11-16T17:56:00.000000Z"
+      },
+      {
+        "attempt_id": "01a20400-3000-7000-8000-000000000005",
+        "job_id": "01a20400-2000-7000-8000-000000000005",
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "attempt_number": 1,
+        "fencing_token": 6,
+        "retried_from_attempt_id": null,
+        "status": "completed",
+        "phase": "completed",
+        "run_directory_name": "attempt-01a20400-3000-7000-8000-000000000005",
+        "supervisor_instance_id": "01a1e571-0000-7000-8000-000000018496",
+        "supervisor_pid": 18496,
+        "supervisor_create_filetime": 134393243591895019,
+        "launcher_pid": 31000,
+        "launcher_create_filetime": 134393243611803382,
+        "worker_pid": 31540,
+        "worker_create_filetime": 134393243612105369,
+        "exit_code": 0,
+        "failure_code": null,
+        "failure_detail": null,
+        "diagnostic_raw_output_utf8": null,
+        "diagnostic_metadata_json": null,
+        "started_at_utc": "2026-11-16T17:58:01.000000Z",
+        "ended_at_utc": "2026-11-16T17:59:00.000000Z"
+      },
+      {
+        "attempt_id": "01a20400-3000-7000-8000-000000000006",
+        "job_id": "01a20400-2000-7000-8000-000000000006",
+        "document_id": "01a20400-0000-7000-8000-000000000006",
+        "attempt_number": 1,
+        "fencing_token": 7,
+        "retried_from_attempt_id": null,
+        "status": "completed",
+        "phase": "completed",
+        "run_directory_name": "attempt-01a20400-3000-7000-8000-000000000006",
+        "supervisor_instance_id": "01a1e571-0000-7000-8000-000000018496",
+        "supervisor_pid": 18496,
+        "supervisor_create_filetime": 134393243591895019,
+        "launcher_pid": 31000,
+        "launcher_create_filetime": 134393243611803382,
+        "worker_pid": 31540,
+        "worker_create_filetime": 134393243612105369,
+        "exit_code": 0,
+        "failure_code": null,
+        "failure_detail": null,
+        "diagnostic_raw_output_utf8": null,
+        "diagnostic_metadata_json": null,
+        "started_at_utc": "2026-11-16T18:00:01.000000Z",
+        "ended_at_utc": "2026-11-16T18:01:00.000000Z"
+      },
+      {
+        "attempt_id": "01a20400-3000-7000-8000-000000000007",
+        "job_id": "01a20400-2000-7000-8000-000000000007",
+        "document_id": "01a20400-0000-7000-8000-000000000007",
+        "attempt_number": 1,
+        "fencing_token": 8,
+        "retried_from_attempt_id": null,
+        "status": "completed",
+        "phase": "completed",
+        "run_directory_name": "attempt-01a20400-3000-7000-8000-000000000007",
+        "supervisor_instance_id": "01a1e571-0000-7000-8000-000000018496",
+        "supervisor_pid": 18496,
+        "supervisor_create_filetime": 134393243591895019,
+        "launcher_pid": 29092,
+        "launcher_create_filetime": 134393245333046634,
+        "worker_pid": 32424,
+        "worker_create_filetime": 134393245333272975,
+        "exit_code": 0,
+        "failure_code": null,
+        "failure_detail": null,
+        "diagnostic_raw_output_utf8": null,
+        "diagnostic_metadata_json": null,
+        "started_at_utc": "2026-11-16T18:00:02.000000Z",
+        "ended_at_utc": "2026-11-16T18:02:00.000000Z"
+      },
+      {
+        "attempt_id": "01a20400-3000-7000-8000-000000000008",
+        "job_id": "01a1e8cf-ec7a-756d-b3d4-8c7a8c1b6e11",
+        "document_id": "01a1e8cf-ec7a-744c-bbd4-04074813c931",
+        "attempt_number": 1,
+        "fencing_token": 9,
+        "retried_from_attempt_id": null,
+        "status": "failed",
+        "phase": "failed",
+        "run_directory_name": "attempt-01a20400-3000-7000-8000-000000000008",
+        "supervisor_instance_id": "01a1e571-0000-7000-8000-000000018496",
+        "supervisor_pid": 18496,
+        "supervisor_create_filetime": 134393243591895019,
+        "launcher_pid": null,
+        "launcher_create_filetime": null,
+        "worker_pid": null,
+        "worker_create_filetime": null,
+        "exit_code": 2,
+        "failure_code": "worker_nonzero_exit",
+        "failure_detail": "DIAGNOSTIC-FAILURE-DETAIL-NOT-INDEXED",
+        "diagnostic_raw_output_utf8": "<PAGE><BLOCK>text[0,0,10,10]<FORK>DIAGNOSTIC-PARTIAL-RAW-NEVER-SEARCHABLE",
+        "diagnostic_metadata_json": "{\"partial\": true}",
+        "started_at_utc": "2026-11-17T09:21:43.372914Z",
+        "ended_at_utc": "2026-11-17T09:21:43.372914Z"
+      }
+    ],
+    "extraction_results": [
+      {
+        "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "job_id": "01a1e571-2838-7b9d-858e-d6ff2b8bf757",
+        "attempt_id": "01a1e571-297a-7f0e-a293-e9e1c0851cd4",
+        "fencing_token": 1,
+        "schema_version": "eledgercare.local-extraction/1",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "input_byte_length": 372258,
+        "page_count": 1,
+        "raw_output_byte_length": 3236,
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "computed_raw_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "model_repo_id": "baidu/Unlimited-OCR-2",
+        "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+        "model_manifest_sha256_hex": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+        "dependency_lock_sha256_hex": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+        "worker_source_sha256_hex": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "worker_config_sha256_hex": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+        "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+        "finish_reason": "stop",
+        "output_page_count": 1,
+        "load_duration_ms": 11464,
+        "render_duration_ms": 155,
+        "infer_duration_ms": 139341,
+        "total_duration_ms": 161300
+      },
+      {
+        "result_id": "01a1e578-8bfa-7bba-b104-ea8309dbfd9e",
+        "document_id": "01a1e573-ca14-72ba-a46a-c84690288e22",
+        "job_id": "01a1e573-ca14-7b6b-ba54-691edb3c51f9",
+        "attempt_id": "01a1e573-ca25-733e-b048-44c8ea2ac61d",
+        "fencing_token": 2,
+        "schema_version": "eledgercare.local-extraction/1",
+        "input_sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "input_byte_length": 8422,
+        "page_count": 3,
+        "raw_output_byte_length": 7511,
+        "raw_output_sha256_hex": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "computed_raw_sha256_hex": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "model_repo_id": "baidu/Unlimited-OCR-2",
+        "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+        "model_manifest_sha256_hex": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+        "dependency_lock_sha256_hex": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+        "worker_source_sha256_hex": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "worker_config_sha256_hex": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+        "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+        "finish_reason": "stop",
+        "output_page_count": 3,
+        "load_duration_ms": 10819,
+        "render_duration_ms": 302,
+        "infer_duration_ms": 288970,
+        "total_duration_ms": 310217
+      },
+      {
+        "result_id": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "job_id": "01a1e578-8f3a-7e52-b0c1-7db9b1fb3a40",
+        "attempt_id": "01a1e579-4599-7bed-acdc-2863c448c6fa",
+        "fencing_token": 4,
+        "schema_version": "eledgercare.local-extraction/1",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "input_byte_length": 372258,
+        "page_count": 1,
+        "raw_output_byte_length": 3236,
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "computed_raw_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "model_repo_id": "baidu/Unlimited-OCR-2",
+        "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+        "model_manifest_sha256_hex": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+        "dependency_lock_sha256_hex": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+        "worker_source_sha256_hex": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "worker_config_sha256_hex": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+        "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+        "finish_reason": "stop",
+        "output_page_count": 1,
+        "load_duration_ms": 11121,
+        "render_duration_ms": 159,
+        "infer_duration_ms": 139094,
+        "total_duration_ms": 160468
+      },
+      {
+        "result_id": "01a20400-4000-7000-8000-000000000004",
+        "document_id": "01a20400-0000-7000-8000-000000000004",
+        "job_id": "01a20400-2000-7000-8000-000000000004",
+        "attempt_id": "01a20400-3000-7000-8000-000000000004",
+        "fencing_token": 5,
+        "schema_version": "eledgercare.local-extraction/1",
+        "input_sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "input_byte_length": 8422,
+        "page_count": 3,
+        "raw_output_byte_length": 7511,
+        "raw_output_sha256_hex": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "computed_raw_sha256_hex": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "model_repo_id": "baidu/Unlimited-OCR-2",
+        "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+        "model_manifest_sha256_hex": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+        "dependency_lock_sha256_hex": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+        "worker_source_sha256_hex": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "worker_config_sha256_hex": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+        "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+        "finish_reason": "stop",
+        "output_page_count": 3,
+        "load_duration_ms": 10819,
+        "render_duration_ms": 302,
+        "infer_duration_ms": 288970,
+        "total_duration_ms": 310217
+      },
+      {
+        "result_id": "01a20400-4000-7000-8000-000000000005",
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "job_id": "01a20400-2000-7000-8000-000000000005",
+        "attempt_id": "01a20400-3000-7000-8000-000000000005",
+        "fencing_token": 6,
+        "schema_version": "eledgercare.local-extraction/1",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "input_byte_length": 372258,
+        "page_count": 1,
+        "raw_output_byte_length": 3236,
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "computed_raw_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "model_repo_id": "baidu/Unlimited-OCR-2",
+        "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+        "model_manifest_sha256_hex": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+        "dependency_lock_sha256_hex": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+        "worker_source_sha256_hex": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "worker_config_sha256_hex": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+        "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+        "finish_reason": "stop",
+        "output_page_count": 1,
+        "load_duration_ms": 11464,
+        "render_duration_ms": 155,
+        "infer_duration_ms": 139341,
+        "total_duration_ms": 161300
+      },
+      {
+        "result_id": "01a20400-4000-7000-8000-000000000006",
+        "document_id": "01a20400-0000-7000-8000-000000000006",
+        "job_id": "01a20400-2000-7000-8000-000000000006",
+        "attempt_id": "01a20400-3000-7000-8000-000000000006",
+        "fencing_token": 7,
+        "schema_version": "eledgercare.local-extraction/1",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "input_byte_length": 372258,
+        "page_count": 1,
+        "raw_output_byte_length": 3236,
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "computed_raw_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "model_repo_id": "baidu/Unlimited-OCR-2",
+        "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+        "model_manifest_sha256_hex": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+        "dependency_lock_sha256_hex": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+        "worker_source_sha256_hex": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "worker_config_sha256_hex": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+        "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+        "finish_reason": "stop",
+        "output_page_count": 1,
+        "load_duration_ms": 11464,
+        "render_duration_ms": 155,
+        "infer_duration_ms": 139341,
+        "total_duration_ms": 161300
+      },
+      {
+        "result_id": "01a20400-4000-7000-8000-000000000007",
+        "document_id": "01a20400-0000-7000-8000-000000000007",
+        "job_id": "01a20400-2000-7000-8000-000000000007",
+        "attempt_id": "01a20400-3000-7000-8000-000000000007",
+        "fencing_token": 8,
+        "schema_version": "eledgercare.local-extraction/1",
+        "input_sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "input_byte_length": 8422,
+        "page_count": 3,
+        "raw_output_byte_length": 7511,
+        "raw_output_sha256_hex": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "computed_raw_sha256_hex": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "model_repo_id": "baidu/Unlimited-OCR-2",
+        "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+        "model_manifest_sha256_hex": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+        "dependency_lock_sha256_hex": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+        "worker_source_sha256_hex": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+        "worker_config_sha256_hex": "ac90459ca4011b5859cfdd0b224d5ea247489b7c01775118736df7c1c9819e86",
+        "renderer_identity": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+        "finish_reason": "stop",
+        "output_page_count": 3,
+        "load_duration_ms": 10819,
+        "render_duration_ms": 302,
+        "infer_duration_ms": 288970,
+        "total_duration_ms": 310217
+      }
+    ],
+    "work_order_review_heads": [
+      {
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "current_revision_number": 3,
+        "current_revision_id": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "current_status": "draft",
+        "machine_snapshot_json": "{\"fields\": [{\"value\": \"WO-004192\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"WO-004192\", \"tableColumn\": null, \"blockOrdinal\": 4}, \"status\": \"suggested\", \"fieldKey\": \"work_order_id\", \"competingSources\": []}, {\"value\": \"Cedar Hollow Apartments\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Cedar Hollow Apartments\", \"tableColumn\": null, \"blockOrdinal\": 6}, \"status\": \"suggested\", \"fieldKey\": \"property_name\", \"competingSources\": []}, {\"value\": \"Bldg B - Unit 204\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Bldg B - Unit 204\", \"tableColumn\": null, \"blockOrdinal\": 8}, \"status\": \"suggested\", \"fieldKey\": \"building_unit\", \"competingSources\": []}, {\"value\": \"2026-10-16\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"2026-10-16\", \"tableColumn\": null, \"blockOrdinal\": 10}, \"status\": \"suggested\", \"fieldKey\": \"requested_date\", \"competingSources\": []}, {\"value\": \"Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.\", \"tableColumn\": null, \"blockOrdinal\": 24}, \"status\": \"suggested\", \"fieldKey\": \"issue_and_resolution\", \"competingSources\": []}], \"schema\": \"eledgercare.work-order-machine-snapshot/1\", \"resultId\": \"01a1e573-a855-7735-96e1-f5d14cada602\", \"profileId\": \"maintenance-work-order/1\", \"rawOutputSha256\": \"7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95\", \"fieldSchemaVersion\": \"maintenance-work-order-fields/1\", \"suggestionPolicyVersion\": \"work-order-suggestions/1\"}"
+      },
+      {
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "result_id": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "current_revision_number": 1,
+        "current_revision_id": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "current_status": "reviewed",
+        "machine_snapshot_json": "{\"fields\": [{\"value\": \"WO-004192\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"WO-004192\", \"tableColumn\": null, \"blockOrdinal\": 4}, \"status\": \"suggested\", \"fieldKey\": \"work_order_id\", \"competingSources\": []}, {\"value\": \"Cedar Hollow Apartments\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Cedar Hollow Apartments\", \"tableColumn\": null, \"blockOrdinal\": 6}, \"status\": \"suggested\", \"fieldKey\": \"property_name\", \"competingSources\": []}, {\"value\": \"Bldg B - Unit 204\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Bldg B - Unit 204\", \"tableColumn\": null, \"blockOrdinal\": 8}, \"status\": \"suggested\", \"fieldKey\": \"building_unit\", \"competingSources\": []}, {\"value\": \"2026-10-16\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"2026-10-16\", \"tableColumn\": null, \"blockOrdinal\": 10}, \"status\": \"suggested\", \"fieldKey\": \"requested_date\", \"competingSources\": []}, {\"value\": \"Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.\", \"tableColumn\": null, \"blockOrdinal\": 24}, \"status\": \"suggested\", \"fieldKey\": \"issue_and_resolution\", \"competingSources\": []}], \"schema\": \"eledgercare.work-order-machine-snapshot/1\", \"resultId\": \"01a1e57b-bfbd-7447-916c-92b386e5931d\", \"profileId\": \"maintenance-work-order/1\", \"rawOutputSha256\": \"7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95\", \"fieldSchemaVersion\": \"maintenance-work-order-fields/1\", \"suggestionPolicyVersion\": \"work-order-suggestions/1\"}"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000004",
+        "result_id": "01a20400-4000-7000-8000-000000000004",
+        "input_sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "raw_output_sha256_hex": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "current_revision_number": 1,
+        "current_revision_id": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "current_status": "reviewed",
+        "machine_snapshot_json": "{\"fields\": [{\"value\": null, \"source\": null, \"status\": \"missing\", \"fieldKey\": \"work_order_id\", \"competingSources\": []}, {\"value\": null, \"source\": null, \"status\": \"missing\", \"fieldKey\": \"property_name\", \"competingSources\": []}, {\"value\": null, \"source\": null, \"status\": \"missing\", \"fieldKey\": \"building_unit\", \"competingSources\": []}, {\"value\": null, \"source\": null, \"status\": \"missing\", \"fieldKey\": \"requested_date\", \"competingSources\": []}, {\"value\": null, \"source\": null, \"status\": \"missing\", \"fieldKey\": \"issue_and_resolution\", \"competingSources\": []}], \"schema\": \"eledgercare.work-order-machine-snapshot/1\", \"resultId\": \"01a20400-4000-7000-8000-000000000004\", \"profileId\": \"maintenance-work-order/1\", \"rawOutputSha256\": \"c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639\", \"fieldSchemaVersion\": \"maintenance-work-order-fields/1\", \"suggestionPolicyVersion\": \"work-order-suggestions/1\"}"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "result_id": "01a20400-4000-7000-8000-000000000005",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "current_revision_number": 2,
+        "current_revision_id": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "current_status": "draft",
+        "machine_snapshot_json": "{\"fields\": [{\"value\": \"WO-004192\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"WO-004192\", \"tableColumn\": null, \"blockOrdinal\": 4}, \"status\": \"suggested\", \"fieldKey\": \"work_order_id\", \"competingSources\": []}, {\"value\": \"Cedar Hollow Apartments\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Cedar Hollow Apartments\", \"tableColumn\": null, \"blockOrdinal\": 6}, \"status\": \"suggested\", \"fieldKey\": \"property_name\", \"competingSources\": []}, {\"value\": \"Bldg B - Unit 204\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Bldg B - Unit 204\", \"tableColumn\": null, \"blockOrdinal\": 8}, \"status\": \"suggested\", \"fieldKey\": \"building_unit\", \"competingSources\": []}, {\"value\": \"2026-10-16\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"2026-10-16\", \"tableColumn\": null, \"blockOrdinal\": 10}, \"status\": \"suggested\", \"fieldKey\": \"requested_date\", \"competingSources\": []}, {\"value\": \"Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.\", \"tableColumn\": null, \"blockOrdinal\": 24}, \"status\": \"suggested\", \"fieldKey\": \"issue_and_resolution\", \"competingSources\": []}], \"schema\": \"eledgercare.work-order-machine-snapshot/1\", \"resultId\": \"01a20400-4000-7000-8000-000000000005\", \"profileId\": \"maintenance-work-order/1\", \"rawOutputSha256\": \"7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95\", \"fieldSchemaVersion\": \"maintenance-work-order-fields/1\", \"suggestionPolicyVersion\": \"work-order-suggestions/1\"}"
+      },
+      {
+        "document_id": "01a20400-0000-7000-8000-000000000006",
+        "result_id": "01a20400-4000-7000-8000-000000000006",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "current_revision_number": 1,
+        "current_revision_id": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "current_status": "reviewed",
+        "machine_snapshot_json": "{\"fields\": [{\"value\": \"WO-004192\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"WO-004192\", \"tableColumn\": null, \"blockOrdinal\": 4}, \"status\": \"suggested\", \"fieldKey\": \"work_order_id\", \"competingSources\": []}, {\"value\": \"Cedar Hollow Apartments\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Cedar Hollow Apartments\", \"tableColumn\": null, \"blockOrdinal\": 6}, \"status\": \"suggested\", \"fieldKey\": \"property_name\", \"competingSources\": []}, {\"value\": \"Bldg B - Unit 204\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Bldg B - Unit 204\", \"tableColumn\": null, \"blockOrdinal\": 8}, \"status\": \"suggested\", \"fieldKey\": \"building_unit\", \"competingSources\": []}, {\"value\": \"2026-10-16\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"2026-10-16\", \"tableColumn\": null, \"blockOrdinal\": 10}, \"status\": \"suggested\", \"fieldKey\": \"requested_date\", \"competingSources\": []}, {\"value\": \"Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.\", \"source\": {\"tableRow\": null, \"pageNumber\": 1, \"sourceQuote\": \"Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.\", \"tableColumn\": null, \"blockOrdinal\": 24}, \"status\": \"suggested\", \"fieldKey\": \"issue_and_resolution\", \"competingSources\": []}], \"schema\": \"eledgercare.work-order-machine-snapshot/1\", \"resultId\": \"01a20400-4000-7000-8000-000000000006\", \"profileId\": \"maintenance-work-order/1\", \"rawOutputSha256\": \"7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95\", \"fieldSchemaVersion\": \"maintenance-work-order-fields/1\", \"suggestionPolicyVersion\": \"work-order-suggestions/1\"}"
+      }
+    ],
+    "work_order_review_revisions": [
+      {
+        "revision_id": "01a1e8cf-ede4-7613-ade2-a9811c7de9ad",
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+        "revision_number": 1,
+        "previous_revision_number": null,
+        "status": "reviewed",
+        "idempotency_key": "01a20400-5000-7000-8000-000000000101",
+        "request_sha256_hex": "76bda16e1ffb683db8515032b3ea176c97447d2a33814b2def0b3358ab41f9a4",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "operator_display_label": "R4-OP-HIDDEN-ALPHA",
+        "accepted_field_count": 3,
+        "edited_field_count": 2,
+        "unknown_field_count": 0,
+        "unreviewed_field_count": 0,
+        "saved_at_utc": "2026-11-17T09:21:43.396889Z"
+      },
+      {
+        "revision_id": "01a1e8cf-eebf-7b18-bf11-9344dcbee7ea",
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+        "revision_number": 2,
+        "previous_revision_number": 1,
+        "status": "reviewed",
+        "idempotency_key": "01a20400-5000-7000-8000-000000000102",
+        "request_sha256_hex": "30189affaf378e7929f11c712a97d6cf30a7a595c9170fcc0907a37a0c93c88c",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "operator_display_label": "R4-OP-HIDDEN-BETA",
+        "accepted_field_count": 2,
+        "edited_field_count": 2,
+        "unknown_field_count": 1,
+        "unreviewed_field_count": 0,
+        "saved_at_utc": "2026-11-17T09:21:43.615677Z"
+      },
+      {
+        "revision_id": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "document_id": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "result_id": "01a1e573-a855-7735-96e1-f5d14cada602",
+        "revision_number": 3,
+        "previous_revision_number": 2,
+        "status": "draft",
+        "idempotency_key": "01a20400-5000-7000-8000-000000000103",
+        "request_sha256_hex": "425e5645acf780519cf200c6739762ba2723b5bee47637c42c36efe5135ee5ae",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "operator_display_label": "R4-OP-HIDDEN-DRAFT3",
+        "accepted_field_count": 2,
+        "edited_field_count": 1,
+        "unknown_field_count": 0,
+        "unreviewed_field_count": 2,
+        "saved_at_utc": "2026-11-17T09:21:43.646549Z"
+      },
+      {
+        "revision_id": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "document_id": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "result_id": "01a1e57b-bfbd-7447-916c-92b386e5931d",
+        "revision_number": 1,
+        "previous_revision_number": null,
+        "status": "reviewed",
+        "idempotency_key": "01a20400-5000-7000-8000-000000000301",
+        "request_sha256_hex": "59472af1ae7dfbffb0c9eb3b656281500e4e4effa9545f5877e0bc89b674061a",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "operator_display_label": "R4-OP-HIDDEN-CLEAN",
+        "accepted_field_count": 4,
+        "edited_field_count": 1,
+        "unknown_field_count": 0,
+        "unreviewed_field_count": 0,
+        "saved_at_utc": "2026-11-17T09:21:43.654563Z"
+      },
+      {
+        "revision_id": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "document_id": "01a20400-0000-7000-8000-000000000004",
+        "result_id": "01a20400-4000-7000-8000-000000000004",
+        "revision_number": 1,
+        "previous_revision_number": null,
+        "status": "reviewed",
+        "idempotency_key": "01a20400-5000-7000-8000-000000000401",
+        "request_sha256_hex": "475b81d3dca20900725b427dc716794d2822e77b2228bdba09031f2fc206d1c7",
+        "input_sha256_hex": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "raw_output_sha256_hex": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "operator_display_label": "R4-OP-HIDDEN-MP",
+        "accepted_field_count": 0,
+        "edited_field_count": 4,
+        "unknown_field_count": 1,
+        "unreviewed_field_count": 0,
+        "saved_at_utc": "2026-11-17T09:21:43.661482Z"
+      },
+      {
+        "revision_id": "01a1e8cf-ef01-7c17-be60-15009ee3315b",
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "result_id": "01a20400-4000-7000-8000-000000000005",
+        "revision_number": 1,
+        "previous_revision_number": null,
+        "status": "draft",
+        "idempotency_key": "01a20400-5000-7000-8000-000000000501",
+        "request_sha256_hex": "b5d40c649ce005e1c5f287389f954bc6236f28f24ab98750d8ea110fc691f146",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "operator_display_label": "R4-OP-DRAFT-ONLY-1",
+        "accepted_field_count": 0,
+        "edited_field_count": 2,
+        "unknown_field_count": 0,
+        "unreviewed_field_count": 3,
+        "saved_at_utc": "2026-11-17T09:21:43.681768Z"
+      },
+      {
+        "revision_id": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "document_id": "01a20400-0000-7000-8000-000000000005",
+        "result_id": "01a20400-4000-7000-8000-000000000005",
+        "revision_number": 2,
+        "previous_revision_number": 1,
+        "status": "draft",
+        "idempotency_key": "01a20400-5000-7000-8000-000000000502",
+        "request_sha256_hex": "e8441d16cbf7a7d394a3eb0e19dab825c4a9dc03c1be35ab8ab040a3a0c228ea",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "operator_display_label": "R4-OP-DRAFT-ONLY-2",
+        "accepted_field_count": 1,
+        "edited_field_count": 2,
+        "unknown_field_count": 0,
+        "unreviewed_field_count": 2,
+        "saved_at_utc": "2026-11-17T09:21:43.688789Z"
+      },
+      {
+        "revision_id": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "document_id": "01a20400-0000-7000-8000-000000000006",
+        "result_id": "01a20400-4000-7000-8000-000000000006",
+        "revision_number": 1,
+        "previous_revision_number": null,
+        "status": "reviewed",
+        "idempotency_key": "01a20400-5000-7000-8000-000000000601",
+        "request_sha256_hex": "166df7975edabfb55b4a68b406528f01d066c5c549d35ab042900fdf86d202d4",
+        "input_sha256_hex": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+        "raw_output_sha256_hex": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "profile_id": "maintenance-work-order/1",
+        "field_schema_version": "maintenance-work-order-fields/1",
+        "suggestion_policy_version": "work-order-suggestions/1",
+        "operator_display_label": "R4-OP-TIE-LOW",
+        "accepted_field_count": 4,
+        "edited_field_count": 1,
+        "unknown_field_count": 0,
+        "unreviewed_field_count": 0,
+        "saved_at_utc": "2026-11-17T09:21:43.695627Z"
+      }
+    ],
+    "work_order_review_fields": [
+      {
+        "revision_id": "01a1e8cf-ede4-7613-ade2-a9811c7de9ad",
+        "field_ordinal": 0,
+        "field_key": "work_order_id",
+        "decision": "accepted",
+        "human_value": "WO-004192",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 4,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "WO-004192"
+      },
+      {
+        "revision_id": "01a1e8cf-ede4-7613-ade2-a9811c7de9ad",
+        "field_ordinal": 1,
+        "field_key": "property_name",
+        "decision": "edited",
+        "human_value": "Cedar Hollow Apartments — South Annex [REV1-SUPERSEDED]",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 6,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Cedar Hollow Apartments"
+      },
+      {
+        "revision_id": "01a1e8cf-ede4-7613-ade2-a9811c7de9ad",
+        "field_ordinal": 2,
+        "field_key": "building_unit",
+        "decision": "edited",
+        "human_value": "Bldg B - Unit 204-LEGACY-R1",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 8,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Bldg B - Unit 204"
+      },
+      {
+        "revision_id": "01a1e8cf-ede4-7613-ade2-a9811c7de9ad",
+        "field_ordinal": 3,
+        "field_key": "requested_date",
+        "decision": "accepted",
+        "human_value": "2026-10-16",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 10,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "2026-10-16"
+      },
+      {
+        "revision_id": "01a1e8cf-ede4-7613-ade2-a9811c7de9ad",
+        "field_ordinal": 4,
+        "field_key": "issue_and_resolution",
+        "decision": "accepted",
+        "human_value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 24,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil."
+      },
+      {
+        "revision_id": "01a1e8cf-eebf-7b18-bf11-9344dcbee7ea",
+        "field_ordinal": 0,
+        "field_key": "work_order_id",
+        "decision": "accepted",
+        "human_value": "WO-004192",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 4,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "WO-004192"
+      },
+      {
+        "revision_id": "01a1e8cf-eebf-7b18-bf11-9344dcbee7ea",
+        "field_ordinal": 1,
+        "field_key": "property_name",
+        "decision": "edited",
+        "human_value": "Cedar Hollow Apartments — Verified North Wing (7.50% Cap_Rate \\ Literal)",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-eebf-7b18-bf11-9344dcbee7ea",
+        "field_ordinal": 2,
+        "field_key": "building_unit",
+        "decision": "unknown",
+        "human_value": null,
+        "unknown_reason": "R4-UNKNOWN-REASON-ILLEGIBLE-BADGE",
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-eebf-7b18-bf11-9344dcbee7ea",
+        "field_ordinal": 3,
+        "field_key": "requested_date",
+        "decision": "accepted",
+        "human_value": "2026-10-16",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 10,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "2026-10-16"
+      },
+      {
+        "revision_id": "01a1e8cf-eebf-7b18-bf11-9344dcbee7ea",
+        "field_ordinal": 4,
+        "field_key": "issue_and_resolution",
+        "decision": "edited",
+        "human_value": "Condensing unit CHP-B204 serviced 🔧 astral-scalar check; Café Élite compressor relay verified.",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 24,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil."
+      },
+      {
+        "revision_id": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "field_ordinal": 0,
+        "field_key": "work_order_id",
+        "decision": "accepted",
+        "human_value": "WO-004192",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 4,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "WO-004192"
+      },
+      {
+        "revision_id": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "field_ordinal": 1,
+        "field_key": "property_name",
+        "decision": "edited",
+        "human_value": "UNAPPROVED-DRAFT-R3-DO-NOT-INDEX",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "field_ordinal": 2,
+        "field_key": "building_unit",
+        "decision": "unreviewed",
+        "human_value": "DRAFT-UNIT-UNREVIEWED-999",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "field_ordinal": 3,
+        "field_key": "requested_date",
+        "decision": "accepted",
+        "human_value": "2026-10-16",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 10,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "2026-10-16"
+      },
+      {
+        "revision_id": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "field_ordinal": 4,
+        "field_key": "issue_and_resolution",
+        "decision": "unreviewed",
+        "human_value": null,
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "field_ordinal": 0,
+        "field_key": "work_order_id",
+        "decision": "edited",
+        "human_value": "WO-009901-CLEAN-HEAD",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 4,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "WO-004192"
+      },
+      {
+        "revision_id": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "field_ordinal": 1,
+        "field_key": "property_name",
+        "decision": "accepted",
+        "human_value": "Cedar Hollow Apartments",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 6,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Cedar Hollow Apartments"
+      },
+      {
+        "revision_id": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "field_ordinal": 2,
+        "field_key": "building_unit",
+        "decision": "accepted",
+        "human_value": "Bldg B - Unit 204",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 8,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Bldg B - Unit 204"
+      },
+      {
+        "revision_id": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "field_ordinal": 3,
+        "field_key": "requested_date",
+        "decision": "accepted",
+        "human_value": "2026-10-16",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 10,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "2026-10-16"
+      },
+      {
+        "revision_id": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "field_ordinal": 4,
+        "field_key": "issue_and_resolution",
+        "decision": "accepted",
+        "human_value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 24,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil."
+      },
+      {
+        "revision_id": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "field_ordinal": 0,
+        "field_key": "work_order_id",
+        "decision": "edited",
+        "human_value": "WO-004724-MP-LINKED",
+        "unknown_reason": null,
+        "consulted_page_number": 2,
+        "consulted_block_ordinal": 2,
+        "consulted_table_row": 3,
+        "consulted_table_column": 1,
+        "consulted_quote": "WO-004724"
+      },
+      {
+        "revision_id": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "field_ordinal": 1,
+        "field_key": "property_name",
+        "decision": "edited",
+        "human_value": "Maple Ridge Commons — Manual Entry ZeroCoords",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "field_ordinal": 2,
+        "field_key": "building_unit",
+        "decision": "edited",
+        "human_value": "Unit 11A",
+        "unknown_reason": null,
+        "consulted_page_number": 2,
+        "consulted_block_ordinal": 2,
+        "consulted_table_row": 3,
+        "consulted_table_column": 2,
+        "consulted_quote": "Unit 11A - Refrigerator Evaporator Fan Motor"
+      },
+      {
+        "revision_id": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "field_ordinal": 3,
+        "field_key": "requested_date",
+        "decision": "unknown",
+        "human_value": null,
+        "unknown_reason": "Invoice statement covers monthly range",
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "field_ordinal": 4,
+        "field_key": "issue_and_resolution",
+        "decision": "edited",
+        "human_value": "Cross-page evaporator motor L09 verified on Page 2.",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef01-7c17-be60-15009ee3315b",
+        "field_ordinal": 0,
+        "field_key": "work_order_id",
+        "decision": "edited",
+        "human_value": "WO-DRAFT-ONLY-R1",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef01-7c17-be60-15009ee3315b",
+        "field_ordinal": 1,
+        "field_key": "property_name",
+        "decision": "edited",
+        "human_value": "Draft Only Property Alpha",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef01-7c17-be60-15009ee3315b",
+        "field_ordinal": 2,
+        "field_key": "building_unit",
+        "decision": "unreviewed",
+        "human_value": null,
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef01-7c17-be60-15009ee3315b",
+        "field_ordinal": 3,
+        "field_key": "requested_date",
+        "decision": "unreviewed",
+        "human_value": null,
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef01-7c17-be60-15009ee3315b",
+        "field_ordinal": 4,
+        "field_key": "issue_and_resolution",
+        "decision": "unreviewed",
+        "human_value": null,
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "field_ordinal": 0,
+        "field_key": "work_order_id",
+        "decision": "edited",
+        "human_value": "WO-DRAFT-ONLY-R1",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "field_ordinal": 1,
+        "field_key": "property_name",
+        "decision": "edited",
+        "human_value": "Draft Only Property Beta Never Reviewed",
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "field_ordinal": 2,
+        "field_key": "building_unit",
+        "decision": "accepted",
+        "human_value": "Bldg B - Unit 204",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 8,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Bldg B - Unit 204"
+      },
+      {
+        "revision_id": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "field_ordinal": 3,
+        "field_key": "requested_date",
+        "decision": "unreviewed",
+        "human_value": null,
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "field_ordinal": 4,
+        "field_key": "issue_and_resolution",
+        "decision": "unreviewed",
+        "human_value": null,
+        "unknown_reason": null,
+        "consulted_page_number": null,
+        "consulted_block_ordinal": null,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": null
+      },
+      {
+        "revision_id": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "field_ordinal": 0,
+        "field_key": "work_order_id",
+        "decision": "edited",
+        "human_value": "WO-0006-TIE-LOW",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 4,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "WO-004192"
+      },
+      {
+        "revision_id": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "field_ordinal": 1,
+        "field_key": "property_name",
+        "decision": "accepted",
+        "human_value": "Cedar Hollow Apartments",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 6,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Cedar Hollow Apartments"
+      },
+      {
+        "revision_id": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "field_ordinal": 2,
+        "field_key": "building_unit",
+        "decision": "accepted",
+        "human_value": "Bldg B - Unit 204",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 8,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Bldg B - Unit 204"
+      },
+      {
+        "revision_id": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "field_ordinal": 3,
+        "field_key": "requested_date",
+        "decision": "accepted",
+        "human_value": "2026-10-16",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 10,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "2026-10-16"
+      },
+      {
+        "revision_id": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "field_ordinal": 4,
+        "field_key": "issue_and_resolution",
+        "decision": "accepted",
+        "human_value": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil.",
+        "unknown_reason": null,
+        "consulted_page_number": 1,
+        "consulted_block_ordinal": 24,
+        "consulted_table_row": null,
+        "consulted_table_column": null,
+        "consulted_quote": "Air handler fan running continuously with warm supply air at 79 F setpoint. Inspected condensing unit CHP-B204: dual run capacitor measured 18.2 uF on 45 uF herm leg and contactor points pitted. Replaced capacitor and 2-pole contactor from van stock; verified 19.4 F delta-T across evaporator coil."
+      }
+    ]
+  },
+  "assertion_count": 37,
+  "all_assertions_passed": true,
+  "assertions": [
+    {
+      "check": "clean_worktree_before_decisive_run",
+      "passed": true,
+      "detail": {
+        "status": ""
+      }
+    },
+    {
+      "check": "owned_branch_identity",
+      "passed": true,
+      "detail": {
+        "branch": "review/wp-0010-f4",
+        "head": "bd741ecd4181429b9d6903e59b91ab2d0ec7b7a3"
+      }
+    },
+    {
+      "check": "immutable_002_and_authority_preserved",
+      "passed": true,
+      "detail": {
+        "anc_002": true,
+        "anc_auth": true,
+        "design_diff": ""
+      }
+    },
+    {
+      "check": "preserved_tree_oid:src",
+      "passed": true,
+      "detail": {
+        "oid": "e0dc8651c9fefb228ad26e17f62da6c20fd59ae0"
+      }
+    },
+    {
+      "check": "preserved_tree_oid:tests",
+      "passed": true,
+      "detail": {
+        "oid": "838979ed5f81050c2cc7b7938aa9ae5eb641bbbb"
+      }
+    },
+    {
+      "check": "preserved_tree_oid:web",
+      "passed": true,
+      "detail": {
+        "oid": "381d5e754ea7d7e8612c4c19d07f7d7aafb6ffdd"
+      }
+    },
+    {
+      "check": "preserved_tree_oid:deploy",
+      "passed": true,
+      "detail": {
+        "oid": "4c410b6cff7575a522d38e3c191db33924214841"
+      }
+    },
+    {
+      "check": "preserved_tree_oid:ELedgerCare.slnx",
+      "passed": true,
+      "detail": {
+        "oid": "c00c2bc5ef46019fb4452fdf0bba7ca2271fc976"
+      }
+    },
+    {
+      "check": "preserved_tree_oid:workers",
+      "passed": true,
+      "detail": {
+        "oid": "9b548ddcc73cfba8e7683d132840b08afa5a67a3"
+      }
+    },
+    {
+      "check": "preserved_tree_oid:evaluation",
+      "passed": true,
+      "detail": {
+        "oid": "c9d3ff5a1f3f060169f1a8a0a6452827eae3e188"
+      }
+    },
+    {
+      "check": "preserved_tree_oid:qualification",
+      "passed": true,
+      "detail": {
+        "oid": "9a98eaa342722eff675ff9948947d5f9be6d33b3"
+      }
+    },
+    {
+      "check": "preserved_tree_oid:research",
+      "passed": true,
+      "detail": {
+        "oid": "5036d17e55f96af3bdeea82a20a32eb54a26ddca"
+      }
+    },
+    {
+      "check": "author_and_wp0011_paths_blocked",
+      "passed": true,
+      "detail": {
+        "blocked_probes": [
+          "docs/implementation/WP-0010/eld-f4-implementer/preparation/README.md",
+          "docs/evaluation/WP-0011/reservation/README.md",
+          "../eld-f4-implementer/README.md"
+        ]
+      }
+    },
+    {
+      "check": "reviewer_ports_free_before_start",
+      "passed": true,
+      "detail": {
+        "4710": [],
+        "5690": [],
+        "55439": []
+      }
+    },
+    {
+      "check": "pg18_subset_verified_offline",
+      "passed": true,
+      "detail": {
+        "file_count": 1597,
+        "subset_manifest_sha256": "47c3deb9c917f79c353b3683b2c2611ee975285ea06226c8f72444c96ce9051f",
+        "authenticode_status": "Valid"
+      }
+    },
+    {
+      "check": "owned_pg_settings_port_55439_and_distinct_secrets",
+      "passed": true,
+      "detail": {
+        "host": "127.0.0.1",
+        "port": 55439
+      }
+    },
+    {
+      "check": "genuine_wp0006_inputs_hash_verified",
+      "passed": true,
+      "detail": {
+        "f01_raw_sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+        "f07_raw_sha256": "c399ad892e257500e2b6a9ac8b0bc3d8a17e9c10041262c4bca6a48fb9b9b639"
+      }
+    },
+    {
+      "check": "postmaster_55439_running",
+      "passed": true,
+      "detail": {
+        "startUtc": "2026-11-17T09:21:32.9122738Z",
+        "name": "postgres",
+        "pid": 17788
+      }
+    },
+    {
+      "check": "pg_durability_c_locale_and_pre_f4_migrations",
+      "passed": true,
+      "detail": {
+        "server_version": "18.7",
+        "listen_addresses": "127.0.0.1",
+        "port": "55439",
+        "fsync": "on",
+        "full_page_writes": "on",
+        "synchronous_commit": "on",
+        "password_encryption": "scram-sha-256",
+        "data_checksums": "on",
+        "lc_collate": "C",
+        "lc_ctype": "C",
+        "migrations": [
+          "20261114182147_InitialDurableIntake",
+          "20261116052029_AddLocalExtraction",
+          "20261116200918_AddWorkOrderReview"
+        ]
+      }
+    },
+    {
+      "check": "owned_api_5690_listening_ocr_disabled",
+      "passed": true,
+      "detail": {
+        "pid": 8724,
+        "name": "dotnet",
+        "startUtc": "2026-11-17T09:21:41.4049670Z"
+      }
+    },
+    {
+      "check": "live_f1_http_submissions_r08_and_r09",
+      "passed": true,
+      "detail": {
+        "seed_r08_doc_id": "01a1e8cf-ec7a-744c-bbd4-04074813c931",
+        "seed_r09_doc_id": "01a1e8cf-ed70-7826-a834-61d5a3ce13bd"
+      }
+    },
+    {
+      "check": "disabled_ocr_post_extraction_returns_503",
+      "passed": true,
+      "detail": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.6.4",
+        "title": "Local extraction unavailable",
+        "status": 503,
+        "detail": "Local OCR execution is disabled until a coordinator runtime release is configured.",
+        "code": "extraction_disabled",
+        "traceId": "00-710e0644cd9670647205e751c8c508ad-2eebf3bec3dc9bd0-00"
+      }
+    },
+    {
+      "check": "live_f3_review_save:r01_rev1_reviewed",
+      "passed": true,
+      "detail": {
+        "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-ede4-7613-ade2-a9811c7de9ad",
+        "status": "reviewed"
+      }
+    },
+    {
+      "check": "live_f3_review_save:r01_rev2_latest_reviewed",
+      "passed": true,
+      "detail": {
+        "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "revisionNumber": 2,
+        "revisionId": "01a1e8cf-eebf-7b18-bf11-9344dcbee7ea",
+        "status": "reviewed"
+      }
+    },
+    {
+      "check": "live_f3_review_save:r01_rev3_newer_draft_head",
+      "passed": true,
+      "detail": {
+        "documentId": "01a1e571-2838-714b-861b-bf0835d7c90a",
+        "revisionNumber": 3,
+        "revisionId": "01a1e8cf-eede-7b32-9e77-c0f100da697c",
+        "status": "draft"
+      }
+    },
+    {
+      "check": "live_f3_review_save:r03_rev1_clean_reviewed_head",
+      "passed": true,
+      "detail": {
+        "documentId": "01a1e578-8f3a-7e0c-826b-a2c9dc066a8f",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-eee6-74be-b41d-b8e67d581109",
+        "status": "reviewed"
+      }
+    },
+    {
+      "check": "live_f3_review_save:r04_rev1_p2_and_null_provenance",
+      "passed": true,
+      "detail": {
+        "documentId": "01a20400-0000-7000-8000-000000000004",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-eeed-708c-b31a-dbaf1504898d",
+        "status": "reviewed"
+      }
+    },
+    {
+      "check": "live_f3_review_save:r05_rev1_draft_only",
+      "passed": true,
+      "detail": {
+        "documentId": "01a20400-0000-7000-8000-000000000005",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-ef01-7c17-be60-15009ee3315b",
+        "status": "draft"
+      }
+    },
+    {
+      "check": "live_f3_review_save:r05_rev2_draft_only",
+      "passed": true,
+      "detail": {
+        "documentId": "01a20400-0000-7000-8000-000000000005",
+        "revisionNumber": 2,
+        "revisionId": "01a1e8cf-ef08-7d58-9cbd-60d134bc5d78",
+        "status": "draft"
+      }
+    },
+    {
+      "check": "live_f3_review_save:r06_rev1_tie_low_leading_zeros",
+      "passed": true,
+      "detail": {
+        "documentId": "01a20400-0000-7000-8000-000000000006",
+        "revisionNumber": 1,
+        "revisionId": "01a1e8cf-ef0f-72e8-963a-18bd5405209e",
+        "status": "reviewed"
+      }
+    },
+    {
+      "check": "expected_8table_row_counts_and_seq_9",
+      "passed": true,
+      "detail": {
+        "counts": {
+          "documents": 9,
+          "original_artifacts": 9,
+          "processing_jobs": 9,
+          "execution_attempts": 9,
+          "extraction_results": 7,
+          "work_order_review_heads": 5,
+          "work_order_review_revisions": 8,
+          "work_order_review_fields": 40
+        },
+        "fencing_seq": {
+          "last_value": 9,
+          "is_called": true
+        }
+      }
+    },
+    {
+      "check": "api_current_vs_latest_reviewed_provenance_and_range_verified",
+      "passed": true,
+      "detail": {
+        "r01_head": 3,
+        "r01_latest_reviewed": 2,
+        "r04_p2_quote": "WO-004724",
+        "r04_null_prov": null
+      }
+    },
+    {
+      "check": "least_privilege_denies_all_13_unauthorized_mutations",
+      "passed": true,
+      "detail": {
+        "denied_count": 13
+      }
+    },
+    {
+      "check": "owned_ui_4710_listening",
+      "passed": true,
+      "detail": {
+        "startUtc": "2026-11-17T09:21:44.8597375Z",
+        "name": "node",
+        "pid": 8580
+      }
+    },
+    {
+      "check": "edge_ui_readonly_smoke_passed",
+      "passed": true,
+      "detail": {
+        "stdout": "PASS: Edge UI read-only smoke verified (157.0.4341.60) on http://127.0.0.1:4710.",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "canonical_8table_digest_invariant_across_readonly_checks",
+      "passed": true,
+      "detail": {
+        "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993"
+      }
+    },
+    {
+      "check": "all_owned_services_stopped_and_ports_released",
+      "passed": true,
+      "detail": {
+        "pg_ctl_status_exit": 3,
+        "ports_after": {
+          "4710": [],
+          "55439": [],
+          "5690": []
+        },
+        "seed_cluster_retained": true
+      }
+    }
+  ]
+}

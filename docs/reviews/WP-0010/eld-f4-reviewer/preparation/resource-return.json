@@ -1,0 +1,52 @@
+{
+  "schema": "eledgercare.wp-0010.reviewer-resource-return/1",
+  "observed_at_utc": "2026-11-17T09:22:02.046945+00:00",
+  "reviewer": "eld-f4-reviewer",
+  "owned_ports": {
+    "api": 5690,
+    "ui": 4710,
+    "postgres": 55439
+  },
+  "ports_before": {
+    "4710": [],
+    "5690": [],
+    "55439": []
+  },
+  "ports_after": {
+    "4710": [],
+    "55439": [],
+    "5690": []
+  },
+  "processes": {
+    "postgres_postmaster": {
+      "started": {
+        "startUtc": "2026-11-17T09:21:32.9122738Z",
+        "name": "postgres",
+        "pid": 17788
+      },
+      "pg_ctl_status_exit_after_stop": 3,
+      "alive_after_stop": false
+    },
+    "api_5690": {
+      "pid": 8724,
+      "name": "dotnet",
+      "startUtc": "2026-11-17T09:21:41.4049670Z",
+      "exitCode": 1,
+      "aliveAfter": false
+    },
+    "ui_4710": {
+      "pid": 8580,
+      "name": "node",
+      "startUtc": "2026-11-17T09:21:44.8597375Z",
+      "exitCode": 1,
+      "aliveAfter": false
+    }
+  },
+  "retained_on_disk": {
+    "postgres_data_dir": ".local/postgres-data",
+    "database": "eledgercare_f4_reviewer_seed_f3",
+    "canonical_8table_sha256": "841a3c0a2fc6ff5bbf29d6da1feff35b53c0c35be33a89a9ea03cfe2c1a2c993",
+    "credentials_gitignored": true
+  },
+  "gpu_or_model_processes_started": 0
+}
