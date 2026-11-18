@@ -1,0 +1,37 @@
+{
+ "release_name": "a1-r1",
+ "release_sha256": "c7fe5ad7eb0f7ae1645530c59f6170ed9100994c5be7796232b8a5aace1370e4",
+ "executor_sha256": "a25adcab9a755f97240338257aa26de37f9713aa1b2f94601c0559386da1715f",
+ "candidate": "c235bc61820def84142480e6e2a7a2e5485176d6",
+ "operator": "eld-rd-reviewer",
+ "action": "execute once",
+ "stage": "A1",
+ "issued_utc": "2026-11-18T19:32:02Z",
+ "carrier": "eld-coordinator Windows process (docs/coordination/WP-0017/review_command.py)",
+ "orders": [
+  {
+   "run": "a1-r1-endpoints-order",
+   "plan_sha256": "dcda7ed4b23ca74e2bf8b9228565497adc001bcbdabb9f3d33ed11971ec526dc",
+   "seconds": 7290,
+   "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-endpoints-order"
+  },
+  {
+   "run": "a1-r1-switches-order",
+   "plan_sha256": "d1aaf826a25feb1ed79e6771abb963a989c0002ad27f2d947a534683e2a132ce",
+   "seconds": 7290,
+   "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-switches-order"
+  }
+ ],
+ "reviewer_checks": 79,
+ "reviewer_notes": [
+  "executor binds HEAD and *.py digests only; 4 non-.py engine file(s) ['docs/research/WP-0017/engine/CONTRACT.md', 'docs/research/WP-0017/engine/README.md', 'docs/research/WP-0017/engine/cpu-preflight-receipt.json', 'docs/research/WP-0017/engine/surgical.json'] are covered by this issue-time clean/blob check, not by device_lease.bind_inputs"
+ ],
+ "reviewer_session": "eld-rd-reviewer, native Claude Code CLI, claude-opus-5-5 (requested effort xhigh), session e2d32880-3555-4a4d-b695-b7963a903c2c",
+ "reviewer_identity": {
+  "role": "eld-rd-reviewer",
+  "cli": "Claude Code (native CLI)",
+  "model": "claude-opus-5-5",
+  "requested_effort": "xhigh",
+  "session": "e2d32880-3555-4a4d-b695-b7963a903c2c"
+ }
+}

@@ -53,6 +53,17 @@ BOUND = {
         s3_probe_guards="host only (span_probe.apply_pure_host_guards); S3-on probes are therefore rejected, "
                         "as in the joint design read, until a candidate records device guards in guard_meta",
         s3_device_guards=False),
+    # Re-bind for the coordinator's a1-r1 release (integration 3e9780f). Reviewed from Git blobs only: the diff
+    # eb16708..c235bc61 (author commits cd277b5 + receipt c235bc6) keeps every field this normalizer reads in
+    # launch.json, child.json, free/window-NNN.json, free/ordinary-timing.json and probe/window-NNN-probe.json;
+    # adds guard_meta.implementation ("device" when S3 is on, via DeviceProbeGuards forked per branch) in each
+    # probe step and divergence_step_summary; emits null logits for masked vocabularies (mapped to guard status
+    # masked); forces auto_pair_removals = False. span_probe.py cdfabbe9... = author handoff = signed release pin.
+    "c235bc61820def84142480e6e2a7a2e5485176d6": dict(
+        contract="docs/research/WP-0017/engine/CONTRACT.md 1142428f (schemas ablation-engine/1, span-logit-probe/1)",
+        span_probe_sha256="cdfabbe9670368200a4b5ef73b5470cfc43503181c7c6f0c2aa7e4792da2d644",
+        s3_probe_guards="device guards of the configuration (span_probe.DeviceProbeGuards) when S3 is on; host otherwise",
+        s3_device_guards=True),
 }
 BOUND_CANDIDATE = sorted(BOUND)
 IMPLEMENTATION = {"ablation_engine": "switch_harness", "genuine_native": "genuine_native",

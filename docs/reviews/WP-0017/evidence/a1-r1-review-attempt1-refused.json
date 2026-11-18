@@ -1,0 +1,109 @@
+{
+ "review": {
+  "release": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0017\\a1-r1-release.json",
+  "release_sha256": "c7fe5ad7eb0f7ae1645530c59f6170ed9100994c5be7796232b8a5aace1370e4",
+  "executor_sha256": "a25adcab9a755f97240338257aa26de37f9713aa1b2f94601c0559386da1715f",
+  "candidate": "c235bc61820def84142480e6e2a7a2e5485176d6",
+  "stage": "A1",
+  "orders": [
+   {
+    "run": "a1-r1-endpoints-order",
+    "plan_sha256": "dcda7ed4b23ca74e2bf8b9228565497adc001bcbdabb9f3d33ed11971ec526dc",
+    "seconds": 7290,
+    "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-endpoints-order"
+   },
+   {
+    "run": "a1-r1-switches-order",
+    "plan_sha256": "d1aaf826a25feb1ed79e6771abb963a989c0002ad27f2d947a534683e2a132ce",
+    "seconds": 7290,
+    "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-switches-order"
+   }
+  ],
+  "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\ablation-replay",
+  "stage_detail": [
+   {
+    "group": "endpoints",
+    "configs": [
+     "native",
+     "all_off",
+     "carbon_bf16",
+     "all_on"
+    ],
+    "engine_seconds": 2700,
+    "supervised_seconds": 7290,
+    "inner": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-endpoints",
+    "outer": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-endpoints-order"
+   },
+   {
+    "group": "switches",
+    "configs": [
+     "add_S0",
+     "add_S1a",
+     "add_S1b",
+     "add_S1c",
+     "add_S2",
+     "add_S3",
+     "remove_S0",
+     "remove_S1a",
+     "remove_S1b",
+     "remove_S1c",
+     "remove_S2",
+     "remove_S3"
+    ],
+    "engine_seconds": 7200,
+    "supervised_seconds": 7290,
+    "inner": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-switches",
+    "outer": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-switches-order"
+   }
+  ],
+  "coordinator_pins": {
+   "coord/review_command.py": {
+    "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0017\\review_command.py",
+    "sha256": "c5596d0ecd824bf0a7222efc1e584767c76d5bd3b7be30c3436c6ed62491bff8",
+    "status": "identical"
+   },
+   "coord/device_lease.py": {
+    "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0017\\device_lease.py",
+    "sha256": "a25adcab9a755f97240338257aa26de37f9713aa1b2f94601c0559386da1715f",
+    "status": "identical"
+   },
+   "coord/issue_lease.py": {
+    "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0017\\issue_lease.py",
+    "sha256": "10c14e1b81d0786da5541963b08bba2082a1317d6e70dd94e74b21f0f579d489",
+    "status": "identical"
+   },
+   "coord/run_order.py": {
+    "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0017\\run_order.py",
+    "sha256": "9138455fe3837dd61d36ab9d59e5902705824c50940ad027cafef5f8c3764c4a",
+    "status": "identical"
+   },
+   "coord/check_endpoints.py": {
+    "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0017\\check_endpoints.py",
+    "sha256": "edcb418441a5eaa6acb0ba3e3eeaf479a2e69f562c06779db6265362675a0d0c",
+    "status": "identical"
+   },
+   "coord/prepare_a1.py": {
+    "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0017\\prepare_a1.py",
+    "sha256": "74b24a1fef6a8fd26ec0a0aae676d150376ae27b791cdff9b77f30b33f136e29",
+    "status": "identical"
+   },
+   "coord/wp16_device_lease.py": {
+    "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0016\\device_lease.py",
+    "sha256": "1db1a43af825458fff828949ace766b9136a4622c0dc567a838e8089ffbafde8",
+    "status": "identical"
+   },
+   "coord/winjob.py": {
+    "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\qualification\\baseline\\winjob.py",
+    "sha256": "6a02c0d1649b755b4f95a341bdb7a5533491edd96b26bd73fa9b43f013fd7b9c",
+    "status": "identical"
+   }
+  },
+  "notes": [
+   "executor binds HEAD and *.py digests only; 4 non-.py engine file(s) ['docs/research/WP-0017/engine/CONTRACT.md', 'docs/research/WP-0017/engine/README.md', 'docs/research/WP-0017/engine/cpu-preflight-receipt.json', 'docs/research/WP-0017/engine/surgical.json'] are covered by this issue-time clean/blob check, not by device_lease.bind_inputs"
+  ]
+ },
+ "checks": 80,
+ "failures": [
+  "candidate c235bc61820d has no reviewed a1_normalize binding (re-bind commit required)"
+ ]
+}
