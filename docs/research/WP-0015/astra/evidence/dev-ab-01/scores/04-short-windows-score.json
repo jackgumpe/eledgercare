@@ -1,0 +1,238 @@
+{
+  "family": "short",
+  "source_sha256": "10f84af9a8c803f78e53bc4b43739f680aa557f2a6e2b8cf343ca9697aba402a",
+  "packet_complete": true,
+  "expected_pages": 1,
+  "output_pages": 1,
+  "observed_order": [
+    1
+  ],
+  "faults": [],
+  "counts": {
+    "edits": 2,
+    "reference_chars": 121,
+    "cer": 0.01652892561983471,
+    "correct_cells": 0,
+    "reference_cells": 0,
+    "extra_cells": 0,
+    "cell_accuracy": null,
+    "correct_lines": 3,
+    "reference_lines": 4,
+    "critical_values": 2,
+    "critical_errors": 1,
+    "unflagged_critical_errors": 1,
+    "flagged_critical": 0,
+    "wrong_source": 0
+  },
+  "extra_page_outputs": [],
+  "pages": [
+    {
+      "page": 1,
+      "state": "complete",
+      "reference_chars": 121,
+      "edit_distance": 2,
+      "cells": [],
+      "lines": [
+        {
+          "at": "page/1/line/1",
+          "expected": "Cooling loop service",
+          "observed": "Cooling loop service",
+          "correct": true,
+          "reference_bbox": [
+            55.0,
+            70.0,
+            262.5,
+            89.0
+          ],
+          "reported_span_boxes": [
+            [
+              55.92,
+              69.819,
+              132.72,
+              89.013
+            ],
+            [
+              141.36,
+              69.819,
+              184.08,
+              89.013
+            ],
+            [
+              191.52,
+              69.819,
+              261.84,
+              85.174
+            ]
+          ]
+        },
+        {
+          "at": "page/1/line/2",
+          "expected": "Ticket CL-I0O7",
+          "observed": "Ticket CL-1007",
+          "correct": false,
+          "reference_bbox": [
+            55.0,
+            116.0,
+            141.5,
+            125.5
+          ],
+          "reported_span_boxes": [
+            [
+              54.96,
+              115.885,
+              89.76,
+              125.722
+            ],
+            [
+              93.36,
+              115.885,
+              141.36,
+              125.722
+            ]
+          ]
+        },
+        {
+          "at": "page/1/line/3",
+          "expected": "At the east riser, the seal was dry after the pump restarted.",
+          "observed": "At the east riser, the seal was dry after the pump restarted.",
+          "correct": true,
+          "reference_bbox": [
+            54.5,
+            152.0,
+            387.0,
+            164.0
+          ],
+          "reported_span_boxes": [
+            [
+              54.96,
+              151.874,
+              67.2,
+              161.711
+            ],
+            [
+              70.56,
+              151.874,
+              87.84,
+              161.711
+            ],
+            [
+              91.92,
+              152.354,
+              115.68,
+              161.711
+            ],
+            [
+              119.52,
+              151.874,
+              147.12,
+              163.63
+            ],
+            [
+              151.44,
+              151.874,
+              168.96,
+              161.711
+            ],
+            [
+              172.8,
+              151.874,
+              195.12,
+              161.711
+            ],
+            [
+              199.44,
+              154.273,
+              222.24,
+              161.711
+            ],
+            [
+              226.32,
+              151.874,
+              244.08,
+              164.11
+            ],
+            [
+              247.92,
+              151.874,
+              273.12,
+              161.711
+            ],
+            [
+              276.48,
+              151.874,
+              294.0,
+              161.711
+            ],
+            [
+              298.08,
+              154.273,
+              329.52,
+              164.11
+            ],
+            [
+              333.6,
+              151.874,
+              386.16,
+              161.711
+            ]
+          ]
+        },
+        {
+          "at": "page/1/line/4",
+          "expected": "Gauge reading 0.81 bar.",
+          "observed": "Gauge reading 0.81 bar.",
+          "correct": true,
+          "reference_bbox": [
+            55.0,
+            184.0,
+            192.5,
+            196.0
+          ],
+          "reported_span_boxes": [
+            [
+              55.44,
+              183.784,
+              92.88,
+              196.021
+            ],
+            [
+              96.96,
+              183.784,
+              138.72,
+              196.021
+            ],
+            [
+              142.8,
+              183.784,
+              165.12,
+              193.621
+            ],
+            [
+              171.12,
+              183.784,
+              191.76,
+              193.621
+            ]
+          ]
+        }
+      ],
+      "critical": [
+        {
+          "at": "page/1/line/2",
+          "expected": "CL-I0O7",
+          "observed": "Ticket CL-1007",
+          "correct": false,
+          "flagged": false
+        },
+        {
+          "at": "page/1/line/4",
+          "expected": "0.81",
+          "observed": "Gauge reading 0.81 bar.",
+          "correct": true,
+          "flagged": false
+        }
+      ],
+      "extra_cells": 0
+    }
+  ]
+}

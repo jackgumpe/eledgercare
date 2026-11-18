@@ -1,0 +1,129 @@
+{
+  "family": "short",
+  "source_sha256": "10f84af9a8c803f78e53bc4b43739f680aa557f2a6e2b8cf343ca9697aba402a",
+  "packet_complete": true,
+  "expected_pages": 1,
+  "output_pages": 1,
+  "observed_order": [
+    1
+  ],
+  "faults": [],
+  "counts": {
+    "edits": 46,
+    "reference_chars": 121,
+    "cer": 0.38016528925619836,
+    "correct_cells": 0,
+    "reference_cells": 0,
+    "extra_cells": 0,
+    "cell_accuracy": null,
+    "correct_lines": 2,
+    "reference_lines": 4,
+    "critical_values": 2,
+    "critical_errors": 1,
+    "unflagged_critical_errors": 1,
+    "flagged_critical": 0,
+    "wrong_source": 0
+  },
+  "extra_page_outputs": [],
+  "pages": [
+    {
+      "page": 1,
+      "state": "complete",
+      "reference_chars": 121,
+      "edit_distance": 46,
+      "cells": [],
+      "lines": [
+        {
+          "at": "page/1/line/1",
+          "expected": "Cooling loop service",
+          "observed": null,
+          "correct": false,
+          "reference_bbox": [
+            55.0,
+            70.0,
+            262.5,
+            89.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/line/2",
+          "expected": "Ticket CL-I0O7",
+          "observed": "Ticket CL-1007",
+          "correct": false,
+          "reference_bbox": [
+            55.0,
+            116.0,
+            141.5,
+            125.5
+          ],
+          "reported_span_boxes": [
+            [
+              53.297,
+              113.369,
+              143.351,
+              128.432
+            ]
+          ]
+        },
+        {
+          "at": "page/1/line/3",
+          "expected": "At the east riser, the seal was dry after the pump restarted.",
+          "observed": "At the east riser, the seal was dry after the pump restarted.",
+          "correct": true,
+          "reference_bbox": [
+            54.5,
+            152.0,
+            387.0,
+            164.0
+          ],
+          "reported_span_boxes": [
+            [
+              52.072,
+              149.838,
+              387.784,
+              165.694
+            ]
+          ]
+        },
+        {
+          "at": "page/1/line/4",
+          "expected": "Gauge reading 0.81 bar.",
+          "observed": "Gauge reading 0.81 bar.",
+          "correct": true,
+          "reference_bbox": [
+            55.0,
+            184.0,
+            192.5,
+            196.0
+          ],
+          "reported_span_boxes": [
+            [
+              53.297,
+              182.342,
+              193.586,
+              198.198
+            ]
+          ]
+        }
+      ],
+      "critical": [
+        {
+          "at": "page/1/line/2",
+          "expected": "CL-I0O7",
+          "observed": "Ticket CL-1007",
+          "correct": false,
+          "flagged": false
+        },
+        {
+          "at": "page/1/line/4",
+          "expected": "0.81",
+          "observed": "Gauge reading 0.81 bar.",
+          "correct": true,
+          "flagged": false
+        }
+      ],
+      "extra_cells": 0
+    }
+  ]
+}
