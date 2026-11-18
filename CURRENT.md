@@ -2,11 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## Active WP-0017 frozen-weight runtime ablation
+## WP-0017 closed at A1, publication in progress
 
-Astra owns design and fixtures, Carbon owns the runtime switches, and Opus owns independent replay. The coordinator releases A1, A2 and A3 in sequence. [Assignment and source specification](docs/coordination/WP-0017/assignment.md)
-
-All sixteen initial A1 configurations completed. No single removal restored both identifiers. The frozen decision rules selected three paired removals involving batched expert decode, fused projections and sparse attention. The coordinator released those exact configurations on the same source. The GPU is available for the reviewer's next command. [Measured switch effects](docs/coordination/WP-0017/a1-initial-findings.md) · [Pair release](docs/coordination/WP-0017/a1-p1-release.json)
+All 19 GPU configurations completed. The six individual removals and the three eligible pairs left the page 21 identifier wrong. Every pair restored page 37. Ordinary Baidu remains the reference. No surgical engine qualified for A2 or A3. The terminal decision is published, and canonical review and coordinator report publication are in progress. [Coordinator decision](docs/coordination/WP-0017/decision.json) · [Independent pair result](docs/reviews/WP-0017/evidence/A1-combined-decision.json)
 
 ## Completed WP-0016 grammar and CUDA-graphed multi-window trial
 
