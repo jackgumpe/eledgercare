@@ -1082,3 +1082,14 @@ Base `178ce88b80384fc7def703d9e78769427d9b2528`, reserved 2026-11-18 UTC. Jack s
 | 007 | eld-coordinator | eledgercare | coordination/bootstrap | docs/agent-reports/eld-coordinator/WP-0015/007_2026-11-18_verification_eld-coordinator.md | coordinator disposition |
 
 **Closed and published.** All seven reserved reports are integrated. Source-bound experiments and independent replay are complete. The 60-page comparison supports retaining the reviewable Baidu baseline. Carbon showed a smaller approximate gain on the four-page replay. Family B remains sealed. [Verification report](docs/agent-reports/eld-coordinator/WP-0015/007_2026-11-18_verification_eld-coordinator.md) at `209ea0eb12c03a30c68b5564b2fd1c0ebbba966d` · [Decision and GPU returns](docs/coordination/WP-0015/decision.json) · [Verified remote publications](docs/coordination/WP-0015/publication-receipt.json)
+
+## WP-0016 grammar and CUDA-graphed multi-window trial
+
+Integration base `774c71fc9aa9f60e751be0fe8cc364ccff5343bc`. Engine base `61bec47689dcdf272a525185013f2dce6335fa24`. [Assignment and numerical gates](docs/coordination/WP-0016/assignment.md)
+
+| Sequence | Owner | Worktree and branch | Canonical publication |
+| --- | --- | --- | --- |
+| 001 | eld-rd-astra | gates-astra · research/wp-0016-design | docs/agent-reports/eld-rd-astra/WP-0016/001_2026-11-18_design_eld-rd-astra.md |
+| 002 | eld-rd-carbon | gates-carbon · research/wp-0016-engine | docs/agent-reports/eld-rd-carbon/WP-0016/002_2026-11-18_research_eld-rd-carbon.md |
+| 003 | eld-rd-reviewer | gates-review · review/wp-0016-escrow | docs/agent-reports/eld-rd-reviewer/WP-0016/003_2026-11-18_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | eledgercare · coordination/bootstrap | docs/agent-reports/eld-coordinator/WP-0016/004_2026-11-18_verification_eld-coordinator.md |
