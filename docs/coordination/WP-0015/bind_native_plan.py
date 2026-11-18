@@ -1,4 +1,4 @@
-"""Bind one finite Astra-harness plan to Git source, input bytes and a fresh host observation."""
+"""Bind a finite OCR comparison to Git source, input bytes and a fresh host observation."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -31,7 +31,7 @@ def bind(args):
         if sha(file.read_bytes()) != r["sha256"] or len(r["rgb_sha256"]) != r["pages"]:
             raise ValueError("PDF or rendered manifest mismatch")
         inputs.append({k: r[k] for k in ("label", "mode", "pages", "warmup", "sha256", "rgb_sha256")})
-    windows = sum((r["pages"] + 2) // 3 for r in requests if r["mode"] == "native")
+    windows = sum((r["pages"] + 2) // 3 for r in requests if r["mode"] != "windows")
     if not 0 < args.seconds <= 10800:
         raise ValueError("Lease duration outside per-session ceiling")
     dest = HERE / (args.lease + "-release.json")
@@ -39,7 +39,8 @@ def bind(args):
     if run.exists() or dest.exists():
         raise FileExistsError("Lease and output directory must be fresh")
     interpreter = Path("C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe").resolve(strict=True)
-    app = [str(interpreter), "-I", "-B", "docs/research/WP-0015/astra/launch.py", "--source", src,
+    launcher_owner = "carbon" if args.owner == "carbon" else "astra"
+    app = [str(interpreter), "-I", "-B", f"docs/research/WP-0015/{launcher_owner}/launch.py", "--source", src,
            "--plan", str(plan), "--sha256", args.digest, "--owner", args.owner,
            "--run", args.run, "--seconds", str(args.seconds), "--lease", args.lease, "--min-vram-mib", "12000"]
     receipt = {"issued_utc": datetime.now(timezone.utc).isoformat(), "lease": args.lease,
@@ -56,7 +57,7 @@ def bind(args):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--owner", choices=["astra", "review"], required=True)
+    p.add_argument("--owner", choices=["astra", "carbon", "review"], required=True)
     for name in ("source", "custody", "digest", "run", "lease"):
         p.add_argument("--" + name, required=True)
     for name in ("worktree", "plan"):
