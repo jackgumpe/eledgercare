@@ -240,7 +240,7 @@ def main():
             expect(False, f"guard refuses {p}")
         except SystemExit:
             expect(True, f"guard refuses {p}")
-    # Detached operator and monitor with a dummy lease executor (no GPU, no model).
+    # Operator and monitor with a dummy lease executor (no GPU, no model), while this process stays alive.
     op = a.out / "operator"
     leases = a.out / "leases"
     leases.mkdir()
@@ -261,10 +261,10 @@ def main():
     ok = subprocess.run(cmd + ["launch", "--opdir", str(op), "--release", str(release), "--digest", sha_file(release),
                                "--lease-py", str(dummy), "--lease-py-sha256", sha_file(dummy), "--leases-dir", str(leases)],
                         capture_output=True, text=True)
-    expect(ok.returncode == 0, f"operator launches detached ({ok.stderr.strip()[-200:]})")
+    expect(ok.returncode == 0, f"operator launch accepted by the immediate job; survival beyond the CLI is NOT tested here ({ok.stderr.strip()[-200:]})")
     mon = subprocess.run(cmd + ["monitor", "--opdir", str(op), "--interval", "0.5", "--limit", "30"],
                          capture_output=True, text=True)
-    expect(mon.returncode == 0, f"monitor starts detached ({mon.stderr.strip()[-200:]})")
+    expect(mon.returncode == 0, f"monitor start accepted by the immediate job ({mon.stderr.strip()[-200:]})")
     deadline = time.monotonic() + 30
     lines = []
     while time.monotonic() < deadline:

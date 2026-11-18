@@ -12,6 +12,15 @@ watch    Low-frequency liveness checks of the one launched PID. Logs process sta
 status   Prints the launch receipt, the last monitor lines and, after exit, the lease receipts.
 
 The tool never terminates, signals or reprioritises any process.
+
+OBSERVED BOUNDARY (2026-11-18, Antigravity CLI): the CLI's outer job does not allow a real breakaway. With the
+system CPython, CREATE_BREAKAWAY_FROM_JOB is refused (WinError 5) and nothing starts. With the Q0 venv
+redirector the flag is accepted by the inner job, but a 25 s survival probe launched from a finished tool
+command never wrote its first file: the "detached" processes end with the CLI command or turn. Therefore,
+under this CLI, `launch`/`monitor` processes live only as long as the calling session. A long GPU lease must
+run from a session that stays alive until the lease returns (a background tool task in a turn that waits
+on timers), or root starts the executor in its own context and this tool only `watch`es/`status`es. No
+attempt is made to escape the job by other means.
 """
 import argparse
 import ctypes
@@ -51,9 +60,16 @@ def write_new(path, obj):
 
 
 def detached(argv, cwd, out, err):
+    """Start argv outside the caller's job. Fails closed (nothing started) if the job forbids breakaway:
+    a process left inside the CLI's job could be killed with it mid-lease. Observed 2026-11-18: the Q0 venv
+    interpreter can break away from the Antigravity CLI job; the system CPython 3.12 gets WinError 5."""
     with Path(out).open("xb") as o, Path(err).open("xb") as e:
-        return subprocess.Popen(argv, cwd=str(cwd), stdin=subprocess.DEVNULL, stdout=o, stderr=e, close_fds=True,
-                                creationflags=DETACHED | NEW_GROUP | BREAKAWAY)
+        try:
+            return subprocess.Popen(argv, cwd=str(cwd), stdin=subprocess.DEVNULL, stdout=o, stderr=e, close_fds=True,
+                                    creationflags=DETACHED | NEW_GROUP | BREAKAWAY)
+        except PermissionError as exc:
+            raise SystemExit(f"breakaway from the calling job was denied ({exc}); nothing was started. "
+                             "Run operate.py with the Q0 venv interpreter.") from exc
 
 
 def launch(a):
