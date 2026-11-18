@@ -1,0 +1,72 @@
+{
+  "test": "redirected binary files, actual transformers TextStreamer.on_finalized_text, -I -B",
+  "expected_utf8_hex": "53796e74686574696320e6a99f20cea920f09fa7be",
+  "model_calls": 0,
+  "tests": {
+    "unconfigured": {
+      "before": [
+        "cp1252",
+        "cp1252"
+      ],
+      "after": [
+        "cp1252",
+        "cp1252"
+      ],
+      "isolated": 1,
+      "ignore_environment": 1,
+      "stdout_errors": "surrogateescape",
+      "stderr_errors": "backslashreplace",
+      "cuda_initialized": false,
+      "python": "3.12.10",
+      "exit_code": 1,
+      "stdout_hex": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_ends_with_utf8_payload": false,
+      "error_name": "UnicodeEncodeError"
+    },
+    "import": {
+      "before": [
+        "cp1252",
+        "cp1252"
+      ],
+      "after": [
+        "utf-8",
+        "utf-8"
+      ],
+      "isolated": 1,
+      "ignore_environment": 1,
+      "stdout_errors": "surrogateescape",
+      "stderr_errors": "backslashreplace",
+      "cuda_initialized": false,
+      "python": "3.12.10",
+      "exit_code": 0,
+      "stdout_hex": "53796e74686574696320e6a99f20cea920f09fa7be",
+      "stdout_sha256": "fae5116852178c97db5a35b4476f5af7ea418e1f7d968bfe21cfc0cda710cb7b",
+      "stderr_ends_with_utf8_payload": true,
+      "error_name": null
+    },
+    "main": {
+      "before": [
+        "cp1252",
+        "cp1252"
+      ],
+      "after": [
+        "utf-8",
+        "utf-8"
+      ],
+      "isolated": 1,
+      "ignore_environment": 1,
+      "stdout_errors": "surrogateescape",
+      "stderr_errors": "backslashreplace",
+      "cuda_initialized": false,
+      "python": "3.12.10",
+      "exit_code": 0,
+      "stdout_hex": "53796e74686574696320e6a99f20cea920f09fa7be",
+      "stdout_sha256": "fae5116852178c97db5a35b4476f5af7ea418e1f7d968bfe21cfc0cda710cb7b",
+      "stderr_ends_with_utf8_payload": true,
+      "error_name": null
+    }
+  },
+  "source_commit": "a114c8d1f0632c922dc39e0aa860ae1cc08b0ae9",
+  "command": "C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe -I -B docs/research/WP-0015/astra/unicode-output/check.py C:/Users/jackg/eLedgerCare-Speed/WP-0015/astra/prep/utf8-stream-01"
+}
