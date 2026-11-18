@@ -1,0 +1,90 @@
+{
+  "packet": "WP-0014",
+  "decision_utc": "2026-11-18T02:16:39Z",
+  "status": "closed, independently accepted diagnostic",
+  "base": "a8c13670c868997ceeb1f621c7954f031451a4b7",
+  "integrated_evidence": "09489c715b9dc1f376d4fc8aa650eef84bfb9850",
+  "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+  "worker_tree": "dc9b69e480f93db1e73ebdd65719efaa9aeab298",
+  "sources": {
+    "fresh": "4ade03ee00e9701241770523d5df60df27da4b0c",
+    "resident": "1d3f0f1922ac9dca6a87691e5718d3148aa52a5c",
+    "scheduling": "86c33f073299f7f15cef5d1bebd12f3d456870e0"
+  },
+  "reports": {
+    "native": "6c52aa39500d82c442347f5198338071d6b91717",
+    "scheduling": "960372d482cd68911baddcd43c895cc4a0f243a1",
+    "independent": "4d86fdeba4eea547b0415e756e7f8d559d2f6cb6"
+  },
+  "evidence": {
+    "native": "46657096c11befc72a4e629ca688ee7755a2fbc5",
+    "scheduling": "118e293d877d5f3ced56753b8352b068fa3b2aa4",
+    "scheduling_git_inventory": "32a76c52dc3e761da99a83ec5cf3fe575a9517ad",
+    "independent": "e1edb9dace84177ca8e9922f111b5025919c2cd8"
+  },
+  "lease_returns": {
+    "native": "31bcb660548cb20006d896913672fd523e62c81a",
+    "scheduling": "6e851eb471ef7ffc3f02b69f89c9eeb768da4804",
+    "review": "d8318be3755a55676d9b966148746dabb167199c"
+  },
+  "model_calls": {
+    "native": 9,
+    "scheduling_saved": 7,
+    "scheduling_warmups": 3,
+    "review": 4,
+    "sglang": 0,
+    "total": 23
+  },
+  "timing_seconds": {
+    "original": {
+      "worker": 53.374,
+      "render": 0.182,
+      "load": 12.261,
+      "infer": 26.808,
+      "unitemized": 14.123
+    },
+    "worker": {
+      "fresh_short": [
+        52.539,
+        52.039
+      ],
+      "ready_short": [
+        6.622,
+        6.414,
+        6.677,
+        6.931
+      ],
+      "ready_median": 6.65,
+      "independent_fresh_A": 46.803,
+      "independent_ready_A": 6.851
+    },
+    "browser": {
+      "stock_click_to_visible": 52.604,
+      "ready_click_to_visible": 10.243,
+      "ready_intake_to_click": 44.354,
+      "stock_intake_to_visible": 53.705,
+      "ready_intake_to_visible": 54.597,
+      "both_visible_from_first_ready_click": 20.429,
+      "both_visible_from_first_immediate_click": 66.718
+    }
+  },
+  "targets": {
+    "ready_worker_max_10s": "met",
+    "ready_browser_max_10s": "missed by 0.243 seconds",
+    "short_document_speedup_minimum_2x": "met at worker and browser click boundaries"
+  },
+  "correctness": {
+    "short": "exact text, punctuation and reading order on both scans",
+    "structured": "15/15 printed field values present and 18/19 position-correct table cells in both outputs",
+    "geometry": "one coordinate changed in warm A, 15 of 36 boxes changed on the work order",
+    "publication": "all seven saved source, attempt and revision identities verified"
+  },
+  "sglang": {
+    "status": "blocked before first model run",
+    "blocker": "Baidu's required sglang-kernel 0.4.7 has Linux wheels only. Firmware virtualization is disabled. No installed WSL distribution or reachable Docker Linux engine.",
+    "followup": "Repeat cold and warm on a GPU-capable Linux environment with a matched native bridge control."
+  },
+  "recommendation": "Qualify a single verified resident native worker per GPU with nonblocking Intake preparation and a real first job when cold and available.",
+  "proposal_commit": "193d89ae7cadd0228f4e9c6a6882f551cfc1461f",
+  "production_change": false
+}
