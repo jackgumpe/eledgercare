@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-18T02:05:12.0438313Z",
+  "id": "WP-0014-independent-repeat-1",
+  "owner": "eld-latency-reviewer",
+  "candidate": "1d3f0f1922ac9dca6a87691e5718d3148aa52a5c",
+  "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+  "device": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "fixture_A": "25c14530845cad96329b528f860032c27a1259ed46de3ccb56f0e57730aa0858",
+  "fixture_B": "ef5d8f09658355dae46d54724a8cbeb89bc625362e41e8c4e154461d81a604c8",
+  "plan": [
+    "fresh-A",
+    "resident-short: ABA"
+  ],
+  "run": "reviewer/repeat2",
+  "maximum_calls": 4,
+  "concurrent_engines": 1,
+  "elapsed_cap_minutes": 30,
+  "stage_cap_seconds": 1200,
+  "disk_free_floor": 21474836480,
+  "start_disk_free_bytes": 37355175936,
+  "start_vram_free_mib": 14395,
+  "min_start_vram_free_mib": 10000,
+  "scope": "Independent repetition; native probe and worker tree verified unmodified. Untracked reviewer-owned records outside source permitted."
+}
