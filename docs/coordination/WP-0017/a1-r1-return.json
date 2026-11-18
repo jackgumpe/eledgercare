@@ -1,0 +1,357 @@
+{
+  "lease": "a1-r1",
+  "operator": "62f4ce4407b3ef6093a412d0504408c500a42c92",
+  "candidate": "c235bc61820def84142480e6e2a7a2e5485176d6",
+  "release_sha256": "c7fe5ad7eb0f7ae1645530c59f6170ed9100994c5be7796232b8a5aace1370e4",
+  "acquired_utc": "2026-11-18T19:32:41.326800+00:00",
+  "returned": {
+    "utc": "2026-11-18T20:41:49.425149+00:00",
+    "error": null,
+    "release_sha256": "c7fe5ad7eb0f7ae1645530c59f6170ed9100994c5be7796232b8a5aace1370e4",
+    "retiring_pid": 17336
+  },
+  "carrier_exit": 0,
+  "orders": [
+    {
+      "order": "a1-r1-endpoints-order",
+      "exit": 0,
+      "guard": null,
+      "wall_s": 1044.390999999945,
+      "samples": 501,
+      "peak_board_mib": 9304,
+      "board_after_mib": 1733,
+      "telemetry_sha256": "02453b3f55148647323171109b4044b0d54c23c8e10238ad2e7fabb9d34239a9",
+      "return_sha256": "22ebae1017bd9e97172c2440b3fb9a4e319abac23115d6f5ea2b14898f8b13d8",
+      "outer_process": {
+        "plan_sha256": "dcda7ed4b23ca74e2bf8b9228565497adc001bcbdabb9f3d33ed11971ec526dc",
+        "all_segments_completed": true,
+        "segments": [
+          {
+            "label": "a1-r1-endpoints",
+            "returncode": 0,
+            "argv": [
+              "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+              "-I",
+              "-B",
+              "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\ablation-replay\\docs\\research\\WP-0017\\engine\\launch.py",
+              "--source",
+              "c235bc61820def84142480e6e2a7a2e5485176d6",
+              "--owner",
+              "review",
+              "--run",
+              "a1-r1-endpoints",
+              "--lease",
+              "a1-r1",
+              "--plan",
+              "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\coordination\\a1-inputs.json",
+              "--sha256",
+              "e7f47d141972d0e32c53d16e090fcddc237c453ecfc2eaf5d494c6d3426bc8ef",
+              "--seconds",
+              "2700",
+              "--min-vram-mib",
+              "12000",
+              "--warmup-count",
+              "3",
+              "--configs",
+              "native,all_off,carbon_bf16,all_on"
+            ],
+            "started": "2026-11-18T19:32:41.738654+00:00",
+            "elapsed_seconds": 1043.6879999999655
+          },
+          {
+            "label": "require-eight-endpoint-matches",
+            "returncode": 0,
+            "argv": [
+              "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+              "-I",
+              "-B",
+              "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0017\\check_endpoints.py",
+              "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-endpoints",
+              "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-endpoints-order\\endpoint-check.json"
+            ],
+            "started": "2026-11-18T19:50:05.421603+00:00",
+            "elapsed_seconds": 0.2970000000204891
+          }
+        ]
+      },
+      "children": [
+        {
+          "mode": "native",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 2820,
+            "creation_filetime": 134395039638454175,
+            "mode": "native",
+            "canonical_mode": "native",
+            "switch_bits": "000000",
+            "implementation": "genuine_native"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "all_off",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 17172,
+            "creation_filetime": 134395042392915330,
+            "mode": "all_off",
+            "canonical_mode": "all_off",
+            "switch_bits": "000000",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "carbon_bf16",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 26540,
+            "creation_filetime": 134395045113225297,
+            "mode": "carbon_bf16",
+            "canonical_mode": "carbon_bf16",
+            "switch_bits": "111111",
+            "implementation": "genuine_carbon_bf16"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "all_on",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 27968,
+            "creation_filetime": 134395047566237851,
+            "mode": "all_on",
+            "canonical_mode": "all_on",
+            "switch_bits": "111111",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        }
+      ]
+    },
+    {
+      "order": "a1-r1-switches-order",
+      "exit": 0,
+      "guard": null,
+      "wall_s": 3103.3120000000345,
+      "samples": 1487,
+      "peak_board_mib": 9394,
+      "board_after_mib": 1648,
+      "telemetry_sha256": "d10249c79a39008f535f31877e9cadaf5e80202b9b855e8eb5d19487d1fb5ec4",
+      "return_sha256": "bde83f39cfd9b772d1444bc8164e5b6b7b5959c1e79ac8b049c8b81a7571b2b1",
+      "outer_process": {
+        "plan_sha256": "d1aaf826a25feb1ed79e6771abb963a989c0002ad27f2d947a534683e2a132ce",
+        "all_segments_completed": true,
+        "segments": [
+          {
+            "label": "a1-r1-switches",
+            "returncode": 0,
+            "argv": [
+              "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+              "-I",
+              "-B",
+              "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\ablation-replay\\docs\\research\\WP-0017\\engine\\launch.py",
+              "--source",
+              "c235bc61820def84142480e6e2a7a2e5485176d6",
+              "--owner",
+              "review",
+              "--run",
+              "a1-r1-switches",
+              "--lease",
+              "a1-r1",
+              "--plan",
+              "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\coordination\\a1-inputs.json",
+              "--sha256",
+              "e7f47d141972d0e32c53d16e090fcddc237c453ecfc2eaf5d494c6d3426bc8ef",
+              "--seconds",
+              "7200",
+              "--min-vram-mib",
+              "12000",
+              "--warmup-count",
+              "3",
+              "--configs",
+              "add_S0,add_S1a,add_S1b,add_S1c,add_S2,add_S3,remove_S0,remove_S1a,remove_S1b,remove_S1c,remove_S2,remove_S3"
+            ],
+            "started": "2026-11-18T19:50:06.308806+00:00",
+            "elapsed_seconds": 3102.9070000000065
+          }
+        ]
+      },
+      "children": [
+        {
+          "mode": "add_S0",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 38688,
+            "creation_filetime": 134395050083827014,
+            "mode": "add_S0",
+            "canonical_mode": "add_S0",
+            "switch_bits": "100000",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "add_S1a",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 34728,
+            "creation_filetime": 134395052805768116,
+            "mode": "add_S1a",
+            "canonical_mode": "add_S1a",
+            "switch_bits": "010000",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "add_S1b",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 29576,
+            "creation_filetime": 134395055809410782,
+            "mode": "add_S1b",
+            "canonical_mode": "add_S1b",
+            "switch_bits": "001000",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "add_S1c",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 22380,
+            "creation_filetime": 134395058698149048,
+            "mode": "add_S1c",
+            "canonical_mode": "add_S1c",
+            "switch_bits": "000100",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "add_S2",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 18152,
+            "creation_filetime": 134395061456818116,
+            "mode": "add_S2",
+            "canonical_mode": "add_S2",
+            "switch_bits": "000010",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "add_S3",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 14964,
+            "creation_filetime": 134395064697308781,
+            "mode": "add_S3",
+            "canonical_mode": "add_S3",
+            "switch_bits": "000001",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "remove_S0",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 22696,
+            "creation_filetime": 134395067487395372,
+            "mode": "remove_S0",
+            "canonical_mode": "remove_S0",
+            "switch_bits": "011111",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "remove_S1a",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 17892,
+            "creation_filetime": 134395069512076199,
+            "mode": "remove_S1a",
+            "canonical_mode": "remove_S1a",
+            "switch_bits": "101111",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "remove_S1b",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 25524,
+            "creation_filetime": 134395071526654072,
+            "mode": "remove_S1b",
+            "canonical_mode": "remove_S1b",
+            "switch_bits": "110111",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "remove_S1c",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 36016,
+            "creation_filetime": 134395074235707404,
+            "mode": "remove_S1c",
+            "canonical_mode": "remove_S1c",
+            "switch_bits": "111011",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "remove_S2",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 11268,
+            "creation_filetime": 134395076691184719,
+            "mode": "remove_S2",
+            "canonical_mode": "remove_S2",
+            "switch_bits": "111101",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "remove_S3",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 34232,
+            "creation_filetime": 134395079089277861,
+            "mode": "remove_S3",
+            "canonical_mode": "remove_S3",
+            "switch_bits": "111110",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        }
+      ]
+    }
+  ],
+  "checked_utc": "2026-11-18T21:01:04.665080+00:00"
+}
