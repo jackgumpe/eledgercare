@@ -1,0 +1,49 @@
+{
+  "gate": "G0",
+  "inputs": {
+    "H": {
+      "files": {
+        "source.pdf": "e5270d9eca7bb902f692795949bfe718240bc0e3733d0a02508fef850497eca7",
+        "truth.json": "91fd9ebc9cc5ae32cf4d66f4d139544fe7b6eec52a070803fa4208e7eb67e8ac",
+        "rasters.json": "b6342013caf84cb3a0842834b36fd06ca870683b0e1f3c30f9239367562c3e39"
+      },
+      "pages": 4,
+      "raster_input_sha256": "cde8a5a97aee373453e8b2ce54f6b0780ce6b4438c74984315dd1e15b07ce27a"
+    },
+    "A": {
+      "files": {
+        "source.pdf": "671e8e18d6cf84db671ea0487be8b197e535753dabac6c1561e169654d113c5b",
+        "truth.json": "0ec7d6a7be2446409568d68d733636ba7de92e3a59fb40a6dde47fa581f99e6d",
+        "rasters.json": "0559c970998d06575db35f51a073317a7e55308119b6e0c2433381bdacfde336"
+      },
+      "pages": 60,
+      "raster_input_sha256": "54ac686476e7f0691a2d69d420c2591f1e22994a95f2ba1212fc4ed978a6de9d"
+    }
+  },
+  "warm_sha256": "25c14530845cad96329b528f860032c27a1259ed46de3ccb56f0e57730aa0858",
+  "warm_rgb_sha256": "a189916661ad64469762ea65a693b49c0d59ca2508df2742cc5d92b60f7dd18d",
+  "orders": {
+    "ab": {
+      "path": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\coordination\\plans\\g0-ab.json",
+      "sha256": "b705772d04e1cab173096bd9fb779a57f71e68af1eaccc4f7dc107a0432fffbf",
+      "order": [
+        "native",
+        "carbon_bf16"
+      ],
+      "excluded_warm_windows": 6,
+      "inference_windows": 50,
+      "scored_source_pages_per_mode": 64
+    },
+    "ba": {
+      "path": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\coordination\\plans\\g0-ba.json",
+      "sha256": "7a48e28f6ef5f736d4fed0c89a28e07800ecf827a8ad646197fc3fa9aac924a9",
+      "order": [
+        "carbon_bf16",
+        "native"
+      ],
+      "excluded_warm_windows": 6,
+      "inference_windows": 50,
+      "scored_source_pages_per_mode": 64
+    }
+  }
+}
