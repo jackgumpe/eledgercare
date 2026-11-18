@@ -1,0 +1,16 @@
+# Diagnose the wait for a saved OCR result
+
+Jack supplied the [eLedgerCare OCR Latency Diagnostic Packet](https://chatgpt.com/library?file_id=libfile_fde3_f-62d23f3451588191bb8452716d55258e_39f0d462e004819188632c0bb985a104) and authorized the local coordinator to explore additional causes. The base is `a8c13670c868997ceeb1f621c7954f031451a4b7`. The published product and its private operator session are outside the experiment's writable resources.
+
+The original operator receipt measured 53.374 seconds from worker entry to finalizing the raw output. Rendering took 0.182 seconds, named model loading took 12.261 seconds, and synchronized inference took 26.808 seconds for 61 output tokens and 279 prompt positions. The remaining 14.123 seconds cover work outside those timers. This measurement predates the investigation. Its local envelope and original PDF hashes are pinned privately. The input and text stay local. The packet also cites first-token times from earlier Q0 work, which used a different document.
+
+Before measuring the variants, the coordinator set two practical targets for a short page. A ready worker should serve it in 10 seconds or less, and a comparable short-document wait should improve by at least a factor of two with correct text and reading order. Raw output, pagination and structured identifiers and table values must be compared on the actual inputs. Browser-visible and model-only targets will be assessed at their respective boundaries. The quoted 0.5–1.2 seconds has no measured baseline here.
+
+| Experiment | Measurement |
+| --- | --- |
+| A. Fresh native | Current production worker in a new process for each of two synthetic short scans and a work order. Include startup, measured and unitemized stages, raw output and attempt outcome. |
+| B. Resident native | Same pinned model, native path, 300 DPI renderer, prompt, limits and stopping rules. Measure first and later calls on short A, distinct short B, then A again, plus the structured case. Attribute first-token time and subsequent output rate using the model's clock boundaries. |
+| C. Resident SGLang | Inspect Baidu’s custom server wheel for this revision, hardware and host support. Run matched Base mode and report cold and ready results if the supported local substrate is available. Record the exact condition that prevents execution otherwise. |
+| D. Early readiness and two clients | Observe the browser, isolated API and database. Compare demand start with a warm request overlapping intake, including time spent before clicking. Submit two distinct documents close together and record ordered completion, source/history links, and resource use. Document coalescing, isolation, interruption, idle handling and any unsupported condition. |
+
+Use one GPU owner at a time. Each live release binds actual executables, source, fixture hashes, call ceiling, resource bounds and duration. Never evict the user's processes or purge machine caches. The coordinator checks current process ownership before each release and return. All trial results include the first request and any failures. The independent reviewer repeats the decisive short-page comparison under a later release. This packet ends in a measured recommendation and a separately proposed product change.
