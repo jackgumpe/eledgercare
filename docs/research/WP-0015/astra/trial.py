@@ -4,8 +4,14 @@ import os
 import sys
 import traceback
 from contextlib import ExitStack, closing
+from io import TextIOWrapper
 from pathlib import Path
 from time import perf_counter_ns as clock
+
+# TextStreamer prints generated text directly. Windows redirected handles can start in CP1252 under -I.
+for stream in (sys.stdout, sys.stderr):
+    if isinstance(stream, TextIOWrapper):
+        stream.reconfigure(encoding="utf-8", errors=stream.errors)
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
