@@ -1,0 +1,514 @@
+{
+  "child_entry_ns": 495263924524400,
+  "worker_imported_ns": 495264070649800,
+  "pid": 30252,
+  "request_start_ns": 495264071005300,
+  "request_ready_ns": 495264072357500,
+  "output_complete_ns": 495309898828900,
+  "exit_code": 0,
+  "resource_before": {
+    "read_operations": 237,
+    "read_transfer_bytes": 2403364,
+    "write_operations": 0,
+    "write_transfer_bytes": 0,
+    "working_set_bytes": 24985600,
+    "peak_working_set_bytes": 24985600
+  },
+  "resource_after": {
+    "read_operations": 21956,
+    "read_transfer_bytes": 6917925926,
+    "write_operations": 156,
+    "write_transfer_bytes": 65501146,
+    "working_set_bytes": 2233155584,
+    "peak_working_set_bytes": 7255056384
+  },
+  "spans": [
+    {
+      "label": "compute_worker_source_sha256",
+      "start_ns": 495264083543900,
+      "end_ns": 495264085660400
+    },
+    {
+      "label": "compute_config_digest",
+      "start_ns": 495264085673200,
+      "end_ns": 495264085727400
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495264085867700,
+      "end_ns": 495264086419400,
+      "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-latency-reviewer\\workers\\local_ocr\\manifests\\model-files.json"
+    },
+    {
+      "label": "load_json_checked",
+      "start_ns": 495264085733700,
+      "end_ns": 495264086609700
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495264086742500,
+      "end_ns": 495264087250300,
+      "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-latency-reviewer\\workers\\local_ocr\\manifests\\dependency-lock.json"
+    },
+    {
+      "label": "load_json_checked",
+      "start_ns": 495264086616700,
+      "end_ns": 495264087436700
+    },
+    {
+      "label": "audit_worker_environment",
+      "start_ns": 495264087477300,
+      "end_ns": 495264087837800
+    },
+    {
+      "label": "verify_storage_guards",
+      "start_ns": 495264087844100,
+      "end_ns": 495264095070300
+    },
+    {
+      "label": "installed_distributions",
+      "start_ns": 495264095083000,
+      "end_ns": 495264140956000
+    },
+    {
+      "label": "verify_dependency_lock",
+      "start_ns": 495264140963900,
+      "end_ns": 495264142388500
+    },
+    {
+      "label": "import_torch",
+      "start_ns": 495264142395200,
+      "end_ns": 495266268159900
+    },
+    {
+      "label": "query_platform_with_cuda",
+      "start_ns": 495266268169400,
+      "end_ns": 495266290475200
+    },
+    {
+      "label": "verify_platform_and_gpu",
+      "start_ns": 495266290489100,
+      "end_ns": 495266290497100
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495266300487100,
+      "end_ns": 495266301260100,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495266301285600,
+      "end_ns": 495266301768400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\config.json"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495266301792100,
+      "end_ns": 495266302309100,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495266302349600,
+      "end_ns": 495266303076400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495266303110400,
+      "end_ns": 495266303777500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495266303810400,
+      "end_ns": 495266304587300,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495266304621000,
+      "end_ns": 495266305195200,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\generation_config.json"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495266305231100,
+      "end_ns": 495270549457500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\model-00001-of-00002.safetensors"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495270549559000,
+      "end_ns": 495271975974500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\model-00002-of-00002.safetensors"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271976041500,
+      "end_ns": 495271976943600,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\model.safetensors.index.json"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271976971500,
+      "end_ns": 495271977502500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271977527600,
+      "end_ns": 495271978080900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271978106100,
+      "end_ns": 495271978633900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271978658800,
+      "end_ns": 495271979157800,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\sparse_gather_e2e_triton.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271979182700,
+      "end_ns": 495271979681700,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\sparse_gather_triton.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271979705800,
+      "end_ns": 495271980209200,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\special_tokens_map.json"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271980233300,
+      "end_ns": 495271993547300,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\tokenizer.json"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271993609000,
+      "end_ns": 495271994363400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\tokenizer_config.json"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495271994612300,
+      "end_ns": 495271995107200,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\notices\\Unlimited-OCR-2_0480966938291445591f69f08a13b041c073a96a\\README.md"
+    },
+    {
+      "label": "normalize_and_verify_model_dir",
+      "start_ns": 495266290502100,
+      "end_ns": 495271999473300
+    },
+    {
+      "label": "model_generation_namespace_check",
+      "start_ns": 495271999479100,
+      "end_ns": 495272003024300
+    },
+    {
+      "label": "verify_model_sources_ast_safety",
+      "start_ns": 495272003037100,
+      "end_ns": 495272188687800
+    },
+    {
+      "label": "import_pdfium",
+      "start_ns": 495272190426300,
+      "end_ns": 495272225912100
+    },
+    {
+      "label": "verify_renderer_identity",
+      "start_ns": 495272225922500,
+      "end_ns": 495272227766900
+    },
+    {
+      "label": "read_and_render_pdf",
+      "start_ns": 495272227778600,
+      "end_ns": 495272324133600
+    },
+    {
+      "label": "import_transformers_AutoModel_AutoTokenizer",
+      "start_ns": 495272325590100,
+      "end_ns": 495274113260300
+    },
+    {
+      "label": "tokenizer_from_pretrained",
+      "start_ns": 495274113329700,
+      "end_ns": 495274477421000
+    },
+    {
+      "label": "auto_model_construction_weights",
+      "start_ns": 495274477466200,
+      "end_ns": 495281119852600
+    },
+    {
+      "label": "module_cuda_dispatch",
+      "start_ns": 495281130132200,
+      "end_ns": 495285136204600
+    },
+    {
+      "label": "load_final_cuda_sync",
+      "start_ns": 495285136214400,
+      "end_ns": 495285136323200
+    },
+    {
+      "label": "named_load_real",
+      "start_ns": 495274113269100,
+      "end_ns": 495285136356700
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285140099800,
+      "end_ns": 495285140804900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285140812200,
+      "end_ns": 495285141549400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285141923400,
+      "end_ns": 495285142507800,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285142514800,
+      "end_ns": 495285143040700,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285143394300,
+      "end_ns": 495285143886900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285143893700,
+      "end_ns": 495285144371500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285144716800,
+      "end_ns": 495285145341900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285145354400,
+      "end_ns": 495285145905400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285146248100,
+      "end_ns": 495285146722700,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285146729600,
+      "end_ns": 495285147226600,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285147580900,
+      "end_ns": 495285148080900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285148087300,
+      "end_ns": 495285148585600,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285148940200,
+      "end_ns": 495285149466900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285149473300,
+      "end_ns": 495285150054900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285150399200,
+      "end_ns": 495285150873700,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285150880100,
+      "end_ns": 495285151375900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285152591500,
+      "end_ns": 495285153318000,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285153326300,
+      "end_ns": 495285153962400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285154048400,
+      "end_ns": 495285154546400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285154553100,
+      "end_ns": 495285155092400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285155171600,
+      "end_ns": 495285155650400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285155657300,
+      "end_ns": 495285156149200,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285156227000,
+      "end_ns": 495285156781500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285156787600,
+      "end_ns": 495285157313800,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285157400900,
+      "end_ns": 495285157931200,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285157937700,
+      "end_ns": 495285158489200,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285158570300,
+      "end_ns": 495285159046700,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285159052800,
+      "end_ns": 495285159550800,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285159631700,
+      "end_ns": 495285160163500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285160170800,
+      "end_ns": 495285160691100,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285160772000,
+      "end_ns": 495285161257100,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285161267200,
+      "end_ns": 495285161812300,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285161897200,
+      "end_ns": 495285162405800,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\sparse_gather_e2e_triton.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285162413400,
+      "end_ns": 495285162923500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\sparse_gather_e2e_triton.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285163007500,
+      "end_ns": 495285163557400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\sparse_gather_triton.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495285163563800,
+      "end_ns": 495285164048400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\sparse_gather_triton.py"
+    },
+    {
+      "label": "verify_loaded_module_cache",
+      "start_ns": 495285136384900,
+      "end_ns": 495285164065200
+    },
+    {
+      "label": "resolve_monitoring_targets",
+      "start_ns": 495285164075400,
+      "end_ns": 495285167730700
+    },
+    {
+      "label": "run_infer_multi",
+      "start_ns": 495285169113100,
+      "end_ns": 495309886067900
+    },
+    {
+      "label": "prepublication_generation_namespace_check",
+      "start_ns": 495309887858600,
+      "end_ns": 495309891766700
+    },
+    {
+      "label": "write_exclusive_bytes",
+      "start_ns": 495309891773600,
+      "end_ns": 495309894404200
+    },
+    {
+      "label": "write_envelope_atomic",
+      "start_ns": 495309894460600,
+      "end_ns": 495309896450500
+    }
+  ]
+}

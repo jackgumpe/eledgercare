@@ -1,0 +1,350 @@
+{
+  "child_entry_ns": 495263924524400,
+  "worker_imported_ns": 495264070649800,
+  "pid": 30252,
+  "request_start_ns": 495309911345400,
+  "request_ready_ns": 495309919801100,
+  "output_complete_ns": 495316781335900,
+  "exit_code": 0,
+  "resource_before": {
+    "read_operations": 21960,
+    "read_transfer_bytes": 6917929078,
+    "write_operations": 160,
+    "write_transfer_bytes": 65523212,
+    "working_set_bytes": 2233159680,
+    "peak_working_set_bytes": 7255056384
+  },
+  "resource_after": {
+    "read_operations": 22262,
+    "read_transfer_bytes": 6921255089,
+    "write_operations": 212,
+    "write_transfer_bytes": 65545143,
+    "working_set_bytes": 2271608832,
+    "peak_working_set_bytes": 7255056384
+  },
+  "spans": [
+    {
+      "label": "compute_worker_source_sha256",
+      "start_ns": 495309929998200,
+      "end_ns": 495309931954500
+    },
+    {
+      "label": "compute_config_digest",
+      "start_ns": 495309931962400,
+      "end_ns": 495309932001000
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495309932127400,
+      "end_ns": 495309932610700,
+      "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-latency-reviewer\\workers\\local_ocr\\manifests\\model-files.json"
+    },
+    {
+      "label": "load_json_checked",
+      "start_ns": 495309932005700,
+      "end_ns": 495309932768800
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495309932891000,
+      "end_ns": 495309933369500,
+      "file": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\eld-latency-reviewer\\workers\\local_ocr\\manifests\\dependency-lock.json"
+    },
+    {
+      "label": "load_json_checked",
+      "start_ns": 495309932774800,
+      "end_ns": 495309933552200
+    },
+    {
+      "label": "audit_worker_environment",
+      "start_ns": 495309933589000,
+      "end_ns": 495309933948700
+    },
+    {
+      "label": "verify_storage_guards",
+      "start_ns": 495309933955100,
+      "end_ns": 495309943771800
+    },
+    {
+      "label": "installed_distributions",
+      "start_ns": 495309943783600,
+      "end_ns": 495309984039100
+    },
+    {
+      "label": "verify_dependency_lock",
+      "start_ns": 495309984049400,
+      "end_ns": 495309985630500
+    },
+    {
+      "label": "verify_platform_and_gpu",
+      "start_ns": 495309985639800,
+      "end_ns": 495309985648600
+    },
+    {
+      "label": "model_generation_namespace_check",
+      "start_ns": 495309985652700,
+      "end_ns": 495309990370900
+    },
+    {
+      "label": "import_pdfium",
+      "start_ns": 495309991483000,
+      "end_ns": 495309991486700
+    },
+    {
+      "label": "verify_renderer_identity",
+      "start_ns": 495309991491400,
+      "end_ns": 495309993116800
+    },
+    {
+      "label": "read_and_render_pdf",
+      "start_ns": 495309993126600,
+      "end_ns": 495310070877100
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310076578200,
+      "end_ns": 495310077276000,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310077283900,
+      "end_ns": 495310077926500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310078319000,
+      "end_ns": 495310078841500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310078848100,
+      "end_ns": 495310079476500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310079887000,
+      "end_ns": 495310080389400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310080396200,
+      "end_ns": 495310080908200,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310081286400,
+      "end_ns": 495310081811900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310081819700,
+      "end_ns": 495310082447200,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310082825100,
+      "end_ns": 495310083334500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310083340900,
+      "end_ns": 495310083905700,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310084286600,
+      "end_ns": 495310084773600,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310084780200,
+      "end_ns": 495310085293600,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310085665000,
+      "end_ns": 495310086180800,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310086187200,
+      "end_ns": 495310086694100,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310087087300,
+      "end_ns": 495310087581900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310087588300,
+      "end_ns": 495310088149900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310089159000,
+      "end_ns": 495310089751900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310089758600,
+      "end_ns": 495310090368900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\_sparse_base_impl.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310090448100,
+      "end_ns": 495310090976100,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310090982600,
+      "end_ns": 495310091460900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\configuration_deepseek_v2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310091539500,
+      "end_ns": 495310092027700,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310092034000,
+      "end_ns": 495310092562500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\conversation.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310092640500,
+      "end_ns": 495310093147900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310093154100,
+      "end_ns": 495310093675500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\dash_attention.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310093753200,
+      "end_ns": 495310094288400,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310094294400,
+      "end_ns": 495310094780100,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\deepencoder.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310094858700,
+      "end_ns": 495310095354000,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310095360300,
+      "end_ns": 495310095911300,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_deepseekv2.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310095995000,
+      "end_ns": 495310096492800,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310096498900,
+      "end_ns": 495310097026300,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310097104300,
+      "end_ns": 495310097688500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310097699500,
+      "end_ns": 495310098363600,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\packing_patch.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310098489800,
+      "end_ns": 495310099172700,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\sparse_gather_e2e_triton.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310099182200,
+      "end_ns": 495310099836000,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\sparse_gather_e2e_triton.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310099951700,
+      "end_ns": 495310100603900,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Latency\\WP-0014\\reviewer\\repeat2\\runs\\resident-short\\cache\\hf-modules\\transformers_modules\\Unlimited_OCR_2_04809669\\sparse_gather_triton.py"
+    },
+    {
+      "label": "file_digests",
+      "start_ns": 495310100611200,
+      "end_ns": 495310101227500,
+      "file": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\sparse_gather_triton.py"
+    },
+    {
+      "label": "verify_loaded_module_cache",
+      "start_ns": 495310072310600,
+      "end_ns": 495310101253100
+    },
+    {
+      "label": "resolve_monitoring_targets",
+      "start_ns": 495310101263800,
+      "end_ns": 495310105191300
+    },
+    {
+      "label": "run_infer_multi",
+      "start_ns": 495310106817700,
+      "end_ns": 495316768369200
+    },
+    {
+      "label": "prepublication_generation_namespace_check",
+      "start_ns": 495316770351400,
+      "end_ns": 495316775032500
+    },
+    {
+      "label": "write_exclusive_bytes",
+      "start_ns": 495316775039900,
+      "end_ns": 495316777050900
+    },
+    {
+      "label": "write_envelope_atomic",
+      "start_ns": 495316777106300,
+      "end_ns": 495316778819200
+    }
+  ]
+}
