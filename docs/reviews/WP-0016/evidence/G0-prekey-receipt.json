@@ -1,0 +1,774 @@
+{
+ "kind": "WP-0016 G0 independent PRE-KEY receipt",
+ "reviewer": "eld-rd-reviewer",
+ "operator_session": "Claude Code, Opus 5.5 (claude-opus-5-5); requested xhigh, applied effort not exposed",
+ "created_utc": "2026-11-18T15:14:38Z",
+ "keys_accessed": false,
+ "scoring_performed": false,
+ "raw_text_displayed": "none; malformed headers were summarised only as masked shapes (digits->9, letters->a)",
+ "release": {
+  "commit": "2289cd14a3b723eb72087bc5215c863373a4f338",
+  "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0016\\g0-anchor-release.json",
+  "sha256": "5595c8b78cd4e3f73c4db93e0081a56179033d2fe2314a520896cc68c7d88f90",
+  "expected_sha256": "5595c8b78cd4e3f73c4db93e0081a56179033d2fe2314a520896cc68c7d88f90",
+  "digest_ok": true,
+  "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\gates-replay",
+  "source": "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+  "ceiling_mib": 10000
+ },
+ "operator": {
+  "launch": {
+   "operator": "eld-rd-reviewer",
+   "launched_utc": "2026-11-18T13:56:12Z",
+   "pid": 28908,
+   "argv": [
+    "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-B",
+    "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0016\\device_lease.py",
+    "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0016\\g0-anchor-release.json",
+    "5595c8b78cd4e3f73c4db93e0081a56179033d2fe2314a520896cc68c7d88f90"
+   ],
+   "cwd": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\review\\escrow\\operator-g0",
+   "release": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0016\\g0-anchor-release.json",
+   "release_sha256": "5595c8b78cd4e3f73c4db93e0081a56179033d2fe2314a520896cc68c7d88f90",
+   "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+   "creationflags": "DETACHED|NEW_PROCESS_GROUP|BREAKAWAY"
+  },
+  "supervisor_gone": true,
+  "monitor_entries": 20,
+  "monitor_first_utc": "2026-11-18T13:56:20Z",
+  "monitor_last_utc": "2026-11-18T15:10:47Z",
+  "watch_end": [
+   {
+    "utc": "2026-11-18T13:58:20Z",
+    "pid": 28908,
+    "watch_end": "watch_limit_reached_supervisor_untouched",
+    "exit_code": null
+   },
+   {
+    "utc": "2026-11-18T15:10:47Z",
+    "pid": 28908,
+    "watch_end": "exited",
+    "exit_code": 0
+   }
+  ],
+  "interventions": "none; read-only liveness/lease-name/device checks only; single attempt, no retry"
+ },
+ "lease": {
+  "acquired": {
+   "pid": 28908,
+   "utc": "2026-11-18T13:56:12.274281+00:00",
+   "lock": "C:\\Users\\jackg\\eLedgerCare-Speed\\GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d.lock",
+   "release_sha256": "5595c8b78cd4e3f73c4db93e0081a56179033d2fe2314a520896cc68c7d88f90"
+  },
+  "orders": {
+   "g0-ab": {
+    "issued_utc": "2026-11-18T13:56:13.231077+00:00",
+    "returned_utc": "2026-11-18T14:33:00.026055+00:00",
+    "child_pid": 9512,
+    "child_gone": true,
+    "job": "Local\\eLedgerCare-WP0016-86acbe84d5af4e2085b1c894285d14f2",
+    "argv_equals_release": true,
+    "exit": 0,
+    "guard": null,
+    "wall_s": 2206.7970000000205,
+    "seconds_bound": 4200,
+    "admission_device": {
+     "utc": "2026-11-18T13:56:13.222768+00:00",
+     "total_mib": 16303,
+     "used_mib": 2154,
+     "free_mib": 13844,
+     "temp_c": 46.73,
+     "utilization_percent": 6
+    },
+    "admission_suspect_compute": [],
+    "guard_samples": {
+     "count": 949,
+     "first_utc": "2026-11-18T13:56:13.541460+00:00",
+     "last_utc": "2026-11-18T14:32:59.003064+00:00",
+     "board_used_peak_mib": 9691,
+     "free_min_mib": 6307,
+     "temp_max_c": 62.36,
+     "ceiling_mib": 10000,
+     "within_ceiling": true
+    },
+    "after_job_close": {
+     "device": {
+      "utc": "2026-11-18T14:33:00.026055+00:00",
+      "total_mib": 16303,
+      "used_mib": 1925,
+      "free_mib": 14073,
+      "temp_c": 43.96,
+      "utilization_percent": 4
+     },
+     "ollama_models": 0,
+     "suspect_compute": []
+    },
+    "stdout_bytes": 0,
+    "stderr_bytes": 0
+   },
+   "g0-ba": {
+    "issued_utc": "2026-11-18T14:33:01.183459+00:00",
+    "returned_utc": "2026-11-18T15:10:47.314130+00:00",
+    "child_pid": 2612,
+    "child_gone": true,
+    "job": "Local\\eLedgerCare-WP0016-4e3757d2f02b4c759357f2adc3c6f770",
+    "argv_equals_release": true,
+    "exit": 0,
+    "guard": null,
+    "wall_s": 2266.140000000014,
+    "seconds_bound": 4200,
+    "admission_device": {
+     "utc": "2026-11-18T14:33:01.175022+00:00",
+     "total_mib": 16303,
+     "used_mib": 1939,
+     "free_mib": 14059,
+     "temp_c": 43.88,
+     "utilization_percent": 2
+    },
+    "admission_suspect_compute": [],
+    "guard_samples": {
+     "count": 931,
+     "first_utc": "2026-11-18T14:33:01.686276+00:00",
+     "last_utc": "2026-11-18T15:10:45.572298+00:00",
+     "board_used_peak_mib": 9782,
+     "free_min_mib": 6216,
+     "temp_max_c": 62.24,
+     "ceiling_mib": 10000,
+     "within_ceiling": true
+    },
+    "after_job_close": {
+     "device": {
+      "utc": "2026-11-18T15:10:47.314130+00:00",
+      "total_mib": 16303,
+      "used_mib": 2026,
+      "free_mib": 13972,
+      "temp_c": 44.7,
+      "utilization_percent": 3
+     },
+     "ollama_models": 0,
+     "suspect_compute": []
+    },
+    "stdout_bytes": 0,
+    "stderr_bytes": 0
+   }
+  },
+  "returned": {
+   "utc": "2026-11-18T15:10:47.326358+00:00",
+   "error": null,
+   "release_sha256": "5595c8b78cd4e3f73c4db93e0081a56179033d2fe2314a520896cc68c7d88f90",
+   "retiring_pid": 28908
+  }
+ },
+ "blind_inventory": {
+  "path": "docs/reviews/WP-0016/evidence/G0-blind-inventory.json",
+  "sha256": "366bf5ebb7dc2527c4b11e6f110aa4c08b9f71b6f165d327565b40158bf9ac04",
+  "committed": "6f3273278215fd0ced7555a84e1e692f144b5b69",
+  "runs": {
+   "g0-ab": {
+    "order": "ab",
+    "files": 365,
+    "runtime_cache_files": 63,
+    "completed": true,
+    "pending": [],
+    "failures": []
+   },
+   "g0-ba": {
+    "order": "ba",
+    "files": 365,
+    "runtime_cache_files": 60,
+    "completed": true,
+    "pending": [],
+    "failures": []
+   }
+  },
+  "measured_prediction_sha256": {
+   "g0-ab/segment-01-native/04-h-native/prediction.json": "f2669bfa8d03d82714f8856da1fa299a09d57e36bd11fa3e5e7383cc97112a95",
+   "g0-ab/segment-01-native/05-a-native/prediction.json": "cd009c42f9e9518ac5c955b39a1b837ee4060a9dd6b81a3179a8523a88da4095",
+   "g0-ab/segment-02-carbon_bf16/04-h-carbon_bf16/prediction.json": "67fb1b25de89b9f0d904424a3dd7f7fb18ffb5c9e59637bdd127aab93f0b9148",
+   "g0-ab/segment-02-carbon_bf16/05-a-carbon_bf16/prediction.json": "204af33db5ba6105d4cf7c020c0c3f2c3bc456598f7840dac445c1151f0a03b1",
+   "g0-ba/segment-01-carbon_bf16/04-h-carbon_bf16/prediction.json": "67fb1b25de89b9f0d904424a3dd7f7fb18ffb5c9e59637bdd127aab93f0b9148",
+   "g0-ba/segment-01-carbon_bf16/05-a-carbon_bf16/prediction.json": "204af33db5ba6105d4cf7c020c0c3f2c3bc456598f7840dac445c1151f0a03b1",
+   "g0-ba/segment-02-native/04-h-native/prediction.json": "f2669bfa8d03d82714f8856da1fa299a09d57e36bd11fa3e5e7383cc97112a95",
+   "g0-ba/segment-02-native/05-a-native/prediction.json": "cd009c42f9e9518ac5c955b39a1b837ee4060a9dd6b81a3179a8523a88da4095"
+  }
+ },
+ "stage1": {
+  "path": "docs/reviews/WP-0016/evidence/G0-stage1.json",
+  "sha256": "4e1c0fd48c20b41bb538a1d87d34e6afc2ccdb35e23162f40eabf1e5d0bd6e1e",
+  "checks_run": 2677,
+  "failures": [],
+  "real_binding": true,
+  "bound_source": "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+  "runs": {
+   "g0-ab": {
+    "order": "ab",
+    "source": "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+    "head": "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+    "lease": "g0-ab",
+    "lease_matches_release": true,
+    "process_s": 2204.6682471999666
+   },
+   "g0-ba": {
+    "order": "ba",
+    "source": "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+    "head": "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+    "lease": "g0-ba",
+    "lease_matches_release": true,
+    "process_s": 2263.3577328000683
+   }
+  },
+  "arms": {
+   "ab:native": {
+    "windows": {
+     "total": 25,
+     "warm_excluded": 3,
+     "measured": 22
+    },
+    "stops": {
+     "stop": 25
+    },
+    "failed_or_fallback_windows": 0,
+    "counters": {
+     "forward_count": 9760,
+     "triton_starts": 264,
+     "dense_starts": 264
+    },
+    "kernel_paths": {
+     "triton_import_failed_dense_fallback": 22
+    },
+    "allocator": {
+     "max_allocated_mib": 6971.8232421875,
+     "max_reserved_mib": 7134.0,
+     "windows_reporting": 25,
+     "weight_allocated_after_pack_mib": null
+    },
+    "device_launcher_samples": {
+     "samples": 230,
+     "sample_cadence_s": 5.0,
+     "used_peak_mib": 9695,
+     "free_min_mib": 6303,
+     "temperature_max_c": 62.27,
+     "before_used_mib": 2164,
+     "after_used_mib": 1884
+    },
+    "walls": {
+     "cold_load_s": 24.7412526,
+     "segment_wall_s": 1159.2864385999274,
+     "serving_span_s": 1132.8510765,
+     "outside_serving_s": 26.43536209992726,
+     "note": "outside_serving_s = supervisor-observed child wall minus in-child first-dispatch..last-commit span; an upper bound on start-to-ready that also includes teardown"
+    },
+    "warmup_s": [
+     26.0894033,
+     7.4474152,
+     7.6406744
+    ],
+    "measured": {
+     "H": {
+      "complete_s": 59.5955866,
+      "first_page_s": 48.3259887,
+      "last_page_s": 59.5911819,
+      "pages_per_min": 4.027143848937297,
+      "prediction_sha256": "f2669bfa8d03d82714f8856da1fa299a09d57e36bd11fa3e5e7383cc97112a95"
+     },
+     "A": {
+      "complete_s": 1032.0600334,
+      "first_page_s": 47.2588276,
+      "last_page_s": 1032.0517353,
+      "pages_per_min": 3.488169179597261,
+      "prediction_sha256": "cd009c42f9e9518ac5c955b39a1b837ee4060a9dd6b81a3179a8523a88da4095"
+     }
+    },
+    "grammar_measured": {
+     "grammar": "rd-wp0016-native-structure-v1",
+     "pages": 64,
+     "pages_structurally_valid": 38,
+     "pages_with_malformed": 26,
+     "page_marker_faults": 0,
+     "blocks": 379,
+     "box_invalid": 0,
+     "orphan_fork": 16,
+     "level_outside_header": 0,
+     "table_unbalanced_pages": 0,
+     "header_title_level": 31,
+     "header_frozen": 318,
+     "parser_disagreements": 0,
+     "header_malformed": 30,
+     "malformed_reasons": {
+      "no_fork_before_next_block_or_end": 14,
+      "bad_box_syntax": 16
+     },
+     "unknown_specials": {}
+    }
+   },
+   "ab:carbon_bf16": {
+    "windows": {
+     "total": 25,
+     "warm_excluded": 3,
+     "measured": 22
+    },
+    "stops": {
+     "stop": 25
+    },
+    "failed_or_fallback_windows": 0,
+    "counters": {
+     "forward_count": 9828,
+     "burst_extra_forwards": 102,
+     "static_cache_reallocations": 0,
+     "prefill_grouped_mm_layer_calls": 3509,
+     "prefill_moe_fallback_layer_calls": 0
+    },
+    "kernel_paths": {
+     "None": 22
+    },
+    "allocator": {
+     "max_allocated_mib": 6893.11669921875,
+     "max_reserved_mib": 7106.0,
+     "windows_reporting": 25,
+     "weight_allocated_after_pack_mib": 6392.3203125
+    },
+    "device_launcher_samples": {
+     "samples": 207,
+     "sample_cadence_s": 5.0,
+     "used_peak_mib": 9526,
+     "free_min_mib": 6472,
+     "temperature_max_c": 62.13,
+     "before_used_mib": 1884,
+     "after_used_mib": 1947
+    },
+    "walls": {
+     "cold_load_s": 21.9172176,
+     "segment_wall_s": 1044.546070600045,
+     "serving_span_s": 1021.0911274,
+     "outside_serving_s": 23.45494320004491,
+     "note": "outside_serving_s = supervisor-observed child wall minus in-child first-dispatch..last-commit span; an upper bound on start-to-ready that also includes teardown"
+    },
+    "warmup_s": [
+     24.5996423,
+     6.7128956,
+     6.655908
+    ],
+    "measured": {
+     "H": {
+      "complete_s": 49.9047383,
+      "first_page_s": 40.1255979,
+      "last_page_s": 49.9009987,
+      "pages_per_min": 4.8091625800590565,
+      "prediction_sha256": "67fb1b25de89b9f0d904424a3dd7f7fb18ffb5c9e59637bdd127aab93f0b9148"
+     },
+     "A": {
+      "complete_s": 933.1994667,
+      "first_page_s": 39.492823,
+      "last_page_s": 933.1913299,
+      "pages_per_min": 3.857696160854439,
+      "prediction_sha256": "204af33db5ba6105d4cf7c020c0c3f2c3bc456598f7840dac445c1151f0a03b1"
+     }
+    },
+    "grammar_measured": {
+     "grammar": "rd-wp0016-native-structure-v1",
+     "pages": 64,
+     "pages_structurally_valid": 38,
+     "pages_with_malformed": 26,
+     "page_marker_faults": 0,
+     "blocks": 378,
+     "box_invalid": 0,
+     "orphan_fork": 18,
+     "level_outside_header": 0,
+     "table_unbalanced_pages": 0,
+     "header_title_level": 32,
+     "header_frozen": 316,
+     "parser_disagreements": 0,
+     "header_malformed": 30,
+     "malformed_reasons": {
+      "no_fork_before_next_block_or_end": 12,
+      "bad_box_syntax": 18
+     },
+     "unknown_specials": {}
+    }
+   },
+   "ba:carbon_bf16": {
+    "windows": {
+     "total": 25,
+     "warm_excluded": 3,
+     "measured": 22
+    },
+    "stops": {
+     "stop": 25
+    },
+    "failed_or_fallback_windows": 0,
+    "counters": {
+     "forward_count": 9828,
+     "burst_extra_forwards": 102,
+     "static_cache_reallocations": 0,
+     "prefill_grouped_mm_layer_calls": 3509,
+     "prefill_moe_fallback_layer_calls": 0
+    },
+    "kernel_paths": {
+     "None": 22
+    },
+    "allocator": {
+     "max_allocated_mib": 6893.11669921875,
+     "max_reserved_mib": 7106.0,
+     "windows_reporting": 25,
+     "weight_allocated_after_pack_mib": 6392.3203125
+    },
+    "device_launcher_samples": {
+     "samples": 206,
+     "sample_cadence_s": 5.0,
+     "used_peak_mib": 9577,
+     "free_min_mib": 6421,
+     "temperature_max_c": 61.93,
+     "before_used_mib": 1940,
+     "after_used_mib": 2192
+    },
+    "walls": {
+     "cold_load_s": 22.6237815,
+     "segment_wall_s": 1036.372238400043,
+     "serving_span_s": 1012.1525668,
+     "outside_serving_s": 24.219671600042943,
+     "note": "outside_serving_s = supervisor-observed child wall minus in-child first-dispatch..last-commit span; an upper bound on start-to-ready that also includes teardown"
+    },
+    "warmup_s": [
+     24.4007574,
+     7.3454039,
+     6.5510001
+    ],
+    "measured": {
+     "H": {
+      "complete_s": 52.6969058,
+      "first_page_s": 42.4693391,
+      "last_page_s": 52.6926484,
+      "pages_per_min": 4.554347097927711,
+      "prediction_sha256": "67fb1b25de89b9f0d904424a3dd7f7fb18ffb5c9e59637bdd127aab93f0b9148"
+     },
+     "A": {
+      "complete_s": 921.1412115,
+      "first_page_s": 41.3310498,
+      "last_page_s": 921.1316861,
+      "pages_per_min": 3.908195567689026,
+      "prediction_sha256": "204af33db5ba6105d4cf7c020c0c3f2c3bc456598f7840dac445c1151f0a03b1"
+     }
+    },
+    "grammar_measured": {
+     "grammar": "rd-wp0016-native-structure-v1",
+     "pages": 64,
+     "pages_structurally_valid": 38,
+     "pages_with_malformed": 26,
+     "page_marker_faults": 0,
+     "blocks": 378,
+     "box_invalid": 0,
+     "orphan_fork": 18,
+     "level_outside_header": 0,
+     "table_unbalanced_pages": 0,
+     "header_title_level": 32,
+     "header_frozen": 316,
+     "parser_disagreements": 0,
+     "header_malformed": 30,
+     "malformed_reasons": {
+      "no_fork_before_next_block_or_end": 12,
+      "bad_box_syntax": 18
+     },
+     "unknown_specials": {}
+    }
+   },
+   "ba:native": {
+    "windows": {
+     "total": 25,
+     "warm_excluded": 3,
+     "measured": 22
+    },
+    "stops": {
+     "stop": 25
+    },
+    "failed_or_fallback_windows": 0,
+    "counters": {
+     "forward_count": 9760,
+     "triton_starts": 264,
+     "dense_starts": 264
+    },
+    "kernel_paths": {
+     "triton_import_failed_dense_fallback": 22
+    },
+    "allocator": {
+     "max_allocated_mib": 6971.8232421875,
+     "max_reserved_mib": 7134.0,
+     "windows_reporting": 25,
+     "weight_allocated_after_pack_mib": null
+    },
+    "device_launcher_samples": {
+     "samples": 243,
+     "sample_cadence_s": 5.0,
+     "used_peak_mib": 9765,
+     "free_min_mib": 6233,
+     "temperature_max_c": 62.21,
+     "before_used_mib": 2214,
+     "after_used_mib": 1909
+    },
+    "walls": {
+     "cold_load_s": 22.298904,
+     "segment_wall_s": 1226.0320629999042,
+     "serving_span_s": 1202.1017458,
+     "outside_serving_s": 23.930317199904266,
+     "note": "outside_serving_s = supervisor-observed child wall minus in-child first-dispatch..last-commit span; an upper bound on start-to-ready that also includes teardown"
+    },
+    "warmup_s": [
+     24.9854868,
+     7.5446222,
+     7.5314956
+    ],
+    "measured": {
+     "H": {
+      "complete_s": 61.2406566,
+      "first_page_s": 49.5815221,
+      "last_page_s": 61.2368101,
+      "pages_per_min": 3.91896516667981,
+      "prediction_sha256": "f2669bfa8d03d82714f8856da1fa299a09d57e36bd11fa3e5e7383cc97112a95"
+     },
+     "A": {
+      "complete_s": 1100.7799408,
+      "first_page_s": 47.9579165,
+      "last_page_s": 1100.7725029,
+      "pages_per_min": 3.2704084318466715,
+      "prediction_sha256": "cd009c42f9e9518ac5c955b39a1b837ee4060a9dd6b81a3179a8523a88da4095"
+     }
+    },
+    "grammar_measured": {
+     "grammar": "rd-wp0016-native-structure-v1",
+     "pages": 64,
+     "pages_structurally_valid": 38,
+     "pages_with_malformed": 26,
+     "page_marker_faults": 0,
+     "blocks": 379,
+     "box_invalid": 0,
+     "orphan_fork": 16,
+     "level_outside_header": 0,
+     "table_unbalanced_pages": 0,
+     "header_title_level": 31,
+     "header_frozen": 318,
+     "parser_disagreements": 0,
+     "header_malformed": 30,
+     "malformed_reasons": {
+      "no_fork_before_next_block_or_end": 14,
+      "bad_box_syntax": 16
+     },
+     "unknown_specials": {}
+    }
+   }
+  },
+  "memory": {
+   "ab:native": {
+    "device_used_peak_mib": 9695,
+    "device_before_used_mib": 2164,
+    "device_samples": 230,
+    "allocator_max_reserved_mib": 7134.0,
+    "allocator_max_allocated_mib": 6971.8232421875,
+    "device_within_g0": true,
+    "allocator_within_g0": true
+   },
+   "ab:carbon_bf16": {
+    "device_used_peak_mib": 9526,
+    "device_before_used_mib": 1884,
+    "device_samples": 207,
+    "allocator_max_reserved_mib": 7106.0,
+    "allocator_max_allocated_mib": 6893.11669921875,
+    "device_within_g0": true,
+    "allocator_within_g0": true
+   },
+   "ba:carbon_bf16": {
+    "device_used_peak_mib": 9577,
+    "device_before_used_mib": 1940,
+    "device_samples": 206,
+    "allocator_max_reserved_mib": 7106.0,
+    "allocator_max_allocated_mib": 6893.11669921875,
+    "device_within_g0": true,
+    "allocator_within_g0": true
+   },
+   "ba:native": {
+    "device_used_peak_mib": 9765,
+    "device_before_used_mib": 2214,
+    "device_samples": 243,
+    "allocator_max_reserved_mib": 7134.0,
+    "allocator_max_allocated_mib": 6971.8232421875,
+    "device_within_g0": true,
+    "allocator_within_g0": true
+   }
+  },
+  "timing": {
+   "H": {
+    "pairs": {
+     "ab": {
+      "native_s": 59.5955866,
+      "carbon_s": 49.9047383,
+      "saving_s": 9.690848299999999,
+      "speedup": 1.1941869375557872
+     },
+     "ba": {
+      "native_s": 61.2406566,
+      "carbon_s": 52.6969058,
+      "saving_s": 8.543750799999998,
+      "speedup": 1.162130027755823
+     }
+    },
+    "repeat_spread_s": {
+     "native": 1.645070000000004,
+     "carbon_bf16": 2.792167500000005
+    },
+    "first_page_s": {
+     "ab:native": 48.3259887,
+     "ab:carbon_bf16": 40.1255979,
+     "ba:native": 49.5815221,
+     "ba:carbon_bf16": 42.4693391
+    },
+    "savings_exceed_native_spread": true,
+    "savings_exceed_both_spreads": true,
+    "note": "one observation per arm and order; no percentile follows"
+   },
+   "A": {
+    "pairs": {
+     "ab": {
+      "native_s": 1032.0600334,
+      "carbon_s": 933.1994667,
+      "saving_s": 98.86056670000005,
+      "speedup": 1.1059372301718011
+     },
+     "ba": {
+      "native_s": 1100.7799408,
+      "carbon_s": 921.1412115,
+      "saving_s": 179.63872930000002,
+      "speedup": 1.195017579343208
+     }
+    },
+    "repeat_spread_s": {
+     "native": 68.71990740000001,
+     "carbon_bf16": 12.058255199999962
+    },
+    "first_page_s": {
+     "ab:native": 47.2588276,
+     "ab:carbon_bf16": 39.492823,
+     "ba:native": 47.9579165,
+     "ba:carbon_bf16": 41.3310498
+    },
+    "savings_exceed_native_spread": true,
+    "savings_exceed_both_spreads": true,
+    "note": "one observation per arm and order; no percentile follows"
+   }
+  },
+  "token_parity": {
+   "H": {
+    "ab:carbon_vs_native": {
+     "identical": false,
+     "first_mismatch": 10,
+     "pages_identical": 0,
+     "pages": 4,
+     "pages_text_outside_boxes_identical": 4
+    },
+    "ba:carbon_vs_native": {
+     "identical": false,
+     "first_mismatch": 10,
+     "pages_identical": 0,
+     "pages": 4,
+     "pages_text_outside_boxes_identical": 4
+    },
+    "native:ab_vs_ba": {
+     "identical": true,
+     "first_mismatch": null,
+     "pages_identical": 4,
+     "pages": 4,
+     "pages_text_outside_boxes_identical": 4
+    },
+    "carbon:ab_vs_ba": {
+     "identical": true,
+     "first_mismatch": null,
+     "pages_identical": 4,
+     "pages": 4,
+     "pages_text_outside_boxes_identical": 4
+    }
+   },
+   "A": {
+    "ab:carbon_vs_native": {
+     "identical": false,
+     "first_mismatch": 32,
+     "pages_identical": 13,
+     "pages": 60,
+     "pages_text_outside_boxes_identical": 35
+    },
+    "ba:carbon_vs_native": {
+     "identical": false,
+     "first_mismatch": 32,
+     "pages_identical": 13,
+     "pages": 60,
+     "pages_text_outside_boxes_identical": 35
+    },
+    "native:ab_vs_ba": {
+     "identical": true,
+     "first_mismatch": null,
+     "pages_identical": 60,
+     "pages": 60,
+     "pages_text_outside_boxes_identical": 60
+    },
+    "carbon:ab_vs_ba": {
+     "identical": true,
+     "first_mismatch": null,
+     "pages_identical": 60,
+     "pages": 60,
+     "pages_text_outside_boxes_identical": 60
+    }
+   }
+  }
+ },
+ "eos_and_stop": {
+  "g0-ab:native:windows": 25,
+  "g0-ab:native:eos_in_returned_ids": 0,
+  "g0-ab:native:eos_excluded_flag": 25,
+  "g0-ab:native:finish_stop": 25,
+  "g0-ab:carbon_bf16:windows": 25,
+  "g0-ab:carbon_bf16:eos_in_returned_ids": 0,
+  "g0-ab:carbon_bf16:eos_excluded_flag": 25,
+  "g0-ab:carbon_bf16:finish_stop": 25,
+  "g0-ba:carbon_bf16:windows": 25,
+  "g0-ba:carbon_bf16:eos_in_returned_ids": 0,
+  "g0-ba:carbon_bf16:eos_excluded_flag": 25,
+  "g0-ba:carbon_bf16:finish_stop": 25,
+  "g0-ba:native:windows": 25,
+  "g0-ba:native:eos_in_returned_ids": 0,
+  "g0-ba:native:eos_excluded_flag": 25,
+  "g0-ba:native:finish_stop": 25
+ },
+ "warmup_prediction_hash_prefixes": {
+  "g0-ab:segment-01-native": [
+   "cd5497b54736",
+   "8f02911a7f4e",
+   "8f02911a7f4e"
+  ],
+  "g0-ab:segment-02-carbon_bf16": [
+   "8f02911a7f4e",
+   "cd5497b54736",
+   "cd5497b54736"
+  ],
+  "g0-ba:segment-01-carbon_bf16": [
+   "8f02911a7f4e",
+   "cd5497b54736",
+   "cd5497b54736"
+  ],
+  "g0-ba:segment-02-native": [
+   "cd5497b54736",
+   "8f02911a7f4e",
+   "8f02911a7f4e"
+  ]
+ },
+ "coordinator_inventory": {
+  "tool": "docs/coordination/WP-0016/inventory.py",
+  "tool_sha256": "6aefffc77c137c6b87c9dab4efaff6415d2db3fd29ba7fed2da5f62ec515b8ab",
+  "output_sha256": "b49ec00f013ac2c973c45ed58ea5aaad8f40759c1e13c162a9e41fe73a1ab1aa",
+  "assertions_passed": true,
+  "blobs_cross_checked": 676,
+  "mismatches": 0
+ },
+ "pending": [
+  "stage 2 escrow scoring after the separate key release",
+  "stored WP-0015 Windows prediction/timing copies (not yet supplied)",
+  "report 003"
+ ]
+}
