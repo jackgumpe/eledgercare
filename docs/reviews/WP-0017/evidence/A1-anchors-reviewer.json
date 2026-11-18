@@ -1,0 +1,116 @@
+{
+ "kind": "WP-0017 A1 reviewer anchors (pre-output, synchronized with design 1fad21c)",
+ "reviewer": "eld-rd-reviewer",
+ "created_utc": "2026-11-18T18:58:23Z",
+ "audit_sha256": "16eca676114e847059503290b3c4a620eb1625769dd7f3a3e0a39ab252d263b3",
+ "manifest_sha256": "e7f47d141972d0e32c53d16e090fcddc237c453ecfc2eaf5d494c6d3426bc8ef",
+ "design": {
+  "rules": {
+   "commit": "1fad21c3817be175628992a559e3947d5a88952a",
+   "sha256": "678f27d5d005cae72d90bcb3255c8f79977fe3f461f72f39754906707bce78f8"
+  },
+  "protocol": {
+   "commit": "1fad21c3817be175628992a559e3947d5a88952a",
+   "sha256": "fe915bba87b067a43436d2f6d49e9c3c70ed6d4ece1e1cba0c998881b40a3e79"
+  }
+ },
+ "locators": {
+  "019": {
+   "window": "019",
+   "site_page_index": 2,
+   "block_ordinal": 1,
+   "header_type": "text",
+   "label": "Inspection ",
+   "byte_offset": 11,
+   "content_window_start": 415,
+   "frozen_value": "I08O1-388",
+   "delimiter": "\\n or end of block",
+   "labelled_ordinals_in_frozen_page": [
+    0,
+    1
+   ]
+  },
+  "037": {
+   "window": "037",
+   "site_page_index": 0,
+   "block_ordinal": 1,
+   "header_type": "text",
+   "label": "Inspection ",
+   "byte_offset": 11,
+   "content_window_start": 38,
+   "frozen_value": "8OI10-774",
+   "delimiter": "\\n or end of block",
+   "labelled_ordinals_in_frozen_page": [
+    0,
+    1
+   ]
+  }
+ },
+ "branch_spans": {
+  "019": {
+   "native": [
+    342,
+    3019,
+    49,
+    19,
+    15,
+    21895
+   ],
+   "carbon_bf16": [
+    223,
+    6924,
+    49,
+    19,
+    15,
+    21895
+   ]
+  },
+  "037": {
+   "native": [
+    26,
+    90169,
+    553,
+    15,
+    30591
+   ],
+   "carbon_bf16": [
+    1892,
+    43,
+    553,
+    15,
+    30591
+   ]
+  }
+ },
+ "native_prefixes": {
+  "019": {
+   "tokens": 417,
+   "sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06"
+  },
+  "037": {
+   "tokens": 41,
+   "sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd"
+  }
+ },
+ "boundary_bytes": {
+  "019": 10,
+  "037": 11
+ },
+ "native_ids": {
+  "019": "I08O1-388",
+  "037": "8OI10-774"
+ },
+ "carbon_ids": {
+  "019": "108O1-388",
+  "037": "80I10-774"
+ },
+ "rules": {
+  "D": "ell(native ID) - ell(Carbon ID), FP32 log-softmax over the full vocabulary, summed in nats",
+  "restore": "both anchored free fields status ok and equal to the native IDs",
+  "flip": "addition's anchored free field ok and a different complete identifier",
+  "noise_floor": "E_w = max(1e-5 nats, |D_native1 - D_native2|, |D_full1 - D_full2|)",
+  "selection": "min removed, then sum of ordinary 019+037 seconds, then switch order"
+ },
+ "checks_run": 20,
+ "failures": []
+}
