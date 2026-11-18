@@ -14,6 +14,10 @@ def sha(path):
 
 
 def verify_document(folder, request):
+    mode = request["mode"]
+    native = mode in {"native", "native_profile", "carbon_moe", "carbon_gather", "carbon_bf16"}
+    if not native and mode != "windows":
+        raise ValueError(f"Unrecognized evidence format for {mode}")
     timing = read(folder / "timing.json")
     pred_file = folder / "prediction.json"
     pred = read(pred_file)
@@ -32,7 +36,7 @@ def verify_document(folder, request):
         assert read(folder / f"page-{i:03d}.json") == page and page["state"] == "complete"
         assert page["source_sha256"] == raw["source_sha256"] == sid and page["page"] == raw["page"] == i
         assert raw["rgb_sha256"] == request["rgb_sha256"][i-1]
-        if request["mode"] == "native":
+        if native:
             assert len(raw["token_ids"]) == raw["token_count"] == sum(raw["token_classes"].values())
         else:
             assert raw["word_count"] == sum(len(line["words"]) for line in raw["reader_result"]["lines"])
@@ -46,7 +50,7 @@ def verify_document(folder, request):
         delta = win["engine_end_ns"] - win["engine_begin_ns"]
         assert times[0] <= win["engine_begin_ns"] <= win["engine_end_ns"] <= times[-1]
         engine_ns += delta
-        if request["mode"] == "native":
+        if native:
             assert [i for row in batch for i in row["token_ids"]] == win["window_token_ids"]
             assert "".join(row["raw_output"] for row in batch) == win["raw_output"]
             assert win["finish_reason"] == "stop" and win["expected_pages"] == win["num_pages_out"] == len(batch)
@@ -63,8 +67,11 @@ def verify_document(folder, request):
 def verify(run, release):
     assert sha(run / "plan.json") == release["plan_sha256"]
     plan = read(run / "plan.json")["requests"]
-    launch, proc, session = (read(run / name) for name in ("launch.json", "process.json", "session.json"))
+    launch, proc = (read(run / name) for name in ("launch.json", "process.json"))
     assert launch["source"] == release["source"] and launch["lease"] == release["lease"]
+    if "segments" in proc:
+        return verify_segments(run, release, plan, launch, proc)
+    session = read(run / "session.json")
     assert proc["returncode"] == 0 and proc["reason"] is None
     assert len(plan) == len(session) and proc["elapsed_s"] <= release["seconds"] + 2
     docs = []
@@ -76,6 +83,44 @@ def verify(run, release):
     return {"lease": release["lease"], "source": release["source"], "process_exit": proc["returncode"],
             "supervised_wall_s": proc["elapsed_s"], "documents": docs,
             "limits": "Successful observation and durable identity audit. Apply frozen OCR quality and eligibility checks separately."}
+
+
+def verify_segments(run, release, plan, launch, proc):
+    """Account for every planned request, including requests skipped after a failed child."""
+    assert len(plan) == len(release["ordered_requests"])
+    assert all(all(req[k] == v for k, v in bound.items()) for req, bound in zip(plan, release["ordered_requests"]))
+    assert proc["elapsed_s"] <= release["seconds"] + 15
+    assert launch["plan_sha256"] == release["plan_sha256"]
+    assert proc["all_segments_completed"] == (proc["overall_reason"] is None and
+                                               len(proc["segments"]) == launch["segment_count"])
+    docs = []
+    done = 0
+    for index, segment in enumerate(proc["segments"], 1):
+        mode = segment["mode"]
+        folder = run / f"segment-{index:02d}-{mode}"
+        assert segment == read(folder / "segment-process.json")
+        requests = read(folder / "plan.json")["requests"]
+        assert requests == plan[done:done + len(requests)]
+        complete = segment["returncode"] == 0 and segment["reason"] is None
+        session = read(folder / "session.json") if complete else None
+        if complete:
+            assert len(session) == len(requests)
+        for i, req in enumerate(requests, 1):
+            assert req["mode"] == mode
+            item = folder / f"{i:02d}-{req['label']}-{mode}"
+            if not (item / "timing.json").exists():
+                assert not complete
+                break
+            if complete:
+                assert session[i-1] == read(item / "timing.json")
+            docs.append(verify_document(item, req))
+        done += len(requests)
+    if proc["all_segments_completed"]:
+        assert len(docs) == len(plan) == done
+    return {"lease": release["lease"], "source": release["source"],
+            "completed_run": proc["all_segments_completed"], "reason": proc["overall_reason"],
+            "requests_without_durable_result": len(plan) - len(docs),
+            "supervised_wall_s": proc["elapsed_s"], "documents": docs}
 
 
 if __name__ == "__main__":
