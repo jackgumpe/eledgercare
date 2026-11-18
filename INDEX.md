@@ -1066,3 +1066,17 @@ WP-0014/004 is reserved for eld-latency-scheduling, branch research/wp-0014-late
 ### WP-0014 disposition
 
 The coordinator closed the investigation on 2026-11-18 UTC. Native 001 `6c52aa39500d82c442347f5198338071d6b91717`, scheduling 004 `960372d482cd68911baddcd43c895cc4a0f243a1` and independent 002 `4d86fdeba4eea547b0415e756e7f8d559d2f6cb6` are integrated. Coordinator 003 was published at **ee64d3528fd44f4216a6f3107e0134b5dfefac27**. Three exclusive leases returned after 23 synthetic model calls. The ready native worker met the ten-second target. Its first browser result missed that target by 0.243 seconds and exceeded the twofold speedup criterion. SGLang has zero model runs on this host. A separately proposed product change would qualify a verified resident worker. [Coordinator report](docs/agent-reports/eld-coordinator/WP-0014/003_2026-11-18_verification_eld-coordinator.md) · [Publication receipt](docs/coordination/WP-0014/publication-receipt.json)
+
+## WP-0015 scanned-packet OCR architecture trial
+
+Base `178ce88b80384fc7def703d9e78769427d9b2528`, reserved 2026-11-18 UTC. Jack supplied the next-lane brief and its independently hashed source documents. [Bounded assignment, budgets and exits](docs/coordination/WP-0015/assignment.md)
+
+| Sequence | Owner | Worktree | Branch | Reserved canonical report | Work |
+| --- | --- | --- | --- | --- | --- |
+| 001 | eld-rd-astra | speed-astra | research/wp-0015-astra | docs/agent-reports/eld-rd-astra/WP-0015/001_2026-11-18_research_eld-rd-astra.md | independent position |
+| 002 | eld-rd-carbon | speed-carbon | research/wp-0015-carbon | docs/agent-reports/eld-rd-carbon/WP-0015/002_2026-11-18_research_eld-rd-carbon.md | independent position |
+| 003 | eld-eval-custodian | speed-custody | evaluation/wp-0015-packets | docs/agent-reports/eld-eval-custodian/WP-0015/003_2026-11-18_verification_eld-eval-custodian.md | fixtures, scorer, sealed evaluation |
+| 004 | eld-rd-astra | speed-astra | research/wp-0015-astra | docs/agent-reports/eld-rd-astra/WP-0015/004_2026-11-18_research_eld-rd-astra.md | trial and R&D recommendation |
+| 005 | eld-rd-carbon | speed-carbon | research/wp-0015-carbon | docs/agent-reports/eld-rd-carbon/WP-0015/005_2026-11-18_research_eld-rd-carbon.md | challenger or joint decision, if available |
+| 006 | eld-rd-reviewer | speed-review | review/wp-0015-architecture | docs/agent-reports/eld-rd-reviewer/WP-0015/006_2026-11-18_review_eld-rd-reviewer.md | independent Opus replay and disposition |
+| 007 | eld-coordinator | eledgercare | coordination/bootstrap | docs/agent-reports/eld-coordinator/WP-0015/007_2026-11-18_verification_eld-coordinator.md | coordinator disposition |

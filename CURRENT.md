@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Active WP-0015 scanned-packet OCR architecture trial
+
+Jack supplied the next bounded research lane. The coordinator reserved independent Astra and Carbon positions, evaluation custody and an uninvolved Opus replay. CPU preparation is released. Live work requires a separate source-bound allocation. [Assignment](docs/coordination/WP-0015/assignment.md) · [Reservations](INDEX.md#wp-0015-scanned-packet-ocr-architecture-trial)
+
 ## Completed WP-0014 short-page OCR latency investigation
 
 **Closed and independently verified.** A ready worker on Jack’s RTX 5070 Ti served a short scan in 6.650 seconds median. An independent repeat took 6.851 seconds. In the browser the first ready result appeared 10.243 seconds after Extract, compared with 52.604 seconds on the shipping path. Cold Intake-to-result remained about 54 seconds. The SGLang comparison is open pending a supported GPU-capable Linux environment. All three GPU leases have been returned. The shipping app still starts a worker per attempt. [Coordinator report](docs/agent-reports/eld-coordinator/WP-0014/003_2026-11-18_verification_eld-coordinator.md) · [Publication receipt](docs/coordination/WP-0014/publication-receipt.json) · [Proposed product change](docs/coordination/WP-0014/product-proposal.md)
