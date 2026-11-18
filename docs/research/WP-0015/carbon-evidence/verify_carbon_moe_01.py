@@ -376,12 +376,12 @@ def main() -> None:
             "total_bytes": sum(e["bytes"] for e in entries),
             "files": entries,
         }
-        manifest_path.write_text(json.dumps(manifest_obj, indent=2) + "\n", encoding="utf-8")
+        manifest_path.write_text(json.dumps(manifest_obj, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     manifest_obj = json.loads(manifest_path.read_text(encoding="utf-8"))
     total_bytes = verify_manifest(archive_dir, manifest_obj["files"])
     analysis = build_analysis(archive_dir)
-    summary_path.write_text(json.dumps(analysis, indent=2) + "\n", encoding="utf-8")
+    summary_path.write_text(json.dumps(analysis, indent=2) + "\n", encoding="utf-8", newline="\n")
     assert "torch" not in sys.modules
     print(
         json.dumps(
