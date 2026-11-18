@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-18T01:42:01.2076571Z",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, 621.01, 16303 MiB, 14478 MiB, 300.00 W",
+  "os": "Microsoft Windows 11 Home",
+  "build": "26200",
+  "cpu": "AMD Ryzen 5 3600 6-Core Processor              ",
+  "virtualization_enabled_in_firmware": false,
+  "hypervisor_present": false,
+  "slat": true,
+  "volume_free": 38355083264,
+  "wsl": {
+    "--status": {
+      "exit": 0,
+      "stdout": "Default Version: 2"
+    },
+    "--list": {
+      "exit": -1,
+      "stdout": "Windows Subsystem for Linux has no installed distributions.\r\n\r\nYou can resolve this by installing a distribution with the instructions below:\r\n\r\n\r\n\r\nUse 'wsl.exe --list --online' to list available distributions\r\n\r\nand 'wsl.exe --install <Distro>' to install."
+    },
+    "--version": {
+      "exit": 0,
+      "stdout": "WSL version: 2.7.10.0\r\n\r\nKernel version: 6.18.33.2-2\r\n\r\nWSLg version: 1.0.73.2\r\n\r\nMSRDC version: 1.2.6676\r\n\r\nDirect3D version: 1.611.1-81528511\r\n\r\nDXCore version: 10.0.26100.1-240331-1435.ge-release\r\n\r\nWindows version: 10.0.26200.9974"
+    }
+  },
+  "docker": {
+    "exit": 1,
+    "output": "Client:\r\n Version:           29.7.2\r\n API version:       1.55\r\n Go version:        go1.26.5\r\n Git commit:        a7dcaa6\r\n Built:             Wed Aug  5 18:31:33 2026\r\n OS/Arch:           windows/amd64\r\n Context:           desktop-linux\r\nfailed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified."
+  },
+  "upstream": "https://huggingface.co/baidu/Unlimited-OCR-2/tree/0480966938291445591f69f08a13b041c073a96a/wheel",
+  "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+  "wheel": "sglang-0.5.20.dev13+g75b9b06b02-py3-none-any.whl",
+  "actual_wheel_sha256": "576c71dab3cacad843f6870739494e13b2e8169a69cc038f84395d6503e801ea",
+  "kernel_requirement": "sglang-kernel==0.4.7",
+  "pypi_files": [
+    "sglang_kernel-0.4.7-cp310-abi3-manylinux2014_aarch64.whl",
+    "sglang_kernel-0.4.7-cp310-abi3-manylinux2014_x86_64.whl"
+  ],
+  "windows_resolver": {
+    "args": [
+      "-m",
+      "pip",
+      "--isolated",
+      "--disable-pip-version-check",
+      "download",
+      "--no-cache-dir",
+      "--no-deps",
+      "--only-binary=:all:",
+      "--platform",
+      "win_amd64",
+      "--implementation",
+      "cp",
+      "--python-version",
+      "310",
+      "--abi",
+      "cp310",
+      "--abi",
+      "abi3",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--dest",
+      "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\.scratch\\wp0014\\windows-wheel-preflight",
+      "sglang-kernel==0.4.7"
+    ],
+    "exit": 1,
+    "output": "ERROR: Could not find a version that satisfies the requirement sglang-kernel==0.4.7 (from versions: none)\r\nERROR: No matching distribution found for sglang-kernel==0.4.7"
+  },
+  "execution": "BLOCKED_LOCAL_SUBSTRATE",
+  "measured_requests": 0,
+  "measured_peak_vram": null,
+  "speedup": null
+}
