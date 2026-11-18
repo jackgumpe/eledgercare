@@ -26,13 +26,13 @@ def audit(family):
             image = bitmap.to_pil().convert("RGB")
             bitmap.close()
             extrema = image.convert("L").getextrema()
-            blank = extrema == (255, 255)
+            blank = extrema[0] == extrema[1] and extrema[0] >= 245
             dims = list(page.get_size())
             page.close()
             if chars or blank != (not expected["text"].strip()) or ordinal != expected["page"]:
                 raise ValueError(f"{family.name}, page {ordinal}: raster/text/order mismatch")
             result.append({"page": ordinal, "pdf_points": dims, "pixels": list(image.size),
-                           "text_layer_characters": chars, "blank_raster": blank,
+                           "text_layer_characters": chars, "gray_extrema": list(extrema), "blank_raster": blank,
                            "rgb_sha256": hashlib.sha256(image.tobytes()).hexdigest()})
             image.close()
     finally:
