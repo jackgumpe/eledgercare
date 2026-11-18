@@ -155,3 +155,18 @@ Everything above this heading was written by the prior session `5ab6a228-4214-49
 - **Engine geometry check.** `engine_geometry.py` runs the candidate's own `span_probe.py` locator functions from their verified blob (`f0638af3…`) with the pinned tokenizer on CPU. It confirmed the geometry the normalizer assumes: 019 has P=417 with no shared token, and 037 has P=40 plus `[223]`. Both match the audited digests and spans.
 - **A2/A3:** `doc_trial.py` at `eb16708` uses the WP-0016 segmented layout that `a2_views.py` assumes. `command.py` still fails closed for A2/A3 until their plan generator is published and reviewed.
 - **Exposure:** CPU only. No torch, CUDA or model was loaded. No H, A, B or dev key was opened; the A2 tests use a synthetic key in scratch. No WP-0017 output exists. Scratch is under `WP-0017/review/scratch-e2d32880/` and is never an input to a decision.
+
+**Continuation evidence** (Q0 Python 3.12.10, `tokenizers` 0.21.4; tools committed before each receipt):
+
+| Evidence | Tools at | Result | SHA-256 |
+| --- | --- | --- | --- |
+| `evidence/cpu-selftest-q0-r3-90747b3.json` | `90747b3` (prior session, unchanged) | 44/44 | in `d29a3b5` |
+| `evidence/A1-anchors-reviewer.json` | `90747b3` `a1_sync.py` | 20 checks, 0 failures | `339b9f77…` |
+| `evidence/cpu-selftest-q0-r4-3ee83ab.json` | `3ee83ab` | 44/44 | `cc72dd6b…` |
+| `evidence/cpu-selftest-continuation-q0-3ee83ab.json` | `3ee83ab` | 36/36 | `0eda459c…` |
+| `evidence/A1-engine-geometry-eb16708.json` | `3ee83ab`, candidate `eb16708` `span_probe.py` `f0638af3…` | 18 checks, 0 failures | `209eda6b…` |
+
+**Not run:**
+- `command.py review` against a real release, because none exists. Its A1 plan re-derivation is self-tested against the pinned `prepare_a1.py` blob. The full candidate/worktree review needs the actual release.
+- The engine author's own `verify_cpu.py`. That is the author's preflight. I ran only the candidate's pure locator functions.
+- No GPU or model step of any kind.
