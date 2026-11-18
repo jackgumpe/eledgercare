@@ -39,7 +39,13 @@ def bind(args):
     if run.exists() or dest.exists():
         raise FileExistsError("Lease and output directory must be fresh")
     interpreter = Path("C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe").resolve(strict=True)
-    launcher_owner = "carbon" if args.owner == "carbon" else "astra"
+    carbon_modes = {"native_profile", "carbon_bf16", "carbon_moe", "carbon_gather"}
+    modes = {r["mode"] for r in requests}
+    carbon_replay = args.owner == "review" and not modes.isdisjoint(carbon_modes)
+    launcher_owner = "carbon" if args.owner == "carbon" or carbon_replay else "astra"
+    allowed = ({"native"} | carbon_modes) if launcher_owner == "carbon" else {"windows", "native"}
+    if not modes <= allowed:
+        raise ValueError(f"Plan contains modes outside the {launcher_owner} runner")
     app = [str(interpreter), "-I", "-B", f"docs/research/WP-0015/{launcher_owner}/launch.py", "--source", src,
            "--plan", str(plan), "--sha256", args.digest, "--owner", args.owner,
            "--run", args.run, "--seconds", str(args.seconds), "--lease", args.lease, "--min-vram-mib", "12000"]
