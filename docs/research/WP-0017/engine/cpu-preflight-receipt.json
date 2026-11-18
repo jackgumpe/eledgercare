@@ -1,0 +1,41 @@
+{
+  "schema": "eledgercare.wp0017.cpu-preflight-receipt/1",
+  "label": "wp0017-cpu-postcommit-3cb2811",
+  "source_candidate_sha": "3cb281120b99e754a562d56141ea4bf9d6230f1b",
+  "cuda_visible_devices": "-1",
+  "torch_cuda_is_available": false,
+  "cuda_tripwire_hits": 0,
+  "phase1_import_and_utf8_hygiene": {
+    "import_torch_absent": true,
+    "redirected_utf8_under_isolated_flag": true,
+    "emitted_a1_plan_sha256": "8903a15ddf9d8a951540c663958e4745a74415d35f259fe489c57cf4235ef4f1",
+    "emitted_a1_config_count": 16
+  },
+  "phase2_tokenizer_and_a1_locators": {
+    "a1_manifest_sha256": "e7f47d141972d0e32c53d16e090fcddc237c453ecfc2eaf5d494c6d3426bc8ef",
+    "window_019_native_sha256": "795dd68a0bc0f7c6717185fdbbb81a73c26fffdbaa4c961646d136adc2445a45",
+    "window_019_carbon_sha256": "6dfc195c95ee3ac435c8f749856c149e1e628febdb00f3ed4fdc184912ec955f",
+    "window_037_native_sha256": "2fe3906de595b59e02394583da84994ae37fe881d2df341fee5a007e245ef909",
+    "window_037_carbon_sha256": "aab3cbf22b1f9af898f87b7948a5590bd1e80779edc3dc8d7bf34223d3e83b4b",
+    "window_019_divergence_step": 417,
+    "window_037_divergence_step": 41,
+    "window_037_early_coord_step": 7,
+    "structural_locator_third_reading_and_malformed_controls": true
+  },
+  "phase3_six_switches_and_serial_probe": {
+    "modes_verified_fp32": 16,
+    "bf16_all_off_matches_native": true,
+    "bf16_all_on_matches_carbon_bf16": true,
+    "static_cache_grow_zero_drift": true,
+    "serial_qlen1_and_cache_clone_zero_drift": true
+  },
+  "phase4_analyzer_doc_schema_and_public_dev": {
+    "a1_single_restoration_selected": "remove_S1c",
+    "a1_pair_restoration_selected": "remove_S1b_S1c",
+    "a1_tampered_endpoint_blocked": true,
+    "a1_e2e_60page_segment_and_dual_prefix_probe_verified": true,
+    "a2_a3_trial_document_schema_verified": true,
+    "locked_carbon_surgical_refused": true,
+    "public_dev_id_ablation_raster_page1_verified": true
+  }
+}
