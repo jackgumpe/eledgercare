@@ -1,0 +1,185 @@
+{
+  "name": "g0-anchor",
+  "gate": "G0",
+  "operator": "eld-rd-reviewer",
+  "issued_utc": "2026-11-18T13:33:07.024523+00:00",
+  "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\gates-replay",
+  "review_worktree_head": "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+  "inference_base": "61bec47689dcdf272a525185013f2dce6335fa24",
+  "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "ceiling_mib": 10000,
+  "admission": {
+    "device": {
+      "utc": "2026-11-18T13:33:07.024523+00:00",
+      "total_mib": 16303,
+      "used_mib": 1722,
+      "free_mib": 14276,
+      "temp_c": 42.48,
+      "utilization_percent": 1
+    },
+    "processes": [
+      {
+        "pid": 4788,
+        "image": "CrossDeviceResume.exe"
+      },
+      {
+        "pid": 6640,
+        "image": "explorer.exe"
+      },
+      {
+        "pid": 9356,
+        "image": "StartMenuExperienceHost.exe"
+      },
+      {
+        "pid": 9332,
+        "image": "SearchHost.exe"
+      },
+      {
+        "pid": 6396,
+        "image": "msedgewebview2.exe"
+      },
+      {
+        "pid": 12400,
+        "image": "ProtonDrive.exe"
+      },
+      {
+        "pid": 14056,
+        "image": "msedgewebview2.exe"
+      },
+      {
+        "pid": 16904,
+        "image": "chrome.exe"
+      },
+      {
+        "pid": 20016,
+        "image": "ShellExperienceHost.exe"
+      },
+      {
+        "pid": 18392,
+        "image": "devenv.exe"
+      },
+      {
+        "pid": 11612,
+        "image": "chrome.exe"
+      },
+      {
+        "pid": 12852,
+        "image": "steamwebhelper.exe"
+      },
+      {
+        "pid": 21508,
+        "image": "steam.exe"
+      },
+      {
+        "pid": 10700,
+        "image": "ApplicationFrameHost.exe"
+      },
+      {
+        "pid": 23960,
+        "image": "SystemSettings.exe"
+      },
+      {
+        "pid": 23284,
+        "image": "WindowsTerminal.exe"
+      },
+      {
+        "pid": 17228,
+        "image": "Notepad.exe"
+      },
+      {
+        "pid": 30792,
+        "image": "TextInputHost.exe"
+      },
+      {
+        "pid": 35520,
+        "image": "ShellHost.exe"
+      },
+      {
+        "pid": 11028,
+        "image": "copilotapp.exe"
+      },
+      {
+        "pid": 10040,
+        "image": "copilotapphost.exe"
+      },
+      {
+        "pid": 8352,
+        "image": "msedge.exe"
+      }
+    ],
+    "ollama_models": 0
+  },
+  "free_disk_bytes": 29838430208,
+  "source_files": {
+    "docs/research/WP-0016/engine/g0.py": "ebfcdf1e730dece643a479dbb05c73c0fd43620257adcadd64094652dd23d80f",
+    "docs/research/WP-0015/astra/trial.py": "5509a81f57fcb9d77f184c353bf5aa7d5de756cfda1a22cea57dd6e78c9f47e3",
+    "docs/research/WP-0015/carbon/launch.py": "d95d39218c73481d154dc82888bbd5b5a785c6b965da55fb9fab542bd41dc0a2",
+    "docs/research/WP-0015/carbon/engine.py": "8deae77d2148b6b52abf0dec5cd0c8c07c4da717d182b343a0c1c0b81c57b372",
+    "docs/research/WP-0015/carbon/trial.py": "55a7ffeab131d3ffcaed8547d18a69d436ff745adfe224632aaa8e392fa87983"
+  },
+  "coordination_files": {
+    "docs/coordination/WP-0016/device_lease.py": "1db1a43af825458fff828949ace766b9136a4622c0dc567a838e8089ffbafde8",
+    "qualification/baseline/winjob.py": "6a02c0d1649b755b4f95a341bdb7a5533491edd96b26bd73fa9b43f013fd7b9c"
+  },
+  "orders": [
+    {
+      "run": "g0-ab",
+      "plan": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\coordination\\plans\\g0-ab.json",
+      "plan_sha256": "b705772d04e1cab173096bd9fb779a57f71e68af1eaccc4f7dc107a0432fffbf",
+      "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\review\\runs\\g0-ab",
+      "seconds": 4200,
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "docs/research/WP-0016/engine/g0.py",
+        "--source",
+        "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+        "--plan",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\coordination\\plans\\g0-ab.json",
+        "--sha256",
+        "b705772d04e1cab173096bd9fb779a57f71e68af1eaccc4f7dc107a0432fffbf",
+        "--owner",
+        "review",
+        "--run",
+        "g0-ab",
+        "--seconds",
+        "4200",
+        "--lease",
+        "g0-ab",
+        "--min-vram-mib",
+        "12000"
+      ]
+    },
+    {
+      "run": "g0-ba",
+      "plan": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\coordination\\plans\\g0-ba.json",
+      "plan_sha256": "7a48e28f6ef5f736d4fed0c89a28e07800ecf827a8ad646197fc3fa9aac924a9",
+      "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\review\\runs\\g0-ba",
+      "seconds": 4200,
+      "argv": [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "docs/research/WP-0016/engine/g0.py",
+        "--source",
+        "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+        "--plan",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0016\\coordination\\plans\\g0-ba.json",
+        "--sha256",
+        "7a48e28f6ef5f736d4fed0c89a28e07800ecf827a8ad646197fc3fa9aac924a9",
+        "--owner",
+        "review",
+        "--run",
+        "g0-ba",
+        "--seconds",
+        "4200",
+        "--lease",
+        "g0-ba",
+        "--min-vram-mib",
+        "12000"
+      ]
+    }
+  ],
+  "initial_control": "Ready worker, three single-window warmups per arm; both PDFs redelivered and regenerated per order."
+}
