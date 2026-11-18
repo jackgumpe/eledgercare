@@ -42,7 +42,8 @@ def summarize(root):
         first, last = m["first_token_streamer_enter_synced"], m["last_token_streamer_enter"]
         selected = ("import_torch", "query_platform_with_cuda", "normalize_and_verify_model_dir",
                     "verify_model_sources_ast_safety", "import_transformers_AutoModel_AutoTokenizer", "named_load_real",
-                    "read_and_render_pdf", "verify_loaded_module_cache", "installed_distributions")
+                    "read_and_render_pdf", "verify_loaded_module_cache", "installed_distributions",
+                    "tokenizer_from_pretrained", "auto_model_construction_weights", "module_cuda_dispatch", "load_final_cuda_sync")
         spans = {e["label"]: secs(e["start_ns"],e["end_ns"]) for e in t["spans"] if e["label"] in selected}
         weight_files = {Path(e["file"]).name: secs(e["start_ns"], e["end_ns"]) for e in t["spans"]
                         if e["label"] == "file_digests" and e["file"].endswith(".safetensors")}
@@ -54,7 +55,7 @@ def summarize(root):
             compare["lost_previous_present_fields"] = [k for k, v in base["printed_fields_present"].items()
                                                         if v and not score["printed_fields_present"][k]]
             compare["structured_incorrect_cells"] = {k:v for k,v in score["table_cells"].items() if not v["exact"]}
-        rows.append(dict(stage=fs.name, fixture=key, score_sha=score["sha256"], tokens=nt, prompt_tokens=n["prompt_len"],
+        rows.append(dict(stage=fs.name, fixture=key, score_sha=score["sha256"], tokens=nt, image_tokens=native["image_tokens"], prompt_tokens=n["prompt_len"],
                          worker_s=score["timings"]["total_duration_ms"]/1000, inference_s=infer_s,
                          request_to_completed_s=secs(t["request_start_ns"],t["output_complete_ns"]),
                          launch_to_first_completion_s=secs(process["process_start_ns"], t["output_complete_ns"]) if fs.name.startswith("1-") else None,

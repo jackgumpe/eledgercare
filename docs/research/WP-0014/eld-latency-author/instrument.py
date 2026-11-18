@@ -2,6 +2,8 @@
 from time import perf_counter_ns as now
 ENTRY = now()
 import contextlib
+import ctypes
+from ctypes import wintypes
 import functools
 import inspect
 import os
@@ -10,6 +12,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from cases import GPU, PAGES, Q0, REFERENCE, SHA, TEXT, WORKER, assess, digest, dump, materialize, read
 from fixtures import scan_pdf
+from generation import Generation, test_generation
 sys.path.insert(0, str(WORKER))
 from local_ocr import observer, protocol, verify_runtime, worker
 from local_ocr.env_guard import audit_worker_environment
@@ -77,7 +80,8 @@ def verify_cpu(run):
     assert len(reference["table_cells"]) == 19
     assert all(reference["printed_fields_present"].values())
     assert "torch" not in sys.modules
-    dump(run / "cpu.json", dict(fixtures=observations, renderer=renderer, model_revision=manifest["revision"],
+    guard_tests = test_generation(run / "controlled-negative-tests")
+    dump(run / "cpu.json", dict(generation_negative_controls=guard_tests, fixtures=observations, renderer=renderer, model_revision=manifest["revision"],
                                 worker_source=req["expected_worker_source_sha256"], config=req["expected_worker_config_sha256"],
                                 dependency_lock=req["expected_dependency_lock_sha256"], model_manifest=req["expected_model_manifest_sha256"],
                                 reference_S=reference, production_call_kwargs=protocol.build_call_kwargs(1)))
@@ -99,11 +103,15 @@ class PhaseMonitor(observer.InferenceMonitor):
         for code, label in self.extra.items():
             self.targets[code] = observer.TargetSpec("", label, "wp0014_clock")
         self.marks = {}
+        self.hits = dict.fromkeys(watched, 0)
         self.emitted = 0
+        self.visual_tokens = None
         monitors.append(self)
 
     def _on_start(self, code, offset):
         label = self.extra.get(code)
+        if label:
+            self.hits[label] += 1
         if label == "streamer_put":
             self.emitted += 1
             if self.emitted == 1:
@@ -122,12 +130,47 @@ class PhaseMonitor(observer.InferenceMonitor):
             if label == "vision_last_projector":
                 sys.modules["torch"].cuda.synchronize()
             self.marks[label + "_end"] = now()
+            if label == "build_inputs":
+                mask = result[2]
+                assert mask.device.type == "cpu"
+                self.visual_tokens = int(mask.sum())
         super()._on_return(code, offset, result)
+
+
+@contextlib.contextmanager
+def load_observer(tokenizer_cls, model_cls):
+    # Only call/return boundaries during this load, with no hooks left on the live model.
+    torch = sys.modules["torch"]
+    targets = {inspect.unwrap(tokenizer_cls.from_pretrained).__code__: "tokenizer_from_pretrained",
+               inspect.unwrap(model_cls.from_pretrained).__code__: "auto_model_construction_weights",
+               inspect.unwrap(torch.nn.Module.cuda).__code__: "module_cuda_dispatch",
+               inspect.unwrap(torch.cuda.synchronize).__code__: "load_final_cuda_sync"}
+    starts = {}
+    tool = 3
+    monitoring = sys.monitoring
+    def enter(code, offset):
+        starts[code] = now()
+    def leave(code, offset, value):
+        events.append(dict(label=targets[code], start_ns=starts.pop(code), end_ns=now()))
+    monitoring.use_tool_id(tool, "wp0014-load")
+    try:
+        monitoring.register_callback(tool, monitoring.events.PY_START, enter)
+        monitoring.register_callback(tool, monitoring.events.PY_RETURN, leave)
+        for code in targets:
+            monitoring.set_local_events(tool, code, monitoring.events.PY_START | monitoring.events.PY_RETURN)
+        yield
+    finally:
+        for code in targets:
+            monitoring.set_local_events(tool, code, 0)
+        for flag in (monitoring.events.PY_START, monitoring.events.PY_RETURN):
+            monitoring.register_callback(tool, flag, None)
+        monitoring.free_tool_id(tool)
 
 
 class ResidentRuntime(worker.RealTorchRuntime):
     loaded = None
     platform = None
+    generation = None
 
     def query_platform(self):
         if self.platform is None:
@@ -141,7 +184,7 @@ class ResidentRuntime(worker.RealTorchRuntime):
         if self.loaded is None:
             with span("import_transformers_AutoModel_AutoTokenizer"):
                 from transformers import AutoModel, AutoTokenizer
-            with span("named_load_real"):
+            with span("named_load_real"), load_observer(AutoTokenizer, AutoModel):
                 tokenizer, model, ms = super().load_model(model_dir)
             self.loaded = tokenizer, model
             self.model_dir = model_dir
@@ -154,19 +197,38 @@ def measure_integrity_once():
     # Process-owned Q0 model is fixed, read-only by assignment. Per-request pinned manifests, input bytes,
     # worker configuration, renderer, loaded custom module cache and all result checks still run.
     original = worker.normalize_and_verify_model_dir
-    bound = None
-    result = None
     def verified(model, notice, manifest):
-        nonlocal bound, result
-        key = (model, notice, manifest)
-        if bound is None:
+        if runtime.generation is None:
             with span("normalize_and_verify_model_dir"):
-                result = original(*key)
-            bound = key
-        assert key == bound
-        return result
+                runtime.generation = Generation(model, notice, manifest, original)
+        with span("model_generation_namespace_check"):
+            return runtime.generation.verify(model, notice, manifest)
+    write_raw = worker.write_exclusive_bytes
+    def guarded_write(path, data):
+        with span("prepublication_generation_namespace_check"):
+            runtime.generation.verify(*runtime.generation.roots, runtime.generation.manifest)
+        return write_raw(path, data)
+    worker.write_exclusive_bytes = guarded_write
     worker.normalize_and_verify_model_dir = verified
     worker.verify_model_sources_ast_safety = functools.lru_cache(maxsize=1)(worker.verify_model_sources_ast_safety)
+
+
+def resource_usage():
+    # Windows process-wide logical I/O and working-set counters include file-cache effects.
+    process = ctypes.c_void_p(-1)
+    counts = (ctypes.c_ulonglong * 6)()
+    if not ctypes.windll.kernel32.GetProcessIoCounters(process, ctypes.byref(counts)):
+        raise ctypes.WinError()
+    class Memory(ctypes.Structure):
+        _fields_ = [("cb", wintypes.DWORD), ("page_faults", wintypes.DWORD)] + [
+            (x, ctypes.c_size_t) for x in ("peak_ws", "working_set", "peak_paged", "paged", "peak_nonpaged",
+                                            "nonpaged", "pagefile", "peak_pagefile")]
+    mem = Memory()
+    mem.cb = ctypes.sizeof(mem)
+    if not ctypes.windll.psapi.GetProcessMemoryInfo(process, ctypes.byref(mem), mem.cb):
+        raise ctypes.WinError()
+    return dict(read_operations=counts[0], read_transfer_bytes=counts[3], write_operations=counts[1],
+                write_transfer_bytes=counts[4], working_set_bytes=mem.working_set, peak_working_set_bytes=mem.peak_ws)
 
 
 def resident(run, sequence):
@@ -184,6 +246,7 @@ def resident(run, sequence):
     measure_integrity_once()
     for index, key in enumerate(sequence, 1):
         events.clear()
+        usage_before = resource_usage()
         begin = now()
         materialize(run, key)
         request_ready = now()
@@ -193,14 +256,14 @@ def resident(run, sequence):
         (run / "output").rename(out)
         dump(out / "events.json", dict(child_entry_ns=ENTRY, worker_imported_ns=IMPORTED, pid=os.getpid(),
                                        request_start_ns=begin, request_ready_ns=request_ready, output_complete_ns=done,
-                                       exit_code=rc, spans=events))
+                                       exit_code=rc, resource_before=usage_before, resource_after=resource_usage(), spans=events))
         assert rc == 0, read(out / "envelope.json").get("failure")
         m = monitors.pop()
         native = m.native_results[0]
         ids = native["token_ids"]
         assert m.emitted == len(ids) and m.forward_progress == len(ids) + 1
         dump(out / "native.json", dict(native={k: v for k, v in native.items() if k not in ("token_ids", "text")},
-                                       token_ids=ids, marks_ns=m.marks, forward_count=m.forward_progress,
+                                       token_ids=ids, image_tokens=m.visual_tokens, marks_ns=m.marks, event_counts=m.hits, forward_count=m.forward_progress,
                                        dense_starts=m.dense_starts, triton_starts=m.triton_starts, triton_none_returns=m.triton_none_returns))
         dump(out / "score.json", assess(key, out))
         print(f"WP-0014 completed {index}-{key}", flush=True)
@@ -212,6 +275,10 @@ if __name__ == "__main__":
     if mode == "cpu":
         verify_cpu(Path(path))
     elif mode in ("resident", "resident-short"):
-        resident(Path(path), "ABABAS" if mode == "resident" else "ABA")
+        try:
+            resident(Path(path), "ABABAS" if mode == "resident" else "ABA")
+        finally:
+            if "runtime" in globals() and runtime.generation is not None:
+                runtime.generation.close()
     else:
         raise ValueError(mode)

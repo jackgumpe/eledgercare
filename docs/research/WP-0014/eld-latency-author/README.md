@@ -31,4 +31,6 @@ python -I -B docs/research/WP-0014/eld-latency-author/summarize.py C:\Users\jack
 
 The probe creates a new cache/profile/temp tree for each fresh worker and one for the resident process. The fixed Q0 interpreter runs with `-I -B` and the product environment allowlist. The supervisor has a 1,200-second stage ceiling and terminates only its owned child tree if needed. Full subprocess logs, caches and materializations stay under the external run directory.
 
+Windows read-sharing handles deny writes and deletion of each manifest file and notice while the model is resident. A fresh namespace snapshot (file IDs, sizes, modification times, attributes, and directory entries) must match before use and before publishing each raw result. Initial verification hashes under held handles. The CPU scratch controls cover write, unlink, extra, prior corruption and missing file. Load-time local events capture the tokenizer, model construction and weights, CUDA transfer dispatch and final synchronization; these nested clocks sit inside the named model-load span. The research process samples Windows logical I/O and working-set counters before/after each request. Logical reads can hit the filesystem cache.
+
 The independent short-only repeat uses stages `fresh-A` and `resident-short` (A → B → A), each with `--owner reviewer` and a separate lease.
