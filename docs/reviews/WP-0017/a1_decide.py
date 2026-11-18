@@ -8,9 +8,21 @@ Independent implementation of design/PROTOCOL.md (fe915bba...). design/rules.py 
 from its pinned blob ONLY to cross-check restoration ranking and pair eligibility: any disagreement is a
 reported failure, never silently resolved.
 
-Normalized result (configuration ids and bit order follow design/rules.py:matrix):
- {"configurations": [CONF, ...], "source_files": {rel: sha256}, "infrastructure_errors": [str, ...]}
- CONF  = {"id": "native"|"carbon_bf16"|"add_S1a"|"remove_S2"|"remove_S1a+S2", "bits": "010000",
+Revision by the continuation session (common.OPERATOR), before any A1 output existed, to the coordinator's
+actual initial wave (prepare_a1.py 74b24a1f, check_endpoints.py edcb4184): SIXTEEN configurations, i.e. the
+design's fourteen unique bit vectors plus two extra endpoint controls. 000000 is run twice (genuine `native`
+and switch-harness `all_off`), 111111 twice (genuine `carbon_bf16` and harness `all_on`), then the twelve
+one-factor harness rows. All four endpoints must reproduce their complete frozen arrays before any
+attribution. One-factor contrasts are instrument-matched (additions against `all_off`, removals against
+`all_on`, as the coordinator's joint design read requires); genuine-endpoint contrasts, harness overheads and
+harness-versus-genuine probe gaps are reported alongside. The pair noise floor E_w follows design/rules.py
+with native := all_off and full := all_on; a conservative floor that also includes genuine-endpoint repeat
+and harness gaps is reported as a sensitivity and never changes the rule.
+
+Normalized result (configuration ids and bit order follow design/rules.py:matrix plus the two controls):
+ {"configurations": [CONF, ...], "source_files": {rel: sha256}, "infrastructure_errors": [str, ...],
+  "coordinator_endpoint_check": null|{"passed": bool, "checks": [...]}}
+ CONF  = {"id": "native"|"all_off"|"carbon_bf16"|"all_on"|"add_S1a"|"remove_S2"|"remove_S1a+S2", "bits": "010000",
           "implementation": "genuine_native"|"genuine_carbon"|"switch_harness", "aliases": null|"native"|"carbon_bf16",
           "stream_cadence_label": str|null,          # required when S3 on and S0 off
           "windows": {"019": WIN, "037": WIN}}
@@ -49,10 +61,34 @@ def bits(enabled):
 
 
 def matrix():
+    """The design's fourteen unique bit vectors (design/rules.py:matrix ids)."""
     rows = {"native": bits(()), "carbon_bf16": bits(SWITCHES)}
     rows.update(("add_" + s, bits((s,))) for s in SWITCHES)
     rows.update(("remove_" + s, bits(set(SWITCHES) - {s})) for s in SWITCHES)
     return rows
+
+
+GENUINE = {"native": "genuine_native", "carbon_bf16": "genuine_carbon"}
+HARNESS_ENDPOINTS = {"all_off": "native", "all_on": "carbon_bf16"}   # harness control -> genuine counterpart
+ENDPOINTS = ("native", "all_off", "carbon_bf16", "all_on")
+FROZEN_ARM = {"native": "native", "all_off": "native", "carbon_bf16": "carbon_bf16", "all_on": "carbon_bf16"}
+BASE_ADD, BASE_REMOVE = "all_off", "all_on"                           # instrument-matched contrast bases
+
+
+def initial_wave():
+    """Sixteen configurations of the coordinator's initial wave: 14 unique bit vectors + 2 endpoint controls."""
+    rows = dict(matrix())
+    rows.update(all_off=bits(()), all_on=bits(SWITCHES))
+    return rows
+
+
+def expected_implementation(cid, r):
+    if cid in GENUINE:
+        return r.get("implementation") == GENUINE[cid] and r.get("aliases") is None
+    if cid in HARNESS_ENDPOINTS:   # a harness control may alias its genuine counterpart, which must then be recorded
+        return (r.get("implementation") == "switch_harness" and r.get("aliases") is None) or \
+               (r.get("implementation") == GENUINE[HARNESS_ENDPOINTS[cid]] and r.get("aliases") == HARNESS_ENDPOINTS[cid])
+    return r.get("implementation") == "switch_harness"
 
 
 def removal_of(cid):
@@ -185,7 +221,7 @@ def anchors(audit, manifest, vocab):
 
 
 def bind(norm, audit, manifest, vocab, check):
-    want = matrix()
+    want = initial_wave()
     by = {}
     for r in norm["configurations"]:
         check(r["id"] not in by, f"duplicate configuration {r['id']}")
@@ -195,6 +231,8 @@ def bind(norm, audit, manifest, vocab, check):
         rem = removal_of(cid)
         expect = want.get(cid) or (bits(set(SWITCHES) - set(rem)) if rem and len(rem) == 2 else None)
         check(expect is not None and r["bits"] == expect, f"{cid}: bit vector differs from its id")
+        check(expected_implementation(cid, r), f"{cid}: implementation/alias label {r.get('implementation')!r}/"
+                                               f"{r.get('aliases')!r} does not fit its role")
         on = {s for s, b in zip(SWITCHES, r["bits"]) if b == "1"}
         if "S3" in on and "S0" not in on:
             check(bool(r.get("stream_cadence_label")), f"{cid}: S3 with S0 off must label deferred ordered callbacks")
@@ -202,6 +240,9 @@ def bind(norm, audit, manifest, vocab, check):
             win = r["windows"][w]
             check(win["free"].get("instrumented") is False, f"{cid}/{w}: ordinary free timing must be uninstrumented")
             check(isinstance(win["free"].get("counters"), dict), f"{cid}/{w}: implementation counters present")
+            if cid in GENUINE:   # genuine controls: probes optional (the matrix's 000000/111111 rows are the harness)
+                win["probes"].setdefault("native_prefix", [])
+                continue
             check(len(win["probes"].get("native_prefix") or []) >= 1, f"{cid}/{w}: native-prefix probe present")
             if w == "037":
                 check("free_prefix" in win["probes"], f"{cid}/037: free-prefix probe present (or explicit null)")
@@ -216,10 +257,14 @@ def bind(norm, audit, manifest, vocab, check):
                           f"{cid}/{w}/{name}: one conditional log probability per span token")
                     check(p["first_divergence"] == 0, f"{cid}/{w}/{name}: first divergence at span token 0")
                     z = [x[1] for x in p["top5"]]
-                    check(len(z) == 5 and z == sorted(z, reverse=True), f"{cid}/{w}/{name}: sorted top five")
+                    fin = p.get("guard_status") == "finite"
+                    check(len(z) == 5 and (not fin or z == sorted(z, reverse=True)), f"{cid}/{w}/{name}: sorted top five")
                     cl = p.get("competing_logits") or {}
-                    check(set(cl) == {"native", "carbon_bf16"} and all(isinstance(v, (int, float)) for v in cl.values()),
-                          f"{cid}/{w}/{name}: both competing first-divergence logits recorded, even below rank 5")
+                    check(set(cl) == {"native", "carbon_bf16"} and
+                          all(isinstance(v, (int, float)) or (v is None and not fin) for v in cl.values()),
+                          f"{cid}/{w}/{name}: both competing first-divergence logits recorded, even below rank 5 "
+                          "(null only with a non-finite guard status)")
+                    check(p.get("guard_status") in ("finite", "masked", "nonfinite"), f"{cid}/{w}/{name}: guard status")
                     if name == "native_prefix":
                         check(p["prefix_sha256"] == pref[w]["sha256"] and p["prefix_tokens"] == pref[w]["tokens"],
                               f"{cid}/{w}: native-prefix probe uses the frozen native prefix")
@@ -233,18 +278,32 @@ def bind(norm, audit, manifest, vocab, check):
 
 # ---- decision ------------------------------------------------------------------------------------------
 
-def decide(by, audit, manifest, vocab, locs, bbytes, rules=None):
-    out = dict(locators=locs)
-    if not all(c in by for c in matrix()):
-        out.update(outcome="INCOMPLETE_MATRIX", missing=[c for c in matrix() if c not in by])
+def decide(by, audit, manifest, vocab, locs, bbytes, rules=None, coordinator_check=None):
+    out = dict(locators=locs, contrast_bases=dict(
+        additions=BASE_ADD, removals=BASE_REMOVE, genuine_reference=["native", "carbon_bf16"],
+        note="instrument-matched switch-harness endpoints; genuine-endpoint contrasts reported separately"))
+    wave = initial_wave()
+    out["initial_wave"] = dict(configurations=len(wave), unique_bit_vectors=len(set(wave.values())),
+                               endpoint_controls=list(ENDPOINTS))
+    if not all(c in by for c in wave):
+        out.update(outcome="INCOMPLETE_MATRIX", missing=[c for c in wave if c not in by])
         return out
     parity = {}
-    for cid, arm in (("native", "native"), ("carbon_bf16", "carbon_bf16")):
+    for cid in ENDPOINTS:
+        arm = FROZEN_ARM[cid]
         for w in WINDOWS:
-            got = by[cid]["windows"][w]["free"]["token_ids"]
-            parity[f"{cid}:{w}"] = dict(equal=got == manifest[w][arm], implementation=by[cid]["implementation"],
-                                        aliases=by[cid].get("aliases"), tokens=[len(got), len(manifest[w][arm])])
+            got, exp = by[cid]["windows"][w]["free"]["token_ids"], manifest[w][arm]
+            first = next((i for i, (x, y) in enumerate(zip(got, exp)) if x != y), None)
+            if first is None and len(got) != len(exp):
+                first = min(len(got), len(exp))
+            parity[f"{cid}:{w}"] = dict(equal=got == exp, frozen_arm=arm, implementation=by[cid]["implementation"],
+                                        aliases=by[cid].get("aliases"), tokens=[len(got), len(exp)], first_mismatch=first)
     out["endpoint_parity"] = parity
+    if coordinator_check is not None:
+        mine = {(k.split(":")[0], int(k.split(":")[1])): v["equal"] for k, v in parity.items()}
+        theirs = {(c["mode"], c["first_page"]): not c["errors"] for c in coordinator_check.get("checks", [])}
+        out["coordinator_endpoint_check"] = dict(passed=coordinator_check.get("passed"), windows=len(theirs),
+                                                 agrees=theirs == mine and coordinator_check.get("passed") == all(mine.values()))
     if not all(v["equal"] for v in parity.values()):
         out.update(outcome="ENDPOINT_PARITY_FAILED", attribution="withheld until a harness fix has a new source binding")
         return out
@@ -265,7 +324,9 @@ def decide(by, audit, manifest, vocab, locs, bbytes, rules=None):
             for name, passes in win["probes"].items():
                 row["probes"][f"{w}:{name}"] = [None if p is None else dict(
                     D=D(p), ell=dict(native=ell(p["branches"]["native"]), carbon_bf16=ell(p["branches"]["carbon_bf16"])),
-                    greedy=greedy(p), margin=p["top5"][0][1] - p["top5"][1][1], top5=p["top5"],
+                    greedy=greedy(p), top5=p["top5"],
+                    margin=(p["top5"][0][1] - p["top5"][1][1]) if all(isinstance(x[1], (int, float)) for x in p["top5"][:2])
+                    else None,
                     competing_logits=p.get("competing_logits"), guard_status=p["guard_status"]) for p in passes]
                 row["probe_timing"][f"{w}:{name}"] = [None if p is None else p.get("timing") for p in passes]
         f = row["fields"]
@@ -281,22 +342,38 @@ def decide(by, audit, manifest, vocab, locs, bbytes, rules=None):
     nec = {s: [w for w in WINDOWS if at(f"remove_{s}", w, NATIVE_IDS[w])] for s in SWITCHES}
     out["sufficiency_add_on_native"] = suff
     out["necessity_remove_from_full"] = nec
-    dn = {w: probe_D(table, "native", f"{w}:native_prefix") for w in WINDOWS}
-    out["path_effect_at_native_history"] = {
-        cid: {w: (None if probe_D(table, cid, f"{w}:native_prefix") is None or dn[w] is None
-                  else probe_D(table, cid, f"{w}:native_prefix") - dn[w]) for w in WINDOWS} for cid in table}
+
+    def effect(base, k=0):
+        b = {w: probe_D(table, base, f"{w}:native_prefix", k) for w in WINDOWS}
+        return {cid: {w: (None if probe_D(table, cid, f"{w}:native_prefix") is None or b[w] is None
+                          else probe_D(table, cid, f"{w}:native_prefix") - b[w]) for w in WINDOWS} for cid in table}
+    dn = {w: probe_D(table, BASE_ADD, f"{w}:native_prefix") for w in WINDOWS}
+    out["path_effect_at_native_history"] = effect(BASE_ADD)
+    out["path_effect_vs_genuine_native"] = effect("native") if any(probe_D(table, "native", f"{w}:native_prefix")
+                                                                     is not None for w in WINDOWS) else "genuine native not probed"
+    gaps = {}
+    for h, g in HARNESS_ENDPOINTS.items():
+        for w in WINDOWS:
+            a, b = probe_D(table, h, f"{w}:native_prefix"), probe_D(table, g, f"{w}:native_prefix")
+            gaps[f"{h}-{g}:{w}"] = None if a is None or b is None else a - b
+    out["harness_vs_genuine_probe_gap_nats"] = gaps
     out["history_shift_effect_037"] = {
         cid: (None if probe_D(table, cid, "037:free_prefix") is None or probe_D(table, cid, "037:native_prefix") is None
               else probe_D(table, cid, "037:free_prefix") - probe_D(table, cid, "037:native_prefix")) for cid in table}
     T = {cid: {w: table[cid]["free"][w]["seconds"] for w in WINDOWS} for cid in table}
+
+    def diff(a, b):   # T[a] - T[b] per window and summed
+        return dict({w: T[a][w] - T[b][w] for w in WINDOWS}, sum=sum(T[a][w] - T[b][w] for w in WINDOWS))
     out["ordinary_speed_s"] = dict(
         per_config={cid: dict(T[cid], sum=T[cid]["019"] + T[cid]["037"]) for cid in T},
-        addition_saving={s: dict({w: T["native"][w] - T[f"add_{s}"][w] for w in WINDOWS},
-                                 sum=sum(T["native"][w] - T[f"add_{s}"][w] for w in WINDOWS)) for s in SWITCHES},
-        removal_cost={s: dict({w: T[f"remove_{s}"][w] - T["carbon_bf16"][w] for w in WINDOWS},
-                              sum=sum(T[f"remove_{s}"][w] - T["carbon_bf16"][w] for w in WINDOWS)) for s in SWITCHES},
-        note="ordinary uninstrumented free windows; local marginal effects conditional on the other five settings; "
-             "not additive; not a 60-page forecast")
+        addition_saving={s: diff(BASE_ADD, f"add_{s}") for s in SWITCHES},
+        removal_cost={s: diff(f"remove_{s}", BASE_REMOVE) for s in SWITCHES},
+        addition_saving_vs_genuine_native={s: diff("native", f"add_{s}") for s in SWITCHES},
+        removal_cost_vs_genuine_carbon={s: diff(f"remove_{s}", "carbon_bf16") for s in SWITCHES},
+        harness_overhead=dict(all_off_minus_native=diff("all_off", "native"),
+                              all_on_minus_carbon_bf16=diff("all_on", "carbon_bf16")),
+        note="ordinary uninstrumented free windows; primary contrasts are instrument-matched (all_off / all_on); "
+             "local marginal effects conditional on the other five settings; not additive; not a 60-page forecast")
     out["probe_speed"] = {cid: table[cid]["probe_timing"] for cid in table}
     out["stream_cadence_labels"] = {cid: table[cid]["stream_cadence_label"] for cid in table if table[cid]["stream_cadence_label"]}
     winners = [(s,) for s in SWITCHES if table[removal_id((s,))]["restores_both"]]
@@ -305,7 +382,10 @@ def decide(by, audit, manifest, vocab, locs, bbytes, rules=None):
         sel = min(winners, key=lambda rm: (len(rm), T[removal_id(rm)]["019"] + T[removal_id(rm)]["037"],
                                            tuple(SWITCHES.index(s) for s in rm)))
         s = sel[0]
-        unique = len(winners) == 1 and suff[s] == list(WINDOWS) and not any(suff[t] for t in SWITCHES if t != s)
+        measured = [abs(v) for v in gaps.values() if v is not None]
+        coupled = any(v > NUMERIC_FLOOR_NATS for v in measured)
+        unique = (len(winners) == 1 and suff[s] == list(WINDOWS) and not any(suff[t] for t in SWITCHES if t != s)
+                  and not coupled)
         out.update(outcome="SINGLE_REMOVAL_RESTORES_BOTH", selected_removal=list(sel),
                    pair_screening="omitted: a single removal restores both fields",
                    causal_label=dict(
@@ -314,6 +394,8 @@ def decide(by, audit, manifest, vocab, locs, bbytes, rules=None):
                        other_restorers=[w[0] for w in winners if w != sel],
                        other_sufficient_additions=[t for t in SWITCHES if t != s and suff[t]],
                        unique_cause_pattern=unique,
+                       backend_coupling=dict(harness_vs_genuine_gap_measured=bool(measured),
+                                             gap_exceeds_floor_1e_5_nats=coupled),
                        caveat="within two fixed windows only; a cascade-confined effect or backend coupling "
                               "precludes calling a unique causal kernel"))
     else:
@@ -332,39 +414,66 @@ def screen_pairs(table, dn):
     res.update(anchored_flip_switches=flipped, first_pass_displacement_d1=d1,
                missing_or_malformed_fields={s: table[f"add_{s}"]["field_failures"] for s in SWITCHES
                                             if table[f"add_{s}"]["field_failures"]})
-    n2 = {w: probe_D(table, "native", f"{w}:native_prefix", 1) for w in WINDOWS}
-    f1 = {w: probe_D(table, "carbon_bf16", f"{w}:native_prefix", 0) for w in WINDOWS}
-    f2 = {w: probe_D(table, "carbon_bf16", f"{w}:native_prefix", 1) for w in WINDOWS}
+    n2 = {w: probe_D(table, BASE_ADD, f"{w}:native_prefix", 1) for w in WINDOWS}
+    f1 = {w: probe_D(table, BASE_REMOVE, f"{w}:native_prefix", 0) for w in WINDOWS}
+    f2 = {w: probe_D(table, BASE_REMOVE, f"{w}:native_prefix", 1) for w in WINDOWS}
     if any(v is None for v in list(n2.values()) + list(f2.values())):
         need = [s for s in SWITCHES if s not in flipped and any(x is not None and abs(x) > NUMERIC_FLOOR_NATS
                                                                  for x in d1[s].values())]
         res.update(outcome="PAIR_SCREENING_REPROBE_REQUIRED",
-                   reprobe=dict(endpoint_repeat=["native", "carbon_bf16"], additions=need, windows=list(WINDOWS),
+                   reprobe=dict(endpoint_repeat=[BASE_ADD, BASE_REMOVE], additions=need, windows=list(WINDOWS),
                                 probe="native_prefix, fresh prefill/cache state, original inputs",
+                                optional_reference=["native", "carbon_bf16"],
                                 reason="no single removal restores both; additions with |d1| <= 1e-5 nats cannot qualify"))
         return res
     E = {w: max(NUMERIC_FLOOR_NATS, abs(dn[w] - n2[w]), abs(f1[w] - f2[w])) for w in WINDOWS}
     res["noise_floor_E"] = E
-    qual, reasons, missing = [], {}, []
-    for s in SWITCHES:
-        if s in flipped:
-            qual.append(s)
-            reasons[s] = "anchored free-ID flip"
-            continue
-        if not any(d1[s][w] is not None and abs(d1[s][w]) > E[w] for w in WINDOWS):
-            reasons[s] = "first-pass displacement within E_w on both windows"
-            continue
-        r2 = {w: probe_D(table, f"add_{s}", f"{w}:native_prefix", 1) for w in WINDOWS}
-        if None in r2.values():
-            missing.append(s)
-            reasons[s] = "repeat probe missing"
-            continue
-        d2 = {w: r2[w] - n2[w] for w in WINDOWS}
-        ok = [w for w in WINDOWS if d1[s][w] is not None and min(abs(d1[s][w]), abs(d2[w])) > E[w] and d1[s][w] * d2[w] > 0]
-        reasons[s] = f"repeated same-sign change above E_w on {ok}" if ok else "repeat did not confirm a same-sign change above E_w"
-        if ok:
-            qual.append(s)
+    res["noise_floor_rule"] = ("E_w = max(1e-5 nats, |D_all_off,1 - D_all_off,2|, |D_all_on,1 - D_all_on,2|) "
+                               "(design/rules.py with native := all_off, full := all_on)")
+
+    def qualify(floor):
+        qual, reasons, missing = [], {}, []
+        for s in SWITCHES:
+            if s in flipped:
+                qual.append(s)
+                reasons[s] = "anchored free-ID flip"
+                continue
+            if not any(d1[s][w] is not None and abs(d1[s][w]) > floor[w] for w in WINDOWS):
+                reasons[s] = "first-pass displacement within E_w on both windows"
+                continue
+            r2 = {w: probe_D(table, f"add_{s}", f"{w}:native_prefix", 1) for w in WINDOWS}
+            if None in r2.values():
+                missing.append(s)
+                reasons[s] = "repeat probe missing"
+                continue
+            d2 = {w: r2[w] - n2[w] for w in WINDOWS}
+            ok = [w for w in WINDOWS if d1[s][w] is not None and min(abs(d1[s][w]), abs(d2[w])) > floor[w]
+                  and d1[s][w] * d2[w] > 0]
+            reasons[s] = (f"repeated same-sign change above E_w on {ok}" if ok
+                          else "repeat did not confirm a same-sign change above E_w")
+            if ok:
+                qual.append(s)
+        return qual, reasons, missing
+    qual, reasons, missing = qualify(E)
     res.update(qualifying_switches=qual, qualification_reasons=reasons)
+    # Sensitivity only (never changes the rule): genuine-endpoint repeat spreads and harness-vs-genuine gaps.
+    terms = {w: [] for w in WINDOWS}
+    for w in WINDOWS:
+        for g, h in (("native", BASE_ADD), ("carbon_bf16", BASE_REMOVE)):
+            g1, g2 = (probe_D(table, g, f"{w}:native_prefix", k) for k in (0, 1))
+            h1 = probe_D(table, h, f"{w}:native_prefix", 0)
+            if g1 is not None and g2 is not None:
+                terms[w].append(abs(g1 - g2))
+            if g1 is not None and h1 is not None:
+                terms[w].append(abs(g1 - h1))
+    if any(terms.values()):
+        Ec = {w: max([E[w]] + terms[w]) for w in WINDOWS}
+        qc, _, mc = qualify(Ec)
+        res["noise_floor_sensitivity"] = dict(conservative_E=Ec, qualifying_switches=qc, missing=mc,
+                                              changes_qualification=qc != qual,
+                                              note="reported only; the predeclared rule decides")
+    else:
+        res["noise_floor_sensitivity"] = "not computable: genuine endpoints were not probed"
     if missing:
         res.update(outcome="PAIR_SCREENING_REPROBE_REQUIRED",
                    reprobe=dict(additions=missing, windows=list(WINDOWS), probe="native_prefix"))
@@ -408,7 +517,7 @@ def cross_check(rules, table, out, T):
             adds[s] = dict(d=[probe_D(table, f"add_{s}", f"{w}:native_prefix") for w in WINDOWS],
                            anchored_id_flip=table[f"add_{s}"]["anchored_id_flip"], repeat_d=None if None in rep else rep)
         try:
-            ap = [list(p) for p in rules.qualifying_pairs(passes("native"), passes("carbon_bf16"), adds)]
+            ap = [list(p) for p in rules.qualifying_pairs(passes(BASE_ADD), passes(BASE_REMOVE), adds)]
             cc["pairs"] = dict(astra=ap, reviewer=out.get("eligible_pairs"), agree=ap == out.get("eligible_pairs"))
         except (ValueError, TypeError) as exc:
             cc["pairs"] = dict(astra_error=repr(exc), reviewer=out.get("eligible_pairs"), agree=False)
@@ -446,9 +555,13 @@ def main():
                    attribution="no engine outcome; cause inspection and a new source binding are required")
     else:
         by, locs, bb = bind(norm, audit, manifest, vocab, check)
-        res = decide(by, audit, manifest, vocab, locs, bb, rules=blob_module("design/rules.py", "astra_rules"))
+        res = decide(by, audit, manifest, vocab, locs, bb, rules=blob_module("design/rules.py", "astra_rules"),
+                     coordinator_check=norm.get("coordinator_endpoint_check"))
         check(all(v.get("agree") for v in res.get("astra_rules_cross_check", {}).values()),
               "reviewer and Astra arithmetic agree")
+        if "coordinator_endpoint_check" in res:
+            check(res["coordinator_endpoint_check"]["agrees"],
+                  "reviewer endpoint parity agrees with the coordinator's eight-window endpoint check")
     rec = dict(kind="WP-0017 A1 reviewer decision (synchronized with design 1fad21c)", reviewer="eld-rd-reviewer",
                created_utc=utc(), audit_sha256=a.audit_sha256, inventory_sha256=sha_file(a.inventory),
                results_sha256=sha_file(a.results), checks_run=check.count, failures=check.failures,

@@ -36,6 +36,8 @@ PLANS_COMMIT = "be8c7f1ea16b99662e614d6eb4a2e4c8923114fa"
 CARBON_002 = "docs/agent-reports/eld-rd-carbon/WP-0016/002_2026-11-18_research_eld-rd-carbon.md"
 DESIGN_COMMIT = "1fad21c3817be175628992a559e3947d5a88952a"
 CARRIER_COMMIT = "d17669e653a96410c5cde9dc803df0d3079605fa"
+ENDPOINT_CHECK_COMMIT = "97eca78e5ce23f531b98446e364ce905f3d20f31"
+PREPARE_A1_COMMIT = "4a9b85f347203123f7dcd92981afdbb17b459ffa"
 
 # name -> (commit, path, sha256 of the blob bytes)
 BLOBS = {
@@ -68,7 +70,31 @@ BLOBS = {
                              "10c14e1b81d0786da5541963b08bba2082a1317d6e70dd94e74b21f0f579d489"),
     "coord/run_order.py": (CARRIER_COMMIT, "docs/coordination/WP-0017/run_order.py",
                            "9138455fe3837dd61d36ab9d59e5902705824c50940ad027cafef5f8c3764c4a"),
+    # Added by the continuation session (see OPERATOR): later coordinator A1 files and the executor's nested guard.
+    "coord/check_endpoints.py": (ENDPOINT_CHECK_COMMIT, "docs/coordination/WP-0017/check_endpoints.py",
+                                 "edcb418441a5eaa6acb0ba3e3eeaf479a2e69f562c06779db6265362675a0d0c"),
+    "coord/prepare_a1.py": (PREPARE_A1_COMMIT, "docs/coordination/WP-0017/prepare_a1.py",
+                            "74b24a1fef6a8fd26ec0a0aae676d150376ae27b791cdff9b77f30b33f136e29"),
+    "coord/wp16_device_lease.py": (PREPARE_A1_COMMIT, "docs/coordination/WP-0016/device_lease.py",
+                                   "1db1a43af825458fff828949ace766b9136a4622c0dc567a838e8089ffbafde8"),
+    "coord/winjob.py": (PREPARE_A1_COMMIT, "qualification/baseline/winjob.py",
+                        "6a02c0d1649b755b4f95a341bdb7a5533491edd96b26bd73fa9b43f013fd7b9c"),
+    # WP-0016 escrow title adapter and its helper module, executed in their own OS process for the A2 title view.
+    "wp16/title_adapt.py": (INTEGRATION_BASE, "docs/reviews/WP-0016/title_adapt.py",
+                            "346010b48accc6c8493de9c4c4bc17147992add185b14105fc4ffe7b8030fc21"),
+    "wp16/common.py": (INTEGRATION_BASE, "docs/reviews/WP-0016/common.py",
+                       "5f80a17a412264cd1360162dec609e03df96c7434588ef8fa17f80ef3d995fb4"),
 }
+# Coordinator path for a file pinned as "coord/<name>" (relative to the coordination checkout root).
+COORD_PATHS = {k: v[1] for k, v in BLOBS.items() if k.startswith("coord/")}
+
+# Operator of record for any command issued from this revision on. The tools up to 90747b3 were written by the
+# prior eld-rd-reviewer session 5ab6a228-4214-49e5-aa83-c00fe9315782 (Antigravity CLI, Opus 5.5 High), which
+# exhausted provider credits; that attribution is kept in Git history and README.md.
+OPERATOR = dict(role="eld-rd-reviewer", cli="Claude Code (native CLI)", model="claude-opus-5-5",
+                requested_effort="xhigh", session="e2d32880-3555-4a4d-b695-b7963a903c2c")
+OPERATOR_TEXT = ("eld-rd-reviewer, native Claude Code CLI, claude-opus-5-5 (requested effort xhigh), "
+                 "session e2d32880-3555-4a4d-b695-b7963a903c2c")
 DEV_TRUTH_SHA256 = "dfdf62cbe1573ab77eace4bf0fe7ac2a7c7801bae3eaca62a883798ed91b0d81"  # Astra 001 / cpu-checks.json
 DEV_PDF_SHA256 = "56033270ff82568e393be6fdff21085eaefff82927097e054ef527d839fd9b3c"
 DEV_RASTERS_SHA256 = "404712df4d98c881c008be62a7fc8e342d53e1068f0d79741356b50b18fa9598"
@@ -146,6 +172,31 @@ def blob(name):
     if got != want:
         raise SystemExit(f"pinned blob {commit}:{path} has {got}, expected {want}")
     return data
+
+
+def eol_status(data, name):
+    """Compare on-disk bytes with a pinned blob: 'identical', 'eol_variant' (equal after CRLF->LF only; Python
+    source semantics unchanged, raw digest differs) or 'different'. Never decides silently: callers record it."""
+    want = blob(name)
+    if data == want:
+        return "identical"
+    if b"\r\n" not in want and data.replace(b"\r\n", b"\n") == want:
+        return "eol_variant"
+    return "different"
+
+
+def pushed(path, commit, branch="origin/review/wp-0017-escrow"):
+    """True iff `path` (inside REPO) has exactly the bytes committed at `commit` and `commit` is contained in the
+    local remote-tracking ref of the owned branch (i.e. it was pushed). Used to order 'inventory before key'."""
+    try:
+        rel = Path(path).resolve().relative_to(REPO.resolve()).as_posix()
+    except ValueError:
+        return False
+    r = subprocess.run(["git", "-C", str(REPO), "cat-file", "blob", f"{commit}:{rel}"], capture_output=True)
+    if r.returncode or r.stdout != Path(path).read_bytes():
+        return False
+    return subprocess.run(["git", "-C", str(REPO), "merge-base", "--is-ancestor", commit, branch],
+                          capture_output=True).returncode == 0
 
 
 def disk(name):

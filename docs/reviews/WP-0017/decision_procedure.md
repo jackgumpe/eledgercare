@@ -28,6 +28,52 @@ My implementation is independent. Astra's `rules.py` is loaded from its pinned b
 4. **Flags.** The original `flagged=false` behavior is left intact and checked. Margin flags are offline only, with a strict top-two gap below 0.125 logits as predeclared in `PROTOCOL.md`. A margin from a forced branch is never transferred to a free-emitted field.
 5. **Infrastructure errors.** An A1/A2/A3 infrastructure error (crash, missing output, harness fault) is recorded as `INFRASTRUCTURE_ERROR`. It is not treated as an engine result. It needs cause inspection and a new source binding before any re-execution.
 
+## Continuation revision (pre-output), by the fresh native session
+
+This revision was made by eld-rd-reviewer in a fresh native Claude Code session: `claude-opus-5-5`, requested effort xhigh, session `e2d32880-3555-4a4d-b695-b7963a903c2c` (`common.OPERATOR`). The previous session ran out of provider credits right after committing `90747b3`. That commit was pushed unchanged, its tests were run and its anchors were frozen before any change (`d29a3b5`). No WP-0017 A1, A2 or A3 output, engine candidate or release existed when this revision was made. No key was opened.
+
+The coordinator's published initial wave differs from what `90747b3` assumed:
+- `prepare_a1.py` `74b24a1f…` sends two separately released orders.
+- `check_endpoints.py` `edcb4184…` adds an eight-window gate between them.
+
+The rules below are therefore updated to that wave.
+
+- **Initial wave.** It has sixteen configurations: the design's fourteen unique bit vectors plus two extra endpoint controls.
+  - `000000` runs twice: as genuine `native` and as switch-harness `all_off`.
+  - `111111` runs twice: as genuine `carbon_bf16` and as harness `all_on`.
+  - The twelve one-factor rows follow.
+  - A missing configuration gives `INCOMPLETE_MATRIX`. A wrong implementation or alias label is a binding failure. A harness control may alias its genuine counterpart only if it records that.
+- **Endpoint parity.** All four endpoints must reproduce their complete frozen arrays on both windows (8 checks) before any attribution. Otherwise the outcome is `ENDPOINT_PARITY_FAILED`. I compare my independent parity with the coordinator's `endpoint-check.json`, and a disagreement is a failure.
+- **Contrast bases.** The comparisons are instrument-matched:
+  - additions are compared against `all_off`, removals against `all_on`;
+  - path effects and the speeds `T_all_off − T_add` and `T_remove − T_all_on` are primary;
+  - genuine-endpoint contrasts, harness overheads (`T_all_off − T_native`, `T_all_on − T_carbon_bf16`) and harness-versus-genuine probe gaps are reported next to them.
+  - Probes of the genuine endpoints are optional.
+  - If a measured harness-versus-genuine gap exceeds 1e-5 nats, `unique_cause_pattern` is false. That gap is backend-coupling evidence.
+- **Noise and repeats.**
+  - E_w = max(1e-5 nats, |D_all_off,1 − D_all_off,2|, |D_all_on,1 − D_all_on,2|). This is `design/rules.py` with native := `all_off` and full := `all_on`.
+  - A re-probe request names `all_off` and `all_on`, with the genuine endpoints optional.
+  - I also report a conservative floor that adds the genuine-endpoint repeat spreads and the harness gaps, and say whether it would change qualification. This is a sensitivity only; it never decides.
+- **Run directories.** `a1_normalize.py` combines the endpoint and switch runs, citing every file it reads by its inventory digest. It derives the free histories from raw captures: page concatenation, source/page/RGB pins, `<PAGE>` starts, stop, three pages out, no EOS, and the engine.read clock. Bit vectors come from the configuration ids.
+  - The probe and label fields are bound to the published engine schema of `eb16708886226436de85abe0e224391a88537a72` only. Runs from any other source SHA are `UNBOUND`, and the CLI exits non-zero, until a reviewed re-bind commit adds that SHA.
+  - On 037, the shared pre-divergence `' '` is moved into the prefix, which gives the frozen 41-token prefix.
+  - D is recomputed from per-token guarded FP32 log-probabilities and must agree with the engine's D within 1e-9.
+  - An S3-on probe without recorded device guards is rejected.
+  - The S3-on/S0-off deferred-callback label is attached from the bound contract plus nonzero counters.
+  - `engine_geometry.py` confirms this geometry with the candidate's own locator functions on CPU.
+- **Release review (`command.py`).**
+  - Each A1 order plan is independently re-derived and must equal the published plan exactly. The self-test compares the re-derivation with the pinned `prepare_a1.py` blob's own output.
+  - The endpoint order must come first, and the inner and outer output roots must be new.
+  - The candidate must descend from `c7b2ee3`, be on a remote ref and be clean. Every tracked engine file, `.py` or not, must equal its blob.
+  - Each coordinator file is compared with its reviewed blob. An on-disk copy that differs only by CRLF is accepted as `eol_variant` and recorded with both digests.
+  - A2 and A3 fail closed until their plan generators have been reviewed.
+  - The operator of record is `common.OPERATOR`.
+- **A2 (`a2_views.py`).** This file replaces the scoring half of `a2_stoploss.py decide`, which is kept unchanged. The pure rules are reused.
+  - `prekey` validates every document from its raw captures, as listed under A2 below.
+  - `score` runs only after both the inventory and the pre-key record are committed and on `origin/review/wp-0017-escrow`. Only then is the dev key passed by path.
+  - `score` validates paths: 18 pages, one critical line plus two critical table cells per page, 54 distinct, and the identical sequence in all twelve scores.
+  - `score` validates metrics: every count recomputed from per-path records, deltas equal to trial − base, identical trial scores across processes, and transitions equal to the frozen compare.
+
 ## A1 (windows 019 and 037), `a1_decide.py`
 
 - **Anchors.** These are frozen before output in `evidence/A1-anchors-reviewer.json`, built from the audit `16eca676…` and the manifest `e7f47d14…`. Each field has a unique structural locator: site page (third page of 019, first page of 037), raw block ordinal 1 (the public `line/2`), block header type `text`, fixed label `Inspection `, and byte offset 11. The value runs to `\n` or the end of the block. The ordinal and header type are part of the locator because the page header `Inspection register` also begins with the label.
@@ -59,7 +105,18 @@ My implementation is independent. Astra's `rules.py` is loaded from its pinned b
   - Instrumented probe prefill ms and decode ms per token are listed separately, with their interval and denominator.
 - **Freezing the candidate.** Root freezes at most one `carbon_surgical`, with its bit vector, engine SHA and all decision inputs, before any A2 output exists. I do not freeze it.
 
-## A2 (dev/id_ablation, 18 pages), `a2_stoploss.py`
+## A2 (dev/id_ablation, 18 pages), `a2_stoploss.py` rules, executed by `a2_views.py`
+
+Pre-key validation from raw captures (`a2_views.py prekey`, no key), for every document:
+- timing request equals the plan request, and the prediction digest equals the timing record;
+- page ordinals are in order, `page-NNN` equals its prediction entry, and the raw page, source and RGB pins match the public dev raster record `404712df…`;
+- each page starts with `<PAGE>` and its token count is right;
+- each stored page equals `formats.native_page(raw_output, points)` with the pinned `formats.py`;
+- window tokens and raw text reassemble, every window stopped with the right page count, and the windows cover the pages;
+- the durable clocks are in order and `elapsed` is correct;
+- `flagged` is false everywhere.
+
+The order is derived from each run's own segment sequence.
 
 - **Runs.** Six fresh single-arm processes: AB = native, carbon_bf16, carbon_surgical; BA = carbon_surgical, carbon_bf16, native. These exact orders are enforced.
   - Each arm/order produces one complete 18-page document with 6 stopped windows (36 scored windows in total).

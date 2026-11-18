@@ -67,8 +67,10 @@ class Fx:
         return dict(id=cid, bits=bitvec, implementation=impl, aliases=None, stream_cadence_label=label, windows=wins)
 
     def scenario(self, flipfn, base_D=0.40, shift=lambda s: 0.0, repeat=None, pairs=(), times=None, endpoint_noise=0.0):
+        # Continuation revision: the coordinator's initial wave has 16 configurations (14 unique vectors plus the
+        # all_off / all_on switch-harness endpoint controls); matrix() order is kept, controls come last.
         rows = []
-        items = list(A1.matrix().items()) + [(A1.removal_id(p), A1.bits(set(A1.SWITCHES) - set(p))) for p in pairs]
+        items = list(A1.initial_wave().items()) + [(A1.removal_id(p), A1.bits(set(A1.SWITCHES) - set(p))) for p in pairs]
         for cid, bv in items:
             on = {s for s, b in zip(A1.SWITCHES, bv) if b == "1"}
             flips = flipfn(on)
@@ -135,7 +137,7 @@ def main():
            and d["reprobe"]["additions"] == ["S1c"], "re-probe only the additions that could qualify")
 
     def rep(cid, D):  # endpoints repeat with 0.001 noise; S1c repeats same sign; S3 shifts once only
-        if cid in ("native", "carbon_bf16") or cid.startswith("add_"):
+        if cid in A1.ENDPOINTS or cid.startswith("add_"):
             return {w: D[w] + 0.001 for w in A1.WINDOWS}
         return None
     c, d = fx.run(fx.scenario(either, shift=sh, repeat=rep))

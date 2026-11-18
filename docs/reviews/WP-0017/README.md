@@ -118,3 +118,40 @@ My observed limitation (no breakaway from the CLI job) is resolved without givin
 - **Executor:** `device_lease.py`, which reuses the WP-0016 lock, job and board guard.
 
 I start no detached process and keep no tool call open during GPU execution. **No GPU command has been issued.**
+
+## Continuation after provider-credit exhaustion (native session, CPU only)
+
+Everything above this heading was written by the prior session `5ab6a228-4214-49e5-aa83-c00fe9315782` and is left as written.
+
+- **Author of this section and later commits:** eld-rd-reviewer.
+  - Fresh native Claude Code CLI session `e2d32880-3555-4a4d-b695-b7963a903c2c`.
+  - Model `claude-opus-5-5`, requested effort xhigh. The coordinator launched it with `dispatch/nativeopus.py`.
+- **Independence:** I authored no WP-0017 design, fixture, engine or runtime, and no coordinator tool. I dispatch no agent.
+- **Operator of record:** from this revision on, the operator for any command is `common.OPERATOR`, meaning this session. The identity paragraph above describes the prior session only.
+- **What was found and done, in order:**
+  1. **`90747b3` pushed unchanged.** The prior session had committed it but not pushed it. The remote head was verified as `90747b38…` before I made any commit.
+  2. **Its CPU tests were run.** `evidence/cpu-selftest-q0-r3-90747b3.json` records 44/44 on Q0 3.12.10 with the tools unchanged. The prior session had run them only in its own scratch space.
+  3. **Its A1 anchors were frozen.** `a1_sync.py` wrote `evidence/A1-anchors-reviewer.json` (SHA `339b9f77…`, 20 checks, 0 failures). The prior session had produced only a scratch dry run. Both were committed at `d29a3b5`.
+  4. **The tools were revised to the coordinator's actual A1 wave.** That wave uses 16 configurations: 14 unique bit vectors plus the `all_off`/`all_on` endpoint controls, with the eight-window endpoint gate. The revision also adds an independent normalizer for the combined endpoint/switch run directories, the A2 both-view adapter with raw-capture, path and metric validation, and the release-review hardening. Rules are in [decision_procedure.md](decision_procedure.md). The self-tests are `selftest.py` (still 44 tests, with the scenario on the 16 wave) and `selftest_continuation.py`.
+- **Findings for the coordinator** (CPU, before any release):
+  - **F1, line endings.** The main checkout's working copies of nine WP-0017 coordination files each end with exactly one CRLF: `assignment.md`, `bind_dev.py`, `check_endpoints.py`, `issue_lease.py`, `participants.json`, `prepare_a1.py`, `review_command.py`, `a1-anchors.json` and `a2-inputs.json`.
+    - Their raw SHA-256 values therefore differ from the committed LF blobs. For example, the carrier `review_command.py` is `f10c7e7f…` on disk against blob `c5596d0e…`, and `issue_lease.py` is `f2f765b3…` against `10c14e1b…`.
+    - Content is equal after CRLF→LF normalization, and `git status` shows them clean.
+    - Releases and plans record raw disk digests. Under `90747b3`'s exact-pin check, the carrier comparison would have failed.
+    - This revision accepts an EOL-only variant and records both digests.
+    - **Recommendation:** restore LF bytes, for example by checking those files out again, before issuing releases. Then the release digests will equal the committed blobs.
+  - **F2, executor binding.** `device_lease.bind_inputs` re-checks HEAD and the candidate's `*.py` digests at execution, but not cleanliness or other tracked engine files. An example is a frozen surgical JSON, which matters for A2. My issue-time review checks every tracked engine file against its blob and requires a clean tree, untracked files included.
+    - **Recommendation:** bind all tracked engine files, or re-check `git status --porcelain` in the executor, before A2.
+- **Engine candidate binding:**
+  - Carbon published `research/wp-0017-engine`, with source deliverable `3cb28112…` and head `eb167088…`, plus `dispatch/carbon-ready.json`. The coordinator integrated it at `08b72c2`.
+  - The corrected candidate is still pending. It was requested in `dispatch/carbon-fix.txt` (the joint peer-review fixes), and no `carbon-corrected-ready.json` exists yet.
+  - I read the published schema only from Git blobs: `CONTRACT.md`, `a1_trial.py`, `span_probe.py`, `launch.py`, `ablation_engine.py` and `doc_trial.py`. I never read the author's working tree.
+- **Binding of `a1_normalize.py`:**
+  - The probe/label mapping is bound to `eb167088…` only. A run whose `launch.json` source is any other SHA is refused (`UNBOUND`) until a reviewed re-bind commit adds it. I expect the corrected candidate to need exactly that.
+  - The mapping moves the shared pre-divergence tokens into the prefix. On 037 that is the `' '` (223) after the engine's 40-token prefix, which gives the frozen 41-token prefix `0df32b06…`.
+  - It recomputes D from per-token guarded FP32 log-probabilities and requires agreement with the engine's D within 1e-9.
+  - It maps the implementation labels and derives the S3-on/S0-off deferred-callback label from the bound contract plus nonzero counters.
+  - It rejects any S3-on probe that does not record the configuration's device guards. That is the joint design read's finding 3, and `eb16708` uses host guards only.
+- **Engine geometry check.** `engine_geometry.py` runs the candidate's own `span_probe.py` locator functions from their verified blob (`f0638af3…`) with the pinned tokenizer on CPU. It confirmed the geometry the normalizer assumes: 019 has P=417 with no shared token, and 037 has P=40 plus `[223]`. Both match the audited digests and spans.
+- **A2/A3:** `doc_trial.py` at `eb16708` uses the WP-0016 segmented layout that `a2_views.py` assumes. `command.py` still fails closed for A2/A3 until their plan generator is published and reviewed.
+- **Exposure:** CPU only. No torch, CUDA or model was loaded. No H, A, B or dev key was opened; the A2 tests use a synthetic key in scratch. No WP-0017 output exists. Scratch is under `WP-0017/review/scratch-e2d32880/` and is never an input to a decision.
