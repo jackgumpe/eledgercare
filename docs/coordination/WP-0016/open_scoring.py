@@ -17,7 +17,7 @@ def release(args):
     if sha(blind_path) != args.blind_digest:
         raise ValueError("Reviewer inventory differs")
     ref = subprocess.check_output(["git","show",args.freeze + ":" + args.receipt_path],cwd=REPO)
-    if args.blind_digest.encode() not in ref:
+    if hashlib.sha256(ref).hexdigest() != args.blind_digest and args.blind_digest.encode() not in ref:
         raise ValueError("Published receipt does not bind this blind inventory")
     lease = read(args.release)
     lease_out = PACKET / "coordination/leases" / lease["name"]
