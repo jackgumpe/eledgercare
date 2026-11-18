@@ -66,15 +66,25 @@ def _anchor_reference_mode(resolved_bits: str) -> str | None:
 def _compute_free_window_metrics(details: dict, engine_read_s: float, window_wall_s: float) -> dict:
     marks = details.get("clock_marks_ns") or {}
     prefill_s = details.get("prefill_time_s")
+    if prefill_s is None:
+        prefill_s = details.get("prefill_time")
     if prefill_s is None and "first_token" in marks and "generate_start" in marks:
         prefill_s = (marks["first_token"] - marks["generate_start"]) / 1e9
     prefill_ms = (prefill_s * 1000.0) if prefill_s is not None else None
 
+    gen_time_s = details.get("time_s")
+    if gen_time_s is None:
+        gen_time_s = details.get("time")
+
     post_first_ms = None
     if "generate_end" in marks and "first_token" in marks:
         post_first_ms = (marks["generate_end"] - marks["first_token"]) / 1e6
-    elif details.get("time_s") is not None and prefill_s is not None:
-        post_first_ms = max(0.0, (float(details["time_s"]) - float(prefill_s)) * 1000.0)
+    elif gen_time_s is not None and prefill_s is not None:
+        post_first_ms = max(0.0, (float(gen_time_s) - float(prefill_s)) * 1000.0)
+
+    raw_infer_ms = details.get("native_infer_ms")
+    raw_kernel_infer_s = (float(raw_infer_ms) / 1000.0) if raw_infer_ms is not None else None
+    wrapper_overhead_s = (engine_read_s - raw_kernel_infer_s) if raw_kernel_infer_s is not None else None
 
     fwd_count = int(details.get("forward_count") or 0)
     decode_forwards = max(0, fwd_count - 1)
@@ -84,9 +94,11 @@ def _compute_free_window_metrics(details: dict, engine_read_s: float, window_wal
 
     return {
         "ordinary_engine_read_s": engine_read_s,
+        "raw_kernel_infer_s": raw_kernel_infer_s,
+        "wrapper_overhead_s": wrapper_overhead_s,
         "window_render_read_publish_s": window_wall_s,
-        "native_infer_ms": details.get("native_infer_ms"),
-        "generate_time_s": details.get("time_s"),
+        "native_infer_ms": raw_infer_ms,
+        "generate_time_s": gen_time_s,
         "prefill_ms": prefill_ms,
         "post_first_token_decode_ms": post_first_ms,
         "forward_count_total": fwd_count,
@@ -321,15 +333,28 @@ def execute_a1_segment(
                     }
                 )
 
-        ordinary_two_window_s = sum(w["timing"]["ordinary_engine_read_s"] for w in free_windows_summary)
+        ordinary_window_s = [w["timing"]["ordinary_engine_read_s"] for w in free_windows_summary]
+        ordinary_two_window_s = sum(ordinary_window_s)
+        raw_kernel_window_s = [w["timing"]["raw_kernel_infer_s"] for w in free_windows_summary]
+        raw_kernel_two_window_s = (
+            sum(raw_kernel_window_s) if all(v is not None for v in raw_kernel_window_s) else None
+        )
+        generate_window_s = [w["timing"]["generate_time_s"] for w in free_windows_summary]
+        generate_two_window_s = (
+            sum(generate_window_s) if all(v is not None for v in generate_window_s) else None
+        )
         ordinary_timing_doc = {
             "mode": mode,
             "canonical_mode": resolved.canonical_name,
             "switch_bits": resolved.switch_config.bits,
             "implementation": resolved.implementation,
             "observer_kind": eng.info.get("observer_kind"),
-            "ordinary_window_seconds": [w["timing"]["ordinary_engine_read_s"] for w in free_windows_summary],
+            "ordinary_window_seconds": ordinary_window_s,
             "ordinary_two_window_sum_s": ordinary_two_window_s,
+            "raw_kernel_infer_window_seconds": raw_kernel_window_s,
+            "raw_kernel_infer_two_window_sum_s": raw_kernel_two_window_s,
+            "generate_window_seconds": generate_window_s,
+            "generate_two_window_sum_s": generate_two_window_s,
             "windows": [
                 {k: v for k, v in w.items() if not k.startswith("_")}
                 for w in free_windows_summary
@@ -372,7 +397,7 @@ def execute_a1_segment(
                     # Always execute an explicit free_running prefix replay on window 037
                     # (and on 019 whenever the free prefix diverged from native).
                     if free_prefix_tokens is not None and (
-                        first_page == 37 or not free_w["free_field"]["prefix_identical_to_native"]
+                        first_page == 37 or not free_w["free_field"].get("prefix_identical_to_native")
                     ):
                         free_probe = run_teacher_forced_window_probe(
                             engine_hooks=hooks,
@@ -387,7 +412,7 @@ def execute_a1_segment(
                     effective_free_probe_for_margin = (
                         free_probe
                         if free_probe is not None
-                        else (forced_passes[0] if free_w["free_field"]["prefix_identical_to_native"] else None)
+                        else (forced_passes[0] if free_w["free_field"].get("prefix_identical_to_native") else None)
                     )
                     offline_margin = evaluate_offline_margin_flag(
                         free_w["free_field"], effective_free_probe_for_margin
@@ -407,7 +432,7 @@ def execute_a1_segment(
                     "forced_native_passes": forced_passes,
                     "free_running_probe": free_probe,
                     "free_prefix_reused_forced_native_for_margin": (
-                        free_probe is None and bool(free_w["free_field"]["prefix_identical_to_native"])
+                        free_probe is None and bool(free_w["free_field"].get("prefix_identical_to_native"))
                     ),
                     "history_shift_D_free_minus_D_native_guarded_nats": (
                         (
@@ -419,7 +444,7 @@ def execute_a1_segment(
                             and free_probe["D_native_minus_carbon_guarded_nats"] is not None
                             and forced_passes[0]["D_native_minus_carbon_guarded_nats"] is not None
                         )
-                        else (0.0 if free_w["free_field"]["prefix_identical_to_native"] else None)
+                        else (0.0 if free_w["free_field"].get("prefix_identical_to_native") else None)
                     ),
                     "offline_margin_flag_diagnostic": offline_margin,
                 }
@@ -443,7 +468,7 @@ def execute_a1_segment(
                             if free_probe is not None
                             else (
                                 forced_passes[0]["D_native_minus_carbon_guarded_nats"]
-                                if free_w["free_field"]["prefix_identical_to_native"]
+                                if free_w["free_field"].get("prefix_identical_to_native")
                                 else None
                             )
                         ),
@@ -469,8 +494,12 @@ def execute_a1_segment(
         "added_switches": list(resolved.added_switches),
         "load_elapsed_s": load_elapsed_s,
         "warmup_count": len(warmup_records),
-        "ordinary_window_seconds": [w["timing"]["ordinary_engine_read_s"] for w in free_windows_summary],
+        "ordinary_window_seconds": ordinary_window_s,
         "ordinary_two_window_sum_s": ordinary_two_window_s,
+        "raw_kernel_infer_window_seconds": raw_kernel_window_s,
+        "raw_kernel_infer_two_window_sum_s": raw_kernel_two_window_s,
+        "generate_window_seconds": generate_window_s,
+        "generate_two_window_sum_s": generate_two_window_s,
         "free_ids": [w["free_field"]["observed_id"] for w in free_windows_summary],
         "all_free_fields_aligned": all(bool(w["free_field"]["aligned"]) for w in free_windows_summary),
         "all_windows_finished_stop": all(w["finish_reason"] == "stop" for w in free_windows_summary),

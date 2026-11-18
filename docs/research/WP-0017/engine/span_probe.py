@@ -18,6 +18,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import re
 import sys
 import time
 from time import perf_counter_ns as clock
@@ -116,9 +117,8 @@ def build_frozen_field_locator(
             continue
         body_ids = native_token_ids[blk["body_start"] : blk["body_end"]]
         body_text = _decode_tokens(tokenizer, body_ids)
-        pos = body_text.find(native_alt)
-        if pos != -1:
-            hits.append((blk, body_ids, body_text, pos))
+        hits.extend((blk, body_ids, body_text, match.start())
+                    for match in re.finditer(re.escape(native_alt), body_text))
     if len(hits) != 1:
         raise ValueError(
             f"Expected unique native anchor block containing {native_alt!r} on page {identifier_page}, found {len(hits)}"
@@ -168,7 +168,7 @@ def build_frozen_field_locator(
         expected_pre_space_label_ids=[int(t) for t in body_ids[:pre_space_body_len]],
     )
 
-    return {
+    locator = {
         "window_label": f"{int(first_page):03d}",
         "first_page": int(first_page),
         "identifier_page": int(identifier_page),
@@ -188,6 +188,14 @@ def build_frozen_field_locator(
         "early_pre_id_divergence": early_divergence,
         "competing_spans": spans,
     }
+    for role, history in (("native_id", native_token_ids), ("carbon_id", carbon_token_ids)):
+        if history is None:
+            continue
+        observed = extract_free_field_at_locator(history, tokenizer, locator, page_token_id=page_token_id,
+                                                 block_token_id=block_token_id, fork_token_id=fork_token_id)
+        if observed.get("matched_probed_branch_role") != role:
+            raise ValueError(f"{role} historical field or emitted continuation IDs disagree with frozen span")
+    return locator
 
 
 def resolve_competing_spans(
@@ -222,6 +230,8 @@ def resolve_competing_spans(
     shared_post_label_ids = s0[:lcp_len]
     entries = []
     for idx, (alt, span_ids) in enumerate(zip(alternatives, pre_space_spans)):
+        if _decode_tokens(tokenizer, pre_ids + span_ids) != preceding_label + alt:
+            raise ValueError("Competing continuation fails context byte roundtrip")
         div_ids = span_ids[lcp_len:]
         entries.append(
             {
@@ -306,10 +316,10 @@ def extract_free_field_at_locator(
 
     remainder = body_text[len(preceding_label) :]
     delim = str(locator["delimiter"])
-    if delim and delim in remainder:
-        observed_id = remainder.split(delim, 1)[0].rstrip("\r")
-    else:
-        observed_id = remainder.splitlines()[0].rstrip("\r") if remainder else ""
+    observed_id, separator, _ = remainder.partition(delim) if delim else (remainder, "", "")
+    if (delim and not separator) or not re.fullmatch(r"[A-Za-z0-9]{5}-[0-9]{3}", observed_id):
+        return dict(aligned=False, failure_reason="malformed_or_incomplete_identifier",
+                    observed_id=observed_id or None, free_prefix_tokens=None, free_prefix_sha256=None)
 
     pre_space_len = None
     for m in range(len(body_ids) + 1):
@@ -365,6 +375,11 @@ def extract_free_field_at_locator(
     matched_alt_role = None
     for entry in locator["competing_spans"]["entries"]:
         ps_ids = entry["pre_space_token_ids"]
+        joined_text = _decode_tokens(tokenizer, free_prefix_tokens + ps_ids)
+        full_text = _decode_tokens(tokenizer, free_prefix_tokens) + entry["text_from_pre_space"]
+        if joined_text != full_text:
+            return dict(aligned=False, failure_reason="free_prefix_span_roundtrip_mismatch",
+                        observed_id=observed_id, free_prefix_tokens=None, free_prefix_sha256=None)
         if free_body_tail[: len(ps_ids)] == ps_ids and observed_id == entry["identifier"]:
             matched_alt_role = entry["role"]
             break
@@ -461,6 +476,32 @@ def clone_kv_cache(cache):
     return out
 
 
+class DeviceProbeGuards:
+    """Run the active generator's device guards; branch its mutable counters alongside KV."""
+
+    def __init__(self, functions, device, expected_pages, page_id, eos_id, max_page_tokens, whitelist):
+        import torch
+
+        self.ngram, self.page = functions
+        self.args = (expected_pages, page_id, eos_id, max_page_tokens)
+        self.state = {k: torch.zeros((), dtype=torch.long, device=device) for k in ("marker_cum", "page_len")}
+        self.whitelist = torch.tensor(sorted(whitelist), dtype=torch.long, device=device) if whitelist else None
+        self.scratch = torch.zeros(max(page_id, eos_id) + 1, dtype=torch.float32, device=device)
+
+    def fork(self):
+        from copy import copy
+
+        branch = copy(self)
+        branch.state = {k: v.clone() for k, v in self.state.items()}
+        return branch
+
+    def page_step(self, logits, last):
+        import torch
+
+        last_token = torch.tensor(last, dtype=torch.long, device=logits.device) if last is not None else None
+        return self.page(logits, *self.args, self.state, last_tok=last_token)
+
+
 def apply_pure_host_guards(
     raw_logits_fp32,
     gen_history: list[int],
@@ -473,22 +514,32 @@ def apply_pure_host_guards(
     ngram_size: int,
     ngram_window: int,
     whitelist: set[int],
+    device_guards=None,
 ):
-    """Apply exact upstream _uocr_no_repeat_ngram and _uocr_page_count_guard on a cloned FP32 logit vector."""
+    """Apply the configured generator's host or device guards and retain per-guard changes."""
     import torch
 
     after_ngram = raw_logits_fp32.clone()
     if ngram_size > 0:
-        uocr_mod._uocr_no_repeat_ngram(after_ngram, gen_history, ngram_size, ngram_window, whitelist)
+        if device_guards is None:
+            after_ngram = uocr_mod._uocr_no_repeat_ngram(after_ngram, gen_history, ngram_size, ngram_window, whitelist)
+        else:
+            ids = torch.tensor(gen_history, dtype=torch.long, device=after_ngram.device)
+            after_ngram = device_guards.ngram(after_ngram, ids, len(gen_history), ngram_size,
+                                               ngram_window, device_guards.whitelist)
     ngram_banned_mask = torch.isfinite(raw_logits_fp32) & ~torch.isfinite(after_ngram)
     ngram_banned_ids = [int(i) for i in torch.nonzero(ngram_banned_mask, as_tuple=False).view(-1).tolist()]
 
     guarded = after_ngram.clone()
     guard_st = {"marker_cum": 0, "scanned": 0, "page_len": 0}
     if expected_pages > 0:
-        uocr_mod._uocr_page_count_guard(
-            guarded, gen_history, expected_pages, page_id, eos_id, max_page_tokens, guard_st
-        )
+        if device_guards is None:
+            guarded = uocr_mod._uocr_page_count_guard(
+                guarded, gen_history, expected_pages, page_id, eos_id, max_page_tokens, guard_st
+            )
+        else:
+            guarded = device_guards.page_step(guarded, gen_history[-1] if gen_history else None)
+            guard_st = device_guards.state
     pg_banned_mask = torch.isfinite(after_ngram) & ~torch.isfinite(guarded)
     pg_banned_count = int(pg_banned_mask.sum().item())
     eos_banned_by_page_guard = bool(
@@ -496,6 +547,7 @@ def apply_pure_host_guards(
     )
 
     return guarded, {
+        "implementation": "device" if device_guards is not None else "host",
         "marker_cum": int(guard_st["marker_cum"]),
         "page_len": int(guard_st["page_len"]),
         "ngram_banned_ids": ngram_banned_ids,
@@ -523,19 +575,20 @@ def summarize_logit_step(
     def _pack_dist(logits_1d, logp_1d) -> dict:
         k = min(5, int(logits_1d.shape[0]))
         vals, idxs = torch.topk(logits_1d, k=k, dim=-1, largest=True, sorted=True)
+        finite_count = int(torch.isfinite(logits_1d).sum().item())
         top5 = [
             {
                 "rank": r + 1,
                 "token_id": int(tid),
                 "piece": _decode_tokens(tokenizer, [int(tid)]),
-                "logit_fp32": float(val),
-                "logprob_fp32": float(logp_1d[int(tid)].item()),
+                "logit_fp32": float(val) if math.isfinite(val) else None,
+                "logprob_fp32": float(logp_1d[int(tid)].item()) if math.isfinite(val) else None,
             }
             for r, (val, tid) in enumerate(zip(vals.tolist(), idxs.tolist()))
         ]
-        margin = float((vals[0] - vals[1]).item()) if k >= 2 else None
-        tie_top1 = bool(vals[0].item() == vals[1].item()) if k >= 2 else False
-        greedy_id = int(torch.argmax(logits_1d).item())
+        margin = float((vals[0] - vals[1]).item()) if finite_count >= 2 else None
+        tie_top1 = bool(vals[0].item() == vals[1].item()) if finite_count >= 2 else False
+        greedy_id = int(torch.argmax(logits_1d).item()) if finite_count else None
 
         tgt_logit = float(logits_1d[target_token_id].item())
         tgt_finite = math.isfinite(tgt_logit)
@@ -566,12 +619,13 @@ def summarize_logit_step(
 
         return {
             "target_token_id": int(target_token_id),
+            "finite_vocab_count": finite_count,
             "target_piece": _decode_tokens(tokenizer, [int(target_token_id)]),
             "target_is_finite": tgt_finite,
             "target_logit_fp32": tgt_logit if tgt_finite else None,
             "target_logprob_fp32": tgt_logprob,
             "greedy_argmax_token_id": greedy_id,
-            "greedy_argmax_piece": _decode_tokens(tokenizer, [greedy_id]),
+            "greedy_argmax_piece": _decode_tokens(tokenizer, [greedy_id]) if greedy_id is not None else None,
             "margin_top1_top2_fp32": margin,
             "tie_at_top1": tie_top1,
             "top5": top5,
@@ -645,6 +699,10 @@ def run_teacher_forced_window_probe(
     max_new_tokens = int(call_kwargs.get("max_new_tokens", 8000 * n_img))
     max_length = int(call_kwargs.get("max_length", 131072))
     dash_topm = int(call_kwargs.get("dash_topm", 16))
+    device_guards = None
+    if engine_hooks["switch_bits"][-1] == "1":
+        device_guards = DeviceProbeGuards(engine_hooks["device_guard_functions"], device, expected_pages,
+                                          page_id, eos_id, max_page_tokens, wl_set)
 
     kw = {}
     if imgs is not None:
@@ -713,6 +771,7 @@ def run_teacher_forced_window_probe(
                         ngram_size=ngram_size,
                         ngram_window=ngram_window,
                         whitelist=wl_set,
+                        device_guards=device_guards,
                     )
                     early_step_telemetry = {
                         "step_index": step_idx,
@@ -730,6 +789,9 @@ def run_teacher_forced_window_probe(
                             ],
                         ),
                     }
+                elif device_guards is not None and expected_pages > 0:
+                    # At step t the ordinary device page guard consumes the previous token.
+                    device_guards.page_step(device_guards.scratch, gen_history[-1] if gen_history else None)
                 gen_history.append(int(forced_tok))
                 pos = s_prefill + step_idx
                 out = model_lm.model(
@@ -760,6 +822,7 @@ def run_teacher_forced_window_probe(
             _sync_device(device)
             t_br0 = clock()
             for b_idx, entry in enumerate(entries):
+                branch_guards = device_guards.fork() if device_guards is not None else None
                 if b_idx + 1 < len(entries):
                     b_cache = clone_kv_cache(cache)
                     b_h = h.clone()
@@ -783,6 +846,7 @@ def run_teacher_forced_window_probe(
                         ngram_size=ngram_size,
                         ngram_window=ngram_window,
                         whitelist=wl_set,
+                        device_guards=branch_guards,
                     )
                     is_div = (k == lcp_len)
                     step_info = summarize_logit_step(

@@ -36,6 +36,8 @@ from switches import (
     SwitchActivationCounters,
     SwitchConfig,
     apply_ablation_patches,
+    gpu_no_repeat_ngram,
+    gpu_page_count_guard,
     resolve_mode,
     resolve_model_modules,
 )
@@ -351,6 +353,8 @@ def extract_engine_runtime_hooks(eng) -> dict:
             "use_gather_decode": eng.switch_cfg.gather_sparse_decode,
             "static_cache_cls": eng.static_cache_cls,
             "switch_bits": eng.switch_cfg.bits,
+            "device_guard_functions": (gpu_no_repeat_ngram, gpu_page_count_guard)
+            if eng.switch_cfg.gpu_burst_stride_8 else None,
             "implementation": "ablation_engine",
             "observer_kind": eng.observer_kind,
         }
@@ -365,6 +369,8 @@ def extract_engine_runtime_hooks(eng) -> dict:
             "observer_kind": OBSERVER_GENUINE_NATIVE,
         }
     if type(eng).__name__ == "CarbonEngine":
+        from engine import gpu_no_repeat_ngram as carbon_ngram, gpu_page_count_guard as carbon_page
+
         closure_vars = inspect.getclosurevars(eng.model._uocr_generate).nonlocals
         static_cache_cls = closure_vars.get("static_cache_cls")
         use_gather = bool(eng.spec.get("use_gather_decode"))
@@ -376,6 +382,7 @@ def extract_engine_runtime_hooks(eng) -> dict:
             "use_gather_decode": use_gather,
             "static_cache_cls": static_cache_cls,
             "switch_bits": "111111",
+            "device_guard_functions": (carbon_ngram, carbon_page),
             "implementation": "genuine_carbon_bf16",
             "observer_kind": OBSERVER_GENUINE_CARBON,
         }

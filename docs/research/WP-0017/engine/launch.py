@@ -124,15 +124,18 @@ def build_canonical_a1_plan(
     endpoint_probe_repeats: int = 2,
     addition_probe_repeats: int = 2,
     removal_probe_repeats: int = 1,
-    auto_pair_removals: bool = False,
 ) -> dict:
     manifest_bytes = a1_manifest_path.read_bytes()
     manifest_sha = digest(manifest_bytes)
     manifest_obj = json.loads(manifest_bytes)
     if manifest_obj.get("stage") != "A1" or not manifest_obj.get("windows"):
         raise ValueError(f"Invalid A1 manifest at {a1_manifest_path}")
+    seen_canons: set[str] = set()
     for c in configs:
-        resolve_mode(c)
+        canon = resolve_mode(c).canonical_name
+        if canon in seen_canons:
+            raise ValueError(f"Duplicate canonical config in Stage A1 suborder: {canon!r}")
+        seen_canons.add(canon)
     return {
         "schema": "eledgercare.wp0017.a1-plan/1",
         "stage": "A1",
@@ -143,7 +146,7 @@ def build_canonical_a1_plan(
         "endpoint_probe_repeats": int(endpoint_probe_repeats),
         "addition_probe_repeats": int(addition_probe_repeats),
         "removal_probe_repeats": int(removal_probe_repeats),
-        "auto_pair_removals": bool(auto_pair_removals),
+        "auto_pair_removals": False,
     }
 
 
@@ -265,7 +268,6 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--packet-root", type=Path, default=DEFAULT_PACKET_ROOT)
     p.add_argument("--configs", help="Optional comma-separated config list when --plan points directly to a1-inputs.json")
     p.add_argument("--warmup-count", type=int, default=3, help="Settling 1-page warmups per child when --plan is a1-inputs.json")
-    p.add_argument("--auto-pair-removals", action="store_true", help="Automatically run eligible pair removals if singles do not restore both IDs")
     args = p.parse_args(argv)
 
     if args.emit_a1_plan is not None:
@@ -274,7 +276,6 @@ def main(argv: list[str] | None = None) -> int:
             a1_manifest_path=args.a1_manifest,
             configs=cfg_list,
             warmup_count=args.warmup_count,
-            auto_pair_removals=args.auto_pair_removals,
         )
         encoded = (json.dumps(plan_doc, indent=2, ensure_ascii=False, allow_nan=False) + "\n").encode("utf-8")
         args.emit_a1_plan.parent.mkdir(parents=True, exist_ok=True)
@@ -306,6 +307,10 @@ def main(argv: list[str] | None = None) -> int:
 
     # Pre-validate plan structure BEFORE creating run directory or touching GPU.
     if is_a1:
+        if plan_obj.get("auto_pair_removals") is True:
+            raise ValueError(
+                "auto_pair_removals is disabled; run bound suborders separately and combine via a1_analyze.py"
+            )
         if "windows" in plan_obj:
             a1_manifest_path = args.plan.resolve()
             a1_manifest_sha = args.sha256.lower()
@@ -317,7 +322,6 @@ def main(argv: list[str] | None = None) -> int:
             )
             warmups = build_default_warmups(args.warmup_count)
             endpoint_rep, add_rep, rem_rep = 2, 2, 1
-            auto_pairs = bool(args.auto_pair_removals)
         else:
             a1_manifest_path = Path(plan_obj["a1_manifest"]).resolve()
             a1_manifest_sha = str(plan_obj["a1_manifest_sha256"]).lower()
@@ -334,13 +338,16 @@ def main(argv: list[str] | None = None) -> int:
             endpoint_rep = int(plan_obj.get("endpoint_probe_repeats", 2))
             add_rep = int(plan_obj.get("addition_probe_repeats", 2))
             rem_rep = int(plan_obj.get("removal_probe_repeats", 1))
-            auto_pairs = bool(plan_obj.get("auto_pair_removals", args.auto_pair_removals))
 
         if not configs:
             raise ValueError("Empty Stage A1 config list")
         surgical_override = plan_obj.get("surgical_override")
+        seen_canons: set[str] = set()
         for c in configs:
-            resolve_mode(c, surgical_override=surgical_override)
+            canon = resolve_mode(c, surgical_override=surgical_override).canonical_name
+            if canon in seen_canons:
+                raise ValueError(f"Duplicate canonical config in Stage A1 suborder: {canon!r}")
+            seen_canons.add(canon)
         for w in warmups:
             _validate_doc_request({**w, "mode": "native"})
         req_a = a1_manifest_obj["request"]
@@ -394,7 +401,7 @@ def main(argv: list[str] | None = None) -> int:
                 a1_manifest_sha256=a1_manifest_sha,
                 planned_configs=configs,
                 warmup_count=len(warmups),
-                auto_pair_removals=auto_pairs,
+                auto_pair_removals=False,
                 initial_gpu=start_gpu,
                 supervisor_pid=os.getpid(),
                 start_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -440,53 +447,16 @@ def main(argv: list[str] | None = None) -> int:
                 break
             seg_summaries.append(json.loads((seg_dir / "segment-summary.json").read_bytes()))
 
-        # Optional dynamic Stage-A1b pair-removal continuation if enabled and needed.
-        if overall_reason is None and auto_pairs:
-            interim = analyze_a1_segments(seg_summaries, a1_manifest_obj)
-            missing_pairs = list(interim.get("missing_pair_removals") or [])
-            if interim.get("pair_removals_needed") and missing_pairs:
-                expected_segment_count += len(missing_pairs)
-                base_idx = len(segment_receipts)
-                for offset, pmode in enumerate(missing_pairs, 1):
-                    seg_idx = base_idx + offset
-                    seg_dir = run_dir / f"segment-{seg_idx:02d}-{pmode}"
-                    seg_dir.mkdir(parents=True, exist_ok=False)
-                    publish(
-                        seg_dir / "segment-plan.json",
-                        dict(
-                            stage="A1",
-                            mode=pmode,
-                            surgical_override=surgical_override,
-                            a1_manifest=str(a1_manifest_path),
-                            a1_manifest_sha256=a1_manifest_sha,
-                            warmups=warmups,
-                            forced_native_probe_repeats=rem_rep,
-                        ),
-                    )
-                    rec, err = _run_child_segment(
-                        seg_idx=seg_idx,
-                        mode=pmode,
-                        seg_dir=seg_dir,
-                        child_script=child_script,
-                        begin_perf=begin,
-                        total_seconds=args.seconds,
-                        min_vram_mib=args.min_vram_mib,
-                        owner_root=owner_root,
-                        samples=samples,
-                    )
-                    if rec:
-                        segment_receipts.append(rec)
-                    if err is not None:
-                        overall_reason = err
-                        break
-                    seg_summaries.append(json.loads((seg_dir / "segment-summary.json").read_bytes()))
-
         if seg_summaries:
             a1_summary = analyze_a1_segments(seg_summaries, a1_manifest_obj)
             summary_sha = publish(run_dir / "a1-summary.json", a1_summary)
+            av = a1_summary["anchor_verification"]
             a1_summary_meta = {
                 "a1_summary_sha256": summary_sha,
-                "anchor_gate_passed": a1_summary["anchor_verification"]["anchor_gate_passed"],
+                "anchor_gate_passed": av["anchor_gate_passed"],
+                "internal_eight_window_gate_passed": av["internal_eight_window_gate_passed"],
+                "present_endpoint_arms": av["present_endpoint_arms"],
+                "verified_endpoint_windows": av["verified_endpoint_windows"],
                 "attribution_status": a1_summary["attribution_status"],
                 "surgical_selection_status": a1_summary["surgical_selection_status"],
                 "recommended_surgical_mode": a1_summary.get("recommended_surgical_mode"),

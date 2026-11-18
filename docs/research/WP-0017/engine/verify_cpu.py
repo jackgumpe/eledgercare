@@ -77,7 +77,7 @@ def _run_import_and_utf8_hygiene_checks(tmp_root: Path) -> dict:
     assert "UTF8_STDOUT_OK: I08O1-388 \u5c0f \u0394z" in proc_utf8.stdout.decode("utf-8")
     assert "UTF8_STDERR_OK: 8OI10-774 \u5c0f" in proc_utf8.stderr.decode("utf-8")
 
-    # 3. Verify --emit-a1-plan against real coordination a1-inputs.json without importing torch.
+    # 3. Verify --emit-a1-plan against real coordination a1-inputs.json (full + two bound suborders).
     a1_manifest = Path("C:/Users/jackg/eLedgerCare-Speed/WP-0017/coordination/a1-inputs.json")
     emitted_plan = tmp_root / "emitted-a1-plan.json"
     out_plan = subprocess.check_output(
@@ -97,11 +97,72 @@ def _run_import_and_utf8_hygiene_checks(tmp_root: Path) -> dict:
     meta = json.loads(out_plan.strip())
     assert digest(emitted_plan.read_bytes()) == meta["plan_sha256"]
     assert len(meta["configs"]) == 16
+    assert json.loads(emitted_plan.read_bytes())["auto_pair_removals"] is False
+
+    sub1_plan = tmp_root / "emitted-suborder1-endpoints.json"
+    out_sub1 = subprocess.check_output(
+        [
+            str(PYTHON),
+            "-I",
+            "-B",
+            str(HERE / "launch.py"),
+            "--emit-a1-plan",
+            str(sub1_plan),
+            "--a1-manifest",
+            str(a1_manifest),
+            "--configs",
+            "native,all_off,carbon_bf16,all_on",
+        ],
+        env=env,
+        encoding="utf-8",
+    )
+    assert json.loads(out_sub1.strip())["configs"] == ["native", "all_off", "carbon_bf16", "all_on"]
+
+    sub2_plan = tmp_root / "emitted-suborder2-switches.json"
+    sub2_cfgs = "add_S0,add_S1a,add_S1b,add_S1c,add_S2,add_S3,remove_S0,remove_S1a,remove_S1b,remove_S1c,remove_S2,remove_S3"
+    out_sub2 = subprocess.check_output(
+        [
+            str(PYTHON),
+            "-I",
+            "-B",
+            str(HERE / "launch.py"),
+            "--emit-a1-plan",
+            str(sub2_plan),
+            "--a1-manifest",
+            str(a1_manifest),
+            "--configs",
+            sub2_cfgs,
+        ],
+        env=env,
+        encoding="utf-8",
+    )
+    assert len(json.loads(out_sub2.strip())["configs"]) == 12
+
+    # 4. Run joint peer-review regression suite (check_peer_fixes.py) when present on disk.
+    peer_check = Path("C:/Users/jackg/eLedgerCare-Speed/WP-0017/coordination/peer-fixes/check_peer_fixes.py")
+    peer_check_passed = False
+    if peer_check.is_file():
+        help_out = subprocess.check_output(
+            [str(PYTHON), "-I", "-B", str(peer_check), "--help"],
+            env=env,
+            encoding="utf-8",
+        )
+        assert "--source" in help_out
+        peer_out = subprocess.check_output(
+            [str(PYTHON), "-I", "-B", str(peer_check), "--source", str(HERE)],
+            env=env,
+            encoding="utf-8",
+        )
+        assert "PASS:" in peer_out
+        peer_check_passed = True
+
     return {
         "import_torch_absent": True,
         "redirected_utf8_under_isolated_flag": True,
         "emitted_a1_plan_sha256": meta["plan_sha256"],
         "emitted_a1_config_count": len(meta["configs"]),
+        "two_suborder_plans_emitted": True,
+        "peer_fixes_regression_passed": peer_check_passed,
     }
 
 
@@ -793,19 +854,19 @@ def _run_six_switch_and_probe_checks() -> dict:
 
     uocr_mod._uocr_build_inputs = _mini_build_inputs
     try:
+        from switches import gpu_no_repeat_ngram, gpu_page_count_guard
+
         for s2_flag in (False, True):
             probe_mdl = copy.deepcopy(base_fp32)
-            p_cnt, p_scls = apply_ablation_patches(
-                probe_mdl,
-                switch_cfg=SwitchConfig(
-                    no_text_streamer=True,
-                    packed_moe_prefill=False,
-                    packed_moe_decode_bmm=s2_flag,
-                    fused_gate_up_proj=s2_flag,
-                    gather_sparse_decode=s2_flag,
-                    gpu_burst_stride_8=False,
-                ),
+            p_cfg = SwitchConfig(
+                no_text_streamer=True,
+                packed_moe_prefill=False,
+                packed_moe_decode_bmm=s2_flag,
+                fused_gate_up_proj=s2_flag,
+                gather_sparse_decode=s2_flag,
+                gpu_burst_stride_8=s2_flag,
             )
+            p_cnt, p_scls = apply_ablation_patches(probe_mdl, switch_cfg=p_cfg)
             q_lens = []
             orig_m_fwd = probe_mdl.model.forward
 
@@ -856,6 +917,8 @@ def _run_six_switch_and_probe_checks() -> dict:
                 "tokenizer": tok,
                 "use_gather_decode": s2_flag,
                 "static_cache_cls": p_scls,
+                "switch_bits": p_cfg.bits,
+                "device_guard_functions": (gpu_no_repeat_ngram, gpu_page_count_guard) if s2_flag else None,
             }
             call_kw = protocol.build_call_kwargs(3)
             res_branched = run_teacher_forced_window_probe(
@@ -868,6 +931,8 @@ def _run_six_switch_and_probe_checks() -> dict:
             )
             # Assert exactly ONE prefill (q_len == 32) and every subsequent forward has q_len == 1!
             assert q_lens[0] == 32 and all(q == 1 for q in q_lens[1:])
+            assert res_branched["early_pre_id_divergence_telemetry"]["guard_meta"]["implementation"] == ("device" if s2_flag else "host")
+            assert res_branched["divergence_step_summary"]["guard_meta"]["implementation"] == ("device" if s2_flag else "host")
             assert res_branched["early_pre_id_divergence_telemetry"]["step_index"] == 2
             assert len(res_branched["divergence_step_summary"]["guarded_competing_candidates"]) == 2
             # Because only 1 <PAGE> (241) is in prefix_ids and expected_pages == 3, EOS (1) is banned by PageCountGuard!
@@ -905,20 +970,39 @@ def _run_six_switch_and_probe_checks() -> dict:
 
 
 def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
+    from unittest.mock import patch
     from PIL import Image
     import pypdfium2
+    import switches as switches_mod
     from a1_analyze import analyze_a1_segments
     from doc_trial import execute_doc_segment
     from switches import CANONICAL_A1_CONFIGS, resolve_mode
     from span_probe import token_ids_sha256
 
-    a1_manifest = json.loads(
-        Path("C:/Users/jackg/eLedgerCare-Speed/WP-0017/coordination/a1-inputs.json").read_bytes()
-    )
+    a1_manifest_path = Path("C:/Users/jackg/eLedgerCare-Speed/WP-0017/coordination/a1-inputs.json")
+    a1_manifest_bytes = a1_manifest_path.read_bytes()
+    a1_manifest_sha = digest(a1_manifest_bytes)
+    a1_manifest = json.loads(a1_manifest_bytes)
     nat_019 = a1_manifest["windows"][0]["by_mode"]["native"]["token_ids"]
     car_019 = a1_manifest["windows"][0]["by_mode"]["carbon_bf16"]["token_ids"]
     nat_037 = a1_manifest["windows"][1]["by_mode"]["native"]["token_ids"]
     car_037 = a1_manifest["windows"][1]["by_mode"]["carbon_bf16"]["token_ids"]
+
+    valid_ext_endpoint_check = {
+        "passed": True,
+        "checks": [
+            {
+                "mode": m,
+                "first_page": fp,
+                "tokens": len(ids),
+                "expected_tokens": len(ids),
+                "first_mismatch": None,
+                "errors": [],
+            }
+            for m, is_car in (("native", False), ("all_off", False), ("carbon_bf16", True), ("all_on", True))
+            for fp, ids in ((19, car_019 if is_car else nat_019), (37, car_037 if is_car else nat_037))
+        ],
+    }
 
     def _make_seg(mode_name: str, *, culprit_mode: str = "single_s1c") -> dict:
         rm = resolve_mode(mode_name)
@@ -934,7 +1018,9 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
         id0 = "108O1-388" if flips else "I08O1-388"
         id1 = "80I10-774" if flips else "8OI10-774"
         d_val = [-0.45, -0.35] if flips else [0.45, 0.35]
-        t_win = [44.0 + (0.0 if sc.gather_sparse_decode else 6.0), 43.0 + (0.0 if sc.packed_moe_decode_bmm else 5.0)]
+        obs_extra = 0.25 if rm.implementation == "genuine_native" else (0.10 if rm.implementation == "genuine_carbon_bf16" else 0.05)
+        rk_win = [44.0 + (0.0 if sc.gather_sparse_decode else 6.0), 43.0 + (0.0 if sc.packed_moe_decode_bmm else 5.0)]
+        t_win = [rk_win[0] + obs_extra, rk_win[1] + obs_extra]
 
         free_wins = []
         for w_idx, (lbl, ids) in enumerate((("019", w0_ids), ("037", w1_ids))):
@@ -955,10 +1041,18 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
                 {
                     "window_label": lbl,
                     "finish_reason": "stop",
+                    "num_pages_out": 3,
+                    "expected_pages": 3,
                     "eos_excluded_verified": True,
                     "window_token_ids_sha256": token_ids_sha256(ids),
                     "endpoint_parity": ep,
                     "effective_prefill_dispatch": "grouped_mm" if sc.packed_moe_prefill else "native_linear_loop",
+                    "timing": {
+                        "ordinary_engine_read_s": t_win[w_idx],
+                        "raw_kernel_infer_s": rk_win[w_idx],
+                        "wrapper_overhead_s": obs_extra,
+                        "native_infer_ms": int(round(rk_win[w_idx] * 1000)),
+                    },
                 }
             )
 
@@ -966,10 +1060,16 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
             "mode": mode_name,
             "canonical_mode": rm.canonical_name,
             "implementation": rm.implementation,
-            "observer_kind": "test_observer",
+            "observer_kind": (
+                "astra_stage_monitor_pep669"
+                if rm.implementation == "genuine_native"
+                else ("carbon_safety_monitor_wrapped" if rm.implementation == "genuine_carbon_bf16" else "wp0017_uniform_ablation_observer")
+            ),
             "switch_bits": sc.bits,
             "ordinary_window_seconds": t_win,
             "ordinary_two_window_sum_s": sum(t_win),
+            "raw_kernel_infer_window_seconds": rk_win,
+            "raw_kernel_infer_two_window_sum_s": sum(rk_win),
             "free_ids": [id0, id1],
             "all_free_fields_aligned": True,
             "all_windows_finished_stop": True,
@@ -989,22 +1089,52 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
             ],
         }
 
-    # Case A: Single removal (remove_S1c) restores both IDs.
+    # Case A: Single removal (remove_S1c) restores both IDs once 4 endpoints × 2 windows + external check pass.
     segs_single = [_make_seg(m, culprit_mode="single_s1c") for m in CANONICAL_A1_CONFIGS]
-    res_single = analyze_a1_segments(segs_single, a1_manifest)
+    res_no_ext = analyze_a1_segments(segs_single, a1_manifest)
+    assert res_no_ext["anchor_verification"]["internal_eight_window_gate_passed"] is True
+    assert res_no_ext["anchor_verification"]["anchor_gate_passed"] is False
+    assert res_no_ext["attribution_status"] == "blocked_missing_external_endpoint_check"
+    assert res_no_ext["recommended_surgical_mode"] is None
+
+    res_two_only = analyze_a1_segments(
+        [s for s in segs_single if s["canonical_mode"] not in ("all_off", "all_on")],
+        a1_manifest,
+        external_endpoint_check=valid_ext_endpoint_check,
+    )
+    assert res_two_only["anchor_verification"]["anchor_gate_passed"] is False
+    assert res_two_only["attribution_status"] == "awaiting_all_four_endpoints"
+
+    bad_ext = dict(valid_ext_endpoint_check, passed=False)
+    res_bad_ext = analyze_a1_segments(segs_single, a1_manifest, external_endpoint_check=bad_ext)
+    assert res_bad_ext["anchor_verification"]["anchor_gate_passed"] is False
+    assert res_bad_ext["attribution_status"] == "blocked_external_endpoint_check_failed"
+
+    res_single = analyze_a1_segments(
+        segs_single, a1_manifest, external_endpoint_check=valid_ext_endpoint_check
+    )
     assert res_single["anchor_verification"]["anchor_gate_passed"] is True
+    assert res_single["anchor_verification"]["verified_endpoint_windows"] == 8
     assert res_single["surgical_selection_status"] == "selected_single_removal"
     assert res_single["recommended_surgical_mode"] == "remove_S1c"
     assert res_single["recommended_surgical_bits"] == "111011"
     assert res_single["pair_removals_needed"] is False
+    assert res_single["endpoints"]["causal_contrast_baselines"]["addition_baseline_mode"] == "all_off"
+    assert res_single["endpoints"]["causal_contrast_baselines"]["removal_baseline_mode"] == "all_on"
+    assert abs(res_single["endpoints"]["cross_endpoint_deltas"]["observer_delta_all_off_minus_native_raw_kernel_s"]) < 1e-12
+    assert abs(res_single["endpoints"]["cross_endpoint_deltas"]["observer_delta_all_off_minus_native_ordinary_s"] - (-0.40)) < 1e-9
 
     # Case B: Pair interaction (S1b + S1c) -> singles require pair -> pair restores both IDs.
     segs_pair = [_make_seg(m, culprit_mode="pair_s1b_s1c") for m in CANONICAL_A1_CONFIGS]
-    res_pair_interim = analyze_a1_segments(segs_pair, a1_manifest)
+    res_pair_interim = analyze_a1_segments(
+        segs_pair, a1_manifest, external_endpoint_check=valid_ext_endpoint_check
+    )
     assert res_pair_interim["surgical_selection_status"] == "awaiting_eligible_pair_removals"
     assert res_pair_interim["eligible_pair_removals"] == ["remove_S1b_S1c"]
     segs_pair.append(_make_seg("remove_S1b_S1c", culprit_mode="pair_s1b_s1c"))
-    res_pair_done = analyze_a1_segments(segs_pair, a1_manifest)
+    res_pair_done = analyze_a1_segments(
+        segs_pair, a1_manifest, external_endpoint_check=valid_ext_endpoint_check
+    )
     assert res_pair_done["surgical_selection_status"] == "selected_pair_removal"
     assert res_pair_done["recommended_surgical_mode"] == "remove_S1b_S1c"
     assert res_pair_done["recommended_surgical_bits"] == "110011"
@@ -1014,7 +1144,9 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
 
     segs_bad = copy.deepcopy(segs_single)
     segs_bad[1]["free_windows"][0]["window_token_ids_sha256"] = "0" * 64
-    res_bad = analyze_a1_segments(segs_bad, a1_manifest)
+    res_bad = analyze_a1_segments(
+        segs_bad, a1_manifest, external_endpoint_check=valid_ext_endpoint_check
+    )
     assert res_bad["anchor_verification"]["anchor_gate_passed"] is False
     assert res_bad["attribution_status"] == "blocked_endpoint_parity_mismatch"
     assert res_bad["recommended_surgical_mode"] is None
@@ -1076,17 +1208,30 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
             ],
         },
     )
-    doc_res = execute_doc_segment(
-        seg_doc_dir,
-        engine_factory=lambda _m, _r, surgical_override=None: _StubDocEngine(),
-        skip_env_and_lock_audit=True,
-    )
+    # Must refuse while surgical.json is null ('pending_a1') even when surgical_override is provided:
+    locked_override_refused = False
+    try:
+        execute_doc_segment(
+            seg_doc_dir,
+            engine_factory=lambda _m, _r, surgical_override=None: _StubDocEngine(),
+            skip_env_and_lock_audit=True,
+        )
+    except ValueError:
+        locked_override_refused = True
+    assert locked_override_refused is True
+
+    with patch.object(switches_mod, "load_frozen_surgical_target", return_value="111011"):
+        doc_res = execute_doc_segment(
+            seg_doc_dir,
+            engine_factory=lambda _m, _r, surgical_override=None: _StubDocEngine(),
+            skip_env_and_lock_audit=True,
+        )
     assert len(doc_res) == 1 and doc_res[0]["complete_pages"] == 3
     pred_doc = json.loads((seg_doc_dir / "01-id-ablation-carbon_surgical/prediction.json").read_bytes())
     assert len(pred_doc["pages"]) == 3
     assert all(sp["flagged"] is False for pg in pred_doc["pages"] for sp in pg["spans"])
 
-    # Case E: Launcher negative controls (locked surgical, bad plan sha, dirty/mismatched git commit).
+    # Case E: Launcher negative controls + two-suborder standalone execution + reviewer a1_analyze CLI combination!
     _l_spec = importlib.util.spec_from_file_location("wp0017_launch", HERE / "launch.py")
     launch = importlib.util.module_from_spec(_l_spec)
     _l_spec.loader.exec_module(launch)
@@ -1100,15 +1245,15 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
 
     bad_sha_plan = tmp_root / "bad-sha-plan.json"
     publish(bad_sha_plan, {"stage": "A1", "windows": []})
-    # Dirty/mismatched --source commit SHA must fail verify_git_scopes immediately:
     try:
         launch.verify_git_scopes("0" * 40)
     except Exception as exc:
         neg_controls["bad_git_source_refused"] = type(exc).__name__
     assert "bad_git_source_refused" in neg_controls
 
-    # Wrong --sha256 on launch.main (with verify_git_scopes bypassed to isolate the plan digest check):
     orig_vgs = launch.verify_git_scopes
+    orig_gpu_obs = launch.gpu_observation
+    orig_run_child = launch._run_child_segment
     launch.verify_git_scopes = lambda *_a, **_kw: None
     try:
         try:
@@ -1134,8 +1279,196 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
             )
         except ValueError as exc:
             neg_controls["bad_plan_sha_refused"] = str(exc)
+
+        # Simulate Suborder 1 ('endpoints') and Suborder 2 ('switches') in completely separate run directories.
+        launch.gpu_observation = lambda: {
+            "uuid": launch.GPU,
+            "free_mib": 15000,
+            "used_mib": 500,
+            "temperature_c": 40.0,
+            "utilization_percent": 0,
+            "driver": "test",
+        }
+
+        def _fake_run_child(*, seg_idx, mode, seg_dir, **_kw):
+            seg_sum = _make_seg(mode, culprit_mode="pair_s1b_s1c")
+            publish(
+                seg_dir / "child.json",
+                {
+                    "pid": 12345,
+                    "mode": mode,
+                    "canonical_mode": seg_sum["canonical_mode"],
+                    "switch_bits": seg_sum["switch_bits"],
+                    "implementation": seg_sum["implementation"],
+                },
+            )
+            free_dir = seg_dir / "free"
+            free_dir.mkdir(parents=True, exist_ok=True)
+            flips = (seg_sum["free_ids"][0] == "108O1-388")
+            for fp, ids in ((19, car_019 if flips else nat_019), (37, car_037 if flips else nat_037)):
+                publish(
+                    free_dir / f"window-{fp:03d}.json",
+                    {
+                        "source_sha256": a1_manifest["request"]["sha256"],
+                        "first_page": fp,
+                        "pages": 3,
+                        "num_pages_out": 3,
+                        "finish_reason": "stop",
+                        "eos_id": 1,
+                        "window_token_ids": ids,
+                    },
+                )
+            publish(seg_dir / "segment-summary.json", seg_sum)
+            rec = {"segment": seg_idx, "mode": mode, "returncode": 0}
+            publish(seg_dir / "segment-process.json", rec)
+            return rec, None
+
+        launch._run_child_segment = _fake_run_child
+        sub_pkt = tmp_root / "suborders_pkt"
+
+        rc_sub1 = launch.main(
+            [
+                "--source",
+                "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+                "--plan",
+                str(a1_manifest_path),
+                "--sha256",
+                a1_manifest_sha,
+                "--owner",
+                "review",
+                "--run",
+                "a1-sub1-endpoints",
+                "--seconds",
+                "2700",
+                "--lease",
+                "a1-test",
+                "--packet-root",
+                str(sub_pkt),
+                "--configs",
+                "native,all_off,carbon_bf16,all_on",
+            ]
+        )
+        assert rc_sub1 == 0
+        sub1_dir = sub_pkt / "review/runs/a1-sub1-endpoints"
+        sub1_proc = json.loads((sub1_dir / "process.json").read_bytes())
+        assert sub1_proc["all_segments_completed"] is True and len(sub1_proc["segments"]) == 4
+        assert sub1_proc["a1_summary"]["internal_eight_window_gate_passed"] is True
+        assert sub1_proc["a1_summary"]["verified_endpoint_windows"] == 8
+        assert sub1_proc["a1_summary"]["attribution_status"] == "four_endpoints_verified_awaiting_external_check_and_switch_suborder"
+
+        rc_sub2 = launch.main(
+            [
+                "--source",
+                "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+                "--plan",
+                str(a1_manifest_path),
+                "--sha256",
+                a1_manifest_sha,
+                "--owner",
+                "review",
+                "--run",
+                "a1-sub2-switches",
+                "--seconds",
+                "7200",
+                "--lease",
+                "a1-test",
+                "--packet-root",
+                str(sub_pkt),
+                "--configs",
+                "add_S0,add_S1a,add_S1b,add_S1c,add_S2,add_S3,remove_S0,remove_S1a,remove_S1b,remove_S1c,remove_S2,remove_S3",
+            ]
+        )
+        assert rc_sub2 == 0
+        sub2_dir = sub_pkt / "review/runs/a1-sub2-switches"
+        sub2_proc = json.loads((sub2_dir / "process.json").read_bytes())
+        # Strictly 12 segments — zero auto-pair segments spawned on initial wave!
+        assert sub2_proc["all_segments_completed"] is True and len(sub2_proc["segments"]) == 12
+        assert sub2_proc["a1_summary"]["attribution_status"] == "awaiting_all_four_endpoints"
+
+        ext_check_file = tmp_root / "endpoint-check.json"
+        publish(ext_check_file, valid_ext_endpoint_check)
+        combined_wave1_out = tmp_root / "combined-wave1-a1-summary.json"
+        cli_out1 = subprocess.check_output(
+            [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(HERE / "a1_analyze.py"),
+                "--run-dirs",
+                str(sub1_dir),
+                str(sub2_dir),
+                "--endpoint-check",
+                str(ext_check_file),
+                "--a1-manifest",
+                str(a1_manifest_path),
+                "--a1-manifest-sha256",
+                a1_manifest_sha,
+                "--out",
+                str(combined_wave1_out),
+            ],
+            env=dict(os.environ, CUDA_VISIBLE_DEVICES="-1"),
+            encoding="utf-8",
+        )
+        cli_meta1 = json.loads(cli_out1.strip())
+        assert cli_meta1["anchor_gate_passed"] is True
+        assert cli_meta1["surgical_selection_status"] == "awaiting_eligible_pair_removals"
+        assert cli_meta1["eligible_pair_removals"] == ["remove_S1b_S1c"]
+
+        # Simulate separate reviewer-bound Suborder 3 ('pairs') and combine all three run directories!
+        rc_sub3 = launch.main(
+            [
+                "--source",
+                "c7b2ee3663317e42a0e9bdd7ff9e17f16747d2cf",
+                "--plan",
+                str(a1_manifest_path),
+                "--sha256",
+                a1_manifest_sha,
+                "--owner",
+                "review",
+                "--run",
+                "a1-sub3-pairs",
+                "--seconds",
+                "1800",
+                "--lease",
+                "a1-test-pairs",
+                "--packet-root",
+                str(sub_pkt),
+                "--configs",
+                "remove_S1b_S1c",
+            ]
+        )
+        assert rc_sub3 == 0
+        sub3_dir = sub_pkt / "review/runs/a1-sub3-pairs"
+        combined_wave2_out = tmp_root / "combined-wave2-a1-summary.json"
+        cli_out2 = subprocess.check_output(
+            [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(HERE / "a1_analyze.py"),
+                "--run-dirs",
+                str(sub1_dir),
+                str(sub2_dir),
+                str(sub3_dir),
+                "--endpoint-check",
+                str(ext_check_file),
+                "--a1-manifest",
+                str(a1_manifest_path),
+                "--a1-manifest-sha256",
+                a1_manifest_sha,
+                "--out",
+                str(combined_wave2_out),
+            ],
+            env=dict(os.environ, CUDA_VISIBLE_DEVICES="-1"),
+            encoding="utf-8",
+        )
+        cli_meta2 = json.loads(cli_out2.strip())
+        assert cli_meta2["anchor_gate_passed"] is True
+        assert cli_meta2["recommended_surgical_mode"] == "remove_S1b_S1c"
     finally:
         launch.verify_git_scopes = orig_vgs
+        launch.gpu_observation = orig_gpu_obs
+        launch._run_child_segment = orig_run_child
     assert neg_controls.get("bad_plan_sha_refused") == "plan SHA-256 mismatch"
 
     # Case F: End-to-end execute_a1_segment CPU run over a 60-page PDF (exact windows 019 & 037) with AblationEngine!
@@ -1358,6 +1691,8 @@ def _run_a1_analyzer_and_doc_harness_checks(tmp_root: Path) -> dict:
         "a1_single_restoration_selected": res_single["recommended_surgical_mode"],
         "a1_pair_restoration_selected": res_pair_done["recommended_surgical_mode"],
         "a1_tampered_endpoint_blocked": True,
+        "four_endpoints_eight_windows_and_external_gate_verified": True,
+        "two_suborder_launch_and_cli_combine_verified": True,
         "a1_e2e_60page_segment_and_dual_prefix_probe_verified": True,
         "a2_a3_trial_document_schema_verified": True,
         "locked_carbon_surgical_refused": True,

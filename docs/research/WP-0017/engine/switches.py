@@ -199,14 +199,26 @@ def _build_named_switch_table() -> dict[str, tuple[str, SwitchConfig, str, tuple
 NAMED_SWITCH_TABLE = _build_named_switch_table()
 
 
+def _pruned_bits(name: str) -> str:
+    if name == "carbon_surgical":
+        raise ValueError("Self-referential surgical configuration")
+    bits = resolve_mode(name).switch_config.bits
+    if bits.count("0") not in (1, 2):
+        raise ValueError("Surgical configuration requires exactly one or two removed switches")
+    return bits
+
+
 def load_frozen_surgical_target(surgical_json_path: Path = SURGICAL_JSON_PATH) -> str | None:
     if not surgical_json_path.is_file():
         return None
     doc = json.loads(surgical_json_path.read_text(encoding="utf-8"))
-    target = doc.get("frozen_switch_config") or doc.get("frozen_bits")
-    if target is None:
+    targets = [doc[k] for k in ("frozen_switch_config", "frozen_bits") if doc.get(k) is not None]
+    if not targets:
         return None
-    return str(target)
+    bits = {_pruned_bits(name) for name in targets}
+    if len(bits) != 1:
+        raise ValueError("Frozen surgical configuration and bits disagree")
+    return bits.pop()
 
 
 def resolve_mode(name: str, *, surgical_override: str | None = None) -> ResolvedMode:
@@ -228,13 +240,13 @@ def resolve_mode(name: str, *, surgical_override: str | None = None) -> Resolved
             added_switches=SWITCH_ORDER,
         )
     if name == "carbon_surgical":
-        target = surgical_override or load_frozen_surgical_target()
+        target = load_frozen_surgical_target()
         if not target:
             raise ValueError(
                 "carbon_surgical is locked prior to Stage A1 disposition (surgical.json has frozen_switch_config=null)."
             )
-        if target in ("native", "carbon_bf16"):
-            raise ValueError(f"carbon_surgical must reference a pruned switch config, not endpoint {target!r}")
+        if surgical_override is not None and _pruned_bits(surgical_override) != target:
+            raise ValueError("Plan surgical configuration disagrees with frozen source")
         inner = resolve_mode(target)
         return ResolvedMode(
             requested_name="carbon_surgical",
@@ -829,9 +841,10 @@ def patch_moe_layer_s1(
                 counters.s1b_decode_linear_loop_calls += 1
                 cnts = topk_idx.new_zeros((topk_idx.shape[0], n_routed))
                 cnts.scatter_(1, topk_idx, 1)
-                tokens_per_expert_np = cnts.sum(dim=0).cpu().numpy()
+                tokens_per_expert = cnts.sum(dim=0)
                 idxs = topk_idx.view(-1).argsort()
                 sorted_tokens = x[idxs // k_top]
+                tokens_per_expert_np = tokens_per_expert.cpu().numpy()
                 outputs = []
                 start_idx = 0
                 for ei, num_tokens in enumerate(tokens_per_expert_np):
@@ -924,9 +937,10 @@ def patch_moe_layer_s1(
                 counters.per_layer_prefill_linear_loop[layer_idx] += 1
                 cnts = topk_idx.new_zeros((topk_idx.shape[0], n_routed))
                 cnts.scatter_(1, topk_idx, 1)
-                tokens_per_expert_np = cnts.sum(dim=0).cpu().numpy()
+                tokens_per_expert = cnts.sum(dim=0)
                 idxs = topk_idx.view(-1).argsort()
                 sorted_tokens = x[idxs // k_top]
+                tokens_per_expert_np = tokens_per_expert.cpu().numpy()
                 outputs = []
                 start_idx = 0
                 for ei, num_tokens in enumerate(tokens_per_expert_np):

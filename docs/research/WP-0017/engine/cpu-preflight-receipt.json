@@ -1,7 +1,7 @@
 {
   "schema": "eledgercare.wp0017.cpu-preflight-receipt/1",
-  "label": "wp0017-cpu-postcommit-3cb2811",
-  "source_candidate_sha": "3cb281120b99e754a562d56141ea4bf9d6230f1b",
+  "label": "wp0017-cpu-corrected-cd277b5",
+  "source_candidate_sha": "cd277b50647e6da2903162843f2c0073ca92a5ee",
   "cuda_visible_devices": "-1",
   "torch_cuda_is_available": false,
   "cuda_tripwire_hits": 0,
@@ -9,7 +9,9 @@
     "import_torch_absent": true,
     "redirected_utf8_under_isolated_flag": true,
     "emitted_a1_plan_sha256": "8903a15ddf9d8a951540c663958e4745a74415d35f259fe489c57cf4235ef4f1",
-    "emitted_a1_config_count": 16
+    "emitted_a1_config_count": 16,
+    "two_suborder_plans_emitted": true,
+    "peer_fixes_regression_passed": true
   },
   "phase2_tokenizer_and_a1_locators": {
     "a1_manifest_sha256": "e7f47d141972d0e32c53d16e090fcddc237c453ecfc2eaf5d494c6d3426bc8ef",
@@ -33,6 +35,8 @@
     "a1_single_restoration_selected": "remove_S1c",
     "a1_pair_restoration_selected": "remove_S1b_S1c",
     "a1_tampered_endpoint_blocked": true,
+    "four_endpoints_eight_windows_and_external_gate_verified": true,
+    "two_suborder_launch_and_cli_combine_verified": true,
     "a1_e2e_60page_segment_and_dual_prefix_probe_verified": true,
     "a2_a3_trial_document_schema_verified": true,
     "locked_carbon_surgical_refused": true,
