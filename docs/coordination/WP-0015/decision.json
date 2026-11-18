@@ -1,0 +1,371 @@
+{
+  "packet": "WP-0015",
+  "date_utc": "2026-11-18T05:26:47.450597+00:00",
+  "status": "closed after independent replay",
+  "base": "178ce88b80384fc7def703d9e78769427d9b2528",
+  "evidence_parent": "e93a93b550474078934c1e373775fa50ab238caf",
+  "decision": "Retain native as the reviewable extraction reference. Neither challenger qualifies this customer demonstration.",
+  "original_sources_sha256": {
+    "Baidu OCR Optimization.pdf": "6c7f5199fb971eff0953f24c6a00b1af8f7c44c407df9c08c4363938c2d6567b",
+    "eLedgerCare-OCR-Architecture-Review.md": "a6442154f4c65fa0994b7d9b9229cc4d5e1169336dff39f5e17da44f18533099",
+    "eLedgerCare-Next-Lane-OCR-Speed-Trial.md": "5b46d5317c0e8579ea5015d357a38ea4f73cae622f235a92dd3173a4e27c83eb"
+  },
+  "sources": {
+    "windows_and_native": "82206bc4b77654010ac02364adaaf589d1f36780",
+    "utf8_recovery_with_receipt": "a0e738bc03e515999659dda09c5ee76d08fb37df",
+    "carbon": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+    "corpus_and_scorer": "7598bf4155452c4a1294b7421595009d39ea1bc9",
+    "supplemental_title_rule": "0186467670074761a777602d77b53deff3451300",
+    "reviewer_scored_windows_and_native": "ce4206f20d63101f6344121eaaeeeb86d2ec85a0"
+  },
+  "runtime": {
+    "gpu": "NVIDIA RTX 5070 Ti",
+    "driver": "621.01",
+    "total_mib": 16303,
+    "native": {
+      "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+      "target_dtype": "torch.bfloat16",
+      "manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+      "tokenizer_sha256": "c55c165e32c5a67830362a53e1f548c8930dcc8469efa30ff3252a982799c589",
+      "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+      "renderer": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+      "dependencies": {
+        "verified_distribution_count": 32,
+        "forbidden_absent": [
+          "flash_attn",
+          "xformers",
+          "triton"
+        ],
+        "provenance_exceptions": [
+          "torchvision-local-sha256-TOFU"
+        ]
+      }
+    },
+    "windows": {
+      "engine": "Windows.Media.Ocr.OcrEngine",
+      "engine_version": "10.0.26100.9278",
+      "language": "en-US",
+      "asset_sha256": {
+        "System32/Windows.Media.Ocr.dll": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+        "OCR/en-us/MsOcrRes.orp": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908"
+      },
+      "max_dimension": 10000
+    },
+    "native_decode": {
+      "crop_mode": false,
+      "save_results": false,
+      "output_path": "",
+      "temperature": 0.0,
+      "max_length": 131072,
+      "max_page_tokens": 20000,
+      "page_count_guard": true,
+      "image_size": 640,
+      "base_size": 1024,
+      "max_crops": 16,
+      "no_repeat_ngram_size": 35,
+      "ngram_whitelist_token_ids": null,
+      "dash_topm": 16,
+      "tps_interval": 0,
+      "test_compress": false,
+      "eval_mode": false,
+      "max_new_tokens": 24000,
+      "ngram_window": 1024
+    },
+    "native_observed_kernel": "triton_import_failed_dense_fallback"
+  },
+  "comparison": {
+    "heldout_reviewer_numeric_evidence": {
+      "windows_and_native": "ce4206f20d63101f6344121eaaeeeb86d2ec85a0",
+      "carbon_vs_native": "db4a6df932a74535c9d677c2db561594b4368624"
+    },
+    "H": {
+      "pages": 4,
+      "windows_seconds": [
+        1.023,
+        1.053
+      ],
+      "paired_native_for_windows_seconds": [
+        51.916,
+        55.262
+      ],
+      "carbon_seconds": [
+        44.5662199,
+        45.3932333
+      ],
+      "paired_native_for_carbon_seconds": [
+        51.2136572,
+        50.981833
+      ],
+      "carbon_native_spread_seconds": 0.2318242,
+      "reference_characters": 570,
+      "frozen_edits_native_carbon_windows": [
+        178,
+        178,
+        15
+      ],
+      "title_adjusted_edits_native_carbon_windows": [
+        2,
+        2,
+        15
+      ],
+      "correct_of_20_cells_native_carbon_windows": [
+        18,
+        18,
+        15
+      ],
+      "unflagged_errors_of_19_native_carbon_windows": [
+        2,
+        2,
+        8
+      ],
+      "carbon_token_parity": false,
+      "carbon_quality": "Inside both relative budgets, zero changed critical errors, coordinate token differences. Both paired savings exceeded the observed control spread.",
+      "fastest_complete": "Windows",
+      "fastest_inside_relative_quality_budget": "Carbon compound, 5.39 pages/min best, approximate"
+    },
+    "A": {
+      "pages": 60,
+      "first_windows_seconds": 15.9099306,
+      "first_native_pages_before_failure": 36,
+      "first_native_failure": "Diagnostic stdout encoding on pages 37-39; 36 durable pages, no complete rate. Prefix raw/stops identical on recovery.",
+      "recovery_native_seconds": 1061.1868395,
+      "recovery_windows_seconds": 15.6546455,
+      "reference_characters": 8821,
+      "edits_frozen_native_title_adjusted_native_windows": [
+        2492,
+        1303,
+        257
+      ],
+      "correct_reference_cells_of_300_native_windows": [
+        288,
+        235
+      ],
+      "extra_cells_native_windows": [
+        37,
+        0
+      ],
+      "frozen_cell_accuracy_native_windows": [
+        0.8545994065281899,
+        0.7833333333333333
+      ],
+      "unflagged_critical_of_252_frozen_native_title_adjusted_native_windows": [
+        38,
+        37,
+        94
+      ],
+      "critical_transitions_windows_vs_frozen_native": {
+        "new": 59,
+        "changed_existing": 28,
+        "identical_error": 7,
+        "repaired": 3
+      },
+      "critical_transitions_windows_vs_adjusted_native": {
+        "new": 60,
+        "changed_existing": 27,
+        "identical_error": 7,
+        "repaired": 3
+      },
+      "same_windows_prediction_twice": true,
+      "fastest_complete": "Windows",
+      "fastest_inside_relative_quality_budget": "Native, 3.39 pages/min",
+      "last_page": "On p60 r2c2 native read 0I8O1-139 correctly; Windows read 01801-139 in the correct source rectangle. Both misread line 2.",
+      "remaining_native_fidelity": "26 pages still have malformed output markup. Native added tables on pp41 and 56 plus a surplus cell on p60.",
+      "carbon_60_pages": "Unrun. Missed the predeclared 5x dense screen in both orders, lost exactness, and the independently replicated 5.39 pages/min on H remains far below the 30 pages/min floor."
+    },
+    "carbon_dense_public": {
+      "native_seconds": [
+        36.5719891,
+        40.3937053
+      ],
+      "compound_seconds": [
+        31.8116193,
+        38.1219171
+      ],
+      "native_control_spread_seconds": 3.8217162,
+      "target_speedup": 5,
+      "token_exact": false,
+      "both_official_and_title_corrected_edits_out_of_496": [
+        48,
+        5
+      ],
+      "both_correct_cells_out_of_42": 39,
+      "both_unflagged_critical_errors_out_of_24": 4
+    },
+    "recommendation": "Retain native as the reviewable reference. Carbon is a modest, independently replicated approximate speed gain on short mixed H. Windows warrants a bounded assisted-preview/routing hypothesis if verification and escalation are measured. Neither qualifies the 60-page customer feature."
+  },
+  "reports": {
+    "1": {
+      "path": "docs/agent-reports/eld-rd-astra/WP-0015/001_2026-11-18_research_eld-rd-astra.md",
+      "publication": "0f65eb6e580a91ac5276440e4d052ebb596d26ca"
+    },
+    "2": {
+      "path": "docs/agent-reports/eld-rd-carbon/WP-0015/002_2026-11-18_research_eld-rd-carbon.md",
+      "publication": "28336734741c1ed33f1e6fd7b19dd6268a04fe93"
+    },
+    "3": {
+      "path": "docs/agent-reports/eld-eval-custodian/WP-0015/003_2026-11-18_verification_eld-eval-custodian.md",
+      "publication": "3db4b71fd6ef5f947eadd4d64b63108d8b1650e2"
+    },
+    "4": {
+      "path": "docs/agent-reports/eld-rd-astra/WP-0015/004_2026-11-18_research_eld-rd-astra.md",
+      "publication": "9a8ac1e68849a8871c6e7ca5a61c3c2cf3b7d731"
+    },
+    "5": {
+      "path": "docs/agent-reports/eld-rd-carbon/WP-0015/005_2026-11-18_research_eld-rd-carbon.md",
+      "publication": "9f0f9e9f79f01264b9828e838055d521f1269235"
+    },
+    "6": {
+      "path": "docs/agent-reports/eld-rd-reviewer/WP-0015/006_2026-11-18_review_eld-rd-reviewer.md",
+      "publication": "565d67400c07d5ece61257a9633a67e9bd779e87"
+    }
+  },
+  "leases": [
+    {
+      "lease": "a-recovery-ab",
+      "owner": "review",
+      "source": "a0e738bc03e515999659dda09c5ee76d08fb37df",
+      "plan_sha256": "fe93305ca79a00c830169baddab2e787528d4bb4fbf60e284fbc0161949487a0",
+      "reserved_seconds": 2450,
+      "exit": 0,
+      "occupied_seconds": 1126.825459500018,
+      "free_mib_on_return": 14060
+    },
+    {
+      "lease": "a-scale-ba",
+      "owner": "review",
+      "source": "82206bc4b77654010ac02364adaaf589d1f36780",
+      "plan_sha256": "ff47e6cf5ef9d3dd830274d6a0a55fca23d86b432e9996e670a9a3ffbb9dda38",
+      "reserved_seconds": 3300,
+      "exit": 1,
+      "occupied_seconds": 710.3580609999481,
+      "free_mib_on_return": 14086
+    },
+    {
+      "lease": "carbon-dense-ab",
+      "owner": "carbon",
+      "source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+      "plan_sha256": "4714a5056d49d71a78fa7e2b00ed9014002cef223ced89926188dd487ac87b07",
+      "reserved_seconds": 800,
+      "exit": 0,
+      "occupied_seconds": 162.12013709999155,
+      "free_mib_on_return": 14060
+    },
+    {
+      "lease": "carbon-dense-ba",
+      "owner": "carbon",
+      "source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+      "plan_sha256": "4085f06e69ebbf06df782ab2db9d87473a7cc84ba84da0d606711d2ee3b72ffa",
+      "reserved_seconds": 800,
+      "exit": 0,
+      "occupied_seconds": 174.936812800006,
+      "free_mib_on_return": 14198
+    },
+    {
+      "lease": "carbon-moe-01",
+      "owner": "carbon",
+      "source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+      "plan_sha256": "54ef3ccfcf9a7b28172dbac3f5c3502d6b6b995f5467b006b2a556ff33ca39e9",
+      "reserved_seconds": 1200,
+      "exit": 0,
+      "occupied_seconds": 178.900830700004,
+      "free_mib_on_return": 13896
+    },
+    {
+      "lease": "dev-ab-01",
+      "owner": "astra",
+      "source": "82206bc4b77654010ac02364adaaf589d1f36780",
+      "plan_sha256": "12d687649355dcbfac2767c3a6752fc4860123967fc41d0fbfd19ec49f9fa573",
+      "reserved_seconds": 1200,
+      "exit": 0,
+      "occupied_seconds": 143.4373569000163,
+      "free_mib_on_return": 14255
+    },
+    {
+      "lease": "dev-ba-01",
+      "owner": "astra",
+      "source": "82206bc4b77654010ac02364adaaf589d1f36780",
+      "plan_sha256": "c942c1bb8d8c2eb1c84867c869c66f8aaf1147c404f3f2253cc8e46ee44480f3",
+      "reserved_seconds": 480,
+      "exit": 0,
+      "occupied_seconds": 140.77125549997436,
+      "free_mib_on_return": 14243
+    },
+    {
+      "lease": "h-carbon-ab",
+      "owner": "review",
+      "source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+      "plan_sha256": "5a627aee0e3e261ed0d3aded73651fd4506b449f5062937571ce2612dd16a764",
+      "reserved_seconds": 600,
+      "exit": 0,
+      "occupied_seconds": 189.13543429999845,
+      "free_mib_on_return": 14198
+    },
+    {
+      "lease": "h-carbon-ba",
+      "owner": "review",
+      "source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+      "plan_sha256": "50244b39476689884ad978d7b797b7e2ae3f7c23339ee29d9be27c7dca686862",
+      "reserved_seconds": 600,
+      "exit": 0,
+      "occupied_seconds": 190.1871124000172,
+      "free_mib_on_return": 14198
+    },
+    {
+      "lease": "h-r1-ab",
+      "owner": "review",
+      "source": "82206bc4b77654010ac02364adaaf589d1f36780",
+      "plan_sha256": "298e01393c4bb56b7c54f00f7aa88493463159eec5a4e8e4a4bb8d58a4fb0947",
+      "reserved_seconds": 600,
+      "exit": 0,
+      "occupied_seconds": 101.5495954999933,
+      "free_mib_on_return": 14284
+    },
+    {
+      "lease": "h-r2-ba",
+      "owner": "review",
+      "source": "82206bc4b77654010ac02364adaaf589d1f36780",
+      "plan_sha256": "807e0d104f43eeec565a41bef2506d9c061363592aa3c4bdbd21047cff73479b",
+      "reserved_seconds": 600,
+      "exit": 0,
+      "occupied_seconds": 103.90519969997695,
+      "free_mib_on_return": 14284
+    },
+    {
+      "lease": "native-initial-01",
+      "owner": "astra",
+      "source": "6f14c8733da33fa144f3924f9929c9c748b21586",
+      "plan_sha256": "c9101258a115bb4102e22245ffe3587a27d10c15ec90e059184fd0a3d0f3e663",
+      "reserved_seconds": 1200,
+      "exit": 1,
+      "occupied_seconds": 0,
+      "free_mib_on_return": 14233
+    },
+    {
+      "lease": "native-initial-02",
+      "owner": "astra",
+      "source": "82206bc4b77654010ac02364adaaf589d1f36780",
+      "plan_sha256": "c9101258a115bb4102e22245ffe3587a27d10c15ec90e059184fd0a3d0f3e663",
+      "reserved_seconds": 1200,
+      "exit": 0,
+      "occupied_seconds": 137.08985140000004,
+      "free_mib_on_return": 14232
+    }
+  ],
+  "gpu_budget_seconds": {
+    "authorized_total": 14400,
+    "protected_for_review": 3600,
+    "author_occupied": 937.2562443999923,
+    "review_occupied": 2421.960862399952,
+    "total_occupied": 3359.2171067999443,
+    "outstanding_leases": 0,
+    "method": "Actual supervised process elapsed per lease. Initial admission failed before model use."
+  },
+  "source_and_scope": {
+    "family_B": "sealed and unexecuted",
+    "shipping_product_diff": [],
+    "clock": "Accepted by ready research harness to fsynced ordered prediction publication; no database or index milestone.",
+    "production_limits": "50 pages/10 MiB intake; 3 extraction pages",
+    "unattended_qualification": false
+  },
+  "next_owner": "Product coordinator can separately release the measured resident-worker path. For R&D, Astra and a separate reviewer can freeze/test a source-linked unreviewed preview with measured fallback and critical error detection. B remains reserved until a protocol and candidate are frozen."
+}
