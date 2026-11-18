@@ -1,0 +1,333 @@
+{
+  "schema": "eledgercare.wp0015.carbon-moe-01-analysis/1",
+  "run_id": "carbon-moe-01",
+  "frozen_candidate_source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+  "plan_sha256": "54ef3ccfcf9a7b28172dbac3f5c3502d6b6b995f5467b006b2a556ff33ca39e9",
+  "challenger_mode": "carbon_moe",
+  "challenger_combination_label": [
+    "packed_bf16_moe",
+    "no_text_streamer"
+  ],
+  "process_and_telemetry": {
+    "supervisor_elapsed_s": 178.900830700004,
+    "all_segments_completed": true,
+    "gpu_uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+    "driver": "621.01",
+    "initial_free_mib": 14095,
+    "segment_1_native_profile": {
+      "child_pid": 6928,
+      "returncode": 0,
+      "segment_elapsed_s": 94.74399839999387,
+      "cold_load_elapsed_s": 22.4321643,
+      "model_load_ms": 11402,
+      "peak_cuda_allocated_bytes": 7293326848,
+      "peak_cuda_reserved_bytes": 7480541184,
+      "sampled_gpu_util_percent_min_max": [
+        1,
+        15
+      ],
+      "sampled_temp_c_min_max": [
+        44.05,
+        50.64
+      ]
+    },
+    "segment_2_carbon_moe": {
+      "child_pid": 22264,
+      "returncode": 0,
+      "segment_elapsed_s": 83.82030930003384,
+      "cold_load_elapsed_s": 22.088868,
+      "base_load_ms": 11405,
+      "pack_patch_ms": 555,
+      "total_load_ms": 11960,
+      "weight_allocated_bytes_after_pack": 6702833664,
+      "peak_cuda_allocated_bytes": 7210620416,
+      "peak_cuda_reserved_bytes": 7451181056,
+      "peak_allocated_delta_bytes_vs_native_profile": -82706432,
+      "prefill_grouped_mm_layer_calls_cumulative": 22,
+      "prefill_moe_fallback_layer_calls_cumulative": 0,
+      "sampled_gpu_util_percent_min_max": [
+        1,
+        18
+      ],
+      "sampled_temp_c_min_max": [
+        47.07,
+        53.1
+      ]
+    }
+  },
+  "profiler_token_id_verification": {
+    "warm_a_pdf_exact_match_vs_wp0014_resident_1a": true,
+    "warm_a_pdf_token_count": 57,
+    "wp0014_resident_3a_documented_drift_note": "WP-0014 resident/3-A and 5-A drifted by +1 box unit at token #7 (6650 '103' -> 7163 '104'); warm native_profile matched cold 1-A (6650 '103') while warm carbon_moe matched 3-A/5-A (7163 '104').",
+    "warm_carbon_moe_matches_wp0014_resident_3a": true,
+    "ordinary_dev_dense_artifact_in_worktree": false,
+    "ordinary_dev_dense_verification_status": "ProfiledNative wraps unmodified self_attn/MLP/lm_head/guard functions without altering tensor values; direct dev/dense token-ID comparison against ordinary uninstrumented Native will be completed when public ab-dev/ba-dev receipts are delivered."
+  },
+  "timings_and_causal_decomposition": {
+    "warm_1p": {
+      "native_profile_elapsed_s": 26.0020558,
+      "native_profile_prefill_s": 18.734910249710083,
+      "native_profile_post_first_ms": 7073.3975,
+      "carbon_moe_elapsed_s": 24.4055617,
+      "carbon_moe_prefill_s": 18.508004,
+      "decode_tokens": 57,
+      "note": "Warm prefill (~18.5-18.7s) includes one-time CUDA cublas/cudnn/JIT kernel initialization in each fresh child process."
+    },
+    "dense_1p": {
+      "native_profile_elapsed_s": 44.7369747,
+      "native_profile_first_page_s": 44.7329524,
+      "ordinary_native_dev_reference_approx_s": 41.0,
+      "carbon_moe_elapsed_s": 35.8320003,
+      "carbon_moe_first_page_s": 35.8280764,
+      "raw_speedup_vs_native_profile": 1.248520158669456,
+      "approx_speedup_vs_ordinary_native": 1.1442286128804258,
+      "estimated_profiler_instrumentation_overhead_s": 3.737,
+      "estimated_causal_wall_savings_vs_ordinary_native_s": 5.168,
+      "prefill_time_s": {
+        "native_profile": 0.3953578472137451,
+        "carbon_moe": 0.3095962,
+        "prefill_savings_ms": 85.762
+      },
+      "decode_363_steps": {
+        "native_profile_post_first_ms": 44136.3182,
+        "native_profile_ms_per_step": 121.58765344352618,
+        "carbon_moe_post_first_ms": 35325.1363,
+        "carbon_moe_ms_per_step": 97.3144,
+        "raw_step_reduction_ms": 24.2732
+      },
+      "profiled_stage_breakdown_per_step_ms": {
+        "cuda_event_mean_ms_per_step": {
+          "attn_router": 85.04940907470882,
+          "mlp0_dense": 0.2758158752694726,
+          "moe_gate_and_sort": 6.168607371801045,
+          "moe_experts_and_shared": 19.752606119960546,
+          "lm_head": 0.8419063750188798
+        },
+        "host_span_mean_ms_per_step": {
+          "attn_router": 83.93570385674931,
+          "mlp0": 0.22706308539944906,
+          "moe_gate_sort_launch": 5.694198622589531,
+          "moe_cpu_numpy_call": 1.1259876033057852,
+          "moe_python_expert_loop": 14.341664187327822,
+          "moe_shared_and_combine": 5.528067493112948,
+          "lm_head_launch": 0.058951239669421486,
+          "ngram_guard_post_lmhead": 0.062201652892561986,
+          "page_guard_post_lmhead": 0.0029702479338842977,
+          "streamer_put_post_sync": 0.14406831955922864
+        },
+        "attn_router_share_of_step_wall": 0.6903308146804144,
+        "moe_plus_streamer_share_of_step_wall": 0.22069663708378823,
+        "moe_cuda_event_ms_per_step": 25.92121349176159,
+        "compound_targeted_share_of_step_wall": 0.9115634593190874
+      },
+      "causal_span_classification": {
+        "non_causal_profiler_artifact": "~3.74s (~10.3 ms/step) on dense from 124 cudaEventRecord calls + 98 Python wrapper/clock hooks per decode step in ProfiledNative.",
+        "causal_pure_host_post_sync_stall": "streamer_put_post_sync = 0.144 ms/step (52.30 ms total across 363 steps) strictly after int(torch.argmax(logits)) flushes the CUDA stream.",
+        "causal_moe_dispatch_and_sync_savings": "packed_bf16_moe reduced uninstrumented decode time by ~5.1s (~14.0 ms/step) plus 85.8 ms prefill via torch._grouped_mm. Within MoE (26.69 ms/step profiled host, 25.92 ms/step GPU events), moe_cpu_numpy_call was only 1.126 ms/step (0.102 ms/layer) while moe_python_expert_loop was 14.342 ms/step (198 separate GEMV launches/token collapsed into 22 batched bmm launches/token).",
+        "dominant_untouched_bottleneck_in_carbon_moe": "attn_router (_dash_decode_forward) consumes 83.936 ms/step host and 85.049 ms/step CUDA event time (~70% of profiled step wall, ~75% of ordinary native). It contains zero .cpu() syncs, proving the primary bottleneck on Windows WDDM + Blackwell sm_120 is eager Python/ATen kernel-launch overhead across ~180-200 small ops/layer (~2,200 ops/token across 12 layers: 2D page RoPE, _RMSNorm, head_cls block summaries, 1.5-entmax top-M sort/cumsum, and _decode_attend), falsifying Turn 1's attribution of >97% of step latency primarily to tokens_per_expert.cpu().numpy()."
+      }
+    }
+  },
+  "fidelity_and_quality_summary": {
+    "warm_1p": {
+      "token_count_both": 57,
+      "token_classes_both": {
+        "page": 1,
+        "block_geometry": 15,
+        "table_syntax": 0,
+        "content": 41
+      },
+      "differing_token_count": 1,
+      "differing_tokens": [
+        {
+          "token_index": 7,
+          "baseline_token_id": 6650,
+          "challenger_token_id": 7163,
+          "baseline_piece": "103",
+          "challenger_piece": "104",
+          "baseline_context": "[73, 103, 770,",
+          "challenger_context": "[73, 104, 770,"
+        }
+      ],
+      "equal_after_stripping_all_block_coords": true
+    },
+    "dense_1p": {
+      "exact_bf16_qualified": false,
+      "lost_exactness": true,
+      "finish_reason_both": "stop",
+      "expected_and_observed_pages_both": [
+        1,
+        1
+      ],
+      "token_count_both": 363,
+      "token_classes_both": {
+        "page": 1,
+        "block_geometry": 108,
+        "table_syntax": 98,
+        "content": 156
+      },
+      "differing_token_count": 6,
+      "differing_tokens": [
+        {
+          "token_index": 7,
+          "baseline_token_id": 3351,
+          "challenger_token_id": 3318,
+          "baseline_piece": "57",
+          "challenger_piece": "59",
+          "baseline_context": "<LEVEL1>[57, 61,",
+          "challenger_context": "<LEVEL1>[59, 61,"
+        },
+        {
+          "token_index": 27,
+          "baseline_token_id": 1683,
+          "challenger_token_id": 4858,
+          "baseline_piece": "60",
+          "challenger_piece": "62",
+          "baseline_context": "\n<BLOCK>text[60, 124,",
+          "challenger_context": "\n<BLOCK>text[62, 124,"
+        },
+        {
+          "token_index": 47,
+          "baseline_token_id": 1683,
+          "challenger_token_id": 4739,
+          "baseline_piece": "60",
+          "challenger_piece": "61",
+          "baseline_context": "\n<BLOCK>text[60, 170,",
+          "challenger_context": "\n<BLOCK>text[61, 170,"
+        },
+        {
+          "token_index": 53,
+          "baseline_token_id": 23559,
+          "challenger_token_id": 20088,
+          "baseline_piece": "426",
+          "challenger_piece": "425",
+          "baseline_context": " 170, 426, 191]",
+          "challenger_context": " 170, 425, 191]"
+        },
+        {
+          "token_index": 72,
+          "baseline_token_id": 1683,
+          "challenger_token_id": 4739,
+          "baseline_piece": "60",
+          "challenger_piece": "61",
+          "baseline_context": "\n<BLOCK>text[60, 223,",
+          "challenger_context": "\n<BLOCK>text[61, 223,"
+        },
+        {
+          "token_index": 321,
+          "baseline_token_id": 30558,
+          "challenger_token_id": 27521,
+          "baseline_piece": "858",
+          "challenger_piece": "857",
+          "baseline_context": " 614, 858, 638]",
+          "challenger_context": " 614, 857, 638]"
+        }
+      ],
+      "all_differences_are_1_to_2_unit_bbox_x_coords": true,
+      "equal_after_stripping_all_block_coords_including_level1": true,
+      "evaluate_py_box_re_note": "evaluate.py's diagnostic_coord_stripped_raw_equal was False only because BOX_RE did not match `<LEVEL1>` in `<BLOCK>title<LEVEL1>[57, 61, 618, 93]<FORK>`; all prose characters, all 42 table cells, all 156 content tokens, and all 98 table-syntax tokens are 100% identical.",
+      "common_scorer_counts_both_identical": {
+        "edits": 48,
+        "reference_chars": 496,
+        "cer": 0.0967741935483871,
+        "correct_cells": 39,
+        "reference_cells": 42,
+        "extra_cells": 0,
+        "cell_accuracy": 0.9285714285714286,
+        "correct_lines": 4,
+        "reference_lines": 6,
+        "critical_values": 24,
+        "critical_errors": 4,
+        "unflagged_critical_errors": 4,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "common_scorer_comparison": {
+        "family": "dense",
+        "source_sha256": "a2fd2c3d5d3c4800fd8e47d2326ebcc4a98c95e395b6b2212358131a2e159d64",
+        "delta": {
+          "cer": 0.0,
+          "cell_accuracy": 0.0
+        },
+        "new_wrong_source_links": [],
+        "complete_matched_pair": true,
+        "inside_quality_budget": true,
+        "new_or_changed_critical_errors": [],
+        "unattended_quality_gate": false
+      },
+      "shared_cell_errors_3_of_42": [
+        {
+          "at": "page/1/table/1/row/3/col/1",
+          "expected": "10-7O1",
+          "observed": "I0-701"
+        },
+        {
+          "at": "page/1/table/1/row/7/col/1",
+          "expected": "PX-I10",
+          "observed": "PX-110"
+        },
+        {
+          "at": "page/1/table/1/row/7/col/6",
+          "expected": "L1I",
+          "observed": "L11"
+        }
+      ],
+      "shared_line_misses_2_of_6": [
+        {
+          "at": "page/1/line/1",
+          "expected": "Workshop maintenance order",
+          "observed": null,
+          "native_profile_span_boxes": [],
+          "carbon_moe_span_boxes": []
+        },
+        {
+          "at": "page/1/line/2",
+          "expected": "Order WO-O1I8",
+          "observed": "Order WO-O118",
+          "native_profile_span_boxes": [
+            [
+              36.757,
+              98.306,
+              145.802,
+              114.955
+            ]
+          ],
+          "carbon_moe_span_boxes": [
+            [
+              37.982,
+              98.306,
+              145.802,
+              114.955
+            ]
+          ]
+        }
+      ],
+      "shared_unflagged_critical_errors_4_of_24": [
+        {
+          "at": "page/1/line/2",
+          "expected": "WO-O1I8",
+          "observed": "Order WO-O118",
+          "flagged": false
+        },
+        {
+          "at": "page/1/table/1/row/3/col/1",
+          "expected": "10-7O1",
+          "observed": "I0-701",
+          "flagged": false
+        },
+        {
+          "at": "page/1/table/1/row/7/col/1",
+          "expected": "PX-I10",
+          "observed": "PX-110",
+          "flagged": false
+        },
+        {
+          "at": "page/1/table/1/row/7/col/6",
+          "expected": "L1I",
+          "observed": "L11",
+          "flagged": false
+        }
+      ]
+    }
+  }
+}
