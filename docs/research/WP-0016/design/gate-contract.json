@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "scope": "WP-0016 design contract; G1/G2 runtime source and lease are bound separately after each prerequisite passes",
+  "control": "61bec47689dcdf272a525185013f2dce6335fa24",
+  "assignment": "9522d7d181958eb87636a94a5e8588388cf537fb",
+  "g0_receipt": "be8c7f1ea16b99662e614d6eb4a2e4c8923114fa",
+  "g0_ab": "b705772d04e1cab173096bd9fb779a57f71e68af1eaccc4f7dc107a0432fffbf",
+  "g0_ba": "7a48e28f6ef5f736d4fed0c89a28e07800ecf827a8ad646197fc3fa9aac924a9",
+  "custody": "7598bf4155452c4a1294b7421595009d39ea1bc9",
+  "pdf_sha256": {
+    "H": "e5270d9eca7bb902f692795949bfe718240bc0e3733d0a02508fef850497eca7",
+    "A": "671e8e18d6cf84db671ea0487be8b197e535753dabac6c1561e169654d113c5b"
+  },
+  "scorer_sha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+  "title_rule": "0186467670074761a777602d77b53deff3451300",
+  "packet_order": [
+    "H",
+    "A"
+  ],
+  "windows_per_arm": {
+    "H": 2,
+    "A": 20
+  },
+  "gpu_slots": 1,
+  "fresh_process_per_arm": true,
+  "orders": [
+    "control-then-treatment",
+    "treatment-then-control"
+  ],
+  "gate_evaluation_unit": "family x order x parser (raw structural, timing and memory thresholds additionally apply where specified)",
+  "gates": {
+    "G0": {
+      "control": "native",
+      "treatment": "carbon_bf16",
+      "cer_delta_max": 0.01,
+      "cell_delta_min": -0.02,
+      "new_unflagged_critical_max": 0,
+      "peak_mib_max": 10000,
+      "required_excluded_single_window_warmups_per_arm": 3
+    },
+    "G1": {
+      "prerequisite": "independently passed G0",
+      "control": "G0 carbon_bf16",
+      "treatment": "G0 carbon_bf16 plus grammar alone",
+      "malformed_headers_max": 0,
+      "cer_delta_max": 0,
+      "cell_delta_min": 0,
+      "new_unflagged_critical_max": 0,
+      "peak_mib_max": 10200,
+      "A_min_ready_speedup_vs_G0": 0.98
+    },
+    "G2": {
+      "prerequisite": "independently passed G1",
+      "control": "accepted G1",
+      "treatment": "B4 grouped prefill and captured masked burst plus unchanged G1",
+      "cer_delta_max": 0.001,
+      "cell_delta_min": -0.005,
+      "new_unflagged_critical_max": 0,
+      "text_and_critical_regressions_max": 0,
+      "benign_coordinate_rounding_max_units": 1,
+      "grammar_failures_max": 0,
+      "static_cache_reallocations_max": 0,
+      "prefill_grouped_fallbacks_max": 0,
+      "peak_mib_max": 14500,
+      "A_min_ready_speedup_vs_G0": 2.5,
+      "A_savings_strictly_greater_than_G0_repeat_spread": true
+    }
+  },
+  "windows_comparison": {
+    "matched_A_ready_seconds": 15.6546455,
+    "cost": "stored predictions only",
+    "report": [
+      "both correct",
+      "Windows only correct",
+      "neural only correct",
+      "neither correct",
+      "signed net critical recoveries per extra neural second",
+      "new or changed unflagged errors independently"
+    ]
+  }
+}
