@@ -165,6 +165,82 @@ class Check:
         return bool(ok)
 
 
+# ---- frozen scorer in its own OS process, and transition accounting ---------------------------------
+
+def check_pins(pins, names=("score.py",)):
+    for name in names:
+        got = sha_file(Path(pins) / name)
+        if got != BLOBS[name][2]:
+            raise SystemExit(f"pinned file {Path(pins) / name} has {got}, expected {BLOBS[name][2]}")
+
+
+def run_score(pins, truth, prediction, out, baseline=None, python=None):
+    """Frozen common scorer (SHA-256 1ceb36fe...) in its own OS process; output file must be new.
+    The truth path is passed to the scorer process; this process never parses it."""
+    import sys as _sys
+    check_pins(pins)
+    out = Path(out)
+    if out.exists():
+        raise SystemExit(f"score output exists: {out}")
+    cmd = [python or _sys.executable, "-I", "-B", str(Path(pins) / "score.py"), str(truth), str(prediction)]
+    if baseline is not None:
+        cmd += ["--baseline", str(baseline)]
+    cmd += ["--out", str(out)]
+    subprocess.run(cmd, check=True, cwd=str(pins), stdin=subprocess.DEVNULL)
+    return json.loads(out.read_bytes())
+
+
+def transitions(base, trial, kind="critical"):
+    """Per matched reference path, base -> trial (same rules as the WP-0016 escrow, README rule 2/3)."""
+    from collections import Counter
+    seq_b = [(c["at"], c) for p in base["pages"] for c in p[kind]]
+    seq_t = [c["at"] for p in trial["pages"] for c in p[kind]]
+    t = {c["at"]: c for p in trial["pages"] for c in p[kind]}
+    k, rows, new = Counter(), [], []
+    for at, x in seq_b:
+        y = t.get(at)
+        if y is None:
+            k["unmatched"] += 1
+            continue
+        fx, fy = bool(x.get("flagged")), bool(y.get("flagged"))
+        if x["correct"] and y["correct"]:
+            c = "stable_correct"
+        elif x["correct"]:
+            c = "abstain" if y["observed"] is None else "regress"
+        elif y["correct"]:
+            c = "repair"
+        else:
+            c = "persist_same" if (x["observed"], fx) == (y["observed"], fy) else "persist_changed"
+        k[c] += 1
+        nu = (not y["correct"]) and not fy and (x["correct"] or fx)
+        if nu:
+            new.append(at)
+        if c != "stable_correct":
+            rows.append(dict(at=at, kind=c, expected=x.get("expected"), base=x["observed"], trial=y["observed"],
+                             base_flagged=fx, trial_flagged=fy, new_unflagged=nu))
+    names = ("stable_correct", "regress", "abstain", "repair", "persist_same", "persist_changed")
+    return dict(paths=len(seq_b), matched_paths=[a for a, _ in seq_b] == seq_t and not k["unmatched"],
+                counts={n: k[n] for n in names},
+                four_way=dict(CC=k["stable_correct"], CW=k["regress"] + k["abstain"], WC=k["repair"],
+                              WW=k["persist_same"] + k["persist_changed"]),
+                net_recovery=k["repair"] - k["regress"] - k["abstain"],
+                new_unflagged=len(new), new_unflagged_paths=new), rows
+
+
+def all_flags_false(prediction):
+    """True iff every span and every table cell in a prediction carries flagged == False (locked behaviour)."""
+    for p in prediction["pages"]:
+        for s in p.get("spans", []):
+            if s.get("flagged") is not False:
+                return False
+        for t in p.get("tables", []):
+            for row in t.get("rows", []):
+                for c in row:
+                    if isinstance(c, dict) and c.get("flagged") is not False:
+                        return False
+    return True
+
+
 # ---- byte-level BPE decoding (stdlib re-implementation of the GPT-2 byte map) -------------------------
 
 def _bytes_to_unicode():
