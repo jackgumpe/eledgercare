@@ -1,0 +1,130 @@
+{
+ "kind": "WP-0016 escrow tooling CPU self-test receipt",
+ "reviewer": "eld-rd-reviewer",
+ "created_utc": "2026-11-18T18:38:26Z",
+ "head": "9a1fbb9258566765342a812380fb0e8be9afe16d",
+ "tools_clean_at_head": false,
+ "tools": {
+  "common.py": "2210936aeb9260a901696902c198b9d691bbda4ad94a24817e773daa11954ab6",
+  "escrow.py": "780638d8cfb49c407ca9fe81276dc1afeeacce9d1bc640d3d001e01b7d2b71a9",
+  "grammar.py": "4acca96595142fd71913f66029c6bca727acd5562229ceb1de336a9b10f6e12a",
+  "score_all.py": "7242ed70ad31dad869eb0ca582a4247f9ff0cd2842ffbef010b0c33402f261bd",
+  "selftest.py": "623078c32500f698d6ba4209652f9572826fe3870028b75775608896376940ec",
+  "title_adapt.py": "346010b48accc6c8493de9c4c4bc17147992add185b14105fc4ffe7b8030fc21",
+  "verify.py": "bd40bb5beb78a8902f23e862c5acb194f33a1004cc3c95de6be386d3757ef5b4"
+ },
+ "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+ "flags": "-I -B",
+ "scratch": "C:\\Users\\jackg\\.gemini\\antigravity-cli\\brain\\5ab6a228-4214-49e5-aa83-c00fe9315782\\scratch\\a3-derived-st2",
+ "pins": {
+  "score.py": {
+   "commit": "61bec47689dcdf272a525185013f2dce6335fa24",
+   "path": "docs/evaluation/WP-0015/score.py",
+   "sha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7"
+  },
+  "formats.py": {
+   "commit": "61bec47689dcdf272a525185013f2dce6335fa24",
+   "path": "docs/research/WP-0015/astra/formats.py",
+   "sha256": "b832a7ee452f807a01a4acaa4d63fed927241f73b75fc1a47c7ae830ce28c0a6"
+  },
+  "rescore.py": {
+   "commit": "0186467670074761a777602d77b53deff3451300",
+   "path": "docs/research/WP-0015/astra/sensitivity-title-level/rescore.py",
+   "sha256": "86b9606468d12afff952b0b24dc7fcd1de932aa9c18400c966a3789e1609b700"
+  },
+  "commitments.json": {
+   "commit": "7598bf4155452c4a1294b7421595009d39ea1bc9",
+   "path": "docs/evaluation/WP-0015/commitments.json",
+   "sha256": "5ee817bdd5b7b776c5098186b425b6039ab224abb0ae37a081917dc4148606db"
+  },
+  "g0-plans.json": {
+   "commit": "be8c7f1ea16b99662e614d6eb4a2e4c8923114fa",
+   "path": "docs/coordination/WP-0016/g0-plans.json",
+   "sha256": "53be595ad05302c43aadf76bc8e04af929532877aed2a9ee08c12f32923854fb"
+  },
+  "wp15-H-inventory.json": {
+   "commit": "565d67400c07d5ece61257a9633a67e9bd779e87",
+   "path": "docs/reviews/WP-0015/evidence/H-blind-inventory.json",
+   "sha256": "32274a7415077ee7d2fd998d6cd3bf1aba5746dcdfcc3cfd59e08e0d38b0cd6f"
+  },
+  "wp15-A-recovery-inventory.json": {
+   "commit": "565d67400c07d5ece61257a9633a67e9bd779e87",
+   "path": "docs/reviews/WP-0015/evidence/A-recovery-blind-inventory.json",
+   "sha256": "54c9a7cbc3aaf8bd6cbded192ae5bb2a7269fc4bcad48db46aa18047b4691d00"
+  },
+  "wp15-A-inventory.json": {
+   "commit": "565d67400c07d5ece61257a9633a67e9bd779e87",
+   "path": "docs/reviews/WP-0015/evidence/A-blind-inventory.json",
+   "sha256": "84eee0e2d8e7af90e84a55e6a29f6a5cb719fd7485b1c1dad36338814a3e6622"
+  },
+  "title_rule": {
+   "pattern": "(<BLOCK>title)<LEVEL(\\d+)>(?=\\s*\\[\\s*\\d+,\\s*\\d+,\\s*\\d+,\\s*\\d+\\s*\\]<FORK>)",
+   "template": "\\1",
+   "extracted_by": "ast"
+  }
+ },
+ "inputs": "synthetic fixtures and public development demos only; no H/A truth or prediction, no Packet B, no model, torch or device query",
+ "passed": 58,
+ "failed": 0,
+ "checks": [
+  "pins: frozen score.py ...f4bf7 materialised and verified",
+  "pins: title rule extracted by AST from committed rescore.py",
+  "grammar: all header classes and structure faults on a synthetic page",
+  "clean: stage 1 has no failures (777 checks)",
+  "clean: synthetic record is never reported as pinned",
+  "clean: runtime cache files hashed separately",
+  "clean: token parity identical everywhere",
+  "clean: carbon saving recorded",
+  "clean: H/A title<LEVELn> headers classified title_level (2)",
+  "clean: grammar agrees with pinned BLOCK and TITLE regexes",
+  "clean: stage 2 has no failures []",
+  "clean: all 8 gate comparisons pass",
+  "clean: synthetic binding cannot yield a G0 pass",
+  "clean: Windows->native repairs 2 criticals",
+  "clean: recovery per extra neural second",
+  "clean: title view removes the frozen header misparse (edits -> 0)",
+  "clean: title adapter receipt counts 1 H header",
+  "clean: 5-arm pattern CCCCW for 2 Windows misses",
+  "faults: H net-flat swap (1 regress, 1 repair)",
+  "faults: one new unflagged critical is a hard fail although inside budget and net flat",
+  "faults: four-way CC/CW/WC/WW",
+  "faults: A dropped critical counted as abstain and fails",
+  "faults: per-arm abstention count",
+  "faults: 10,500 MiB device sample fails the memory gate",
+  "faults: H token parity broken and located",
+  "malformed: header recorded with named reason on carbon only",
+  "malformed: located by source/page",
+  "malformed: G0 gate comparisons still pass (zero malformed is not a G0 criterion)",
+  "tamper after-inventory: caught (differs from blind inventory)",
+  "tamper tokens: caught (token reassembly)",
+  "tamper rgb: caught (rgb pin)",
+  "tamper projection: caught (not the frozen projection)",
+  "tamper stop: caught (finish_reason)",
+  "tamper source: caught (launched source)",
+  "public dev-ab-01/short: corrected prediction identical",
+  "public dev-ab-01/short: separate-process corrected score identical",
+  "public dev-ab-01/short: official score identical",
+  "public dev-ab-01/short: header counts [1] match rule, receipt and grammar",
+  "public dev-ab-01/dense: corrected prediction identical",
+  "public dev-ab-01/dense: separate-process corrected score identical",
+  "public dev-ab-01/dense: official score identical",
+  "public dev-ab-01/dense: header counts [1] match rule, receipt and grammar",
+  "public dev-ab-01/boundary: corrected prediction identical",
+  "public dev-ab-01/boundary: separate-process corrected score identical",
+  "public dev-ab-01/boundary: official score identical",
+  "public dev-ab-01/boundary: header counts [1, 1, 0, 1] match rule, receipt and grammar",
+  "public dev-ba-01/short: corrected prediction identical",
+  "public dev-ba-01/short: separate-process corrected score identical",
+  "public dev-ba-01/short: official score identical",
+  "public dev-ba-01/short: header counts [1] match rule, receipt and grammar",
+  "public dev-ba-01/dense: corrected prediction identical",
+  "public dev-ba-01/dense: separate-process corrected score identical",
+  "public dev-ba-01/dense: official score identical",
+  "public dev-ba-01/dense: header counts [1] match rule, receipt and grammar",
+  "public dev-ba-01/boundary: corrected prediction identical",
+  "public dev-ba-01/boundary: separate-process corrected score identical",
+  "public dev-ba-01/boundary: official score identical",
+  "public dev-ba-01/boundary: header counts [1, 1, 0, 1] match rule, receipt and grammar"
+ ],
+ "failures": []
+}

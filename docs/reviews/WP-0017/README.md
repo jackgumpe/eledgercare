@@ -43,3 +43,38 @@ Working notes for reservation 003. This is **not** the canonical report. Sequenc
 - No observation was changed. Only the expected-value translation of the prose claims changed.
 
 Prefix digests use SHA-256 of a compact JSON token-id list such as `[128827,128828,…]`.
+
+## Frozen CPU tooling (no WP-0017 output existed when it was frozen)
+
+The tools were committed at `9a1fbb9258566765342a812380fb0e8be9afe16d`. A later operator correction is at `64583bf1a561aadd24f345ac9a943d33737dd0d9`. The rules are in [decision_procedure.md](decision_procedure.md).
+
+| File | Stage | Purpose |
+| --- | --- | --- |
+| `escrow.py` | 0 (A1/A2/A3) | Content-agnostic blind inventory. Hashes every file, binds release/plan/operator digests, records process outcomes only, and provides `verify_unchanged`. |
+| `operate.py` | GPU stages | Digest-verified launch of exactly `<lease.py> <release> <digest>`. Low-frequency reviewer `watch`/`monitor`/`status`. Never retries, never kills. |
+| `prefix_audit.py` | A1 pre-run | The frozen audit described above. |
+| `a1_decide.py` | A1 | Binding to the audit, replay gate, readings, single/pair attribution, 037 cascade classification, margins, local speed and advisory candidate ranking. |
+| `a2_stoploss.py` | A2 | Reversed-order check for the three arms. Separate-process `score.py`. Per-order stop-loss: 0 new unflagged criticals, positive Carbon saving, retention ≥ 0.60, minimum saving greater than both spreads. |
+| `a3/derive.py` | A3 | Mechanical derivation of the WP-0016 G0 verifier/scorer at `1e75ebe`. Only enumerated literal substitutions are applied (carbon_bf16 → carbon_surgical, the A3 plan pin, the repo depth, kind strings). |
+| `a3_gate.py` | A3 | Combines stage-2 G0 with static-cache == 0, the external board peak ≤ 10,000 MiB, and an A saving that is positive and exceeds both spreads. |
+| `scorecard.py` | A3 (non-gate) | Net repairs, Windows recovery per second, malformed headers and the flags-false lock. Simulates margin flags only from a predeclared threshold file. |
+| `selftest.py` | CPU | 40 tests. A1 scenarios are built from the real WP-0016 window token sequences: single culprit, replay failure, pair request/resolution, interaction-only, site split, ranking and binding failures. Also covers A2/A3 rules, scorecard, inventory, guard and operator. |
+
+**CPU evidence:**
+
+| Evidence file | Interpreter / tool commit | Result |
+| --- | --- | --- |
+| `evidence/cpu-selftest-q0.json` | Q0 venv, tools at `9a1fbb9` | 40/40 |
+| `evidence/cpu-selftest-syspython.json` | System CPython, tools at `9a1fbb9` | 36/40. The 4 operator tests fail because breakaway is refused (WinError 5). |
+| `evidence/cpu-selftest-q0-r2.json` | Q0 venv, tools at `64583bf` | 40/40 |
+| `evidence/a3-trial-derivation.json` and `evidence/a3-trial-derived-selftest.json` | Derivation against the WP-0016 plan pin (identity binding), then the derived WP-0016 selftest | All synthetic and public-dev cases pass with `carbon_surgical` in place of carbon_bf16. The trial directory was deleted. A3 derivation will be rerun against the real A3 plan record. |
+| (reproduction, not committed) | Q0 venv, tools at `9a1fbb9` | Reran the prefix audit; content identical to the frozen evidence apart from `created_utc`. |
+
+### Operator boundary observed
+
+[operator-survival-probe.json](evidence/operator-survival-probe.json) documents what happened when a dummy 25-second executor and monitor were launched from a tool command that then finished. Both ended before writing their first file.
+
+- Under this Antigravity CLI, processes cannot break away from the outer job. The system CPython is refused outright. The venv redirector's flag acceptance is ineffective.
+- I made no attempt to escape the job by other means.
+- **Consequence:** a reviewer-operated GPU lease must run inside a CLI turn that stays alive until the lease returns (a background tool task plus timers), or root starts the executor in its own context and I only `watch`/`status`.
+- `operate.py` now fails closed when breakaway is refused.

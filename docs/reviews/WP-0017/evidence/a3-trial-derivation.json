@@ -1,0 +1,102 @@
+{
+ "base": "1e75ebe25814227ef6450913bce301ba9e2ef0f2",
+ "trial_mode": "carbon_surgical",
+ "plans": {
+  "commit": "be8c7f1ea16b99662e614d6eb4a2e4c8923114fa",
+  "path": "docs/coordination/WP-0016/g0-plans.json",
+  "sha256": "53be595ad05302c43aadf76bc8e04af929532877aed2a9ee08c12f32923854fb"
+ },
+ "files": {
+  "common.py": {
+   "source": "1e75ebe25814227ef6450913bce301ba9e2ef0f2:docs/reviews/WP-0016/common.py",
+   "source_sha256": "5f80a17a412264cd1360162dec609e03df96c7434588ef8fa17f80ef3d995fb4",
+   "derived_sha256": "2210936aeb9260a901696902c198b9d691bbda4ad94a24817e773daa11954ab6",
+   "substitutions": [
+    {
+     "old": "PINS['g0-plans.json']",
+     "new": [
+      "be8c7f1ea16b99662e614d6eb4a2e4c8923114fa",
+      "docs/coordination/WP-0016/g0-plans.json",
+      "53be595ad05302c43aadf76bc8e04af929532877aed2a9ee08c12f32923854fb"
+     ],
+     "count": 1
+    },
+    {
+     "old": "REPO = HERE.parents[2]",
+     "new": "REPO = HERE.parents[4]",
+     "count": 1
+    }
+   ]
+  },
+  "escrow.py": {
+   "source": "1e75ebe25814227ef6450913bce301ba9e2ef0f2:docs/reviews/WP-0016/escrow.py",
+   "source_sha256": "736a34ce179bd7fe3ed86995008105cf75d53bc642276b38f1a2bc84bf384b90",
+   "derived_sha256": "780638d8cfb49c407ca9fe81276dc1afeeacce9d1bc640d3d001e01b7d2b71a9",
+   "substitutions": [
+    {
+     "old": "kind=\"WP-0016",
+     "new": "kind=\"WP-0017 A3 (derived from WP-0016)",
+     "count": 1
+    }
+   ]
+  },
+  "verify.py": {
+   "source": "1e75ebe25814227ef6450913bce301ba9e2ef0f2:docs/reviews/WP-0016/verify.py",
+   "source_sha256": "e2a6a2494062ea730fae59f54b64dc8cef9187b5f23968dc776c6bc8ff95c012",
+   "derived_sha256": "bd40bb5beb78a8902f23e862c5acb194f33a1004cc3c95de6be386d3757ef5b4",
+   "substitutions": [
+    {
+     "old": "carbon_bf16",
+     "new": "carbon_surgical",
+     "count": 8
+    },
+    {
+     "old": "kind=\"WP-0016",
+     "new": "kind=\"WP-0017 A3 (derived from WP-0016)",
+     "count": 0
+    }
+   ]
+  },
+  "score_all.py": {
+   "source": "1e75ebe25814227ef6450913bce301ba9e2ef0f2:docs/reviews/WP-0016/score_all.py",
+   "source_sha256": "26d9109af59aaaf14b1f1db0ee5c99b0262d2cbb9d8c7d7bc3280409bc222516",
+   "derived_sha256": "7242ed70ad31dad869eb0ca582a4247f9ff0cd2842ffbef010b0c33402f261bd",
+   "substitutions": [
+    {
+     "old": "carbon_bf16",
+     "new": "carbon_surgical",
+     "count": 5
+    },
+    {
+     "old": "kind=\"WP-0016",
+     "new": "kind=\"WP-0017 A3 (derived from WP-0016)",
+     "count": 0
+    }
+   ]
+  },
+  "title_adapt.py": {
+   "source": "1e75ebe25814227ef6450913bce301ba9e2ef0f2:docs/reviews/WP-0016/title_adapt.py",
+   "source_sha256": "346010b48accc6c8493de9c4c4bc17147992add185b14105fc4ffe7b8030fc21",
+   "derived_sha256": "346010b48accc6c8493de9c4c4bc17147992add185b14105fc4ffe7b8030fc21",
+   "substitutions": []
+  },
+  "grammar.py": {
+   "source": "1e75ebe25814227ef6450913bce301ba9e2ef0f2:docs/reviews/WP-0016/grammar.py",
+   "source_sha256": "4acca96595142fd71913f66029c6bca727acd5562229ceb1de336a9b10f6e12a",
+   "derived_sha256": "4acca96595142fd71913f66029c6bca727acd5562229ceb1de336a9b10f6e12a",
+   "substitutions": []
+  },
+  "selftest.py": {
+   "source": "1e75ebe25814227ef6450913bce301ba9e2ef0f2:docs/reviews/WP-0016/selftest.py",
+   "source_sha256": "dc88fa3b9b43fafc6e38b22ece6bb8c39d7593a8e7957045a36fedc6a8003662",
+   "derived_sha256": "623078c32500f698d6ba4209652f9572826fe3870028b75775608896376940ec",
+   "substitutions": [
+    {
+     "old": "carbon_bf16",
+     "new": "carbon_surgical",
+     "count": 12
+    }
+   ]
+  }
+ }
+}

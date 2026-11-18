@@ -1,0 +1,58 @@
+{
+ "kind": "WP-0017 operator survival probe (CPU, dummy executor, no GPU)",
+ "created_utc": "2026-11-18T18:38:40Z",
+ "launch": {
+  "operator": "eld-rd-reviewer",
+  "launched_utc": "2026-11-18T18:36:13Z",
+  "pid": 16236,
+  "argv": [
+   "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+   "-I",
+   "-B",
+   "C:\\Users\\jackg\\.gemini\\antigravity-cli\\brain\\5ab6a228-4214-49e5-aa83-c00fe9315782\\scratch\\survival\\dummy.py",
+   "C:\\Users\\jackg\\.gemini\\antigravity-cli\\brain\\5ab6a228-4214-49e5-aa83-c00fe9315782\\scratch\\survival\\release.json",
+   "337f723aea218996fbdc0bcd0559bb0010f377507b36901e477709dc4822a0d3"
+  ],
+  "cwd": "C:\\Users\\jackg\\.gemini\\antigravity-cli\\brain\\5ab6a228-4214-49e5-aa83-c00fe9315782\\scratch\\survival\\op",
+  "release": "C:\\Users\\jackg\\.gemini\\antigravity-cli\\brain\\5ab6a228-4214-49e5-aa83-c00fe9315782\\scratch\\survival\\release.json",
+  "release_sha256": "337f723aea218996fbdc0bcd0559bb0010f377507b36901e477709dc4822a0d3",
+  "lease_py": "C:\\Users\\jackg\\.gemini\\antigravity-cli\\brain\\5ab6a228-4214-49e5-aa83-c00fe9315782\\scratch\\survival\\dummy.py",
+  "lease_py_sha256": "f631fac31ff5fe1a9db7b0cd4ab1ea997f7bd5925e75707deb5b47a4017e7206",
+  "leases_dir": "C:\\Users\\jackg\\.gemini\\antigravity-cli\\brain\\5ab6a228-4214-49e5-aa83-c00fe9315782\\scratch\\survival\\leases",
+  "interpreter": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "creationflags": "DETACHED|NEW_PROCESS_GROUP|BREAKAWAY_FROM_JOB"
+ },
+ "monitor": {
+  "operator": "eld-rd-reviewer",
+  "started_utc": "2026-11-18T18:36:13Z",
+  "pid": 30180,
+  "argv": [
+   "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+   "-I",
+   "-B",
+   "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\ablation-review\\docs\\reviews\\WP-0017\\operate.py",
+   "watch",
+   "--opdir",
+   "C:\\Users\\jackg\\.gemini\\antigravity-cli\\brain\\5ab6a228-4214-49e5-aa83-c00fe9315782\\scratch\\survival\\op",
+   "--interval",
+   "5.0",
+   "--limit",
+   "120.0"
+  ]
+ },
+ "dummy_sha256": "f631fac31ff5fe1a9db7b0cd4ab1ea997f7bd5925e75707deb5b47a4017e7206",
+ "dummy_behaviour": "writes leases/acquired.json immediately, sleeps 25 s, writes leases/returned.json",
+ "observed": {
+  "lease_dir_files_after_90s": [],
+  "monitor_jsonl_exists": false,
+  "op_files": {
+   "launch.json": 1381,
+   "lease.stderr.txt": 0,
+   "lease.stdout.txt": 0,
+   "monitor.json": 499,
+   "monitor.stderr.txt": 0,
+   "monitor.stdout.txt": 0
+  }
+ },
+ "conclusion": "both processes ended with the finished tool command before writing any file; breakaway from the CLI outer job is not effective. syspython: WinError 5 at CreateProcess."
+}
