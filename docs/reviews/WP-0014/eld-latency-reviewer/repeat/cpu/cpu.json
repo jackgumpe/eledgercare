@@ -1,0 +1,240 @@
+{
+  "generation_negative_controls": [
+    {
+      "case": "write held same-size artifact",
+      "outcome": "refused",
+      "error": "PermissionError",
+      "winerror": null
+    },
+    {
+      "case": "unlink held artifact",
+      "outcome": "refused",
+      "error": "PermissionError",
+      "winerror": 32
+    },
+    {
+      "case": "extra artifact during residency",
+      "outcome": "refused",
+      "error": "ValueError",
+      "winerror": null
+    },
+    {
+      "case": "changed contents before verification",
+      "outcome": "refused",
+      "error": "ValueError",
+      "winerror": null
+    },
+    {
+      "case": "missing artifact at startup",
+      "outcome": "refused",
+      "error": "FileNotFoundError",
+      "winerror": 2
+    }
+  ],
+  "fixtures": {
+    "A": {
+      "sha256": "25c14530845cad96329b528f860032c27a1259ed46de3ccb56f0e57730aa0858",
+      "bytes": 15374,
+      "text_layer_chars": 0,
+      "rasters": [
+        {
+          "page_number": 1,
+          "width_px": 2550,
+          "height_px": 3301,
+          "rgb_sha256": "a189916661ad64469762ea65a693b49c0d59ca2508df2742cc5d92b60f7dd18d"
+        }
+      ],
+      "expected_plain_text_tokens_without_structure": 41
+    },
+    "B": {
+      "sha256": "ef5d8f09658355dae46d54724a8cbeb89bc625362e41e8c4e154461d81a604c8",
+      "bytes": 14146,
+      "text_layer_chars": 0,
+      "rasters": [
+        {
+          "page_number": 1,
+          "width_px": 2550,
+          "height_px": 3301,
+          "rgb_sha256": "b86c7a74b94f04c3243129ce3140d7178cf3020c74dacd61f6262e75675975dd"
+        }
+      ],
+      "expected_plain_text_tokens_without_structure": 41
+    },
+    "S": {
+      "sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd",
+      "bytes": 372258,
+      "text_layer_chars": 0,
+      "rasters": [
+        {
+          "page_number": 1,
+          "width_px": 2550,
+          "height_px": 3301,
+          "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44"
+        }
+      ]
+    }
+  },
+  "renderer": "pypdfium2==5.15.2;pdfium=159.0.8149.0;dpi=300;rgb",
+  "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+  "worker_source": "c1c324c36e27f57c3c4ac4a1462984fbe586ad43ab82af3a2883bb7eac4c0d54",
+  "config": "579aad63a9893a58466baf005ea63f87e92540d4c1f71f6b3c399e8b1e6b35ff",
+  "dependency_lock": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+  "model_manifest": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+  "reference_S": {
+    "fixture": "S",
+    "sha256": "7503761ae46afef6adf579881d011764283474354fac3e185598fc7d266aff95",
+    "bytes": 3236,
+    "output_tokens": 1122,
+    "raster": [
+      {
+        "height_px": 3301,
+        "page_number": 1,
+        "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+        "width_px": 2550
+      }
+    ],
+    "timings": {
+      "completed_at_utc": "2026-11-17T16:53:14.783161+00:00",
+      "infer_duration_ms": 152114,
+      "load_duration_ms": 12889,
+      "render_duration_ms": 260,
+      "started_at_utc": "2026-11-17T16:50:04.447190+00:00",
+      "total_duration_ms": 190336
+    },
+    "printed_fields_present": {
+      "work_order_id": true,
+      "property_name": true,
+      "building_unit": true,
+      "requested_date": true,
+      "trade_category": true,
+      "assigned_tech": true,
+      "resident_contact": true,
+      "priority_urgent": true,
+      "permission_to_enter": true,
+      "pets_on_premises": true,
+      "utility_shutoff_req": true,
+      "reported_issue_and_resolution": true,
+      "completion_status": true,
+      "completed_timestamp": true,
+      "supervisor_signoff": true
+    },
+    "table_cells": {
+      "labor_log/T01/log_id": {
+        "expected": "LB-01",
+        "observed": "LB-01",
+        "exact": true
+      },
+      "labor_log/T01/tech_id": {
+        "expected": "TECH-0087",
+        "observed": "TECH-0087",
+        "exact": true
+      },
+      "labor_log/T01/work_date": {
+        "expected": "2026-10-16",
+        "observed": "2026-10-16",
+        "exact": true
+      },
+      "labor_log/T01/time_in": {
+        "expected": "09:15",
+        "observed": "09:15",
+        "exact": true
+      },
+      "labor_log/T01/time_out": {
+        "expected": "10:45",
+        "observed": "10:45",
+        "exact": true
+      },
+      "labor_log/T01/hours": {
+        "expected": "1.50",
+        "observed": "1.50",
+        "exact": true
+      },
+      "labor_log/T01/activity": {
+        "expected": "HVAC-DIAG-RPR",
+        "observed": "HVAC-DIAG-RPR",
+        "exact": true
+      },
+      "stock_parts/P01/part_sku": {
+        "expected": "CAP-45-5MFD-440V",
+        "observed": "CAP-45-SMFD-440V",
+        "exact": false
+      },
+      "stock_parts/P01/part_desc": {
+        "expected": "Oval Dual Run Capacitor 45/5 uF 440VAC",
+        "observed": "Oval Dual Run Capacitor 45/5 uF 440VAC",
+        "exact": true
+      },
+      "stock_parts/P01/bin_loc": {
+        "expected": "VAN-03-B2",
+        "observed": "VAN-03-B2",
+        "exact": true
+      },
+      "stock_parts/P01/qty_used": {
+        "expected": "1.00",
+        "observed": "1.00",
+        "exact": true
+      },
+      "stock_parts/P02/part_sku": {
+        "expected": "CONT-24V-2P30A",
+        "observed": "CONT-24V-2P30A",
+        "exact": true
+      },
+      "stock_parts/P02/part_desc": {
+        "expected": "24V Coil Definite Purpose Contactor 2P 30A",
+        "observed": "24V Coil Definite Purpose Contactor 2P 30A",
+        "exact": true
+      },
+      "stock_parts/P02/bin_loc": {
+        "expected": "VAN-03-C4",
+        "observed": "VAN-03-C4",
+        "exact": true
+      },
+      "stock_parts/P02/qty_used": {
+        "expected": "1.00",
+        "observed": "1.00",
+        "exact": true
+      },
+      "stock_parts/P03/part_sku": {
+        "expected": "0018-TERM-QC",
+        "observed": "0018-TERM-QC",
+        "exact": true
+      },
+      "stock_parts/P03/part_desc": {
+        "expected": "High-Temp Flag Quick-Disconnect Terminal Pack",
+        "observed": "High-Temp Flag Quick-Disconnect Terminal Pack",
+        "exact": true
+      },
+      "stock_parts/P03/bin_loc": {
+        "expected": "VAN-03-A1",
+        "observed": "VAN-03-A1",
+        "exact": true
+      },
+      "stock_parts/P03/qty_used": {
+        "expected": "4.00",
+        "observed": "4.00",
+        "exact": true
+      }
+    },
+    "identical_to_accepted_raw": true
+  },
+  "production_call_kwargs": {
+    "crop_mode": false,
+    "save_results": false,
+    "output_path": "",
+    "temperature": 0.0,
+    "max_length": 131072,
+    "max_page_tokens": 20000,
+    "page_count_guard": true,
+    "image_size": 640,
+    "base_size": 1024,
+    "max_crops": 16,
+    "no_repeat_ngram_size": 35,
+    "ngram_whitelist_token_ids": null,
+    "dash_topm": 16,
+    "tps_interval": 0,
+    "test_compress": false,
+    "eval_mode": false,
+    "max_new_tokens": 8000,
+    "ngram_window": 128
+  }
+}
