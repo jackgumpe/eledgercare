@@ -62,7 +62,7 @@ def issue(name, stage, seconds, paths):
     if host["device"]["free_mib"]<12000 or shutil.disk_usage(guard.PACKET).free<10*1024**3:
         raise RuntimeError("resource admission unavailable")
     record=dict(name=name,gate=stage,operator="eld-rd-reviewer",issued_utc=guard.utc(),worktree=str(cwd),
-                review_worktree_head=heads.pop(),inference_base=ENGINE_BASE,gpu_uuid=guard.GPU,ceiling_mib=10000,
+                review_worktree_head=heads.pop(),inference_base=ENGINE_BASE,gpu_uuid=guard.GPU,ceiling_mib=10000 if stage=="A3" else 14500,
                 admission=host,source_files=files,coordination_files={f:guard.sha(guard.REPO/f) for f in GUARD_FILES},orders=orders)
     path=HERE/(name+"-release.json")
     guard.dump(path,record)
