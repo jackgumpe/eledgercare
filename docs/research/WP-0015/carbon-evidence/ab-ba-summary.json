@@ -1,0 +1,343 @@
+{
+  "schema": "eledgercare.wp0015.carbon-ab-ba-summary/1",
+  "frozen_candidate_source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+  "archived_receipt_totals": {
+    "run_count": 3,
+    "file_count": 126,
+    "total_bytes": 232882
+  },
+  "profiler_ordinary_native_identity_confirmation": {
+    "dev_dense_363_token_ids_equal_ab_ordinary_native": true,
+    "dev_dense_363_token_ids_equal_ba_ordinary_native": true,
+    "warm_a_pdf_57_token_ids_equal_ab_and_ba_ordinary_native": true,
+    "carbon_bf16_ab_equals_ba_363_dense_and_57_warm_tokens": true,
+    "measured_profiler_overhead_on_dev_dense_s": {
+      "native_profile_s": 44.7369747,
+      "ordinary_native_mean_s": 38.4828472,
+      "profiler_overhead_vs_mean_native_s": 6.254127499999996
+    }
+  },
+  "paired_crossover_comparison_dev_dense": {
+    "ab_native_s": 36.5719891,
+    "ab_carbon_bf16_s": 31.8116193,
+    "ab_saving_s": 4.760369800000003,
+    "ab_speedup": 1.1496424861339896,
+    "ba_native_s": 40.3937053,
+    "ba_carbon_bf16_s": 38.1219171,
+    "ba_saving_s": 2.271788200000003,
+    "ba_speedup": 1.0595927060551737,
+    "ordinary_native_paired_noise_s": 3.8217161999999973,
+    "carbon_bf16_paired_noise_s": 6.310297799999997,
+    "ba_saving_smaller_than_native_noise": true,
+    "mean_native_s": 38.4828472,
+    "mean_carbon_bf16_s": 34.9667682,
+    "mean_saving_s": 3.516079000000005,
+    "mean_speedup": 1.1005548748425658,
+    "falsifier_dense_5x_speedup_passed": false,
+    "exact_bf16_qualified": false,
+    "inside_changed_output_quality_budget": true,
+    "unattended_quality_gate_both": false
+  },
+  "runs": {
+    "carbon-dense-ab": {
+      "run_id": "carbon-dense-ab",
+      "frozen_candidate_source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+      "executing_head": "405006ad1e34bda03bf352c3c36a4436c92f3d74",
+      "plan_sha256": "4714a5056d49d71a78fa7e2b00ed9014002cef223ced89926188dd487ac87b07",
+      "segment_order": [
+        "native",
+        "carbon_bf16"
+      ],
+      "supervisor_elapsed_s": 162.12013709999155,
+      "all_segments_completed": true,
+      "cold_loads": {
+        "native_elapsed_s": 20.9420231,
+        "native_load_ms": 10840,
+        "carbon_bf16_elapsed_s": 21.269768,
+        "carbon_bf16_base_load_ms": 10601,
+        "carbon_bf16_pack_patch_ms": 551,
+        "carbon_bf16_total_load_ms": 11152,
+        "carbon_bf16_combination": [
+          "packed_bf16_moe",
+          "static_kv_gather_sparse_decode",
+          "gpu_logit_guards_burst8",
+          "no_text_streamer"
+        ]
+      },
+      "warm_1p": {
+        "native_elapsed_s": 24.7524751,
+        "native_prefill_s": 18.15425682067871,
+        "native_forwards": 58,
+        "carbon_bf16_elapsed_s": 23.3851374,
+        "carbon_bf16_prefill_s": 17.8975368,
+        "carbon_bf16_forwards": 66,
+        "carbon_bf16_burst_extra_forwards": 8,
+        "token_count_both": 57,
+        "differing_tokens": [
+          {
+            "token_index": 7,
+            "baseline_token_id": 6650,
+            "challenger_token_id": 7163,
+            "baseline_piece": "103",
+            "challenger_piece": "104",
+            "baseline_context": "[73, 103, 770,",
+            "challenger_context": "[73, 104, 770,"
+          }
+        ]
+      },
+      "dense_1p": {
+        "native_elapsed_s": 36.5719891,
+        "native_first_page_s": 36.5682517,
+        "native_infer_ms": 36470,
+        "native_prefill_s": 0.33802103996276855,
+        "native_post_first_ms": 36050.6863,
+        "native_forwards": 364,
+        "native_pages_per_min": 1.6405998546029315,
+        "native_max_cuda_allocated_bytes": 7293326848,
+        "native_max_cuda_reserved_bytes": 7480541184,
+        "carbon_bf16_elapsed_s": 31.8116193,
+        "carbon_bf16_first_page_s": 31.8083228,
+        "carbon_bf16_infer_ms": 31711,
+        "carbon_bf16_prefill_s": 0.3113528,
+        "carbon_bf16_post_first_ms": 31325.8991,
+        "carbon_bf16_forwards": 370,
+        "carbon_bf16_burst_extra_forwards": 6,
+        "carbon_bf16_static_cache_reallocations": 0,
+        "carbon_bf16_grouped_mm_calls_cumulative": 22,
+        "carbon_bf16_fallback_calls_cumulative": 0,
+        "carbon_bf16_pages_per_min": 1.8861032955967758,
+        "carbon_bf16_max_cuda_allocated_bytes": 7210620416,
+        "carbon_bf16_max_cuda_reserved_bytes": 7451181056,
+        "wall_saving_s": 4.760369800000003,
+        "speedup_vs_native": 1.1496424861339896,
+        "token_count_both": 363,
+        "token_classes_both": {
+          "page": 1,
+          "block_geometry": 108,
+          "table_syntax": 98,
+          "content": 156
+        },
+        "exact_bf16_qualified": false,
+        "lost_exactness": true,
+        "differing_tokens": [
+          {
+            "token_index": 341,
+            "baseline_token_id": 28800,
+            "challenger_token_id": 28787,
+            "baseline_piece": "719",
+            "challenger_piece": "718",
+            "baseline_context": "[60, 719, 614,",
+            "challenger_context": "[60, 718, 614,"
+          }
+        ],
+        "equal_after_stripping_all_block_coords": true,
+        "common_scorer_counts_native": {
+          "edits": 48,
+          "reference_chars": 496,
+          "cer": 0.0967741935483871,
+          "correct_cells": 39,
+          "reference_cells": 42,
+          "extra_cells": 0,
+          "cell_accuracy": 0.9285714285714286,
+          "correct_lines": 4,
+          "reference_lines": 6,
+          "critical_values": 24,
+          "critical_errors": 4,
+          "unflagged_critical_errors": 4,
+          "flagged_critical": 0,
+          "wrong_source": 0
+        },
+        "common_scorer_counts_carbon_bf16": {
+          "edits": 48,
+          "reference_chars": 496,
+          "cer": 0.0967741935483871,
+          "correct_cells": 39,
+          "reference_cells": 42,
+          "extra_cells": 0,
+          "cell_accuracy": 0.9285714285714286,
+          "correct_lines": 4,
+          "reference_lines": 6,
+          "critical_values": 24,
+          "critical_errors": 4,
+          "unflagged_critical_errors": 4,
+          "flagged_critical": 0,
+          "wrong_source": 0
+        },
+        "common_scorer_comparison": {
+          "family": "dense",
+          "source_sha256": "a2fd2c3d5d3c4800fd8e47d2326ebcc4a98c95e395b6b2212358131a2e159d64",
+          "delta": {
+            "cer": 0.0,
+            "cell_accuracy": 0.0
+          },
+          "new_wrong_source_links": [],
+          "complete_matched_pair": true,
+          "inside_quality_budget": true,
+          "new_or_changed_critical_errors": [],
+          "unattended_quality_gate": false
+        }
+      }
+    },
+    "carbon-dense-ba": {
+      "run_id": "carbon-dense-ba",
+      "frozen_candidate_source": "7e70391cd790a95c68906902dbd9d5bc479aa9c0",
+      "executing_head": "405006ad1e34bda03bf352c3c36a4436c92f3d74",
+      "plan_sha256": "4085f06e69ebbf06df782ab2db9d87473a7cc84ba84da0d606711d2ee3b72ffa",
+      "segment_order": [
+        "carbon_bf16",
+        "native"
+      ],
+      "supervisor_elapsed_s": 174.936812800006,
+      "all_segments_completed": true,
+      "cold_loads": {
+        "native_elapsed_s": 21.3869736,
+        "native_load_ms": 11039,
+        "carbon_bf16_elapsed_s": 21.6129235,
+        "carbon_bf16_base_load_ms": 10857,
+        "carbon_bf16_pack_patch_ms": 539,
+        "carbon_bf16_total_load_ms": 11396,
+        "carbon_bf16_combination": [
+          "packed_bf16_moe",
+          "static_kv_gather_sparse_decode",
+          "gpu_logit_guards_burst8",
+          "no_text_streamer"
+        ]
+      },
+      "warm_1p": {
+        "native_elapsed_s": 24.5886259,
+        "native_prefill_s": 18.43291139602661,
+        "native_forwards": 58,
+        "carbon_bf16_elapsed_s": 24.7776043,
+        "carbon_bf16_prefill_s": 18.0210471,
+        "carbon_bf16_forwards": 66,
+        "carbon_bf16_burst_extra_forwards": 8,
+        "token_count_both": 57,
+        "differing_tokens": [
+          {
+            "token_index": 7,
+            "baseline_token_id": 6650,
+            "challenger_token_id": 7163,
+            "baseline_piece": "103",
+            "challenger_piece": "104",
+            "baseline_context": "[73, 103, 770,",
+            "challenger_context": "[73, 104, 770,"
+          }
+        ]
+      },
+      "dense_1p": {
+        "native_elapsed_s": 40.3937053,
+        "native_first_page_s": 40.3892051,
+        "native_infer_ms": 40286,
+        "native_prefill_s": 0.37354302406311035,
+        "native_post_first_ms": 39836.7618,
+        "native_forwards": 364,
+        "native_pages_per_min": 1.4853799510192496,
+        "native_max_cuda_allocated_bytes": 7293326848,
+        "native_max_cuda_reserved_bytes": 7480541184,
+        "carbon_bf16_elapsed_s": 38.1219171,
+        "carbon_bf16_first_page_s": 38.1175273,
+        "carbon_bf16_infer_ms": 37659,
+        "carbon_bf16_prefill_s": 0.3096698,
+        "carbon_bf16_post_first_ms": 37271.3378,
+        "carbon_bf16_forwards": 370,
+        "carbon_bf16_burst_extra_forwards": 6,
+        "carbon_bf16_static_cache_reallocations": 0,
+        "carbon_bf16_grouped_mm_calls_cumulative": 22,
+        "carbon_bf16_fallback_calls_cumulative": 0,
+        "carbon_bf16_pages_per_min": 1.573897761820588,
+        "carbon_bf16_max_cuda_allocated_bytes": 7210620416,
+        "carbon_bf16_max_cuda_reserved_bytes": 7451181056,
+        "wall_saving_s": 2.271788200000003,
+        "speedup_vs_native": 1.0595927060551737,
+        "token_count_both": 363,
+        "token_classes_both": {
+          "page": 1,
+          "block_geometry": 108,
+          "table_syntax": 98,
+          "content": 156
+        },
+        "exact_bf16_qualified": false,
+        "lost_exactness": true,
+        "differing_tokens": [
+          {
+            "token_index": 341,
+            "baseline_token_id": 28800,
+            "challenger_token_id": 28787,
+            "baseline_piece": "719",
+            "challenger_piece": "718",
+            "baseline_context": "[60, 719, 614,",
+            "challenger_context": "[60, 718, 614,"
+          }
+        ],
+        "equal_after_stripping_all_block_coords": true,
+        "common_scorer_counts_native": {
+          "edits": 48,
+          "reference_chars": 496,
+          "cer": 0.0967741935483871,
+          "correct_cells": 39,
+          "reference_cells": 42,
+          "extra_cells": 0,
+          "cell_accuracy": 0.9285714285714286,
+          "correct_lines": 4,
+          "reference_lines": 6,
+          "critical_values": 24,
+          "critical_errors": 4,
+          "unflagged_critical_errors": 4,
+          "flagged_critical": 0,
+          "wrong_source": 0
+        },
+        "common_scorer_counts_carbon_bf16": {
+          "edits": 48,
+          "reference_chars": 496,
+          "cer": 0.0967741935483871,
+          "correct_cells": 39,
+          "reference_cells": 42,
+          "extra_cells": 0,
+          "cell_accuracy": 0.9285714285714286,
+          "correct_lines": 4,
+          "reference_lines": 6,
+          "critical_values": 24,
+          "critical_errors": 4,
+          "unflagged_critical_errors": 4,
+          "flagged_critical": 0,
+          "wrong_source": 0
+        },
+        "common_scorer_comparison": {
+          "family": "dense",
+          "source_sha256": "a2fd2c3d5d3c4800fd8e47d2326ebcc4a98c95e395b6b2212358131a2e159d64",
+          "delta": {
+            "cer": 0.0,
+            "cell_accuracy": 0.0
+          },
+          "new_wrong_source_links": [],
+          "complete_matched_pair": true,
+          "inside_quality_budget": true,
+          "new_or_changed_critical_errors": [],
+          "unattended_quality_gate": false
+        }
+      }
+    }
+  },
+  "small_harness_and_adapter_findings": [
+    {
+      "id": "HARNESS-01",
+      "component": "docs/research/WP-0015/carbon/launch.py (at 55b57427c14d3e1884a06b8986999b76801ff241)",
+      "finding": "gpu_observation() parsed temperature_c with int(row[3]) and raised ValueError on decimal telemetry ('46.64') before any model run; fixed to float(row[3]) in 7e70391cd790a95c68906902dbd9d5bc479aa9c0."
+    },
+    {
+      "id": "HARNESS-02",
+      "component": "docs/research/WP-0015/carbon/engine.py (carbon_bf16 burst_stride=8)",
+      "finding": "Speculative 8-step GPU decode bursts executed 8 post-EOS extra forwards on warm (66 vs 58 forwards) and 6 post-EOS extra forwards on dev/dense (370 vs 364 forwards, ~0.52-0.62s wasted GPU/dispatch time); truncated cleanly before decoding so returned token counts remained exact (57 and 363)."
+    },
+    {
+      "id": "HARNESS-03",
+      "component": "docs/research/WP-0015/carbon/evaluate.py (BOX_RE)",
+      "finding": "Diagnostic BOX_RE omitted optional `<LEVEL\\d+>` in `<BLOCK>title<LEVEL1>[57, 61, 618, 93]<FORK>`, reporting diagnostic_coord_stripped_raw_equal=False on carbon-moe-01 (token #7 diff in title box) vs True on carbon-dense-ab/ba (token #341 diff in plain `<BLOCK>text[...]`). Official Exact-BF16 and score.py results were unaffected."
+    },
+    {
+      "id": "HARNESS-04",
+      "component": "docs/research/WP-0015/astra/formats.py (native_page BLOCK_RE) & upstream TextStreamer stdio",
+      "finding": "Shared native_page BLOCK_RE leaves `<BLOCK>title<LEVEL1>[57, 61, 618, 93]<FORK>` unparsed in page text, accounting for 43 of 48 character edits on dev/dense (CER 0.096774 -> 0.010081 [5/496] and lines 4/6 -> 5/6 when stripped, matching the 2/570 title-corrected CER finding on H). Separately, upstream Native's TextStreamer prints raw UTF-8 text to child stdout without UTF-8 stdio enforcement, which caused the 36/60 cp1252 failure on 60-page packet A before UTF-8 replay."
+    }
+  ]
+}
