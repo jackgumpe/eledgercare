@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## Active WP-0014 short-page OCR latency investigation
+## Completed WP-0014 short-page OCR latency investigation
 
-Jack requested diagnosis of a 54-second three-sentence page. The coordinator is collecting the original timing breakdown and the instruction file. The research author owns the synthetic cold-versus-warm probe and the independent reviewer checks timing attribution against the evidence. See the WP-0014 reservations in [INDEX.md](INDEX.md).
+**Closed and independently verified.** A ready worker on Jack’s RTX 5070 Ti served a short scan in 6.650 seconds median. An independent repeat took 6.851 seconds. In the browser the first ready result appeared 10.243 seconds after Extract, compared with 52.604 seconds on the shipping path. Cold Intake-to-result remained about 54 seconds. The SGLang comparison is open pending a supported GPU-capable Linux environment. All three GPU leases have been returned. The shipping app still starts a worker per attempt. [Coordinator report](docs/agent-reports/eld-coordinator/WP-0014/003_2026-11-18_verification_eld-coordinator.md) · [Publication receipt](docs/coordination/WP-0014/publication-receipt.json) · [Proposed product change](docs/coordination/WP-0014/product-proposal.md)
 
 ## Completed: WP-0012 product rehearsal and WP-0013 guarded vocabulary experiment
 
