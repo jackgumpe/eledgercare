@@ -355,6 +355,9 @@ def main():
             mut(m)
             ok.append(m != exp)
     expect(all(ok), "A1 plan re-derivation equals pinned prepare_a1.py output; mutations differ")
+    r1, r2 = C.a1_candidate_ready("eb16708886226436de85abe0e224391a88537a72"), C.a1_candidate_ready("f" * 40)
+    expect(len(r1) == 1 and "device guards" in r1[0] and len(r2) == 1 and "no reviewed" in r2[0],
+           "A1 issuance refuses an unbound candidate and eb16708's host-guarded S3 probes")
 
     # ---- C. a1_normalize ----------------------------------------------------------------------------------
     request = load(A1_MANIFEST[0])["request"]

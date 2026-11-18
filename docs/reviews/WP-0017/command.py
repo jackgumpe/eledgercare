@@ -22,7 +22,9 @@ Revision by the continuation session (common.OPERATOR), before any release exist
   the endpoint order must precede the switch order; both inner and outer output roots must be new;
 * the candidate must descend from the inference base, be published on a remote ref, be clean, and every
   tracked engine file (not only *.py) must equal its blob at the candidate;
-* A2/A3 fail closed until their plan generators have been reviewed and bound here.
+* A2/A3 fail closed until their plan generators have been reviewed and bound here;
+* an A1 command is issued only for a candidate with a reviewed a1_normalize binding whose S3-on probes use the
+  configuration's device guards (a1_candidate_ready); eb16708 does not, so its S3-on probes could only fail.
 """
 import argparse
 import json
@@ -100,7 +102,22 @@ def a1_expected(cfg_path, cfg, group, configs, seconds, coord_dir, packet=WP17, 
     return plan, tag, name, inner, outer
 
 
+def a1_candidate_ready(head):
+    """Issuance precondition: the A1 candidate has a reviewed probe/label binding whose S3-on probes use the
+    configuration's device guards. Otherwise its S3-on probes could only end BINDING_FAILED (wasted lease)."""
+    from a1_normalize import BOUND  # noqa: PLC0415
+    problems = []
+    if head not in BOUND:
+        problems.append(f"candidate {head[:12]} has no reviewed a1_normalize binding (re-bind commit required)")
+    elif BOUND[head].get("s3_device_guards") is not True:
+        problems.append(f"candidate {head[:12]}: S3-on probes do not use the configuration's device guards "
+                        "(joint design read finding 3); release the corrected candidate")
+    return problems
+
+
 def review_a1(lease, coord_dir, check, notes):
+    for p in a1_candidate_ready(lease["review_worktree_head"]):
+        check(False, p)
     orders = lease["orders"]
     check(len(orders) == len(A1_GROUPS), f"A1 release has {len(A1_GROUPS)} orders (endpoints, then switches)")
     tags, out = set(), []

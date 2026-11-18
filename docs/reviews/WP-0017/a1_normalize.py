@@ -51,7 +51,8 @@ BOUND = {
     "eb16708886226436de85abe0e224391a88537a72": dict(
         contract="docs/research/WP-0017/engine/CONTRACT.md 5a0f2b65 (schemas ablation-engine/1, span-logit-probe/1)",
         s3_probe_guards="host only (span_probe.apply_pure_host_guards); S3-on probes are therefore rejected, "
-                        "as in the joint design read, until a candidate records device guards in guard_meta"),
+                        "as in the joint design read, until a candidate records device guards in guard_meta",
+        s3_device_guards=False),
 }
 BOUND_CANDIDATE = sorted(BOUND)
 IMPLEMENTATION = {"ablation_engine": "switch_harness", "genuine_native": "genuine_native",

@@ -67,6 +67,7 @@ The rules below are therefore updated to that wave.
   - The candidate must descend from `c7b2ee3`, be on a remote ref and be clean. Every tracked engine file, `.py` or not, must equal its blob.
   - Each coordinator file is compared with its reviewed blob. An on-disk copy that differs only by CRLF is accepted as `eol_variant` and recorded with both digests.
   - A2 and A3 fail closed until their plan generators have been reviewed.
+  - An A1 command is issued only for a candidate with a reviewed `a1_normalize` binding whose S3-on probes use the configuration's device guards. `eb16708` uses host guards only, so it is refused, to avoid a lease whose S3-on probes could only fail binding.
   - The operator of record is `common.OPERATOR`.
 - **A2 (`a2_views.py`).** This file replaces the scoring half of `a2_stoploss.py decide`, which is kept unchanged. The pure rules are reused.
   - `prekey` validates every document from its raw captures, as listed under A2 below.
