@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## Active WP-0015 scanned-packet OCR architecture trial
+## Completed WP-0015 scanned-packet OCR architecture trial
 
-Jack supplied the next bounded research lane. The coordinator reserved independent Astra and Carbon positions, evaluation custody and an uninvolved Opus replay. CPU preparation is released. Live work requires a separate source-bound allocation. [Assignment](docs/coordination/WP-0015/assignment.md) · [Reservations](INDEX.md#wp-0015-scanned-packet-ocr-architecture-trial)
+On one 60-page raster packet, the independent reviewer measured 15.65 seconds for Windows OCR and 1,061.19 seconds for resident Baidu. Windows produced 235 of 300 reference cells correctly and Baidu produced 288, plus 37 extra cells. The frozen scorer counted 94 versus 38 unflagged critical errors. The Carbon BF16 compound preserved the scored quality of its four-page control at 44.57–45.39 seconds and missed the fivefold dense-page target. Retain Baidu as the reviewable reference. All 13 research allocations have returns, the second scale family remains sealed, and the customer demo awaits a separate product release. [Coordinator report](docs/agent-reports/eld-coordinator/WP-0015/007_2026-11-18_verification_eld-coordinator.md) · [Publication receipt](docs/coordination/WP-0015/publication-receipt.json) · [Independent measurements](docs/reviews/WP-0015/scored-summary.md)
 
 ## Completed WP-0014 short-page OCR latency investigation
 
