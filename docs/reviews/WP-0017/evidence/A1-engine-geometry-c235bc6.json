@@ -1,0 +1,146 @@
+{
+ "kind": "WP-0017 reviewer cross-check of a published engine's A1 probe geometry (CPU, no model)",
+ "reviewer": "eld-rd-reviewer",
+ "created_utc": "2026-11-18T19:31:55Z",
+ "candidate": "c235bc61820def84142480e6e2a7a2e5485176d6",
+ "span_probe_sha256": "cdfabbe9670368200a4b5ef73b5470cfc43503181c7c6f0c2aa7e4792da2d644",
+ "audit_sha256": "16eca676114e847059503290b3c4a620eb1625769dd7f3a3e0a39ab252d263b3",
+ "manifest_sha256": "e7f47d141972d0e32c53d16e090fcddc237c453ecfc2eaf5d494c6d3426bc8ef",
+ "tokenizers_version": "0.21.4",
+ "windows": {
+  "019": {
+   "engine_prefix_tokens": 417,
+   "shared_pre_divergence_tokens": [],
+   "lcp": 0,
+   "native_prefix_sha256_engine_P": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+   "normalized_prefix_tokens": 417,
+   "normalized_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+   "branches": {
+    "native_id": {
+     "pre_space": [
+      342,
+      3019,
+      49,
+      19,
+      15,
+      21895
+     ],
+     "common_boundary": [
+      342,
+      3019,
+      49,
+      19,
+      15,
+      21895
+     ]
+    },
+    "carbon_id": {
+     "pre_space": [
+      223,
+      6924,
+      49,
+      19,
+      15,
+      21895
+     ],
+     "common_boundary": [
+      223,
+      6924,
+      49,
+      19,
+      15,
+      21895
+     ]
+    }
+   },
+   "free_fields": {
+    "native": {
+     "aligned": true,
+     "observed_id": "I08O1-388",
+     "role": "native_id",
+     "free_prefix_len": 417,
+     "prefix_identical_to_native": true
+    },
+    "carbon_bf16": {
+     "aligned": true,
+     "observed_id": "108O1-388",
+     "role": "carbon_id",
+     "free_prefix_len": 417,
+     "prefix_identical_to_native": true
+    }
+   },
+   "early_pre_id_divergence": null
+  },
+  "037": {
+   "engine_prefix_tokens": 40,
+   "shared_pre_divergence_tokens": [
+    223
+   ],
+   "lcp": 1,
+   "native_prefix_sha256_engine_P": "b352dc11701eeb83b1f94e08c6dccbd90b3d0466ca7987ac87b46eada158c328",
+   "normalized_prefix_tokens": 41,
+   "normalized_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+   "branches": {
+    "native_id": {
+     "pre_space": [
+      223,
+      26,
+      90169,
+      553,
+      15,
+      30591
+     ],
+     "common_boundary": [
+      26,
+      90169,
+      553,
+      15,
+      30591
+     ]
+    },
+    "carbon_id": {
+     "pre_space": [
+      223,
+      1892,
+      43,
+      553,
+      15,
+      30591
+     ],
+     "common_boundary": [
+      1892,
+      43,
+      553,
+      15,
+      30591
+     ]
+    }
+   },
+   "free_fields": {
+    "native": {
+     "aligned": true,
+     "observed_id": "8OI10-774",
+     "role": "native_id",
+     "free_prefix_len": 40,
+     "prefix_identical_to_native": true
+    },
+    "carbon_bf16": {
+     "aligned": true,
+     "observed_id": "80I10-774",
+     "role": "carbon_id",
+     "free_prefix_len": 40,
+     "prefix_identical_to_native": false
+    }
+   },
+   "early_pre_id_divergence": {
+    "step_index": 7,
+    "native_token_id": 17979,
+    "native_token_piece": "291",
+    "carbon_token_id": 16234,
+    "carbon_token_piece": "290"
+   }
+  }
+ },
+ "checks_run": 18,
+ "failures": []
+}
