@@ -1,0 +1,64 @@
+{
+ "release_name": "a1-p1",
+ "release_sha256": "02eef09347e60af3b99d34fbe9eb7bddaa3151d6abd93a8dd0b01131ed56d8a8",
+ "executor_sha256": "a25adcab9a755f97240338257aa26de37f9713aa1b2f94601c0559386da1715f",
+ "candidate": "c235bc61820def84142480e6e2a7a2e5485176d6",
+ "operator": "eld-rd-reviewer",
+ "action": "execute once",
+ "stage": "A1",
+ "issued_utc": "2026-11-18T23:12:22Z",
+ "carrier": "eld-coordinator Windows process (docs/coordination/WP-0017/review_command.py)",
+ "orders": [
+  {
+   "run": "a1-p1-pairs-order",
+   "plan_sha256": "6c391ef2a0d112c8aaad7a263a2860a5b3b164599a4c556bd661d8ff6d79608b",
+   "seconds": 1890,
+   "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-p1-pairs-order"
+  }
+ ],
+ "reviewer_identity": {
+  "role": "eld-rd-reviewer",
+  "cli": "Codex",
+  "model": "gpt-6.2-astra",
+  "requested_effort": "xhigh",
+  "session": "/root/wp17_pair_reviewer",
+  "thread_id": "01a1f0ec-5fe5-7480-a809-6fda624e72e0",
+  "assignment": "Fresh independent reviewer and operator for the three A1 pair tests authorized by Jack on 2026-11-18 during Opus quota exhaustion."
+ },
+ "reviewer_checks": 86,
+ "reviewer_notes": [
+  "executor binds HEAD and *.py digests only; 4 non-.py engine file(s) ['docs/research/WP-0017/engine/CONTRACT.md', 'docs/research/WP-0017/engine/README.md', 'docs/research/WP-0017/engine/cpu-preflight-receipt.json', 'docs/research/WP-0017/engine/surgical.json'] are covered by this issue-time clean/blob check, not by device_lease.bind_inputs"
+ ],
+ "initial_evidence": {
+  "decision_checks": 800,
+  "adapter_checks": 1056,
+  "inventory_sha256": "2e3edc902b022b442a5e70dcd050d627f4510332e94f6d6e42b82dc1455809f3",
+  "selected_pairs": [
+   [
+    "S1b",
+    "S1c"
+   ],
+   [
+    "S1b",
+    "S2"
+   ],
+   [
+    "S1c",
+    "S2"
+   ]
+  ],
+  "probe_passes": 73,
+  "tied_top_logits": 35,
+  "topk_first_differs_from_argmax": 14
+ },
+ "pair_checks": {
+  "modes": {
+   "remove_S1b_S1c": "110011",
+   "remove_S1b_S2": "110101",
+   "remove_S1c_S2": "111001"
+  },
+  "engine_seconds": 1800,
+  "guard_seconds": 1890,
+  "excluded_warmups_per_config": 3
+ }
+}
