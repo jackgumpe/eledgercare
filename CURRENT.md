@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## Active WP-0016 grammar and CUDA-graphed multi-window trial
+## Completed WP-0016 grammar and CUDA-graphed multi-window trial
 
-G0 binds ordinary native and Carbon on the four- and 60-page packets. G1 and G2 depend on independent acceptance of their predecessor. Packet B stays sealed. [Assignment](docs/coordination/WP-0016/assignment.md) · [Reservations](INDEX.md#wp-0016-grammar-and-cuda-graphed-multi-window-trial)
+The Carbon BF16 control finished the 60-page packet in 921–933 seconds, compared with 1,032–1,101 seconds for ordinary Baidu. It silently misread two inspection IDs that Baidu got right in both run orders. The zero-new-critical-error rule stopped G0. Grammar and batched CUDA graph execution remain untested on the GPU. Packet B stays sealed. [Coordinator report](docs/agent-reports/eld-coordinator/WP-0016/004_2026-11-18_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0016/003_2026-11-18_review_eld-rd-reviewer.md) · [Publication receipt](docs/coordination/WP-0016/publication-receipt.json)
 
 ## Completed WP-0015 scanned-packet OCR architecture trial
 
