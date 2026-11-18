@@ -57,7 +57,19 @@ def release(args):
             name = f"windows-{order}"
             for file in ("prediction.json","timing.json"):
                 staged.append((dest/name/file,(path/file).read_bytes()))
+                staged.append((PACKET/"review/inputs/windows-store"/path.parent.name/path.name/file,
+                               (path/file).read_bytes()))
             identities[family][name] = {"sha256":expected,"elapsed_s":t["elapsed_s"]}
+        if family == "A":
+            primary_attempt = PREVIOUS/"runs/a-scale-ba/03-a-windows"
+            prior_t = read(primary_attempt/"timing.json")
+            assert sha(primary_attempt/"prediction.json") == prior_t["prediction_sha256"] == identities["A"]["windows-ab"]["sha256"]
+            assert prior_t["request"]["sha256"] == source_pdf
+            for file in ("prediction.json","timing.json"):
+                staged.append((PACKET/"review/inputs/windows-store/a-scale-ba/03-a-windows"/file,
+                               (primary_attempt/file).read_bytes()))
+            identities[family]["first_attempt_windows_sensitivity"] = {"sha256":prior_t["prediction_sha256"],
+                                                                       "elapsed_s":prior_t["elapsed_s"]}
     for file, payload in staged:
         publish(file, payload)
     receipt = {"reviewer_prekey":args.freeze,"private_inventory_sha256":args.blind_digest,
