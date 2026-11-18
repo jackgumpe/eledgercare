@@ -26,14 +26,18 @@ def git(*args):
     return subprocess.check_output(["git","-C",str(ROOT),*args],encoding="utf-8").strip()
 
 
+def parse_gpu_sample(sample):
+    row = [v.strip() for v in sample.strip().split(",")]
+    if row[0] != GPU:
+        raise ValueError("wrong device")
+    return dict(uuid=row[0],free_mib=int(row[1]),used_mib=int(row[2]),temperature_c=float(row[3]),
+                utilization_percent=int(row[4]),driver=row[5])
+
+
 def gpu_observation():
     cmd = [str(SMI),"--query-gpu=uuid,memory.free,memory.used,temperature.gpu,utilization.gpu,driver_version",
            "--format=csv,noheader,nounits","--id="+GPU]
-    row = subprocess.check_output(cmd,encoding="utf-8",timeout=10).strip().split(", ")
-    if row[0] != GPU:
-        raise ValueError("wrong device")
-    return dict(uuid=row[0],free_mib=int(row[1]),used_mib=int(row[2]),temperature_c=int(row[3]),
-                utilization_percent=int(row[4]),driver=row[5])
+    return parse_gpu_sample(subprocess.check_output(cmd,encoding="utf-8",timeout=10))
 
 
 def main():
