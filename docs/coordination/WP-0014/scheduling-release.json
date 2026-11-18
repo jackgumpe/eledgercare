@@ -1,0 +1,36 @@
+{
+  "utc": "2026-11-18T01:58:21.2687795Z",
+  "id": "WP-0014-scheduling-1",
+  "owner": "eld-latency-scheduling",
+  "candidate": "86c33f073299f7f15cef5d1bebd12f3d456870e0",
+  "device": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+  "fixture_source": "4ade03ee00e9701241770523d5df60df27da4b0c",
+  "fixtures": {
+    "B": "ef5d8f09658355dae46d54724a8cbeb89bc625362e41e8c4e154461d81a604c8",
+    "W": "74d2847bed7ea768c80a25383de12c5ea9d3d4c08afb7ddc75a783e77a73dd28",
+    "A": "25c14530845cad96329b528f860032c27a1259ed46de3ccb56f0e57730aa0858"
+  },
+  "plan": [
+    "stock A",
+    "demandfirst A",
+    "demand W,A",
+    "immediate W,A,B",
+    "ready W,A,B"
+  ],
+  "model_calls": 10,
+  "saved_user_jobs": 7,
+  "max_live_seconds": 840,
+  "free_floor_bytes": 21474836480,
+  "start_free_bytes": 37924364288,
+  "start_free_vram_mib": 14479,
+  "min_start_vram_mib": 10000,
+  "owned_port_numbers": [
+    4814,
+    5814,
+    55464
+  ],
+  "run_id": "live01",
+  "active_engines": 1,
+  "command": "python -B docs/research/WP-0014/scheduling/campaign.py --mode live --id live01 --frozen-head 86c33f073299f7f15cef5d1bebd12f3d456870e0 --lease WP-0014-scheduling-1"
+}
