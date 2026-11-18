@@ -1,0 +1,40 @@
+{
+  "kind": "WP-0015 reviewer A UTF-8 recovery blind pre-key receipt (non-revealing)",
+  "reviewer": "eld-rd-reviewer",
+  "release": "e4bbeae788a3f42e960cc018dfcc2df6b7b0ca1e",
+  "run": "a-recovery-ab",
+  "actual_order": "native first, then windows (ab); each preceded by its excluded public warm-up",
+  "harness_source": "a0e738bc03e515999659dda09c5ee76d08fb37df",
+  "source_change_audited_vs_82206bc": "runtime change limited to trial.py UTF-8 reconfiguration of child stdout/stderr; launcher scopes equal at review HEAD; WP-0014 probe and workers/local_ocr trees unchanged",
+  "plan_sha256": "fe93305ca79a00c830169baddab2e787528d4bb4fbf60e284fbc0161949487a0",
+  "launches": 1,
+  "retries": 0,
+  "process_tree_absent_after_exit": true,
+  "outcome": "process exit 0, no guard stop; both 60-page arms completed; stage-1 verifier 0 failures",
+  "all_60_page_identities_and_last_page_source_verified": true,
+  "cross_run": {
+    "native_prefix_pages_identical_with_original_failed_run": "1-36 (12 windows): tokens, raw text, stop/page state, projected pages",
+    "windows_prediction_identical_across_both_A_runs": true,
+    "windows_raw_reader_difference": "recognize_ms only"
+  },
+  "original_primary_failure_retained": {
+    "run": "a-scale-ba",
+    "inventory_sha256": "84eee0e2d8e7af90e84a55e6a29f6a5cb719fd7485b1c1dad36338814a3e6622",
+    "files_rechecked": 293,
+    "mismatches": 0
+  },
+  "inventory_sha256": "54c9a7cbc3aaf8bd6cbded192ae5bb2a7269fc4bcad48db46aa18047b4691d00",
+  "predictions_sha256": {
+    "03-a-native/prediction.json": "cd009c42f9e9518ac5c955b39a1b837ee4060a9dd6b81a3179a8523a88da4095",
+    "04-a-windows/prediction.json": "1f075d9b7baded3fe663939a7df87a16116976896602f682a0a487dcd0604e7c"
+  },
+  "private_evidence_sha256": {
+    "analysis-A-recovery-stage1/analysis.json": "373839fcd9ed40972e46c49b162740f68ba0337cb850e3c12046c540a31203df",
+    "analysis-A-recovery-stage1/cross-run.json": "deefbb696bac558b4035ecfccbfdb3b5fa84cb2634a3c80f61210e2991ed0c15"
+  },
+  "new_A_control_noise": "none: one complete native A process; the failed run supplies only prefix agreement",
+  "os_file_cache": "uncontrolled; may retain input from the earlier A run",
+  "scoring_key_requested_or_used": false,
+  "remaining_scope": "A scoring release; Carbon review; B not released; canonical 006 after scoring and review",
+  "withheld": "timings, text, sizes and any scores until both candidates freeze"
+}
