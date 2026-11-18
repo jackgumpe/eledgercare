@@ -1,0 +1,497 @@
+{
+  "scorer_sha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+  "cases": [
+    {
+      "label": "short",
+      "mode": "windows",
+      "elapsed_s": 0.2807969,
+      "first_page_s": 0.2773396,
+      "complete": true,
+      "counts": {
+        "edits": 2,
+        "reference_chars": 121,
+        "cer": 0.01652892561983471,
+        "correct_cells": 0,
+        "reference_cells": 0,
+        "extra_cells": 0,
+        "cell_accuracy": null,
+        "correct_lines": 3,
+        "reference_lines": 4,
+        "critical_values": 2,
+        "critical_errors": 1,
+        "unflagged_critical_errors": 1,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "faults": [],
+      "prediction_sha256": "796eb49700065c3fc6c1ccab4c49c225a6cba873780c9afdede75a284bf8fe4a",
+      "pages": [
+        {
+          "page": 1,
+          "native_tokens": null,
+          "words": 21,
+          "token_classes": null,
+          "text_chars": 121,
+          "raster": "e2b2b05b5a6832016a83b20b3cb851520d6d0602b1d06a16d56c1bbabd30284b"
+        }
+      ]
+    },
+    {
+      "label": "short",
+      "mode": "native",
+      "elapsed_s": 11.673364,
+      "first_page_s": 11.669797,
+      "complete": true,
+      "counts": {
+        "edits": 46,
+        "reference_chars": 121,
+        "cer": 0.38016528925619836,
+        "correct_cells": 0,
+        "reference_cells": 0,
+        "extra_cells": 0,
+        "cell_accuracy": null,
+        "correct_lines": 2,
+        "reference_lines": 4,
+        "critical_values": 2,
+        "critical_errors": 1,
+        "unflagged_critical_errors": 1,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "faults": [],
+      "prediction_sha256": "1ac3250d6b0b927dd807ade3114c1915bc5d2c9e72215222575d513c1a7e6405",
+      "pages": [
+        {
+          "page": 1,
+          "native_tokens": 100,
+          "words": null,
+          "token_classes": {
+            "page": 1,
+            "block_geometry": 63,
+            "table_syntax": 0,
+            "content": 36
+          },
+          "text_chars": 165,
+          "raster": "e2b2b05b5a6832016a83b20b3cb851520d6d0602b1d06a16d56c1bbabd30284b"
+        }
+      ]
+    },
+    {
+      "label": "dense",
+      "mode": "windows",
+      "elapsed_s": 0.3719602,
+      "first_page_s": 0.3620425,
+      "complete": true,
+      "counts": {
+        "edits": 14,
+        "reference_chars": 496,
+        "cer": 0.028225806451612902,
+        "correct_cells": 35,
+        "reference_cells": 42,
+        "extra_cells": 0,
+        "cell_accuracy": 0.8333333333333334,
+        "correct_lines": 5,
+        "reference_lines": 6,
+        "critical_values": 24,
+        "critical_errors": 8,
+        "unflagged_critical_errors": 8,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "faults": [],
+      "prediction_sha256": "5f43639524f19280f3692e079772db2c7d4fe30a61a4cc59a2ee4ce2400859f3",
+      "pages": [
+        {
+          "page": 1,
+          "native_tokens": null,
+          "words": 85,
+          "token_classes": null,
+          "text_chars": 496,
+          "raster": "01ea630bb7ae73deb5d6a305327d741692cf5508b3dd657f9bb56494fb2ce98c"
+        }
+      ]
+    },
+    {
+      "label": "dense",
+      "mode": "native",
+      "elapsed_s": 40.7050529,
+      "first_page_s": 40.7014589,
+      "complete": true,
+      "counts": {
+        "edits": 48,
+        "reference_chars": 496,
+        "cer": 0.0967741935483871,
+        "correct_cells": 39,
+        "reference_cells": 42,
+        "extra_cells": 0,
+        "cell_accuracy": 0.9285714285714286,
+        "correct_lines": 4,
+        "reference_lines": 6,
+        "critical_values": 24,
+        "critical_errors": 4,
+        "unflagged_critical_errors": 4,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "faults": [],
+      "prediction_sha256": "ff6385be3eff137b022eda9a835cbf515f87130d56e993c201ebed740d16f3c7",
+      "pages": [
+        {
+          "page": 1,
+          "native_tokens": 363,
+          "words": null,
+          "token_classes": {
+            "page": 1,
+            "block_geometry": 108,
+            "table_syntax": 98,
+            "content": 156
+          },
+          "text_chars": 539,
+          "raster": "01ea630bb7ae73deb5d6a305327d741692cf5508b3dd657f9bb56494fb2ce98c"
+        }
+      ]
+    },
+    {
+      "label": "boundary",
+      "mode": "windows",
+      "elapsed_s": 1.061647,
+      "first_page_s": 0.2696553,
+      "complete": true,
+      "counts": {
+        "edits": 7,
+        "reference_chars": 320,
+        "cer": 0.021875,
+        "correct_cells": 8,
+        "reference_cells": 9,
+        "extra_cells": 0,
+        "cell_accuracy": 0.8888888888888888,
+        "correct_lines": 5,
+        "reference_lines": 10,
+        "critical_values": 9,
+        "critical_errors": 3,
+        "unflagged_critical_errors": 3,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "faults": [],
+      "prediction_sha256": "8041d7cb8d7fa5b36373858fe95f018e1fb7bb5164ea497f45467090db5b6feb",
+      "pages": [
+        {
+          "page": 1,
+          "native_tokens": null,
+          "words": 14,
+          "token_classes": null,
+          "text_chars": 79,
+          "raster": "f32bb58284daf2f5bf4f65c39686450157766db11b4eccbf2045082c551c094e"
+        },
+        {
+          "page": 2,
+          "native_tokens": null,
+          "words": 23,
+          "token_classes": null,
+          "text_chars": 132,
+          "raster": "b7ad377a61f2b8c6ea3ad795fb98d2f265da80b3fccdd7e581f210f2b5dfe0a8"
+        },
+        {
+          "page": 3,
+          "native_tokens": null,
+          "words": 0,
+          "token_classes": null,
+          "text_chars": 0,
+          "raster": "84d92f98969dc56552907668b6be78c8476af979ca0951f54e5768d2a61c98f9"
+        },
+        {
+          "page": 4,
+          "native_tokens": null,
+          "words": 17,
+          "token_classes": null,
+          "text_chars": 109,
+          "raster": "56c687b602842c2ea54a8699f36eb905acca8c40035da75c3904efd6289507f0"
+        }
+      ]
+    },
+    {
+      "label": "boundary",
+      "mode": "native",
+      "elapsed_s": 37.3166765,
+      "first_page_s": 25.5218082,
+      "complete": true,
+      "counts": {
+        "edits": 135,
+        "reference_chars": 320,
+        "cer": 0.421875,
+        "correct_cells": 8,
+        "reference_cells": 9,
+        "extra_cells": 0,
+        "cell_accuracy": 0.8888888888888888,
+        "correct_lines": 5,
+        "reference_lines": 10,
+        "critical_values": 9,
+        "critical_errors": 3,
+        "unflagged_critical_errors": 3,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "faults": [],
+      "prediction_sha256": "d8f06f90a44b6ab658054f82181a284a969545974a41be8576398d8acc4274b5",
+      "pages": [
+        {
+          "page": 1,
+          "native_tokens": 71,
+          "words": null,
+          "token_classes": {
+            "page": 1,
+            "block_geometry": 48,
+            "table_syntax": 0,
+            "content": 22
+          },
+          "text_chars": 123,
+          "raster": "f32bb58284daf2f5bf4f65c39686450157766db11b4eccbf2045082c551c094e"
+        },
+        {
+          "page": 2,
+          "native_tokens": 138,
+          "words": null,
+          "token_classes": {
+            "page": 1,
+            "block_geometry": 63,
+            "table_syntax": 24,
+            "content": 50
+          },
+          "text_chars": 176,
+          "raster": "b7ad377a61f2b8c6ea3ad795fb98d2f265da80b3fccdd7e581f210f2b5dfe0a8"
+        },
+        {
+          "page": 3,
+          "native_tokens": 1,
+          "words": null,
+          "token_classes": {
+            "page": 1,
+            "block_geometry": 0,
+            "table_syntax": 0,
+            "content": 0
+          },
+          "text_chars": 0,
+          "raster": "84d92f98969dc56552907668b6be78c8476af979ca0951f54e5768d2a61c98f9"
+        },
+        {
+          "page": 4,
+          "native_tokens": 92,
+          "words": null,
+          "token_classes": {
+            "page": 1,
+            "block_geometry": 63,
+            "table_syntax": 0,
+            "content": 28
+          },
+          "text_chars": 153,
+          "raster": "56c687b602842c2ea54a8699f36eb905acca8c40035da75c3904efd6289507f0"
+        }
+      ]
+    }
+  ],
+  "comparisons": {
+    "short": {
+      "family": "short",
+      "source_sha256": "10f84af9a8c803f78e53bc4b43739f680aa557f2a6e2b8cf343ca9697aba402a",
+      "delta": {
+        "cer": -0.36363636363636365,
+        "cell_accuracy": null
+      },
+      "new_wrong_source_links": [],
+      "complete_matched_pair": true,
+      "inside_quality_budget": true,
+      "new_or_changed_critical_errors": [],
+      "unattended_quality_gate": false
+    },
+    "dense": {
+      "family": "dense",
+      "source_sha256": "a2fd2c3d5d3c4800fd8e47d2326ebcc4a98c95e395b6b2212358131a2e159d64",
+      "delta": {
+        "cer": -0.06854838709677419,
+        "cell_accuracy": -0.09523809523809523
+      },
+      "new_wrong_source_links": [],
+      "complete_matched_pair": true,
+      "inside_quality_budget": false,
+      "new_or_changed_critical_errors": [
+        {
+          "at": "page/1/line/2",
+          "expected": "WO-O1I8",
+          "observed": "Order WO-0118",
+          "correct": false,
+          "flagged": false
+        },
+        {
+          "at": "page/1/table/1/row/2/col/1",
+          "expected": "I0-701",
+          "observed": "10-701",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            38,
+            258,
+            118,
+            288
+          ],
+          "reported_table_bbox": [
+            38.0,
+            228.5,
+            570.0,
+            438.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/table/1/row/2/col/6",
+          "expected": "O18",
+          "observed": "018",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            477,
+            258,
+            570,
+            288
+          ],
+          "reported_table_bbox": [
+            38.0,
+            228.5,
+            570.0,
+            438.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/table/1/row/3/col/1",
+          "expected": "10-7O1",
+          "observed": "10-701",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            38,
+            288,
+            118,
+            318
+          ],
+          "reported_table_bbox": [
+            38.0,
+            228.5,
+            570.0,
+            438.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/table/1/row/6/col/1",
+          "expected": "PX-110",
+          "observed": "PX-IIO",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            38,
+            378,
+            118,
+            408
+          ],
+          "reported_table_bbox": [
+            38.0,
+            228.5,
+            570.0,
+            438.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/table/1/row/6/col/6",
+          "expected": "L11",
+          "observed": "Lil",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            477,
+            378,
+            570,
+            408
+          ],
+          "reported_table_bbox": [
+            38.0,
+            228.5,
+            570.0,
+            438.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/table/1/row/7/col/1",
+          "expected": "PX-I10",
+          "observed": "PX-IIO",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            38,
+            408,
+            118,
+            438
+          ],
+          "reported_table_bbox": [
+            38.0,
+            228.5,
+            570.0,
+            438.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/table/1/row/7/col/6",
+          "expected": "L1I",
+          "observed": "Lil",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            477,
+            408,
+            570,
+            438
+          ],
+          "reported_table_bbox": [
+            38.0,
+            228.5,
+            570.0,
+            438.0
+          ],
+          "reported_span_boxes": []
+        }
+      ],
+      "unattended_quality_gate": false
+    },
+    "boundary": {
+      "family": "boundary",
+      "source_sha256": "b276156fc8c6c1cb55265977fd664c7d91bf1512bcdbd02455ae7eb9ea634966",
+      "delta": {
+        "cer": -0.4,
+        "cell_accuracy": 0.0
+      },
+      "new_wrong_source_links": [],
+      "complete_matched_pair": true,
+      "inside_quality_budget": true,
+      "new_or_changed_critical_errors": [
+        {
+          "at": "page/1/line/2",
+          "expected": "MR-I1O",
+          "observed": "Route MR-IIO",
+          "correct": false,
+          "flagged": false
+        },
+        {
+          "at": "page/4/line/2",
+          "expected": "RT-0O1",
+          "observed": "Return tag RT-OOI",
+          "correct": false,
+          "flagged": false
+        }
+      ],
+      "unattended_quality_gate": false
+    }
+  }
+}

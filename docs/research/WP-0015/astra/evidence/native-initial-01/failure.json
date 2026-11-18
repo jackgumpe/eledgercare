@@ -1,0 +1,20 @@
+{
+  "lease": "native-initial-01",
+  "coordinator_release": "6d3d3b4e58b1c28c76f2dcb60a816290c25144bf",
+  "candidate": "6f14c8733da33fa144f3924f9929c9c748b21586",
+  "plan_sha256": "c9101258a115bb4102e22245ffe3587a27d10c15ec90e059184fd0a3d0f3e663",
+  "tool_chunk": "c6d478",
+  "tool_exit_code": 1,
+  "tool_wall_s": 0.7355919,
+  "status": "pre-admission failure",
+  "actual_files_in_output": ["plan.json"],
+  "native_window_calls": 0,
+  "windows_ocr_calls": 0,
+  "gpu_model_child_created": false,
+  "document_latency_s": null,
+  "terminal_error": "ValueError: invalid literal for int() with base 10: '48.25'",
+  "exception_stack": ["launch.py:101 main()", "launch.py:70 start_state=gpu_observation() if live else None", "launch.py:35 temperature_c=int(row[3])"],
+  "diagnosis": "Driver 621.01 supplies fractional temperature.gpu; the supervisor parsed it as an integer before process creation. Recovered under a new lease, directory, source and publication.",
+  "correction": "82206bc4b77654010ac02364adaaf589d1f36780",
+  "cpu_regression": "Integral 48 and fractional 48.25 values passed; a real six-field observation parsed 14,206 MiB free, 1,792 MiB used, 49.42 degrees C, 2% utilization, driver 621.01 on the expected UUID."
+}

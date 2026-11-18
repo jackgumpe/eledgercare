@@ -1,0 +1,799 @@
+{
+  "family": "boundary",
+  "source_sha256": "b276156fc8c6c1cb55265977fd664c7d91bf1512bcdbd02455ae7eb9ea634966",
+  "packet_complete": true,
+  "expected_pages": 4,
+  "output_pages": 4,
+  "observed_order": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "faults": [],
+  "counts": {
+    "edits": 7,
+    "reference_chars": 320,
+    "cer": 0.021875,
+    "correct_cells": 8,
+    "reference_cells": 9,
+    "extra_cells": 0,
+    "cell_accuracy": 0.8888888888888888,
+    "correct_lines": 5,
+    "reference_lines": 10,
+    "critical_values": 9,
+    "critical_errors": 3,
+    "unflagged_critical_errors": 3,
+    "flagged_critical": 0,
+    "wrong_source": 0
+  },
+  "extra_page_outputs": [],
+  "pages": [
+    {
+      "page": 1,
+      "state": "complete",
+      "reference_chars": 79,
+      "edit_distance": 2,
+      "cells": [],
+      "lines": [
+        {
+          "at": "page/1/line/1",
+          "expected": "Meter inspection | dispatch",
+          "observed": "Meter inspection I dispatch",
+          "correct": false,
+          "reference_bbox": [
+            57.0,
+            71.0,
+            311.5,
+            90.0
+          ],
+          "reported_span_boxes": [
+            [
+              58.32,
+              71.018,
+              110.16,
+              85.654
+            ],
+            [
+              116.88,
+              70.779,
+              213.12,
+              89.733
+            ],
+            [
+              220.8,
+              70.779,
+              223.68,
+              90.213
+            ],
+            [
+              231.36,
+              70.779,
+              310.56,
+              89.733
+            ]
+          ]
+        },
+        {
+          "at": "page/1/line/2",
+          "expected": "Route MR-I1O",
+          "observed": "Route MR-IIO",
+          "correct": false,
+          "reference_bbox": [
+            57.0,
+            124.0,
+            140.0,
+            133.5
+          ],
+          "reported_span_boxes": [
+            [
+              57.84,
+              123.802,
+              90.96,
+              133.64
+            ],
+            [
+              95.28,
+              123.802,
+              139.68,
+              133.64
+            ]
+          ]
+        },
+        {
+          "at": "page/1/line/3",
+          "expected": "Carry the red meter to the west riser.",
+          "observed": "Carry the red meter to the west riser.",
+          "correct": true,
+          "reference_bbox": [
+            57.0,
+            159.0,
+            266.0,
+            171.0
+          ],
+          "reported_span_boxes": [
+            [
+              57.36,
+              158.832,
+              89.04,
+              171.068
+            ],
+            [
+              92.4,
+              158.832,
+              109.92,
+              168.669
+            ],
+            [
+              114.0,
+              158.832,
+              131.52,
+              168.669
+            ],
+            [
+              136.08,
+              159.552,
+              168.72,
+              168.669
+            ],
+            [
+              171.84,
+              159.552,
+              182.4,
+              168.669
+            ],
+            [
+              186.0,
+              158.832,
+              203.52,
+              168.669
+            ],
+            [
+              206.88,
+              159.312,
+              233.76,
+              168.669
+            ],
+            [
+              237.36,
+              158.832,
+              265.2,
+              168.669
+            ]
+          ]
+        }
+      ],
+      "critical": [
+        {
+          "at": "page/1/line/2",
+          "expected": "MR-I1O",
+          "observed": "Route MR-IIO",
+          "correct": false,
+          "flagged": false
+        }
+      ],
+      "extra_cells": 0
+    },
+    {
+      "page": 2,
+      "state": "complete",
+      "reference_chars": 132,
+      "edit_distance": 2,
+      "cells": [
+        {
+          "at": "page/2/table/1/row/1/col/1",
+          "expected": "Meter",
+          "observed": "Meter",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            57,
+            180,
+            205,
+            210
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/1/col/2",
+          "expected": "Before (bar)",
+          "observed": "Before (bar)",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            205,
+            180,
+            353,
+            210
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/1/col/3",
+          "expected": "After (bar)",
+          "observed": "After (bar)",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            353,
+            180,
+            485,
+            210
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/2/col/1",
+          "expected": "M-1O8",
+          "observed": "M-108",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            57,
+            210,
+            205,
+            240
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/2/col/2",
+          "expected": "1.09",
+          "observed": "1.09",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            205,
+            210,
+            353,
+            240
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/2/col/3",
+          "expected": "1.90",
+          "observed": "1.90",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            353,
+            210,
+            485,
+            240
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/3/col/1",
+          "expected": "M-108",
+          "observed": "M-108",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            57,
+            240,
+            205,
+            270
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/3/col/2",
+          "expected": "1.90",
+          "observed": "1.90",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            205,
+            240,
+            353,
+            270
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/3/col/3",
+          "expected": "1.09",
+          "observed": "1.09",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            353,
+            240,
+            485,
+            270
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        }
+      ],
+      "lines": [
+        {
+          "at": "page/2/line/1",
+          "expected": "Meter inspection | readings",
+          "observed": "Meter inspection I readings",
+          "correct": false,
+          "reference_bbox": [
+            57.0,
+            71.0,
+            313.0,
+            90.0
+          ],
+          "reported_span_boxes": [
+            [
+              58.32,
+              71.018,
+              110.16,
+              85.654
+            ],
+            [
+              116.88,
+              70.779,
+              213.12,
+              89.733
+            ],
+            [
+              220.8,
+              70.779,
+              223.68,
+              90.213
+            ],
+            [
+              231.6,
+              70.779,
+              312.24,
+              89.493
+            ]
+          ]
+        },
+        {
+          "at": "page/2/line/2",
+          "expected": "West riser",
+          "observed": "West riser",
+          "correct": true,
+          "reference_bbox": [
+            57.0,
+            124.0,
+            116.0,
+            133.5
+          ],
+          "reported_span_boxes": [
+            [
+              56.88,
+              123.802,
+              86.64,
+              133.64
+            ],
+            [
+              90.48,
+              123.802,
+              115.68,
+              133.64
+            ]
+          ]
+        },
+        {
+          "at": "page/2/line/3",
+          "expected": "Return tag on the final sheet.",
+          "observed": "Return tag on the final sheet.",
+          "correct": true,
+          "reference_bbox": [
+            57.0,
+            680.0,
+            220.0,
+            692.0
+          ],
+          "reported_span_boxes": [
+            [
+              57.84,
+              679.714,
+              95.04,
+              689.551
+            ],
+            [
+              98.88,
+              680.434,
+              116.16,
+              692.19
+            ],
+            [
+              120.24,
+              682.353,
+              133.68,
+              689.551
+            ],
+            [
+              137.52,
+              679.954,
+              155.04,
+              689.551
+            ],
+            [
+              158.4,
+              679.714,
+              181.2,
+              689.551
+            ],
+            [
+              185.76,
+              679.714,
+              219.12,
+              689.791
+            ]
+          ]
+        }
+      ],
+      "critical": [
+        {
+          "at": "page/2/table/1/row/2/col/1",
+          "expected": "M-1O8",
+          "observed": "M-108",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            57,
+            210,
+            205,
+            240
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/2/col/2",
+          "expected": "1.09",
+          "observed": "1.09",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            205,
+            210,
+            353,
+            240
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/2/col/3",
+          "expected": "1.90",
+          "observed": "1.90",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            353,
+            210,
+            485,
+            240
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/3/col/1",
+          "expected": "M-108",
+          "observed": "M-108",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            57,
+            240,
+            205,
+            270
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/3/col/2",
+          "expected": "1.90",
+          "observed": "1.90",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            205,
+            240,
+            353,
+            270
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/2/table/1/row/3/col/3",
+          "expected": "1.09",
+          "observed": "1.09",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            353,
+            240,
+            485,
+            270
+          ],
+          "reported_table_bbox": [
+            57.0,
+            180.5,
+            485.0,
+            270.0
+          ],
+          "reported_span_boxes": []
+        }
+      ],
+      "extra_cells": 0
+    },
+    {
+      "page": 3,
+      "state": "complete",
+      "reference_chars": 0,
+      "edit_distance": 0,
+      "cells": [],
+      "lines": [],
+      "critical": [],
+      "extra_cells": 0
+    },
+    {
+      "page": 4,
+      "state": "complete",
+      "reference_chars": 109,
+      "edit_distance": 3,
+      "cells": [],
+      "lines": [
+        {
+          "at": "page/4/line/1",
+          "expected": "Meter inspection | release",
+          "observed": "Meter inspection I release",
+          "correct": false,
+          "reference_bbox": [
+            57.0,
+            71.0,
+            299.0,
+            90.0
+          ],
+          "reported_span_boxes": [
+            [
+              58.32,
+              71.018,
+              110.16,
+              85.654
+            ],
+            [
+              116.88,
+              70.779,
+              213.12,
+              89.733
+            ],
+            [
+              221.04,
+              70.779,
+              223.68,
+              90.213
+            ],
+            [
+              231.6,
+              70.779,
+              298.56,
+              85.654
+            ]
+          ]
+        },
+        {
+          "at": "page/4/line/2",
+          "expected": "Return tag RT-0O1",
+          "observed": "Return tag RT-OOI",
+          "correct": false,
+          "reference_bbox": [
+            57.0,
+            124.0,
+            166.0,
+            136.0
+          ],
+          "reported_span_boxes": [
+            [
+              57.84,
+              123.802,
+              95.04,
+              133.64
+            ],
+            [
+              98.88,
+              124.522,
+              116.16,
+              136.039
+            ],
+            [
+              120.96,
+              123.802,
+              164.16,
+              133.64
+            ]
+          ]
+        },
+        {
+          "at": "page/4/line/3",
+          "expected": "Witness recorded 0.19 bar.",
+          "observed": "Witness recorded 0.19 bar.",
+          "correct": true,
+          "reference_bbox": [
+            57.0,
+            159.0,
+            210.5,
+            168.5
+          ],
+          "reported_span_boxes": [
+            [
+              56.88,
+              158.832,
+              102.72,
+              168.669
+            ],
+            [
+              107.04,
+              158.832,
+              156.48,
+              168.669
+            ],
+            [
+              160.8,
+              158.832,
+              184.8,
+              168.669
+            ],
+            [
+              189.12,
+              158.832,
+              209.76,
+              168.669
+            ]
+          ]
+        },
+        {
+          "at": "page/4/line/4",
+          "expected": "Release signed after the second vent.",
+          "observed": "Release signed after the second vent.",
+          "correct": true,
+          "reference_bbox": [
+            57.0,
+            207.0,
+            270.5,
+            219.0
+          ],
+          "reported_span_boxes": [
+            [
+              57.84,
+              206.817,
+              103.92,
+              216.654
+            ],
+            [
+              107.76,
+              206.817,
+              144.48,
+              219.054
+            ],
+            [
+              148.8,
+              206.817,
+              174.0,
+              216.654
+            ],
+            [
+              177.36,
+              206.817,
+              194.88,
+              216.654
+            ],
+            [
+              198.96,
+              206.817,
+              239.04,
+              216.654
+            ],
+            [
+              242.88,
+              207.537,
+              269.76,
+              216.654
+            ]
+          ]
+        }
+      ],
+      "critical": [
+        {
+          "at": "page/4/line/2",
+          "expected": "RT-0O1",
+          "observed": "Return tag RT-OOI",
+          "correct": false,
+          "flagged": false
+        },
+        {
+          "at": "page/4/line/3",
+          "expected": "0.19",
+          "observed": "Witness recorded 0.19 bar.",
+          "correct": true,
+          "flagged": false
+        }
+      ],
+      "extra_cells": 0
+    }
+  ]
+}
