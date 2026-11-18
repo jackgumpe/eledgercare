@@ -1,0 +1,6155 @@
+{
+ "kind": "WP-0017 A1 reviewer decision (synchronized with design 1fad21c)",
+ "reviewer": "eld-rd-reviewer",
+ "created_utc": "2026-11-18T20:42:06Z",
+ "audit_sha256": "16eca676114e847059503290b3c4a620eb1625769dd7f3a3e0a39ab252d263b3",
+ "inventory_sha256": "2e3edc902b022b442a5e70dcd050d627f4510332e94f6d6e42b82dc1455809f3",
+ "results_sha256": "7869bec15e0b973768d6690b190ea23f2388da2c1339d840171cf7d8902b0748",
+ "checks_run": 800,
+ "failures": [],
+ "outcome": "PAIR_RUNS_REQUIRED",
+ "decision": {
+  "locators": {
+   "019": {
+    "window": "019",
+    "site_page_index": 2,
+    "block_ordinal": 1,
+    "header_type": "text",
+    "label": "Inspection ",
+    "byte_offset": 11,
+    "content_window_start": 415,
+    "frozen_value": "I08O1-388",
+    "delimiter": "\\n or end of block",
+    "labelled_ordinals_in_frozen_page": [
+     0,
+     1
+    ]
+   },
+   "037": {
+    "window": "037",
+    "site_page_index": 0,
+    "block_ordinal": 1,
+    "header_type": "text",
+    "label": "Inspection ",
+    "byte_offset": 11,
+    "content_window_start": 38,
+    "frozen_value": "8OI10-774",
+    "delimiter": "\\n or end of block",
+    "labelled_ordinals_in_frozen_page": [
+     0,
+     1
+    ]
+   }
+  },
+  "contrast_bases": {
+   "additions": "all_off",
+   "removals": "all_on",
+   "genuine_reference": [
+    "native",
+    "carbon_bf16"
+   ],
+   "note": "instrument-matched switch-harness endpoints; genuine-endpoint contrasts reported separately"
+  },
+  "initial_wave": {
+   "configurations": 16,
+   "unique_bit_vectors": 14,
+   "endpoint_controls": [
+    "native",
+    "all_off",
+    "carbon_bf16",
+    "all_on"
+   ]
+  },
+  "endpoint_parity": {
+   "native:019": {
+    "equal": true,
+    "frozen_arm": "native",
+    "implementation": "genuine_native",
+    "aliases": null,
+    "tokens": [
+     501,
+     501
+    ],
+    "first_mismatch": null
+   },
+   "native:037": {
+    "equal": true,
+    "frozen_arm": "native",
+    "implementation": "genuine_native",
+    "aliases": null,
+    "tokens": [
+     396,
+     396
+    ],
+    "first_mismatch": null
+   },
+   "all_off:019": {
+    "equal": true,
+    "frozen_arm": "native",
+    "implementation": "switch_harness",
+    "aliases": null,
+    "tokens": [
+     501,
+     501
+    ],
+    "first_mismatch": null
+   },
+   "all_off:037": {
+    "equal": true,
+    "frozen_arm": "native",
+    "implementation": "switch_harness",
+    "aliases": null,
+    "tokens": [
+     396,
+     396
+    ],
+    "first_mismatch": null
+   },
+   "carbon_bf16:019": {
+    "equal": true,
+    "frozen_arm": "carbon_bf16",
+    "implementation": "genuine_carbon",
+    "aliases": null,
+    "tokens": [
+     501,
+     501
+    ],
+    "first_mismatch": null
+   },
+   "carbon_bf16:037": {
+    "equal": true,
+    "frozen_arm": "carbon_bf16",
+    "implementation": "genuine_carbon",
+    "aliases": null,
+    "tokens": [
+     391,
+     391
+    ],
+    "first_mismatch": null
+   },
+   "all_on:019": {
+    "equal": true,
+    "frozen_arm": "carbon_bf16",
+    "implementation": "switch_harness",
+    "aliases": null,
+    "tokens": [
+     501,
+     501
+    ],
+    "first_mismatch": null
+   },
+   "all_on:037": {
+    "equal": true,
+    "frozen_arm": "carbon_bf16",
+    "implementation": "switch_harness",
+    "aliases": null,
+    "tokens": [
+     391,
+     391
+    ],
+    "first_mismatch": null
+   }
+  },
+  "coordinator_endpoint_check": {
+   "passed": true,
+   "windows": 8,
+   "agrees": true
+  },
+  "configurations": {
+   "native": {
+    "bits": "000000",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "I08O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 55.7642339,
+      "output_tokens": 501,
+      "forwards": 502,
+      "counters": {
+       "forward_count": 502,
+       "triton_starts": 12,
+       "dense_starts": 12
+      }
+     },
+     "037": {
+      "seconds": 43.5700137,
+      "output_tokens": 396,
+      "forwards": 397,
+      "counters": {
+       "forward_count": 397,
+       "triton_starts": 12,
+       "dense_starts": 12
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 535.3114,
+       "decode_ms_per_token": 107.65773302107728,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 439.1596,
+       "decode_ms_per_token": 107.23543419203747,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 512.1925,
+       "decode_ms_per_token": 108.95938600000001,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 446.6733,
+       "decode_ms_per_token": 108.45846399999999,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 449.3135,
+       "decode_ms_per_token": 112.79911200000001,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": true,
+    "anchored_id_flip": false,
+    "field_failures": {}
+   },
+   "all_off": {
+    "bits": "000000",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "I08O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 54.7095285,
+      "output_tokens": 501,
+      "forwards": 502,
+      "counters": {
+       "forward_count": 502,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 501,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 5511,
+       "s1b_decode_linear_expert_calls": 33066,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 502,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 5522,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 33769,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 6012,
+       "s3_single_step_iters": 502,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     },
+     "037": {
+      "seconds": 43.4353088,
+      "output_tokens": 396,
+      "forwards": 397,
+      "counters": {
+       "forward_count": 397,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 396,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 704,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 4356,
+       "s1b_decode_linear_expert_calls": 26136,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 397,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 4367,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 26840,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 4752,
+       "s3_single_step_iters": 397,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 444.8256,
+       "decode_ms_per_token": 107.07811920374706,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 439.9245,
+       "decode_ms_per_token": 107.57231733021078,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 438.7532,
+       "decode_ms_per_token": 107.888336,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 437.9273,
+       "decode_ms_per_token": 108.123238,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 441.9766,
+       "decode_ms_per_token": 108.11555399999999,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": true,
+    "anchored_id_flip": false,
+    "field_failures": {}
+   },
+   "carbon_bf16": {
+    "bits": "111111",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "80I10-774",
+      "reason": null,
+      "free_prefix_sha256": "656b1fdd3f90ff284534ce4c44e179adf6b08f9cd3f08eb66a1edc20134026ad",
+      "upstream_history_changed": true
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.06893574276432446,
+       "ell": {
+        "native": -0.9144434926138274,
+        "carbon_bf16": -0.8455077498495029
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": -0.06893574276432446,
+       "ell": {
+        "native": -0.9144434926138274,
+        "carbon_bf16": -0.8455077498495029
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.05542450818620637,
+       "ell": {
+        "native": -0.8743363339581265,
+        "carbon_bf16": -0.8189118257719201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": -0.05542450818620637,
+       "ell": {
+        "native": -0.8743363339581265,
+        "carbon_bf16": -0.8189118257719201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.1862416866742933,
+       "ell": {
+        "native": -0.9241364775580223,
+        "carbon_bf16": -0.737894790883729
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         22.0
+        ],
+        [
+         26,
+         21.875
+        ],
+        [
+         22066,
+         20.375
+        ],
+        [
+         6884,
+         14.875
+        ],
+        [
+         21097,
+         14.3125
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.875,
+        "carbon_bf16": 22.0
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 47.6943889,
+      "output_tokens": 501,
+      "forwards": 506,
+      "counters": {
+       "forward_count": 506,
+       "burst_extra_forwards": 4,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 44,
+       "prefill_moe_fallback_layer_calls": 0
+      }
+     },
+     "037": {
+      "seconds": 37.3037714,
+      "output_tokens": 391,
+      "forwards": 394,
+      "counters": {
+       "forward_count": 394,
+       "burst_extra_forwards": 2,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 55,
+       "prefill_moe_fallback_layer_calls": 0
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 357.599,
+       "decode_ms_per_token": 93.04832084309133,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 354.8834,
+       "decode_ms_per_token": 95.48102974238876,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 370.8523,
+       "decode_ms_per_token": 95.951992,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 366.4966,
+       "decode_ms_per_token": 94.92599,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 395.1799,
+       "decode_ms_per_token": 98.85328600000001,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "all_on": {
+    "bits": "111111",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "80I10-774",
+      "reason": null,
+      "free_prefix_sha256": "656b1fdd3f90ff284534ce4c44e179adf6b08f9cd3f08eb66a1edc20134026ad",
+      "upstream_history_changed": true
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.06893574276432446,
+       "ell": {
+        "native": -0.9144434926138274,
+        "carbon_bf16": -0.8455077498495029
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": -0.06893574276432446,
+       "ell": {
+        "native": -0.9144434926138274,
+        "carbon_bf16": -0.8455077498495029
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.05542450818620637,
+       "ell": {
+        "native": -0.8743363339581265,
+        "carbon_bf16": -0.8189118257719201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": -0.05542450818620637,
+       "ell": {
+        "native": -0.8743363339581265,
+        "carbon_bf16": -0.8189118257719201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.1862416866742933,
+       "ell": {
+        "native": -0.9241364775580223,
+        "carbon_bf16": -0.737894790883729
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         22.0
+        ],
+        [
+         26,
+         21.875
+        ],
+        [
+         22066,
+         20.375
+        ],
+        [
+         6884,
+         14.875
+        ],
+        [
+         21097,
+         14.3125
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.875,
+        "carbon_bf16": 22.0
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 49.3492919,
+      "output_tokens": 501,
+      "forwards": 506,
+      "counters": {
+       "forward_count": 506,
+       "burst_extra_forwards": 4,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 501,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 5555,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 506,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 5566,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 5566,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 6060,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 63,
+       "s3_burst_steps_launched": 504,
+       "s3_burst_extra_forwards": 4
+      }
+     },
+     "037": {
+      "seconds": 37.855233,
+      "output_tokens": 391,
+      "forwards": 394,
+      "counters": {
+       "forward_count": 394,
+       "burst_extra_forwards": 2,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 391,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 4323,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 394,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 4334,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 4334,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 4716,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 49,
+       "s3_burst_steps_launched": 392,
+       "s3_burst_extra_forwards": 2
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 414.4991,
+       "decode_ms_per_token": 94.08679437939111,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 354.5351,
+       "decode_ms_per_token": 95.02922529274004,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 364.6941,
+       "decode_ms_per_token": 102.70374,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 364.7344,
+       "decode_ms_per_token": 94.45766400000001,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 364.3163,
+       "decode_ms_per_token": 95.04598200000001,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "add_S0": {
+    "bits": "100000",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "I08O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 54.8553177,
+      "output_tokens": 501,
+      "forwards": 502,
+      "counters": {
+       "forward_count": 502,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 501,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 5511,
+       "s1b_decode_linear_expert_calls": 33066,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 502,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 5522,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 33769,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 6012,
+       "s3_single_step_iters": 502,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     },
+     "037": {
+      "seconds": 43.2989143,
+      "output_tokens": 396,
+      "forwards": 397,
+      "counters": {
+       "forward_count": 397,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 396,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 704,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 4356,
+       "s1b_decode_linear_expert_calls": 26136,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 397,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 4367,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 26840,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 4752,
+       "s3_single_step_iters": 397,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 431.5823,
+       "decode_ms_per_token": 107.0301348946136,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 433.3405,
+       "decode_ms_per_token": 107.11891288056206,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 441.4048,
+       "decode_ms_per_token": 107.723192,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 452.4016,
+       "decode_ms_per_token": 107.148474,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 442.6265,
+       "decode_ms_per_token": 107.36932999999999,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": true,
+    "anchored_id_flip": false,
+    "field_failures": {}
+   },
+   "add_S1a": {
+    "bits": "010000",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "I08O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 63.8821697,
+      "output_tokens": 501,
+      "forwards": 502,
+      "counters": {
+       "forward_count": 502,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 501,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 5511,
+       "s1b_decode_linear_expert_calls": 33066,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 502,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 5522,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 33077,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 6012,
+       "s3_single_step_iters": 502,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     },
+     "037": {
+      "seconds": 48.6731594,
+      "output_tokens": 396,
+      "forwards": 397,
+      "counters": {
+       "forward_count": 397,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 396,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 4356,
+       "s1b_decode_linear_expert_calls": 26136,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 397,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 4367,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 26147,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 4752,
+       "s3_single_step_iters": 397,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 456.3618,
+       "decode_ms_per_token": 121.41828407494144,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 371.3106,
+       "decode_ms_per_token": 107.54263138173302,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 372.6969,
+       "decode_ms_per_token": 108.44893400000001,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 382.2424,
+       "decode_ms_per_token": 108.055808,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 356.9384,
+       "decode_ms_per_token": 107.90775,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": true,
+    "anchored_id_flip": false,
+    "field_failures": {}
+   },
+   "add_S1b": {
+    "bits": "001000",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "c520a6e3b75f55f7d015b4eac61d1aa186891bef9d716e8dbcedd48cfd587362",
+      "upstream_history_changed": true
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.04700489737638236,
+       "ell": {
+        "native": -0.892989054113059,
+        "carbon_bf16": -0.8459841567366766
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": -0.04700489737638236,
+       "ell": {
+        "native": -0.892989054113059,
+        "carbon_bf16": -0.8459841567366766
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "D": -0.06934102796003572,
+       "ell": {
+        "native": -0.9153284910646562,
+        "carbon_bf16": -0.8459874631046205
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": 0.06285140829095326,
+       "ell": {
+        "native": -0.8135088546287079,
+        "carbon_bf16": -0.8763602629196612
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.75
+        ],
+        [
+         1892,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.75,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.06285140829095326,
+       "ell": {
+        "native": -0.8135088546287079,
+        "carbon_bf16": -0.8763602629196612
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.75
+        ],
+        [
+         1892,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.75,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": 0.06285140829095326,
+       "ell": {
+        "native": -0.8135088546287079,
+        "carbon_bf16": -0.8763602629196612
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.75
+        ],
+        [
+         1892,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.75,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 47.628057,
+      "output_tokens": 501,
+      "forwards": 502,
+      "counters": {
+       "forward_count": 502,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 501,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 5511,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 502,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 5522,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 6214,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 6012,
+       "s3_single_step_iters": 502,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     },
+     "037": {
+      "seconds": 38.0788984,
+      "output_tokens": 396,
+      "forwards": 397,
+      "counters": {
+       "forward_count": 397,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 396,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 704,
+       "s1b_decode_bmm_calls": 4356,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 397,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 4367,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 5060,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 4752,
+       "s3_single_step_iters": 397,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 445.07,
+       "decode_ms_per_token": 95.809437470726,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 452.8156,
+       "decode_ms_per_token": 96.91868103044496,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "prefill_ms": 443.7336,
+       "decode_ms_per_token": 97.57286627634662,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 487.6023,
+       "decode_ms_per_token": 100.442004,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 463.6901,
+       "decode_ms_per_token": 93.413202,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 439.8269,
+       "decode_ms_per_token": 94.043862,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "add_S1c": {
+    "bits": "000100",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.04735261934092705,
+       "ell": {
+        "native": -0.8930101166854456,
+        "carbon_bf16": -0.8456574973445186
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": -0.04735261934092705,
+       "ell": {
+        "native": -0.8930101166854456,
+        "carbon_bf16": -0.8456574973445186
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.06301814799735439,
+       "ell": {
+        "native": -0.8819410304213307,
+        "carbon_bf16": -0.8189228824239763
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": -0.06301814799735439,
+       "ell": {
+        "native": -0.8819410304213307,
+        "carbon_bf16": -0.8189228824239763
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.06301814799735439,
+       "ell": {
+        "native": -0.8819410304213307,
+        "carbon_bf16": -0.8189228824239763
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 56.9944432,
+      "output_tokens": 501,
+      "forwards": 502,
+      "counters": {
+       "forward_count": 502,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 501,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 5511,
+       "s1b_decode_linear_expert_calls": 33066,
+       "s1c_dense_fused_calls": 502,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 5522,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 33769,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 6012,
+       "s3_single_step_iters": 502,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     },
+     "037": {
+      "seconds": 44.4925035,
+      "output_tokens": 396,
+      "forwards": 397,
+      "counters": {
+       "forward_count": 397,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 396,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 4356,
+       "s1b_decode_linear_expert_calls": 26136,
+       "s1c_dense_fused_calls": 397,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 4367,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 26839,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 4752,
+       "s3_single_step_iters": 397,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 438.8662,
+       "decode_ms_per_token": 105.7157644028103,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 424.7986,
+       "decode_ms_per_token": 109.61254707259953,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 438.5795,
+       "decode_ms_per_token": 106.263002,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 424.0951,
+       "decode_ms_per_token": 107.275414,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 430.3323,
+       "decode_ms_per_token": 105.477546,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "add_S2": {
+    "bits": "000010",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "c520a6e3b75f55f7d015b4eac61d1aa186891bef9d716e8dbcedd48cfd587362",
+      "upstream_history_changed": true
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.06859409414391848,
+       "ell": {
+        "native": -0.9140969907987255,
+        "carbon_bf16": -0.845502896654807
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": -0.06859409414391848,
+       "ell": {
+        "native": -0.9140969907987255,
+        "carbon_bf16": -0.845502896654807
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "D": -0.06851508301792819,
+       "ell": {
+        "native": -0.9140335095046339,
+        "carbon_bf16": -0.8455184264867057
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": 0.06966909733455395,
+       "ell": {
+        "native": -0.8067156452802919,
+        "carbon_bf16": -0.8763847426148459
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.75
+        ],
+        [
+         1892,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.75,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.06966909733455395,
+       "ell": {
+        "native": -0.8067156452802919,
+        "carbon_bf16": -0.8763847426148459
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.75
+        ],
+        [
+         1892,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.75,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": 0.06966909733455395,
+       "ell": {
+        "native": -0.8067156452802919,
+        "carbon_bf16": -0.8763847426148459
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.75
+        ],
+        [
+         1892,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.75,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 56.0521191,
+      "output_tokens": 501,
+      "forwards": 502,
+      "counters": {
+       "forward_count": 502,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 501,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 5511,
+       "s1b_decode_linear_expert_calls": 33066,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 502,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 5522,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 33769,
+       "s2_static_gather_decode_calls": 6012,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 502,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     },
+     "037": {
+      "seconds": 44.3613733,
+      "output_tokens": 396,
+      "forwards": 397,
+      "counters": {
+       "forward_count": 397,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 396,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 704,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 4356,
+       "s1b_decode_linear_expert_calls": 26136,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 397,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 4367,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 26840,
+       "s2_static_gather_decode_calls": 4752,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 397,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 454.5822,
+       "decode_ms_per_token": 109.58438899297425,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 457.1137,
+       "decode_ms_per_token": 108.8759857142857,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "prefill_ms": 471.566,
+       "decode_ms_per_token": 108.69895175644028,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 453.339,
+       "decode_ms_per_token": 111.07378,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 460.8812,
+       "decode_ms_per_token": 109.504514,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 456.2685,
+       "decode_ms_per_token": 110.68051599999998,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "add_S3": {
+    "bits": "000001",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "I08O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.05598421376953411,
+       "ell": {
+        "native": -0.8539518532659258,
+        "carbon_bf16": -0.9099360670354599
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         342,
+         19.0
+        ],
+        [
+         223,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 19.0,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      },
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": 0.06961460022830579,
+       "ell": {
+        "native": -0.8069054979487191,
+        "carbon_bf16": -0.8765200981770249
+       },
+       "greedy": "native",
+       "top5": [
+        [
+         26,
+         21.625
+        ],
+        [
+         1892,
+         21.5
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.5
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 55.7013848,
+      "output_tokens": 501,
+      "forwards": 506,
+      "counters": {
+       "forward_count": 506,
+       "burst_extra_forwards": 4,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 501,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 5555,
+       "s1b_decode_linear_expert_calls": 33330,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 506,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 5566,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 34033,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 6060,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 63,
+       "s3_burst_steps_launched": 504,
+       "s3_burst_extra_forwards": 4
+      }
+     },
+     "037": {
+      "seconds": 44.2782676,
+      "output_tokens": 396,
+      "forwards": 402,
+      "counters": {
+       "forward_count": 402,
+       "burst_extra_forwards": 5,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 396,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 704,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 4411,
+       "s1b_decode_linear_expert_calls": 26466,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 402,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 4422,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 27170,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 4812,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 50,
+       "s3_burst_steps_launched": 400,
+       "s3_burst_extra_forwards": 5
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 458.8947,
+       "decode_ms_per_token": 108.91057751756442,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 444.1567,
+       "decode_ms_per_token": 109.1664655737705,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 461.7733,
+       "decode_ms_per_token": 110.11592,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      },
+      {
+       "prefill_ms": 449.8866,
+       "decode_ms_per_token": 111.40755999999999,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 450.8703,
+       "decode_ms_per_token": 109.50641,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": "ordered TextStreamer callbacks deferred to burst return (S3 on, S0 off; CONTRACT.md section 1 of the bound candidate), evidenced by nonzero s0_streamer_put_calls and s3_burst_chunks",
+    "restores_both": true,
+    "anchored_id_flip": false,
+    "field_failures": {}
+   },
+   "remove_S0": {
+    "bits": "011111",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "80I10-774",
+      "reason": null,
+      "free_prefix_sha256": "656b1fdd3f90ff284534ce4c44e179adf6b08f9cd3f08eb66a1edc20134026ad",
+      "upstream_history_changed": true
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.06893574276432446,
+       "ell": {
+        "native": -0.9144434926138274,
+        "carbon_bf16": -0.8455077498495029
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.05542450818620637,
+       "ell": {
+        "native": -0.8743363339581265,
+        "carbon_bf16": -0.8189118257719201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.1862416866742933,
+       "ell": {
+        "native": -0.9241364775580223,
+        "carbon_bf16": -0.737894790883729
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         22.0
+        ],
+        [
+         26,
+         21.875
+        ],
+        [
+         22066,
+         20.375
+        ],
+        [
+         6884,
+         14.875
+        ],
+        [
+         21097,
+         14.3125
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.875,
+        "carbon_bf16": 22.0
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 48.8265613,
+      "output_tokens": 501,
+      "forwards": 506,
+      "counters": {
+       "forward_count": 506,
+       "burst_extra_forwards": 4,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 501,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 5555,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 506,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 5566,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 5566,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 6060,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 63,
+       "s3_burst_steps_launched": 504,
+       "s3_burst_extra_forwards": 4
+      }
+     },
+     "037": {
+      "seconds": 38.0601692,
+      "output_tokens": 391,
+      "forwards": 394,
+      "counters": {
+       "forward_count": 394,
+       "burst_extra_forwards": 2,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 391,
+       "s0_streamer_end_calls": 1,
+       "s0_silent_accum_tokens": 0,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 4323,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 394,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 4334,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 4334,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 4716,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 49,
+       "s3_burst_steps_launched": 392,
+       "s3_burst_extra_forwards": 2
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 360.8085,
+       "decode_ms_per_token": 95.7125737704918,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 368.8806,
+       "decode_ms_per_token": 97.403254,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 364.8312,
+       "decode_ms_per_token": 95.528526,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": "ordered TextStreamer callbacks deferred to burst return (S3 on, S0 off; CONTRACT.md section 1 of the bound candidate), evidenced by nonzero s0_streamer_put_calls and s3_burst_chunks",
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "remove_S1a": {
+    "bits": "101111",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "80I10-774",
+      "reason": null,
+      "free_prefix_sha256": "656b1fdd3f90ff284534ce4c44e179adf6b08f9cd3f08eb66a1edc20134026ad",
+      "upstream_history_changed": true
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.06893574276432446,
+       "ell": {
+        "native": -0.9144434926138274,
+        "carbon_bf16": -0.8455077498495029
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.05542450818620637,
+       "ell": {
+        "native": -0.8743363339581265,
+        "carbon_bf16": -0.8189118257719201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.1862416866742933,
+       "ell": {
+        "native": -0.9241364775580223,
+        "carbon_bf16": -0.737894790883729
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         22.0
+        ],
+        [
+         26,
+         21.875
+        ],
+        [
+         22066,
+         20.375
+        ],
+        [
+         6884,
+         14.875
+        ],
+        [
+         21097,
+         14.3125
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.875,
+        "carbon_bf16": 22.0
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 48.5615231,
+      "output_tokens": 501,
+      "forwards": 506,
+      "counters": {
+       "forward_count": 506,
+       "burst_extra_forwards": 4,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 501,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 5555,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 506,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 5566,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 6258,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 6060,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 63,
+       "s3_burst_steps_launched": 504,
+       "s3_burst_extra_forwards": 4
+      }
+     },
+     "037": {
+      "seconds": 37.9190153,
+      "output_tokens": 391,
+      "forwards": 394,
+      "counters": {
+       "forward_count": 394,
+       "burst_extra_forwards": 2,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 0,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 391,
+       "s1a_prefill_grouped_mm_calls": 0,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 11,
+       "s1a_prefill_linear_expert_calls": 703,
+       "s1b_decode_bmm_calls": 4323,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 394,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 4334,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 5026,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 4716,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 49,
+       "s3_burst_steps_launched": 392,
+       "s3_burst_extra_forwards": 2
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 448.1432,
+       "decode_ms_per_token": 95.27480913348946,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 444.4193,
+       "decode_ms_per_token": 96.35938399999999,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 446.7147,
+       "decode_ms_per_token": 95.50415199999999,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "remove_S1b": {
+    "bits": "110111",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "c520a6e3b75f55f7d015b4eac61d1aa186891bef9d716e8dbcedd48cfd587362",
+      "upstream_history_changed": true
+     },
+     "037": {
+      "status": "ok",
+      "value": "80I10-774",
+      "reason": null,
+      "free_prefix_sha256": "656b1fdd3f90ff284534ce4c44e179adf6b08f9cd3f08eb66a1edc20134026ad",
+      "upstream_history_changed": true
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.04713315500680437,
+       "ell": {
+        "native": -0.8933634879231249,
+        "carbon_bf16": -0.8462303329163205
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.375
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "D": -0.047010999424401234,
+       "ell": {
+        "native": -0.8933785134424852,
+        "carbon_bf16": -0.846367514018084
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.5
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.06926134128752892,
+       "ell": {
+        "native": -0.8748592802221538,
+        "carbon_bf16": -0.8055979389346248
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.125
+        ],
+        [
+         6884,
+         14.8125
+        ],
+        [
+         21097,
+         14.4375
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.18597472737292264,
+       "ell": {
+        "native": -0.9239820560092085,
+        "carbon_bf16": -0.7380073286362858
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         22.0
+        ],
+        [
+         26,
+         21.875
+        ],
+        [
+         22066,
+         20.375
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.375
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.875,
+        "carbon_bf16": 22.0
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 55.9579584,
+      "output_tokens": 501,
+      "forwards": 506,
+      "counters": {
+       "forward_count": 506,
+       "burst_extra_forwards": 4,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 501,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 5555,
+       "s1b_decode_linear_expert_calls": 33330,
+       "s1c_dense_fused_calls": 506,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 5566,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 33341,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 6060,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 63,
+       "s3_burst_steps_launched": 504,
+       "s3_burst_extra_forwards": 4
+      }
+     },
+     "037": {
+      "seconds": 44.6605802,
+      "output_tokens": 406,
+      "forwards": 410,
+      "counters": {
+       "forward_count": 410,
+       "burst_extra_forwards": 3,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 406,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 0,
+       "s1b_decode_linear_loop_calls": 4499,
+       "s1b_decode_linear_expert_calls": 26994,
+       "s1c_dense_fused_calls": 410,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 4510,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 27005,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 4908,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 51,
+       "s3_burst_steps_launched": 408,
+       "s3_burst_extra_forwards": 3
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 483.8768,
+       "decode_ms_per_token": 107.28759531615925,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "prefill_ms": 352.7275,
+       "decode_ms_per_token": 107.28753489461359,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 369.0389,
+       "decode_ms_per_token": 108.30037399999999,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 354.2814,
+       "decode_ms_per_token": 107.671242,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "remove_S1c": {
+    "bits": "111011",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "c520a6e3b75f55f7d015b4eac61d1aa186891bef9d716e8dbcedd48cfd587362",
+      "upstream_history_changed": true
+     },
+     "037": {
+      "status": "ok",
+      "value": "80I10-774",
+      "reason": null,
+      "free_prefix_sha256": "656b1fdd3f90ff284534ce4c44e179adf6b08f9cd3f08eb66a1edc20134026ad",
+      "upstream_history_changed": true
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.08312419922731351,
+       "ell": {
+        "native": -0.914996063067747,
+        "carbon_bf16": -0.8318718638404334
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "D": -0.046457193800051755,
+       "ell": {
+        "native": -0.8925047884638388,
+        "carbon_bf16": -0.8460475946637871
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.06186733409276712,
+       "ell": {
+        "native": -0.8808902370792566,
+        "carbon_bf16": -0.8190229029864895
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.875
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.310723725560365,
+       "ell": {
+        "native": -0.997788098206911,
+        "carbon_bf16": -0.687064372646546
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.875
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.3125
+        ]
+       ],
+       "margin": 0.25,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.875
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 49.071901,
+      "output_tokens": 501,
+      "forwards": 506,
+      "counters": {
+       "forward_count": 506,
+       "burst_extra_forwards": 4,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 501,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 5555,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 506,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 5566,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 5566,
+       "s2_static_gather_decode_calls": 6060,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 63,
+       "s3_burst_steps_launched": 504,
+       "s3_burst_extra_forwards": 4
+      }
+     },
+     "037": {
+      "seconds": 39.9162003,
+      "output_tokens": 406,
+      "forwards": 410,
+      "counters": {
+       "forward_count": 410,
+       "burst_extra_forwards": 3,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 406,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 4499,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 0,
+       "s1c_dense_unfused_calls": 410,
+       "s1c_shared_fused_calls": 0,
+       "s1c_shared_unfused_calls": 4510,
+       "s1c_routed_fused_op_calls": 0,
+       "s1c_routed_unfused_op_calls": 4510,
+       "s2_static_gather_decode_calls": 4908,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 51,
+       "s3_burst_steps_launched": 408,
+       "s3_burst_extra_forwards": 3
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 382.6844,
+       "decode_ms_per_token": 95.29940093676815,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "prefill_ms": 383.6966,
+       "decode_ms_per_token": 94.99079929742389,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 379.6538,
+       "decode_ms_per_token": 96.464822,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 383.3057,
+       "decode_ms_per_token": 96.491696,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "remove_S2": {
+    "bits": "111101",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "c520a6e3b75f55f7d015b4eac61d1aa186891bef9d716e8dbcedd48cfd587362",
+      "upstream_history_changed": true
+     },
+     "037": {
+      "status": "ok",
+      "value": "8OI10-774",
+      "reason": null,
+      "free_prefix_sha256": "0df32b064affe50de1657eff7eb8f866582a2a0dc39231236c0eae4bd05a48dd",
+      "upstream_history_changed": false
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.045764499262986646,
+       "ell": {
+        "native": -0.8930170124160668,
+        "carbon_bf16": -0.8472525131530801
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.8125
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "D": -0.04594115118516129,
+       "ell": {
+        "native": -0.8933456056277009,
+        "carbon_bf16": -0.8474044544425396
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.4375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.9375
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.061818890654649294,
+       "ell": {
+        "native": -0.8804670860158694,
+        "carbon_bf16": -0.8186481953612201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.061818890654649294,
+       "ell": {
+        "native": -0.8804670860158694,
+        "carbon_bf16": -0.8186481953612201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 47.9477548,
+      "output_tokens": 501,
+      "forwards": 506,
+      "counters": {
+       "forward_count": 506,
+       "burst_extra_forwards": 4,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 501,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 5555,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 506,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 5566,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 5566,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 6060,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 63,
+       "s3_burst_steps_launched": 504,
+       "s3_burst_extra_forwards": 4
+      }
+     },
+     "037": {
+      "seconds": 38.0315942,
+      "output_tokens": 396,
+      "forwards": 402,
+      "counters": {
+       "forward_count": 402,
+       "burst_extra_forwards": 5,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 396,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 4411,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 402,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 4422,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 4422,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 0,
+       "s2_dynamic_masked_decode_calls": 4812,
+       "s3_single_step_iters": 0,
+       "s3_burst_chunks": 50,
+       "s3_burst_steps_launched": 400,
+       "s3_burst_extra_forwards": 5
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 368.783,
+       "decode_ms_per_token": 93.71455644028103,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "019:free_prefix": [
+      {
+       "prefill_ms": 339.8773,
+       "decode_ms_per_token": 92.9477950819672,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 359.5317,
+       "decode_ms_per_token": 94.125404,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 344.0933,
+       "decode_ms_per_token": 93.526448,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   },
+   "remove_S3": {
+    "bits": "111110",
+    "fields": {
+     "019": {
+      "status": "ok",
+      "value": "108O1-388",
+      "reason": null,
+      "free_prefix_sha256": "0206cf30de24aed6af72bf682adcb076e22ddf6588c86d46e743d37c80a1ec06",
+      "upstream_history_changed": false
+     },
+     "037": {
+      "status": "ok",
+      "value": "80I10-774",
+      "reason": null,
+      "free_prefix_sha256": "656b1fdd3f90ff284534ce4c44e179adf6b08f9cd3f08eb66a1edc20134026ad",
+      "upstream_history_changed": true
+     }
+    },
+    "probes": {
+     "019:native_prefix": [
+      {
+       "D": -0.06893574276432446,
+       "ell": {
+        "native": -0.9144434926138274,
+        "carbon_bf16": -0.8455077498495029
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         223,
+         18.875
+        ],
+        [
+         342,
+         18.875
+        ],
+        [
+         314,
+         14.375
+        ],
+        [
+         32313,
+         14.3125
+        ],
+        [
+         462,
+         11.875
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 18.875,
+        "carbon_bf16": 18.875
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "D": -0.05542450818620637,
+       "ell": {
+        "native": -0.8743363339581265,
+        "carbon_bf16": -0.8189118257719201
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         21.625
+        ],
+        [
+         26,
+         21.625
+        ],
+        [
+         22066,
+         20.25
+        ],
+        [
+         6884,
+         14.9375
+        ],
+        [
+         21097,
+         14.5
+        ]
+       ],
+       "margin": 0.0,
+       "competing_logits": {
+        "native": 21.625,
+        "carbon_bf16": 21.625
+       },
+       "guard_status": "finite"
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "D": -0.1862416866742933,
+       "ell": {
+        "native": -0.9241364775580223,
+        "carbon_bf16": -0.737894790883729
+       },
+       "greedy": "carbon_bf16",
+       "top5": [
+        [
+         1892,
+         22.0
+        ],
+        [
+         26,
+         21.875
+        ],
+        [
+         22066,
+         20.375
+        ],
+        [
+         6884,
+         14.875
+        ],
+        [
+         21097,
+         14.3125
+        ]
+       ],
+       "margin": 0.125,
+       "competing_logits": {
+        "native": 21.875,
+        "carbon_bf16": 22.0
+       },
+       "guard_status": "finite"
+      }
+     ]
+    },
+    "free": {
+     "019": {
+      "seconds": 47.8674731,
+      "output_tokens": 501,
+      "forwards": 502,
+      "counters": {
+       "forward_count": 502,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 501,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 5511,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 502,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 5522,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 5522,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 6012,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 502,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     },
+     "037": {
+      "seconds": 38.2282645,
+      "output_tokens": 391,
+      "forwards": 392,
+      "counters": {
+       "forward_count": 392,
+       "burst_extra_forwards": 0,
+       "static_cache_reallocations": 0,
+       "prefill_grouped_mm_layer_calls": 11,
+       "prefill_moe_fallback_layer_calls": 0,
+       "s0_streamer_put_calls": 0,
+       "s0_streamer_end_calls": 0,
+       "s0_silent_accum_tokens": 391,
+       "s1a_prefill_grouped_mm_calls": 11,
+       "s1a_prefill_fallback_calls": 0,
+       "s1a_prefill_linear_loop_calls": 0,
+       "s1a_prefill_linear_expert_calls": 0,
+       "s1b_decode_bmm_calls": 4301,
+       "s1b_decode_linear_loop_calls": 0,
+       "s1b_decode_linear_expert_calls": 0,
+       "s1c_dense_fused_calls": 392,
+       "s1c_dense_unfused_calls": 0,
+       "s1c_shared_fused_calls": 4312,
+       "s1c_shared_unfused_calls": 0,
+       "s1c_routed_fused_op_calls": 4312,
+       "s1c_routed_unfused_op_calls": 0,
+       "s2_static_gather_decode_calls": 4692,
+       "s2_dynamic_masked_decode_calls": 0,
+       "s3_single_step_iters": 392,
+       "s3_burst_chunks": 0,
+       "s3_burst_steps_launched": 0,
+       "s3_burst_extra_forwards": 0
+      }
+     }
+    },
+    "probe_timing": {
+     "019:native_prefix": [
+      {
+       "prefill_ms": 389.7724,
+       "decode_ms_per_token": 98.163637470726,
+       "decode_tokens": 427,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:native_prefix": [
+      {
+       "prefill_ms": 364.1818,
+       "decode_ms_per_token": 99.298698,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ],
+     "037:free_prefix": [
+      {
+       "prefill_ms": 375.3907,
+       "decode_ms_per_token": 98.092424,
+       "decode_tokens": 50,
+       "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+       "device_synchronized": true
+      }
+     ]
+    },
+    "stream_cadence_label": null,
+    "restores_both": false,
+    "anchored_id_flip": true,
+    "field_failures": {}
+   }
+  },
+  "sufficiency_add_on_native": {
+   "S0": [],
+   "S1a": [],
+   "S1b": [
+    "019"
+   ],
+   "S1c": [
+    "019"
+   ],
+   "S2": [
+    "019"
+   ],
+   "S3": []
+  },
+  "necessity_remove_from_full": {
+   "S0": [],
+   "S1a": [],
+   "S1b": [],
+   "S1c": [],
+   "S2": [
+    "037"
+   ],
+   "S3": []
+  },
+  "path_effect_at_native_history": {
+   "native": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "all_off": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "carbon_bf16": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   },
+   "all_on": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   },
+   "add_S0": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "add_S1a": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "add_S1b": {
+    "019": -0.10298911114591647,
+    "037": -0.006763191937352531
+   },
+   "add_S1c": {
+    "019": -0.10333683311046116,
+    "037": -0.13263274822566018
+   },
+   "add_S2": {
+    "019": -0.12457830791345259,
+    "037": 5.449710624816362e-05
+   },
+   "add_S3": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "remove_S0": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   },
+   "remove_S1a": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   },
+   "remove_S1b": {
+    "019": -0.10311736877633848,
+    "037": -0.1388759415158347
+   },
+   "remove_S1c": {
+    "019": -0.13910841299684762,
+    "037": -0.1314819343210729
+   },
+   "remove_S2": {
+    "019": -0.10174871303252075,
+    "037": -0.13143349088295508
+   },
+   "remove_S3": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   }
+  },
+  "path_effect_vs_genuine_native": {
+   "native": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "all_off": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "carbon_bf16": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   },
+   "all_on": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   },
+   "add_S0": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "add_S1a": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "add_S1b": {
+    "019": -0.10298911114591647,
+    "037": -0.006763191937352531
+   },
+   "add_S1c": {
+    "019": -0.10333683311046116,
+    "037": -0.13263274822566018
+   },
+   "add_S2": {
+    "019": -0.12457830791345259,
+    "037": 5.449710624816362e-05
+   },
+   "add_S3": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "remove_S0": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   },
+   "remove_S1a": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   },
+   "remove_S1b": {
+    "019": -0.10311736877633848,
+    "037": -0.1388759415158347
+   },
+   "remove_S1c": {
+    "019": -0.13910841299684762,
+    "037": -0.1314819343210729
+   },
+   "remove_S2": {
+    "019": -0.10174871303252075,
+    "037": -0.13143349088295508
+   },
+   "remove_S3": {
+    "019": -0.12491995653385857,
+    "037": -0.12503910841451216
+   }
+  },
+  "harness_vs_genuine_probe_gap_nats": {
+   "all_off-native:019": 0.0,
+   "all_off-native:037": 0.0,
+   "all_on-carbon_bf16:019": 0.0,
+   "all_on-carbon_bf16:037": 0.0
+  },
+  "history_shift_effect_037": {
+   "native": 0.0,
+   "all_off": 0.0,
+   "carbon_bf16": -0.13081717848808694,
+   "all_on": -0.13081717848808694,
+   "add_S0": 0.0,
+   "add_S1a": 0.0,
+   "add_S1b": 0.0,
+   "add_S1c": 0.0,
+   "add_S2": 0.0,
+   "add_S3": 0.0,
+   "remove_S0": -0.13081717848808694,
+   "remove_S1a": -0.13081717848808694,
+   "remove_S1b": -0.11671338608539372,
+   "remove_S1c": -0.24885639146759786,
+   "remove_S2": 0.0,
+   "remove_S3": -0.13081717848808694
+  },
+  "ordinary_speed_s": {
+   "per_config": {
+    "native": {
+     "019": 55.7642339,
+     "037": 43.5700137,
+     "sum": 99.3342476
+    },
+    "all_off": {
+     "019": 54.7095285,
+     "037": 43.4353088,
+     "sum": 98.1448373
+    },
+    "carbon_bf16": {
+     "019": 47.6943889,
+     "037": 37.3037714,
+     "sum": 84.9981603
+    },
+    "all_on": {
+     "019": 49.3492919,
+     "037": 37.855233,
+     "sum": 87.2045249
+    },
+    "add_S0": {
+     "019": 54.8553177,
+     "037": 43.2989143,
+     "sum": 98.15423200000001
+    },
+    "add_S1a": {
+     "019": 63.8821697,
+     "037": 48.6731594,
+     "sum": 112.5553291
+    },
+    "add_S1b": {
+     "019": 47.628057,
+     "037": 38.0788984,
+     "sum": 85.7069554
+    },
+    "add_S1c": {
+     "019": 56.9944432,
+     "037": 44.4925035,
+     "sum": 101.4869467
+    },
+    "add_S2": {
+     "019": 56.0521191,
+     "037": 44.3613733,
+     "sum": 100.4134924
+    },
+    "add_S3": {
+     "019": 55.7013848,
+     "037": 44.2782676,
+     "sum": 99.97965239999999
+    },
+    "remove_S0": {
+     "019": 48.8265613,
+     "037": 38.0601692,
+     "sum": 86.8867305
+    },
+    "remove_S1a": {
+     "019": 48.5615231,
+     "037": 37.9190153,
+     "sum": 86.4805384
+    },
+    "remove_S1b": {
+     "019": 55.9579584,
+     "037": 44.6605802,
+     "sum": 100.6185386
+    },
+    "remove_S1c": {
+     "019": 49.071901,
+     "037": 39.9162003,
+     "sum": 88.9881013
+    },
+    "remove_S2": {
+     "019": 47.9477548,
+     "037": 38.0315942,
+     "sum": 85.979349
+    },
+    "remove_S3": {
+     "019": 47.8674731,
+     "037": 38.2282645,
+     "sum": 86.0957376
+    }
+   },
+   "addition_saving": {
+    "S0": {
+     "019": -0.14578920000000295,
+     "037": 0.13639450000000153,
+     "sum": -0.009394700000001421
+    },
+    "S1a": {
+     "019": -9.172641200000001,
+     "037": -5.237850600000002,
+     "sum": -14.410491800000003
+    },
+    "S1b": {
+     "019": 7.081471499999999,
+     "037": 5.3564104000000015,
+     "sum": 12.4378819
+    },
+    "S1c": {
+     "019": -2.2849147000000016,
+     "037": -1.0571946999999966,
+     "sum": -3.3421093999999982
+    },
+    "S2": {
+     "019": -1.3425906000000012,
+     "037": -0.9260644999999954,
+     "sum": -2.2686550999999966
+    },
+    "S3": {
+     "019": -0.991856300000002,
+     "037": -0.8429587999999981,
+     "sum": -1.8348151000000001
+    }
+   },
+   "removal_cost": {
+    "S0": {
+     "019": -0.5227305999999956,
+     "037": 0.2049361999999988,
+     "sum": -0.3177943999999968
+    },
+    "S1a": {
+     "019": -0.7877687999999949,
+     "037": 0.06378229999999974,
+     "sum": -0.7239864999999952
+    },
+    "S1b": {
+     "019": 6.608666500000005,
+     "037": 6.8053472,
+     "sum": 13.414013700000005
+    },
+    "S1c": {
+     "019": -0.27739090000000033,
+     "037": 2.0609673000000015,
+     "sum": 1.7835764000000012
+    },
+    "S2": {
+     "019": -1.4015370999999988,
+     "037": 0.17636120000000233,
+     "sum": -1.2251758999999964
+    },
+    "S3": {
+     "019": -1.4818187999999992,
+     "037": 0.3730315000000033,
+     "sum": -1.108787299999996
+    }
+   },
+   "addition_saving_vs_genuine_native": {
+    "S0": {
+     "019": 0.9089162000000002,
+     "037": 0.2710993999999971,
+     "sum": 1.1800155999999973
+    },
+    "S1a": {
+     "019": -8.117935799999998,
+     "037": -5.103145700000006,
+     "sum": -13.221081500000004
+    },
+    "S1b": {
+     "019": 8.136176900000002,
+     "037": 5.491115299999997,
+     "sum": 13.6272922
+    },
+    "S1c": {
+     "019": -1.2302092999999985,
+     "037": -0.922489800000001,
+     "sum": -2.1526990999999995
+    },
+    "S2": {
+     "019": -0.28788519999999806,
+     "037": -0.7913595999999998,
+     "sum": -1.079244799999998
+    },
+    "S3": {
+     "019": 0.0628491000000011,
+     "037": -0.7082539000000025,
+     "sum": -0.6454048000000014
+    }
+   },
+   "removal_cost_vs_genuine_carbon": {
+    "S0": {
+     "019": 1.1321724000000017,
+     "037": 0.7563977999999949,
+     "sum": 1.8885701999999966
+    },
+    "S1a": {
+     "019": 0.8671342000000024,
+     "037": 0.6152438999999958,
+     "sum": 1.4823780999999983
+    },
+    "S1b": {
+     "019": 8.263569500000003,
+     "037": 7.356808799999996,
+     "sum": 15.620378299999999
+    },
+    "S1c": {
+     "019": 1.377512099999997,
+     "037": 2.6124288999999976,
+     "sum": 3.9899409999999946
+    },
+    "S2": {
+     "019": 0.2533658999999986,
+     "037": 0.7278227999999984,
+     "sum": 0.981188699999997
+    },
+    "S3": {
+     "019": 0.17308419999999813,
+     "037": 0.9244930999999994,
+     "sum": 1.0975772999999975
+    }
+   },
+   "harness_overhead": {
+    "all_off_minus_native": {
+     "019": -1.0547054000000031,
+     "037": -0.13470489999999558,
+     "sum": -1.1894102999999987
+    },
+    "all_on_minus_carbon_bf16": {
+     "019": 1.6549029999999973,
+     "037": 0.5514615999999961,
+     "sum": 2.2063645999999935
+    }
+   },
+   "note": "ordinary uninstrumented free windows; primary contrasts are instrument-matched (all_off / all_on); local marginal effects conditional on the other five settings; not additive; not a 60-page forecast"
+  },
+  "probe_speed": {
+   "native": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 535.3114,
+      "decode_ms_per_token": 107.65773302107728,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 439.1596,
+      "decode_ms_per_token": 107.23543419203747,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 512.1925,
+      "decode_ms_per_token": 108.95938600000001,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 446.6733,
+      "decode_ms_per_token": 108.45846399999999,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 449.3135,
+      "decode_ms_per_token": 112.79911200000001,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "all_off": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 444.8256,
+      "decode_ms_per_token": 107.07811920374706,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 439.9245,
+      "decode_ms_per_token": 107.57231733021078,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 438.7532,
+      "decode_ms_per_token": 107.888336,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 437.9273,
+      "decode_ms_per_token": 108.123238,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 441.9766,
+      "decode_ms_per_token": 108.11555399999999,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "carbon_bf16": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 357.599,
+      "decode_ms_per_token": 93.04832084309133,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 354.8834,
+      "decode_ms_per_token": 95.48102974238876,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 370.8523,
+      "decode_ms_per_token": 95.951992,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 366.4966,
+      "decode_ms_per_token": 94.92599,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 395.1799,
+      "decode_ms_per_token": 98.85328600000001,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "all_on": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 414.4991,
+      "decode_ms_per_token": 94.08679437939111,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 354.5351,
+      "decode_ms_per_token": 95.02922529274004,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 364.6941,
+      "decode_ms_per_token": 102.70374,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 364.7344,
+      "decode_ms_per_token": 94.45766400000001,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 364.3163,
+      "decode_ms_per_token": 95.04598200000001,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "add_S0": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 431.5823,
+      "decode_ms_per_token": 107.0301348946136,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 433.3405,
+      "decode_ms_per_token": 107.11891288056206,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 441.4048,
+      "decode_ms_per_token": 107.723192,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 452.4016,
+      "decode_ms_per_token": 107.148474,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 442.6265,
+      "decode_ms_per_token": 107.36932999999999,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "add_S1a": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 456.3618,
+      "decode_ms_per_token": 121.41828407494144,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 371.3106,
+      "decode_ms_per_token": 107.54263138173302,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 372.6969,
+      "decode_ms_per_token": 108.44893400000001,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 382.2424,
+      "decode_ms_per_token": 108.055808,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 356.9384,
+      "decode_ms_per_token": 107.90775,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "add_S1b": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 445.07,
+      "decode_ms_per_token": 95.809437470726,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 452.8156,
+      "decode_ms_per_token": 96.91868103044496,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "019:free_prefix": [
+     {
+      "prefill_ms": 443.7336,
+      "decode_ms_per_token": 97.57286627634662,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 487.6023,
+      "decode_ms_per_token": 100.442004,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 463.6901,
+      "decode_ms_per_token": 93.413202,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 439.8269,
+      "decode_ms_per_token": 94.043862,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "add_S1c": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 438.8662,
+      "decode_ms_per_token": 105.7157644028103,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 424.7986,
+      "decode_ms_per_token": 109.61254707259953,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 438.5795,
+      "decode_ms_per_token": 106.263002,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 424.0951,
+      "decode_ms_per_token": 107.275414,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 430.3323,
+      "decode_ms_per_token": 105.477546,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "add_S2": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 454.5822,
+      "decode_ms_per_token": 109.58438899297425,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 457.1137,
+      "decode_ms_per_token": 108.8759857142857,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "019:free_prefix": [
+     {
+      "prefill_ms": 471.566,
+      "decode_ms_per_token": 108.69895175644028,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 453.339,
+      "decode_ms_per_token": 111.07378,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 460.8812,
+      "decode_ms_per_token": 109.504514,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 456.2685,
+      "decode_ms_per_token": 110.68051599999998,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "add_S3": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 458.8947,
+      "decode_ms_per_token": 108.91057751756442,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 444.1567,
+      "decode_ms_per_token": 109.1664655737705,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 461.7733,
+      "decode_ms_per_token": 110.11592,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     },
+     {
+      "prefill_ms": 449.8866,
+      "decode_ms_per_token": 111.40755999999999,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 450.8703,
+      "decode_ms_per_token": 109.50641,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "remove_S0": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 360.8085,
+      "decode_ms_per_token": 95.7125737704918,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 368.8806,
+      "decode_ms_per_token": 97.403254,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 364.8312,
+      "decode_ms_per_token": 95.528526,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "remove_S1a": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 448.1432,
+      "decode_ms_per_token": 95.27480913348946,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 444.4193,
+      "decode_ms_per_token": 96.35938399999999,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 446.7147,
+      "decode_ms_per_token": 95.50415199999999,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "remove_S1b": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 483.8768,
+      "decode_ms_per_token": 107.28759531615925,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "019:free_prefix": [
+     {
+      "prefill_ms": 352.7275,
+      "decode_ms_per_token": 107.28753489461359,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 369.0389,
+      "decode_ms_per_token": 108.30037399999999,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 354.2814,
+      "decode_ms_per_token": 107.671242,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "remove_S1c": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 382.6844,
+      "decode_ms_per_token": 95.29940093676815,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "019:free_prefix": [
+     {
+      "prefill_ms": 383.6966,
+      "decode_ms_per_token": 94.99079929742389,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 379.6538,
+      "decode_ms_per_token": 96.464822,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 383.3057,
+      "decode_ms_per_token": 96.491696,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "remove_S2": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 368.783,
+      "decode_ms_per_token": 93.71455644028103,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "019:free_prefix": [
+     {
+      "prefill_ms": 339.8773,
+      "decode_ms_per_token": 92.9477950819672,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 359.5317,
+      "decode_ms_per_token": 94.125404,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 344.0933,
+      "decode_ms_per_token": 93.526448,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   },
+   "remove_S3": {
+    "019:native_prefix": [
+     {
+      "prefill_ms": 389.7724,
+      "decode_ms_per_token": 98.163637470726,
+      "decode_tokens": 427,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:native_prefix": [
+     {
+      "prefill_ms": 364.1818,
+      "decode_ms_per_token": 99.298698,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ],
+    "037:free_prefix": [
+     {
+      "prefill_ms": 375.3907,
+      "decode_ms_per_token": 98.092424,
+      "decode_tokens": 50,
+      "interval": "prefill_ms covers prompt visual+text prefill (1 forward) plus StaticDashCache init when S2=True; total_forwarded_decode_tokens = prefix_forwarded_tokens + branch_forwarded_tokens (all q_len==1); excludes setup/image-render and ordinary free-run clock.",
+      "device_synchronized": true
+     }
+    ]
+   }
+  },
+  "stream_cadence_labels": {
+   "add_S3": "ordered TextStreamer callbacks deferred to burst return (S3 on, S0 off; CONTRACT.md section 1 of the bound candidate), evidenced by nonzero s0_streamer_put_calls and s3_burst_chunks",
+   "remove_S0": "ordered TextStreamer callbacks deferred to burst return (S3 on, S0 off; CONTRACT.md section 1 of the bound candidate), evidenced by nonzero s0_streamer_put_calls and s3_burst_chunks"
+  },
+  "single_removal_restorers": [],
+  "anchored_flip_switches": [
+   "S1b",
+   "S1c",
+   "S2"
+  ],
+  "first_pass_displacement_d1": {
+   "S0": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "S1a": {
+    "019": 0.0,
+    "037": 0.0
+   },
+   "S1b": {
+    "019": -0.10298911114591647,
+    "037": -0.006763191937352531
+   },
+   "S1c": {
+    "019": -0.10333683311046116,
+    "037": -0.13263274822566018
+   },
+   "S2": {
+    "019": -0.12457830791345259,
+    "037": 5.449710624816362e-05
+   },
+   "S3": {
+    "019": 0.0,
+    "037": 0.0
+   }
+  },
+  "missing_or_malformed_fields": {},
+  "noise_floor_E": {
+   "019": 1e-05,
+   "037": 1e-05
+  },
+  "noise_floor_rule": "E_w = max(1e-5 nats, |D_all_off,1 - D_all_off,2|, |D_all_on,1 - D_all_on,2|) (design/rules.py with native := all_off, full := all_on)",
+  "qualifying_switches": [
+   "S1b",
+   "S1c",
+   "S2"
+  ],
+  "qualification_reasons": {
+   "S0": "first-pass displacement within E_w on both windows",
+   "S1a": "first-pass displacement within E_w on both windows",
+   "S1b": "anchored free-ID flip",
+   "S1c": "anchored free-ID flip",
+   "S2": "anchored free-ID flip",
+   "S3": "first-pass displacement within E_w on both windows"
+  },
+  "noise_floor_sensitivity": {
+   "conservative_E": {
+    "019": 1e-05,
+    "037": 1e-05
+   },
+   "qualifying_switches": [
+    "S1b",
+    "S1c",
+    "S2"
+   ],
+   "missing": [],
+   "changes_qualification": false,
+   "note": "reported only; the predeclared rule decides"
+  },
+  "eligible_pairs": [
+   [
+    "S1b",
+    "S1c"
+   ],
+   [
+    "S1b",
+    "S2"
+   ],
+   [
+    "S1c",
+    "S2"
+   ]
+  ],
+  "outcome": "PAIR_RUNS_REQUIRED",
+  "pair_runs": [
+   "remove_S1b+S1c",
+   "remove_S1b+S2",
+   "remove_S1c+S2"
+  ],
+  "astra_rules_cross_check": {
+   "single_rank": {
+    "astra": null,
+    "reviewer": null,
+    "agree": true
+   },
+   "pairs": {
+    "astra": [
+     [
+      "S1b",
+      "S1c"
+     ],
+     [
+      "S1b",
+      "S2"
+     ],
+     [
+      "S1c",
+      "S2"
+     ]
+    ],
+    "reviewer": [
+     [
+      "S1b",
+      "S1c"
+     ],
+     [
+      "S1b",
+      "S2"
+     ],
+     [
+      "S1c",
+      "S2"
+     ]
+    ],
+    "agree": true
+   }
+  }
+ }
+}
