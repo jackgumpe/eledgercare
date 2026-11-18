@@ -6,6 +6,8 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex 
 
 Astra owns design and fixtures, Carbon owns the runtime switches, and Opus owns independent replay. The coordinator releases A1, A2 and A3 in sequence. [Assignment and source specification](docs/coordination/WP-0017/assignment.md)
 
+All sixteen initial A1 configurations completed. No single removal restored both identifiers. The frozen decision rules selected three paired removals involving batched expert decode, fused projections and sparse attention. The coordinator released those exact configurations on the same source. The GPU is available for the reviewer's next command. [Measured switch effects](docs/coordination/WP-0017/a1-initial-findings.md) · [Pair release](docs/coordination/WP-0017/a1-p1-release.json)
+
 ## Completed WP-0016 grammar and CUDA-graphed multi-window trial
 
 The Carbon BF16 control finished the 60-page packet in 921–933 seconds, compared with 1,032–1,101 seconds for ordinary Baidu. It silently misread two inspection IDs that Baidu got right in both run orders. The zero-new-critical-error rule stopped G0. Grammar and batched CUDA graph execution remain untested on the GPU. Packet B stays sealed. [Coordinator report](docs/agent-reports/eld-coordinator/WP-0016/004_2026-11-18_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0016/003_2026-11-18_review_eld-rd-reviewer.md) · [Publication receipt](docs/coordination/WP-0016/publication-receipt.json)
