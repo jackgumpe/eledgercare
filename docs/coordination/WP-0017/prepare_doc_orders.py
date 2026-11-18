@@ -48,7 +48,11 @@ def prepare(a):
     head=git(wt,"rev-parse","HEAD")
     config=verify(wt,head,a.bits)
     approval=a.prerequisite.resolve(strict=True)
-    if not approval.is_relative_to(HERE) or not git(REPO,"log","-1","--format=%H","--",str(approval)):
+    if not approval.is_relative_to(HERE):
+        raise ValueError("prerequisite evidence must be in this packet")
+    rel=approval.relative_to(REPO).as_posix()
+    published=subprocess.check_output(["git","-C",REPO,"show","origin/coordination/bootstrap:"+rel])
+    if published!=approval.read_bytes().replace(b"\r\n",b"\n"):
         raise ValueError("unpublished prerequisite evidence")
     if not a.tag.isalnum():
         raise ValueError("use an alphanumeric run tag")
@@ -82,7 +86,10 @@ def prepare(a):
         docs.append(dict(label="dev" if stage2 else fam.lower(),pdf=str(pdf),pages=len(rows),sha256=pdfsha,
                          rgb_sha256=[r["rgb_sha256"] for r in rows],warmup=False))
     names=["native","carbon_bf16","carbon_surgical"] if stage2 else ["native","carbon_surgical"]
-    metadata=dict(gate=a.stage,source=head,frozen_bits=a.bits,prerequisite_sha256=sha(approval),orders={})
+    metadata=dict(gate=a.stage,source=head,frozen_bits=a.bits,prerequisite_sha256=sha(approval),
+                  warm_sha256=short["sha256"],warm_rgb_sha256=short["rgb_sha256"][0],orders={})
+    if not stage2:
+        metadata["inputs"]=read(HERE.parent/"WP-0016/g0-plans.json")["inputs"]
     for ordname,modes in (("ab",names),("ba",list(reversed(names)))):
         run=prefix+"-"+ordname
         requests=[]
