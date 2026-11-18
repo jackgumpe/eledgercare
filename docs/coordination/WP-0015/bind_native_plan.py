@@ -38,9 +38,10 @@ def bind(args):
     run = PACKET_ROOT / args.owner / "runs" / args.run
     if run.exists() or dest.exists():
         raise FileExistsError("Lease and output directory must be fresh")
-    app = ["python", "-I", "-B", "docs/research/WP-0015/astra/launch.py", "--source", src,
+    interpreter = Path("C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe").resolve(strict=True)
+    app = [str(interpreter), "-I", "-B", "docs/research/WP-0015/astra/launch.py", "--source", src,
            "--plan", str(plan), "--sha256", args.digest, "--owner", args.owner,
-           "--run", args.run, "--seconds", str(args.seconds), "--lease", args.lease]
+           "--run", args.run, "--seconds", str(args.seconds), "--lease", args.lease, "--min-vram-mib", "12000"]
     receipt = {"issued_utc": datetime.now(timezone.utc).isoformat(), "lease": args.lease,
                "owner": args.owner, "source": src, "custody": args.custody, "plan_sha256": args.digest,
                "worktree": str(worktree), "expected_output": str(run), "seconds": args.seconds,
