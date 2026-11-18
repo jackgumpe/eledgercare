@@ -1,0 +1,135 @@
+{
+  "utc": "2026-11-18T03:28:26.400365+00:00",
+  "revision": "7598bf4155452c4a1294b7421595009d39ea1bc9",
+  "controls": {
+    "perfect_short_grid": "pass",
+    "perfect_short_spans": "pass",
+    "perfect_dense_grid": "pass",
+    "perfect_dense_spans": "pass",
+    "perfect_boundary_grid": "pass",
+    "perfect_boundary_spans": "pass",
+    "swapped_rows_identical_page_text": "pass",
+    "new_unflagged_locations": "pass",
+    "flag_does_not_fix_value": "pass",
+    "repeated_row_not_deduplicated": "pass",
+    "absent_empty_cell_not_explicit_blank": "pass",
+    "extra_grid_cells_penalized": "pass",
+    "misplaced_table_cannot_collect_values": "pass",
+    "direct_cell_source_positions": "pass",
+    "ambiguous_critical_line": "pass",
+    "different_span_source": "pass",
+    "different_cell_source": "pass",
+    "foreign_page_insertions_and_deletions": "pass",
+    "swapped_source_page_order": "pass",
+    "silently_omitted_blank_fails_completion": "pass",
+    "blank_page_hallucination_adds_insertion": "pass",
+    "unexpected_empty_retains_full_denominator": "pass",
+    "duplicate_page_charged": "pass",
+    "truncation_cannot_claim_complete": "pass",
+    "edit_cost_source_chars": "pass",
+    "empty_family_na_with_insertion": "pass"
+  },
+  "development": {
+    "short": {
+      "byte_identical_rebuild": {
+        "source.pdf": "10f84af9a8c803f78e53bc4b43739f680aa557f2a6e2b8cf343ca9697aba402a",
+        "truth.json": "249af263a7e2711c8a89b30bb753f346b5d0ae4eaa273def838cde09b4b5138b",
+        "rasters.json": "6165bd73c6fc9acfe88e464a156755614552301afa249ba08ebd97e03556f9e9"
+      },
+      "repeated_pdfium_raster_audit": "identical",
+      "unchanged_product_renderer": [
+        {
+          "page_number": 1,
+          "width_px": 2550,
+          "height_px": 3301,
+          "rgb_sha256": "e2b2b05b5a6832016a83b20b3cb851520d6d0602b1d06a16d56c1bbabd30284b"
+        }
+      ]
+    },
+    "dense": {
+      "byte_identical_rebuild": {
+        "source.pdf": "a2fd2c3d5d3c4800fd8e47d2326ebcc4a98c95e395b6b2212358131a2e159d64",
+        "truth.json": "47526ec773a9bbded9b2933d9a3361f73bb502e28292096aa549a8438598c7b2",
+        "rasters.json": "7c5478e94cde73e3021119ca91c59049eb80feb6f3d7c1ca349bd39ba02ecb98"
+      },
+      "repeated_pdfium_raster_audit": "identical",
+      "unchanged_product_renderer": [
+        {
+          "page_number": 1,
+          "width_px": 2550,
+          "height_px": 3301,
+          "rgb_sha256": "01ea630bb7ae73deb5d6a305327d741692cf5508b3dd657f9bb56494fb2ce98c"
+        }
+      ]
+    },
+    "boundary": {
+      "byte_identical_rebuild": {
+        "source.pdf": "b276156fc8c6c1cb55265977fd664c7d91bf1512bcdbd02455ae7eb9ea634966",
+        "truth.json": "8544c77767b8afafd4fa1a612a889bb695a4f85c88af777125baaed27b2e8951",
+        "rasters.json": "6e61115f39cfc5707e5b05cbf6a0dbcd31a753fba3ec8ba5a7dd215a716c9268"
+      },
+      "repeated_pdfium_raster_audit": "identical"
+    }
+  },
+  "sealed": {
+    "H": {
+      "input": {
+        "ciphertext_sha256": "a1b3bb46f6c56becea738c97646113dfbb0e7e5648a55dd01d827221f7c95054",
+        "protected_key_present": true
+      },
+      "scoring": {
+        "ciphertext_sha256": "c35f73c7a2c8300eabdefdcc95617756d368be70ccf5f7cc408e49f5eb1561c3",
+        "protected_key_present": true
+      }
+    },
+    "A": {
+      "input": {
+        "ciphertext_sha256": "e6dd9bde1977c98d5abab3dff91533f55045f362b160c3c37e80961470b7fa47",
+        "protected_key_present": true
+      },
+      "scoring": {
+        "ciphertext_sha256": "b3f5977964955eedb4b9d838054e99daee7878a5d6990f16914746c818a9436f",
+        "protected_key_present": true
+      }
+    },
+    "B": {
+      "input": {
+        "ciphertext_sha256": "d5550c235b66eae132a8edcc1c93015179846a0a2bcf8cce4c7fb5018f825504",
+        "protected_key_present": true
+      },
+      "scoring": {
+        "ciphertext_sha256": "14a991e43e65bd2375716313a4f0099010c912246e08b227043db7bb5b654e1f",
+        "protected_key_present": true
+      }
+    }
+  },
+  "extra_checks": {
+    "equal_limits": {
+      "delta_cer": 0.01,
+      "delta_cell": -0.020000000000000018,
+      "passes_quality_budget": true
+    },
+    "cer_over": {
+      "delta_cer": 0.010001,
+      "delta_cell": 0,
+      "passes_quality_budget": false
+    },
+    "cell_under": {
+      "delta_cer": 0,
+      "delta_cell": -0.020001000000000047,
+      "passes_quality_budget": false
+    }
+  },
+  "torch_imported": false,
+  "custody_only_pretrial_replay": {
+    "verified_authenticated_bundles": 6,
+    "verified_plaintext_members": 9,
+    "matching_committed_hashes": true,
+    "generated_heldout_plaintext_remaining": 0,
+    "shared_account_access_boundary": "procedural"
+  },
+  "dev_preview": {
+    "rendered_pages": 6,
+    "visual_check": "Layout and table borders visible. Third boundary page blank, fourth release present."
+  }
+}
