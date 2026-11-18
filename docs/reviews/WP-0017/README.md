@@ -165,6 +165,10 @@ Everything above this heading was written by the prior session `5ab6a228-4214-49
 | `evidence/cpu-selftest-q0-r4-3ee83ab.json` | `3ee83ab` | 44/44 | `cc72dd6b…` |
 | `evidence/cpu-selftest-continuation-q0-3ee83ab.json` | `3ee83ab` | 36/36 | `0eda459c…` |
 | `evidence/A1-engine-geometry-eb16708.json` | `3ee83ab`, candidate `eb16708` `span_probe.py` `f0638af3…` | 18 checks, 0 failures | `209eda6b…` |
+| `evidence/cpu-selftest-q0-r5-9ec255c.json` | `9ec255c` (adds the A1 issuance precondition) | 44/44 | `8f44f63b…` |
+| `evidence/cpu-selftest-continuation-q0-9ec255c.json` | `9ec255c` | 37/37 | `d46e3432…` |
+
+`9ec255c` makes `command.py` refuse an A1 command for a candidate without a reviewed `a1_normalize` binding, or one whose S3-on probes do not use device guards. That refusal applies to `eb16708`. The finding comes from the joint design read; I concur from the published `span_probe.py`, which applies host guards to every configuration.
 
 **Not run:**
 - `command.py review` against a real release, because none exists. Its A1 plan re-derivation is self-tested against the pinned `prepare_a1.py` blob. The full candidate/worktree review needs the actual release.
