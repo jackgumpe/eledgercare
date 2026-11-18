@@ -1,0 +1,6446 @@
+{
+ "tool": "publication_check.py",
+ "reviewer": "eld-rd-reviewer",
+ "scope": "CPU only; no model, no truth file opened, no scorer executed",
+ "tool_sha256": "b657529e1d52d68e099a13593370a65ec9ddf995bb3f84361948314412b0dae3",
+ "head": "843a7ca86e6b2ce735a23494cfa610672209877f",
+ "prediction_determinism": {
+  "H:native": {
+   "identical_ab_ba": true,
+   "sha256": "f2669bfa8d03d82714f8856da1fa299a09d57e36bd11fa3e5e7383cc97112a95"
+  },
+  "H:carbon": {
+   "identical_ab_ba": true,
+   "sha256": "67fb1b25de89b9f0d904424a3dd7f7fb18ffb5c9e59637bdd127aab93f0b9148"
+  },
+  "H:native_vs_carbon_identical": false,
+  "A:native": {
+   "identical_ab_ba": true,
+   "sha256": "cd009c42f9e9518ac5c955b39a1b837ee4060a9dd6b81a3179a8523a88da4095"
+  },
+  "A:carbon": {
+   "identical_ab_ba": true,
+   "sha256": "204af33db5ba6105d4cf7c020c0c3f2c3bc456598f7840dac445c1151f0a03b1"
+  },
+  "A:native_vs_carbon_identical": false
+ },
+ "title_recognized_headers": {
+  "H:native-ab": 4,
+  "H:carbon-ab": 4,
+  "H:native-ba": 4,
+  "H:carbon-ba": 4,
+  "A:native-ab": 27,
+  "A:carbon-ab": 28,
+  "A:native-ba": 27,
+  "A:carbon-ba": 28
+ },
+ "per_arm": {
+  "H:native-ab:frozen": {
+   "edits": 178,
+   "reference_chars": 570,
+   "cer": 0.312280701754386,
+   "correct_cells": 18,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.9,
+   "correct_lines": 12,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 2,
+   "unflagged_critical_errors": 2
+  },
+  "H:native-ab:title": {
+   "edits": 2,
+   "reference_chars": 570,
+   "cer": 0.0035087719298245615,
+   "correct_cells": 18,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.9,
+   "correct_lines": 16,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 2,
+   "unflagged_critical_errors": 2
+  },
+  "H:carbon-ab:frozen": {
+   "edits": 178,
+   "reference_chars": 570,
+   "cer": 0.312280701754386,
+   "correct_cells": 18,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.9,
+   "correct_lines": 12,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 2,
+   "unflagged_critical_errors": 2
+  },
+  "H:carbon-ab:title": {
+   "edits": 2,
+   "reference_chars": 570,
+   "cer": 0.0035087719298245615,
+   "correct_cells": 18,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.9,
+   "correct_lines": 16,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 2,
+   "unflagged_critical_errors": 2
+  },
+  "H:native-ba:frozen": {
+   "edits": 178,
+   "reference_chars": 570,
+   "cer": 0.312280701754386,
+   "correct_cells": 18,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.9,
+   "correct_lines": 12,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 2,
+   "unflagged_critical_errors": 2
+  },
+  "H:native-ba:title": {
+   "edits": 2,
+   "reference_chars": 570,
+   "cer": 0.0035087719298245615,
+   "correct_cells": 18,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.9,
+   "correct_lines": 16,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 2,
+   "unflagged_critical_errors": 2
+  },
+  "H:carbon-ba:frozen": {
+   "edits": 178,
+   "reference_chars": 570,
+   "cer": 0.312280701754386,
+   "correct_cells": 18,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.9,
+   "correct_lines": 12,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 2,
+   "unflagged_critical_errors": 2
+  },
+  "H:carbon-ba:title": {
+   "edits": 2,
+   "reference_chars": 570,
+   "cer": 0.0035087719298245615,
+   "correct_cells": 18,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.9,
+   "correct_lines": 16,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 2,
+   "unflagged_critical_errors": 2
+  },
+  "H:windows:frozen": {
+   "edits": 15,
+   "reference_chars": 570,
+   "cer": 0.02631578947368421,
+   "correct_cells": 15,
+   "reference_cells": 20,
+   "extra_cells": 0,
+   "cell_accuracy": 0.75,
+   "correct_lines": 13,
+   "reference_lines": 16,
+   "critical_values": 19,
+   "critical_errors": 8,
+   "unflagged_critical_errors": 8
+  },
+  "A:native-ab:frozen": {
+   "edits": 2492,
+   "reference_chars": 8821,
+   "cer": 0.28250765219362883,
+   "correct_cells": 288,
+   "reference_cells": 300,
+   "extra_cells": 37,
+   "cell_accuracy": 0.8545994065281899,
+   "correct_lines": 195,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 38,
+   "unflagged_critical_errors": 38
+  },
+  "A:native-ab:title": {
+   "edits": 1303,
+   "reference_chars": 8821,
+   "cer": 0.14771567849450176,
+   "correct_cells": 288,
+   "reference_cells": 300,
+   "extra_cells": 37,
+   "cell_accuracy": 0.8545994065281899,
+   "correct_lines": 220,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 37,
+   "unflagged_critical_errors": 37
+  },
+  "A:carbon-ab:frozen": {
+   "edits": 2522,
+   "reference_chars": 8821,
+   "cer": 0.28590862713978005,
+   "correct_cells": 288,
+   "reference_cells": 300,
+   "extra_cells": 36,
+   "cell_accuracy": 0.8571428571428571,
+   "correct_lines": 193,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 39,
+   "unflagged_critical_errors": 39
+  },
+  "A:carbon-ab:title": {
+   "edits": 1289,
+   "reference_chars": 8821,
+   "cer": 0.14612855685296453,
+   "correct_cells": 288,
+   "reference_cells": 300,
+   "extra_cells": 36,
+   "cell_accuracy": 0.8571428571428571,
+   "correct_lines": 217,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 38,
+   "unflagged_critical_errors": 38
+  },
+  "A:native-ba:frozen": {
+   "edits": 2492,
+   "reference_chars": 8821,
+   "cer": 0.28250765219362883,
+   "correct_cells": 288,
+   "reference_cells": 300,
+   "extra_cells": 37,
+   "cell_accuracy": 0.8545994065281899,
+   "correct_lines": 195,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 38,
+   "unflagged_critical_errors": 38
+  },
+  "A:native-ba:title": {
+   "edits": 1303,
+   "reference_chars": 8821,
+   "cer": 0.14771567849450176,
+   "correct_cells": 288,
+   "reference_cells": 300,
+   "extra_cells": 37,
+   "cell_accuracy": 0.8545994065281899,
+   "correct_lines": 220,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 37,
+   "unflagged_critical_errors": 37
+  },
+  "A:carbon-ba:frozen": {
+   "edits": 2522,
+   "reference_chars": 8821,
+   "cer": 0.28590862713978005,
+   "correct_cells": 288,
+   "reference_cells": 300,
+   "extra_cells": 36,
+   "cell_accuracy": 0.8571428571428571,
+   "correct_lines": 193,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 39,
+   "unflagged_critical_errors": 39
+  },
+  "A:carbon-ba:title": {
+   "edits": 1289,
+   "reference_chars": 8821,
+   "cer": 0.14612855685296453,
+   "correct_cells": 288,
+   "reference_cells": 300,
+   "extra_cells": 36,
+   "cell_accuracy": 0.8571428571428571,
+   "correct_lines": 217,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 38,
+   "unflagged_critical_errors": 38
+  },
+  "A:windows:frozen": {
+   "edits": 257,
+   "reference_chars": 8821,
+   "cer": 0.029135018705362205,
+   "correct_cells": 235,
+   "reference_cells": 300,
+   "extra_cells": 0,
+   "cell_accuracy": 0.7833333333333333,
+   "correct_lines": 237,
+   "reference_lines": 288,
+   "critical_values": 252,
+   "critical_errors": 94,
+   "unflagged_critical_errors": 94
+  }
+ },
+ "comparisons": {
+  "H:frozen:native-ab->carbon-ab": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 12,
+    "CW": 0,
+    "WC": 0,
+    "WW": 4
+   },
+   "new_wrong_source_links": 0,
+   "g0_pass": true
+  },
+  "H:frozen:native-ba->carbon-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 12,
+    "CW": 0,
+    "WC": 0,
+    "WW": 4
+   },
+   "new_wrong_source_links": 0,
+   "g0_pass": true
+  },
+  "H:frozen:native-ab->native-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 12,
+    "CW": 0,
+    "WC": 0,
+    "WW": 4
+   },
+   "new_wrong_source_links": 0
+  },
+  "H:frozen:carbon-ab->carbon-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 12,
+    "CW": 0,
+    "WC": 0,
+    "WW": 4
+   },
+   "new_wrong_source_links": 0
+  },
+  "H:frozen:native-ab->carbon-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 12,
+    "CW": 0,
+    "WC": 0,
+    "WW": 4
+   },
+   "new_wrong_source_links": 0
+  },
+  "H:frozen:native-ba->carbon-ab": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 12,
+    "CW": 0,
+    "WC": 0,
+    "WW": 4
+   },
+   "new_wrong_source_links": 0
+  },
+  "H:frozen:windows->native-ab": {
+   "delta": {
+    "cer": 0.28596491228070176,
+    "cell_accuracy": 0.15000000000000002
+   },
+   "budget": false,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 11,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 6,
+     "persist_same": 0,
+     "persist_changed": 2
+    },
+    "four_way": {
+     "CC": 11,
+     "CW": 0,
+     "WC": 6,
+     "WW": 2
+    },
+    "net_recovery": 6,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 15,
+    "CW": 0,
+    "WC": 3,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 9,
+    "CW": 4,
+    "WC": 3,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 59.5955866,
+     "windows_s": 1.0232249,
+     "extra_neural_s": 58.572361699999995,
+     "net_critical_per_extra_s": 0.1024373924126744,
+     "cells_gained_per_extra_s": 0.0512186962063372,
+     "edits_saved_per_extra_s": -2.7828824938776546
+    },
+    "sensitivity": {
+     "neural_s": 59.5955866,
+     "windows_s": 1.0533336,
+     "extra_neural_s": 58.542252999999995,
+     "net_critical_per_extra_s": 0.10249007669725319,
+     "cells_gained_per_extra_s": 0.05124503834862659,
+     "edits_saved_per_extra_s": -2.7843137502753783
+    }
+   }
+  },
+  "H:frozen:windows->carbon-ab": {
+   "delta": {
+    "cer": 0.28596491228070176,
+    "cell_accuracy": 0.15000000000000002
+   },
+   "budget": false,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 11,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 6,
+     "persist_same": 0,
+     "persist_changed": 2
+    },
+    "four_way": {
+     "CC": 11,
+     "CW": 0,
+     "WC": 6,
+     "WW": 2
+    },
+    "net_recovery": 6,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 15,
+    "CW": 0,
+    "WC": 3,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 9,
+    "CW": 4,
+    "WC": 3,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 49.9047383,
+     "windows_s": 1.0232249,
+     "extra_neural_s": 48.881513399999996,
+     "net_critical_per_extra_s": 0.12274579043618565,
+     "cells_gained_per_extra_s": 0.061372895218092825,
+     "edits_saved_per_extra_s": -3.3345939735163768
+    },
+    "sensitivity": {
+     "neural_s": 49.9047383,
+     "windows_s": 1.0533336,
+     "extra_neural_s": 48.851404699999996,
+     "net_critical_per_extra_s": 0.12282144263499552,
+     "cells_gained_per_extra_s": 0.06141072131749776,
+     "edits_saved_per_extra_s": -3.336649191584045
+    }
+   }
+  },
+  "H:frozen:windows->native-ba": {
+   "delta": {
+    "cer": 0.28596491228070176,
+    "cell_accuracy": 0.15000000000000002
+   },
+   "budget": false,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 11,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 6,
+     "persist_same": 0,
+     "persist_changed": 2
+    },
+    "four_way": {
+     "CC": 11,
+     "CW": 0,
+     "WC": 6,
+     "WW": 2
+    },
+    "net_recovery": 6,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 15,
+    "CW": 0,
+    "WC": 3,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 9,
+    "CW": 4,
+    "WC": 3,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 61.2406566,
+     "windows_s": 1.0232249,
+     "extra_neural_s": 60.2174317,
+     "net_critical_per_extra_s": 0.09963892232886445,
+     "cells_gained_per_extra_s": 0.04981946116443223,
+     "edits_saved_per_extra_s": -2.706857389934151
+    },
+    "sensitivity": {
+     "neural_s": 61.2406566,
+     "windows_s": 1.0533336,
+     "extra_neural_s": 60.187323,
+     "net_critical_per_extra_s": 0.09968876668596807,
+     "cells_gained_per_extra_s": 0.049844383342984036,
+     "edits_saved_per_extra_s": -2.708211494968799
+    }
+   }
+  },
+  "H:frozen:windows->carbon-ba": {
+   "delta": {
+    "cer": 0.28596491228070176,
+    "cell_accuracy": 0.15000000000000002
+   },
+   "budget": false,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 11,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 6,
+     "persist_same": 0,
+     "persist_changed": 2
+    },
+    "four_way": {
+     "CC": 11,
+     "CW": 0,
+     "WC": 6,
+     "WW": 2
+    },
+    "net_recovery": 6,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 15,
+    "CW": 0,
+    "WC": 3,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 9,
+    "CW": 4,
+    "WC": 3,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 52.6969058,
+     "windows_s": 1.0232249,
+     "extra_neural_s": 51.6736809,
+     "net_critical_per_extra_s": 0.11611326879560462,
+     "cells_gained_per_extra_s": 0.05805663439780231,
+     "edits_saved_per_extra_s": -3.1544104689472587
+    },
+    "sensitivity": {
+     "neural_s": 52.6969058,
+     "windows_s": 1.0533336,
+     "extra_neural_s": 51.6435722,
+     "net_critical_per_extra_s": 0.11618096394966264,
+     "cells_gained_per_extra_s": 0.05809048197483132,
+     "edits_saved_per_extra_s": -3.156249520632502
+    }
+   }
+  },
+  "H:title:native-ab->carbon-ab": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 16,
+    "CW": 0,
+    "WC": 0,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "g0_pass": true
+  },
+  "H:title:native-ba->carbon-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 16,
+    "CW": 0,
+    "WC": 0,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "g0_pass": true
+  },
+  "H:title:native-ab->native-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 16,
+    "CW": 0,
+    "WC": 0,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0
+  },
+  "H:title:carbon-ab->carbon-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 16,
+    "CW": 0,
+    "WC": 0,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0
+  },
+  "H:title:native-ab->carbon-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 16,
+    "CW": 0,
+    "WC": 0,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0
+  },
+  "H:title:native-ba->carbon-ab": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 17,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 2,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 17,
+     "CW": 0,
+     "WC": 0,
+     "WW": 2
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 18,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 16,
+    "CW": 0,
+    "WC": 0,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0
+  },
+  "H:title:windows->native-ab": {
+   "delta": {
+    "cer": -0.022807017543859647,
+    "cell_accuracy": 0.15000000000000002
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 11,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 6,
+     "persist_same": 0,
+     "persist_changed": 2
+    },
+    "four_way": {
+     "CC": 11,
+     "CW": 0,
+     "WC": 6,
+     "WW": 2
+    },
+    "net_recovery": 6,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 15,
+    "CW": 0,
+    "WC": 3,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 13,
+    "CW": 0,
+    "WC": 3,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 59.5955866,
+     "windows_s": 1.0232249,
+     "extra_neural_s": 58.572361699999995,
+     "net_critical_per_extra_s": 0.1024373924126744,
+     "cells_gained_per_extra_s": 0.0512186962063372,
+     "edits_saved_per_extra_s": 0.22194768356079453
+    },
+    "sensitivity": {
+     "neural_s": 59.5955866,
+     "windows_s": 1.0533336,
+     "extra_neural_s": 58.542252999999995,
+     "net_critical_per_extra_s": 0.10249007669725319,
+     "cells_gained_per_extra_s": 0.05124503834862659,
+     "edits_saved_per_extra_s": 0.22206183284404857
+    }
+   }
+  },
+  "H:title:windows->carbon-ab": {
+   "delta": {
+    "cer": -0.022807017543859647,
+    "cell_accuracy": 0.15000000000000002
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 11,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 6,
+     "persist_same": 0,
+     "persist_changed": 2
+    },
+    "four_way": {
+     "CC": 11,
+     "CW": 0,
+     "WC": 6,
+     "WW": 2
+    },
+    "net_recovery": 6,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 15,
+    "CW": 0,
+    "WC": 3,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 13,
+    "CW": 0,
+    "WC": 3,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 49.9047383,
+     "windows_s": 1.0232249,
+     "extra_neural_s": 48.881513399999996,
+     "net_critical_per_extra_s": 0.12274579043618565,
+     "cells_gained_per_extra_s": 0.061372895218092825,
+     "edits_saved_per_extra_s": 0.26594921261173554
+    },
+    "sensitivity": {
+     "neural_s": 49.9047383,
+     "windows_s": 1.0533336,
+     "extra_neural_s": 48.851404699999996,
+     "net_critical_per_extra_s": 0.12282144263499552,
+     "cells_gained_per_extra_s": 0.06141072131749776,
+     "edits_saved_per_extra_s": 0.26611312570915696
+    }
+   }
+  },
+  "H:title:windows->native-ba": {
+   "delta": {
+    "cer": -0.022807017543859647,
+    "cell_accuracy": 0.15000000000000002
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 11,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 6,
+     "persist_same": 0,
+     "persist_changed": 2
+    },
+    "four_way": {
+     "CC": 11,
+     "CW": 0,
+     "WC": 6,
+     "WW": 2
+    },
+    "net_recovery": 6,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 15,
+    "CW": 0,
+    "WC": 3,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 13,
+    "CW": 0,
+    "WC": 3,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 61.2406566,
+     "windows_s": 1.0232249,
+     "extra_neural_s": 60.2174317,
+     "net_critical_per_extra_s": 0.09963892232886445,
+     "cells_gained_per_extra_s": 0.04981946116443223,
+     "edits_saved_per_extra_s": 0.21588433171253965
+    },
+    "sensitivity": {
+     "neural_s": 61.2406566,
+     "windows_s": 1.0533336,
+     "extra_neural_s": 60.187323,
+     "net_critical_per_extra_s": 0.09968876668596807,
+     "cells_gained_per_extra_s": 0.049844383342984036,
+     "edits_saved_per_extra_s": 0.21599232781959748
+    }
+   }
+  },
+  "H:title:windows->carbon-ba": {
+   "delta": {
+    "cer": -0.022807017543859647,
+    "cell_accuracy": 0.15000000000000002
+   },
+   "budget": true,
+   "critical": {
+    "paths": 19,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 11,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 6,
+     "persist_same": 0,
+     "persist_changed": 2
+    },
+    "four_way": {
+     "CC": 11,
+     "CW": 0,
+     "WC": 6,
+     "WW": 2
+    },
+    "net_recovery": 6,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 15,
+    "CW": 0,
+    "WC": 3,
+    "WW": 2
+   },
+   "lines_four_way": {
+    "CC": 13,
+    "CW": 0,
+    "WC": 3,
+    "WW": 0
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 52.6969058,
+     "windows_s": 1.0232249,
+     "extra_neural_s": 51.6736809,
+     "net_critical_per_extra_s": 0.11611326879560462,
+     "cells_gained_per_extra_s": 0.05805663439780231,
+     "edits_saved_per_extra_s": 0.25157874905714334
+    },
+    "sensitivity": {
+     "neural_s": 52.6969058,
+     "windows_s": 1.0533336,
+     "extra_neural_s": 51.6435722,
+     "net_critical_per_extra_s": 0.11618096394966264,
+     "cells_gained_per_extra_s": 0.05809048197483132,
+     "edits_saved_per_extra_s": 0.2517254218909357
+    }
+   }
+  },
+  "A:frozen:native-ab->carbon-ab": {
+   "delta": {
+    "cer": 0.003400974946151214,
+    "cell_accuracy": 0.0025434506146672087
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 212,
+     "regress": 2,
+     "abstain": 0,
+     "repair": 1,
+     "persist_same": 36,
+     "persist_changed": 1
+    },
+    "four_way": {
+     "CC": 212,
+     "CW": 2,
+     "WC": 1,
+     "WW": 37
+    },
+    "net_recovery": -1,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/21/line/2",
+     "page/37/line/2"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 188,
+    "CW": 7,
+    "WC": 5,
+    "WW": 88
+   },
+   "new_wrong_source_links": 0,
+   "g0_pass": false
+  },
+  "A:frozen:native-ba->carbon-ba": {
+   "delta": {
+    "cer": 0.003400974946151214,
+    "cell_accuracy": 0.0025434506146672087
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 212,
+     "regress": 2,
+     "abstain": 0,
+     "repair": 1,
+     "persist_same": 36,
+     "persist_changed": 1
+    },
+    "four_way": {
+     "CC": 212,
+     "CW": 2,
+     "WC": 1,
+     "WW": 37
+    },
+    "net_recovery": -1,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/21/line/2",
+     "page/37/line/2"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 188,
+    "CW": 7,
+    "WC": 5,
+    "WW": 88
+   },
+   "new_wrong_source_links": 0,
+   "g0_pass": false
+  },
+  "A:frozen:native-ab->native-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 214,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 38,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 214,
+     "CW": 0,
+     "WC": 0,
+     "WW": 38
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 195,
+    "CW": 0,
+    "WC": 0,
+    "WW": 93
+   },
+   "new_wrong_source_links": 0
+  },
+  "A:frozen:carbon-ab->carbon-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 213,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 39,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 213,
+     "CW": 0,
+     "WC": 0,
+     "WW": 39
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 193,
+    "CW": 0,
+    "WC": 0,
+    "WW": 95
+   },
+   "new_wrong_source_links": 0
+  },
+  "A:frozen:native-ab->carbon-ba": {
+   "delta": {
+    "cer": 0.003400974946151214,
+    "cell_accuracy": 0.0025434506146672087
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 212,
+     "regress": 2,
+     "abstain": 0,
+     "repair": 1,
+     "persist_same": 36,
+     "persist_changed": 1
+    },
+    "four_way": {
+     "CC": 212,
+     "CW": 2,
+     "WC": 1,
+     "WW": 37
+    },
+    "net_recovery": -1,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/21/line/2",
+     "page/37/line/2"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 188,
+    "CW": 7,
+    "WC": 5,
+    "WW": 88
+   },
+   "new_wrong_source_links": 0
+  },
+  "A:frozen:native-ba->carbon-ab": {
+   "delta": {
+    "cer": 0.003400974946151214,
+    "cell_accuracy": 0.0025434506146672087
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 212,
+     "regress": 2,
+     "abstain": 0,
+     "repair": 1,
+     "persist_same": 36,
+     "persist_changed": 1
+    },
+    "four_way": {
+     "CC": 212,
+     "CW": 2,
+     "WC": 1,
+     "WW": 37
+    },
+    "net_recovery": -1,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/21/line/2",
+     "page/37/line/2"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 188,
+    "CW": 7,
+    "WC": 5,
+    "WW": 88
+   },
+   "new_wrong_source_links": 0
+  },
+  "A:frozen:windows->native-ab": {
+   "delta": {
+    "cer": 0.2533726334882666,
+    "cell_accuracy": 0.07126607319485656
+   },
+   "budget": false,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 155,
+     "regress": 0,
+     "abstain": 3,
+     "repair": 59,
+     "persist_same": 7,
+     "persist_changed": 28
+    },
+    "four_way": {
+     "CC": 155,
+     "CW": 3,
+     "WC": 59,
+     "WW": 35
+    },
+    "net_recovery": 56,
+    "new_unflagged": 3,
+    "new_unflagged_paths": [
+     "page/17/line/4",
+     "page/24/line/2",
+     "page/33/line/4"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 235,
+    "CW": 0,
+    "WC": 53,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 167,
+    "CW": 70,
+    "WC": 28,
+    "WW": 23
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 1032.0600334,
+     "windows_s": 15.6546455,
+     "extra_neural_s": 1016.4053879,
+     "net_critical_per_extra_s": 0.055096126670188025,
+     "cells_gained_per_extra_s": 0.05214454845571367,
+     "edits_saved_per_extra_s": -2.198925769783397
+    },
+    "sensitivity": {
+     "neural_s": 1032.0600334,
+     "windows_s": 15.9099306,
+     "extra_neural_s": 1016.1501028,
+     "net_critical_per_extra_s": 0.055109968345908825,
+     "cells_gained_per_extra_s": 0.05215764861309228,
+     "edits_saved_per_extra_s": -2.1994782009483256
+    }
+   }
+  },
+  "A:frozen:windows->carbon-ab": {
+   "delta": {
+    "cer": 0.2567736084344178,
+    "cell_accuracy": 0.07380952380952377
+   },
+   "budget": false,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 156,
+     "regress": 0,
+     "abstain": 2,
+     "repair": 57,
+     "persist_same": 8,
+     "persist_changed": 29
+    },
+    "four_way": {
+     "CC": 156,
+     "CW": 2,
+     "WC": 57,
+     "WW": 37
+    },
+    "net_recovery": 55,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/24/line/2",
+     "page/33/line/4"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 235,
+    "CW": 0,
+    "WC": 53,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 167,
+    "CW": 70,
+    "WC": 26,
+    "WW": 25
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 933.1994667,
+     "windows_s": 15.6546455,
+     "extra_neural_s": 917.5448212,
+     "net_critical_per_extra_s": 0.05994257580579977,
+     "cells_gained_per_extra_s": 0.05776284577649796,
+     "edits_saved_per_extra_s": -2.4685442581843
+    },
+    "sensitivity": {
+     "neural_s": 933.1994667,
+     "windows_s": 15.9099306,
+     "extra_neural_s": 917.2895361,
+     "net_critical_per_extra_s": 0.05995925804827242,
+     "cells_gained_per_extra_s": 0.057778921391971605,
+     "edits_saved_per_extra_s": -2.4692312632606734
+    }
+   }
+  },
+  "A:frozen:windows->native-ba": {
+   "delta": {
+    "cer": 0.2533726334882666,
+    "cell_accuracy": 0.07126607319485656
+   },
+   "budget": false,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 155,
+     "regress": 0,
+     "abstain": 3,
+     "repair": 59,
+     "persist_same": 7,
+     "persist_changed": 28
+    },
+    "four_way": {
+     "CC": 155,
+     "CW": 3,
+     "WC": 59,
+     "WW": 35
+    },
+    "net_recovery": 56,
+    "new_unflagged": 3,
+    "new_unflagged_paths": [
+     "page/17/line/4",
+     "page/24/line/2",
+     "page/33/line/4"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 235,
+    "CW": 0,
+    "WC": 53,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 167,
+    "CW": 70,
+    "WC": 28,
+    "WW": 23
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 1100.7799408,
+     "windows_s": 15.6546455,
+     "extra_neural_s": 1085.1252953,
+     "net_critical_per_extra_s": 0.051606943679732314,
+     "cells_gained_per_extra_s": 0.048842285982603796,
+     "edits_saved_per_extra_s": -2.059669984360745
+    },
+    "sensitivity": {
+     "neural_s": 1100.7799408,
+     "windows_s": 15.9099306,
+     "extra_neural_s": 1084.8700102,
+     "net_critical_per_extra_s": 0.0516190875160022,
+     "cells_gained_per_extra_s": 0.04885377925621637,
+     "edits_saved_per_extra_s": -2.060154653540445
+    }
+   }
+  },
+  "A:frozen:windows->carbon-ba": {
+   "delta": {
+    "cer": 0.2567736084344178,
+    "cell_accuracy": 0.07380952380952377
+   },
+   "budget": false,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 156,
+     "regress": 0,
+     "abstain": 2,
+     "repair": 57,
+     "persist_same": 8,
+     "persist_changed": 29
+    },
+    "four_way": {
+     "CC": 156,
+     "CW": 2,
+     "WC": 57,
+     "WW": 37
+    },
+    "net_recovery": 55,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/24/line/2",
+     "page/33/line/4"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 235,
+    "CW": 0,
+    "WC": 53,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 167,
+    "CW": 70,
+    "WC": 26,
+    "WW": 25
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 921.1412115,
+     "windows_s": 15.6546455,
+     "extra_neural_s": 905.486566,
+     "net_critical_per_extra_s": 0.06074082384564057,
+     "cells_gained_per_extra_s": 0.05853206661489001,
+     "edits_saved_per_extra_s": -2.5014175638250165
+    },
+    "sensitivity": {
+     "neural_s": 921.1412115,
+     "windows_s": 15.9099306,
+     "extra_neural_s": 905.2312809,
+     "net_critical_per_extra_s": 0.06075795342082947,
+     "cells_gained_per_extra_s": 0.058548573296435674,
+     "edits_saved_per_extra_s": -2.5021229908759772
+    }
+   }
+  },
+  "A:title:native-ab->carbon-ab": {
+   "delta": {
+    "cer": -0.001587121641537237,
+    "cell_accuracy": 0.0025434506146672087
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 213,
+     "regress": 2,
+     "abstain": 0,
+     "repair": 1,
+     "persist_same": 35,
+     "persist_changed": 1
+    },
+    "four_way": {
+     "CC": 213,
+     "CW": 2,
+     "WC": 1,
+     "WW": 36
+    },
+    "net_recovery": -1,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/21/line/2",
+     "page/37/line/2"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 213,
+    "CW": 7,
+    "WC": 4,
+    "WW": 64
+   },
+   "new_wrong_source_links": 0,
+   "g0_pass": false
+  },
+  "A:title:native-ba->carbon-ba": {
+   "delta": {
+    "cer": -0.001587121641537237,
+    "cell_accuracy": 0.0025434506146672087
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 213,
+     "regress": 2,
+     "abstain": 0,
+     "repair": 1,
+     "persist_same": 35,
+     "persist_changed": 1
+    },
+    "four_way": {
+     "CC": 213,
+     "CW": 2,
+     "WC": 1,
+     "WW": 36
+    },
+    "net_recovery": -1,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/21/line/2",
+     "page/37/line/2"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 213,
+    "CW": 7,
+    "WC": 4,
+    "WW": 64
+   },
+   "new_wrong_source_links": 0,
+   "g0_pass": false
+  },
+  "A:title:native-ab->native-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 215,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 37,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 215,
+     "CW": 0,
+     "WC": 0,
+     "WW": 37
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 220,
+    "CW": 0,
+    "WC": 0,
+    "WW": 68
+   },
+   "new_wrong_source_links": 0
+  },
+  "A:title:carbon-ab->carbon-ba": {
+   "delta": {
+    "cer": 0.0,
+    "cell_accuracy": 0.0
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 214,
+     "regress": 0,
+     "abstain": 0,
+     "repair": 0,
+     "persist_same": 38,
+     "persist_changed": 0
+    },
+    "four_way": {
+     "CC": 214,
+     "CW": 0,
+     "WC": 0,
+     "WW": 38
+    },
+    "net_recovery": 0,
+    "new_unflagged": 0,
+    "new_unflagged_paths": []
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 217,
+    "CW": 0,
+    "WC": 0,
+    "WW": 71
+   },
+   "new_wrong_source_links": 0
+  },
+  "A:title:native-ab->carbon-ba": {
+   "delta": {
+    "cer": -0.001587121641537237,
+    "cell_accuracy": 0.0025434506146672087
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 213,
+     "regress": 2,
+     "abstain": 0,
+     "repair": 1,
+     "persist_same": 35,
+     "persist_changed": 1
+    },
+    "four_way": {
+     "CC": 213,
+     "CW": 2,
+     "WC": 1,
+     "WW": 36
+    },
+    "net_recovery": -1,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/21/line/2",
+     "page/37/line/2"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 213,
+    "CW": 7,
+    "WC": 4,
+    "WW": 64
+   },
+   "new_wrong_source_links": 0
+  },
+  "A:title:native-ba->carbon-ab": {
+   "delta": {
+    "cer": -0.001587121641537237,
+    "cell_accuracy": 0.0025434506146672087
+   },
+   "budget": true,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 213,
+     "regress": 2,
+     "abstain": 0,
+     "repair": 1,
+     "persist_same": 35,
+     "persist_changed": 1
+    },
+    "four_way": {
+     "CC": 213,
+     "CW": 2,
+     "WC": 1,
+     "WW": 36
+    },
+    "net_recovery": -1,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/21/line/2",
+     "page/37/line/2"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 288,
+    "CW": 0,
+    "WC": 0,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 213,
+    "CW": 7,
+    "WC": 4,
+    "WW": 64
+   },
+   "new_wrong_source_links": 0
+  },
+  "A:title:windows->native-ab": {
+   "delta": {
+    "cer": 0.11858065978913956,
+    "cell_accuracy": 0.07126607319485656
+   },
+   "budget": false,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 155,
+     "regress": 0,
+     "abstain": 3,
+     "repair": 60,
+     "persist_same": 7,
+     "persist_changed": 27
+    },
+    "four_way": {
+     "CC": 155,
+     "CW": 3,
+     "WC": 60,
+     "WW": 34
+    },
+    "net_recovery": 57,
+    "new_unflagged": 3,
+    "new_unflagged_paths": [
+     "page/17/line/4",
+     "page/24/line/2",
+     "page/33/line/4"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 235,
+    "CW": 0,
+    "WC": 53,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 191,
+    "CW": 46,
+    "WC": 29,
+    "WW": 22
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 1032.0600334,
+     "windows_s": 15.6546455,
+     "extra_neural_s": 1016.4053879,
+     "net_critical_per_extra_s": 0.056079986075012814,
+     "cells_gained_per_extra_s": 0.05214454845571367,
+     "edits_saved_per_extra_s": -1.0291169374467264
+    },
+    "sensitivity": {
+     "neural_s": 1032.0600334,
+     "windows_s": 15.9099306,
+     "extra_neural_s": 1016.1501028,
+     "net_critical_per_extra_s": 0.05609407492351434,
+     "cells_gained_per_extra_s": 0.05215764861309228,
+     "edits_saved_per_extra_s": -1.0293754801753685
+    }
+   }
+  },
+  "A:title:windows->carbon-ab": {
+   "delta": {
+    "cer": 0.11699353814760233,
+    "cell_accuracy": 0.07380952380952377
+   },
+   "budget": false,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 156,
+     "regress": 0,
+     "abstain": 2,
+     "repair": 58,
+     "persist_same": 8,
+     "persist_changed": 28
+    },
+    "four_way": {
+     "CC": 156,
+     "CW": 2,
+     "WC": 58,
+     "WW": 36
+    },
+    "net_recovery": 56,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/24/line/2",
+     "page/33/line/4"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 235,
+    "CW": 0,
+    "WC": 53,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 190,
+    "CW": 47,
+    "WC": 27,
+    "WW": 24
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 933.1994667,
+     "windows_s": 15.6546455,
+     "extra_neural_s": 917.5448212,
+     "net_critical_per_extra_s": 0.06103244082045068,
+     "cells_gained_per_extra_s": 0.05776284577649796,
+     "edits_saved_per_extra_s": -1.1247406951197338
+    },
+    "sensitivity": {
+     "neural_s": 933.1994667,
+     "windows_s": 15.9099306,
+     "extra_neural_s": 917.2895361,
+     "net_critical_per_extra_s": 0.06104942637642283,
+     "cells_gained_per_extra_s": 0.057778921391971605,
+     "edits_saved_per_extra_s": -1.1250537146512207
+    }
+   }
+  },
+  "A:title:windows->native-ba": {
+   "delta": {
+    "cer": 0.11858065978913956,
+    "cell_accuracy": 0.07126607319485656
+   },
+   "budget": false,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 155,
+     "regress": 0,
+     "abstain": 3,
+     "repair": 60,
+     "persist_same": 7,
+     "persist_changed": 27
+    },
+    "four_way": {
+     "CC": 155,
+     "CW": 3,
+     "WC": 60,
+     "WW": 34
+    },
+    "net_recovery": 57,
+    "new_unflagged": 3,
+    "new_unflagged_paths": [
+     "page/17/line/4",
+     "page/24/line/2",
+     "page/33/line/4"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 235,
+    "CW": 0,
+    "WC": 53,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 191,
+    "CW": 46,
+    "WC": 29,
+    "WW": 22
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 1100.7799408,
+     "windows_s": 15.6546455,
+     "extra_neural_s": 1085.1252953,
+     "net_critical_per_extra_s": 0.05252849624544182,
+     "cells_gained_per_extra_s": 0.048842285982603796,
+     "edits_saved_per_extra_s": -0.9639439837321429
+    },
+    "sensitivity": {
+     "neural_s": 1100.7799408,
+     "windows_s": 15.9099306,
+     "extra_neural_s": 1084.8700102,
+     "net_critical_per_extra_s": 0.05254085693593081,
+     "cells_gained_per_extra_s": 0.04885377925621637,
+     "edits_saved_per_extra_s": -0.9641708132453268
+    }
+   }
+  },
+  "A:title:windows->carbon-ba": {
+   "delta": {
+    "cer": 0.11699353814760233,
+    "cell_accuracy": 0.07380952380952377
+   },
+   "budget": false,
+   "critical": {
+    "paths": 252,
+    "matched_paths": true,
+    "counts": {
+     "stable_correct": 156,
+     "regress": 0,
+     "abstain": 2,
+     "repair": 58,
+     "persist_same": 8,
+     "persist_changed": 28
+    },
+    "four_way": {
+     "CC": 156,
+     "CW": 2,
+     "WC": 58,
+     "WW": 36
+    },
+    "net_recovery": 56,
+    "new_unflagged": 2,
+    "new_unflagged_paths": [
+     "page/24/line/2",
+     "page/33/line/4"
+    ]
+   },
+   "cells_four_way": {
+    "CC": 235,
+    "CW": 0,
+    "WC": 53,
+    "WW": 12
+   },
+   "lines_four_way": {
+    "CC": 190,
+    "CW": 47,
+    "WC": 27,
+    "WW": 24
+   },
+   "new_wrong_source_links": 0,
+   "recovery": {
+    "primary": {
+     "neural_s": 921.1412115,
+     "windows_s": 15.6546455,
+     "extra_neural_s": 905.486566,
+     "net_critical_per_extra_s": 0.06184520246101586,
+     "cells_gained_per_extra_s": 0.05853206661489001,
+     "edits_saved_per_extra_s": -1.1397187310672923
+    },
+    "sensitivity": {
+     "neural_s": 921.1412115,
+     "windows_s": 15.9099306,
+     "extra_neural_s": 905.2312809,
+     "net_critical_per_extra_s": 0.06186264348302637,
+     "cells_gained_per_extra_s": 0.058548573296435674,
+     "edits_saved_per_extra_s": -1.1400401441872003
+    }
+   }
+  }
+ },
+ "timing": {
+  "H": {
+   "ab": {
+    "native_s": 59.5955866,
+    "carbon_s": 49.9047383,
+    "saving_s": 9.690848299999999,
+    "speedup": 1.1941869375557872
+   },
+   "ba": {
+    "native_s": 61.2406566,
+    "carbon_s": 52.6969058,
+    "saving_s": 8.543750799999998,
+    "speedup": 1.162130027755823
+   },
+   "repeat_spread_s": {
+    "native": 1.645070000000004,
+    "carbon_bf16": 2.792167500000005
+   },
+   "min_saving_exceeds_max_spread": true
+  },
+  "A": {
+   "ab": {
+    "native_s": 1032.0600334,
+    "carbon_s": 933.1994667,
+    "saving_s": 98.86056670000005,
+    "speedup": 1.1059372301718011
+   },
+   "ba": {
+    "native_s": 1100.7799408,
+    "carbon_s": 921.1412115,
+    "saving_s": 179.63872930000002,
+    "speedup": 1.195017579343208
+   },
+   "repeat_spread_s": {
+    "native": 68.71990740000001,
+    "carbon_bf16": 12.058255199999962
+   },
+   "min_saving_exceeds_max_spread": true
+  }
+ },
+ "memory": {
+  "ab:native": {
+   "device_used_peak_mib": 9695,
+   "allocator_max_reserved_mib": 7134.0,
+   "within": true
+  },
+  "ab:carbon_bf16": {
+   "device_used_peak_mib": 9526,
+   "allocator_max_reserved_mib": 7106.0,
+   "within": true
+  },
+  "ba:carbon_bf16": {
+   "device_used_peak_mib": 9577,
+   "allocator_max_reserved_mib": 7106.0,
+   "within": true
+  },
+  "ba:native": {
+   "device_used_peak_mib": 9765,
+   "allocator_max_reserved_mib": 7134.0,
+   "within": true
+  },
+  "coordinator_external_sampler": {
+   "g0-ab": {
+    "peak_mib": 9691,
+    "samples": 949,
+    "exit": 0
+   },
+   "g0-ba": {
+    "peak_mib": 9782,
+    "samples": 931,
+    "exit": 0
+   }
+  }
+ },
+ "structure": {
+  "H:native:ab": {
+   "pages": 4,
+   "malformed_pages": [],
+   "malformed_headers": 0,
+   "by_reason": {},
+   "title_level_headers": 4
+  },
+  "A:native:ab": {
+   "pages": 60,
+   "malformed_pages": [
+    2,
+    8,
+    9,
+    12,
+    17,
+    18,
+    21,
+    23,
+    24,
+    27,
+    29,
+    32,
+    33,
+    36,
+    38,
+    39,
+    41,
+    42,
+    47,
+    48,
+    50,
+    53,
+    56,
+    57,
+    59,
+    60
+   ],
+   "malformed_headers": 30,
+   "by_reason": {
+    "no_fork_before_next_block_or_end": 14,
+    "bad_box_syntax": 16
+   },
+   "title_level_headers": 27
+  },
+  "counters:native:ab": {
+   "counters": {
+    "forward_count": 9760,
+    "burst_extra_forwards": 0,
+    "static_cache_reallocations": 0,
+    "prefill_grouped_mm_layer_calls": 0,
+    "prefill_moe_fallback_layer_calls": 0,
+    "triton_starts": 264,
+    "dense_starts": 264
+   },
+   "kernel_paths": {
+    "triton_import_failed_dense_fallback": 22
+   },
+   "failed_or_fallback_windows": 0,
+   "windows": [
+    3,
+    22
+   ]
+  },
+  "H:carbon_bf16:ab": {
+   "pages": 4,
+   "malformed_pages": [],
+   "malformed_headers": 0,
+   "by_reason": {},
+   "title_level_headers": 4
+  },
+  "A:carbon_bf16:ab": {
+   "pages": 60,
+   "malformed_pages": [
+    3,
+    8,
+    9,
+    12,
+    17,
+    18,
+    21,
+    23,
+    24,
+    26,
+    27,
+    29,
+    32,
+    33,
+    36,
+    38,
+    39,
+    41,
+    42,
+    47,
+    48,
+    50,
+    53,
+    54,
+    57,
+    59
+   ],
+   "malformed_headers": 30,
+   "by_reason": {
+    "no_fork_before_next_block_or_end": 12,
+    "bad_box_syntax": 18
+   },
+   "title_level_headers": 28
+  },
+  "counters:carbon_bf16:ab": {
+   "counters": {
+    "forward_count": 9828,
+    "burst_extra_forwards": 102,
+    "static_cache_reallocations": 0,
+    "prefill_grouped_mm_layer_calls": 3509,
+    "prefill_moe_fallback_layer_calls": 0,
+    "triton_starts": 0,
+    "dense_starts": 0
+   },
+   "kernel_paths": {
+    "None": 22
+   },
+   "failed_or_fallback_windows": 0,
+   "windows": [
+    3,
+    22
+   ]
+  },
+  "H:native:ba": {
+   "pages": 4,
+   "malformed_pages": [],
+   "malformed_headers": 0,
+   "by_reason": {},
+   "title_level_headers": 4
+  },
+  "A:native:ba": {
+   "pages": 60,
+   "malformed_pages": [
+    2,
+    8,
+    9,
+    12,
+    17,
+    18,
+    21,
+    23,
+    24,
+    27,
+    29,
+    32,
+    33,
+    36,
+    38,
+    39,
+    41,
+    42,
+    47,
+    48,
+    50,
+    53,
+    56,
+    57,
+    59,
+    60
+   ],
+   "malformed_headers": 30,
+   "by_reason": {
+    "no_fork_before_next_block_or_end": 14,
+    "bad_box_syntax": 16
+   },
+   "title_level_headers": 27
+  },
+  "counters:native:ba": {
+   "counters": {
+    "forward_count": 9760,
+    "burst_extra_forwards": 0,
+    "static_cache_reallocations": 0,
+    "prefill_grouped_mm_layer_calls": 0,
+    "prefill_moe_fallback_layer_calls": 0,
+    "triton_starts": 264,
+    "dense_starts": 264
+   },
+   "kernel_paths": {
+    "triton_import_failed_dense_fallback": 22
+   },
+   "failed_or_fallback_windows": 0,
+   "windows": [
+    3,
+    22
+   ]
+  },
+  "H:carbon_bf16:ba": {
+   "pages": 4,
+   "malformed_pages": [],
+   "malformed_headers": 0,
+   "by_reason": {},
+   "title_level_headers": 4
+  },
+  "A:carbon_bf16:ba": {
+   "pages": 60,
+   "malformed_pages": [
+    3,
+    8,
+    9,
+    12,
+    17,
+    18,
+    21,
+    23,
+    24,
+    26,
+    27,
+    29,
+    32,
+    33,
+    36,
+    38,
+    39,
+    41,
+    42,
+    47,
+    48,
+    50,
+    53,
+    54,
+    57,
+    59
+   ],
+   "malformed_headers": 30,
+   "by_reason": {
+    "no_fork_before_next_block_or_end": 12,
+    "bad_box_syntax": 18
+   },
+   "title_level_headers": 28
+  },
+  "counters:carbon_bf16:ba": {
+   "counters": {
+    "forward_count": 9828,
+    "burst_extra_forwards": 102,
+    "static_cache_reallocations": 0,
+    "prefill_grouped_mm_layer_calls": 3509,
+    "prefill_moe_fallback_layer_calls": 0,
+    "triton_starts": 0,
+    "dense_starts": 0
+   },
+   "kernel_paths": {
+    "None": 22
+   },
+   "failed_or_fallback_windows": 0,
+   "windows": [
+    3,
+    22
+   ]
+  }
+ },
+ "gate_transition_examples": {
+  "A:title:native-ab->carbon-ab": [
+   {
+    "at": "page/17/line/4",
+    "transition": "repair",
+    "expected": "45.10",
+    "native_observed": null,
+    "carbon_observed": "Discharge 45.10 kPa.",
+    "flagged": [
+     false,
+     false
+    ]
+   },
+   {
+    "at": "page/21/line/2",
+    "transition": "regress",
+    "expected": "I08O1-388",
+    "native_observed": "Inspection I08O1-388",
+    "carbon_observed": "Inspection 108O1-388",
+    "flagged": [
+     false,
+     false
+    ]
+   },
+   {
+    "at": "page/37/line/2",
+    "transition": "regress",
+    "expected": "8OI10-774",
+    "native_observed": "Inspection 8OI10-774",
+    "carbon_observed": "Inspection 80I10-774",
+    "flagged": [
+     false,
+     false
+    ]
+   },
+   {
+    "at": "page/48/line/2",
+    "transition": "persist_changed",
+    "expected": "OO011-274",
+    "native_observed": "Inspection O0011-274",
+    "carbon_observed": "Inspection 00011-274",
+    "flagged": [
+     false,
+     false
+    ]
+   }
+  ],
+  "A:frozen:native-ab->carbon-ab": [
+   {
+    "at": "page/17/line/4",
+    "transition": "repair",
+    "expected": "45.10",
+    "native_observed": null,
+    "carbon_observed": "Discharge 45.10 kPa.",
+    "flagged": [
+     false,
+     false
+    ]
+   },
+   {
+    "at": "page/21/line/2",
+    "transition": "regress",
+    "expected": "I08O1-388",
+    "native_observed": "Inspection I08O1-388",
+    "carbon_observed": "Inspection 108O1-388",
+    "flagged": [
+     false,
+     false
+    ]
+   },
+   {
+    "at": "page/37/line/2",
+    "transition": "regress",
+    "expected": "8OI10-774",
+    "native_observed": "Inspection 8OI10-774",
+    "carbon_observed": "Inspection 80I10-774",
+    "flagged": [
+     false,
+     false
+    ]
+   },
+   {
+    "at": "page/48/line/2",
+    "transition": "persist_changed",
+    "expected": "OO011-274",
+    "native_observed": "Inspection O0011-274",
+    "carbon_observed": "Inspection 00011-274",
+    "flagged": [
+     false,
+     false
+    ]
+   }
+  ]
+ },
+ "recomputed_verdict": {
+  "gate_comparisons": 8,
+  "passing": 4,
+  "g0_pass": false
+ },
+ "checks_run": 515,
+ "failures": [],
+ "checks": [
+  {
+   "check": "summary.json sha256 equals the bound value",
+   "ok": true,
+   "sha256": "b5d711606b1a6e93ac26a5b69a1643c1565cf9178699c8dae04a5203e7a506bf"
+  },
+  {
+   "check": "coordinator mirror c9bfa54 is byte-identical to the original summary.json",
+   "ok": true,
+   "mirror_sha256": "b5d711606b1a6e93ac26a5b69a1643c1565cf9178699c8dae04a5203e7a506bf",
+   "bytes": 81308
+  },
+  {
+   "check": "summary: stage 2, 145 checks, 0 failures",
+   "ok": true
+  },
+  {
+   "check": "every file listed in files.json matches its sha256",
+   "ok": true,
+   "listed": 76,
+   "mismatched": []
+  },
+  {
+   "check": "summary.stage1_sha256 = committed G0-stage1.json at 7b70d67",
+   "ok": true,
+   "sha256": "4e1c0fd48c20b41bb538a1d87d34e6afc2ccdb35e23162f40eabf1e5d0bd6e1e"
+  },
+  {
+   "check": "summary.inventory_sha256 = blind inventory committed at 6f32732",
+   "ok": true,
+   "sha256": "366bf5ebb7dc2527c4b11e6f110aa4c08b9f71b6f165d327565b40158bf9ac04"
+  },
+  {
+   "check": "working-tree inventory and stage-1 equal their pinned blobs",
+   "ok": true
+  },
+  {
+   "check": "scorer sha256 = score.py at 61bec47",
+   "ok": true,
+   "sha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7"
+  },
+  {
+   "check": "title rule sha256 = rescore.py at 0186467",
+   "ok": true
+  },
+  {
+   "check": "score_all.py unchanged since tool freeze df07eea",
+   "ok": true
+  },
+  {
+   "check": "title_adapt.py unchanged since tool freeze df07eea",
+   "ok": true
+  },
+  {
+   "check": "common.py unchanged since tool freeze df07eea",
+   "ok": true
+  },
+  {
+   "check": "grammar.py unchanged since tool freeze df07eea",
+   "ok": true
+  },
+  {
+   "check": "verify.py unchanged since tool freeze df07eea",
+   "ok": true
+  },
+  {
+   "check": "order: tool freeze df07eea -> blind inventory 6f32732 -> key release 1c19444",
+   "ok": true
+  },
+  {
+   "check": "g0-ab: source/head = c7b2ee3",
+   "ok": true
+  },
+  {
+   "check": "g0-ab/native/H: frozen prediction sha256 present in blind inventory",
+   "ok": true,
+   "sha256": "f2669bfa8d03d82714f8856da1fa299a09d57e36bd11fa3e5e7383cc97112a95"
+  },
+  {
+   "check": "g0-ab/native/A: frozen prediction sha256 present in blind inventory",
+   "ok": true,
+   "sha256": "cd009c42f9e9518ac5c955b39a1b837ee4060a9dd6b81a3179a8523a88da4095"
+  },
+  {
+   "check": "g0-ab/carbon_bf16/H: frozen prediction sha256 present in blind inventory",
+   "ok": true,
+   "sha256": "67fb1b25de89b9f0d904424a3dd7f7fb18ffb5c9e59637bdd127aab93f0b9148"
+  },
+  {
+   "check": "g0-ab/carbon_bf16/A: frozen prediction sha256 present in blind inventory",
+   "ok": true,
+   "sha256": "204af33db5ba6105d4cf7c020c0c3f2c3bc456598f7840dac445c1151f0a03b1"
+  },
+  {
+   "check": "g0-ba: source/head = c7b2ee3",
+   "ok": true
+  },
+  {
+   "check": "g0-ba/native/H: frozen prediction sha256 present in blind inventory",
+   "ok": true,
+   "sha256": "f2669bfa8d03d82714f8856da1fa299a09d57e36bd11fa3e5e7383cc97112a95"
+  },
+  {
+   "check": "g0-ba/native/A: frozen prediction sha256 present in blind inventory",
+   "ok": true,
+   "sha256": "cd009c42f9e9518ac5c955b39a1b837ee4060a9dd6b81a3179a8523a88da4095"
+  },
+  {
+   "check": "g0-ba/carbon_bf16/H: frozen prediction sha256 present in blind inventory",
+   "ok": true,
+   "sha256": "67fb1b25de89b9f0d904424a3dd7f7fb18ffb5c9e59637bdd127aab93f0b9148"
+  },
+  {
+   "check": "g0-ba/carbon_bf16/A: frozen prediction sha256 present in blind inventory",
+   "ok": true,
+   "sha256": "204af33db5ba6105d4cf7c020c0c3f2c3bc456598f7840dac445c1151f0a03b1"
+  },
+  {
+   "check": "title H-native-ab: receipt source = stage-1 frozen prediction",
+   "ok": true
+  },
+  {
+   "check": "title H-native-ab: corrected prediction file hash",
+   "ok": true
+  },
+  {
+   "check": "title H-carbon-ab: receipt source = stage-1 frozen prediction",
+   "ok": true
+  },
+  {
+   "check": "title H-carbon-ab: corrected prediction file hash",
+   "ok": true
+  },
+  {
+   "check": "title H-native-ba: receipt source = stage-1 frozen prediction",
+   "ok": true
+  },
+  {
+   "check": "title H-native-ba: corrected prediction file hash",
+   "ok": true
+  },
+  {
+   "check": "title H-carbon-ba: receipt source = stage-1 frozen prediction",
+   "ok": true
+  },
+  {
+   "check": "title H-carbon-ba: corrected prediction file hash",
+   "ok": true
+  },
+  {
+   "check": "title A-native-ab: receipt source = stage-1 frozen prediction",
+   "ok": true
+  },
+  {
+   "check": "title A-native-ab: corrected prediction file hash",
+   "ok": true
+  },
+  {
+   "check": "title A-carbon-ab: receipt source = stage-1 frozen prediction",
+   "ok": true
+  },
+  {
+   "check": "title A-carbon-ab: corrected prediction file hash",
+   "ok": true
+  },
+  {
+   "check": "title A-native-ba: receipt source = stage-1 frozen prediction",
+   "ok": true
+  },
+  {
+   "check": "title A-native-ba: corrected prediction file hash",
+   "ok": true
+  },
+  {
+   "check": "title A-carbon-ba: receipt source = stage-1 frozen prediction",
+   "ok": true
+  },
+  {
+   "check": "title A-carbon-ba: corrected prediction file hash",
+   "ok": true
+  },
+  {
+   "check": "H: stored Windows prediction sha256 equals the key-release record",
+   "ok": true
+  },
+  {
+   "check": "A: stored Windows prediction sha256 equals the key-release record",
+   "ok": true
+  },
+  {
+   "check": "per-arm H:native-ab:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm H:native-ab:title recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm H:carbon-ab:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm H:carbon-ab:title recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm H:native-ba:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm H:native-ba:title recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm H:carbon-ba:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm H:carbon-ba:title recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm H:windows:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:native-ab:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:native-ab:title recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:carbon-ab:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:carbon-ab:title recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:native-ba:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:native-ba:title recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:carbon-ba:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:carbon-ba:title recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "per-arm A:windows:frozen recomputed from rows",
+   "ok": true,
+   "diff": {}
+  },
+  {
+   "check": "coordinator full title score equality H:carbon-ab",
+   "ok": true,
+   "sha256": "ef7dcb7309f9e31128047ebef349d8d3a52b12713b45009932d1101f0896a0a6"
+  },
+  {
+   "check": "coordinator full title score equality A:carbon-ab",
+   "ok": true,
+   "sha256": "9c160ca7995c2922b147204eedb5f5b235178c265503a34af038a74628cfeb93"
+  },
+  {
+   "check": "coordinator full title score equality H:native-ab",
+   "ok": true,
+   "sha256": "a6f9a5d40babe1bb42f3506ce5e06326c14c9632682947a5c8cce9f0a6ccd15e"
+  },
+  {
+   "check": "coordinator full title score equality A:native-ab",
+   "ok": true,
+   "sha256": "60b7ec411a186836a324e815a57f95238f50996bc6cb940b02ac7d3d15fbbe71"
+  },
+  {
+   "check": "coordinator full title score equality H:carbon-ba",
+   "ok": true,
+   "sha256": "ef7dcb7309f9e31128047ebef349d8d3a52b12713b45009932d1101f0896a0a6"
+  },
+  {
+   "check": "coordinator full title score equality A:carbon-ba",
+   "ok": true,
+   "sha256": "9c160ca7995c2922b147204eedb5f5b235178c265503a34af038a74628cfeb93"
+  },
+  {
+   "check": "coordinator full title score equality H:native-ba",
+   "ok": true,
+   "sha256": "a6f9a5d40babe1bb42f3506ce5e06326c14c9632682947a5c8cce9f0a6ccd15e"
+  },
+  {
+   "check": "coordinator full title score equality A:native-ba",
+   "ok": true,
+   "sha256": "60b7ec411a186836a324e815a57f95238f50996bc6cb940b02ac7d3d15fbbe71"
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ab: gate decision recomputed",
+   "ok": true,
+   "g0_pass": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ba: gate decision recomputed",
+   "ok": true,
+   "g0_pass": true
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:frozen:native-ab->native-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:frozen:carbon-ab->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:frozen:native-ab->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:frozen:native-ba->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:frozen:windows->native-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   },
+   "frozen": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   }
+  },
+  {
+   "check": "H:frozen:windows->native-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:windows->native-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 6,
+   "frozen": 6
+  },
+  {
+   "check": "H:frozen:windows->native-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:windows->native-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:windows->native-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:windows->native-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->native-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->native-ab: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "H:frozen:windows->native-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 2
+  },
+  {
+   "check": "H:frozen:windows->native-ab: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->native-ab: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   },
+   "frozen": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   }
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 6,
+   "frozen": 6
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 2
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ab: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->native-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   },
+   "frozen": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   }
+  },
+  {
+   "check": "H:frozen:windows->native-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:windows->native-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 6,
+   "frozen": 6
+  },
+  {
+   "check": "H:frozen:windows->native-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:windows->native-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:windows->native-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:windows->native-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->native-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->native-ba: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "H:frozen:windows->native-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 2
+  },
+  {
+   "check": "H:frozen:windows->native-ba: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->native-ba: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   },
+   "frozen": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   }
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 6,
+   "frozen": 6
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 2
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:frozen:windows->carbon-ba: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:title:native-ab->carbon-ab: gate decision recomputed",
+   "ok": true,
+   "g0_pass": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:title:native-ba->carbon-ba: gate decision recomputed",
+   "ok": true,
+   "g0_pass": true
+  },
+  {
+   "check": "H:title:native-ab->native-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:title:native-ab->native-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:native-ab->native-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ab->native-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ab->native-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:native-ab->native-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:native-ab->native-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ab->native-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ab->native-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:native-ab->native-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:carbon-ab->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:native-ab->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 17,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 2,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 17,
+    "CW": 0,
+    "WC": 0,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:native-ba->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "H:title:windows->native-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   },
+   "frozen": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   }
+  },
+  {
+   "check": "H:title:windows->native-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:windows->native-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 6,
+   "frozen": 6
+  },
+  {
+   "check": "H:title:windows->native-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:windows->native-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:windows->native-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:windows->native-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->native-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->native-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:windows->native-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 2
+  },
+  {
+   "check": "H:title:windows->native-ab: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->native-ab: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   },
+   "frozen": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   }
+  },
+  {
+   "check": "H:title:windows->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:windows->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 6,
+   "frozen": 6
+  },
+  {
+   "check": "H:title:windows->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:windows->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:windows->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:windows->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:windows->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 2
+  },
+  {
+   "check": "H:title:windows->carbon-ab: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->carbon-ab: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->native-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   },
+   "frozen": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   }
+  },
+  {
+   "check": "H:title:windows->native-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:windows->native-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 6,
+   "frozen": 6
+  },
+  {
+   "check": "H:title:windows->native-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:windows->native-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:windows->native-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:windows->native-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->native-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->native-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:windows->native-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 2
+  },
+  {
+   "check": "H:title:windows->native-ba: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->native-ba: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   },
+   "frozen": {
+    "stable_correct": 11,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 6,
+    "persist_same": 0,
+    "persist_changed": 2
+   }
+  },
+  {
+   "check": "H:title:windows->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   },
+   "frozen": {
+    "CC": 11,
+    "CW": 0,
+    "WC": 6,
+    "WW": 2
+   }
+  },
+  {
+   "check": "H:title:windows->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 6,
+   "frozen": 6
+  },
+  {
+   "check": "H:title:windows->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "H:title:windows->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "H:title:windows->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "H:title:windows->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "H:title:windows->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 2
+  },
+  {
+   "check": "H:title:windows->carbon-ba: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "H:title:windows->carbon-ba: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 212,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 36,
+    "persist_changed": 1
+   },
+   "frozen": {
+    "stable_correct": 212,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 36,
+    "persist_changed": 1
+   }
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 212,
+    "CW": 2,
+    "WC": 1,
+    "WW": 37
+   },
+   "frozen": {
+    "CC": 212,
+    "CW": 2,
+    "WC": 1,
+    "WW": 37
+   }
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": -1,
+   "frozen": -1
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ],
+   "frozen": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ]
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 3
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ab: gate decision recomputed",
+   "ok": true,
+   "g0_pass": false
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 212,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 36,
+    "persist_changed": 1
+   },
+   "frozen": {
+    "stable_correct": 212,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 36,
+    "persist_changed": 1
+   }
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 212,
+    "CW": 2,
+    "WC": 1,
+    "WW": 37
+   },
+   "frozen": {
+    "CC": 212,
+    "CW": 2,
+    "WC": 1,
+    "WW": 37
+   }
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": -1,
+   "frozen": -1
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ],
+   "frozen": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ]
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 3
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ba: gate decision recomputed",
+   "ok": true,
+   "g0_pass": false
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 214,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 38,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 214,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 38,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 214,
+    "CW": 0,
+    "WC": 0,
+    "WW": 38
+   },
+   "frozen": {
+    "CC": 214,
+    "CW": 0,
+    "WC": 0,
+    "WW": 38
+   }
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:frozen:native-ab->native-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 213,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 39,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 213,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 39,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 213,
+    "CW": 0,
+    "WC": 0,
+    "WW": 39
+   },
+   "frozen": {
+    "CC": 213,
+    "CW": 0,
+    "WC": 0,
+    "WW": 39
+   }
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:frozen:carbon-ab->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 212,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 36,
+    "persist_changed": 1
+   },
+   "frozen": {
+    "stable_correct": 212,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 36,
+    "persist_changed": 1
+   }
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 212,
+    "CW": 2,
+    "WC": 1,
+    "WW": 37
+   },
+   "frozen": {
+    "CC": 212,
+    "CW": 2,
+    "WC": 1,
+    "WW": 37
+   }
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": -1,
+   "frozen": -1
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ],
+   "frozen": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ]
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:frozen:native-ab->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 3
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 212,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 36,
+    "persist_changed": 1
+   },
+   "frozen": {
+    "stable_correct": 212,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 36,
+    "persist_changed": 1
+   }
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 212,
+    "CW": 2,
+    "WC": 1,
+    "WW": 37
+   },
+   "frozen": {
+    "CC": 212,
+    "CW": 2,
+    "WC": 1,
+    "WW": 37
+   }
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": -1,
+   "frozen": -1
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ],
+   "frozen": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ]
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:frozen:native-ba->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 3
+  },
+  {
+   "check": "A:frozen:windows->native-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 155,
+    "regress": 0,
+    "abstain": 3,
+    "repair": 59,
+    "persist_same": 7,
+    "persist_changed": 28
+   },
+   "frozen": {
+    "stable_correct": 155,
+    "regress": 0,
+    "abstain": 3,
+    "repair": 59,
+    "persist_same": 7,
+    "persist_changed": 28
+   }
+  },
+  {
+   "check": "A:frozen:windows->native-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 155,
+    "CW": 3,
+    "WC": 59,
+    "WW": 35
+   },
+   "frozen": {
+    "CC": 155,
+    "CW": 3,
+    "WC": 59,
+    "WW": 35
+   }
+  },
+  {
+   "check": "A:frozen:windows->native-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 56,
+   "frozen": 56
+  },
+  {
+   "check": "A:frozen:windows->native-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 3,
+   "frozen": 3
+  },
+  {
+   "check": "A:frozen:windows->native-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/17/line/4",
+    "page/24/line/2",
+    "page/33/line/4"
+   ],
+   "frozen": [
+    "page/17/line/4",
+    "page/24/line/2",
+    "page/33/line/4"
+   ]
+  },
+  {
+   "check": "A:frozen:windows->native-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:windows->native-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->native-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->native-ab: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "A:frozen:windows->native-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 31
+  },
+  {
+   "check": "A:frozen:windows->native-ab: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->native-ab: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 156,
+    "regress": 0,
+    "abstain": 2,
+    "repair": 57,
+    "persist_same": 8,
+    "persist_changed": 29
+   },
+   "frozen": {
+    "stable_correct": 156,
+    "regress": 0,
+    "abstain": 2,
+    "repair": 57,
+    "persist_same": 8,
+    "persist_changed": 29
+   }
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 156,
+    "CW": 2,
+    "WC": 57,
+    "WW": 37
+   },
+   "frozen": {
+    "CC": 156,
+    "CW": 2,
+    "WC": 57,
+    "WW": 37
+   }
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 55,
+   "frozen": 55
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/24/line/2",
+    "page/33/line/4"
+   ],
+   "frozen": [
+    "page/24/line/2",
+    "page/33/line/4"
+   ]
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 31
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ab: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->native-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 155,
+    "regress": 0,
+    "abstain": 3,
+    "repair": 59,
+    "persist_same": 7,
+    "persist_changed": 28
+   },
+   "frozen": {
+    "stable_correct": 155,
+    "regress": 0,
+    "abstain": 3,
+    "repair": 59,
+    "persist_same": 7,
+    "persist_changed": 28
+   }
+  },
+  {
+   "check": "A:frozen:windows->native-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 155,
+    "CW": 3,
+    "WC": 59,
+    "WW": 35
+   },
+   "frozen": {
+    "CC": 155,
+    "CW": 3,
+    "WC": 59,
+    "WW": 35
+   }
+  },
+  {
+   "check": "A:frozen:windows->native-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 56,
+   "frozen": 56
+  },
+  {
+   "check": "A:frozen:windows->native-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 3,
+   "frozen": 3
+  },
+  {
+   "check": "A:frozen:windows->native-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/17/line/4",
+    "page/24/line/2",
+    "page/33/line/4"
+   ],
+   "frozen": [
+    "page/17/line/4",
+    "page/24/line/2",
+    "page/33/line/4"
+   ]
+  },
+  {
+   "check": "A:frozen:windows->native-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:windows->native-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->native-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->native-ba: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "A:frozen:windows->native-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 31
+  },
+  {
+   "check": "A:frozen:windows->native-ba: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->native-ba: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 156,
+    "regress": 0,
+    "abstain": 2,
+    "repair": 57,
+    "persist_same": 8,
+    "persist_changed": 29
+   },
+   "frozen": {
+    "stable_correct": 156,
+    "regress": 0,
+    "abstain": 2,
+    "repair": 57,
+    "persist_same": 8,
+    "persist_changed": 29
+   }
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 156,
+    "CW": 2,
+    "WC": 57,
+    "WW": 37
+   },
+   "frozen": {
+    "CC": 156,
+    "CW": 2,
+    "WC": 57,
+    "WW": 37
+   }
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 55,
+   "frozen": 55
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/24/line/2",
+    "page/33/line/4"
+   ],
+   "frozen": [
+    "page/24/line/2",
+    "page/33/line/4"
+   ]
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 31
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:frozen:windows->carbon-ba: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 213,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 35,
+    "persist_changed": 1
+   },
+   "frozen": {
+    "stable_correct": 213,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 35,
+    "persist_changed": 1
+   }
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 213,
+    "CW": 2,
+    "WC": 1,
+    "WW": 36
+   },
+   "frozen": {
+    "CC": 213,
+    "CW": 2,
+    "WC": 1,
+    "WW": 36
+   }
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": -1,
+   "frozen": -1
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ],
+   "frozen": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ]
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 3
+  },
+  {
+   "check": "A:title:native-ab->carbon-ab: gate decision recomputed",
+   "ok": true,
+   "g0_pass": false
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 213,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 35,
+    "persist_changed": 1
+   },
+   "frozen": {
+    "stable_correct": 213,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 35,
+    "persist_changed": 1
+   }
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 213,
+    "CW": 2,
+    "WC": 1,
+    "WW": 36
+   },
+   "frozen": {
+    "CC": 213,
+    "CW": 2,
+    "WC": 1,
+    "WW": 36
+   }
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": -1,
+   "frozen": -1
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ],
+   "frozen": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ]
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 3
+  },
+  {
+   "check": "A:title:native-ba->carbon-ba: gate decision recomputed",
+   "ok": true,
+   "g0_pass": false
+  },
+  {
+   "check": "A:title:native-ab->native-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 215,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 37,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 215,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 37,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "A:title:native-ab->native-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 215,
+    "CW": 0,
+    "WC": 0,
+    "WW": 37
+   },
+   "frozen": {
+    "CC": 215,
+    "CW": 0,
+    "WC": 0,
+    "WW": 37
+   }
+  },
+  {
+   "check": "A:title:native-ab->native-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "A:title:native-ab->native-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "A:title:native-ab->native-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "A:title:native-ab->native-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:native-ab->native-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ab->native-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ab->native-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:title:native-ab->native-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 214,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 38,
+    "persist_changed": 0
+   },
+   "frozen": {
+    "stable_correct": 214,
+    "regress": 0,
+    "abstain": 0,
+    "repair": 0,
+    "persist_same": 38,
+    "persist_changed": 0
+   }
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 214,
+    "CW": 0,
+    "WC": 0,
+    "WW": 38
+   },
+   "frozen": {
+    "CC": 214,
+    "CW": 0,
+    "WC": 0,
+    "WW": 38
+   }
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 0,
+   "frozen": 0
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [],
+   "frozen": []
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:title:carbon-ab->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 0
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 213,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 35,
+    "persist_changed": 1
+   },
+   "frozen": {
+    "stable_correct": 213,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 35,
+    "persist_changed": 1
+   }
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 213,
+    "CW": 2,
+    "WC": 1,
+    "WW": 36
+   },
+   "frozen": {
+    "CC": 213,
+    "CW": 2,
+    "WC": 1,
+    "WW": 36
+   }
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": -1,
+   "frozen": -1
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ],
+   "frozen": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ]
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:title:native-ab->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 3
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 213,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 35,
+    "persist_changed": 1
+   },
+   "frozen": {
+    "stable_correct": 213,
+    "regress": 2,
+    "abstain": 0,
+    "repair": 1,
+    "persist_same": 35,
+    "persist_changed": 1
+   }
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 213,
+    "CW": 2,
+    "WC": 1,
+    "WW": 36
+   },
+   "frozen": {
+    "CC": 213,
+    "CW": 2,
+    "WC": 1,
+    "WW": 36
+   }
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": -1,
+   "frozen": -1
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ],
+   "frozen": [
+    "page/21/line/2",
+    "page/37/line/2"
+   ]
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": true
+  },
+  {
+   "check": "A:title:native-ba->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 3
+  },
+  {
+   "check": "A:title:windows->native-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 155,
+    "regress": 0,
+    "abstain": 3,
+    "repair": 60,
+    "persist_same": 7,
+    "persist_changed": 27
+   },
+   "frozen": {
+    "stable_correct": 155,
+    "regress": 0,
+    "abstain": 3,
+    "repair": 60,
+    "persist_same": 7,
+    "persist_changed": 27
+   }
+  },
+  {
+   "check": "A:title:windows->native-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 155,
+    "CW": 3,
+    "WC": 60,
+    "WW": 34
+   },
+   "frozen": {
+    "CC": 155,
+    "CW": 3,
+    "WC": 60,
+    "WW": 34
+   }
+  },
+  {
+   "check": "A:title:windows->native-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 57,
+   "frozen": 57
+  },
+  {
+   "check": "A:title:windows->native-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 3,
+   "frozen": 3
+  },
+  {
+   "check": "A:title:windows->native-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/17/line/4",
+    "page/24/line/2",
+    "page/33/line/4"
+   ],
+   "frozen": [
+    "page/17/line/4",
+    "page/24/line/2",
+    "page/33/line/4"
+   ]
+  },
+  {
+   "check": "A:title:windows->native-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:windows->native-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->native-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->native-ab: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "A:title:windows->native-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 30
+  },
+  {
+   "check": "A:title:windows->native-ab: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->native-ab: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->carbon-ab: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 156,
+    "regress": 0,
+    "abstain": 2,
+    "repair": 58,
+    "persist_same": 8,
+    "persist_changed": 28
+   },
+   "frozen": {
+    "stable_correct": 156,
+    "regress": 0,
+    "abstain": 2,
+    "repair": 58,
+    "persist_same": 8,
+    "persist_changed": 28
+   }
+  },
+  {
+   "check": "A:title:windows->carbon-ab: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 156,
+    "CW": 2,
+    "WC": 58,
+    "WW": 36
+   },
+   "frozen": {
+    "CC": 156,
+    "CW": 2,
+    "WC": 58,
+    "WW": 36
+   }
+  },
+  {
+   "check": "A:title:windows->carbon-ab: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 56,
+   "frozen": 56
+  },
+  {
+   "check": "A:title:windows->carbon-ab: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:title:windows->carbon-ab: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/24/line/2",
+    "page/33/line/4"
+   ],
+   "frozen": [
+    "page/24/line/2",
+    "page/33/line/4"
+   ]
+  },
+  {
+   "check": "A:title:windows->carbon-ab: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:windows->carbon-ab: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->carbon-ab: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->carbon-ab: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "A:title:windows->carbon-ab: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 30
+  },
+  {
+   "check": "A:title:windows->carbon-ab: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->carbon-ab: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->native-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 155,
+    "regress": 0,
+    "abstain": 3,
+    "repair": 60,
+    "persist_same": 7,
+    "persist_changed": 27
+   },
+   "frozen": {
+    "stable_correct": 155,
+    "regress": 0,
+    "abstain": 3,
+    "repair": 60,
+    "persist_same": 7,
+    "persist_changed": 27
+   }
+  },
+  {
+   "check": "A:title:windows->native-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 155,
+    "CW": 3,
+    "WC": 60,
+    "WW": 34
+   },
+   "frozen": {
+    "CC": 155,
+    "CW": 3,
+    "WC": 60,
+    "WW": 34
+   }
+  },
+  {
+   "check": "A:title:windows->native-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 57,
+   "frozen": 57
+  },
+  {
+   "check": "A:title:windows->native-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 3,
+   "frozen": 3
+  },
+  {
+   "check": "A:title:windows->native-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/17/line/4",
+    "page/24/line/2",
+    "page/33/line/4"
+   ],
+   "frozen": [
+    "page/17/line/4",
+    "page/24/line/2",
+    "page/33/line/4"
+   ]
+  },
+  {
+   "check": "A:title:windows->native-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:windows->native-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->native-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->native-ba: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "A:title:windows->native-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 30
+  },
+  {
+   "check": "A:title:windows->native-ba: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->native-ba: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->carbon-ba: critical counts recomputed",
+   "ok": true,
+   "mine": {
+    "stable_correct": 156,
+    "regress": 0,
+    "abstain": 2,
+    "repair": 58,
+    "persist_same": 8,
+    "persist_changed": 28
+   },
+   "frozen": {
+    "stable_correct": 156,
+    "regress": 0,
+    "abstain": 2,
+    "repair": 58,
+    "persist_same": 8,
+    "persist_changed": 28
+   }
+  },
+  {
+   "check": "A:title:windows->carbon-ba: critical four_way recomputed",
+   "ok": true,
+   "mine": {
+    "CC": 156,
+    "CW": 2,
+    "WC": 58,
+    "WW": 36
+   },
+   "frozen": {
+    "CC": 156,
+    "CW": 2,
+    "WC": 58,
+    "WW": 36
+   }
+  },
+  {
+   "check": "A:title:windows->carbon-ba: critical net_recovery recomputed",
+   "ok": true,
+   "mine": 56,
+   "frozen": 56
+  },
+  {
+   "check": "A:title:windows->carbon-ba: critical new_unflagged recomputed",
+   "ok": true,
+   "mine": 2,
+   "frozen": 2
+  },
+  {
+   "check": "A:title:windows->carbon-ba: critical new_unflagged_paths recomputed",
+   "ok": true,
+   "mine": [
+    "page/24/line/2",
+    "page/33/line/4"
+   ],
+   "frozen": [
+    "page/24/line/2",
+    "page/33/line/4"
+   ]
+  },
+  {
+   "check": "A:title:windows->carbon-ba: critical matched_paths recomputed",
+   "ok": true,
+   "mine": true,
+   "frozen": true
+  },
+  {
+   "check": "A:title:windows->carbon-ba: cells/lines four-way recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->carbon-ba: CER/cell deltas recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->carbon-ba: budget recomputed",
+   "ok": true,
+   "budget": false
+  },
+  {
+   "check": "A:title:windows->carbon-ba: regress+abstain+persist_changed = score.py compare() list",
+   "ok": true,
+   "n": 30
+  },
+  {
+   "check": "A:title:windows->carbon-ba: primary recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "A:title:windows->carbon-ba: sensitivity recovery per extra second recomputed",
+   "ok": true
+  },
+  {
+   "check": "timing H:ab recomputed",
+   "ok": true
+  },
+  {
+   "check": "timing H:ba recomputed",
+   "ok": true
+  },
+  {
+   "check": "timing A:ab recomputed",
+   "ok": true
+  },
+  {
+   "check": "timing A:ba recomputed",
+   "ok": true
+  },
+  {
+   "check": "carbon_bf16 memory <= 10,000 MiB both orders",
+   "ok": true
+  },
+  {
+   "check": "overall G0 = false recomputed",
+   "ok": true
+  }
+ ]
+}

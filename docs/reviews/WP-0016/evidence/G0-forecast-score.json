@@ -1,0 +1,315 @@
+{
+ "tool": "forecast_check.py",
+ "forecast_commit": "f39c8c42303bf655e080491b9e88a05e5fc2f5b0",
+ "forecast_sha256": "0d2b1c709c2a416a4c9969c03051de3e19fbcde21afcc3e528229d6204dd1314",
+ "tool_sha256": "64ba120d0da3dfb72ec01ad2183ec527881ae47015b816f0df0ad0f2c02633db",
+ "items": [
+  {
+   "id": "F01",
+   "quantity": "both orders complete every segment with exit 0",
+   "probability": 0.85,
+   "observed": true,
+   "outcome": true,
+   "brier": 0.022500000000000006
+  },
+  {
+   "id": "F02",
+   "quantity": "H native complete_s per order",
+   "interval_80": [
+    50.0,
+    57.0
+   ],
+   "unit": "s",
+   "observed": [
+    59.5955866,
+    61.2406566
+   ],
+   "inside": [
+    false,
+    false
+   ]
+  },
+  {
+   "id": "F03",
+   "quantity": "H carbon_bf16 complete_s per order",
+   "interval_80": [
+    43.0,
+    47.5
+   ],
+   "unit": "s",
+   "observed": [
+    49.9047383,
+    52.6969058
+   ],
+   "inside": [
+    false,
+    false
+   ]
+  },
+  {
+   "id": "F04",
+   "quantity": "H speedup native/carbon per order",
+   "interval_80": [
+    1.1,
+    1.18
+   ],
+   "point": 1.13,
+   "observed": [
+    1.1941869375557872,
+    1.162130027755823
+   ],
+   "inside": [
+    false,
+    true
+   ]
+  },
+  {
+   "id": "F05",
+   "quantity": "A native complete_s per order",
+   "interval_80": [
+    950.0,
+    1150.0
+   ],
+   "unit": "s",
+   "observed": [
+    1032.0600334,
+    1100.7799408
+   ],
+   "inside": [
+    true,
+    true
+   ]
+  },
+  {
+   "id": "F06",
+   "quantity": "A speedup native/carbon per order",
+   "interval_80": [
+    1.08,
+    1.3
+   ],
+   "point": 1.15,
+   "observed": [
+    1.1059372301718011,
+    1.195017579343208
+   ],
+   "inside": [
+    true,
+    true
+   ]
+  },
+  {
+   "id": "F07",
+   "quantity": "A native repeat spread |AB-BA| <= 3% of the mean A native time",
+   "probability": 0.8,
+   "observed": false,
+   "outcome": false,
+   "brier": 0.6400000000000001
+  },
+  {
+   "id": "F08",
+   "quantity": "A carbon saving exceeds the A native repeat spread in both orders",
+   "probability": 0.75,
+   "observed": true,
+   "outcome": true,
+   "brier": 0.0625
+  },
+  {
+   "id": "F09",
+   "quantity": "carbon_bf16 token-identical to same-order native on H and A",
+   "probability": 0.05,
+   "observed": false,
+   "outcome": false,
+   "brier": 0.0025000000000000005
+  },
+  {
+   "id": "F10",
+   "quantity": "raw text outside boxes identical carbon vs native on >= 90% of the 64 measured pages per order",
+   "probability": 0.75,
+   "observed": false,
+   "outcome": false,
+   "brier": 0.5625
+  },
+  {
+   "id": "F11",
+   "quantity": "native AB vs BA token-identical on both families",
+   "probability": 0.85,
+   "observed": true,
+   "outcome": true,
+   "brier": 0.022500000000000006
+  },
+  {
+   "id": "F12",
+   "quantity": "carbon_bf16 AB vs BA token-identical on both families",
+   "probability": 0.8,
+   "observed": true,
+   "outcome": true,
+   "brier": 0.03999999999999998
+  },
+  {
+   "id": "F13",
+   "quantity": "|CER delta| <= 0.003 for every G0 gate comparison (2 families x 2 orders x 2 views)",
+   "probability": 0.85,
+   "observed": false,
+   "outcome": false,
+   "brier": 0.7224999999999999
+  },
+  {
+   "id": "F14",
+   "quantity": "cell delta within [-0.01, +0.01] for every G0 gate comparison",
+   "probability": 0.85,
+   "observed": true,
+   "outcome": true,
+   "brier": 0.022500000000000006
+  },
+  {
+   "id": "F15",
+   "quantity": "zero new unflagged critical on H, all four H gate comparisons",
+   "probability": 0.85,
+   "observed": true,
+   "outcome": true,
+   "brier": 0.022500000000000006
+  },
+  {
+   "id": "F16",
+   "quantity": "zero new unflagged critical on A, all four A gate comparisons",
+   "probability": 0.65,
+   "observed": false,
+   "outcome": false,
+   "brier": 0.42250000000000004
+  },
+  {
+   "id": "F17",
+   "quantity": "all 8 G0 gate comparisons pass",
+   "probability": 0.55,
+   "observed": false,
+   "outcome": false,
+   "brier": 0.30250000000000005
+  },
+  {
+   "id": "F18",
+   "quantity": "carbon_bf16 sampled device used peak <= 10,000 MiB in both orders",
+   "probability": 0.8,
+   "point_mib": 9400,
+   "observed": true,
+   "outcome": true,
+   "brier": 0.03999999999999998
+  },
+  {
+   "id": "F19",
+   "quantity": "carbon_bf16 allocator max reserved peak",
+   "interval_80": [
+    8300,
+    9300
+   ],
+   "unit": "MiB",
+   "observed": [
+    7106.0,
+    7106.0
+   ],
+   "inside": [
+    false,
+    false
+   ]
+  },
+  {
+   "id": "F20",
+   "quantity": "malformed headers per arm over 64 measured pages",
+   "interval_80": [
+    0,
+    4
+   ],
+   "note": "carbon within +/-1 of same-order native with p=0.8",
+   "observed": [
+    30,
+    30,
+    30,
+    30
+   ],
+   "inside": [
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "id": "F21",
+   "quantity": "title<LEVELn> headers recognised: carbon equals same-order native count",
+   "probability": 0.9,
+   "observed": false,
+   "outcome": false,
+   "brier": 0.81
+  },
+  {
+   "id": "F22",
+   "quantity": "A Windows->native net critical recovery (repair-regress-abstain), frozen view",
+   "interval_80": [
+    40,
+    65
+   ],
+   "sign_positive_probability": 0.95,
+   "observed": [
+    56,
+    56
+   ],
+   "inside": [
+    true,
+    true
+   ]
+  },
+  {
+   "id": "F23",
+   "quantity": "A Windows->native net critical recovery per extra neural second",
+   "interval_80": [
+    0.035,
+    0.065
+   ],
+   "unit": "1/s",
+   "observed": [
+    0.055096126670188025,
+    0.051606943679732314
+   ],
+   "inside": [
+    true,
+    true
+   ]
+  },
+  {
+   "id": "F24",
+   "quantity": "A Windows->carbon rate per extra second >= Windows->native rate (same order)",
+   "probability": 0.65,
+   "observed": true,
+   "outcome": true,
+   "brier": 0.12249999999999998
+  },
+  {
+   "id": "F25",
+   "quantity": "H Windows->native net critical recovery, frozen view",
+   "interval_80": [
+    -2,
+    4
+   ],
+   "observed": [
+    6,
+    6
+   ],
+   "inside": [
+    false,
+    false
+   ]
+  },
+  {
+   "id": "F26",
+   "quantity": "overall G0 pass (pre-registered verdict, real binding)",
+   "probability": 0.4,
+   "observed": false,
+   "outcome": false,
+   "brier": 0.16000000000000003
+  }
+ ],
+ "probability_items": 16,
+ "mean_brier": 0.24859375,
+ "interval_values": 22,
+ "interval_values_inside": 9,
+ "note": "A calibration record, not a gate. title headers counted per arm over H+A in order ab (identical in ba)."
+}
