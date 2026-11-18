@@ -1,0 +1,60 @@
+{
+  "plans": {
+    "ab": {
+      "sha256": "b705772d04e1cab173096bd9fb779a57f71e68af1eaccc4f7dc107a0432fffbf",
+      "order": [
+        "native",
+        "carbon_bf16"
+      ],
+      "excluded_windows": 6,
+      "scored_windows": 44
+    },
+    "ba": {
+      "sha256": "7a48e28f6ef5f736d4fed0c89a28e07800ecf827a8ad646197fc3fa9aac924a9",
+      "order": [
+        "carbon_bf16",
+        "native"
+      ],
+      "excluded_windows": 6,
+      "scored_windows": 44
+    }
+  },
+  "masked_lane_final_lengths": [
+    5,
+    1,
+    11,
+    0
+  ],
+  "lane_permutation": [
+    2,
+    3,
+    0,
+    1
+  ],
+  "burst_size": 8,
+  "dummy_writes": 0,
+  "three_page_prefill": 827,
+  "static_capacity": 24832,
+  "kv_bytes": 6102712320,
+  "router_key_bytes": 610271232,
+  "block_summary_bytes": 19070976,
+  "synthetic_transitions": {
+    "matrix_wrong_correct": [
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "repairs": 1,
+    "regressions": 1,
+    "net": 0,
+    "new_or_changed_unflagged": [
+      1,
+      3
+    ]
+  }
+}

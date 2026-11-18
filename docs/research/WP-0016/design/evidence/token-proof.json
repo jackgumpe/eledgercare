@@ -1,0 +1,360 @@
+{
+  "tokenizer_sha256": "c55c165e32c5a67830362a53e1f548c8930dcc8469efa30ff3252a982799c589",
+  "tokenizers_version": "0.21.4",
+  "numpy_version": "2.2.6",
+  "unicode_version": "15.0.0",
+  "python": "3.12.10",
+  "head_width": 129280,
+  "addressable_ids": 128831,
+  "unnamed_ids": 449,
+  "special_ids": {
+    "PAGE": 128827,
+    "BLOCK": 128828,
+    "FORK": 128829,
+    "EOS": 1
+  },
+  "states_including_reject": 367,
+  "reachable_including_reject": 367,
+  "unicode_continuation_states": 317,
+  "byte_equivalence_classes": 115,
+  "token_transform_classes": 341,
+  "class_id_itemsize": 2,
+  "dense_M_bf16_T_i32_bytes": {
+    "11": 8532480,
+    "367": 284674560
+  },
+  "classification_bytes": 258560,
+  "class_transitions_u16_bytes": 250294,
+  "distance_u16_bytes": 734,
+  "int32_lane_state_bytes": 16,
+  "selected_bf16_rows_B4_bytes": 1034240,
+  "logits_fp32_B4_bytes": 2068480,
+  "max_shortest_completion_tokens": 13,
+  "distance_histogram": {
+    "0": 7,
+    "1": 2,
+    "2": 8,
+    "3": 2,
+    "4": 4,
+    "5": 1,
+    "6": 4,
+    "7": 1,
+    "8": 4,
+    "9": 1,
+    "10": 9,
+    "11": 315,
+    "12": 7,
+    "13": 1
+  },
+  "digit_only_token_ids": 1110,
+  "composite_examples": {
+    "space_and_bracket": {
+      "count": 1,
+      "examples": [
+        [
+          764,
+          " ["
+        ]
+      ]
+    },
+    "multiple_ascii_digits": {
+      "count": 1100,
+      "examples": [
+        [
+          397,
+          "20"
+        ],
+        [
+          504,
+          "00"
+        ],
+        [
+          511,
+          "19"
+        ],
+        [
+          553,
+          "10"
+        ]
+      ]
+    },
+    "close_and_less_than": {
+      "count": 1,
+      "examples": [
+        [
+          70962,
+          "]<"
+        ]
+      ]
+    },
+    "whitespace_and_close": {
+      "count": 1,
+      "examples": [
+        [
+          6105,
+          " ]"
+        ]
+      ]
+    },
+    "bracket_sequence": {
+      "count": 1,
+      "examples": [
+        [
+          3014,
+          "]["
+        ]
+      ]
+    },
+    "double_comma": {
+      "count": 1,
+      "examples": [
+        [
+          18005,
+          ",,"
+        ]
+      ]
+    }
+  },
+  "table_sha256_token_major_little_endian_u16": "a958eb39797ed1de73eb3fcefadfa325c65a1dc6a0a4e02f4c6dfddcafdbf118",
+  "token_to_class_sha256": "70acc42e07d5076ca8baa7636a285302db2003930efd6e3ce8253862d862ce13",
+  "class_rows_sha256": "1be5a4f0a43b6cd88f04904e343f048cae77c73d9866ab620086ffe10d7007dd",
+  "states_sha256": "4c694e6900d379ee68486e2562c649219374723a536b83eae4cb791ae03aeba0",
+  "examples": [
+    {
+      "text": "<BLOCK>text[1,2,3,4]<FORK>",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        19,
+        14,
+        20,
+        14,
+        21,
+        14,
+        22,
+        63,
+        128829
+      ],
+      "complete": true
+    },
+    {
+      "text": "<BLOCK>title<LEVEL2> [0000, 22, 333, 4444]<FORK>Hi",
+      "token_ids": [
+        128828,
+        10212,
+        30,
+        114086,
+        20,
+        32,
+        764,
+        1320,
+        18,
+        14,
+        223,
+        1302,
+        14,
+        223,
+        11722,
+        14,
+        223,
+        18966,
+        22,
+        63,
+        128829,
+        23166
+      ],
+      "complete": true
+    },
+    {
+      "text": "<BLOCK>\u8868\u984c-1 [ 12,\t42, 1,55 ]<FORK> AB-71.\u2463",
+      "token_ids": [
+        128828,
+        1146,
+        9467,
+        15,
+        19,
+        764,
+        223,
+        736,
+        14,
+        200,
+        3180,
+        14,
+        223,
+        19,
+        14,
+        2315,
+        6105,
+        128829,
+        13439,
+        15,
+        5863,
+        16,
+        28650
+      ],
+      "complete": true
+    },
+    {
+      "text": "<BLOCK>text[9999,1,2,0]<FORK>",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        8834,
+        27,
+        14,
+        19,
+        14,
+        20,
+        14,
+        18,
+        63,
+        128829
+      ],
+      "complete": true
+    },
+    {
+      "text": "<BLOCK>[]",
+      "token_ids": [
+        128828,
+        5071
+      ],
+      "complete": false
+    },
+    {
+      "text": "<BLOCK>text[1.0,2,3,4]<FORK>",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        19,
+        16,
+        18,
+        14,
+        20,
+        14,
+        21,
+        14,
+        22,
+        63,
+        128829
+      ],
+      "complete": false
+    },
+    {
+      "text": "<BLOCK>text[1,2,3,]<FORK>",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        19,
+        14,
+        20,
+        14,
+        21,
+        101176,
+        128829
+      ],
+      "complete": false
+    },
+    {
+      "text": "<BLOCK>text[1,2,3,4]",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        19,
+        14,
+        20,
+        14,
+        21,
+        14,
+        22,
+        63
+      ],
+      "complete": false
+    },
+    {
+      "text": "<BLOCK>text[\uff11,2,3,4]<FORK>",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        14771,
+        14,
+        20,
+        14,
+        21,
+        14,
+        22,
+        63,
+        128829
+      ],
+      "complete": false
+    },
+    {
+      "text": "<BLOCK>text[1,2,3,4444 ]<FORK>",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        19,
+        14,
+        20,
+        14,
+        21,
+        14,
+        18966,
+        22,
+        6105,
+        128829
+      ],
+      "complete": false
+    },
+    {
+      "text": "<BLOCK>text[1,2,3,4]<FORX>",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        19,
+        14,
+        20,
+        14,
+        21,
+        14,
+        22,
+        70962,
+        50560,
+        58,
+        32
+      ],
+      "complete": false
+    },
+    {
+      "text": "<BLOCK>text[12,3,4,5]<FORK><BLOCK>",
+      "token_ids": [
+        128828,
+        2067,
+        61,
+        736,
+        14,
+        21,
+        14,
+        22,
+        14,
+        23,
+        63,
+        128829,
+        128828
+      ],
+      "complete": false
+    }
+  ],
+  "isolated_decode_counterexample": [
+    167,
+    97,
+    104
+  ]
+}
