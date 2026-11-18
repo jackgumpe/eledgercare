@@ -1,0 +1,49 @@
+{
+  "schema": "eledgercare.wp0015.carbon-preflight-history/1",
+  "failed_preflights": [
+    {
+      "label": "prep-01",
+      "exit_code": 1,
+      "stage": "module_import",
+      "error": "ImportError: cannot import name 'MAX_OWNER_RUNTIME_BYTES' from 'launch' (docs/research/WP-0015/astra/launch.py)",
+      "cause": "Looping sys.path.insert(0, ...) reversed precedence and placed astra/ ahead of carbon/.",
+      "fix": "Switched to sys.path[:0] = [str(HERE), ...] across Carbon scripts so carbon/ resolves first."
+    },
+    {
+      "label": "prep-02",
+      "exit_code": 1,
+      "stage": "phase1_check_score",
+      "external_dir": "C:/Users/jackg/eLedgerCare-Speed/WP-0015/carbon/preflight/prep-02",
+      "error": "CalledProcessError: python -I -B docs/evaluation/WP-0015/check_score.py exited 1",
+      "cause": "Python -I enables safe-path (-P), omitting docs/evaluation/WP-0015 from sys.path for check_score.py's `from score import ...`.",
+      "fix": "Invoked check_score.py with `python -B` per docs/evaluation/WP-0015/README.md."
+    },
+    {
+      "label": "prep-03",
+      "exit_code": 1,
+      "stage": "phase1_return_dict",
+      "external_dir": "C:/Users/jackg/eLedgerCare-Speed/WP-0015/carbon/preflight/prep-03",
+      "error": "KeyError: 'verified_count'",
+      "cause": "verify_runtime.verify_dependency_lock returns 'verified_distribution_count', not 'verified_count'.",
+      "fix": "Updated key lookup in prepare.py to deps['verified_distribution_count']."
+    },
+    {
+      "label": "prep-04",
+      "exit_code": 1,
+      "stage": "phase2_test_u2_grow_assertion",
+      "external_dir": "C:/Users/jackg/eLedgerCare-Speed/WP-0015/carbon/preflight/prep-04",
+      "error": "AssertionError: Expected StaticDashCache._grow() to be exercised (40-step gather parity passed with diff < 1e-5)",
+      "cause": "StaticDashCache.__init__ clamped init_cap to max(init_cap, s0 + 512), preventing init_cap=24 from triggering _grow() within 40 steps.",
+      "fix": "Changed StaticDashCache.__init__ minimum floor to max(init_cap, s0 + 1) while carbon_generate continues passing init_cap=max(4096, s_prefill + 2048)."
+    },
+    {
+      "label": "prep-05",
+      "exit_code": 1,
+      "stage": "phase2_test_u4_module_resolution",
+      "external_dir": "C:/Users/jackg/eLedgerCare-Speed/WP-0015/carbon/preflight/prep-05",
+      "error": "AttributeError: module 'uocr_cpu_test._sparse_base_impl' has no attribute '_base'",
+      "cause": "DeepseekV2Model is re-exported from _sparse_base_impl into modeling_deepseekv2 via globals().update, so DeepseekV2Model.__module__ points to _sparse_base_impl rather than modeling_deepseekv2.",
+      "fix": "Resolved dsv2_mod via uocr_mod.configure_dash_inference.__module__, which is defined directly in modeling_deepseekv2.py."
+    }
+  ]
+}
