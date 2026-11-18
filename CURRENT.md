@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Active WP-0014 short-page OCR latency investigation
+
+Jack requested diagnosis of a 54-second three-sentence page. The coordinator is collecting the original timing breakdown and the instruction file. The research author owns the synthetic cold-versus-warm probe and the independent reviewer checks timing attribution against the evidence. See the WP-0014 reservations in [INDEX.md](INDEX.md).
+
 ## Completed: WP-0012 product rehearsal and WP-0013 guarded vocabulary experiment
 
 Both tracks are **CLOSED / ACCEPTED**, integrated and published. No implementation, independent review, agent response, model lease or user permission remains pending. Jack's [bounded authorization](docs/coordination/WP-0012-0013-authority.md) began from base **73c8d3c4f0a00312e3444328331b6cbd6406e882**. Root coordinated and integrated; separate authors and non-authors implemented and reviewed. Fresh Codex continuations requested xhigh; actual backend/applied effort remains unexposed. Prior Carbon work and provider-credit handoffs retain their attribution.
