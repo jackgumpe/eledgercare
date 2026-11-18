@@ -1,266 +1,431 @@
-"""WP-0017 Stage A1 decision procedure (eld-rd-reviewer). Stdlib only, CPU only, no truth keys.
+"""WP-0017 Stage A1 normalization and decision (eld-rd-reviewer), synchronized with Astra design 1fad21c.
 
-Pure functions over a normalized A1 result set, plus a CLI that first proves the actual A1 run tree is
-unchanged since its committed blind inventory and then loads it through an adapter. The rules are frozen
-in decision_procedure.md before any A1 output exists. They use exact equalities and signs only: no tuned
-threshold enters any outcome.
+Stdlib only, CPU only, no truth keys. Pure functions over a normalized A1 result set, plus a CLI that first
+proves the actual A1 run tree is unchanged since its committed blind inventory, then loads the normalized
+results built by a bound adapter, which cites every source file by its inventory digest.
 
-Normalized result (one per configuration; the adapter builds it from the actual artifacts):
-  {"id": "native" | "carbon_bf16" | "add:S1a" | "drop:S2" | "drop:S1a+S2",
-   "switches": {"S0": bool, "S1a": bool, "S1b": bool, "S1c": bool, "S2": bool, "S3": bool},
-   "windows": {"window-019": {"free": FREE, "probes": {"common": PROBE}},
-               "window-037": {"free": FREE, "probes": {"forced_native": PROBE, "free": PROBE}}}}
-  FREE  = {"token_ids": [int], "time_s": float, "prefill_ms": float|null, "decode_ms_per_token": float|null,
-           "instrumented": false}
-  PROBE = {"prefix_sha256": str, "prefix_tokens": int, "t_star_top5": [[id, fp32 logit], ...5],
-           "margin": fp32 z1 - z2, "logprob": {"native": fp32 sum, "carbon_bf16": fp32 sum},
-           "span_ids": {"native": [int], "carbon_bf16": [int]}}
+Independent implementation of design/PROTOCOL.md (fe915bba...). design/rules.py (678f27d5...) is loaded
+from its pinned blob ONLY to cross-check restoration ranking and pair eligibility: any disagreement is a
+reported failure, never silently resolved.
+
+Normalized result (configuration ids and bit order follow design/rules.py:matrix):
+ {"configurations": [CONF, ...], "source_files": {rel: sha256}, "infrastructure_errors": [str, ...]}
+ CONF  = {"id": "native"|"carbon_bf16"|"add_S1a"|"remove_S2"|"remove_S1a+S2", "bits": "010000",
+          "implementation": "genuine_native"|"genuine_carbon"|"switch_harness", "aliases": null|"native"|"carbon_bf16",
+          "stream_cadence_label": str|null,          # required when S3 on and S0 off
+          "windows": {"019": WIN, "037": WIN}}
+ WIN   = {"free": {"token_ids": [int], "seconds": float, "output_tokens": int, "forwards": int,
+                   "counters": {str: int}, "instrumented": false},
+          "probes": {"native_prefix": [PROBE, ...passes], "free_prefix": [PROBE or null, ...]}}  # free_prefix on 037
+ PROBE = {"prefix_sha256": str, "prefix_tokens": int,
+          "branches": {"native": {"ids": [int], "logprobs": [fp32]}, "carbon_bf16": {...}},
+          "first_divergence": int, "top5": [[id, fp32 logit], ...5], "competing_logits": {"native": x, "carbon_bf16": y},
+          "guard_status": "finite"|"masked"|"nonfinite",
+          "timing": {"prefill_ms": x, "decode_ms_per_token": y, "decode_tokens": n, "interval": str}}
 """
 import argparse
 import itertools
 import json
+import math
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import FORK_ID, PAGE_ID, Check, Vocab, disk, ids_sha, load, sha, sha_file, utc, write_new  # noqa: E402
+from common import (BLOCK_ID, FORK_ID, NUMERIC_FLOOR_NATS, PAGE_ID, Check, Vocab, blob_module, disk, ids_sha,  # noqa
+                    load, sha_file, utc, write_new)
 
 SWITCHES = ("S0", "S1a", "S1b", "S1c", "S2", "S3")
-WINDOWS = ("window-019", "window-037")
-SITE_PAGE_INDEX = {"window-019": 2, "window-037": 0}  # page 21 is the third page of 019; page 37 the first of 037
-STRINGS = {"window-019": {"native": "I08O1-388", "carbon_bf16": "108O1-388"},
-           "window-037": {"native": "8OI10-774", "carbon_bf16": "80I10-774"}}
-PROBES = {"window-019": ("common",), "window-037": ("forced_native", "free")}
+WINDOWS = ("019", "037")
+NATIVE_IDS = {"019": "I08O1-388", "037": "8OI10-774"}
+CARBON_IDS = {"019": "108O1-388", "037": "80I10-774"}
+AUDIT_KEY = {"019": "window-019", "037": "window-037"}
+SITE_PAGE_INDEX = {"019": 2, "037": 0}  # page 21 is the third page of window 019; page 37 the first of 037
+LABEL = b"Inspection "                  # fixed prose text immediately preceding the ID in the frozen block
+LINE_ORDINAL = 1                        # public paths page/21/line/2 and page/37/line/2: second raw block
+
+
+def bits(enabled):
+    return "".join("1" if s in enabled else "0" for s in SWITCHES)
 
 
 def matrix():
-    """The 14 predeclared single-factor configurations, with their switch vectors."""
-    cfg = {"native": {s: False for s in SWITCHES}, "carbon_bf16": {s: True for s in SWITCHES}}
-    for s in SWITCHES:
-        cfg[f"add:{s}"] = {t: t == s for t in SWITCHES}
-        cfg[f"drop:{s}"] = {t: t != s for t in SWITCHES}
-    return cfg
+    rows = {"native": bits(()), "carbon_bf16": bits(SWITCHES)}
+    rows.update(("add_" + s, bits((s,))) for s in SWITCHES)
+    rows.update(("remove_" + s, bits(set(SWITCHES) - {s})) for s in SWITCHES)
+    return rows
 
 
-def pair_id(pair):
-    return "drop:" + "+".join(sorted(pair, key=SWITCHES.index))
+def removal_of(cid):
+    return tuple(cid[len("remove_"):].split("+")) if cid.startswith("remove_") else None
 
 
-def pair_vector(pair):
-    return {t: t not in pair for t in SWITCHES}
+def removal_id(switches):
+    return "remove_" + "+".join(sorted(switches, key=SWITCHES.index))
 
+
+# ---- structural field locator (never searches for either competing value) -----------------------------
 
 def pages(ids):
     starts = [i for i, t in enumerate(ids) if t == PAGE_ID]
     return [ids[s:e] for s, e in zip(starts, starts[1:] + [len(ids)])], starts
 
 
-def reading(vocab, ids, window):
-    """Which public string the site page emits: 'native', 'carbon_bf16', 'both', or 'neither'."""
-    pg, _ = pages(ids)
-    k = SITE_PAGE_INDEX[window]
-    if len(pg) <= k:
-        return "neither"
-    text = b"".join(vocab.piece(t) for t in pg[k])
-    hit = {who for who, s in STRINGS[window].items() if s.encode() in text}
-    return "both" if len(hit) == 2 else (hit.pop() if hit else "neither")
+def blocks(vocab, page):
+    """[(ordinal, header_bytes, content_bytes|None, content_token_start, content_token_ids)] of one page."""
+    out = []
+    starts = [k for k, t in enumerate(page) if t == BLOCK_ID]
+    for n, s in enumerate(starts):
+        end = starts[n + 1] if n + 1 < len(starts) else len(page)
+        seg = page[s:end]
+        if FORK_ID in seg:
+            f = seg.index(FORK_ID)
+            head, body = seg[1:f], seg[f + 1:]
+            out.append((n, b"".join(vocab.piece(t) for t in head), b"".join(vocab.piece(t) for t in body), s + f + 1, body))
+        else:
+            out.append((n, b"".join(vocab.piece(t) for t in seg[1:]), None, None, []))
+    return out
 
 
-def boundary(vocab, ids, window, audit):
-    """Window index right after the audited shared line prefix of the identifier line on the site page
-    (the audited divergence boundary); None if the page emits neither public string there."""
+def header_type(head):
+    return head.split(b"[")[0].decode("utf-8", errors="backslashreplace")
+
+
+def freeze_locator(vocab, native_ids, w):
+    """Unique structural locator from the ORIGINAL native history: site page, raw block ordinal from the public
+    path line/2 (ordinal 1), the block's header type, the fixed prose label and its byte offset. The page header
+    ('Inspection register') also begins with the label, so the ordinal and header type are part of the locator."""
+    pg, starts = pages(native_ids)
+    page = pg[SITE_PAGE_INDEX[w]]
+    bl = blocks(vocab, page)
+    n, head, body, cstart, _ = bl[LINE_ORDINAL]
+    if body is None or not body.startswith(LABEL):
+        raise SystemExit(f"{w}: frozen native block {LINE_ORDINAL} does not carry the label")
+    return dict(window=w, site_page_index=SITE_PAGE_INDEX[w], block_ordinal=n, header_type=header_type(head),
+                label=LABEL.decode(), byte_offset=len(LABEL), content_window_start=starts[SITE_PAGE_INDEX[w]] + cstart,
+                frozen_value=body[len(LABEL):].split(b"\n")[0].decode(), delimiter="\\n or end of block",
+                labelled_ordinals_in_frozen_page=[b[0] for b in bl if b[2] is not None and b[2].startswith(LABEL)])
+
+
+def field(vocab, ids, loc):
+    """Ordinary free ID at the frozen site: (status, value, info).
+    status: ok / missing (page or block absent) / malformed (no fork) / moved (label or header type not at the
+    frozen ordinal) / abstention (empty value). Never searches for either competing value."""
     pg, starts = pages(ids)
-    k = SITE_PAGE_INDEX[window]
+    k = loc["site_page_index"]
     if len(pg) <= k:
+        return "missing", None, dict(reason="site page absent")
+    bl = blocks(vocab, pg[k])
+    if len(bl) <= loc["block_ordinal"]:
+        return "missing", None, dict(reason=f"only {len(bl)} blocks on the site page")
+    n, head, body, cstart, ctoks = bl[loc["block_ordinal"]]
+    if body is None:
+        return "malformed", None, dict(reason="field block has no <FORK>")
+    labelled = [b[0] for b in bl if b[2] is not None and b[2].startswith(LABEL)]
+    if not body.startswith(LABEL) or header_type(head) != loc["header_type"]:
+        return "moved", None, dict(reason=f"block {n} header {header_type(head)!r} / label present "
+                                          f"{body.startswith(LABEL)}; labelled ordinals {labelled}")
+    value = body[len(LABEL):].split(b"\n")[0]
+    info = dict(block_ordinal=n, content_window_start=starts[k] + cstart, content_tokens=ctoks, labelled_ordinals=labelled)
+    if not value.strip():
+        return "abstention", "", dict(info, reason="empty field")
+    return "ok", value.decode("utf-8", errors="backslashreplace"), info
+
+
+def free_boundary(vocab, ids, loc, boundary_bytes):
+    """Window index of the token boundary inside the anchored block whose decoded content length equals the
+    audited common-prefix byte length (019: 'Inspection' = 10, 037: 'Inspection ' = 11); None if unalignable."""
+    status, _, info = field(vocab, ids, loc)
+    if status not in ("ok", "abstention"):
         return None
-    page = pg[k]
-    common = [t["id"] for t in audit["windows"][window]["divergence"]["common_line_prefix"]]
-    pieces = [vocab.piece(t) for t in page]
-    offs, pos = [], 0
-    for p in pieces:
-        offs.append(pos)
-        pos += len(p)
-    data = b"".join(pieces)
-    for s in STRINGS[window].values():
-        at = data.find(s.encode())
-        if at < 0:
-            continue
-        i = max(j for j in range(len(page)) if offs[j] <= at)
-        forks = [j for j in range(i) if page[j] == FORK_ID]
-        if forks and page[forks[-1] + 1:forks[-1] + 1 + len(common)] == common:
-            return starts[k] + forks[-1] + 1 + len(common)
+    pos = 0
+    for j, t in enumerate(info["content_tokens"]):
+        if pos == boundary_bytes:
+            return info["content_window_start"] + j
+        pos += len(vocab.piece(t))
+        if pos > boundary_bytes:
+            return None
     return None
 
 
-def gap(probe):
-    return probe["logprob"]["native"] - probe["logprob"]["carbon_bf16"]
+# ---- probe arithmetic ----------------------------------------------------------------------------------
+
+def ell(branch):
+    return math.fsum(branch["logprobs"])
 
 
-def favors(probe):
-    g = gap(probe)
-    return "native" if g > 0 else ("carbon_bf16" if g < 0 else "tie")
+def D(probe):
+    """D = ell(native ID) - ell(Carbon ID) in nats, no length normalization; None if guard/coverage not finite."""
+    if probe is None or probe.get("guard_status") != "finite":
+        return None
+    v = ell(probe["branches"]["native"]) - ell(probe["branches"]["carbon_bf16"])
+    return v if math.isfinite(v) else None
 
 
-def argmax_reading(probe):
-    top = probe["t_star_top5"][0][0]
-    if top == probe["span_ids"]["native"][0]:
-        return "native"
-    if top == probe["span_ids"]["carbon_bf16"][0]:
-        return "carbon_bf16"
-    return "other"
+def greedy(probe):
+    top, fd = probe["top5"][0][0], probe["first_divergence"]
+    n, c = probe["branches"]["native"]["ids"], probe["branches"]["carbon_bf16"]["ids"]
+    return "native" if top == n[fd] else ("carbon_bf16" if top == c[fd] else "other")
 
 
-def bind(results, audit, vocab, check):
-    """Shape, switch-vector, prefix and span bindings of the normalized results against the frozen audit."""
+def probe_D(table, cid, key, k=0):
+    passes = table[cid]["probes"].get(key) or []
+    return passes[k]["D"] if len(passes) > k and passes[k] is not None else None
+
+
+# ---- binding -------------------------------------------------------------------------------------------
+
+def anchors(audit, manifest, vocab):
+    locs = {w: freeze_locator(vocab, manifest[w]["native"], w) for w in WINDOWS}
+    spans = {w: {m: [t["id"] for t in audit["windows"][AUDIT_KEY[w]]["divergence"]["span_to_identifier_end"][m]]
+                 for m in ("native", "carbon_bf16")} for w in WINDOWS}
+    pref = {w: audit["windows"][AUDIT_KEY[w]]["a1_prefixes"]["native_prefix_to_boundary"] for w in WINDOWS}
+    bbytes = {w: len(b"".join(vocab.piece(t["id"]) for t in
+                             audit["windows"][AUDIT_KEY[w]]["divergence"]["common_line_prefix"])) for w in WINDOWS}
+    return locs, spans, pref, bbytes
+
+
+def bind(norm, audit, manifest, vocab, check):
     want = matrix()
     by = {}
-    for r in results:
+    for r in norm["configurations"]:
         check(r["id"] not in by, f"duplicate configuration {r['id']}")
         by[r["id"]] = r
-    for cid, vec in want.items():
-        check(cid in by, f"missing configuration {cid}")
+    locs, spans, pref, bbytes = anchors(audit, manifest, vocab)
     for cid, r in by.items():
-        if cid in want:
-            check(r["switches"] == want[cid], f"{cid}: switch vector differs from its id")
-        elif cid.startswith("drop:") and "+" in cid:
-            pair = tuple(cid[5:].split("+"))
-            check(r["switches"] == pair_vector(pair), f"{cid}: switch vector differs from its id")
-        else:
-            check(False, f"unexpected configuration {cid}")
+        rem = removal_of(cid)
+        expect = want.get(cid) or (bits(set(SWITCHES) - set(rem)) if rem and len(rem) == 2 else None)
+        check(expect is not None and r["bits"] == expect, f"{cid}: bit vector differs from its id")
+        on = {s for s, b in zip(SWITCHES, r["bits"]) if b == "1"}
+        if "S3" in on and "S0" not in on:
+            check(bool(r.get("stream_cadence_label")), f"{cid}: S3 with S0 off must label deferred ordered callbacks")
         for w in WINDOWS:
-            aw = audit["windows"][w]
             win = r["windows"][w]
-            check(win["free"].get("instrumented") is False, f"{cid}/{w}: free-window timing must be uninstrumented")
-            for name in PROBES[w]:
-                p = win["probes"][name]
-                check(len(p["t_star_top5"]) == 5, f"{cid}/{w}/{name}: top-5 present")
-                check(p["span_ids"]["native"] == [t["id"] for t in aw["divergence"]["span_to_identifier_end"]["native"]]
-                      and p["span_ids"]["carbon_bf16"] == [t["id"] for t in aw["divergence"]["span_to_identifier_end"]["carbon_bf16"]],
-                      f"{cid}/{w}/{name}: teacher-forced spans = audited spans")
-                z = [x[1] for x in p["t_star_top5"]]
-                check(z == sorted(z, reverse=True), f"{cid}/{w}/{name}: top-5 logits are sorted")
-            if w == "window-019":
-                p = win["probes"]["common"]
-                check(p["prefix_sha256"] == aw["a1_prefixes"]["common_window_prefix"]["sha256"]
-                      and p["prefix_tokens"] == aw["a1_prefixes"]["common_window_prefix"]["tokens"],
-                      f"{cid}/019: common prefix = audited 417-token prefix")
-            else:
-                p = win["probes"]["forced_native"]
-                check(p["prefix_sha256"] == aw["a1_prefixes"]["native_prefix_to_boundary"]["sha256"]
-                      and p["prefix_tokens"] == aw["a1_prefixes"]["native_prefix_to_boundary"]["tokens"],
-                      f"{cid}/037: forced prefix = audited native 41-token prefix")
-                ids = win["free"]["token_ids"]
-                b = boundary(vocab, ids, w, audit)
-                p = win["probes"]["free"]
-                if b is None:
-                    check(p is None, f"{cid}/037: free probe must be absent when no identifier is emitted")
-                else:
-                    check(p["prefix_tokens"] == b and p["prefix_sha256"] == ids_sha(ids[:b]),
-                          f"{cid}/037: free probe prefix = this configuration's own emitted prefix")
-    return by
+            check(win["free"].get("instrumented") is False, f"{cid}/{w}: ordinary free timing must be uninstrumented")
+            check(isinstance(win["free"].get("counters"), dict), f"{cid}/{w}: implementation counters present")
+            check(len(win["probes"].get("native_prefix") or []) >= 1, f"{cid}/{w}: native-prefix probe present")
+            if w == "037":
+                check("free_prefix" in win["probes"], f"{cid}/037: free-prefix probe present (or explicit null)")
+            for name, passes in win["probes"].items():
+                for p in passes:
+                    if p is None:
+                        continue
+                    check(p["branches"]["native"]["ids"] == spans[w]["native"]
+                          and p["branches"]["carbon_bf16"]["ids"] == spans[w]["carbon_bf16"],
+                          f"{cid}/{w}/{name}: branch spans = audited spans")
+                    check(all(len(p["branches"][m]["logprobs"]) == len(spans[w][m]) for m in spans[w]),
+                          f"{cid}/{w}/{name}: one conditional log probability per span token")
+                    check(p["first_divergence"] == 0, f"{cid}/{w}/{name}: first divergence at span token 0")
+                    z = [x[1] for x in p["top5"]]
+                    check(len(z) == 5 and z == sorted(z, reverse=True), f"{cid}/{w}/{name}: sorted top five")
+                    cl = p.get("competing_logits") or {}
+                    check(set(cl) == {"native", "carbon_bf16"} and all(isinstance(v, (int, float)) for v in cl.values()),
+                          f"{cid}/{w}/{name}: both competing first-divergence logits recorded, even below rank 5")
+                    if name == "native_prefix":
+                        check(p["prefix_sha256"] == pref[w]["sha256"] and p["prefix_tokens"] == pref[w]["tokens"],
+                              f"{cid}/{w}: native-prefix probe uses the frozen native prefix")
+                    else:
+                        b = free_boundary(vocab, win["free"]["token_ids"], locs[w], bbytes[w])
+                        check(b is not None and p["prefix_tokens"] == b
+                              and p["prefix_sha256"] == ids_sha(win["free"]["token_ids"][:b]),
+                              f"{cid}/{w}: free-prefix probe uses this configuration's own aligned prefix")
+    return by, locs, bbytes
 
 
-def decide(by, audit, vocab):
-    out = {}
-    missing = [cid for cid in matrix() if cid not in by]
-    if missing:
-        return dict(outcome="INCOMPLETE_MATRIX", missing=missing,
-                    attribution="withheld: the predeclared 14-configuration matrix is incomplete")
-    # Step 1: replay gate.
-    replay = {}
+# ---- decision ------------------------------------------------------------------------------------------
+
+def decide(by, audit, manifest, vocab, locs, bbytes, rules=None):
+    out = dict(locators=locs)
+    if not all(c in by for c in matrix()):
+        out.update(outcome="INCOMPLETE_MATRIX", missing=[c for c in matrix() if c not in by])
+        return out
+    parity = {}
     for cid, arm in (("native", "native"), ("carbon_bf16", "carbon_bf16")):
         for w in WINDOWS:
-            got = ids_sha(by[cid]["windows"][w]["free"]["token_ids"])
-            replay[f"{cid}:{w}"] = dict(got=got, want=audit["windows"][w]["a1_prefixes"]["full_window"][arm]["sha256"])
-            replay[f"{cid}:{w}"]["equal"] = replay[f"{cid}:{w}"]["got"] == replay[f"{cid}:{w}"]["want"]
-    replay_ok = all(v["equal"] for v in replay.values())
-    out["replay"] = dict(ok=replay_ok, detail=replay)
-    # Step 2: readings, probe telemetry, local timing (reported whatever the replay outcome).
+            got = by[cid]["windows"][w]["free"]["token_ids"]
+            parity[f"{cid}:{w}"] = dict(equal=got == manifest[w][arm], implementation=by[cid]["implementation"],
+                                        aliases=by[cid].get("aliases"), tokens=[len(got), len(manifest[w][arm])])
+    out["endpoint_parity"] = parity
+    if not all(v["equal"] for v in parity.values()):
+        out.update(outcome="ENDPOINT_PARITY_FAILED", attribution="withheld until a harness fix has a new source binding")
+        return out
     table = {}
     for cid, r in by.items():
-        row = {}
+        row = dict(bits=r["bits"], fields={}, probes={}, free={}, probe_timing={},
+                   stream_cadence_label=r.get("stream_cadence_label"))
         for w in WINDOWS:
             win = r["windows"][w]
-            row[w] = dict(reading=reading(vocab, win["free"]["token_ids"], w),
-                          free_tokens_sha256=ids_sha(win["free"]["token_ids"]),
-                          equals_native=ids_sha(win["free"]["token_ids"]) == replay[f"native:{w}"]["want"],
-                          equals_carbon=ids_sha(win["free"]["token_ids"]) == replay[f"carbon_bf16:{w}"]["want"],
-                          time_s=win["free"]["time_s"], prefill_ms=win["free"].get("prefill_ms"),
-                          decode_ms_per_token=win["free"].get("decode_ms_per_token"),
-                          probes={n: (None if p is None else dict(
-                              gap_native_minus_carbon=gap(p), favors=favors(p), argmax=argmax_reading(p),
-                              margin_reported=p.get("margin"),
-                              margin_recomputed=p["t_star_top5"][0][1] - p["t_star_top5"][1][1],
-                              top5=p["t_star_top5"], logprob=p["logprob"]))
-                              for n, p in win["probes"].items()})
-        row["restores_both"] = all(row[w]["reading"] == "native" for w in WINDOWS)
-        row["flips_any"] = any(row[w]["reading"] == "carbon_bf16" for w in WINDOWS)
+            st, val, info = field(vocab, win["free"]["token_ids"], locs[w])
+            b = free_boundary(vocab, win["free"]["token_ids"], locs[w], bbytes[w])
+            nat = audit["windows"][AUDIT_KEY[w]]["a1_prefixes"]["native_prefix_to_boundary"]["sha256"]
+            row["fields"][w] = dict(status=st, value=val, reason=info.get("reason"),
+                                    free_prefix_sha256=ids_sha(win["free"]["token_ids"][:b]) if b is not None else None,
+                                    upstream_history_changed=None if b is None else ids_sha(win["free"]["token_ids"][:b]) != nat)
+            row["free"][w] = dict(seconds=win["free"]["seconds"], output_tokens=win["free"]["output_tokens"],
+                                  forwards=win["free"]["forwards"], counters=win["free"]["counters"])
+            for name, passes in win["probes"].items():
+                row["probes"][f"{w}:{name}"] = [None if p is None else dict(
+                    D=D(p), ell=dict(native=ell(p["branches"]["native"]), carbon_bf16=ell(p["branches"]["carbon_bf16"])),
+                    greedy=greedy(p), margin=p["top5"][0][1] - p["top5"][1][1], top5=p["top5"],
+                    competing_logits=p.get("competing_logits"), guard_status=p["guard_status"]) for p in passes]
+                row["probe_timing"][f"{w}:{name}"] = [None if p is None else p.get("timing") for p in passes]
+        f = row["fields"]
+        row["restores_both"] = all(f[w]["status"] == "ok" and f[w]["value"] == NATIVE_IDS[w] for w in WINDOWS)
+        row["anchored_id_flip"] = any(f[w]["status"] == "ok" and f[w]["value"] != NATIVE_IDS[w] for w in WINDOWS)
+        row["field_failures"] = {w: f[w]["status"] for w in WINDOWS if f[w]["status"] != "ok"}
         table[cid] = row
     out["configurations"] = table
-    # Step 3: attribution (withheld unless replay passes).
-    if not replay_ok:
-        out["outcome"] = "REPLAY_FAILED"
-        out["attribution"] = "withheld: all-off/all-on did not replay the WP-0016 token sequences"
-        return out
-    base = table["native"]
-    restorers = [s for s in SWITCHES if table[f"drop:{s}"]["restores_both"]]
-    per_site = {w: [s for s in SWITCHES if table[f"drop:{s}"][w]["reading"] == "native"] for w in WINDOWS}
-    sufficient = [s for s in SWITCHES if table[f"add:{s}"]["flips_any"]]
 
-    def shifted(s):
-        a = table[f"add:{s}"]
-        if any(a[w]["reading"] != base[w]["reading"] for w in WINDOWS):
-            return True
-        return any(a[w]["probes"][n]["gap_native_minus_carbon"] != base[w]["probes"][n]["gap_native_minus_carbon"]
-                   for w in WINDOWS for n in ("common", "forced_native") if n in a[w]["probes"])
-    qualifying = [s for s in SWITCHES if shifted(s)]
-    pairs = [pair_id(p) for p in itertools.combinations(qualifying, 2)]
-    pair_rows = {p: table[p] for p in pairs if p in table}
-    pair_restorers = [p for p, row in pair_rows.items() if row["restores_both"]]
-    out.update(single_removal_restorers=restorers, single_removal_restorers_per_site=per_site,
-               single_addition_sufficient=sufficient, qualifying_shift_switches=qualifying,
-               requested_pair_removals=pairs if not restorers else [],
-               pair_removals_run=sorted(pair_rows), pair_removal_restorers=pair_restorers)
-    if restorers:
-        out["outcome"] = "SINGLE_CULPRIT" if len(restorers) == 1 else "MULTIPLE_SINGLE_REMOVALS"
-    elif pairs and not all(p in table for p in pairs):
-        out["outcome"] = "PAIR_REMOVALS_REQUIRED"
-    elif pair_restorers:
-        out["outcome"] = "PAIR_CULPRIT" if len(pair_restorers) == 1 else "MULTIPLE_PAIR_REMOVALS"
-    elif base["restores_both"]:
-        out["outcome"] = "INTERACTION_ONLY"
+    def at(cid, w, val):
+        return table[cid]["fields"][w]["status"] == "ok" and table[cid]["fields"][w]["value"] == val
+    suff = {s: [w for w in WINDOWS if at(f"add_{s}", w, CARBON_IDS[w])] for s in SWITCHES}
+    nec = {s: [w for w in WINDOWS if at(f"remove_{s}", w, NATIVE_IDS[w])] for s in SWITCHES}
+    out["sufficiency_add_on_native"] = suff
+    out["necessity_remove_from_full"] = nec
+    dn = {w: probe_D(table, "native", f"{w}:native_prefix") for w in WINDOWS}
+    out["path_effect_at_native_history"] = {
+        cid: {w: (None if probe_D(table, cid, f"{w}:native_prefix") is None or dn[w] is None
+                  else probe_D(table, cid, f"{w}:native_prefix") - dn[w]) for w in WINDOWS} for cid in table}
+    out["history_shift_effect_037"] = {
+        cid: (None if probe_D(table, cid, "037:free_prefix") is None or probe_D(table, cid, "037:native_prefix") is None
+              else probe_D(table, cid, "037:free_prefix") - probe_D(table, cid, "037:native_prefix")) for cid in table}
+    T = {cid: {w: table[cid]["free"][w]["seconds"] for w in WINDOWS} for cid in table}
+    out["ordinary_speed_s"] = dict(
+        per_config={cid: dict(T[cid], sum=T[cid]["019"] + T[cid]["037"]) for cid in T},
+        addition_saving={s: dict({w: T["native"][w] - T[f"add_{s}"][w] for w in WINDOWS},
+                                 sum=sum(T["native"][w] - T[f"add_{s}"][w] for w in WINDOWS)) for s in SWITCHES},
+        removal_cost={s: dict({w: T[f"remove_{s}"][w] - T["carbon_bf16"][w] for w in WINDOWS},
+                              sum=sum(T[f"remove_{s}"][w] - T["carbon_bf16"][w] for w in WINDOWS)) for s in SWITCHES},
+        note="ordinary uninstrumented free windows; local marginal effects conditional on the other five settings; "
+             "not additive; not a 60-page forecast")
+    out["probe_speed"] = {cid: table[cid]["probe_timing"] for cid in table}
+    out["stream_cadence_labels"] = {cid: table[cid]["stream_cadence_label"] for cid in table if table[cid]["stream_cadence_label"]}
+    winners = [(s,) for s in SWITCHES if table[removal_id((s,))]["restores_both"]]
+    out["single_removal_restorers"] = [w[0] for w in winners]
+    if winners:
+        sel = min(winners, key=lambda rm: (len(rm), T[removal_id(rm)]["019"] + T[removal_id(rm)]["037"],
+                                           tuple(SWITCHES.index(s) for s in rm)))
+        s = sel[0]
+        unique = len(winners) == 1 and suff[s] == list(WINDOWS) and not any(suff[t] for t in SWITCHES if t != s)
+        out.update(outcome="SINGLE_REMOVAL_RESTORES_BOTH", selected_removal=list(sel),
+                   pair_screening="omitted: a single removal restores both fields",
+                   causal_label=dict(
+                       necessity=f"removing {s} from full restores both fields",
+                       sufficiency=f"adding {s} to native flips {suff[s] or 'neither site'}",
+                       other_restorers=[w[0] for w in winners if w != sel],
+                       other_sufficient_additions=[t for t in SWITCHES if t != s and suff[t]],
+                       unique_cause_pattern=unique,
+                       caveat="within two fixed windows only; a cascade-confined effect or backend coupling "
+                              "precludes calling a unique causal kernel"))
     else:
-        out["outcome"] = "UNRESOLVED"
-    # Candidate ranking (advisory; root freezes at most one carbon_surgical before any A2 output).
-    def cost(cid):
-        return sum(table[cid][w]["time_s"] for w in WINDOWS) - sum(table["carbon_bf16"][w]["time_s"] for w in WINDOWS)
-    cands = [f"drop:{s}" for s in restorers] or pair_restorers
-    out["candidates_by_local_time_cost"] = sorted(
-        [dict(config=c, two_window_cost_s_vs_carbon=cost(c)) for c in cands],
-        key=lambda d: (d["two_window_cost_s_vs_carbon"], [SWITCHES.index(x) for x in d["config"][5:].split("+")]))
-    # Step 4: window-037 cascade separation for the full-carbon arm and each restorer.
-    def cascade(cid):
-        pr = table[cid]["window-037"]["probes"]
-        f, fr = pr["forced_native"]["favors"], (pr["free"] or {}).get("favors")
-        if f == "carbon_bf16":
-            return "direct_at_identifier"
-        if f == "native" and fr == "carbon_bf16":
-            return "upstream_prefix_cascade"
-        return "no_flip_under_either_prefix" if fr in ("native", None) and f == "native" else "tie_or_mixed"
-    out["window_037_cascade"] = {cid: cascade(cid) for cid in table}
-    # Step 5: local speed effects (single observations, two windows only).
-    T = {cid: sum(table[cid][w]["time_s"] for w in WINDOWS) for cid in table}
-    out["local_speed_s"] = dict(
-        native=T["native"], carbon_bf16=T["carbon_bf16"],
-        addition_saving={s: T["native"] - T[f"add:{s}"] for s in SWITCHES},
-        removal_cost={s: T[f"drop:{s}"] - T["carbon_bf16"] for s in SWITCHES},
-        note="free uninstrumented windows only; one observation per configuration; local two-window effects")
+        out.update(screen_pairs(table, dn))
+    if rules is not None:
+        out["astra_rules_cross_check"] = cross_check(rules, table, out, T)
     return out
+
+
+def screen_pairs(table, dn):
+    """Pair eligibility per design: anchored ID flip, or repeated same-sign forced-native D change > E_w."""
+    res = {}
+    flipped = [s for s in SWITCHES if table[f"add_{s}"]["anchored_id_flip"]]
+    d1 = {s: {w: (None if probe_D(table, f"add_{s}", f"{w}:native_prefix") is None or dn[w] is None
+                  else probe_D(table, f"add_{s}", f"{w}:native_prefix") - dn[w]) for w in WINDOWS} for s in SWITCHES}
+    res.update(anchored_flip_switches=flipped, first_pass_displacement_d1=d1,
+               missing_or_malformed_fields={s: table[f"add_{s}"]["field_failures"] for s in SWITCHES
+                                            if table[f"add_{s}"]["field_failures"]})
+    n2 = {w: probe_D(table, "native", f"{w}:native_prefix", 1) for w in WINDOWS}
+    f1 = {w: probe_D(table, "carbon_bf16", f"{w}:native_prefix", 0) for w in WINDOWS}
+    f2 = {w: probe_D(table, "carbon_bf16", f"{w}:native_prefix", 1) for w in WINDOWS}
+    if any(v is None for v in list(n2.values()) + list(f2.values())):
+        need = [s for s in SWITCHES if s not in flipped and any(x is not None and abs(x) > NUMERIC_FLOOR_NATS
+                                                                 for x in d1[s].values())]
+        res.update(outcome="PAIR_SCREENING_REPROBE_REQUIRED",
+                   reprobe=dict(endpoint_repeat=["native", "carbon_bf16"], additions=need, windows=list(WINDOWS),
+                                probe="native_prefix, fresh prefill/cache state, original inputs",
+                                reason="no single removal restores both; additions with |d1| <= 1e-5 nats cannot qualify"))
+        return res
+    E = {w: max(NUMERIC_FLOOR_NATS, abs(dn[w] - n2[w]), abs(f1[w] - f2[w])) for w in WINDOWS}
+    res["noise_floor_E"] = E
+    qual, reasons, missing = [], {}, []
+    for s in SWITCHES:
+        if s in flipped:
+            qual.append(s)
+            reasons[s] = "anchored free-ID flip"
+            continue
+        if not any(d1[s][w] is not None and abs(d1[s][w]) > E[w] for w in WINDOWS):
+            reasons[s] = "first-pass displacement within E_w on both windows"
+            continue
+        r2 = {w: probe_D(table, f"add_{s}", f"{w}:native_prefix", 1) for w in WINDOWS}
+        if None in r2.values():
+            missing.append(s)
+            reasons[s] = "repeat probe missing"
+            continue
+        d2 = {w: r2[w] - n2[w] for w in WINDOWS}
+        ok = [w for w in WINDOWS if d1[s][w] is not None and min(abs(d1[s][w]), abs(d2[w])) > E[w] and d1[s][w] * d2[w] > 0]
+        reasons[s] = f"repeated same-sign change above E_w on {ok}" if ok else "repeat did not confirm a same-sign change above E_w"
+        if ok:
+            qual.append(s)
+    res.update(qualifying_switches=qual, qualification_reasons=reasons)
+    if missing:
+        res.update(outcome="PAIR_SCREENING_REPROBE_REQUIRED",
+                   reprobe=dict(additions=missing, windows=list(WINDOWS), probe="native_prefix"))
+        return res
+    pairs = list(itertools.combinations(qual, 2))
+    res["eligible_pairs"] = [list(p) for p in pairs]
+    if not pairs:
+        res["outcome"] = "UNRESOLVED_NO_ELIGIBLE_PAIR"
+        return res
+    missing_runs = [removal_id(p) for p in pairs if removal_id(p) not in table]
+    if missing_runs:
+        res.update(outcome="PAIR_RUNS_REQUIRED", pair_runs=missing_runs)
+        return res
+    win = [p for p in pairs if table[removal_id(p)]["restores_both"]]
+    if win:
+        sel = min(win, key=lambda rm: (len(rm), sum(table[removal_id(rm)]["free"][w]["seconds"] for w in WINDOWS),
+                                       tuple(SWITCHES.index(s) for s in rm)))
+        res.update(outcome="PAIR_REMOVAL_RESTORES_BOTH", selected_removal=list(sel),
+                   causal_label="interaction-compatible recovery; not a unique pairwise mechanism")
+    else:
+        res["outcome"] = "UNRESOLVED_NO_RESTORATION"
+    return res
+
+
+def cross_check(rules, table, out, T):
+    """Run Astra's pinned arithmetic on the same inputs; report agreement (never overrides)."""
+    cc = {}
+    singles = [(s,) for s in SWITCHES]
+    rows = {rm: dict(ordinary_window_seconds=[T[removal_id(rm)][w] for w in WINDOWS],
+                     free_ids=[table[removal_id(rm)]["fields"][w]["value"] for w in WINDOWS],
+                     probe_and_bindings_verified=True) for rm in singles}
+    astra = rules.rank_restorations(singles, rows)
+    mine = tuple(out["selected_removal"]) if out.get("outcome") == "SINGLE_REMOVAL_RESTORES_BOTH" else None
+    cc["single_rank"] = dict(astra=list(astra) if astra else None, reviewer=list(mine) if mine else None, agree=astra == mine)
+    if "noise_floor_E" in out and "qualifying_switches" in out:
+        def passes(cid):
+            return [[probe_D(table, cid, f"{w}:native_prefix", k) for w in WINDOWS] for k in (0, 1)]
+        adds = {}
+        for s in SWITCHES:
+            rep = [probe_D(table, f"add_{s}", f"{w}:native_prefix", 1) for w in WINDOWS]
+            adds[s] = dict(d=[probe_D(table, f"add_{s}", f"{w}:native_prefix") for w in WINDOWS],
+                           anchored_id_flip=table[f"add_{s}"]["anchored_id_flip"], repeat_d=None if None in rep else rep)
+        try:
+            ap = [list(p) for p in rules.qualifying_pairs(passes("native"), passes("carbon_bf16"), adds)]
+            cc["pairs"] = dict(astra=ap, reviewer=out.get("eligible_pairs"), agree=ap == out.get("eligible_pairs"))
+        except (ValueError, TypeError) as exc:
+            cc["pairs"] = dict(astra_error=repr(exc), reviewer=out.get("eligible_pairs"), agree=False)
+    return cc
+
+
+def load_manifest():
+    from common import A1_MANIFEST  # noqa: PLC0415
+    if sha_file(A1_MANIFEST[0]) != A1_MANIFEST[1]:
+        raise SystemExit("A1 manifest digest mismatch")
+    man = load(A1_MANIFEST[0])
+    return {f"{w['first_page']:03d}": {m: v["token_ids"] for m, v in w["by_mode"].items()} for w in man["windows"]}
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--audit", type=Path, required=True, help="frozen A1-prefix-audit.json")
+    ap.add_argument("--audit", type=Path, required=True)
     ap.add_argument("--audit-sha256", required=True)
     ap.add_argument("--inventory", type=Path, required=True, help="committed A1 blind inventory")
     ap.add_argument("--results", type=Path, required=True, help="normalized results built by the bound adapter")
@@ -274,12 +439,19 @@ def main():
     files = {f"{r['run']}/{k}": v for r in inv["runs"] for k, v in r["files"].items()}
     for rel, digest in norm["source_files"].items():
         check(files.get(rel) == digest, f"normalized result cites {rel} not matching the inventory")
+    manifest = load_manifest()
     vocab = Vocab(disk("tokenizer.json"))
-    by = bind(norm["configurations"], audit, vocab, check)
-    res = decide(by, audit, vocab)
-    rec = dict(kind="WP-0017 A1 reviewer decision", reviewer="eld-rd-reviewer", created_utc=utc(),
-               audit_sha256=a.audit_sha256, inventory_sha256=sha_file(a.inventory), results_sha256=sha_file(a.results),
-               checks_run=check.count, failures=check.failures,
+    if norm.get("infrastructure_errors"):
+        res = dict(outcome="INFRASTRUCTURE_ERROR", errors=norm["infrastructure_errors"],
+                   attribution="no engine outcome; cause inspection and a new source binding are required")
+    else:
+        by, locs, bb = bind(norm, audit, manifest, vocab, check)
+        res = decide(by, audit, manifest, vocab, locs, bb, rules=blob_module("design/rules.py", "astra_rules"))
+        check(all(v.get("agree") for v in res.get("astra_rules_cross_check", {}).values()),
+              "reviewer and Astra arithmetic agree")
+    rec = dict(kind="WP-0017 A1 reviewer decision (synchronized with design 1fad21c)", reviewer="eld-rd-reviewer",
+               created_utc=utc(), audit_sha256=a.audit_sha256, inventory_sha256=sha_file(a.inventory),
+               results_sha256=sha_file(a.results), checks_run=check.count, failures=check.failures,
                outcome=res["outcome"] if not check.failures else "BINDING_FAILED", decision=res)
     digest = write_new(a.out, rec)
     print(json.dumps(dict(out=str(a.out), sha256=digest, outcome=rec["outcome"], failures=check.failures[:20]), indent=1))

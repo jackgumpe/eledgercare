@@ -78,3 +78,43 @@ The tools were committed at `9a1fbb9258566765342a812380fb0e8be9afe16d`. A later 
 - I made no attempt to escape the job by other means.
 - **Consequence:** a reviewer-operated GPU lease must run inside a CLI turn that stays alive until the lease returns (a background tool task plus timers), or root starts the executor in its own context and I only `watch`/`status`.
 - `operate.py` now fails closed when breakaway is refused.
+
+## Synchronization with the published design (second CLI turn, before any GPU measurement)
+
+The coordinator asked me to synchronize A1 normalization and pair selection with Astra's design at `1fad21c3817be175628992a559e3947d5a88952a`, which is merged on integration. The relevant inputs are `PROTOCOL.md` `fe915bba…` and `rules.py` `678f27d5…`, plus `WP-0017/coordination/roles-interface.txt` and the A1 manifest `a1-inputs.json` `e7f47d14…`. No WP-0017 model output existed or was read.
+
+[decision_procedure.md](decision_procedure.md) was rewritten. The first version stays at `9a1fbb9`. What changed:
+
+| Area | Before (`9a1fbb9`) | Now |
+| --- | --- | --- |
+| Field reading | Searched for the public strings. | Unique structural locator (site page, raw block ordinal 1, header type, label `Inspection `, byte offset 11). It never searches for either value. Missing, moved, malformed and abstained fields are counted separately. |
+| Statistic | Probe gap. | Full-span D = ℓ(native) − ℓ(Carbon) on the frozen native history (path effect), plus the 037 history-shift effect. |
+| Pair eligibility | Any exact change in a shift. | An anchored, actually emitted ID change, or a repeated same-sign forced change > E_w = max(1e-5 nats, endpoint repeat noise). Re-probes are requested only when needed. |
+| Selection | Same rule. | A single removal that restores both fields decides, even if the addition alone did not flip both. Ordering is fewest removed, then smallest ordinary seconds, then switch order. Sufficiency (additions) is kept separate from necessity (removals). A unique-cause label is given only under strict conditions. |
+| Speed | Combined. | Free (uninstrumented) and probed (instrumented) timing are reported separately. |
+| Labels | None. | S3 with S0 off must carry a deferred-callback label. S1c's routed/shared/layer-0 scope is the engine's contract, checked through its counters. |
+| A1 infrastructure error | Not separated. | Recorded as `INFRASTRUCTURE_ERROR`; it needs cause inspection and a new source binding, and is never treated as an engine outcome. |
+| A2 | Reversal only, frozen view. | Exact AB = native/full/surgical and BA = surgical/full/native. Six windows per arm, identical warm-ups, frozen and title views, zero new silent criticals in all four comparisons, strict spread comparison. Dev key pinned at `dfdf62cb…`. |
+| A3 | Static cache only. | Static cache, or a dynamic-only label when S2 is off. Margin flags use the predeclared 0.125-logit gap. |
+
+`rules.py` is loaded from its blob only to cross-check `rank_restorations`, `qualifying_pairs` and `a2`. A disagreement is recorded as a failure.
+
+## GPU execution method: reviewer command plus coordinator carrier
+
+My observed limitation (no breakaway from the CLI job) is resolved without giving the coordinator operational discretion.
+
+**Steps for each release:**
+1. Root publishes `docs/coordination/WP-0017/<name>-release.json` and its signed digest, issued with `issue_lease.py` `10c14e1b…`.
+2. I run `command.py review --name <name> --sha256 <digest> --stage <A1|A2|A3>`. This is an independent check of:
+   - the release, the executor `device_lease.py` `a25adcab…` and the carrier `review_command.py` `c5596d0e…`, all pinned at `d17669e`;
+   - the coordination files, the candidate worktree (HEAD, clean, source digests) and the plans;
+   - that output roots are new, that inputs are public, and that the GPU UUID and stage ceiling are correct.
+3. Only if all of those pass, I run `command.py issue`. It writes `docs/reviews/WP-0017/commands/<name>.json` with `release_name`, `release_sha256`, `executor_sha256`, `candidate`, `operator=eld-rd-reviewer`, `action="execute once"` and `stage`, plus the reviewer session and orders. I commit and push it to `review/wp-0017-escrow`.
+4. The passive carrier, an eld-coordinator Windows process running `review_command.py`, checks that the pushed object equals the signed release and executes only that pinned lease once. It writes its own `received.json` and `return.json` under `WP-0017/coordination/carrier/<name>`.
+
+**Identities:**
+- **Operator:** eld-rd-reviewer, Antigravity CLI, Claude Opus 5.5 High, conversation `5ab6a228-4214-49e5-aa83-c00fe9315782`.
+- **Carrier:** eld-coordinator Windows process.
+- **Executor:** `device_lease.py`, which reuses the WP-0016 lock, job and board guard.
+
+I start no detached process and keep no tool call open during GPU execution. **No GPU command has been issued.**

@@ -7,8 +7,9 @@ Stdlib only. Runs only after the A3 gate has been decided by the derived G0 tool
 * Malformed headers per arm, copied from the derived stage-1 record.
 * Locked behaviour: every scored prediction must carry flagged == false on every span/cell.
 * Simulated margin flags (offline only): a critical path is "would-flag" when its logged minimum
-  identifier-token margin is below a threshold that must be predeclared in a design file bound by SHA-256
-  before A3 output exists. Without that file nothing is simulated. Reported per arm: caught errors
+  identifier-token top-two gap is strictly below 0.125 logits, the threshold predeclared in design
+  PROTOCOL.md at 1fad21c (verified from the pinned blob). Margins from forced counterfactual branches are
+  never transferred to free-emitted fields. Reported per arm: caught errors
   (wrong and would-flag), missed errors, false alarms (correct and would-flag), coverage and missingness.
   The threshold is never chosen, tuned or swept here.
 """
@@ -18,7 +19,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import Check, all_flags_false, load, sha_file, utc, write_new  # noqa: E402
+from common import MARGIN_GAP_LOGITS, Check, all_flags_false, blob, load, sha_file, utc, write_new  # noqa: E402
 
 
 def simulate(critical, margins, threshold):
@@ -48,8 +49,8 @@ def main():
     ap.add_argument("--stage2", type=Path, required=True, help="derived score_all summary.json")
     ap.add_argument("--scores", type=Path, required=True, help="derived score_all private scores/ directory")
     ap.add_argument("--margins", type=Path, help="normalized {arm_key: {path: min_margin|null}} built from A3 logs")
-    ap.add_argument("--threshold-file", type=Path, help="predeclared design file with {'margin_threshold': x}")
-    ap.add_argument("--threshold-sha256")
+
+
     ap.add_argument("--out", type=Path, required=True, help="new private directory")
     a = ap.parse_args()
     check = Check()
@@ -73,17 +74,20 @@ def main():
                 flags_false[f"{fam}:{mode}:{o}"] = all_flags_false(load(m["prediction"]))
     check(all(flags_false.values()), "flagged == false on every scored prediction (locked)")
     sim = None
-    if a.threshold_file:
-        check(sha_file(a.threshold_file) == a.threshold_sha256, "threshold design file digest")
-        tau = load(a.threshold_file)["margin_threshold"]
+    if a.margins:
+        protocol = blob("design/PROTOCOL.md").decode("utf-8")
+        check("<0.125" in protocol, "predeclared strict top-two gap < 0.125 logits present in design PROTOCOL.md")
+        tau = MARGIN_GAP_LOGITS
         margins = load(a.margins) if a.margins else {}
-        sim = dict(threshold=tau, threshold_sha256=a.threshold_sha256, arms={})
+        sim = dict(threshold_logits=tau, rule="flag when minimum effective top-two gap over aligned emitted ID tokens < 0.125",
+                   source="design/PROTOCOL.md at 1fad21c (fe915bba...)", arms={},
+                   coverage_note="only aligned positions actually measured; absent/malformed/uninstrumented spans counted as missing")
         for f in sorted(a.scores.glob("*-frozen.json")):
             key = f.name[:-len("-frozen.json")]
             crit = [dict(at=c["at"], correct=c["correct"]) for p in load(f)["pages"] for c in p["critical"]]
             sim["arms"][key] = simulate(crit, margins.get(key, {}), tau)
     else:
-        sim = "not simulated: no predeclared threshold design file was bound before A3 output"
+        sim = "not simulated: no margin log was supplied"
     rec = dict(kind="WP-0017 A3 product scorecard (non-gate)", reviewer="eld-rd-reviewer", created_utc=utc(),
                stage1_sha256=sha_file(a.stage1), stage2_sha256=sha_file(a.stage2), gate_unchanged=s2["verdict"],
                net_critical=net, windows_recovery=win, malformed=malformed, flags_false=flags_false,
