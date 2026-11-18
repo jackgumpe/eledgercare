@@ -1,0 +1,963 @@
+{
+  "schema": "eledgercare.wp0017.a1-summary/1",
+  "anchor_verification": {
+    "anchor_gate_passed": true,
+    "internal_eight_window_gate_passed": true,
+    "external_endpoint_check_required": true,
+    "external_endpoint_check": {
+      "present": true,
+      "passed": true,
+      "verified_pairs": 8,
+      "required_pairs": 8,
+      "missing_pairs": [],
+      "failed_rows": [],
+      "reason": null
+    },
+    "present_endpoint_arms": 4,
+    "required_endpoint_arms": 4,
+    "verified_endpoint_windows": 8,
+    "required_endpoint_windows": 8,
+    "missing_endpoint_arms": [],
+    "failed_present_arms": [],
+    "arms": {
+      "native": {
+        "present": true,
+        "reference_anchor": "native",
+        "implementation": "genuine_native",
+        "observer_kind": "astra_stage_monitor_pep669",
+        "passed": true,
+        "windows": [
+          {
+            "window_label": "019",
+            "passed": true,
+            "exact_token_array_match": true,
+            "observed_token_ids_sha256": "795dd68a0bc0f7c6717185fdbbb81a73c26fffdbaa4c961646d136adc2445a45",
+            "expected_token_ids_sha256": "795dd68a0bc0f7c6717185fdbbb81a73c26fffdbaa4c961646d136adc2445a45",
+            "finish_reason": "stop",
+            "num_pages_out": 3,
+            "expected_pages": 3,
+            "eos_excluded_verified": true,
+            "first_diff": null
+          },
+          {
+            "window_label": "037",
+            "passed": true,
+            "exact_token_array_match": true,
+            "observed_token_ids_sha256": "2fe3906de595b59e02394583da84994ae37fe881d2df341fee5a007e245ef909",
+            "expected_token_ids_sha256": "2fe3906de595b59e02394583da84994ae37fe881d2df341fee5a007e245ef909",
+            "finish_reason": "stop",
+            "num_pages_out": 3,
+            "expected_pages": 3,
+            "eos_excluded_verified": true,
+            "first_diff": null
+          }
+        ]
+      },
+      "all_off": {
+        "present": true,
+        "reference_anchor": "native",
+        "implementation": "ablation_engine",
+        "observer_kind": "wp0017_uniform_ablation_observer",
+        "passed": true,
+        "windows": [
+          {
+            "window_label": "019",
+            "passed": true,
+            "exact_token_array_match": true,
+            "observed_token_ids_sha256": "795dd68a0bc0f7c6717185fdbbb81a73c26fffdbaa4c961646d136adc2445a45",
+            "expected_token_ids_sha256": "795dd68a0bc0f7c6717185fdbbb81a73c26fffdbaa4c961646d136adc2445a45",
+            "finish_reason": "stop",
+            "num_pages_out": 3,
+            "expected_pages": 3,
+            "eos_excluded_verified": true,
+            "first_diff": null
+          },
+          {
+            "window_label": "037",
+            "passed": true,
+            "exact_token_array_match": true,
+            "observed_token_ids_sha256": "2fe3906de595b59e02394583da84994ae37fe881d2df341fee5a007e245ef909",
+            "expected_token_ids_sha256": "2fe3906de595b59e02394583da84994ae37fe881d2df341fee5a007e245ef909",
+            "finish_reason": "stop",
+            "num_pages_out": 3,
+            "expected_pages": 3,
+            "eos_excluded_verified": true,
+            "first_diff": null
+          }
+        ]
+      },
+      "carbon_bf16": {
+        "present": true,
+        "reference_anchor": "carbon_bf16",
+        "implementation": "genuine_carbon_bf16",
+        "observer_kind": "carbon_safety_monitor_wrapped",
+        "passed": true,
+        "windows": [
+          {
+            "window_label": "019",
+            "passed": true,
+            "exact_token_array_match": true,
+            "observed_token_ids_sha256": "6dfc195c95ee3ac435c8f749856c149e1e628febdb00f3ed4fdc184912ec955f",
+            "expected_token_ids_sha256": "6dfc195c95ee3ac435c8f749856c149e1e628febdb00f3ed4fdc184912ec955f",
+            "finish_reason": "stop",
+            "num_pages_out": 3,
+            "expected_pages": 3,
+            "eos_excluded_verified": true,
+            "first_diff": null
+          },
+          {
+            "window_label": "037",
+            "passed": true,
+            "exact_token_array_match": true,
+            "observed_token_ids_sha256": "aab3cbf22b1f9af898f87b7948a5590bd1e80779edc3dc8d7bf34223d3e83b4b",
+            "expected_token_ids_sha256": "aab3cbf22b1f9af898f87b7948a5590bd1e80779edc3dc8d7bf34223d3e83b4b",
+            "finish_reason": "stop",
+            "num_pages_out": 3,
+            "expected_pages": 3,
+            "eos_excluded_verified": true,
+            "first_diff": null
+          }
+        ]
+      },
+      "all_on": {
+        "present": true,
+        "reference_anchor": "carbon_bf16",
+        "implementation": "ablation_engine",
+        "observer_kind": "wp0017_uniform_ablation_observer",
+        "passed": true,
+        "windows": [
+          {
+            "window_label": "019",
+            "passed": true,
+            "exact_token_array_match": true,
+            "observed_token_ids_sha256": "6dfc195c95ee3ac435c8f749856c149e1e628febdb00f3ed4fdc184912ec955f",
+            "expected_token_ids_sha256": "6dfc195c95ee3ac435c8f749856c149e1e628febdb00f3ed4fdc184912ec955f",
+            "finish_reason": "stop",
+            "num_pages_out": 3,
+            "expected_pages": 3,
+            "eos_excluded_verified": true,
+            "first_diff": null
+          },
+          {
+            "window_label": "037",
+            "passed": true,
+            "exact_token_array_match": true,
+            "observed_token_ids_sha256": "aab3cbf22b1f9af898f87b7948a5590bd1e80779edc3dc8d7bf34223d3e83b4b",
+            "expected_token_ids_sha256": "aab3cbf22b1f9af898f87b7948a5590bd1e80779edc3dc8d7bf34223d3e83b4b",
+            "finish_reason": "stop",
+            "num_pages_out": 3,
+            "expected_pages": 3,
+            "eos_excluded_verified": true,
+            "first_diff": null
+          }
+        ]
+      }
+    },
+    "observer_equivalence": {
+      "native_vs_all_off": {
+        "genuine_observer": "astra_stage_monitor_pep669",
+        "ablation_observer": "wp0017_uniform_ablation_observer",
+        "identical_token_streams": true,
+        "both_match_wp0016_anchor": true
+      },
+      "carbon_bf16_vs_all_on": {
+        "genuine_observer": "carbon_safety_monitor_wrapped",
+        "ablation_observer": "wp0017_uniform_ablation_observer",
+        "identical_token_streams": true,
+        "both_match_wp0016_anchor": true
+      }
+    }
+  },
+  "attribution_status": "unresolved_after_eligible_pairs",
+  "surgical_selection_status": "unresolved_halt_at_a1",
+  "noise_floor_nats": [
+    1e-05,
+    1e-05
+  ],
+  "qualifying_switches": [
+    "S1b",
+    "S1c",
+    "S2"
+  ],
+  "qualification_reasons": {
+    "S0": "below_noise_floor_pass1",
+    "S1a": "below_noise_floor_pass1",
+    "S1b": "anchored_free_id_flip",
+    "S1c": "anchored_free_id_flip",
+    "S2": "anchored_free_id_flip",
+    "S3": "below_noise_floor_pass1"
+  },
+  "recommended_surgical_mode": null,
+  "recommended_surgical_bits": null,
+  "pair_removals_needed": true,
+  "eligible_pair_removals": [
+    "remove_S1b_S1c",
+    "remove_S1b_S2",
+    "remove_S1c_S2"
+  ],
+  "evaluated_pair_removals": {
+    "remove_S1b_S1c": {
+      "removed_switches": [
+        "S1b",
+        "S1c"
+      ],
+      "switch_bits": "110011",
+      "free_ids": [
+        "108O1-388",
+        "8OI10-774"
+      ],
+      "restores_both_native_ids": false,
+      "ordinary_window_seconds": [
+        58.5877308,
+        46.0750348
+      ],
+      "ordinary_two_window_sum_s": 104.6627656,
+      "raw_kernel_infer_window_seconds": [
+        58.57,
+        46.059
+      ],
+      "raw_kernel_infer_two_window_sum_s": 104.62899999999999
+    },
+    "remove_S1b_S2": {
+      "removed_switches": [
+        "S1b",
+        "S2"
+      ],
+      "switch_bits": "110101",
+      "free_ids": [
+        "108O1-388",
+        "8OI10-774"
+      ],
+      "restores_both_native_ids": false,
+      "ordinary_window_seconds": [
+        55.408333,
+        43.6287349
+      ],
+      "ordinary_two_window_sum_s": 99.0370679,
+      "raw_kernel_infer_window_seconds": [
+        55.392,
+        43.616
+      ],
+      "raw_kernel_infer_two_window_sum_s": 99.00800000000001
+    },
+    "remove_S1c_S2": {
+      "removed_switches": [
+        "S1c",
+        "S2"
+      ],
+      "switch_bits": "111001",
+      "free_ids": [
+        "108O1-388",
+        "8OI10-774"
+      ],
+      "restores_both_native_ids": false,
+      "ordinary_window_seconds": [
+        48.5367937,
+        39.3974693
+      ],
+      "ordinary_two_window_sum_s": 87.93426299999999,
+      "raw_kernel_infer_window_seconds": [
+        48.523,
+        39.384
+      ],
+      "raw_kernel_infer_two_window_sum_s": 87.90700000000001
+    }
+  },
+  "endpoints": {
+    "causal_contrast_baselines": {
+      "addition_baseline_mode": "all_off",
+      "removal_baseline_mode": "all_on",
+      "observer_kind": "wp0017_uniform_ablation_observer"
+    },
+    "by_mode": {
+      "native": {
+        "implementation": "genuine_native",
+        "is_genuine_endpoint": true,
+        "observer_kind": "astra_stage_monitor_pep669",
+        "switch_bits": "000000",
+        "free_ids": [
+          "I08O1-388",
+          "8OI10-774"
+        ],
+        "ordinary_window_seconds": [
+          55.7642339,
+          43.5700137
+        ],
+        "ordinary_two_window_sum_s": 99.3342476,
+        "raw_kernel_infer_window_seconds": [
+          55.745,
+          43.554
+        ],
+        "raw_kernel_infer_two_window_sum_s": 99.299,
+        "wrapper_and_counter_overhead_two_window_s": 0.03524759999999105,
+        "generate_window_seconds": [
+          55.46301531791687,
+          43.25480389595032
+        ],
+        "generate_two_window_sum_s": 98.71781921386719,
+        "forced_native_D_passes_guarded_nats": [
+          [
+            0.05598421376953411,
+            0.06961460022830579
+          ],
+          [
+            0.05598421376953411,
+            0.06961460022830579
+          ]
+        ]
+      },
+      "all_off": {
+        "implementation": "ablation_engine",
+        "is_genuine_endpoint": false,
+        "observer_kind": "wp0017_uniform_ablation_observer",
+        "switch_bits": "000000",
+        "free_ids": [
+          "I08O1-388",
+          "8OI10-774"
+        ],
+        "ordinary_window_seconds": [
+          54.7095285,
+          43.4353088
+        ],
+        "ordinary_two_window_sum_s": 98.1448373,
+        "raw_kernel_infer_window_seconds": [
+          54.696,
+          43.42
+        ],
+        "raw_kernel_infer_two_window_sum_s": 98.116,
+        "wrapper_and_counter_overhead_two_window_s": 0.028837300000006394,
+        "generate_window_seconds": [
+          54.446521800011396,
+          43.17104879999533
+        ],
+        "generate_two_window_sum_s": 97.61757060000673,
+        "forced_native_D_passes_guarded_nats": [
+          [
+            0.05598421376953411,
+            0.06961460022830579
+          ],
+          [
+            0.05598421376953411,
+            0.06961460022830579
+          ]
+        ]
+      },
+      "carbon_bf16": {
+        "implementation": "genuine_carbon_bf16",
+        "is_genuine_endpoint": true,
+        "observer_kind": "carbon_safety_monitor_wrapped",
+        "switch_bits": "111111",
+        "free_ids": [
+          "108O1-388",
+          "80I10-774"
+        ],
+        "ordinary_window_seconds": [
+          47.6943889,
+          37.3037714
+        ],
+        "ordinary_two_window_sum_s": 84.9981603,
+        "raw_kernel_infer_window_seconds": [
+          47.68,
+          37.289
+        ],
+        "raw_kernel_infer_two_window_sum_s": 84.969,
+        "wrapper_and_counter_overhead_two_window_s": 0.029160300000000916,
+        "generate_window_seconds": [
+          47.41792070004158,
+          37.038157299975865
+        ],
+        "generate_two_window_sum_s": 84.45607800001744,
+        "forced_native_D_passes_guarded_nats": [
+          [
+            -0.06893574276432446,
+            -0.05542450818620637
+          ],
+          [
+            -0.06893574276432446,
+            -0.05542450818620637
+          ]
+        ]
+      },
+      "all_on": {
+        "implementation": "ablation_engine",
+        "is_genuine_endpoint": false,
+        "observer_kind": "wp0017_uniform_ablation_observer",
+        "switch_bits": "111111",
+        "free_ids": [
+          "108O1-388",
+          "80I10-774"
+        ],
+        "ordinary_window_seconds": [
+          49.3492919,
+          37.855233
+        ],
+        "ordinary_two_window_sum_s": 87.2045249,
+        "raw_kernel_infer_window_seconds": [
+          49.334,
+          37.838
+        ],
+        "raw_kernel_infer_two_window_sum_s": 87.172,
+        "wrapper_and_counter_overhead_two_window_s": 0.032524899999998524,
+        "generate_window_seconds": [
+          49.0525714000687,
+          37.53195460001007
+        ],
+        "generate_two_window_sum_s": 86.58452600007877,
+        "forced_native_D_passes_guarded_nats": [
+          [
+            -0.06893574276432446,
+            -0.05542450818620637
+          ],
+          [
+            -0.06893574276432446,
+            -0.05542450818620637
+          ]
+        ]
+      }
+    },
+    "native_genuine_two_window_s": 99.3342476,
+    "all_off_two_window_s": 98.1448373,
+    "carbon_bf16_genuine_two_window_s": 84.9981603,
+    "all_on_two_window_s": 87.2045249,
+    "all_off_forced_D_pass1_nats": [
+      0.05598421376953411,
+      0.06961460022830579
+    ],
+    "all_on_forced_D_pass1_nats": [
+      -0.06893574276432446,
+      -0.05542450818620637
+    ],
+    "cross_endpoint_deltas": {
+      "observer_delta_all_off_minus_native_ordinary_s": -1.1894102999999916,
+      "observer_delta_all_off_minus_native_raw_kernel_s": -1.183000000000007,
+      "observer_delta_all_on_minus_carbon_bf16_ordinary_s": 2.2063646000000006,
+      "observer_delta_all_on_minus_carbon_bf16_raw_kernel_s": 2.203000000000003,
+      "genuine_native_minus_carbon_bf16_ordinary_s": 14.336087300000003,
+      "genuine_native_minus_carbon_bf16_raw_kernel_s": 14.330000000000013,
+      "matched_all_off_minus_all_on_ordinary_s": 10.94031240000001,
+      "matched_all_off_minus_all_on_raw_kernel_s": 10.944000000000003
+    }
+  },
+  "single_additions": {
+    "S0": {
+      "mode": "add_S0",
+      "switch_bits": "100000",
+      "baseline_mode": "all_off",
+      "free_ids": [
+        "I08O1-388",
+        "8OI10-774"
+      ],
+      "all_free_fields_aligned": true,
+      "anchored_id_flip": false,
+      "forced_native_D_pass1_nats": [
+        0.05598421376953411,
+        0.06961460022830579
+      ],
+      "forced_native_D_pass2_nats": [
+        0.05598421376953411,
+        0.06961460022830579
+      ],
+      "path_effect_D_add_minus_D_all_off_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "path_effect_D_add_minus_D_native_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": 0.0,
+      "ordinary_window_seconds": [
+        54.8553177,
+        43.2989143
+      ],
+      "ordinary_two_window_sum_s": 98.15423200000001,
+      "raw_kernel_infer_window_seconds": [
+        54.841,
+        43.286
+      ],
+      "raw_kernel_infer_two_window_sum_s": 98.12700000000001,
+      "local_saving_vs_all_off_window_s": [
+        -0.14578920000000295,
+        0.13639450000000153
+      ],
+      "local_saving_vs_all_off_sum_s": -0.009394700000001421,
+      "local_saving_vs_all_off_raw_kernel_sum_s": -0.01100000000000989
+    },
+    "S1a": {
+      "mode": "add_S1a",
+      "switch_bits": "010000",
+      "baseline_mode": "all_off",
+      "free_ids": [
+        "I08O1-388",
+        "8OI10-774"
+      ],
+      "all_free_fields_aligned": true,
+      "anchored_id_flip": false,
+      "forced_native_D_pass1_nats": [
+        0.05598421376953411,
+        0.06961460022830579
+      ],
+      "forced_native_D_pass2_nats": [
+        0.05598421376953411,
+        0.06961460022830579
+      ],
+      "path_effect_D_add_minus_D_all_off_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "path_effect_D_add_minus_D_native_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": 0.0,
+      "ordinary_window_seconds": [
+        63.8821697,
+        48.6731594
+      ],
+      "ordinary_two_window_sum_s": 112.5553291,
+      "raw_kernel_infer_window_seconds": [
+        63.864,
+        48.658
+      ],
+      "raw_kernel_infer_two_window_sum_s": 112.52199999999999,
+      "local_saving_vs_all_off_window_s": [
+        -9.172641200000001,
+        -5.237850600000002
+      ],
+      "local_saving_vs_all_off_sum_s": -14.410491799999988,
+      "local_saving_vs_all_off_raw_kernel_sum_s": -14.405999999999992
+    },
+    "S1b": {
+      "mode": "add_S1b",
+      "switch_bits": "001000",
+      "baseline_mode": "all_off",
+      "free_ids": [
+        "108O1-388",
+        "8OI10-774"
+      ],
+      "all_free_fields_aligned": true,
+      "anchored_id_flip": true,
+      "forced_native_D_pass1_nats": [
+        -0.04700489737638236,
+        0.06285140829095326
+      ],
+      "forced_native_D_pass2_nats": [
+        -0.04700489737638236,
+        0.06285140829095326
+      ],
+      "path_effect_D_add_minus_D_all_off_pass1_nats": [
+        -0.10298911114591647,
+        -0.006763191937352531
+      ],
+      "path_effect_D_add_minus_D_native_pass1_nats": [
+        -0.10298911114591647,
+        -0.006763191937352531
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": 0.0,
+      "ordinary_window_seconds": [
+        47.628057,
+        38.0788984
+      ],
+      "ordinary_two_window_sum_s": 85.7069554,
+      "raw_kernel_infer_window_seconds": [
+        47.612,
+        38.064
+      ],
+      "raw_kernel_infer_two_window_sum_s": 85.676,
+      "local_saving_vs_all_off_window_s": [
+        7.081471499999999,
+        5.3564104000000015
+      ],
+      "local_saving_vs_all_off_sum_s": 12.437881900000008,
+      "local_saving_vs_all_off_raw_kernel_sum_s": 12.439999999999998
+    },
+    "S1c": {
+      "mode": "add_S1c",
+      "switch_bits": "000100",
+      "baseline_mode": "all_off",
+      "free_ids": [
+        "108O1-388",
+        "8OI10-774"
+      ],
+      "all_free_fields_aligned": true,
+      "anchored_id_flip": true,
+      "forced_native_D_pass1_nats": [
+        -0.04735261934092705,
+        -0.06301814799735439
+      ],
+      "forced_native_D_pass2_nats": [
+        -0.04735261934092705,
+        -0.06301814799735439
+      ],
+      "path_effect_D_add_minus_D_all_off_pass1_nats": [
+        -0.10333683311046116,
+        -0.13263274822566018
+      ],
+      "path_effect_D_add_minus_D_native_pass1_nats": [
+        -0.10333683311046116,
+        -0.13263274822566018
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": 0.0,
+      "ordinary_window_seconds": [
+        56.9944432,
+        44.4925035
+      ],
+      "ordinary_two_window_sum_s": 101.4869467,
+      "raw_kernel_infer_window_seconds": [
+        56.979,
+        44.478
+      ],
+      "raw_kernel_infer_two_window_sum_s": 101.457,
+      "local_saving_vs_all_off_window_s": [
+        -2.2849147000000016,
+        -1.0571946999999966
+      ],
+      "local_saving_vs_all_off_sum_s": -3.3421093999999982,
+      "local_saving_vs_all_off_raw_kernel_sum_s": -3.340999999999994
+    },
+    "S2": {
+      "mode": "add_S2",
+      "switch_bits": "000010",
+      "baseline_mode": "all_off",
+      "free_ids": [
+        "108O1-388",
+        "8OI10-774"
+      ],
+      "all_free_fields_aligned": true,
+      "anchored_id_flip": true,
+      "forced_native_D_pass1_nats": [
+        -0.06859409414391848,
+        0.06966909733455395
+      ],
+      "forced_native_D_pass2_nats": [
+        -0.06859409414391848,
+        0.06966909733455395
+      ],
+      "path_effect_D_add_minus_D_all_off_pass1_nats": [
+        -0.12457830791345259,
+        5.449710624816362e-05
+      ],
+      "path_effect_D_add_minus_D_native_pass1_nats": [
+        -0.12457830791345259,
+        5.449710624816362e-05
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": 0.0,
+      "ordinary_window_seconds": [
+        56.0521191,
+        44.3613733
+      ],
+      "ordinary_two_window_sum_s": 100.4134924,
+      "raw_kernel_infer_window_seconds": [
+        56.038,
+        44.348
+      ],
+      "raw_kernel_infer_two_window_sum_s": 100.386,
+      "local_saving_vs_all_off_window_s": [
+        -1.3425906000000012,
+        -0.9260644999999954
+      ],
+      "local_saving_vs_all_off_sum_s": -2.2686550999999895,
+      "local_saving_vs_all_off_raw_kernel_sum_s": -2.269999999999996
+    },
+    "S3": {
+      "mode": "add_S3",
+      "switch_bits": "000001",
+      "baseline_mode": "all_off",
+      "free_ids": [
+        "I08O1-388",
+        "8OI10-774"
+      ],
+      "all_free_fields_aligned": true,
+      "anchored_id_flip": false,
+      "forced_native_D_pass1_nats": [
+        0.05598421376953411,
+        0.06961460022830579
+      ],
+      "forced_native_D_pass2_nats": [
+        0.05598421376953411,
+        0.06961460022830579
+      ],
+      "path_effect_D_add_minus_D_all_off_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "path_effect_D_add_minus_D_native_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": 0.0,
+      "ordinary_window_seconds": [
+        55.7013848,
+        44.2782676
+      ],
+      "ordinary_two_window_sum_s": 99.97965239999999,
+      "raw_kernel_infer_window_seconds": [
+        55.686,
+        44.262
+      ],
+      "raw_kernel_infer_two_window_sum_s": 99.94800000000001,
+      "local_saving_vs_all_off_window_s": [
+        -0.991856300000002,
+        -0.8429587999999981
+      ],
+      "local_saving_vs_all_off_sum_s": -1.834815099999986,
+      "local_saving_vs_all_off_raw_kernel_sum_s": -1.8320000000000078
+    }
+  },
+  "single_removals": {
+    "S0": {
+      "mode": "remove_S0",
+      "switch_bits": "011111",
+      "baseline_mode": "all_on",
+      "free_ids": [
+        "108O1-388",
+        "80I10-774"
+      ],
+      "restores_both_native_ids": false,
+      "evidence_complete": true,
+      "forced_native_D_pass1_nats": [
+        -0.06893574276432446,
+        -0.05542450818620637
+      ],
+      "path_effect_D_remove_minus_D_all_on_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "path_effect_D_remove_minus_D_full_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": -0.13081717848808694,
+      "ordinary_window_seconds": [
+        48.8265613,
+        38.0601692
+      ],
+      "ordinary_two_window_sum_s": 86.8867305,
+      "raw_kernel_infer_window_seconds": [
+        48.812,
+        38.045
+      ],
+      "raw_kernel_infer_two_window_sum_s": 86.857,
+      "local_cost_vs_all_on_window_s": [
+        -0.5227305999999956,
+        0.2049361999999988
+      ],
+      "local_cost_vs_all_on_sum_s": -0.3177943999999968,
+      "local_cost_vs_all_on_raw_kernel_sum_s": -0.3149999999999977,
+      "local_saving_vs_all_off_sum_s": 11.258106800000007
+    },
+    "S1a": {
+      "mode": "remove_S1a",
+      "switch_bits": "101111",
+      "baseline_mode": "all_on",
+      "free_ids": [
+        "108O1-388",
+        "80I10-774"
+      ],
+      "restores_both_native_ids": false,
+      "evidence_complete": true,
+      "forced_native_D_pass1_nats": [
+        -0.06893574276432446,
+        -0.05542450818620637
+      ],
+      "path_effect_D_remove_minus_D_all_on_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "path_effect_D_remove_minus_D_full_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": -0.13081717848808694,
+      "ordinary_window_seconds": [
+        48.5615231,
+        37.9190153
+      ],
+      "ordinary_two_window_sum_s": 86.4805384,
+      "raw_kernel_infer_window_seconds": [
+        48.546,
+        37.906
+      ],
+      "raw_kernel_infer_two_window_sum_s": 86.452,
+      "local_cost_vs_all_on_window_s": [
+        -0.7877687999999949,
+        0.06378229999999974
+      ],
+      "local_cost_vs_all_on_sum_s": -0.7239864999999952,
+      "local_cost_vs_all_on_raw_kernel_sum_s": -0.7199999999999989,
+      "local_saving_vs_all_off_sum_s": 11.664298900000006
+    },
+    "S1b": {
+      "mode": "remove_S1b",
+      "switch_bits": "110111",
+      "baseline_mode": "all_on",
+      "free_ids": [
+        "108O1-388",
+        "80I10-774"
+      ],
+      "restores_both_native_ids": false,
+      "evidence_complete": true,
+      "forced_native_D_pass1_nats": [
+        -0.04713315500680437,
+        -0.06926134128752892
+      ],
+      "path_effect_D_remove_minus_D_all_on_pass1_nats": [
+        0.021802587757520087,
+        -0.013836833101322554
+      ],
+      "path_effect_D_remove_minus_D_full_pass1_nats": [
+        0.021802587757520087,
+        -0.013836833101322554
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": -0.11671338608539372,
+      "ordinary_window_seconds": [
+        55.9579584,
+        44.6605802
+      ],
+      "ordinary_two_window_sum_s": 100.6185386,
+      "raw_kernel_infer_window_seconds": [
+        55.942,
+        44.646
+      ],
+      "raw_kernel_infer_two_window_sum_s": 100.588,
+      "local_cost_vs_all_on_window_s": [
+        6.608666500000005,
+        6.8053472
+      ],
+      "local_cost_vs_all_on_sum_s": 13.414013699999998,
+      "local_cost_vs_all_on_raw_kernel_sum_s": 13.415999999999997,
+      "local_saving_vs_all_off_sum_s": -2.4737012999999877
+    },
+    "S1c": {
+      "mode": "remove_S1c",
+      "switch_bits": "111011",
+      "baseline_mode": "all_on",
+      "free_ids": [
+        "108O1-388",
+        "80I10-774"
+      ],
+      "restores_both_native_ids": false,
+      "evidence_complete": true,
+      "forced_native_D_pass1_nats": [
+        -0.08312419922731351,
+        -0.06186733409276712
+      ],
+      "path_effect_D_remove_minus_D_all_on_pass1_nats": [
+        -0.014188456462989052,
+        -0.006442825906560756
+      ],
+      "path_effect_D_remove_minus_D_full_pass1_nats": [
+        -0.014188456462989052,
+        -0.006442825906560756
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": -0.24885639146759786,
+      "ordinary_window_seconds": [
+        49.071901,
+        39.9162003
+      ],
+      "ordinary_two_window_sum_s": 88.9881013,
+      "raw_kernel_infer_window_seconds": [
+        49.057,
+        39.902
+      ],
+      "raw_kernel_infer_two_window_sum_s": 88.959,
+      "local_cost_vs_all_on_window_s": [
+        -0.27739090000000033,
+        2.0609673000000015
+      ],
+      "local_cost_vs_all_on_sum_s": 1.7835764000000012,
+      "local_cost_vs_all_on_raw_kernel_sum_s": 1.7870000000000061,
+      "local_saving_vs_all_off_sum_s": 9.15673600000001
+    },
+    "S2": {
+      "mode": "remove_S2",
+      "switch_bits": "111101",
+      "baseline_mode": "all_on",
+      "free_ids": [
+        "108O1-388",
+        "8OI10-774"
+      ],
+      "restores_both_native_ids": false,
+      "evidence_complete": true,
+      "forced_native_D_pass1_nats": [
+        -0.045764499262986646,
+        -0.061818890654649294
+      ],
+      "path_effect_D_remove_minus_D_all_on_pass1_nats": [
+        0.023171243501337813,
+        -0.006394382468442927
+      ],
+      "path_effect_D_remove_minus_D_full_pass1_nats": [
+        0.023171243501337813,
+        -0.006394382468442927
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": 0.0,
+      "ordinary_window_seconds": [
+        47.9477548,
+        38.0315942
+      ],
+      "ordinary_two_window_sum_s": 85.979349,
+      "raw_kernel_infer_window_seconds": [
+        47.934,
+        38.016
+      ],
+      "raw_kernel_infer_two_window_sum_s": 85.94999999999999,
+      "local_cost_vs_all_on_window_s": [
+        -1.4015370999999988,
+        0.17636120000000233
+      ],
+      "local_cost_vs_all_on_sum_s": -1.2251758999999964,
+      "local_cost_vs_all_on_raw_kernel_sum_s": -1.2220000000000084,
+      "local_saving_vs_all_off_sum_s": 12.165488300000007
+    },
+    "S3": {
+      "mode": "remove_S3",
+      "switch_bits": "111110",
+      "baseline_mode": "all_on",
+      "free_ids": [
+        "108O1-388",
+        "80I10-774"
+      ],
+      "restores_both_native_ids": false,
+      "evidence_complete": true,
+      "forced_native_D_pass1_nats": [
+        -0.06893574276432446,
+        -0.05542450818620637
+      ],
+      "path_effect_D_remove_minus_D_all_on_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "path_effect_D_remove_minus_D_full_pass1_nats": [
+        0.0,
+        0.0
+      ],
+      "window_037_history_shift_D_free_minus_D_native_nats": -0.13081717848808694,
+      "ordinary_window_seconds": [
+        47.8674731,
+        38.2282645
+      ],
+      "ordinary_two_window_sum_s": 86.0957376,
+      "raw_kernel_infer_window_seconds": [
+        47.851,
+        38.214
+      ],
+      "raw_kernel_infer_two_window_sum_s": 86.065,
+      "local_cost_vs_all_on_window_s": [
+        -1.4818187999999992,
+        0.3730315000000033
+      ],
+      "local_cost_vs_all_on_sum_s": -1.1087872999999888,
+      "local_cost_vs_all_on_raw_kernel_sum_s": -1.1069999999999993,
+      "local_saving_vs_all_off_sum_s": 12.0490997
+    }
+  },
+  "segment_count": 19,
+  "combined_run_dirs": [
+    "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-endpoints",
+    "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-switches",
+    "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-p1-pairs"
+  ],
+  "endpoint_check_path": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\review\\runs\\a1-r1-endpoints-order\\endpoint-check.json",
+  "endpoint_check_sha256": "7bec2bf548d5235d5e7a95b6043d2f0f9094e4592e9939da2d32c0c59244523f"
+}

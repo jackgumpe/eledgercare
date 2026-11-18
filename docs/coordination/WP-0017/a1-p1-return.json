@@ -1,0 +1,110 @@
+{
+  "lease": "a1-p1",
+  "operator": "188e6818d72095241b163991d7648925b15a3fd9",
+  "candidate": "c235bc61820def84142480e6e2a7a2e5485176d6",
+  "release_sha256": "02eef09347e60af3b99d34fbe9eb7bddaa3151d6abd93a8dd0b01131ed56d8a8",
+  "acquired_utc": "2026-11-18T23:12:41.028147+00:00",
+  "returned": {
+    "utc": "2026-11-18T23:25:15.699883+00:00",
+    "error": null,
+    "release_sha256": "02eef09347e60af3b99d34fbe9eb7bddaa3151d6abd93a8dd0b01131ed56d8a8",
+    "retiring_pid": 29248
+  },
+  "carrier_exit": 0,
+  "orders": [
+    {
+      "order": "a1-p1-pairs-order",
+      "exit": 0,
+      "guard": null,
+      "wall_s": 754.4529999999795,
+      "samples": 362,
+      "peak_board_mib": 13053,
+      "board_after_mib": 1738,
+      "telemetry_sha256": "bcb27f89ea6b0c4cf2441d262691dfde37f9d5a7c0d835ef1a934f83ca92c0b7",
+      "return_sha256": "385eda08914b9c9a8813b5f1f850acde9114c9890bf1f10adfc51f27479f1058",
+      "outer_process": {
+        "plan_sha256": "6c391ef2a0d112c8aaad7a263a2860a5b3b164599a4c556bd661d8ff6d79608b",
+        "all_segments_completed": true,
+        "segments": [
+          {
+            "label": "a1-p1-pairs",
+            "returncode": 0,
+            "argv": [
+              "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+              "-I",
+              "-B",
+              "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\ablation-replay\\docs\\research\\WP-0017\\engine\\launch.py",
+              "--source",
+              "c235bc61820def84142480e6e2a7a2e5485176d6",
+              "--owner",
+              "review",
+              "--run",
+              "a1-p1-pairs",
+              "--lease",
+              "a1-p1",
+              "--plan",
+              "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0017\\coordination\\a1-inputs.json",
+              "--sha256",
+              "e7f47d141972d0e32c53d16e090fcddc237c453ecfc2eaf5d494c6d3426bc8ef",
+              "--seconds",
+              "1800",
+              "--min-vram-mib",
+              "12000",
+              "--warmup-count",
+              "3",
+              "--configs",
+              "remove_S1b_S1c,remove_S1b_S2,remove_S1c_S2"
+            ],
+            "started": "2026-11-18T23:12:41.453708+00:00",
+            "elapsed_seconds": 754.0470000000205
+          }
+        ]
+      },
+      "children": [
+        {
+          "mode": "remove_S1b_S1c",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 37516,
+            "creation_filetime": 134395171638481569,
+            "mode": "remove_S1b_S1c",
+            "canonical_mode": "remove_S1b_S1c",
+            "switch_bits": "110011",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "remove_S1b_S2",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 38816,
+            "creation_filetime": 134395174434466873,
+            "mode": "remove_S1b_S2",
+            "canonical_mode": "remove_S1b_S2",
+            "switch_bits": "110101",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        },
+        {
+          "mode": "remove_S1c_S2",
+          "exit": 0,
+          "reason": null,
+          "process": {
+            "pid": 25688,
+            "creation_filetime": 134395176692181446,
+            "mode": "remove_S1c_S2",
+            "canonical_mode": "remove_S1c_S2",
+            "switch_bits": "111001",
+            "implementation": "ablation_engine"
+          },
+          "observed": "exited"
+        }
+      ]
+    }
+  ],
+  "checked_utc": "2026-11-18T23:25:28.923772+00:00"
+}
