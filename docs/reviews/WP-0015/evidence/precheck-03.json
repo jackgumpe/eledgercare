@@ -1,0 +1,561 @@
+{
+  "reviewer": "eld-rd-reviewer",
+  "python": "3.12.10",
+  "identities_ok": true,
+  "identities": {
+    "short": {
+      "sha256": {
+        "source.pdf": "10f84af9a8c803f78e53bc4b43739f680aa557f2a6e2b8cf343ca9697aba402a",
+        "truth.json": "249af263a7e2711c8a89b30bb753f346b5d0ae4eaa273def838cde09b4b5138b",
+        "rasters.json": "6165bd73c6fc9acfe88e464a156755614552301afa249ba08ebd97e03556f9e9"
+      },
+      "pages": 1,
+      "rgb_sha256": [
+        "e2b2b05b5a6832016a83b20b3cb851520d6d0602b1d06a16d56c1bbabd30284b"
+      ],
+      "checks": {
+        "pdf_vs_rasters_manifest": true,
+        "truth_vs_rasters_manifest": true,
+        "truth_binds_pdf": true,
+        "matches_custodian_rebuild_record": true,
+        "page_count_agrees": true,
+        "all_pages_2550x3301": true
+      }
+    },
+    "dense": {
+      "sha256": {
+        "source.pdf": "a2fd2c3d5d3c4800fd8e47d2326ebcc4a98c95e395b6b2212358131a2e159d64",
+        "truth.json": "47526ec773a9bbded9b2933d9a3361f73bb502e28292096aa549a8438598c7b2",
+        "rasters.json": "7c5478e94cde73e3021119ca91c59049eb80feb6f3d7c1ca349bd39ba02ecb98"
+      },
+      "pages": 1,
+      "rgb_sha256": [
+        "01ea630bb7ae73deb5d6a305327d741692cf5508b3dd657f9bb56494fb2ce98c"
+      ],
+      "checks": {
+        "pdf_vs_rasters_manifest": true,
+        "truth_vs_rasters_manifest": true,
+        "truth_binds_pdf": true,
+        "matches_custodian_rebuild_record": true,
+        "page_count_agrees": true,
+        "all_pages_2550x3301": true
+      }
+    },
+    "boundary": {
+      "sha256": {
+        "source.pdf": "b276156fc8c6c1cb55265977fd664c7d91bf1512bcdbd02455ae7eb9ea634966",
+        "truth.json": "8544c77767b8afafd4fa1a612a889bb695a4f85c88af777125baaed27b2e8951",
+        "rasters.json": "6e61115f39cfc5707e5b05cbf6a0dbcd31a753fba3ec8ba5a7dd215a716c9268"
+      },
+      "pages": 4,
+      "rgb_sha256": [
+        "f32bb58284daf2f5bf4f65c39686450157766db11b4eccbf2045082c551c094e",
+        "b7ad377a61f2b8c6ea3ad795fb98d2f265da80b3fccdd7e581f210f2b5dfe0a8",
+        "84d92f98969dc56552907668b6be78c8476af979ca0951f54e5768d2a61c98f9",
+        "56c687b602842c2ea54a8699f36eb905acca8c40035da75c3904efd6289507f0"
+      ],
+      "checks": {
+        "pdf_vs_rasters_manifest": true,
+        "truth_vs_rasters_manifest": true,
+        "truth_binds_pdf": true,
+        "matches_custodian_rebuild_record": true,
+        "page_count_agrees": true,
+        "all_pages_2550x3301": true
+      }
+    },
+    "H": {
+      "pages": 4,
+      "source_pdf_sha256": "e5270d9eca7bb902f692795949bfe718240bc0e3733d0a02508fef850497eca7",
+      "checks": {
+        "hex_commitments": true,
+        "ciphertexts_match_custody_record": true
+      }
+    },
+    "A": {
+      "pages": 60,
+      "source_pdf_sha256": "671e8e18d6cf84db671ea0487be8b197e535753dabac6c1561e169654d113c5b",
+      "checks": {
+        "hex_commitments": true,
+        "ciphertexts_match_custody_record": true
+      }
+    },
+    "B": {
+      "pages": 60,
+      "source_pdf_sha256": "7ef6b05a754d8a1d598be4fc3f8947042afd625769b8a58539919c6c077ff27f",
+      "checks": {
+        "hex_commitments": true,
+        "ciphertexts_match_custody_record": true
+      }
+    },
+    "warmup_A_pdf": {
+      "sha256": "25c14530845cad96329b528f860032c27a1259ed46de3ccb56f0e57730aa0858",
+      "matches_prepare_pin": true
+    }
+  },
+  "probes": {
+    "S1_flag_all_wrong_critical": {
+      "packet_complete": true,
+      "cer": 0.0,
+      "cell_accuracy": 0.47619047619047616,
+      "critical_errors": 24,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": {
+        "cer": 0.0,
+        "cell_accuracy": -0.5238095238095238
+      },
+      "inside_quality_budget": false,
+      "unattended_quality_gate": true,
+      "new_or_changed_critical": 24,
+      "reviewer": {
+        "numeric_surplus_pages": [],
+        "misplaced": [],
+        "better_other_truth": [],
+        "flagged_entries": 24
+      }
+    },
+    "S2_foreign_critical_on_blank_page": {
+      "packet_complete": true,
+      "cer": 0.1375,
+      "cell_accuracy": 1.0,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [
+        "ink_on_blank"
+      ],
+      "delta": {
+        "cer": 0.1375,
+        "cell_accuracy": 0.0
+      },
+      "inside_quality_budget": false,
+      "unattended_quality_gate": true,
+      "new_or_changed_critical": 0,
+      "reviewer": {
+        "numeric_surplus_pages": [
+          3
+        ],
+        "misplaced": [
+          {
+            "page": 3,
+            "token": "RT-0O1",
+            "printed_on": [
+              4
+            ]
+          },
+          {
+            "page": 3,
+            "token": "0.19",
+            "printed_on": [
+              4
+            ]
+          }
+        ],
+        "better_other_truth": [],
+        "flagged_entries": 0
+      }
+    },
+    "scale_denominators": {
+      "x1": {
+        "pages": 1,
+        "reference_chars": 496,
+        "reference_cells": 42
+      },
+      "x7": {
+        "pages": 7,
+        "reference_chars": 3472,
+        "reference_cells": 294
+      },
+      "a_like": {
+        "pages": 44,
+        "reference_chars": 7949,
+        "reference_cells": 294
+      }
+    },
+    "S3_offline_fabricated_total_x1": {
+      "packet_complete": true,
+      "cer": 0.04032258064516129,
+      "cell_accuracy": 1.0,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": {
+        "cer": 0.04032258064516129,
+        "cell_accuracy": 0.0
+      },
+      "inside_quality_budget": false,
+      "unattended_quality_gate": true,
+      "new_or_changed_critical": 0,
+      "reviewer": {
+        "numeric_surplus_pages": [
+          1
+        ],
+        "misplaced": [],
+        "better_other_truth": [],
+        "flagged_entries": 0
+      }
+    },
+    "S4_appended_duplicate_row_x1": {
+      "packet_complete": true,
+      "cer": 0.08266129032258064,
+      "cell_accuracy": 0.875,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 6,
+      "faults": [],
+      "delta": {
+        "cer": 0.08266129032258064,
+        "cell_accuracy": -0.125
+      },
+      "inside_quality_budget": false,
+      "unattended_quality_gate": true,
+      "new_or_changed_critical": 0,
+      "reviewer": {
+        "numeric_surplus_pages": [
+          1
+        ],
+        "misplaced": [],
+        "better_other_truth": [],
+        "flagged_entries": 0
+      }
+    },
+    "S3_offline_fabricated_total_x7": {
+      "packet_complete": true,
+      "cer": 0.00576036866359447,
+      "cell_accuracy": 1.0,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": {
+        "cer": 0.00576036866359447,
+        "cell_accuracy": 0.0
+      },
+      "inside_quality_budget": true,
+      "unattended_quality_gate": true,
+      "new_or_changed_critical": 0,
+      "reviewer": {
+        "numeric_surplus_pages": [
+          7
+        ],
+        "misplaced": [],
+        "better_other_truth": [],
+        "flagged_entries": 0
+      }
+    },
+    "S4_appended_duplicate_row_x7": {
+      "packet_complete": true,
+      "cer": 0.011808755760368663,
+      "cell_accuracy": 0.98,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 6,
+      "faults": [],
+      "delta": {
+        "cer": 0.011808755760368663,
+        "cell_accuracy": -0.020000000000000018
+      },
+      "inside_quality_budget": false,
+      "unattended_quality_gate": true,
+      "new_or_changed_critical": 0,
+      "reviewer": {
+        "numeric_surplus_pages": [
+          7
+        ],
+        "misplaced": [
+          {
+            "page": 7,
+            "token": "1",
+            "printed_on": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          {
+            "page": 7,
+            "token": "PX-I10",
+            "printed_on": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          {
+            "page": 7,
+            "token": "-1.89",
+            "printed_on": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          {
+            "page": 7,
+            "token": "L1I",
+            "printed_on": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "better_other_truth": [],
+        "flagged_entries": 0
+      }
+    },
+    "S3_offline_fabricated_total_a_like": {
+      "packet_complete": true,
+      "cer": 0.002516039753428104,
+      "cell_accuracy": 1.0,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": {
+        "cer": 0.002516039753428104,
+        "cell_accuracy": 0.0
+      },
+      "inside_quality_budget": true,
+      "unattended_quality_gate": true,
+      "new_or_changed_critical": 0,
+      "reviewer": {
+        "numeric_surplus_pages": [
+          44
+        ],
+        "misplaced": [],
+        "better_other_truth": [],
+        "flagged_entries": 0
+      }
+    },
+    "S4_appended_duplicate_row_a_like": {
+      "packet_complete": true,
+      "cer": 0.005157881494527614,
+      "cell_accuracy": 0.98,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 6,
+      "faults": [],
+      "delta": {
+        "cer": 0.005157881494527614,
+        "cell_accuracy": -0.020000000000000018
+      },
+      "inside_quality_budget": true,
+      "unattended_quality_gate": true,
+      "new_or_changed_critical": 0,
+      "reviewer": {
+        "numeric_surplus_pages": [
+          44
+        ],
+        "misplaced": [
+          {
+            "page": 44,
+            "token": "1",
+            "printed_on": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43
+            ]
+          },
+          {
+            "page": 44,
+            "token": "PX-I10",
+            "printed_on": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43
+            ]
+          },
+          {
+            "page": 44,
+            "token": "-1.89",
+            "printed_on": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43
+            ]
+          },
+          {
+            "page": 44,
+            "token": "L1I",
+            "printed_on": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43
+            ]
+          }
+        ],
+        "better_other_truth": [],
+        "flagged_entries": 0
+      }
+    },
+    "S5_page_content_swap_ordinals_kept": {
+      "packet_complete": true,
+      "cer": 0.40625,
+      "cell_accuracy": 1.0,
+      "critical_errors": 3,
+      "unflagged_critical_errors": 3,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": {
+        "cer": 0.40625,
+        "cell_accuracy": 0.0
+      },
+      "inside_quality_budget": false,
+      "unattended_quality_gate": false,
+      "new_or_changed_critical": 3,
+      "reviewer": {
+        "numeric_surplus_pages": [
+          1,
+          4
+        ],
+        "misplaced": [
+          {
+            "page": 1,
+            "token": "RT-0O1",
+            "printed_on": [
+              4
+            ]
+          },
+          {
+            "page": 1,
+            "token": "0.19",
+            "printed_on": [
+              4
+            ]
+          },
+          {
+            "page": 4,
+            "token": "MR-I1O",
+            "printed_on": [
+              1
+            ]
+          }
+        ],
+        "better_other_truth": [
+          1,
+          4
+        ],
+        "flagged_entries": 0
+      }
+    },
+    "N1_native_single_line_blocks": {
+      "packet_complete": true,
+      "cer": 0.0,
+      "cell_accuracy": null,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": null,
+      "inside_quality_budget": null,
+      "unattended_quality_gate": null,
+      "new_or_changed_critical": 0
+    },
+    "N2_native_multiline_block_exact_text": {
+      "packet_complete": true,
+      "cer": 0.0,
+      "cell_accuracy": null,
+      "critical_errors": 2,
+      "unflagged_critical_errors": 2,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": null,
+      "inside_quality_budget": null,
+      "unattended_quality_gate": null,
+      "new_or_changed_critical": 0,
+      "critical_detail": [
+        {
+          "expected": "CL-I0O7",
+          "correct": false,
+          "observed": null
+        },
+        {
+          "expected": "0.81",
+          "correct": false,
+          "observed": null
+        }
+      ]
+    },
+    "N3_native_table_block": {
+      "packet_complete": true,
+      "cer": 0.0,
+      "cell_accuracy": 1.0,
+      "critical_errors": 0,
+      "unflagged_critical_errors": 0,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": null,
+      "inside_quality_budget": null,
+      "unattended_quality_gate": null,
+      "new_or_changed_critical": 0
+    },
+    "N3b_native_table_header_omitted": {
+      "packet_complete": true,
+      "cer": 0.0907258064516129,
+      "cell_accuracy": 0.16666666666666666,
+      "critical_errors": 19,
+      "unflagged_critical_errors": 19,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": null,
+      "inside_quality_budget": null,
+      "unattended_quality_gate": null,
+      "new_or_changed_critical": 0
+    },
+    "N3c_native_boxes_padded_square_x": {
+      "table_iou": 0.742,
+      "packet_complete": true,
+      "cer": 0.0,
+      "cell_accuracy": 1.0,
+      "critical_errors": 1,
+      "unflagged_critical_errors": 1,
+      "wrong_source": 0,
+      "extra_cells": 0,
+      "faults": [],
+      "delta": null,
+      "inside_quality_budget": null,
+      "unattended_quality_gate": null,
+      "new_or_changed_critical": 0
+    }
+  }
+}
