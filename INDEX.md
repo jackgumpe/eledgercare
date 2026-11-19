@@ -1105,3 +1105,5 @@ Jack authorized the [bounded specification and assignment](docs/coordination/WP-
 | 002 | eld-rd-carbon | docs/agent-reports/eld-rd-carbon/WP-0017/002_2026-11-18_research_eld-rd-carbon.md |
 | 003 | eld-rd-reviewer | docs/agent-reports/eld-rd-reviewer/WP-0017/003_2026-11-18_review_eld-rd-reviewer.md |
 | 004 | eld-coordinator | docs/agent-reports/eld-coordinator/WP-0017/004_2026-11-18_verification_eld-coordinator.md |
+
+**A1 closed without a qualifying switch removal.** All 19 configurations finished on the original two windows. The six individual removals and all three eligible pairs left page 21 wrong. All three pairs recovered page 37. The unchanged rules withheld A2 and A3. The user authorized a separate fresh xhigh reviewer for the three pairs after the initial Opus command. [Decision](docs/coordination/WP-0017/decision.json) at `b95e329f54ecbb389c2db65a7dbe7d825874a234` · [Coordinator 004](docs/agent-reports/eld-coordinator/WP-0017/004_2026-11-18_verification_eld-coordinator.md) at `cea609be3e0f2dd9e6d27cf27d41d997b2877c55` · [Four report publications](docs/coordination/WP-0017/publication-receipt.json)
