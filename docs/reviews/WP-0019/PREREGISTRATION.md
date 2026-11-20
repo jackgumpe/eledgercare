@@ -346,3 +346,20 @@ The fix is one token: `(e.get("path") or "").lower()`. No check definition chang
 3. **Inputs check.** `inputs-fresh` uses a rename-only restructure of the raster commitment `9610737`, with BGRA digests taken from the committed gzip manifests.
 4. **Summary script.** `review_stage2_summary.py` joins the released strata and reports both timing aggregations. It is analysis only.
 5. **Results.** The frozen combined Stage 2 verdict is `INCONCLUSIVE_CONTROL` (K1 strict, plus the missing audit). The score component is `FAIL_QUALITY`: zero fresh critical recoveries in both orders. The reviewer's larger-research criterion is **FAIL** (see `STAGE2-RESULT.json`).
+
+## Addendum 4 (2026-11-20 UTC, reconciliation after the reviewer's own fresh scores were published at `bb1c5e52`)
+
+The checks below are analysis only. No scorer, check, threshold or reviewer source changed, and no OCR was run after key release.
+
+**Stage 1 reconciliation.** The primary runs (`a1aba59` ZIPs) were adapted as `author-AB` and `author-BA`.
+- Their predictions are byte-identical to the reviewer's.
+- Identity passes 968/968 over all four runs.
+- The four-run score is `PASS` and reproducible, so the every-run rule of §7 is now fully evaluated.
+- Author ledger (`account.py`, unchanged since `3ba937fa`): every position agrees with the reviewer's rows except A p54 line 5, a non-critical prose line. There the author records a disagreement flag, while the reviewer's frozen join leaves non-critical line flags null by design (`positions()`). This is a scope limitation, not a bug; it has no effect on any gate or critical count.
+
+**Fresh-fixture custody.** The released generator was re-run with the released seed in reviewer scratch. It reproduces the key commitment and fixture counts byte for byte, and both TIFFs and all 12 RGB pages.
+
+**Coordinator Stage 2 scoring** (`1f9fbd5`, committed after `bb1c5e52`):
+- all eight frozen-scorer outputs are byte-identical to the reviewer's
+- the 684 field records show zero differences
+- the gate reads `FRESH_PROMOTION_CRITERIA_NOT_MET`, with the same throughput (149.087 pages/min)
