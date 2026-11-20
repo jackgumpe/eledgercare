@@ -659,7 +659,7 @@ def cmd_audit(args):
 
         exes = sorted({exe_name(e) for e in procs})
         checks.add(f"A0.no_shell_spawn.{name}", not others, "no os.system/exec/spawn process launch", others[:10])
-        img_writes = [e for e in ev if e["event"] == "open" and e.get("path", "").lower().endswith(IMAGE_SUFFIX) and
+        img_writes = [e for e in ev if e["event"] == "open" and (e.get("path") or "").lower().endswith(IMAGE_SUFFIX) and
                       any(m in str(e.get("mode", "")) for m in ("w", "a", "x", "+"))]
         truthy = [e for e in ev if e["event"] == "open" and any(t in Path(e.get("path") or "").name.lower() for t in TRUTH_NAMES)]
         net = [v for v in log["violations"] if v.get("note") == "network event"]

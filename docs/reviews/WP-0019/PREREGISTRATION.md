@@ -324,3 +324,15 @@ Nothing in §§0–11 changes. This addendum records the post-freeze bindings th
 5. **K1 FAILS as frozen.** `docs/research/WP-0019/carbon/test_worker.py` lines 131 and 144–145 contain the public WP-0018 witness strings, which it draws into synthetic test images. `run.py` hashes that file but never imports or executes it. No reference token appears in `run.py`, `policy.py`, `visual.py`, `formats.py`, `engine.py`, `worker.ps1` or `execute.py`. The frozen K1 result is kept as a control failure; whether it is material is judged separately in the report.
 6. **Author and primary runs.** Under the coordinator's operating instruction, the reviewer's own counts are frozen and pushed before any primary result is read. `author-AB` and `author-BA` (the primary runs) enter the S4 reproducibility check and the every-run rule only at reconciliation.
 7. **Supplementary source.** `review_supplement.py` adds `rebuild` (an independent selector, merge and prediction re-derivation, and a `rule_tables` re-run), `timing` and `control` (comparison with the pinned current control). Its checks add evidence only; none replaces a frozen gate.
+
+## Addendum 2 (2026-11-20 UTC, during Stage 1 checks; before any primary-result access)
+
+**Reviewer-code defect, `review_checks.py audit`.** An `open` event on an integer file descriptor records `"path": null`, and `e.get("path", "").lower()` raised `AttributeError`. That first summarizer invocation therefore produced no output file.
+
+The fix is one token: `(e.get("path") or "").lower()`. No check definition changed. The rerun passed 14/14. The self-tests had not exercised file-descriptor opens.
+
+**Stage 1 reviewer outcome on the reviewer's own runs:**
+- **Score component:** PASS. Pooled net is +1 (A p50 t1 r2 c2), with RW_H = RW_A = 0, in both orders, and the results reproduce.
+- **Frozen combined verdict:** `INCONCLUSIVE_CONTROL`, caused solely by K1 (Addendum 1 item 5).
+- **Materiality:** the reviewer judges K1 not a material barrier; see `evidence/stage1-replay/STAGE1-RETURN.json`.
+- **Author runs:** the author/primary runs are pending reconciliation.
