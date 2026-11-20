@@ -298,3 +298,29 @@ Run `review_selftest.py` (archive plus constructed controls) at the frozen revis
 | V16 | the Stage-2 pins and commitments path: a lost blank fails Stage 2 but not Stage 1 |
 
 The receipt records the SHA-256 of every review source it used. It is committed after this freeze as evidence; it is not a WP-0019 result.
+
+## Addendum 1 (2026-11-20 UTC, after the reviewer's timed Stage 1 replay; before any scoring or primary-result access)
+
+Nothing in §§0–11 changes. This addendum records the post-freeze bindings that §4 allows, and the frozen checks that cannot run as written.
+
+1. **Bound command.** The coordinator bound the exact command `execute.py` (candidate `9418bccd`, plan digest `ef3b9463…`). It ran once, from 19:50:20Z to 19:51:54Z, as H-AB, A-BA, H-BA, A-AB: four attempts, zero failures, zero retries, empty stderr. `execute.py` starts each run as a **separate child interpreter**, so `review_audit.py` cannot wrap the timed runs without changing the bound command.
+   - The audit (A0–A6) is therefore applied to **separate untimed audited runs** of the same frozen `run.py`, one per family, under the shared WinRT lock and with the §5 deny prefixes. Their predictions must equal the timed ones.
+   - Timing comes only from the bound runs.
+2. **Adapter.** The adapter is `adapt_wp0019.py`: arm A is the baseline and arm B the treatment. The run views are `replay-AB` = H-AB + A-AB and `replay-BA` = H-BA + A-BA, with one warmed worker per family run. The candidate records no absolute arm or page clocks and no per-arm PIDs; those fields stay null.
+3. **T1–T8 are replaced** by `review_supplement.py timing`, which works from the candidate's measured boundary (each arm's `elapsed_ns`, startup and warm-up kept separate):
+   - P1 = order
+   - P2 = excluded page-1 warm-up equals both arms' identities
+   - P3 = every full and crop response carries the single worker PID, en-US (same worker)
+   - P5 = the execute.py exit codes and bound output digests
+   - P6 = no crop in arm A
+   - P8 = UTC seriality of the runs
+
+   T4/T5 (arms and full passes inside their own intervals) are established by the sequential source plus P3/P4. They are not measured clocks.
+4. **G4 is not applicable.** The candidate stores projected words in **page pixels**, not points. Instead:
+   - supplement R4 checks that the page-px projection equals crop px plus (l, t) exactly
+   - R5 rebuilds every durable page prediction of both arms with the hash-pinned original `visual.layout`, which also covers the point projection end to end
+
+   G6 supports only an isotropic padding, so the exact anisotropic 4 / 12×8 rectangles are checked by supplement R2.
+5. **K1 FAILS as frozen.** `docs/research/WP-0019/carbon/test_worker.py` lines 131 and 144–145 contain the public WP-0018 witness strings, which it draws into synthetic test images. `run.py` hashes that file but never imports or executes it. No reference token appears in `run.py`, `policy.py`, `visual.py`, `formats.py`, `engine.py`, `worker.ps1` or `execute.py`. The frozen K1 result is kept as a control failure; whether it is material is judged separately in the report.
+6. **Author and primary runs.** Under the coordinator's operating instruction, the reviewer's own counts are frozen and pushed before any primary result is read. `author-AB` and `author-BA` (the primary runs) enter the S4 reproducibility check and the every-run rule only at reconciliation.
+7. **Supplementary source.** `review_supplement.py` adds `rebuild` (an independent selector, merge and prediction re-derivation, and a `rule_tables` re-run), `timing` and `control` (comparison with the pinned current control). Its checks add evidence only; none replaces a frozen gate.
