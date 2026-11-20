@@ -1,0 +1,276 @@
+{
+  "constructed": true,
+  "fixture_sha256": "3455a09402b1ed3be58473892533c6f2f70d23f89496c86adda5b7095217d3ad",
+  "scorer_sha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+  "gains": 1,
+  "losses": 1,
+  "net": 0,
+  "arms": {
+    "before": {
+      "cells": [
+        {
+          "at": "page/1/table/1/row/1/col/1",
+          "expected": "A1",
+          "observed": "ZZ",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            5,
+            60,
+            85,
+            100
+          ],
+          "reported_table_bbox": [
+            5,
+            60,
+            165,
+            100
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/table/1/row/1/col/2",
+          "expected": "B2",
+          "observed": "B2",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            85,
+            60,
+            165,
+            100
+          ],
+          "reported_table_bbox": [
+            5,
+            60,
+            165,
+            100
+          ],
+          "reported_span_boxes": []
+        }
+      ],
+      "lines": [
+        {
+          "at": "page/1/line/1",
+          "expected": "ID ABC-123",
+          "observed": "ID AB C-123",
+          "correct": false,
+          "reference_bbox": [
+            5,
+            10,
+            130,
+            20
+          ],
+          "reported_span_boxes": [
+            [
+              7,
+              11,
+              17,
+              18
+            ],
+            [
+              20,
+              11,
+              31,
+              18
+            ],
+            [
+              32,
+              11,
+              59,
+              18
+            ]
+          ]
+        }
+      ],
+      "critical": [
+        {
+          "at": "page/1/line/1",
+          "expected": "ABC-123",
+          "observed": "ID AB C-123",
+          "correct": false,
+          "flagged": false
+        },
+        {
+          "at": "page/1/table/1/row/1/col/1",
+          "expected": "A1",
+          "observed": "ZZ",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            5,
+            60,
+            85,
+            100
+          ],
+          "reported_table_bbox": [
+            5,
+            60,
+            165,
+            100
+          ],
+          "reported_span_boxes": []
+        },
+        {
+          "at": "page/1/table/1/row/1/col/2",
+          "expected": "B2",
+          "observed": "B2",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            85,
+            60,
+            165,
+            100
+          ],
+          "reported_table_bbox": [
+            5,
+            60,
+            165,
+            100
+          ],
+          "reported_span_boxes": []
+        }
+      ],
+      "extra_cells": 0,
+      "faults": []
+    },
+    "after": {
+      "cells": [
+        {
+          "at": "page/1/table/1/row/1/col/1",
+          "expected": "A1",
+          "observed": "A1",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            5,
+            60,
+            85,
+            100
+          ],
+          "reported_table_bbox": null,
+          "reported_span_boxes": [
+            [
+              12,
+              66,
+              30,
+              90
+            ]
+          ]
+        },
+        {
+          "at": "page/1/table/1/row/1/col/2",
+          "expected": "B2",
+          "observed": "82",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            85,
+            60,
+            165,
+            100
+          ],
+          "reported_table_bbox": null,
+          "reported_span_boxes": [
+            [
+              93,
+              66,
+              109,
+              90
+            ]
+          ]
+        }
+      ],
+      "lines": [
+        {
+          "at": "page/1/line/1",
+          "expected": "ID ABC-123",
+          "observed": "ID AB C-123",
+          "correct": false,
+          "reference_bbox": [
+            5,
+            10,
+            130,
+            20
+          ],
+          "reported_span_boxes": [
+            [
+              7,
+              11,
+              17,
+              18
+            ],
+            [
+              20,
+              11,
+              31,
+              18
+            ],
+            [
+              32,
+              11,
+              59,
+              18
+            ]
+          ]
+        }
+      ],
+      "critical": [
+        {
+          "at": "page/1/line/1",
+          "expected": "ABC-123",
+          "observed": "ID AB C-123",
+          "correct": false,
+          "flagged": false
+        },
+        {
+          "at": "page/1/table/1/row/1/col/1",
+          "expected": "A1",
+          "observed": "A1",
+          "correct": true,
+          "flagged": false,
+          "reference_bbox": [
+            5,
+            60,
+            85,
+            100
+          ],
+          "reported_table_bbox": null,
+          "reported_span_boxes": [
+            [
+              12,
+              66,
+              30,
+              90
+            ]
+          ]
+        },
+        {
+          "at": "page/1/table/1/row/1/col/2",
+          "expected": "B2",
+          "observed": "82",
+          "correct": false,
+          "flagged": false,
+          "reference_bbox": [
+            85,
+            60,
+            165,
+            100
+          ],
+          "reported_table_bbox": null,
+          "reported_span_boxes": [
+            [
+              93,
+              66,
+              109,
+              90
+            ]
+          ]
+        }
+      ],
+      "extra_cells": 0,
+      "faults": []
+    }
+  }
+}
