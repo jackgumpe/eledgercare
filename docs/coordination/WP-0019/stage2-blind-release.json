@@ -1,0 +1,38 @@
+{
+  "stage": "Stage 2",
+  "candidate": "9418bccd339dea1d89445f2fec93927168c7a5f0",
+  "authorizedUtc": "2026-11-20T19:44:27.770059+00:00",
+  "orders": "A is the current full pass; B is the same full pass plus eligible crops. One persistent warmed WinRT process per order.",
+  "manifests": {
+    "LIFT": {
+      "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\wp0019-data\\inputs\\fresh\\LIFT\\manifest.json",
+      "sha256": "f87aa8b66f263095b089fb4b2ca78455b5a29630c831e0379d9765bedbef1855",
+      "pages": 6,
+      "source_sha256": "653412a9d4482bfddb60d4494a402657681d61d65b0aebc86dd846509e257fd0"
+    },
+    "VALVE": {
+      "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\wp0019-data\\inputs\\fresh\\VALVE\\manifest.json",
+      "sha256": "7050bef2df7aa1311154498a02b6761cf27d1486286e19c9cce2667e29920546",
+      "pages": 6,
+      "source_sha256": "ad235cd6c2e5f60c7678e38997a367ea261446e48c11be5a8bfc80ff0ac2867a"
+    }
+  },
+  "runs": [
+    {
+      "family": "LIFT",
+      "order": "AB"
+    },
+    {
+      "family": "VALVE",
+      "order": "BA"
+    },
+    {
+      "family": "LIFT",
+      "order": "BA"
+    },
+    {
+      "family": "VALVE",
+      "order": "AB"
+    }
+  ]
+}
