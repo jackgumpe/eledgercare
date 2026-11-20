@@ -396,6 +396,16 @@ def structure(ledger, data, fam):
     return dict(pages=n, adapter_pages_reproduced=reproduced_pages, prediction_sha256=sha256(pred_bytes))
 
 
+def historical_without_comparison(path):
+    """Retained score copy minus its top-level comparison block, in the frozen scorer's serialization."""
+    full = Path(path).read_bytes()
+    obj = json.loads(full.decode("utf-8-sig"))
+    comparison = obj.pop("comparison", None)
+    extra = ["comparison"] if comparison is not None else []
+    data = (json.dumps(obj, indent=2, ensure_ascii=True, allow_nan=False) + "\n").encode()
+    return dict(full_bytes=full, full_sha256=sha256(full), object=obj, bytes=data, comparison=comparison, extra_keys=extra)
+
+
 def official_view(result):
     counts = fault_counts(result)
     out = dict(complete=result["packet_complete"])
@@ -430,11 +440,21 @@ def baseline(ledger, data, fam, out, score_path, pins, summary):
         return dict(runs=runs, gate=False)
     b1, b2 = (out / f"baseline-{fam}-run{k}.json" for k in (1, 2))
     ledger.check("C4.1", f"{fam}/repeat-bytes", b1.read_bytes() == b2.read_bytes(), runs[1]["output_sha256"], runs[0]["output_sha256"])
-    hist = paths["historical"].read_bytes()
     result = load(b1)
-    ledger.check("C4.2", f"{fam}/historical-bytes", b1.read_bytes() == hist, runs[0]["output_sha256"], sha256(hist),
-                 "separate-process result equals retained historical score copy byte for byte")
-    ledger.check("C4.2", f"{fam}/historical-parsed", result == json.loads(hist.decode("utf-8")), None, None)
+    # C4.2 at e531eef required full-byte equality and failed for H and A: the retained copies carry an
+    # extra top-level "comparison" block (scorer --baseline against the unadmitted native arm).
+    # C4.2r compares everything else exactly and records the block without reproducing it.
+    hist = historical_without_comparison(paths["historical"])
+    ledger.check("C4.2r", f"{fam}/historical-extra-keys", hist["extra_keys"] == ["comparison"],
+                 hist["extra_keys"], ["comparison"])
+    ledger.check("C4.2r", f"{fam}/historical-bytes-without-comparison", b1.read_bytes() == hist["bytes"],
+                 runs[0]["output_sha256"], sha256(hist["bytes"]),
+                 "separate-process result equals the retained copy re-serialized without its comparison block")
+    ledger.check("C4.2r", f"{fam}/historical-parsed-without-comparison", result == hist["object"], None, None)
+    comp = hist["comparison"] or {}
+    ledger.check("C4.2r", f"{fam}/historical-comparison-identity",
+                 (comp.get("family"), comp.get("source_sha256")) == (result["family"], result["source_sha256"]),
+                 [comp.get("family"), comp.get("source_sha256")], [result["family"], result["source_sha256"]])
     published = pins["families"][fam]["published_windows"]
     c = result["counts"]
     pairs = dict(matching_reference_cells=c["correct_cells"], reference_cells=c["reference_cells"],
@@ -458,7 +478,13 @@ def baseline(ledger, data, fam, out, score_path, pins, summary):
         for cell in p["cells"]:
             modes["grid" if cell["reported_table_bbox"] is not None else "span_fallback"] += 1
     return dict(runs=runs, gate=gate_ok, counts=c, packet_complete=result["packet_complete"],
-                faults=result["faults"], baseline_cell_modes=modes, published_supplementary_unreproduced=dict(
+                faults=result["faults"], baseline_cell_modes=modes,
+                historical=dict(full_file_sha256=hist["full_sha256"], full_bytes_equal=b1.read_bytes() == hist["full_bytes"],
+                                extra_keys=hist["extra_keys"], comparison_keys=sorted(comp),
+                                comparison_sha256=sha256(json.dumps(comp, sort_keys=True).encode()),
+                                comparison_reproduced=False,
+                                comparison_reason="native baseline prediction is not an admitted input"),
+                published_supplementary_unreproduced=dict(
                     missing_numeric_tokens_supplementary=published.get("missing_numeric_tokens_supplementary"),
                     reason="definition belongs to an unadmitted private WP-0015 sensitivity tool; not reproduced"))
 
@@ -690,7 +716,8 @@ def paired_family(ledger, data, fam, out, score_path, scorer):
     runs = [run_scorer(score_path, paths["truth"], paths["prediction"], before_out, out),
             run_scorer(score_path, paths["truth"], stripped, after_out, out)]
     ledger.check("P2", f"{fam}/scorer-process", all(r["returncode"] == 0 for r in runs), [r["returncode"] for r in runs], [0, 0])
-    ledger.check("P2", f"{fam}/before-equals-historical", before_out.read_bytes() == paths["historical"].read_bytes(), None, None)
+    ledger.check("P2", f"{fam}/before-equals-historical-without-comparison",
+                 before_out.read_bytes() == historical_without_comparison(paths["historical"])["bytes"], None, None)
     sb, sa = load(before_out), load(after_out)
     sinv = score_invariants(sb, sa)
     ledger.check("P3", f"{fam}/score-invariants", not sinv, sinv, [])

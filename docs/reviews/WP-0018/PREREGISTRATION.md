@@ -94,3 +94,20 @@ It then scores both arms in separate processes and requires several invariants:
 - extra cells by page
 
 Totals are also split by before mode and by critical cells. Their consistency is checked as before correct + gains − losses = after correct.
+
+## Addendum 1: post-freeze correction to C4.2
+
+The first decisive `phase1` run at freeze `e531eef74156f325b2747307adecc09ecd7890ee` passed 1158 of 1162 checks. Its output is preserved at `wp0018-data/review/out/phase1-e531eef/phase1.json`, SHA-256 `eadc6f713d2af1ee79e493e419aaa9add5edf64381cb9b811f3af8d9325d3915`.
+
+The four failures were all the preregistered C4.2 condition: byte and parsed equality with the full retained historical score copies, for H and for A. The only difference is an extra top-level `comparison` block in each retained copy, written by the frozen scorer's `--baseline` option against the native arm. That native prediction is not an admitted input. Every other key, including all counts, page records and faults, was identical.
+
+The preregistered expectation was wrong; this was not an evidence fault. C4.2 is replaced by C4.2r, which checks four things:
+
+- the only extra key is `comparison`
+- the reviewer's separate-process bytes equal the retained copy re-serialized without that block in the scorer's own format
+- the parsed objects are equal
+- the block's family and source identity match
+
+The block itself is recorded by hash and is **not reproduced**. The held paired check P2 now compares against the same comparison-free form.
+
+No other check, threshold, witness or paired-accounting rule changed. No paired (`tables=[]`) result was produced or examined before this correction.
