@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0020 Visible identifier routing
+## Completed WP-0020 visible identifier routing
 
-CPU replay of the approved visible-label rule on the exposed H/A archive is active. [Assignment and boundaries](docs/coordination/WP-0020/assignment.md)
+On the exposed archive, the frozen label rule recovered 2 critical readings on H and 60 on A with zero new errors. It selected every native window on both packets. The 60-page serial lower bound was 1,071.86 seconds against the 120-second budget. The independent replay reproduced the selections, bindings, scorer outputs and window costs. The packet is closed at archive analysis. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0020/004_2026-11-20_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-routing-reviewer/WP-0020/003_2026-11-20_review_eld-routing-reviewer.md) · [Decision](docs/coordination/WP-0020/decision.json) · [Publication receipts](docs/coordination/WP-0020/publication-receipt.json)
 
 ## Completed WP-0019 Windows OCR fixed-crop trial
 
