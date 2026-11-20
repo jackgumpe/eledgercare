@@ -111,3 +111,9 @@ The preregistered expectation was wrong; this was not an evidence fault. C4.2 is
 The block itself is recorded by hash and is **not reproduced**. The held paired check P2 now compares against the same comparison-free form.
 
 No other check, threshold, witness or paired-accounting rule changed. No paired (`tables=[]`) result was produced or examined before this correction.
+
+## Addendum 2: released paired run and attribution freeze (second phase)
+
+After the coordinator released the step, the reviewer re-ran `phase1` at `94eba5b68e1635db8a557c690d85585c1582fea7`, with source unchanged since `ecbeb8b`. It passed 1166/1166. The reviewer then ran `paired --execute-held-paired` from the same frozen source, writing to `out/paired-94eba5b/paired.json` (SHA-256 `640ea4f05fca0438642a21fe100b5a8dfd45f5333c36afd20232d478a5b7ae4f`). All 18 checks passed, including every prediction and score invariant.
+
+`review_attribution.py` was written after that run and is committed **before any WP-0018 author source or evidence was opened**. It assigns every incorrect cell and line the earliest supported stage and the split-versus-character effect described in its docstring. It reads only the reviewer copies and the hash-checked reviewer paired outputs. It changes no frozen check, threshold or paired rule.
