@@ -1,0 +1,1001 @@
+{
+ "kind": "wp0019-review-score",
+ "scorer_sha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+ "runs": {
+  "blind-AB": {
+   "order": "AB",
+   "families": {
+    "LIFT": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 30,
+      "critical_lines": 12,
+      "critical_cells": 18,
+      "WR": 0,
+      "RW": 0,
+      "WW": 9,
+      "RR": 21,
+      "WW_changed": 5,
+      "WW_same": 4,
+      "net": 0,
+      "base_wrong": 9,
+      "treat_wrong": 9,
+      "base_unflagged_wrong": 9,
+      "treat_unflagged_wrong": 4,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "01": 6,
+       "00": 24
+      },
+      "flagged_recoveries_excluded": 5,
+      "all_positions": {
+       "RR": 111,
+       "WW": 15
+      },
+      "cells": {
+       "RR": 78,
+       "WW": 12
+      },
+      "lines": {
+       "RR": 33,
+       "WW": 3
+      },
+      "by_class": {
+       "blank": {
+        "RR": 6
+       },
+       "spaced": {
+        "RR": 45,
+        "WW": 3
+       },
+       "single": {
+        "RR": 60,
+        "WW": 12
+       }
+      },
+      "blanks": {
+       "reference": 6,
+       "preserved": 6,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 48,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 30,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 48
+      },
+      "disagreements": {
+       "critical": 6,
+       "all": 6
+      },
+      "diagnostic_crop": {
+       "critical_right": 20,
+       "critical_wrong": 10,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 1
+      },
+      "decisions": {
+       "kept_full_flagged": 6,
+       "agree_same": 24
+      },
+      "author_decisions": {
+       "keep_no_supported_replacement": 6,
+       "keep_agree": 24
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 20,
+       "covered|agree|full_W|crop_W|agree_same|WW": 4,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 1,
+       "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 5
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": 0.0,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 5,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": null,
+     "rows_sha256": "2dbb7b7352e34759556c1e0a8b6153f45933dc9082ba7a0ecbaff3e311497101",
+     "evidence_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+     "prediction_sha256": {
+      "baseline": "f2c96026b97b6cd4763e55942a09a8beea9796d68b58e58da6de641fde8af229",
+      "treatment": "5734919e16cf1588cb576324e6890240540044baed681ddaf1b386704713572b"
+     },
+     "score_sha256": {
+      "baseline": "f93862c297cd0d1cd0de265c4a0c0ae4d7a825f177b6c43ed0d78a8fdcfc72e7",
+      "treatment": "71906e02e5e9cb87a09c669c062522ccb33bcd723e4a13c0e69a990fded1461d"
+     },
+     "individual": {}
+    },
+    "VALVE": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 30,
+      "critical_lines": 12,
+      "critical_cells": 18,
+      "WR": 0,
+      "RW": 0,
+      "WW": 9,
+      "RR": 21,
+      "WW_changed": 0,
+      "WW_same": 9,
+      "net": 0,
+      "base_wrong": 9,
+      "treat_wrong": 9,
+      "base_unflagged_wrong": 9,
+      "treat_unflagged_wrong": 9,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 29,
+       "01": 1
+      },
+      "flagged_recoveries_excluded": 0,
+      "all_positions": {
+       "RR": 147,
+       "WW": 9
+      },
+      "cells": {
+       "RR": 114,
+       "WW": 6
+      },
+      "lines": {
+       "RR": 33,
+       "WW": 3
+      },
+      "by_class": {
+       "blank": {
+        "RR": 12
+       },
+       "spaced": {
+        "RR": 63,
+        "WW": 3
+       },
+       "single": {
+        "RR": 72,
+        "WW": 6
+       }
+      },
+      "blanks": {
+       "reference": 12,
+       "preserved": 12,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 66,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 30,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 66
+      },
+      "disagreements": {
+       "critical": 1,
+       "all": 1
+      },
+      "diagnostic_crop": {
+       "critical_right": 20,
+       "critical_wrong": 10,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 1
+      },
+      "decisions": {
+       "agree_same": 29,
+       "kept_full_flagged": 1
+      },
+      "author_decisions": {
+       "keep_agree": 29,
+       "keep_no_supported_replacement": 1
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 20,
+       "covered|agree|full_W|crop_W|agree_same|WW": 9,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": 0.0,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 0,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": null,
+     "rows_sha256": "affca1fafb70e7a780bedda758bb3b6fa26d926b40a8c68bc57ba59fbf20dc9c",
+     "evidence_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+     "prediction_sha256": {
+      "baseline": "bc362dcb5bac5f2e512279ca1b3f7ea1a4da4deaf17183f3fb73b0dd0651e38a",
+      "treatment": "abf8fbe0c8760dcbb116da2ab5f149041e8eb77a6923653dd35628ee305ced57"
+     },
+     "score_sha256": {
+      "baseline": "20d0f1dc34f0b6bad888aa38ae1bc263e2c9170537ca31bb4a8f7af673d2bede",
+      "treatment": "9a461af24192e8b1d63d1bd587919d453357ad19b246d4793c7251a3420c039a"
+     },
+     "individual": {}
+    }
+   }
+  },
+  "blind-BA": {
+   "order": "BA",
+   "families": {
+    "LIFT": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 30,
+      "critical_lines": 12,
+      "critical_cells": 18,
+      "WR": 0,
+      "RW": 0,
+      "WW": 9,
+      "RR": 21,
+      "WW_changed": 5,
+      "WW_same": 4,
+      "net": 0,
+      "base_wrong": 9,
+      "treat_wrong": 9,
+      "base_unflagged_wrong": 9,
+      "treat_unflagged_wrong": 4,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "01": 6,
+       "00": 24
+      },
+      "flagged_recoveries_excluded": 5,
+      "all_positions": {
+       "RR": 111,
+       "WW": 15
+      },
+      "cells": {
+       "RR": 78,
+       "WW": 12
+      },
+      "lines": {
+       "RR": 33,
+       "WW": 3
+      },
+      "by_class": {
+       "blank": {
+        "RR": 6
+       },
+       "spaced": {
+        "RR": 45,
+        "WW": 3
+       },
+       "single": {
+        "RR": 60,
+        "WW": 12
+       }
+      },
+      "blanks": {
+       "reference": 6,
+       "preserved": 6,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 48,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 30,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 48
+      },
+      "disagreements": {
+       "critical": 6,
+       "all": 6
+      },
+      "diagnostic_crop": {
+       "critical_right": 20,
+       "critical_wrong": 10,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 1
+      },
+      "decisions": {
+       "kept_full_flagged": 6,
+       "agree_same": 24
+      },
+      "author_decisions": {
+       "keep_no_supported_replacement": 6,
+       "keep_agree": 24
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 20,
+       "covered|agree|full_W|crop_W|agree_same|WW": 4,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 1,
+       "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 5
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": 0.0,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 5,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": null,
+     "rows_sha256": "2dbb7b7352e34759556c1e0a8b6153f45933dc9082ba7a0ecbaff3e311497101",
+     "evidence_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+     "prediction_sha256": {
+      "baseline": "f2c96026b97b6cd4763e55942a09a8beea9796d68b58e58da6de641fde8af229",
+      "treatment": "5734919e16cf1588cb576324e6890240540044baed681ddaf1b386704713572b"
+     },
+     "score_sha256": {
+      "baseline": "f93862c297cd0d1cd0de265c4a0c0ae4d7a825f177b6c43ed0d78a8fdcfc72e7",
+      "treatment": "71906e02e5e9cb87a09c669c062522ccb33bcd723e4a13c0e69a990fded1461d"
+     },
+     "individual": {}
+    },
+    "VALVE": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 30,
+      "critical_lines": 12,
+      "critical_cells": 18,
+      "WR": 0,
+      "RW": 0,
+      "WW": 9,
+      "RR": 21,
+      "WW_changed": 0,
+      "WW_same": 9,
+      "net": 0,
+      "base_wrong": 9,
+      "treat_wrong": 9,
+      "base_unflagged_wrong": 9,
+      "treat_unflagged_wrong": 9,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 29,
+       "01": 1
+      },
+      "flagged_recoveries_excluded": 0,
+      "all_positions": {
+       "RR": 147,
+       "WW": 9
+      },
+      "cells": {
+       "RR": 114,
+       "WW": 6
+      },
+      "lines": {
+       "RR": 33,
+       "WW": 3
+      },
+      "by_class": {
+       "blank": {
+        "RR": 12
+       },
+       "spaced": {
+        "RR": 63,
+        "WW": 3
+       },
+       "single": {
+        "RR": 72,
+        "WW": 6
+       }
+      },
+      "blanks": {
+       "reference": 12,
+       "preserved": 12,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 66,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 30,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 66
+      },
+      "disagreements": {
+       "critical": 1,
+       "all": 1
+      },
+      "diagnostic_crop": {
+       "critical_right": 20,
+       "critical_wrong": 10,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 1
+      },
+      "decisions": {
+       "agree_same": 29,
+       "kept_full_flagged": 1
+      },
+      "author_decisions": {
+       "keep_agree": 29,
+       "keep_no_supported_replacement": 1
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 20,
+       "covered|agree|full_W|crop_W|agree_same|WW": 9,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": 0.0,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 0,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": null,
+     "rows_sha256": "affca1fafb70e7a780bedda758bb3b6fa26d926b40a8c68bc57ba59fbf20dc9c",
+     "evidence_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+     "prediction_sha256": {
+      "baseline": "bc362dcb5bac5f2e512279ca1b3f7ea1a4da4deaf17183f3fb73b0dd0651e38a",
+      "treatment": "abf8fbe0c8760dcbb116da2ab5f149041e8eb77a6923653dd35628ee305ced57"
+     },
+     "score_sha256": {
+      "baseline": "20d0f1dc34f0b6bad888aa38ae1bc263e2c9170537ca31bb4a8f7af673d2bede",
+      "treatment": "9a461af24192e8b1d63d1bd587919d453357ad19b246d4793c7251a3420c039a"
+     },
+     "individual": {}
+    }
+   }
+  }
+ },
+ "checks": [
+  {
+   "id": "S0.truth.LIFT",
+   "state": "PASS",
+   "gating": true,
+   "check": "truth digest equals its commitment (WP-0015 for H/A; coordinator key digest for fresh families)",
+   "observed": "df271f362f44929e7cb67cc564f19c0192694e6940849321698e810cc83405e6",
+   "scope": null
+  },
+  {
+   "id": "S0.truth.VALVE",
+   "state": "PASS",
+   "gating": true,
+   "check": "truth digest equals its commitment (WP-0015 for H/A; coordinator key digest for fresh families)",
+   "observed": "78a48ea75e8a3023c160372b80fb27e643092719c91ab1ca8bdfd1972399d949",
+   "scope": null
+  },
+  {
+   "id": "S0.schema.blind-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "canonical run schema",
+   "observed": "wp0019-review-run/1",
+   "scope": null
+  },
+  {
+   "id": "S0.schema.blind-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "canonical run schema",
+   "observed": "wp0019-review-run/1",
+   "scope": null
+  },
+  {
+   "id": "S1.score.blind-AB.LIFT.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "f93862c297cd0d1cd0de265c4a0c0ae4d7a825f177b6c43ed0d78a8fdcfc72e7",
+    "prediction_sha256": "f2c96026b97b6cd4763e55942a09a8beea9796d68b58e58da6de641fde8af229"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.blind-AB.LIFT.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "71906e02e5e9cb87a09c669c062522ccb33bcd723e4a13c0e69a990fded1461d",
+    "prediction_sha256": "5734919e16cf1588cb576324e6890240540044baed681ddaf1b386704713572b"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.blind-AB.LIFT",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "a9b27b7c2b0341e950029eb6843b37cfcb41d93d251fa52feb134921b5a1522e",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.blind-AB.LIFT.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 30,
+    "reference_cells": 90,
+    "reference_lines": 36,
+    "output_pages": 6
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.blind-AB.LIFT.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.blind-AB.LIFT.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 30,
+    "reference_cells": 90,
+    "reference_lines": 36,
+    "output_pages": 6
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.blind-AB.LIFT.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.blind-AB.LIFT",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 5,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.blind-AB.LIFT",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.blind-AB.VALVE.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "20d0f1dc34f0b6bad888aa38ae1bc263e2c9170537ca31bb4a8f7af673d2bede",
+    "prediction_sha256": "bc362dcb5bac5f2e512279ca1b3f7ea1a4da4deaf17183f3fb73b0dd0651e38a"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.blind-AB.VALVE.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "9a461af24192e8b1d63d1bd587919d453357ad19b246d4793c7251a3420c039a",
+    "prediction_sha256": "abf8fbe0c8760dcbb116da2ab5f149041e8eb77a6923653dd35628ee305ced57"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.blind-AB.VALVE",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "224793c281af1175511bd3ce5986c0aca4ab311d4ce0dc36d924493bdb17098d",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.blind-AB.VALVE.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 30,
+    "reference_cells": 120,
+    "reference_lines": 36,
+    "output_pages": 6
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.blind-AB.VALVE.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.blind-AB.VALVE.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 30,
+    "reference_cells": 120,
+    "reference_lines": 36,
+    "output_pages": 6
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.blind-AB.VALVE.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.blind-AB.VALVE",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 0,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.blind-AB.VALVE",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.blind-BA.LIFT.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "f93862c297cd0d1cd0de265c4a0c0ae4d7a825f177b6c43ed0d78a8fdcfc72e7",
+    "prediction_sha256": "f2c96026b97b6cd4763e55942a09a8beea9796d68b58e58da6de641fde8af229"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.blind-BA.LIFT.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "71906e02e5e9cb87a09c669c062522ccb33bcd723e4a13c0e69a990fded1461d",
+    "prediction_sha256": "5734919e16cf1588cb576324e6890240540044baed681ddaf1b386704713572b"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.blind-BA.LIFT",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "a9b27b7c2b0341e950029eb6843b37cfcb41d93d251fa52feb134921b5a1522e",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.blind-BA.LIFT.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 30,
+    "reference_cells": 90,
+    "reference_lines": 36,
+    "output_pages": 6
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.blind-BA.LIFT.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.blind-BA.LIFT.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 30,
+    "reference_cells": 90,
+    "reference_lines": 36,
+    "output_pages": 6
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.blind-BA.LIFT.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.blind-BA.LIFT",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 5,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.blind-BA.LIFT",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.blind-BA.VALVE.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "20d0f1dc34f0b6bad888aa38ae1bc263e2c9170537ca31bb4a8f7af673d2bede",
+    "prediction_sha256": "bc362dcb5bac5f2e512279ca1b3f7ea1a4da4deaf17183f3fb73b0dd0651e38a"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.blind-BA.VALVE.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "9a461af24192e8b1d63d1bd587919d453357ad19b246d4793c7251a3420c039a",
+    "prediction_sha256": "abf8fbe0c8760dcbb116da2ab5f149041e8eb77a6923653dd35628ee305ced57"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.blind-BA.VALVE",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "224793c281af1175511bd3ce5986c0aca4ab311d4ce0dc36d924493bdb17098d",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.blind-BA.VALVE.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 30,
+    "reference_cells": 120,
+    "reference_lines": 36,
+    "output_pages": 6
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.blind-BA.VALVE.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.blind-BA.VALVE.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 30,
+    "reference_cells": 120,
+    "reference_lines": 36,
+    "output_pages": 6
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.blind-BA.VALVE.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.blind-BA.VALVE",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 0,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.blind-BA.VALVE",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S4.reproducible.LIFT",
+   "state": "PASS",
+   "gating": true,
+   "check": "per-position (observed, flagged) identical in both arms across every run",
+   "observed": {
+    "blind-BA": []
+   },
+   "scope": null
+  },
+  {
+   "id": "S4.reproducible.VALVE",
+   "state": "PASS",
+   "gating": true,
+   "check": "per-position (observed, flagged) identical in both arms across every run",
+   "observed": {
+    "blind-BA": []
+   },
+   "scope": null
+  }
+ ],
+ "reproducibility": {
+  "LIFT": {
+   "reference": "blind-AB",
+   "compared": [
+    "blind-BA"
+   ],
+   "differing_positions": {
+    "blind-BA": []
+   },
+   "identical": true
+  },
+  "VALVE": {
+   "reference": "blind-AB",
+   "compared": [
+    "blind-BA"
+   ],
+   "differing_positions": {
+    "blind-BA": []
+   },
+   "identical": true
+  }
+ },
+ "families": [
+  "LIFT",
+  "VALVE"
+ ],
+ "stage": "2",
+ "gate": {
+  "per_run": {
+   "blind-AB": {
+    "evaluable": true,
+    "net_pooled": 0,
+    "WR_pooled": 0,
+    "RW": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "lost_blanks": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "passes": false
+   },
+   "blind-BA": {
+    "evaluable": true,
+    "net_pooled": 0,
+    "WR_pooled": 0,
+    "RW": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "lost_blanks": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "passes": false
+   }
+  },
+  "missing_required_runs": [],
+  "all_evaluable": true,
+  "reproducible": true,
+  "quality_rule_met_every_run": false,
+  "score_component": "FAIL_QUALITY"
+ },
+ "check_summary": {
+  "PASS": 38,
+  "observation_PASS": 4
+ },
+ "failed_checks": []
+}

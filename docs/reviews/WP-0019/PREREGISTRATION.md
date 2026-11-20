@@ -336,3 +336,13 @@ The fix is one token: `(e.get("path") or "").lower()`. No check definition chang
 - **Frozen combined verdict:** `INCONCLUSIVE_CONTROL`, caused solely by K1 (Addendum 1 item 5).
 - **Materiality:** the reviewer judges K1 not a material barrier; see `evidence/stage1-replay/STAGE1-RETURN.json`.
 - **Author runs:** the author/primary runs are pending reconciliation.
+
+## Addendum 3 (2026-11-20 UTC, after key release; before reading any coordinator fresh total)
+
+1. **Stage 2 execution, as run.** The reviewer ran the bound `execute.py` itself. It ran four blind runs, all exit 0 on the first attempt. **No audited fresh run was made**, so A0–A6 for Stage 2 are `NOT_SUPPLIED`. Truth isolation for Stage 2 therefore rests on:
+   - the static source path (identical to Stage 1, where audited runs opened no truth-, score- or key-named file and no denied path)
+   - the custody chain in `evidence/stage2-score/key-custody-verification.json`
+2. **Scoring.** The frozen `review_score.py --stage 2` ran with `--pins`. Each truth digest comes from key commitment `962bfefd` and the counts from the released truth. No scorer or check definition changed.
+3. **Inputs check.** `inputs-fresh` uses a rename-only restructure of the raster commitment `9610737`, with BGRA digests taken from the committed gzip manifests.
+4. **Summary script.** `review_stage2_summary.py` joins the released strata and reports both timing aggregations. It is analysis only.
+5. **Results.** The frozen combined Stage 2 verdict is `INCONCLUSIVE_CONTROL` (K1 strict, plus the missing audit). The score component is `FAIL_QUALITY`: zero fresh critical recoveries in both orders. The reviewer's larger-research criterion is **FAIL** (see `STAGE2-RESULT.json`).
