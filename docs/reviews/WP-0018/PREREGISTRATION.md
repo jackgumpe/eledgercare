@@ -117,3 +117,30 @@ No other check, threshold, witness or paired-accounting rule changed. No paired 
 After the coordinator released the step, the reviewer re-ran `phase1` at `94eba5b68e1635db8a557c690d85585c1582fea7`, with source unchanged since `ecbeb8b`. It passed 1166/1166. The reviewer then ran `paired --execute-held-paired` from the same frozen source, writing to `out/paired-94eba5b/paired.json` (SHA-256 `640ea4f05fca0438642a21fe100b5a8dfd45f5333c36afd20232d478a5b7ae4f`). All 18 checks passed, including every prediction and score invariant.
 
 `review_attribution.py` was written after that run and is committed **before any WP-0018 author source or evidence was opened**. It assigns every incorrect cell and line the earliest supported stage and the split-versus-character effect described in its docstring. It reads only the reviewer copies and the hash-checked reviewer paired outputs. It changes no frozen check, threshold or paired rule.
+
+## Addendum 3: corrected supplementary availability, and the reconciliation runs
+
+**Correction.** The statement above (line 50) and the `published_supplementary_unreproduced.reason` field in the phase-1 evidence JSON were inaccurate. Both said the definition of `missing_numeric_tokens_supplementary` belongs to an unadmitted private tool. In fact the definition is public and local at `ce4206f20d63101f6344121eaaeeeb86d2ec85a0`:
+
+- `docs/reviews/WP-0015/scored_summary.py` `diag()`, SHA-256 `6a7998df…6c09`
+- which delegates to `docs/reviews/WP-0015/analyze.py` `diagnostics()`, SHA-256 `4f9ce50b…b352`
+
+The earlier statement is retained, not rewritten; the published evidence stays immutable.
+
+`review_compare.py` reproduces the counts in two ways. It runs those exact historical bytes from Git, compiling `diag` from the parsed `scored_summary.py` with `diagnostics` from `analyze.py`. It also runs an independent re-implementation. **The counts are reproduced:** H missing 8 and surplus 10, A missing 100 and surplus 126. All six published supplementary fields match for both packets, and they are unchanged under `tables=[]`. This does not change the frozen scoring treatment or any other check.
+
+**Reconciliation runs.** `review_compare.py` was committed at `6fd3e5d7694ca6df475d3c804aef5d336f1c4680` before its first run. That run evaluated every check but failed to serialize two observation dicts keyed by tuples, and wrote no output. The empty directory is preserved at `out/compare-6fd3e5d`.
+
+The serialization was fixed at `bacdaaf9cdd16626430c91ee974a7bded7cb9997`; no check logic changed. The re-run passed 104/104 checks with zero row-level disagreements.
+
+A separate ad hoc mutation test injected four faults into in-memory author rows: a transition, a fallback span order, a geometry set and a split flag. The unchanged comparison detected all four.
+
+**Fresh reproduction.** `--fresh` was added at `0e31c99a1907cbab866e186975757baf80b055d2`, with default behaviour unchanged. It lets a new rerun be checked against the committed evidence. At that commit the reviewer ran the full pipeline end to end into the new scratch root `out/repro-0e31c99`:
+
+- `phase1`: 1166/1166, with check records identical to the `ecbeb8b` run
+- `witnesses`: all four traces equal the committed traces apart from output paths
+- `paired --execute-held-paired`: 18/18, with byte-identical scorer outputs and stripped predictions
+- `review_attribution.py`
+- `review_compare.py --fresh`: 104/104, with zero disagreements
+
+See `evidence/second-phase/reproduction-receipt.json`.

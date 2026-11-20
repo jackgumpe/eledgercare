@@ -1,0 +1,291 @@
+{
+ "kind": "WP-0018/003 reviewer fresh end-to-end reproduction receipt",
+ "reviewer": "eld-rd-reviewer",
+ "candidate": "0e31c99a1907cbab866e186975757baf80b055d2",
+ "scripts_sha256": {
+  "review_checks.py": "325085102c09d527a8549b128bbd3f7c14d396fb5cb0e443834f423b050484cb",
+  "review_attribution.py": "e8aa02a44fc93fe116c3068f5973cfdfc0f97c480756da349c8415d8951864d5",
+  "review_compare.py": "d15916a22ad29dad129f8c0dec088fdfc1d7f8dfb530687915562a48fc346b05"
+ },
+ "commands": [
+  "python docs/reviews/WP-0018/review_checks.py phase1 --out <R>/phase1",
+  "python docs/reviews/WP-0018/review_checks.py witnesses --out <R>/witnesses",
+  "python docs/reviews/WP-0018/review_checks.py paired --execute-held-paired --out <R>/paired-94eba5b",
+  "python docs/reviews/WP-0018/review_attribution.py --paired-dir <R>/paired-94eba5b --out <R>/attribution-d9c5e7f",
+  "python docs/reviews/WP-0018/review_compare.py --scratch <R> --out <R>/compare --fresh"
+ ],
+ "scratch_root": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\wp0018-data\\review\\out\\repro-0e31c99",
+ "exit_codes": [
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "summaries": {
+  "phase1/phase1.json": {
+   "total": 1166,
+   "passed": 1166,
+   "failed": 0,
+   "failed_ids": [],
+   "repo_head": "0e31c99a1907cbab866e186975757baf80b055d2",
+   "status_porcelain": " M docs/reviews/WP-0018/PREREGISTRATION.md\n M docs/reviews/WP-0018/evidence/README.md\n?? docs/reviews/WP-0018/evidence/second-phase/attribution.json\n?? docs/reviews/WP-0018/evidence/second-phase/compare.json\n?? docs/reviews/WP-0018/evidence/second-phase/paired.json\n?? docs/reviews/WP-0018/evidence/second-phase/phase1-pre-paired.json\n"
+  },
+  "paired-94eba5b/paired.json": {
+   "total": 18,
+   "passed": 18,
+   "failed": 0,
+   "failed_ids": [],
+   "repo_head": "0e31c99a1907cbab866e186975757baf80b055d2",
+   "status_porcelain": " M docs/reviews/WP-0018/PREREGISTRATION.md\n M docs/reviews/WP-0018/evidence/README.md\n?? docs/reviews/WP-0018/evidence/second-phase/attribution.json\n?? docs/reviews/WP-0018/evidence/second-phase/compare.json\n?? docs/reviews/WP-0018/evidence/second-phase/paired.json\n?? docs/reviews/WP-0018/evidence/second-phase/phase1-pre-paired.json\n"
+  },
+  "compare/compare.json": {
+   "total": 104,
+   "passed": 104,
+   "failed": 0,
+   "failed_ids": [],
+   "repo_head": "0e31c99a1907cbab866e186975757baf80b055d2",
+   "status_porcelain": " M docs/reviews/WP-0018/PREREGISTRATION.md\n M docs/reviews/WP-0018/evidence/README.md\n?? docs/reviews/WP-0018/evidence/second-phase/attribution.json\n?? docs/reviews/WP-0018/evidence/second-phase/compare.json\n?? docs/reviews/WP-0018/evidence/second-phase/paired.json\n?? docs/reviews/WP-0018/evidence/second-phase/phase1-pre-paired.json\n"
+  },
+  "attribution-d9c5e7f/attribution.json": {
+   "repo_head": "0e31c99a1907cbab866e186975757baf80b055d2",
+   "tallies": {
+    "H": {
+     "cells": 20,
+     "cells_wrong_before": 5,
+     "cells_wrong_after": 6,
+     "cell_classes": {
+      "unchanged_right": 14,
+      "unchanged_wrong": 5,
+      "loss": 1
+     },
+     "printed_empty": {
+      "total": 1,
+      "before_empty_string": 1,
+      "after_none": 1,
+      "losses": 1
+     },
+     "expected_text_but_grid_empty": 0,
+     "loss_not_printed_empty": 0,
+     "gains": 0,
+     "changed_text_value": 0,
+     "cell_stage": {
+      "winrt_text": 5
+     },
+     "cell_stage_critical": {
+      "winrt_text": 5
+     },
+     "cells_adapter_differs": 0,
+     "cell_text_effect": {
+      "character_only": 5
+     },
+     "cell_text_effect_critical": {
+      "character_only": 5
+     },
+     "lines": 16,
+     "lines_wrong": 3,
+     "line_stage": {
+      "winrt_text": 3
+     },
+     "lines_assignment_differs": 0,
+     "line_text_effect": {
+      "whitespace_only": 2,
+      "character_only": 1
+     },
+     "critical_lines": 8,
+     "critical_line_errors": 3,
+     "critical_line_errors_on_correct_lines": 0,
+     "critical_line_error_effect": {
+      "whitespace_only": 2,
+      "character_only": 1
+     },
+     "flagged_any": 0,
+     "char_ops": {
+      "substitute:O->0": 4,
+      "substitute:I->1": 3,
+      "substitute:0->O": 2,
+      "substitute:1->I": 1,
+      "delete:-->None": 1,
+      "delete:O->None": 1,
+      "substitute:-->0": 1
+     }
+    },
+    "A": {
+     "cells": 300,
+     "cells_wrong_before": 65,
+     "cells_wrong_after": 87,
+     "cell_classes": {
+      "unchanged_right": 213,
+      "unchanged_wrong": 65,
+      "loss": 22
+     },
+     "printed_empty": {
+      "total": 22,
+      "before_empty_string": 22,
+      "after_none": 22,
+      "losses": 22
+     },
+     "expected_text_but_grid_empty": 5,
+     "loss_not_printed_empty": 0,
+     "gains": 0,
+     "changed_text_value": 0,
+     "cell_stage": {
+      "winrt_text": 60,
+      "no_intersecting_word": 5
+     },
+     "cell_stage_critical": {
+      "winrt_text": 41,
+      "no_intersecting_word": 2
+     },
+     "cells_adapter_differs": 0,
+     "cell_text_effect": {
+      "character_only": 54,
+      "empty_value": 5,
+      "whitespace_only": 2,
+      "character_and_split": 4
+     },
+     "cell_text_effect_critical": {
+      "character_only": 35,
+      "whitespace_only": 2,
+      "empty_value": 2,
+      "character_and_split": 4
+     },
+     "lines": 288,
+     "lines_wrong": 51,
+     "line_stage": {
+      "winrt_text": 51
+     },
+     "lines_assignment_differs": 0,
+     "line_text_effect": {
+      "character_only": 34,
+      "character_and_split": 16,
+      "whitespace_only": 1
+     },
+     "critical_lines": 108,
+     "critical_line_errors": 51,
+     "critical_line_errors_on_correct_lines": 0,
+     "critical_line_error_effect": {
+      "character_only": 34,
+      "character_and_split": 16,
+      "whitespace_only": 1
+     },
+     "flagged_any": 0,
+     "char_ops": {
+      "substitute:O->0": 81,
+      "substitute:I->1": 69,
+      "substitute:1->I": 20,
+      "substitute:0->O": 16,
+      "delete:-->None": 7,
+      "delete:1->None": 6,
+      "delete:I->None": 5,
+      "delete:0->None": 4,
+      "delete:5->None": 3,
+      "delete:4->None": 3,
+      "substitute:-->\u2014": 3,
+      "delete:8->None": 2,
+      "substitute:O->o": 2,
+      "substitute:I->\"": 1,
+      "substitute:I->i": 1,
+      "substitute:I->l": 1,
+      "delete:2->None": 1,
+      "delete:7->None": 1,
+      "delete:3->None": 1,
+      "substitute:0->o": 1,
+      "substitute:I->O": 1,
+      "substitute:1->M": 1
+     }
+    }
+   }
+  }
+ },
+ "compare_disagreements": 0,
+ "witness_traces_equal_committed_except_paths": true,
+ "phase1_checks_identical_to_ecbeb8b": true,
+ "mutation_test": "ad hoc, in-memory: 4 injected author-row faults (transition, fallback span order, geometry set, split flag) -> 5 detections across 4 locations",
+ "files": {
+  "attribution-d9c5e7f/attribution.json": {
+   "sha256": "c87509aa1a080b5f847f5589a431c53fbe74ec924e904d82af9d6c73392ff91b",
+   "bytes": 490810
+  },
+  "compare/compare.json": {
+   "sha256": "e248433ab09504deb1a7cc98351a2fc5920e4b06a1f0942cf8e9648c2ce72645",
+   "bytes": 30494
+  },
+  "paired-94eba5b/A-prediction-tables-empty.json": {
+   "sha256": "ad3f0dc4963a1a6e6ccb1632f91779ee34d16044b7a595ea3c0e6a5b6cae9596",
+   "bytes": 110719
+  },
+  "paired-94eba5b/H-prediction-tables-empty.json": {
+   "sha256": "35ea28b4b60dd3b32014780a6a5ccf0e3219e74309e2111a455901b047f78b6c",
+   "bytes": 7538
+  },
+  "paired-94eba5b/paired-A-after.json": {
+   "sha256": "6c945ebfb8d3e0b0c011ccf9b0f34c3219e71bfe35ad04a5a54a970400ef6409",
+   "bytes": 471484
+  },
+  "paired-94eba5b/paired-A-before.json": {
+   "sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+   "bytes": 452727
+  },
+  "paired-94eba5b/paired-H-after.json": {
+   "sha256": "c8dd1951cab6495d2585e668c08557cee37cec48547d0bfddb13a5b69b38a062",
+   "bytes": 31977
+  },
+  "paired-94eba5b/paired-H-before.json": {
+   "sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+   "bytes": 30032
+  },
+  "paired-94eba5b/paired.json": {
+   "sha256": "e738c0a3f2a1cfc4c5a13ae66457a1716e4a05af9db3f27918e93379f787f2f5",
+   "bytes": 300497
+  },
+  "phase1/baseline-A-run1.json": {
+   "sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+   "bytes": 452727
+  },
+  "phase1/baseline-A-run2.json": {
+   "sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+   "bytes": 452727
+  },
+  "phase1/baseline-H-run1.json": {
+   "sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+   "bytes": 30032
+  },
+  "phase1/baseline-H-run2.json": {
+   "sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+   "bytes": 30032
+  },
+  "phase1/phase1.json": {
+   "sha256": "bc7e5a5605f2887dd5591bd1f83f15c52536766d595fd4e12d2d144c400cc1a0",
+   "bytes": 365336
+  },
+  "witnesses/baseline-A.json": {
+   "sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+   "bytes": 452727
+  },
+  "witnesses/baseline-H.json": {
+   "sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+   "bytes": 30032
+  },
+  "witnesses/witness-W1.json": {
+   "sha256": "69cc61c8da6f8533d2d80362281afb902de04222401e9d3a9200b56424b7c45e",
+   "bytes": 7230
+  },
+  "witnesses/witness-W2.json": {
+   "sha256": "5a39fb2ebbeacff5119ea6dd057b6976e8abd16958b6c824b33abdb6a0389893",
+   "bytes": 6864
+  },
+  "witnesses/witness-W3.json": {
+   "sha256": "2080b40f43d17c46d41a7d424743f7b292feb7acffcc6d86c07fc21d732d8c84",
+   "bytes": 6994
+  },
+  "witnesses/witness-W4.json": {
+   "sha256": "afe4fe6932a2a30bd02063ab7de254b6fb43bde80133d7e260a59911fdac77de",
+   "bytes": 5852
+  },
+  "witnesses/witnesses.json": {
+   "sha256": "6f0c058142fa681adb0451e657f6756129e1adc7d9ff4959dcb3ef56ba95ffef",
+   "bytes": 3971
+  }
+ }
+}

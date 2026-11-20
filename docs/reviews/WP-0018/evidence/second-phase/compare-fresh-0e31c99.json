@@ -1,0 +1,1293 @@
+{
+ "kind": "WP-0018/003 reviewer reconciliation with author objects",
+ "environment": {
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "executable": "C:\\Users\\jackg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "script": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\archive18-review\\docs\\reviews\\WP-0018\\review_checks.py",
+  "script_sha256": "325085102c09d527a8549b128bbd3f7c14d396fb5cb0e443834f423b050484cb",
+  "repo_head": "0e31c99a1907cbab866e186975757baf80b055d2",
+  "repo_status_porcelain": " M docs/reviews/WP-0018/PREREGISTRATION.md\n M docs/reviews/WP-0018/evidence/README.md\n?? docs/reviews/WP-0018/evidence/second-phase/attribution.json\n?? docs/reviews/WP-0018/evidence/second-phase/compare.json\n?? docs/reviews/WP-0018/evidence/second-phase/paired.json\n?? docs/reviews/WP-0018/evidence/second-phase/phase1-pre-paired.json\n",
+  "argv": [
+   "docs/reviews/WP-0018/review_compare.py",
+   "--scratch",
+   "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0018-data/review/out/repro-0e31c99",
+   "--out",
+   "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0018-data/review/out/repro-0e31c99/compare",
+   "--fresh"
+  ],
+  "started_utc": "2026-11-20T06:00:28.118887Z",
+  "compare_sha256": "d15916a22ad29dad129f8c0dec088fdfc1d7f8dfb530687915562a48fc346b05",
+  "fresh": true
+ },
+ "receipt_sha256": "6ee310d82b9efaed93d6c45cc5bb89f12b3471ae88c449cc7020d848b0adc845",
+ "author_objects": {
+  "pair_source": "3a1591768828bf72a9cce42db05f0d7c95f6cd60",
+  "pair_evidence": "01625378954a55da0fe7ce93c5cbb3b2e174c797",
+  "pair_report": "8479c239bc21b8ecc1bc82a60194fcec841b4408",
+  "words_source": "aff3970f2c2cf800139b1e0456ae516a4074e4d5",
+  "words_witness": "873ff5b1e7de51b54cba1f3ddd9e52c3b68263d7",
+  "words_coverage": "00ce51886d8015f887bb21f17bcd5478cb0b38bf",
+  "words_report": "2bf46a4420b5da29eb94975df4d16e7b12947f20",
+  "coordinator": "b1a033d26988fd4b5718803599c86a9023754145"
+ },
+ "identity": {
+  "committer_times": {
+   "873ff5b1e7de51b54cba1f3ddd9e52c3b68263d7": 1795152397,
+   "3a1591768828bf72a9cce42db05f0d7c95f6cd60": 1795152448,
+   "01625378954a55da0fe7ce93c5cbb3b2e174c797": 1795152517
+  }
+ },
+ "pair_receipts": {
+  "ious": {
+   "H": [
+    0.996969696969697
+   ],
+   "A": [
+    0.9966666666666667
+   ]
+  },
+  "H": {
+   "examples": 4,
+   "admission_files": 20
+  },
+  "A": {
+   "examples": 4,
+   "admission_files": 188
+  }
+ },
+ "rows": {
+  "H": {
+   "spans": 88,
+   "cells": 20,
+   "lines": 16
+  },
+  "A": {
+   "spans": 1301,
+   "cells": 300,
+   "lines": 288
+  }
+ },
+ "disagreements": [],
+ "counts": {
+  "H": {
+   "cell_stage_effect": {
+    "winrt_text|character_only": 5
+   },
+   "line_stage_effect": {
+    "winrt_text|whitespace_only": 2,
+    "winrt_text|character_only": 1
+   }
+  },
+  "A": {
+   "cell_stage_effect": {
+    "winrt_text|character_only": 54,
+    "no_intersecting_word|empty_value": 5,
+    "winrt_text|whitespace_only": 2,
+    "winrt_text|character_and_split": 4
+   },
+   "line_stage_effect": {
+    "winrt_text|character_only": 34,
+    "winrt_text|character_and_split": 16,
+    "winrt_text|whitespace_only": 1
+   }
+  }
+ },
+ "supplementary": {
+  "H": {
+   "historical": {
+    "surplus_numeric_tokens": 10,
+    "surplus_pages": 4,
+    "missing_numeric_tokens": 8,
+    "tokens_printed_on_other_pages": 0,
+    "pages_better_matching_other_truth": [],
+    "flagged_entries": 0
+   },
+   "independent": {
+    "missing": 8,
+    "surplus": 10
+   }
+  },
+  "A": {
+   "historical": {
+    "surplus_numeric_tokens": 126,
+    "surplus_pages": 53,
+    "missing_numeric_tokens": 100,
+    "tokens_printed_on_other_pages": 7,
+    "pages_better_matching_other_truth": [],
+    "flagged_entries": 0
+   },
+   "independent": {
+    "missing": 100,
+    "surplus": 126
+   }
+  },
+  "helper": {
+   "commit": "ce4206f20d63101f6344121eaaeeeb86d2ec85a0",
+   "analyze_sha256": "4f9ce50b47f548843eb7b6c56e413dc5744ae70e35f450b9bb441577ae92b352",
+   "scored_summary_sha256": "6a7998dff0bc458cb945932b1d36da2942276230dd57813ead3b64181ce06c09"
+  }
+ },
+ "checks": [
+  {
+   "id": "R1.1",
+   "scope": "pair/evidence/H/pair.json/evidence==publication",
+   "ok": true,
+   "observed": "387a69eb47c74920c9eff5d8b9172a781229eba4df7e05037c180094c34e4c43",
+   "expected": "387a69eb47c74920c9eff5d8b9172a781229eba4df7e05037c180094c34e4c43",
+   "note": null
+  },
+  {
+   "id": "R1.1",
+   "scope": "pair/evidence/A/pair.json/evidence==publication",
+   "ok": true,
+   "observed": "448a0eb7316d29502366b2b23d3b786470990ebc275c0588fbc6acc80e3b2d05",
+   "expected": "448a0eb7316d29502366b2b23d3b786470990ebc275c0588fbc6acc80e3b2d05",
+   "note": null
+  },
+  {
+   "id": "R1.1",
+   "scope": "pair/evidence/H/cells.jsonl/evidence==publication",
+   "ok": true,
+   "observed": "1fcc78e186eb48ff631702c76666437191626cc2ab7bb93712268a3be47b3953",
+   "expected": "1fcc78e186eb48ff631702c76666437191626cc2ab7bb93712268a3be47b3953",
+   "note": null
+  },
+  {
+   "id": "R1.1",
+   "scope": "pair/evidence/A/cells.jsonl/evidence==publication",
+   "ok": true,
+   "observed": "c880237b30abead36a14fc9cfd0aefe0049ac80ada00aaba7fc8cc4592cd197e",
+   "expected": "c880237b30abead36a14fc9cfd0aefe0049ac80ada00aaba7fc8cc4592cd197e",
+   "note": null
+  },
+  {
+   "id": "R1.1",
+   "scope": "pair/evidence/H/baseline.json/evidence==publication",
+   "ok": true,
+   "observed": "6f7f5982f268a8261354f05997778c68b7e998547a3b407baf271cd0af546aea",
+   "expected": "6f7f5982f268a8261354f05997778c68b7e998547a3b407baf271cd0af546aea",
+   "note": null
+  },
+  {
+   "id": "R1.1",
+   "scope": "pair/evidence/A/baseline.json/evidence==publication",
+   "ok": true,
+   "observed": "4b35b9f4a2e4c84a1efeaa7d70758d95403cdb044d9e54f343e7277bb0e89a42",
+   "expected": "4b35b9f4a2e4c84a1efeaa7d70758d95403cdb044d9e54f343e7277bb0e89a42",
+   "note": null
+  },
+  {
+   "id": "R1.1",
+   "scope": "pair/evidence/constructed.json/evidence==publication",
+   "ok": true,
+   "observed": "e34178312738c762f4633e31acecc239c0c1b854a61a6d701b30e15bf66918c3",
+   "expected": "e34178312738c762f4633e31acecc239c0c1b854a61a6d701b30e15bf66918c3",
+   "note": null
+  },
+  {
+   "id": "R1.2",
+   "scope": "pair/baseline.py/source-unchanged",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.2",
+   "scope": "pair/method_control.py/source-unchanged",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.2",
+   "scope": "pair/paired.py/source-unchanged",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.3",
+   "scope": "words/trace.py/evidence-vs-source",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "evidence-producing blob differs from designated source only by one trailing blank line"
+  },
+  {
+   "id": "R1.3",
+   "scope": "words/coverage.py/evidence-vs-source",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "evidence-producing blob differs from designated source only by one trailing blank line"
+  },
+  {
+   "id": "R1.3",
+   "scope": "words/trace.py/witness==coverage",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.4",
+   "scope": "words/witnesses.json/stable",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.4",
+   "scope": "words/coverage/locations-H.jsonl/stable",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.4",
+   "scope": "words/coverage/locations-A.jsonl/stable",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.4",
+   "scope": "words/coverage/pages-H.jsonl/stable",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.4",
+   "scope": "words/coverage/pages-A.jsonl/stable",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.4",
+   "scope": "words/coverage/summary.json/stable",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.5",
+   "scope": "words/witness-sha256",
+   "ok": true,
+   "observed": "64b8e29bcacee8d0978e422bfc3f3c6471877a5c2b30eb69104891f7c073c5a8",
+   "expected": "64b8e29bcacee8d0978e422bfc3f3c6471877a5c2b30eb69104891f7c073c5a8",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/pair-reproduction.json/docs/research/WP-0018/pair/evidence/constructed.json",
+   "ok": true,
+   "observed": "e34178312738c762f4633e31acecc239c0c1b854a61a6d701b30e15bf66918c3",
+   "expected": "e34178312738c762f4633e31acecc239c0c1b854a61a6d701b30e15bf66918c3",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/pair-reproduction.json/docs/research/WP-0018/pair/evidence/H/baseline.json",
+   "ok": true,
+   "observed": "6f7f5982f268a8261354f05997778c68b7e998547a3b407baf271cd0af546aea",
+   "expected": "6f7f5982f268a8261354f05997778c68b7e998547a3b407baf271cd0af546aea",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/pair-reproduction.json/docs/research/WP-0018/pair/evidence/H/cells.jsonl",
+   "ok": true,
+   "observed": "1fcc78e186eb48ff631702c76666437191626cc2ab7bb93712268a3be47b3953",
+   "expected": "1fcc78e186eb48ff631702c76666437191626cc2ab7bb93712268a3be47b3953",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/pair-reproduction.json/docs/research/WP-0018/pair/evidence/H/pair.json",
+   "ok": true,
+   "observed": "387a69eb47c74920c9eff5d8b9172a781229eba4df7e05037c180094c34e4c43",
+   "expected": "387a69eb47c74920c9eff5d8b9172a781229eba4df7e05037c180094c34e4c43",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/pair-reproduction.json/docs/research/WP-0018/pair/evidence/A/baseline.json",
+   "ok": true,
+   "observed": "4b35b9f4a2e4c84a1efeaa7d70758d95403cdb044d9e54f343e7277bb0e89a42",
+   "expected": "4b35b9f4a2e4c84a1efeaa7d70758d95403cdb044d9e54f343e7277bb0e89a42",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/pair-reproduction.json/docs/research/WP-0018/pair/evidence/A/cells.jsonl",
+   "ok": true,
+   "observed": "c880237b30abead36a14fc9cfd0aefe0049ac80ada00aaba7fc8cc4592cd197e",
+   "expected": "c880237b30abead36a14fc9cfd0aefe0049ac80ada00aaba7fc8cc4592cd197e",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/pair-reproduction.json/docs/research/WP-0018/pair/evidence/A/pair.json",
+   "ok": true,
+   "observed": "448a0eb7316d29502366b2b23d3b786470990ebc275c0588fbc6acc80e3b2d05",
+   "expected": "448a0eb7316d29502366b2b23d3b786470990ebc275c0588fbc6acc80e3b2d05",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/words-reproduction.json/docs/research/WP-0018/words/witnesses.json",
+   "ok": true,
+   "observed": "64b8e29bcacee8d0978e422bfc3f3c6471877a5c2b30eb69104891f7c073c5a8",
+   "expected": "64b8e29bcacee8d0978e422bfc3f3c6471877a5c2b30eb69104891f7c073c5a8",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/words-reproduction.json/docs/research/WP-0018/words/coverage/locations-H.jsonl",
+   "ok": true,
+   "observed": "ee236a8d37fdb0657655784d8f00070f1cea20c1cc5778538e58f54b1a9916cf",
+   "expected": "ee236a8d37fdb0657655784d8f00070f1cea20c1cc5778538e58f54b1a9916cf",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/words-reproduction.json/docs/research/WP-0018/words/coverage/locations-A.jsonl",
+   "ok": true,
+   "observed": "25625742b4aa5370984671a84ddb789201a612d8a24ddd030b50b1e4b9b970c3",
+   "expected": "25625742b4aa5370984671a84ddb789201a612d8a24ddd030b50b1e4b9b970c3",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/words-reproduction.json/docs/research/WP-0018/words/coverage/pages-H.jsonl",
+   "ok": true,
+   "observed": "f2abb3394bf9586c5444002a83305dc09210b965a854ada6ea827fc761000a81",
+   "expected": "f2abb3394bf9586c5444002a83305dc09210b965a854ada6ea827fc761000a81",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/words-reproduction.json/docs/research/WP-0018/words/coverage/pages-A.jsonl",
+   "ok": true,
+   "observed": "b1e3f0f6c4b3a29ad93e0aff8ae686c7ba31a1d12c802f76a08a5ef74cc2b983",
+   "expected": "b1e3f0f6c4b3a29ad93e0aff8ae686c7ba31a1d12c802f76a08a5ef74cc2b983",
+   "note": null
+  },
+  {
+   "id": "R1.6",
+   "scope": "coordinator/words-reproduction.json/docs/research/WP-0018/words/coverage/summary.json",
+   "ok": true,
+   "observed": "b953f4feec76ef11e351d7f030e5c94fc080e95ab5efd18586d54637ccdbf732",
+   "expected": "b953f4feec76ef11e351d7f030e5c94fc080e95ab5efd18586d54637ccdbf732",
+   "note": null
+  },
+  {
+   "id": "R1.7",
+   "scope": "pair/H/cells_jsonl_sha256",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.7",
+   "scope": "pair/A/cells_jsonl_sha256",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.8",
+   "scope": "ancestry/918701a<=3a15917",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.8",
+   "scope": "ancestry/3a15917<=0162537",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.8",
+   "scope": "ancestry/0162537<=8479c23",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.8",
+   "scope": "ancestry/918701a<=873ff5b",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.8",
+   "scope": "ancestry/873ff5b<=00ce518",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.8",
+   "scope": "ancestry/00ce518<=aff3970",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.8",
+   "scope": "ancestry/aff3970<=2bf46a4",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R1.9",
+   "scope": "order/witness-commit-before-paired-source",
+   "ok": true,
+   "observed": {
+    "873ff5b1e7de51b54cba1f3ddd9e52c3b68263d7": 1795152397,
+    "3a1591768828bf72a9cce42db05f0d7c95f6cd60": 1795152448,
+    "01625378954a55da0fe7ce93c5cbb3b2e174c797": 1795152517
+   },
+   "expected": null,
+   "note": "committer time; does not prove when results were first viewed"
+  },
+  {
+   "id": "R2.1",
+   "scope": "H/score-bytes",
+   "ok": true,
+   "observed": [
+    "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+    "c8dd1951cab6495d2585e668c08557cee37cec48547d0bfddb13a5b69b38a062"
+   ],
+   "expected": [
+    "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+    "c8dd1951cab6495d2585e668c08557cee37cec48547d0bfddb13a5b69b38a062"
+   ],
+   "note": null
+  },
+  {
+   "id": "R2.2",
+   "scope": "H/trial-prediction",
+   "ok": true,
+   "observed": "3b94516f4657c69e1ce9cfd8aa63126c22147ea9b79eb4ed9dea39b8b8b6bb7f",
+   "expected": "3b94516f4657c69e1ce9cfd8aa63126c22147ea9b79eb4ed9dea39b8b8b6bb7f",
+   "note": "author serialization reproduced from the reviewer copy; reviewer copy parses equal"
+  },
+  {
+   "id": "R2.3",
+   "scope": "H/retained-projection",
+   "ok": true,
+   "observed": "65716cd15683c2574c95143777a6a3c6af926f4f9cd7cf3e8673fccfdff885a2",
+   "expected": "65716cd15683c2574c95143777a6a3c6af926f4f9cd7cf3e8673fccfdff885a2",
+   "note": null
+  },
+  {
+   "id": "R2.4",
+   "scope": "H/changed-pointers",
+   "ok": true,
+   "observed": [
+    "/pages/1/tables"
+   ],
+   "expected": [
+    "/pages/1/tables"
+   ],
+   "note": null
+  },
+  {
+   "id": "R2.4",
+   "scope": "H/001-changed-pages",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.4",
+   "scope": "H/001-edits-extras-unflagged",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.5",
+   "scope": "H/packet-invariant",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.6",
+   "scope": "H/per-page-invariant-hashes",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.7",
+   "scope": "H/counts",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.8",
+   "scope": "H/author-admission-hashes-vs-reviewer-copy",
+   "ok": true,
+   "observed": [],
+   "expected": [],
+   "note": "20 files"
+  },
+  {
+   "id": "R2.9",
+   "scope": "H/published-examples",
+   "ok": true,
+   "observed": 4,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.1",
+   "scope": "A/score-bytes",
+   "ok": true,
+   "observed": [
+    "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+    "6c945ebfb8d3e0b0c011ccf9b0f34c3219e71bfe35ad04a5a54a970400ef6409"
+   ],
+   "expected": [
+    "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+    "6c945ebfb8d3e0b0c011ccf9b0f34c3219e71bfe35ad04a5a54a970400ef6409"
+   ],
+   "note": null
+  },
+  {
+   "id": "R2.2",
+   "scope": "A/trial-prediction",
+   "ok": true,
+   "observed": "b5c121612016b48b25a2caa105f39519e801de058fb1a447d5c25170e189906b",
+   "expected": "b5c121612016b48b25a2caa105f39519e801de058fb1a447d5c25170e189906b",
+   "note": "author serialization reproduced from the reviewer copy; reviewer copy parses equal"
+  },
+  {
+   "id": "R2.3",
+   "scope": "A/retained-projection",
+   "ok": true,
+   "observed": "50073ee03cf5a322a0dbe68e203cb0761201c3ac8a1312df302f35950b06ca5f",
+   "expected": "50073ee03cf5a322a0dbe68e203cb0761201c3ac8a1312df302f35950b06ca5f",
+   "note": null
+  },
+  {
+   "id": "R2.4",
+   "scope": "A/changed-pointers",
+   "ok": true,
+   "observed": [
+    "/pages/4/tables",
+    "/pages/9/tables",
+    "/pages/14/tables",
+    "/pages/19/tables",
+    "/pages/24/tables",
+    "/pages/29/tables",
+    "/pages/34/tables",
+    "/pages/39/tables",
+    "/pages/44/tables",
+    "/pages/49/tables",
+    "/pages/54/tables",
+    "/pages/59/tables"
+   ],
+   "expected": [
+    "/pages/4/tables",
+    "/pages/9/tables",
+    "/pages/14/tables",
+    "/pages/19/tables",
+    "/pages/24/tables",
+    "/pages/29/tables",
+    "/pages/34/tables",
+    "/pages/39/tables",
+    "/pages/44/tables",
+    "/pages/49/tables",
+    "/pages/54/tables",
+    "/pages/59/tables"
+   ],
+   "note": null
+  },
+  {
+   "id": "R2.4",
+   "scope": "A/001-changed-pages",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.4",
+   "scope": "A/001-iou",
+   "ok": true,
+   "observed": [
+    0.9966666666666667
+   ],
+   "expected": [
+    0.9966666666666667
+   ],
+   "note": null
+  },
+  {
+   "id": "R2.4",
+   "scope": "A/001-edits-extras-unflagged",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.5",
+   "scope": "A/packet-invariant",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.6",
+   "scope": "A/per-page-invariant-hashes",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.7",
+   "scope": "A/counts",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.8",
+   "scope": "A/author-admission-hashes-vs-reviewer-copy",
+   "ok": true,
+   "observed": [],
+   "expected": [],
+   "note": "188 files"
+  },
+  {
+   "id": "R2.9",
+   "scope": "A/published-examples",
+   "ok": true,
+   "observed": 4,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R2.10",
+   "scope": "constructed/gain-loss",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R3.0",
+   "scope": "H/populations",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R3.1",
+   "scope": "H/span-count-claim",
+   "ok": true,
+   "observed": 88,
+   "expected": 88,
+   "note": null
+  },
+  {
+   "id": "R3.0",
+   "scope": "A/populations",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R3.1",
+   "scope": "A/span-count-claim",
+   "ok": true,
+   "observed": 1301,
+   "expected": 1301,
+   "note": null
+  },
+  {
+   "id": "R3.2",
+   "scope": "row-level-disagreements",
+   "ok": true,
+   "observed": 0,
+   "expected": 0,
+   "note": null
+  },
+  {
+   "id": "R4.1",
+   "scope": "H/pair-summary-from-rows",
+   "ok": true,
+   "observed": {
+    "rows": 20,
+    "gain": 0,
+    "loss": 1,
+    "unchanged_wrong": 5,
+    "unchanged_right": 14,
+    "unavailable_score_rows": 0,
+    "wrong_both_observation_changed": 0,
+    "null_observed_before": 0,
+    "null_observed_after": 1,
+    "flagged_before": 0,
+    "flagged_after": 0,
+    "flag_changes": 0
+   },
+   "expected": {
+    "rows": 20,
+    "gain": 0,
+    "loss": 1,
+    "unchanged_wrong": 5,
+    "unchanged_right": 14,
+    "unavailable_score_rows": 0,
+    "wrong_both_observation_changed": 0,
+    "null_observed_before": 0,
+    "null_observed_after": 1,
+    "flagged_before": 0,
+    "flagged_after": 0,
+    "flag_changes": 0
+   },
+   "note": null
+  },
+  {
+   "id": "R4.1",
+   "scope": "H/pair-unavailable-is-constant",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "pair paired.py summarize() hard-codes unavailable_score_rows=0; all rows have scores here"
+  },
+  {
+   "id": "R4.2",
+   "scope": "H/words-cells-summary-from-rows",
+   "ok": true,
+   "observed": [
+    5,
+    {
+     "anchored_raw_word_character_difference": 5
+    },
+    0
+   ],
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R4.2",
+   "scope": "H/words-prose-summary-from-rows",
+   "ok": true,
+   "observed": [
+    3,
+    {
+     "anchored_raw_line_character_difference": 1,
+     "raw_line_whitespace_difference": 2
+    },
+    0
+   ],
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R4.3",
+   "scope": "H/002-cells",
+   "ok": true,
+   "observed": {
+    "winrt_text|character_only": 5
+   },
+   "expected": {
+    "cells_wrong": 5,
+    "cells_raw": 5,
+    "cells_none": 0,
+    "prose_wrong": 3,
+    "prose_raw": 3,
+    "empty_losses": 1
+   },
+   "note": null
+  },
+  {
+   "id": "R4.3",
+   "scope": "H/002-prose",
+   "ok": true,
+   "observed": {
+    "winrt_text|whitespace_only": 2,
+    "winrt_text|character_only": 1
+   },
+   "expected": {
+    "cells_wrong": 5,
+    "cells_raw": 5,
+    "cells_none": 0,
+    "prose_wrong": 3,
+    "prose_raw": 3,
+    "empty_losses": 1
+   },
+   "note": null
+  },
+  {
+   "id": "R4.4",
+   "scope": "H/001-claims",
+   "ok": true,
+   "observed": {
+    "correct_before": 15,
+    "correct_after": 14,
+    "gain": 0,
+    "loss": 1,
+    "unchanged_wrong": 5,
+    "unchanged_right": 14,
+    "already_fallback": 0,
+    "prose_crit_wrong": [
+     3,
+     8
+    ],
+    "table_crit_wrong": [
+     5,
+     11
+    ],
+    "lines": [
+     13,
+     16
+    ],
+    "flagged": 0
+   },
+   "expected": {
+    "correct_before": 15,
+    "correct_after": 14,
+    "gain": 0,
+    "loss": 1,
+    "unchanged_wrong": 5,
+    "unchanged_right": 14,
+    "already_fallback": 0,
+    "prose_crit_wrong": [
+     3,
+     8
+    ],
+    "table_crit_wrong": [
+     5,
+     11
+    ],
+    "lines": [
+     13,
+     16
+    ],
+    "flagged": 0
+   },
+   "note": null
+  },
+  {
+   "id": "R4.4",
+   "scope": "H/001-critical-loss-free",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R4.5",
+   "scope": "H/coordinator-reconciliation",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R4.1",
+   "scope": "A/pair-summary-from-rows",
+   "ok": true,
+   "observed": {
+    "rows": 300,
+    "gain": 0,
+    "loss": 22,
+    "unchanged_wrong": 65,
+    "unchanged_right": 213,
+    "unavailable_score_rows": 0,
+    "wrong_both_observation_changed": 5,
+    "null_observed_before": 0,
+    "null_observed_after": 27,
+    "flagged_before": 0,
+    "flagged_after": 0,
+    "flag_changes": 0
+   },
+   "expected": {
+    "rows": 300,
+    "gain": 0,
+    "loss": 22,
+    "unchanged_wrong": 65,
+    "unchanged_right": 213,
+    "unavailable_score_rows": 0,
+    "wrong_both_observation_changed": 5,
+    "null_observed_before": 0,
+    "null_observed_after": 27,
+    "flagged_before": 0,
+    "flagged_after": 0,
+    "flag_changes": 0
+   },
+   "note": null
+  },
+  {
+   "id": "R4.1",
+   "scope": "A/pair-unavailable-is-constant",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "pair paired.py summarize() hard-codes unavailable_score_rows=0; all rows have scores here"
+  },
+  {
+   "id": "R4.2",
+   "scope": "A/words-cells-summary-from-rows",
+   "ok": true,
+   "observed": [
+    65,
+    {
+     "anchored_raw_line_character_difference": 4,
+     "anchored_raw_word_character_difference": 54,
+     "no_reference_eligible_group": 5,
+     "raw_line_whitespace_difference": 2
+    },
+    4
+   ],
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R4.2",
+   "scope": "A/words-prose-summary-from-rows",
+   "ok": true,
+   "observed": [
+    51,
+    {
+     "anchored_raw_line_character_difference": 50,
+     "raw_line_whitespace_difference": 1
+    },
+    16
+   ],
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R4.3",
+   "scope": "A/002-cells",
+   "ok": true,
+   "observed": {
+    "winrt_text|character_only": 54,
+    "no_intersecting_word|empty_value": 5,
+    "winrt_text|whitespace_only": 2,
+    "winrt_text|character_and_split": 4
+   },
+   "expected": {
+    "cells_wrong": 65,
+    "cells_raw": 60,
+    "cells_none": 5,
+    "prose_wrong": 51,
+    "prose_raw": 51,
+    "empty_losses": 22,
+    "cell_single_word_char": 54,
+    "cell_line_char_split": 4,
+    "cell_whitespace": 2,
+    "prose_char": 50,
+    "prose_char_split": 16,
+    "prose_whitespace": 1
+   },
+   "note": null
+  },
+  {
+   "id": "R4.3",
+   "scope": "A/002-prose",
+   "ok": true,
+   "observed": {
+    "winrt_text|character_only": 34,
+    "winrt_text|character_and_split": 16,
+    "winrt_text|whitespace_only": 1
+   },
+   "expected": {
+    "cells_wrong": 65,
+    "cells_raw": 60,
+    "cells_none": 5,
+    "prose_wrong": 51,
+    "prose_raw": 51,
+    "empty_losses": 22,
+    "cell_single_word_char": 54,
+    "cell_line_char_split": 4,
+    "cell_whitespace": 2,
+    "prose_char": 50,
+    "prose_char_split": 16,
+    "prose_whitespace": 1
+   },
+   "note": null
+  },
+  {
+   "id": "R4.3",
+   "scope": "A/002-split-detail",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R4.4",
+   "scope": "A/001-claims",
+   "ok": true,
+   "observed": {
+    "correct_before": 235,
+    "correct_after": 213,
+    "gain": 0,
+    "loss": 22,
+    "unchanged_wrong": 65,
+    "unchanged_right": 213,
+    "already_fallback": 0,
+    "prose_crit_wrong": [
+     51,
+     108
+    ],
+    "table_crit_wrong": [
+     43,
+     144
+    ],
+    "lines": [
+     237,
+     288
+    ],
+    "flagged": 0
+   },
+   "expected": {
+    "correct_before": 235,
+    "correct_after": 213,
+    "gain": 0,
+    "loss": 22,
+    "unchanged_wrong": 65,
+    "unchanged_right": 213,
+    "already_fallback": 0,
+    "prose_crit_wrong": [
+     51,
+     108
+    ],
+    "table_crit_wrong": [
+     43,
+     144
+    ],
+    "lines": [
+     237,
+     288
+    ],
+    "flagged": 0
+   },
+   "note": null
+  },
+  {
+   "id": "R4.4",
+   "scope": "A/001-critical-loss-free",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R4.4",
+   "scope": "A/001-missing-both",
+   "ok": true,
+   "observed": [
+    "page/5/table/1/row/5/col/1",
+    "page/15/table/1/row/4/col/2",
+    "page/20/table/1/row/5/col/1",
+    "page/30/table/1/row/3/col/2",
+    "page/30/table/1/row/5/col/1"
+   ],
+   "expected": [
+    "page/5/table/1/row/5/col/1",
+    "page/15/table/1/row/4/col/2",
+    "page/20/table/1/row/5/col/1",
+    "page/30/table/1/row/3/col/2",
+    "page/30/table/1/row/5/col/1"
+   ],
+   "note": null
+  },
+  {
+   "id": "R4.5",
+   "scope": "A/coordinator-reconciliation",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "R5.1",
+   "scope": "witness/W1",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "author witness equals the reviewer's frozen trace"
+  },
+  {
+   "id": "R5.1",
+   "scope": "witness/W2",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "author witness equals the reviewer's frozen trace"
+  },
+  {
+   "id": "R5.1",
+   "scope": "witness/W3",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "author witness equals the reviewer's frozen trace"
+  },
+  {
+   "id": "R5.1",
+   "scope": "witness/W4",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "author witness equals the reviewer's frozen trace"
+  },
+  {
+   "id": "S1",
+   "scope": "H/historical-helper",
+   "ok": true,
+   "observed": {
+    "surplus_numeric_tokens": 10,
+    "surplus_pages": 4,
+    "missing_numeric_tokens": 8,
+    "tokens_printed_on_other_pages": 0,
+    "pages_better_matching_other_truth": [],
+    "flagged_entries": 0
+   },
+   "expected": {
+    "surplus_numeric_tokens": 10,
+    "surplus_pages": 4,
+    "missing_numeric_tokens": 8,
+    "tokens_printed_on_other_pages": 0,
+    "pages_better_matching_other_truth": [],
+    "flagged_entries": 0
+   },
+   "note": null
+  },
+  {
+   "id": "S2",
+   "scope": "H/independent-missing-surplus",
+   "ok": true,
+   "observed": [
+    8,
+    10
+   ],
+   "expected": [
+    8,
+    10
+   ],
+   "note": null
+  },
+  {
+   "id": "S3",
+   "scope": "H/archive-pins-supplementary",
+   "ok": true,
+   "observed": 8,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "S4",
+   "scope": "H/tables-removal-invariant",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "page-text numeric checks do not read tables"
+  },
+  {
+   "id": "S1",
+   "scope": "A/historical-helper",
+   "ok": true,
+   "observed": {
+    "surplus_numeric_tokens": 126,
+    "surplus_pages": 53,
+    "missing_numeric_tokens": 100,
+    "tokens_printed_on_other_pages": 7,
+    "pages_better_matching_other_truth": [],
+    "flagged_entries": 0
+   },
+   "expected": {
+    "surplus_numeric_tokens": 126,
+    "surplus_pages": 53,
+    "missing_numeric_tokens": 100,
+    "tokens_printed_on_other_pages": 7,
+    "pages_better_matching_other_truth": [],
+    "flagged_entries": 0
+   },
+   "note": null
+  },
+  {
+   "id": "S2",
+   "scope": "A/independent-missing-surplus",
+   "ok": true,
+   "observed": [
+    100,
+    126
+   ],
+   "expected": [
+    100,
+    126
+   ],
+   "note": null
+  },
+  {
+   "id": "S3",
+   "scope": "A/archive-pins-supplementary",
+   "ok": true,
+   "observed": 100,
+   "expected": null,
+   "note": null
+  },
+  {
+   "id": "S4",
+   "scope": "A/tables-removal-invariant",
+   "ok": true,
+   "observed": null,
+   "expected": null,
+   "note": "page-text numeric checks do not read tables"
+  }
+ ],
+ "summary": {
+  "total": 104,
+  "passed": 104,
+  "failed": 0,
+  "failed_ids": []
+ },
+ "ended_utc": "2026-11-20T06:01:10.678632Z"
+}
