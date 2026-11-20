@@ -1,0 +1,457 @@
+{
+ "kind": "wp0019-review-supplement-timing",
+ "checks": [
+  {
+   "id": "P1.order.LIFT-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "arm execution order (receipt key order) equals the order label",
+   "observed": [
+    "A",
+    "B"
+   ],
+   "scope": null
+  },
+  {
+   "id": "P2.warmup.LIFT-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "excluded warm-up on page 1; both arms' page-1 full identity equals it",
+   "observed": {
+    "page": 1,
+    "elapsed_ns": 345372900,
+    "full_identity": "c87cbf294e14562dab1a4ab1960eb607e714e899a68330ffc0628ac4a21fb561",
+    "excluded": true
+   },
+   "scope": null
+  },
+  {
+   "id": "P3.same_worker.LIFT-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "every full and crop response in both arms came from the single warmed worker PID, en-US",
+   "observed": {
+    "pids": {
+     "16648": 60
+    },
+    "langs": {
+     "en-US": 60
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "P4.identities.LIFT-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "both arms' semantic full identities equal page by page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P5.bound_outputs.LIFT-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "execute.py exit 0 and every bound output digest re-verifies",
+   "observed": {
+    "exit": 0,
+    "files": 15
+   },
+   "scope": null
+  },
+  {
+   "id": "P6.no_crops_A.LIFT-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-only arm attempted no crop",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P7.arithmetic.LIFT-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "receipt added ms/page and crop count reproduce from elapsed_ns and observed calls",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P1.order.VALVE-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "arm execution order (receipt key order) equals the order label",
+   "observed": [
+    "B",
+    "A"
+   ],
+   "scope": null
+  },
+  {
+   "id": "P2.warmup.VALVE-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "excluded warm-up on page 1; both arms' page-1 full identity equals it",
+   "observed": {
+    "page": 1,
+    "elapsed_ns": 348311800,
+    "full_identity": "aff8401b1606481b22bccda42da564e56456f68ee467770cc97c89224652f036",
+    "excluded": true
+   },
+   "scope": null
+  },
+  {
+   "id": "P3.same_worker.VALVE-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "every full and crop response in both arms came from the single warmed worker PID, en-US",
+   "observed": {
+    "pids": {
+     "3852": 78
+    },
+    "langs": {
+     "en-US": 78
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "P4.identities.VALVE-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "both arms' semantic full identities equal page by page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P5.bound_outputs.VALVE-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "execute.py exit 0 and every bound output digest re-verifies",
+   "observed": {
+    "exit": 0,
+    "files": 15
+   },
+   "scope": null
+  },
+  {
+   "id": "P6.no_crops_A.VALVE-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-only arm attempted no crop",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P7.arithmetic.VALVE-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "receipt added ms/page and crop count reproduce from elapsed_ns and observed calls",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P1.order.LIFT-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "arm execution order (receipt key order) equals the order label",
+   "observed": [
+    "B",
+    "A"
+   ],
+   "scope": null
+  },
+  {
+   "id": "P2.warmup.LIFT-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "excluded warm-up on page 1; both arms' page-1 full identity equals it",
+   "observed": {
+    "page": 1,
+    "elapsed_ns": 342537500,
+    "full_identity": "c87cbf294e14562dab1a4ab1960eb607e714e899a68330ffc0628ac4a21fb561",
+    "excluded": true
+   },
+   "scope": null
+  },
+  {
+   "id": "P3.same_worker.LIFT-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "every full and crop response in both arms came from the single warmed worker PID, en-US",
+   "observed": {
+    "pids": {
+     "8164": 60
+    },
+    "langs": {
+     "en-US": 60
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "P4.identities.LIFT-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "both arms' semantic full identities equal page by page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P5.bound_outputs.LIFT-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "execute.py exit 0 and every bound output digest re-verifies",
+   "observed": {
+    "exit": 0,
+    "files": 15
+   },
+   "scope": null
+  },
+  {
+   "id": "P6.no_crops_A.LIFT-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-only arm attempted no crop",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P7.arithmetic.LIFT-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "receipt added ms/page and crop count reproduce from elapsed_ns and observed calls",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P1.order.VALVE-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "arm execution order (receipt key order) equals the order label",
+   "observed": [
+    "A",
+    "B"
+   ],
+   "scope": null
+  },
+  {
+   "id": "P2.warmup.VALVE-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "excluded warm-up on page 1; both arms' page-1 full identity equals it",
+   "observed": {
+    "page": 1,
+    "elapsed_ns": 348589800,
+    "full_identity": "aff8401b1606481b22bccda42da564e56456f68ee467770cc97c89224652f036",
+    "excluded": true
+   },
+   "scope": null
+  },
+  {
+   "id": "P3.same_worker.VALVE-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "every full and crop response in both arms came from the single warmed worker PID, en-US",
+   "observed": {
+    "pids": {
+     "3180": 78
+    },
+    "langs": {
+     "en-US": 78
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "P4.identities.VALVE-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "both arms' semantic full identities equal page by page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P5.bound_outputs.VALVE-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "execute.py exit 0 and every bound output digest re-verifies",
+   "observed": {
+    "exit": 0,
+    "files": 15
+   },
+   "scope": null
+  },
+  {
+   "id": "P6.no_crops_A.VALVE-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-only arm attempted no crop",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P7.arithmetic.VALVE-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "receipt added ms/page and crop count reproduce from elapsed_ns and observed calls",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P8.serial",
+   "state": "PASS",
+   "gating": true,
+   "check": "the timed runs never overlapped (execute.py UTC receipts)",
+   "observed": [],
+   "scope": null
+  }
+ ],
+ "check_summary": {
+  "PASS": 29
+ },
+ "failed_checks": [],
+ "runs": {
+  "LIFT-AB": {
+   "family": "LIFT",
+   "order": "AB",
+   "pages": 6,
+   "startup_ms": 578.3302,
+   "warmup_ms": 345.3729,
+   "engine_startup_ms": 578.2126,
+   "engine_pid": 16648,
+   "python_pid": 3344,
+   "A": {
+    "seconds": 2.0594945,
+    "pages_per_min": 174.80017547995394,
+    "ms_per_page": 343.2490833333333
+   },
+   "B": {
+    "seconds": 2.3783225,
+    "pages_per_min": 151.36719263262236,
+    "ms_per_page": 396.38708333333335,
+    "crops": 48,
+    "crops_per_page": 8.0,
+    "crop_calls_observed": 48
+   },
+   "added_ms_per_page": 53.138,
+   "author_added_ms_per_page": 53.138,
+   "wrapper_seconds": 5.6929460000010295,
+   "startUtc": "2026-11-20T19:59:19.127250+00:00",
+   "endUtc": "2026-11-20T19:59:24.816143+00:00"
+  },
+  "VALVE-BA": {
+   "family": "VALVE",
+   "order": "BA",
+   "pages": 6,
+   "startup_ms": 553.4549,
+   "warmup_ms": 348.3118,
+   "engine_startup_ms": 553.3368,
+   "engine_pid": 3852,
+   "python_pid": 14668,
+   "A": {
+    "seconds": 1.9701145,
+    "pages_per_min": 182.73049612091074,
+    "ms_per_page": 328.35241666666667
+   },
+   "B": {
+    "seconds": 2.4689912,
+    "pages_per_min": 145.8085391312857,
+    "ms_per_page": 411.49853333333334,
+    "crops": 66,
+    "crops_per_page": 11.0,
+    "crop_calls_observed": 66
+   },
+   "added_ms_per_page": 83.14611666666667,
+   "author_added_ms_per_page": 83.14611666666667,
+   "wrapper_seconds": 5.669918900000994,
+   "startUtc": "2026-11-20T19:59:24.909440+00:00",
+   "endUtc": "2026-11-20T19:59:30.577653+00:00"
+  },
+  "LIFT-BA": {
+   "family": "LIFT",
+   "order": "BA",
+   "pages": 6,
+   "startup_ms": 557.7144,
+   "warmup_ms": 342.5375,
+   "engine_startup_ms": 557.5926,
+   "engine_pid": 8164,
+   "python_pid": 9144,
+   "A": {
+    "seconds": 2.0020108,
+    "pages_per_min": 179.81920976650076,
+    "ms_per_page": 333.6684666666667
+   },
+   "B": {
+    "seconds": 2.3874032,
+    "pages_per_min": 150.79145407864075,
+    "ms_per_page": 397.9005333333334,
+    "crops": 48,
+    "crops_per_page": 8.0,
+    "crop_calls_observed": 48
+   },
+   "added_ms_per_page": 64.23206666666667,
+   "author_added_ms_per_page": 64.23206666666667,
+   "wrapper_seconds": 5.6412414999995235,
+   "startUtc": "2026-11-20T19:59:30.669672+00:00",
+   "endUtc": "2026-11-20T19:59:36.310247+00:00"
+  },
+  "VALVE-AB": {
+   "family": "VALVE",
+   "order": "AB",
+   "pages": 6,
+   "startup_ms": 563.1274,
+   "warmup_ms": 348.5898,
+   "engine_startup_ms": 563.0122,
+   "engine_pid": 3180,
+   "python_pid": 5932,
+   "A": {
+    "seconds": 2.0006856,
+    "pages_per_min": 179.93831714488275,
+    "ms_per_page": 333.4476
+   },
+   "B": {
+    "seconds": 2.4240522,
+    "pages_per_min": 148.5116533381583,
+    "ms_per_page": 404.00870000000003,
+    "crops": 66,
+    "crops_per_page": 11.0,
+    "crop_calls_observed": 66
+   },
+   "added_ms_per_page": 70.5611,
+   "author_added_ms_per_page": 70.5611,
+   "wrapper_seconds": 5.663229899999351,
+   "startUtc": "2026-11-20T19:59:36.405855+00:00",
+   "endUtc": "2026-11-20T19:59:42.060399+00:00"
+  }
+ },
+ "pooled": {
+  "all": {
+   "pages": 24,
+   "A_seconds": 8.0323054,
+   "B_seconds": 9.6587691,
+   "A_pages_per_min": 179.2760519290016,
+   "B_pages_per_min": 149.087320039569,
+   "added_ms_per_page": 67.76932083333335,
+   "crops_per_page": 9.5
+  },
+  "AB": {
+   "pages": 12,
+   "A_seconds": 4.0601801,
+   "B_seconds": 4.8023747,
+   "A_pages_per_min": 177.33203509864006,
+   "B_pages_per_min": 149.92582732038798,
+   "added_ms_per_page": 61.84954999999996,
+   "crops_per_page": 9.5
+  },
+  "BA": {
+   "pages": 12,
+   "A_seconds": 3.9721253,
+   "B_seconds": 4.8563944,
+   "A_pages_per_min": 181.2631640799448,
+   "B_pages_per_min": 148.25813982488737,
+   "added_ms_per_page": 73.68909166666667,
+   "crops_per_page": 9.5
+  }
+ },
+ "boundary": "run.py arm clock: ready-input page loop + output dir through durable prediction write; startup, warm-up, module load, receipt and shutdown excluded and reported separately"
+}
