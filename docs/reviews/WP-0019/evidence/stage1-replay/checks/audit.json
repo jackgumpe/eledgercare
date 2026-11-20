@@ -1,0 +1,172 @@
+{
+ "kind": "wp0019-review-audit-summary",
+ "checks": [
+  {
+   "id": "A0.no_shell_spawn.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "no os.system/exec/spawn process launch",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A1.no_denied_reads.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "no open/list below a denied prefix (truth, scores, keys, archive, author scratch)",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A2.no_network.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "no socket/urllib event in the Python process",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A3.processes.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "only the declared worker executable is launched",
+   "observed": [
+    "powershell.exe"
+   ],
+   "scope": null
+  },
+  {
+   "id": "A4.crops_in_memory.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "no image file is written during the run (crops stay in memory)",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A5.no_truth_names.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "no file named like ground truth/score/keys is opened",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A6.complete_log.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "audit log not truncated",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "A0.no_shell_spawn.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "no os.system/exec/spawn process launch",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A1.no_denied_reads.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "no open/list below a denied prefix (truth, scores, keys, archive, author scratch)",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A2.no_network.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "no socket/urllib event in the Python process",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A3.processes.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "only the declared worker executable is launched",
+   "observed": [
+    "powershell.exe"
+   ],
+   "scope": null
+  },
+  {
+   "id": "A4.crops_in_memory.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "no image file is written during the run (crops stay in memory)",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A5.no_truth_names.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "no file named like ground truth/score/keys is opened",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "A6.complete_log.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "audit log not truncated",
+   "observed": null,
+   "scope": null
+  }
+ ],
+ "check_summary": {
+  "PASS": 14
+ },
+ "failed_checks": [],
+ "failed_observations": [],
+ "logs": {
+  "H": {
+   "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\wp0019-data\\review\\stage1-audit\\H-AB.audit.json",
+   "sha256": "8584259dcf1a39c0b5be14df58d1050256b563db1cff2e9c5a32efd79369b8a2",
+   "counts": {
+    "open": 203,
+    "os.listdir": 16,
+    "ctypes.dlopen": 12,
+    "os.scandir": 2,
+    "subprocess.Popen": 1,
+    "_winapi.CreateProcess": 1
+   },
+   "executables": [
+    "powershell.exe"
+   ],
+   "subprocesses": [
+    {
+     "executable": null,
+     "argv": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\crop19-review-code\\docs\\research\\WP-0019\\carbon\\worker.ps1\"",
+     "cwd": null
+    }
+   ]
+  },
+  "A": {
+   "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\wp0019-data\\review\\stage1-audit\\A-AB.audit.json",
+   "sha256": "fc5939d11d39e3b3661d2153974180a6af9269aae3e288c5683063e1372dffe6",
+   "counts": {
+    "open": 539,
+    "os.listdir": 16,
+    "ctypes.dlopen": 124,
+    "os.scandir": 2,
+    "subprocess.Popen": 1,
+    "_winapi.CreateProcess": 1
+   },
+   "executables": [
+    "powershell.exe"
+   ],
+   "subprocesses": [
+    {
+     "executable": null,
+     "argv": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\crop19-review-code\\docs\\research\\WP-0019\\carbon\\worker.ps1\"",
+     "cwd": null
+    }
+   ]
+  }
+ }
+}

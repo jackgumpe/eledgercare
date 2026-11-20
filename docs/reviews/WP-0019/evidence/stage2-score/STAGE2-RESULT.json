@@ -1,0 +1,1465 @@
+{
+ "kind": "wp0019-review-STAGE2-RESULT",
+ "score": {
+  "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s2score/stage1-score.json",
+  "sha256": "86b41dac25280597a65ca68a6ded6899e371a08728dd70c944e5d771668ca508"
+ },
+ "decision_frozen": {
+  "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s2checks/decision-frozen-stage2.json",
+  "sha256": "70ff5cbb538d9b936e2dce5f7d6c534805b7e8e4af410803f25d9fa6ce041dd3",
+  "verdict": "INCONCLUSIVE_CONTROL",
+  "control_failures": {
+   "static": [
+    "K1.no_reference_tokens_in_code"
+   ],
+   "audit": [
+    "NOT_SUPPLIED"
+   ]
+  }
+ },
+ "families": {
+  "LIFT": {
+   "strata": {
+    "path": "C:/Users/jackg/Asp.net Projects/eledgercare/docs/coordination/WP-0019/fresh-keys/LIFT/strata.json",
+    "sha256": "4cbaaa5b0e51d365f161442e2c74265aefce0695d662c69cbdf464eeab3a53d9"
+   },
+   "runs": {
+    "blind-AB": {
+     "strata_locations_missing_from_rows": [],
+     "stratum_table": {
+      "blank|noncritical|RR|selected|agree|unflagged|keep_agree": 6,
+      "confusable|critical|WW|selected|agree|unflagged|keep_agree": 4,
+      "confusable|critical|WW|selected|disagree|flagged|keep_no_supported_replacement": 5,
+      "legitimate_space|critical|RR|selected|agree|unflagged|keep_agree": 12,
+      "numeric_negative|noncritical|RR|selected|agree|unflagged|keep_agree": 6,
+      "ordinary|critical|RR|selected|agree|unflagged|keep_agree": 8,
+      "ordinary|critical|RR|selected|disagree|flagged|keep_no_supported_replacement": 1,
+      "text_negative|noncritical|RR|unselected|unselected|unflagged|None": 6,
+      "text_negative|noncritical|WW|unselected|unselected|unflagged|None": 6,
+      "unstratified|noncritical|RR|selected|agree|unflagged|keep_agree": 6,
+      "unstratified|noncritical|RR|unselected|unselected|unflagged|None": 66
+     },
+     "criticals": 30,
+     "transitions": {
+      "WW": 9,
+      "RR": 21
+     },
+     "selected_criticals": 30,
+     "unselected_criticals": 0,
+     "by_stratum": {
+      "blank": {
+       "RR": 6
+      },
+      "confusable": {
+       "WW": 9
+      },
+      "legitimate_space": {
+       "RR": 12
+      },
+      "numeric_negative": {
+       "RR": 6
+      },
+      "ordinary": {
+       "RR": 9
+      },
+      "text_negative": {
+       "RR": 6,
+       "WW": 6
+      }
+     },
+     "negatives_changed": [],
+     "spaced_id_rows": [
+      {
+       "at": "page/1/line/4",
+       "expected": "ZW 6587",
+       "base": "Shift group ZW 6587",
+       "treat": "Shift group ZW 6587",
+       "transition": "RR",
+       "crop": "Shift group ZW 6587",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/1/table/1/row/4/col/2",
+       "expected": "QY 3080",
+       "base": "QY 3080",
+       "treat": "QY 3080",
+       "transition": "RR",
+       "crop": "QY 3080",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/line/4",
+       "expected": "WX 7220",
+       "base": "Shift group WX 7220",
+       "treat": "Shift group WX 7220",
+       "transition": "RR",
+       "crop": "Shift group WX 7220",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/table/1/row/4/col/2",
+       "expected": "VE 3265",
+       "base": "VE 3265",
+       "treat": "VE 3265",
+       "transition": "RR",
+       "crop": "VE 3265",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/line/4",
+       "expected": "WH 2507",
+       "base": "Shift group WH 2507",
+       "treat": "Shift group WH 2507",
+       "transition": "RR",
+       "crop": "Shift group WH 2507",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/table/1/row/4/col/2",
+       "expected": "ZP 7212",
+       "base": "ZP 7212",
+       "treat": "ZP 7212",
+       "transition": "RR",
+       "crop": "ZP 7212",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/line/4",
+       "expected": "XV 8695",
+       "base": "Shift group XV 8695",
+       "treat": "Shift group XV 8695",
+       "transition": "RR",
+       "crop": "Shift group XV 8695",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/table/1/row/4/col/2",
+       "expected": "JT 8720",
+       "base": "JT 8720",
+       "treat": "JT 8720",
+       "transition": "RR",
+       "crop": "JT 8720",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/line/4",
+       "expected": "JD 2354",
+       "base": "Shift group JD 2354",
+       "treat": "Shift group JD 2354",
+       "transition": "RR",
+       "crop": "Shift group JD 2354",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/table/1/row/4/col/2",
+       "expected": "CT 3359",
+       "base": "CT 3359",
+       "treat": "CT 3359",
+       "transition": "RR",
+       "crop": "CT 3359",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/line/4",
+       "expected": "HX 9700",
+       "base": "Shift group HX 9700",
+       "treat": "Shift group HX 9700",
+       "transition": "RR",
+       "crop": "Shift group HX 9700",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/table/1/row/4/col/2",
+       "expected": "ZE 3449",
+       "base": "ZE 3449",
+       "treat": "ZE 3449",
+       "transition": "RR",
+       "crop": "ZE 3449",
+       "decision": "keep_agree"
+      }
+     ],
+     "wrong_critical_rows": [
+      {
+       "at": "page/1/line/3",
+       "stratum": "confusable",
+       "expected": "O1B0B-492",
+       "base": "Release ref 01 BOB-492",
+       "treat": "Release ref 01 BOB-492",
+       "flagged": true,
+       "crop": "Release ref 01 BOB-4",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/1/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "O8L00-115",
+       "base": "08100-115",
+       "treat": "08100-115",
+       "flagged": true,
+       "crop": "08LOO-115",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/2/line/3",
+       "stratum": "ordinary",
+       "expected": "MCU46-461",
+       "base": "Release ref MCU46-461",
+       "treat": "Release ref MCU46-461",
+       "flagged": true,
+       "crop": "Release ref MCU46\u20144",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/2/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "O180B-763",
+       "base": "01808-763",
+       "treat": "01808-763",
+       "flagged": true,
+       "crop": "0180B-763",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/3/line/3",
+       "stratum": "confusable",
+       "expected": "B8O0L-915",
+       "base": "Release ref B800L-915",
+       "treat": "Release ref B800L-915",
+       "flagged": false,
+       "crop": "Release ref B800L-915",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "I1O88-649",
+       "base": "II 088-649",
+       "treat": "II 088-649",
+       "flagged": false,
+       "crop": "II 088-649",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "B1B1O-219",
+       "base": "BIBIO-219",
+       "treat": "BIBIO-219",
+       "flagged": false,
+       "crop": "BIBIO-219",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/line/3",
+       "stratum": "confusable",
+       "expected": "I8L88-798",
+       "base": "Release ref 18188-798",
+       "treat": "Release ref 18188-798",
+       "flagged": true,
+       "crop": "Release ref 181.88\u2014798",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/5/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "L01IL-463",
+       "base": "LOIIL-463",
+       "treat": "LOIIL-463",
+       "flagged": false,
+       "crop": "LOIIL-463",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "O1L80-254",
+       "base": "01 180-254",
+       "treat": "01 180-254",
+       "flagged": true,
+       "crop": "01 L80-254",
+       "decision": "keep_no_supported_replacement"
+      }
+     ],
+     "summary": {
+      "WR": 0,
+      "RW": 0,
+      "WW": 9,
+      "RR": 21,
+      "WW_changed": 5,
+      "net": 0,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "01": 6,
+       "00": 24
+      },
+      "blanks": {
+       "reference": 6,
+       "preserved": 6,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 48,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 30,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 48
+      },
+      "disagreements": {
+       "critical": 6,
+       "all": 6
+      },
+      "diagnostic_crop": {
+       "critical_right": 20,
+       "critical_wrong": 10,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 1
+      },
+      "decisions": {
+       "kept_full_flagged": 6,
+       "agree_same": 24
+      },
+      "author_decisions": {
+       "keep_no_supported_replacement": 6,
+       "keep_agree": 24
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 20,
+       "covered|agree|full_W|crop_W|agree_same|WW": 4,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 1,
+       "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 5
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": 0.0,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 5,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      }
+     }
+    },
+    "blind-BA": {
+     "strata_locations_missing_from_rows": [],
+     "stratum_table": {
+      "blank|noncritical|RR|selected|agree|unflagged|keep_agree": 6,
+      "confusable|critical|WW|selected|agree|unflagged|keep_agree": 4,
+      "confusable|critical|WW|selected|disagree|flagged|keep_no_supported_replacement": 5,
+      "legitimate_space|critical|RR|selected|agree|unflagged|keep_agree": 12,
+      "numeric_negative|noncritical|RR|selected|agree|unflagged|keep_agree": 6,
+      "ordinary|critical|RR|selected|agree|unflagged|keep_agree": 8,
+      "ordinary|critical|RR|selected|disagree|flagged|keep_no_supported_replacement": 1,
+      "text_negative|noncritical|RR|unselected|unselected|unflagged|None": 6,
+      "text_negative|noncritical|WW|unselected|unselected|unflagged|None": 6,
+      "unstratified|noncritical|RR|selected|agree|unflagged|keep_agree": 6,
+      "unstratified|noncritical|RR|unselected|unselected|unflagged|None": 66
+     },
+     "criticals": 30,
+     "transitions": {
+      "WW": 9,
+      "RR": 21
+     },
+     "selected_criticals": 30,
+     "unselected_criticals": 0,
+     "by_stratum": {
+      "blank": {
+       "RR": 6
+      },
+      "confusable": {
+       "WW": 9
+      },
+      "legitimate_space": {
+       "RR": 12
+      },
+      "numeric_negative": {
+       "RR": 6
+      },
+      "ordinary": {
+       "RR": 9
+      },
+      "text_negative": {
+       "RR": 6,
+       "WW": 6
+      }
+     },
+     "negatives_changed": [],
+     "spaced_id_rows": [
+      {
+       "at": "page/1/line/4",
+       "expected": "ZW 6587",
+       "base": "Shift group ZW 6587",
+       "treat": "Shift group ZW 6587",
+       "transition": "RR",
+       "crop": "Shift group ZW 6587",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/1/table/1/row/4/col/2",
+       "expected": "QY 3080",
+       "base": "QY 3080",
+       "treat": "QY 3080",
+       "transition": "RR",
+       "crop": "QY 3080",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/line/4",
+       "expected": "WX 7220",
+       "base": "Shift group WX 7220",
+       "treat": "Shift group WX 7220",
+       "transition": "RR",
+       "crop": "Shift group WX 7220",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/table/1/row/4/col/2",
+       "expected": "VE 3265",
+       "base": "VE 3265",
+       "treat": "VE 3265",
+       "transition": "RR",
+       "crop": "VE 3265",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/line/4",
+       "expected": "WH 2507",
+       "base": "Shift group WH 2507",
+       "treat": "Shift group WH 2507",
+       "transition": "RR",
+       "crop": "Shift group WH 2507",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/table/1/row/4/col/2",
+       "expected": "ZP 7212",
+       "base": "ZP 7212",
+       "treat": "ZP 7212",
+       "transition": "RR",
+       "crop": "ZP 7212",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/line/4",
+       "expected": "XV 8695",
+       "base": "Shift group XV 8695",
+       "treat": "Shift group XV 8695",
+       "transition": "RR",
+       "crop": "Shift group XV 8695",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/table/1/row/4/col/2",
+       "expected": "JT 8720",
+       "base": "JT 8720",
+       "treat": "JT 8720",
+       "transition": "RR",
+       "crop": "JT 8720",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/line/4",
+       "expected": "JD 2354",
+       "base": "Shift group JD 2354",
+       "treat": "Shift group JD 2354",
+       "transition": "RR",
+       "crop": "Shift group JD 2354",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/table/1/row/4/col/2",
+       "expected": "CT 3359",
+       "base": "CT 3359",
+       "treat": "CT 3359",
+       "transition": "RR",
+       "crop": "CT 3359",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/line/4",
+       "expected": "HX 9700",
+       "base": "Shift group HX 9700",
+       "treat": "Shift group HX 9700",
+       "transition": "RR",
+       "crop": "Shift group HX 9700",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/table/1/row/4/col/2",
+       "expected": "ZE 3449",
+       "base": "ZE 3449",
+       "treat": "ZE 3449",
+       "transition": "RR",
+       "crop": "ZE 3449",
+       "decision": "keep_agree"
+      }
+     ],
+     "wrong_critical_rows": [
+      {
+       "at": "page/1/line/3",
+       "stratum": "confusable",
+       "expected": "O1B0B-492",
+       "base": "Release ref 01 BOB-492",
+       "treat": "Release ref 01 BOB-492",
+       "flagged": true,
+       "crop": "Release ref 01 BOB-4",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/1/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "O8L00-115",
+       "base": "08100-115",
+       "treat": "08100-115",
+       "flagged": true,
+       "crop": "08LOO-115",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/2/line/3",
+       "stratum": "ordinary",
+       "expected": "MCU46-461",
+       "base": "Release ref MCU46-461",
+       "treat": "Release ref MCU46-461",
+       "flagged": true,
+       "crop": "Release ref MCU46\u20144",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/2/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "O180B-763",
+       "base": "01808-763",
+       "treat": "01808-763",
+       "flagged": true,
+       "crop": "0180B-763",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/3/line/3",
+       "stratum": "confusable",
+       "expected": "B8O0L-915",
+       "base": "Release ref B800L-915",
+       "treat": "Release ref B800L-915",
+       "flagged": false,
+       "crop": "Release ref B800L-915",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "I1O88-649",
+       "base": "II 088-649",
+       "treat": "II 088-649",
+       "flagged": false,
+       "crop": "II 088-649",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "B1B1O-219",
+       "base": "BIBIO-219",
+       "treat": "BIBIO-219",
+       "flagged": false,
+       "crop": "BIBIO-219",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/line/3",
+       "stratum": "confusable",
+       "expected": "I8L88-798",
+       "base": "Release ref 18188-798",
+       "treat": "Release ref 18188-798",
+       "flagged": true,
+       "crop": "Release ref 181.88\u2014798",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/5/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "L01IL-463",
+       "base": "LOIIL-463",
+       "treat": "LOIIL-463",
+       "flagged": false,
+       "crop": "LOIIL-463",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/table/1/row/3/col/2",
+       "stratum": "confusable",
+       "expected": "O1L80-254",
+       "base": "01 180-254",
+       "treat": "01 180-254",
+       "flagged": true,
+       "crop": "01 L80-254",
+       "decision": "keep_no_supported_replacement"
+      }
+     ],
+     "summary": {
+      "WR": 0,
+      "RW": 0,
+      "WW": 9,
+      "RR": 21,
+      "WW_changed": 5,
+      "net": 0,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "01": 6,
+       "00": 24
+      },
+      "blanks": {
+       "reference": 6,
+       "preserved": 6,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 48,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 30,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 48
+      },
+      "disagreements": {
+       "critical": 6,
+       "all": 6
+      },
+      "diagnostic_crop": {
+       "critical_right": 20,
+       "critical_wrong": 10,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 1
+      },
+      "decisions": {
+       "kept_full_flagged": 6,
+       "agree_same": 24
+      },
+      "author_decisions": {
+       "keep_no_supported_replacement": 6,
+       "keep_agree": 24
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 20,
+       "covered|agree|full_W|crop_W|agree_same|WW": 4,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 1,
+       "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 5
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": 0.0,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 5,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      }
+     }
+    }
+   }
+  },
+  "VALVE": {
+   "strata": {
+    "path": "C:/Users/jackg/Asp.net Projects/eledgercare/docs/coordination/WP-0019/fresh-keys/VALVE/strata.json",
+    "sha256": "fc24d256136471857b848108de182b6c00dc18a93192215940a4519694049847"
+   },
+   "runs": {
+    "blind-AB": {
+     "strata_locations_missing_from_rows": [],
+     "stratum_table": {
+      "blank|noncritical|RR|selected|agree|unflagged|keep_agree": 12,
+      "confusable|critical|WW|selected|agree|unflagged|keep_agree": 9,
+      "legitimate_space|critical|RR|selected|agree|unflagged|keep_agree": 11,
+      "legitimate_space|critical|RR|selected|disagree|flagged|keep_no_supported_replacement": 1,
+      "numeric_negative|noncritical|RR|selected|agree|unflagged|keep_agree": 12,
+      "ordinary|critical|RR|selected|agree|unflagged|keep_agree": 9,
+      "text_negative|noncritical|RR|unselected|unselected|unflagged|None": 12,
+      "unstratified|noncritical|RR|selected|agree|unflagged|keep_agree": 12,
+      "unstratified|noncritical|RR|unselected|unselected|unflagged|None": 78
+     },
+     "criticals": 30,
+     "transitions": {
+      "RR": 21,
+      "WW": 9
+     },
+     "selected_criticals": 30,
+     "unselected_criticals": 0,
+     "by_stratum": {
+      "blank": {
+       "RR": 12
+      },
+      "confusable": {
+       "WW": 9
+      },
+      "legitimate_space": {
+       "RR": 12
+      },
+      "numeric_negative": {
+       "RR": 12
+      },
+      "ordinary": {
+       "RR": 9
+      },
+      "text_negative": {
+       "RR": 12
+      }
+     },
+     "negatives_changed": [],
+     "spaced_id_rows": [
+      {
+       "at": "page/1/line/5",
+       "expected": "AK 5487",
+       "base": "Bay group AK 5487",
+       "treat": "Bay group AK 5487",
+       "transition": "RR",
+       "crop": "Bay group AK 5487",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/1/table/1/row/3/col/3",
+       "expected": "TK 3141",
+       "base": "TK 3141",
+       "treat": "TK 3141",
+       "transition": "RR",
+       "crop": "TK 3141",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/line/5",
+       "expected": "JA 6245",
+       "base": "Bay group JA 6245",
+       "treat": "Bay group JA 6245",
+       "transition": "RR",
+       "crop": "Bay group JA 6245",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/table/1/row/3/col/3",
+       "expected": "MM 3577",
+       "base": "MM 3577",
+       "treat": "MM 3577",
+       "transition": "RR",
+       "crop": "MM 3577",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/line/5",
+       "expected": "FC 8493",
+       "base": "Bay group FC 8493",
+       "treat": "Bay group FC 8493",
+       "transition": "RR",
+       "crop": "Bay group FC 8493",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/table/1/row/3/col/3",
+       "expected": "GK 6929",
+       "base": "GK 6929",
+       "treat": "GK 6929",
+       "transition": "RR",
+       "crop": "GK 6929",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/line/5",
+       "expected": "FK 8121",
+       "base": "Bay group FK 8121",
+       "treat": "Bay group FK 8121",
+       "transition": "RR",
+       "crop": "Bay group FK 8121",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/table/1/row/3/col/3",
+       "expected": "ZF 7276",
+       "base": "ZF 7276",
+       "treat": "ZF 7276",
+       "transition": "RR",
+       "crop": "ZF 7276",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/line/5",
+       "expected": "KN 3619",
+       "base": "Bay group KN 3619",
+       "treat": "Bay group KN 3619",
+       "transition": "RR",
+       "crop": "Bay group KN 3619",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/table/1/row/3/col/3",
+       "expected": "UJ 5197",
+       "base": "UJ 5197",
+       "treat": "UJ 5197",
+       "transition": "RR",
+       "crop": "I-JJ 5197",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/6/line/5",
+       "expected": "KN 2722",
+       "base": "Bay group KN 2722",
+       "treat": "Bay group KN 2722",
+       "transition": "RR",
+       "crop": "Bay group KN 2722",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/table/1/row/3/col/3",
+       "expected": "KT 2861",
+       "base": "KT 2861",
+       "treat": "KT 2861",
+       "transition": "RR",
+       "crop": "KT 2861",
+       "decision": "keep_agree"
+      }
+     ],
+     "wrong_critical_rows": [
+      {
+       "at": "page/1/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "I1OB0-888",
+       "base": "110Bo-888",
+       "treat": "110Bo-888",
+       "flagged": false,
+       "crop": "110Bo-888",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/line/4",
+       "stratum": "confusable",
+       "expected": "O00BO-264",
+       "base": "Permit code OooBO-264",
+       "treat": "Permit code OooBO-264",
+       "flagged": false,
+       "crop": "Permit code OooBO-264",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "O81I0-598",
+       "base": "08110-598",
+       "treat": "08110-598",
+       "flagged": false,
+       "crop": "08110-598",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "L1BI0-126",
+       "base": "LIBIo-126",
+       "treat": "LIBIo-126",
+       "flagged": false,
+       "crop": "LIBIo-126",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/line/4",
+       "stratum": "confusable",
+       "expected": "L881O-147",
+       "base": "Permit code L8810-147",
+       "treat": "Permit code L8810-147",
+       "flagged": false,
+       "crop": "Permit code L8810-147",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "I8B1O-744",
+       "base": "18BIO-744",
+       "treat": "18BIO-744",
+       "flagged": false,
+       "crop": "18BIO-744",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "O8IB8-473",
+       "base": "081B8-473",
+       "treat": "081B8-473",
+       "flagged": false,
+       "crop": "081B8-473",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/table/1/row/3/col/3",
+       "stratum": "legitimate_space",
+       "expected": "UJ 5197",
+       "base": "UJ 5197",
+       "treat": "UJ 5197",
+       "flagged": true,
+       "crop": "I-JJ 5197",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/6/line/4",
+       "stratum": "confusable",
+       "expected": "B80I1-643",
+       "base": "Permit code B8011-643",
+       "treat": "Permit code B8011-643",
+       "flagged": false,
+       "crop": "Permit code B8011-643",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "O0BIO-653",
+       "base": "OoBIO-653",
+       "treat": "OoBIO-653",
+       "flagged": false,
+       "crop": "OoBIO-653",
+       "decision": "keep_agree"
+      }
+     ],
+     "summary": {
+      "WR": 0,
+      "RW": 0,
+      "WW": 9,
+      "RR": 21,
+      "WW_changed": 0,
+      "net": 0,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 29,
+       "01": 1
+      },
+      "blanks": {
+       "reference": 12,
+       "preserved": 12,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 66,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 30,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 66
+      },
+      "disagreements": {
+       "critical": 1,
+       "all": 1
+      },
+      "diagnostic_crop": {
+       "critical_right": 20,
+       "critical_wrong": 10,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 1
+      },
+      "decisions": {
+       "agree_same": 29,
+       "kept_full_flagged": 1
+      },
+      "author_decisions": {
+       "keep_agree": 29,
+       "keep_no_supported_replacement": 1
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 20,
+       "covered|agree|full_W|crop_W|agree_same|WW": 9,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": 0.0,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 0,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      }
+     }
+    },
+    "blind-BA": {
+     "strata_locations_missing_from_rows": [],
+     "stratum_table": {
+      "blank|noncritical|RR|selected|agree|unflagged|keep_agree": 12,
+      "confusable|critical|WW|selected|agree|unflagged|keep_agree": 9,
+      "legitimate_space|critical|RR|selected|agree|unflagged|keep_agree": 11,
+      "legitimate_space|critical|RR|selected|disagree|flagged|keep_no_supported_replacement": 1,
+      "numeric_negative|noncritical|RR|selected|agree|unflagged|keep_agree": 12,
+      "ordinary|critical|RR|selected|agree|unflagged|keep_agree": 9,
+      "text_negative|noncritical|RR|unselected|unselected|unflagged|None": 12,
+      "unstratified|noncritical|RR|selected|agree|unflagged|keep_agree": 12,
+      "unstratified|noncritical|RR|unselected|unselected|unflagged|None": 78
+     },
+     "criticals": 30,
+     "transitions": {
+      "RR": 21,
+      "WW": 9
+     },
+     "selected_criticals": 30,
+     "unselected_criticals": 0,
+     "by_stratum": {
+      "blank": {
+       "RR": 12
+      },
+      "confusable": {
+       "WW": 9
+      },
+      "legitimate_space": {
+       "RR": 12
+      },
+      "numeric_negative": {
+       "RR": 12
+      },
+      "ordinary": {
+       "RR": 9
+      },
+      "text_negative": {
+       "RR": 12
+      }
+     },
+     "negatives_changed": [],
+     "spaced_id_rows": [
+      {
+       "at": "page/1/line/5",
+       "expected": "AK 5487",
+       "base": "Bay group AK 5487",
+       "treat": "Bay group AK 5487",
+       "transition": "RR",
+       "crop": "Bay group AK 5487",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/1/table/1/row/3/col/3",
+       "expected": "TK 3141",
+       "base": "TK 3141",
+       "treat": "TK 3141",
+       "transition": "RR",
+       "crop": "TK 3141",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/line/5",
+       "expected": "JA 6245",
+       "base": "Bay group JA 6245",
+       "treat": "Bay group JA 6245",
+       "transition": "RR",
+       "crop": "Bay group JA 6245",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/table/1/row/3/col/3",
+       "expected": "MM 3577",
+       "base": "MM 3577",
+       "treat": "MM 3577",
+       "transition": "RR",
+       "crop": "MM 3577",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/line/5",
+       "expected": "FC 8493",
+       "base": "Bay group FC 8493",
+       "treat": "Bay group FC 8493",
+       "transition": "RR",
+       "crop": "Bay group FC 8493",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/table/1/row/3/col/3",
+       "expected": "GK 6929",
+       "base": "GK 6929",
+       "treat": "GK 6929",
+       "transition": "RR",
+       "crop": "GK 6929",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/line/5",
+       "expected": "FK 8121",
+       "base": "Bay group FK 8121",
+       "treat": "Bay group FK 8121",
+       "transition": "RR",
+       "crop": "Bay group FK 8121",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/table/1/row/3/col/3",
+       "expected": "ZF 7276",
+       "base": "ZF 7276",
+       "treat": "ZF 7276",
+       "transition": "RR",
+       "crop": "ZF 7276",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/line/5",
+       "expected": "KN 3619",
+       "base": "Bay group KN 3619",
+       "treat": "Bay group KN 3619",
+       "transition": "RR",
+       "crop": "Bay group KN 3619",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/table/1/row/3/col/3",
+       "expected": "UJ 5197",
+       "base": "UJ 5197",
+       "treat": "UJ 5197",
+       "transition": "RR",
+       "crop": "I-JJ 5197",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/6/line/5",
+       "expected": "KN 2722",
+       "base": "Bay group KN 2722",
+       "treat": "Bay group KN 2722",
+       "transition": "RR",
+       "crop": "Bay group KN 2722",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/table/1/row/3/col/3",
+       "expected": "KT 2861",
+       "base": "KT 2861",
+       "treat": "KT 2861",
+       "transition": "RR",
+       "crop": "KT 2861",
+       "decision": "keep_agree"
+      }
+     ],
+     "wrong_critical_rows": [
+      {
+       "at": "page/1/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "I1OB0-888",
+       "base": "110Bo-888",
+       "treat": "110Bo-888",
+       "flagged": false,
+       "crop": "110Bo-888",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/line/4",
+       "stratum": "confusable",
+       "expected": "O00BO-264",
+       "base": "Permit code OooBO-264",
+       "treat": "Permit code OooBO-264",
+       "flagged": false,
+       "crop": "Permit code OooBO-264",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/2/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "O81I0-598",
+       "base": "08110-598",
+       "treat": "08110-598",
+       "flagged": false,
+       "crop": "08110-598",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/3/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "L1BI0-126",
+       "base": "LIBIo-126",
+       "treat": "LIBIo-126",
+       "flagged": false,
+       "crop": "LIBIo-126",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/line/4",
+       "stratum": "confusable",
+       "expected": "L881O-147",
+       "base": "Permit code L8810-147",
+       "treat": "Permit code L8810-147",
+       "flagged": false,
+       "crop": "Permit code L8810-147",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/4/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "I8B1O-744",
+       "base": "18BIO-744",
+       "treat": "18BIO-744",
+       "flagged": false,
+       "crop": "18BIO-744",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "O8IB8-473",
+       "base": "081B8-473",
+       "treat": "081B8-473",
+       "flagged": false,
+       "crop": "081B8-473",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/5/table/1/row/3/col/3",
+       "stratum": "legitimate_space",
+       "expected": "UJ 5197",
+       "base": "UJ 5197",
+       "treat": "UJ 5197",
+       "flagged": true,
+       "crop": "I-JJ 5197",
+       "decision": "keep_no_supported_replacement"
+      },
+      {
+       "at": "page/6/line/4",
+       "stratum": "confusable",
+       "expected": "B80I1-643",
+       "base": "Permit code B8011-643",
+       "treat": "Permit code B8011-643",
+       "flagged": false,
+       "crop": "Permit code B8011-643",
+       "decision": "keep_agree"
+      },
+      {
+       "at": "page/6/table/1/row/2/col/3",
+       "stratum": "confusable",
+       "expected": "O0BIO-653",
+       "base": "OoBIO-653",
+       "treat": "OoBIO-653",
+       "flagged": false,
+       "crop": "OoBIO-653",
+       "decision": "keep_agree"
+      }
+     ],
+     "summary": {
+      "WR": 0,
+      "RW": 0,
+      "WW": 9,
+      "RR": 21,
+      "WW_changed": 0,
+      "net": 0,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 29,
+       "01": 1
+      },
+      "blanks": {
+       "reference": 12,
+       "preserved": 12,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 66,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 30,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 66
+      },
+      "disagreements": {
+       "critical": 1,
+       "all": 1
+      },
+      "diagnostic_crop": {
+       "critical_right": 20,
+       "critical_wrong": 10,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 1
+      },
+      "decisions": {
+       "agree_same": 29,
+       "kept_full_flagged": 1
+      },
+      "author_decisions": {
+       "keep_agree": 29,
+       "keep_no_supported_replacement": 1
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 20,
+       "covered|agree|full_W|crop_W|agree_same|WW": 9,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": 0.0,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 0,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      }
+     }
+    }
+   }
+  }
+ },
+ "timing": {
+  "primary_rule_combined_treatment_pages_per_min": 149.087320039569,
+  "combined_full_only_pages_per_min": 179.2760519290016,
+  "combined_added_ms_per_page": 67.76932083333335,
+  "treatment_pages_per_min_by_order": {
+   "AB": 149.92582732038798,
+   "BA": 148.25813982488737
+  },
+  "reviewer_prereg_rule_min_order_pages_per_min": 148.25813982488737,
+  "per_run": {
+   "LIFT-AB": {
+    "order": "AB",
+    "family": "LIFT",
+    "startup_ms": 578.3302,
+    "warmup_ms": 345.3729,
+    "A_pages_per_min": 174.80017547995394,
+    "B_pages_per_min": 151.36719263262236,
+    "added_ms_per_page": 53.138,
+    "crops_per_page": 8.0
+   },
+   "VALVE-BA": {
+    "order": "BA",
+    "family": "VALVE",
+    "startup_ms": 553.4549,
+    "warmup_ms": 348.3118,
+    "A_pages_per_min": 182.73049612091074,
+    "B_pages_per_min": 145.8085391312857,
+    "added_ms_per_page": 83.14611666666667,
+    "crops_per_page": 11.0
+   },
+   "LIFT-BA": {
+    "order": "BA",
+    "family": "LIFT",
+    "startup_ms": 557.7144,
+    "warmup_ms": 342.5375,
+    "A_pages_per_min": 179.81920976650076,
+    "B_pages_per_min": 150.79145407864075,
+    "added_ms_per_page": 64.23206666666667,
+    "crops_per_page": 8.0
+   },
+   "VALVE-AB": {
+    "order": "AB",
+    "family": "VALVE",
+    "startup_ms": 563.1274,
+    "warmup_ms": 348.5898,
+    "A_pages_per_min": 179.93831714488275,
+    "B_pages_per_min": 148.5116533381583,
+    "added_ms_per_page": 70.5611,
+    "crops_per_page": 11.0
+   }
+  },
+  "primary_rule_met": true,
+  "reviewer_prereg_rule_met": true,
+  "threshold": 30.0
+ },
+ "criterion": {
+  "fresh_critical_recovery": {
+   "required": ">=1 pooled WR",
+   "observed": {
+    "blind-AB": 0,
+    "blind-BA": 0
+   },
+   "met": false
+  },
+  "zero_newly_wrong": {
+   "observed": {
+    "blind-AB": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "blind-BA": {
+     "LIFT": 0,
+     "VALVE": 0
+    }
+   },
+   "met": true
+  },
+  "preserved_blanks": {
+   "observed": {
+    "blind-AB": {
+     "LIFT": {
+      "reference": 6,
+      "preserved": 6,
+      "lost": 0,
+      "recovered": 0,
+      "lost_to_null": 0,
+      "lost_to_text": 0
+     },
+     "VALVE": {
+      "reference": 12,
+      "preserved": 12,
+      "lost": 0,
+      "recovered": 0,
+      "lost_to_null": 0,
+      "lost_to_text": 0
+     }
+    },
+    "blind-BA": {
+     "LIFT": {
+      "reference": 6,
+      "preserved": 6,
+      "lost": 0,
+      "recovered": 0,
+      "lost_to_null": 0,
+      "lost_to_text": 0
+     },
+     "VALVE": {
+      "reference": 12,
+      "preserved": 12,
+      "lost": 0,
+      "recovered": 0,
+      "lost_to_null": 0,
+      "lost_to_text": 0
+     }
+    }
+   },
+   "met": true
+  },
+  "speed": {
+   "primary": true,
+   "reviewer_prereg": true
+  },
+  "reproducible": true,
+  "score_component": "FAIL_QUALITY"
+ },
+ "larger_research_criterion": "FAIL",
+ "reasoning": "No fresh critical recovery in either family or order, so the criterion fails on its quality component. The control shortfalls (K1 strict failure, no audited fresh run) concern label isolation and could only invalidate a positive result; they cannot produce or hide a recovery."
+}

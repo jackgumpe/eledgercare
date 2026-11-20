@@ -1,0 +1,475 @@
+{
+ "kind": "wp0019-review-supplement-timing",
+ "checks": [
+  {
+   "id": "P1.order.H-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "arm execution order (receipt key order) equals the order label",
+   "observed": [
+    "A",
+    "B"
+   ],
+   "scope": null
+  },
+  {
+   "id": "P2.warmup.H-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "excluded warm-up on page 1; both arms' page-1 full identity equals it",
+   "observed": {
+    "page": 1,
+    "elapsed_ns": 330959000,
+    "full_identity": "931f2a53e4356ed4b73e2f96782dd4584e3502c974d6e4972301e7b7d1e90944",
+    "excluded": true
+   },
+   "scope": null
+  },
+  {
+   "id": "P3.same_worker.H-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "every full and crop response in both arms came from the single warmed worker PID, en-US",
+   "observed": {
+    "pids": {
+     "13344": 28
+    },
+    "langs": {
+     "en-US": 28
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "P4.identities.H-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "both arms' semantic full identities equal page by page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P5.bound_outputs.H-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "execute.py exit 0 and every bound output digest re-verifies",
+   "observed": {
+    "exit": 0,
+    "files": 11
+   },
+   "scope": null
+  },
+  {
+   "id": "P6.no_crops_A.H-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-only arm attempted no crop",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P7.arithmetic.H-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "receipt added ms/page and crop count reproduce from elapsed_ns and observed calls",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P1.order.A-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "arm execution order (receipt key order) equals the order label",
+   "observed": [
+    "B",
+    "A"
+   ],
+   "scope": null
+  },
+  {
+   "id": "P2.warmup.A-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "excluded warm-up on page 1; both arms' page-1 full identity equals it",
+   "observed": {
+    "page": 1,
+    "elapsed_ns": 311208100,
+    "full_identity": "e3c69342b5d8877820882e84462adcebd3ee8c26d967d083c572327dc00132f5",
+    "excluded": true
+   },
+   "scope": null
+  },
+  {
+   "id": "P3.same_worker.A-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "every full and crop response in both arms came from the single warmed worker PID, en-US",
+   "observed": {
+    "pids": {
+     "2276": 580
+    },
+    "langs": {
+     "en-US": 580
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "P4.identities.A-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "both arms' semantic full identities equal page by page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P5.bound_outputs.A-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "execute.py exit 0 and every bound output digest re-verifies",
+   "observed": {
+    "exit": 0,
+    "files": 123
+   },
+   "scope": null
+  },
+  {
+   "id": "P6.no_crops_A.A-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-only arm attempted no crop",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P7.arithmetic.A-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "receipt added ms/page and crop count reproduce from elapsed_ns and observed calls",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P1.order.H-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "arm execution order (receipt key order) equals the order label",
+   "observed": [
+    "B",
+    "A"
+   ],
+   "scope": null
+  },
+  {
+   "id": "P2.warmup.H-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "excluded warm-up on page 1; both arms' page-1 full identity equals it",
+   "observed": {
+    "page": 1,
+    "elapsed_ns": 309664400,
+    "full_identity": "931f2a53e4356ed4b73e2f96782dd4584e3502c974d6e4972301e7b7d1e90944",
+    "excluded": true
+   },
+   "scope": null
+  },
+  {
+   "id": "P3.same_worker.H-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "every full and crop response in both arms came from the single warmed worker PID, en-US",
+   "observed": {
+    "pids": {
+     "2468": 28
+    },
+    "langs": {
+     "en-US": 28
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "P4.identities.H-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "both arms' semantic full identities equal page by page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P5.bound_outputs.H-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "execute.py exit 0 and every bound output digest re-verifies",
+   "observed": {
+    "exit": 0,
+    "files": 11
+   },
+   "scope": null
+  },
+  {
+   "id": "P6.no_crops_A.H-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-only arm attempted no crop",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P7.arithmetic.H-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "receipt added ms/page and crop count reproduce from elapsed_ns and observed calls",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P1.order.A-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "arm execution order (receipt key order) equals the order label",
+   "observed": [
+    "A",
+    "B"
+   ],
+   "scope": null
+  },
+  {
+   "id": "P2.warmup.A-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "excluded warm-up on page 1; both arms' page-1 full identity equals it",
+   "observed": {
+    "page": 1,
+    "elapsed_ns": 314802800,
+    "full_identity": "e3c69342b5d8877820882e84462adcebd3ee8c26d967d083c572327dc00132f5",
+    "excluded": true
+   },
+   "scope": null
+  },
+  {
+   "id": "P3.same_worker.A-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "every full and crop response in both arms came from the single warmed worker PID, en-US",
+   "observed": {
+    "pids": {
+     "17320": 580
+    },
+    "langs": {
+     "en-US": 580
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "P4.identities.A-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "both arms' semantic full identities equal page by page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P5.bound_outputs.A-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "execute.py exit 0 and every bound output digest re-verifies",
+   "observed": {
+    "exit": 0,
+    "files": 123
+   },
+   "scope": null
+  },
+  {
+   "id": "P6.no_crops_A.A-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-only arm attempted no crop",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P7.arithmetic.A-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "receipt added ms/page and crop count reproduce from elapsed_ns and observed calls",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "P8.serial",
+   "state": "PASS",
+   "gating": true,
+   "check": "the timed runs never overlapped (execute.py UTC receipts)",
+   "observed": [],
+   "scope": null
+  }
+ ],
+ "check_summary": {
+  "PASS": 29
+ },
+ "failed_checks": [],
+ "runs": {
+  "H-AB": {
+   "family": "H",
+   "order": "AB",
+   "pages": 4,
+   "startup_ms": 592.4794,
+   "warmup_ms": 330.959,
+   "engine_startup_ms": 592.3633,
+   "engine_pid": 13344,
+   "python_pid": 3944,
+   "A": {
+    "seconds": 1.3187814,
+    "pages_per_min": 181.98618815824972,
+    "ms_per_page": 329.69535
+   },
+   "B": {
+    "seconds": 1.478647,
+    "pages_per_min": 162.3105447074251,
+    "ms_per_page": 369.66175,
+    "crops": 20,
+    "crops_per_page": 5.0,
+    "crop_calls_observed": 20
+   },
+   "added_ms_per_page": 39.9664,
+   "author_added_ms_per_page": 39.9664,
+   "wrapper_seconds": 4.069082800000615,
+   "startUtc": "2026-11-20T19:50:22.429129+00:00",
+   "endUtc": "2026-11-20T19:50:26.504032+00:00"
+  },
+  "A-BA": {
+   "family": "A",
+   "order": "BA",
+   "pages": 60,
+   "startup_ms": 561.7677,
+   "warmup_ms": 311.2081,
+   "engine_startup_ms": 561.647,
+   "engine_pid": 2276,
+   "python_pid": 1696,
+   "A": {
+    "seconds": 18.256497,
+    "pages_per_min": 197.19007430614974,
+    "ms_per_page": 304.27495
+   },
+   "B": {
+    "seconds": 21.4188622,
+    "pages_per_min": 168.07615485756287,
+    "ms_per_page": 356.9810366666667,
+    "crops": 460,
+    "crops_per_page": 7.666666666666667,
+    "crop_calls_observed": 460
+   },
+   "added_ms_per_page": 52.70608666666667,
+   "author_added_ms_per_page": 52.70608666666667,
+   "wrapper_seconds": 40.89630020000004,
+   "startUtc": "2026-11-20T19:50:26.556433+00:00",
+   "endUtc": "2026-11-20T19:51:07.458898+00:00"
+  },
+  "H-BA": {
+   "family": "H",
+   "order": "BA",
+   "pages": 4,
+   "startup_ms": 547.0826,
+   "warmup_ms": 309.6644,
+   "engine_startup_ms": 546.9617,
+   "engine_pid": 2468,
+   "python_pid": 10752,
+   "A": {
+    "seconds": 1.2787082,
+    "pages_per_min": 187.6894196815192,
+    "ms_per_page": 319.67705
+   },
+   "B": {
+    "seconds": 1.4244366,
+    "pages_per_min": 168.48766733457987,
+    "ms_per_page": 356.10915,
+    "crops": 20,
+    "crops_per_page": 5.0,
+    "crop_calls_observed": 20
+   },
+   "added_ms_per_page": 36.4321,
+   "author_added_ms_per_page": 36.4321,
+   "wrapper_seconds": 3.9214191999999457,
+   "startUtc": "2026-11-20T19:51:08.150977+00:00",
+   "endUtc": "2026-11-20T19:51:12.074948+00:00"
+  },
+  "A-AB": {
+   "family": "A",
+   "order": "AB",
+   "pages": 60,
+   "startup_ms": 551.7715,
+   "warmup_ms": 314.8028,
+   "engine_startup_ms": 551.6522,
+   "engine_pid": 17320,
+   "python_pid": 17960,
+   "A": {
+    "seconds": 18.9221464,
+    "pages_per_min": 190.25325794963726,
+    "ms_per_page": 315.3691066666667
+   },
+   "B": {
+    "seconds": 21.1089401,
+    "pages_per_min": 170.54385407062668,
+    "ms_per_page": 351.81566833333335,
+    "crops": 460,
+    "crops_per_page": 7.666666666666667,
+    "crop_calls_observed": 460
+   },
+   "added_ms_per_page": 36.44656166666667,
+   "author_added_ms_per_page": 36.44656166666667,
+   "wrapper_seconds": 41.20948679999856,
+   "startUtc": "2026-11-20T19:51:12.132593+00:00",
+   "endUtc": "2026-11-20T19:51:53.342901+00:00"
+  }
+ },
+ "pooled": {
+  "all": {
+   "pages": 128,
+   "A_seconds": 39.776133,
+   "B_seconds": 45.4308859,
+   "A_pages_per_min": 193.08060941972414,
+   "B_pages_per_min": 169.04799120371104,
+   "added_ms_per_page": 44.17775703124999,
+   "crops_per_page": 7.5
+  },
+  "H": {
+   "pages": 8,
+   "A_seconds": 2.5974896000000003,
+   "B_seconds": 2.9030836,
+   "A_pages_per_min": 184.79381014653532,
+   "B_pages_per_min": 165.3414321241042,
+   "added_ms_per_page": 38.199249999999964,
+   "crops_per_page": 5.0
+  },
+  "A": {
+   "pages": 120,
+   "A_seconds": 37.1786434,
+   "B_seconds": 42.527802300000005,
+   "A_pages_per_min": 193.65956747093145,
+   "B_pages_per_min": 169.30101276359628,
+   "added_ms_per_page": 44.576324166666716,
+   "crops_per_page": 7.666666666666667
+  },
+  "AB": {
+   "pages": 64,
+   "A_seconds": 20.240927799999998,
+   "B_seconds": 22.5875871,
+   "A_pages_per_min": 189.71462365475165,
+   "B_pages_per_min": 170.0048784759307,
+   "added_ms_per_page": 36.66655156250004,
+   "crops_per_page": 7.5
+  },
+  "BA": {
+   "pages": 64,
+   "A_seconds": 19.5352052,
+   "B_seconds": 22.8432988,
+   "A_pages_per_min": 196.56819371418734,
+   "B_pages_per_min": 168.10181548734985,
+   "added_ms_per_page": 51.68896249999999,
+   "crops_per_page": 7.5
+  }
+ },
+ "boundary": "run.py arm clock: ready-input page loop + output dir through durable prediction write; startup, warm-up, module load, receipt and shutdown excluded and reported separately"
+}

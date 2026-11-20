@@ -1,0 +1,86 @@
+{
+ "kind": "wp0019-review-decision",
+ "stage": "2",
+ "verdict": "INCONCLUSIVE_CONTROL",
+ "score_component": "FAIL_QUALITY",
+ "control_failures": {
+  "static": [
+   "K1.no_reference_tokens_in_code"
+  ],
+  "audit": [
+   "NOT_SUPPLIED"
+  ]
+ },
+ "score_failures": [],
+ "timing_failures": [],
+ "timing_gating": true,
+ "inputs": {
+  "env": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s2checks/env.json",
+   "sha256": "5415230eec5b32c8cee966479efeb6d5d184281de883169df76f898c373008bb"
+  },
+  "inputs": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s2checks/inputs-fresh.json",
+   "sha256": "df223df1bcb88de19f63fd2edd65a86012871e94ef4fdbb57f2f20a21119b296"
+  },
+  "geometry": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s2checks/geometry.json",
+   "sha256": "a85910d111c480695be527cb861ec20effa1ffafe1c75f57607047f33e95ad36"
+  },
+  "identity": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s2checks/identity.json",
+   "sha256": "867b46c8590c387026b9ab8a097c116ac587b3a50000f47837c644a4ab21e394"
+  },
+  "timing": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s2checks/supp-timing.json",
+   "sha256": "ebe20de4196e3cae3a717b4f6b30a601021aa092c8bd1626271ad5e9c919f034"
+  },
+  "static": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/static.json",
+   "sha256": "8c15f7d1070a97340a358ebfcc16ad6c1dc7afe68fa936d56b05dc514426bef7"
+  },
+  "score": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s2score/stage1-score.json",
+   "sha256": "86b41dac25280597a65ca68a6ded6899e371a08728dd70c944e5d771668ca508"
+  },
+  "audit": null
+ },
+ "gate": {
+  "per_run": {
+   "blind-AB": {
+    "evaluable": true,
+    "net_pooled": 0,
+    "WR_pooled": 0,
+    "RW": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "lost_blanks": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "passes": false
+   },
+   "blind-BA": {
+    "evaluable": true,
+    "net_pooled": 0,
+    "WR_pooled": 0,
+    "RW": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "lost_blanks": {
+     "LIFT": 0,
+     "VALVE": 0
+    },
+    "passes": false
+   }
+  },
+  "missing_required_runs": [],
+  "all_evaluable": true,
+  "reproducible": true,
+  "quality_rule_met_every_run": false,
+  "score_component": "FAIL_QUALITY"
+ },
+ "rule": "STAGE2 only if every control passes, every run is evaluable, pooled H+A net critical WR-RW >= 1 and RW=0 per family in every run, and per-position outputs are identical across all runs; Stage 2 additionally gates timing"
+}

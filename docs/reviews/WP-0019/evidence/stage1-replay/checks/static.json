@@ -1,0 +1,753 @@
+{
+ "kind": "wp0019-review-static",
+ "checks": [
+  {
+   "id": "K1.no_reference_tokens_in_code",
+   "state": "FAIL",
+   "gating": true,
+   "check": "no critical reference token (>=6 chars, digit) appears in author code",
+   "observed": [
+    {
+     "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+     "line": 145,
+     "token": "0I8O1-139",
+     "code": true
+    },
+    {
+     "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+     "line": 144,
+     "token": "1L8O1-493",
+     "code": true
+    },
+    {
+     "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+     "line": 131,
+     "token": "88L1L-631",
+     "code": true
+    }
+   ],
+   "scope": null
+  },
+  {
+   "id": "K2.files_scanned",
+   "state": "PASS",
+   "gating": true,
+   "check": "source files scanned",
+   "observed": 11,
+   "scope": null
+  }
+ ],
+ "check_summary": {
+  "FAIL": 1,
+  "PASS": 1
+ },
+ "failed_checks": [
+  "K1.no_reference_tokens_in_code"
+ ],
+ "failed_observations": [],
+ "files": [
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/PROTOCOL.md",
+   "sha256": "acf02f7a3e91b875089917e0ccac35a18ed04b5d5f2b3824d05ca605a4d10ba3",
+   "bytes": 7713
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "sha256": "2fcab03f3a849cae162ae23d094c807719e05295882750dd0e2df80e58f86376",
+   "bytes": 6980
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/policy.py",
+   "sha256": "5deb0a825bb0cbfbeff64bd6fd2f9433073248df56e099c91a8924b3b45c863d",
+   "bytes": 9546
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "sha256": "bad05a016bdb5286ea2248a67001e4c198b689a422bfbb49b410d1ae69ffbe35",
+   "bytes": 10282
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/README.md",
+   "sha256": "a6ac527d59e2386412f25700ccf8154d2a7a0af5cfab810dca4db475b4ce8ec9",
+   "bytes": 4147
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/__init__.py",
+   "sha256": "d3572dd6dba2cb36f84556db5b65141234090253f12b72bc6ad06122c99d43a2",
+   "bytes": 474
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "sha256": "fc76db188f5da74e8599c4a01cd6dbca5449b611d55b98bb5d0e7f7a5f7a8824",
+   "bytes": 27887
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "sha256": "e842508e226ca8eed6c53de4b5f9ebabb08fb122f0f28b1943d35846b5064f46",
+   "bytes": 28309
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/worker.ps1",
+   "sha256": "53a477d7c2b4d9ea4d67506d7e2a5b981bac7c981ca5ece2174f0fed96501ccc",
+   "bytes": 30711
+  },
+  {
+   "file": "9418bccd339d:docs/coordination/WP-0019/execute.py",
+   "sha256": "3379c2e5d9fa9f30adc53979434a421e60e9de1464a752d3b73a2d6015bd73c7",
+   "bytes": 4256
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0015/astra/visual.py",
+   "sha256": "93480f58e05760d02b1c4d8a78c488e2eb616fda1b8f2dc70751fb519ea26287",
+   "bytes": 6330
+  }
+ ],
+ "strong_tokens": 116,
+ "token_hits_all": [
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 145,
+   "token": "0I8O1-139",
+   "code": true
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 144,
+   "token": "1L8O1-493",
+   "code": true
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 131,
+   "token": "88L1L-631",
+   "code": true
+  }
+ ],
+ "keyword_hits": [
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 30,
+   "keyword": "label",
+   "text": "label = word(\"Unit\", [2, 4, 23, 14])"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 31,
+   "keyword": "label",
+   "text": "assert outcome([label, a, b], [label, joined]) == \"use_crop_single_word\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 38,
+   "keyword": "label",
+   "text": "assert outcome([], [label], kind=\"cell\").startswith(\"keep\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 43,
+   "keyword": "label",
+   "text": "lines=[line(label, a, b), line(word(\"ID\", [5, 45, 25, 55])),"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 56,
+   "keyword": "label",
+   "text": "attach_read(prose, raw, dict(lines=[line(label, joined)]))"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 63,
+   "keyword": "label",
+   "text": "attach_read(prose, raw, dict(lines=[line(label, dict(joined, text=\"AB7C-34\"))]))"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 76,
+   "keyword": "truth",
+   "text": "for bad in (dict(family=\"fixture\", source_sha256=\"dummy\", pages=[], truth={}),"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 77,
+   "keyword": "expected",
+   "text": "dict(family=\"fixture\", source_sha256=\"dummy\", pages=[{\"page\": 1, \"expected\": 0}])):"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/constructed.py",
+   "line": 80,
+   "keyword": "label",
+   "text": "raise AssertionError(\"labels passed\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/policy.py",
+   "line": 13,
+   "keyword": "label",
+   "text": "LABELS = {\"id\", \"identifier\", \"code\", \"docket\", \"serial\", \"tag\", \"ref\", \"reference\","
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/policy.py",
+   "line": 28,
+   "keyword": "label",
+   "text": "def label(text):"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/policy.py",
+   "line": 29,
+   "keyword": "label",
+   "text": "return bool(LABELS.intersection(re.findall(r\"[a-z]+\", text.lower())))"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/policy.py",
+   "line": 72,
+   "keyword": "label",
+   "text": "id_columns = [label(rows[0][ci]) or any(column_signal(r[ci]) for r in rows[1:])"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/policy.py",
+   "line": 95,
+   "keyword": "label",
+   "text": "\"identifier_label\" if label(value) else \"no_id_signal\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 37,
+   "keyword": "expected",
+   "text": "require(set(manifest) - {\"renderer\"} == {\"family\", \"pages\", \"source_sha256\"}, \"raster-only manifest expected\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 41,
+   "keyword": "expected",
+   "text": "require(set(page) - {\"bmp_sha256\"} == fields and page[\"page\"] == n, \"raster-only ordered page metadata expected\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 42,
+   "keyword": "expected",
+   "text": "require(Path(page[\"bmp\"]).is_absolute(), \"absolute admitted bitmap path expected\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 49,
+   "keyword": "expected",
+   "text": "require(image.format == \"BMP\" and image.mode == \"RGB\", \"lossless opaque RGB BMP expected\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 84,
+   "keyword": "expected",
+   "text": "def page_result(worker, arm, meta, source, folder, expected_identity):"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 90,
+   "keyword": "expected",
+   "text": "require(expected_identity is None or identity == expected_identity,"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 104,
+   "keyword": "expected",
+   "text": "expected = bgra_digest(clip)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 107,
+   "keyword": "expected",
+   "text": "validate_read(crop, size, expected)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 109,
+   "keyword": "expected",
+   "text": "require(proofs and all(v == expected for v in proofs)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 111,
+   "keyword": "expected",
+   "text": "r.update(expected_bgra_sha256=expected, observed_source_sha256=proofs[0])"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 121,
+   "keyword": "expected",
+   "text": "def run_arm(worker, arm, manifest, out, expected):"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 128,
+   "keyword": "expected",
+   "text": "folder, expected[i] if expected is not None else None)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 154,
+   "keyword": "expected",
+   "text": "require(info[\"language\"].lower() == \"en-us\", \"expected en-US WinRT\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 164,
+   "keyword": "expected",
+   "text": "expected = None"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 166,
+   "keyword": "expected",
+   "text": "result = run_arm(worker, arm, manifest, out, expected)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 168,
+   "keyword": "expected",
+   "text": "expected = result[\"full_identities\"]"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/astra/run.py",
+   "line": 169,
+   "keyword": "expected",
+   "text": "require(expected[0] == receipt[\"warmup\"][\"full_identity\"], \"warmup/full read changed\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/__init__.py",
+   "line": 6,
+   "keyword": "expected",
+   "text": "bmp_to_expected_bgra_bytes,"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/__init__.py",
+   "line": 16,
+   "keyword": "expected",
+   "text": "\"bmp_to_expected_bgra_bytes\","
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 78,
+   "keyword": "expected",
+   "text": "expected = w * h * 3"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 79,
+   "keyword": "expected",
+   "text": "if len(rgb_bytes) != expected:"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 80,
+   "keyword": "expected",
+   "text": "raise ValueError(f\"RGB byte length {len(rgb_bytes)} != {expected}\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 94,
+   "keyword": "expected",
+   "text": "for src in range(0, expected, 3):"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 113,
+   "keyword": "expected",
+   "text": "expected = fw * fh * 4"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 114,
+   "keyword": "expected",
+   "text": "if len(full_bgra) != expected:"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 115,
+   "keyword": "expected",
+   "text": "raise ValueError(f\"Full BGRA8 byte length {len(full_bgra)} != {expected}\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 167,
+   "keyword": "expected",
+   "text": "raise ValueError(f\"Invalid BMP biPlanes={bi_planes}; expected 1\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 169,
+   "keyword": "expected",
+   "text": "raise ValueError(f\"Unsupported BMP bits_per_pixel={bi_bpp}; expected 8, 24, or 32\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 184,
+   "keyword": "expected",
+   "text": "raise ValueError(\"Unsupported 32-bit BI_BITFIELDS channel masks; expected standard BGRA8 masks\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 202,
+   "keyword": "expected",
+   "text": "def bmp_to_expected_bgra_bytes(bmp_path: str | os.PathLike[str]) -> bytes:"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 203,
+   "keyword": "expected",
+   "text": "\"\"\"Independently decode an uncompressed 24-bit or 32-bit BMP into expected WinRT BGRA8 bytes.\"\"\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 230,
+   "keyword": "expected",
+   "text": "raise ValueError(f\"bmp_to_expected_bgra_bytes supports 24-bit and 32-bit BMPs, got {bpp}-bit\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 467,
+   "keyword": "expected",
+   "text": "f\"Worker PID changed unexpectedly: expected {self.info['pid']}, got {resp.get('pid')}\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 485,
+   "keyword": "expected",
+   "text": "raise RuntimeError(f\"Expected mode='full', got {resp.get('mode')!r}\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 487,
+   "keyword": "expected",
+   "text": "raise RuntimeError(f\"Expected pixel_format='Bgra8', got {resp.get('pixel_format')!r}\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 496,
+   "keyword": "expected",
+   "text": "raise RuntimeError(f\"Unexpected full rect: {resp.get('rect')!r}\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 507,
+   "keyword": "expected",
+   "text": "raise RuntimeError(f\"Expected opaque 255 alpha for {hdr['bits_per_pixel']}-bit BMP\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 551,
+   "keyword": "expected",
+   "text": "raise RuntimeError(f\"Expected mode='crop', got {resp.get('mode')!r}\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 553,
+   "keyword": "expected",
+   "text": "raise RuntimeError(f\"Expected pixel_format='Bgra8', got {resp.get('pixel_format')!r}\")"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/engine.py",
+   "line": 560,
+   "keyword": "expected",
+   "text": "f\"Crop dimensions {resp.get('width')}x{resp.get('height')} != expected {cw}x{ch}\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 4,
+   "keyword": "answer",
+   "text": "Does NOT read or execute H/A fixtures, answer keys, GPU, Baidu, or sealed packets."
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 31,
+   "keyword": "expected",
+   "text": "bmp_to_expected_bgra_bytes,"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 274,
+   "keyword": "expected",
+   "text": "expected_sha = sha256_hex((win_root / rel).read_bytes())"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 275,
+   "keyword": "expected",
+   "text": "assert got_sha == expected_sha, f\"Fresh asset digest mismatch for {rel}\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 310,
+   "keyword": "expected",
+   "text": "expected_ramp_bgra = rgb_to_opaque_bgra_bytes(ramp_rgb.tobytes(), rw, rh)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 311,
+   "keyword": "expected",
+   "text": "expected_ramp_sha = sha256_hex(expected_ramp_bgra)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 312,
+   "keyword": "expected",
+   "text": "assert sha256_hex(bmp_to_expected_bgra_bytes(ramp_bmp)) == expected_ramp_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 315,
+   "keyword": "expected",
+   "text": "assert full_ramp[\"bgra_sha256\"] == expected_ramp_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 316,
+   "keyword": "expected",
+   "text": "assert full_ramp[\"full_bgra_sha256\"] == expected_ramp_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 317,
+   "keyword": "expected",
+   "text": "assert full_ramp[\"source_rectangle_sha256\"] == expected_ramp_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 340,
+   "keyword": "expected",
+   "text": "indep_slice = slice_bgra_rect(expected_ramp_bgra, rw, rh, rect)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 344,
+   "keyword": "expected",
+   "text": "assert c_res[\"full_bgra_sha256\"] == expected_ramp_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 353,
+   "keyword": "expected",
+   "text": "base_sha = sha256_hex(slice_bgra_rect(expected_ramp_bgra, rw, rh, base_rect))"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 366,
+   "keyword": "expected",
+   "text": "\"full_bgra_sha256\": expected_ramp_sha,"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 412,
+   "keyword": "expected",
+   "text": "assert f_bgrx[\"bgra_sha256\"] == sha256_hex(bmp_to_expected_bgra_bytes(bmp_bgrx))"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 432,
+   "keyword": "expected",
+   "text": "expected_v4_bytes = v4_bgra.tobytes()"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 433,
+   "keyword": "expected",
+   "text": "expected_v4_sha = sha256_hex(expected_v4_bytes)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 434,
+   "keyword": "expected",
+   "text": "assert sha256_hex(bmp_to_expected_bgra_bytes(bmp_v4)) == expected_v4_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 437,
+   "keyword": "expected",
+   "text": "assert f_v4[\"bgra_sha256\"] == expected_v4_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 440,
+   "keyword": "expected",
+   "text": "assert c_v4[\"bgra_sha256\"] == sha256_hex(slice_bgra_rect(expected_v4_bytes, 520, 160, [20, 30, 420, 120]))"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 456,
+   "keyword": "expected",
+   "text": "expected_synth_bgra = rgb_to_opaque_bgra_bytes(synth_rgb.tobytes(), 1600, 1200)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 457,
+   "keyword": "expected",
+   "text": "expected_synth_sha = sha256_hex(expected_synth_bgra)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 460,
+   "keyword": "expected",
+   "text": "assert full_synth[\"bgra_sha256\"] == expected_synth_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 484,
+   "keyword": "label",
+   "text": "for label, rect in synth_regions.items():"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 486,
+   "keyword": "expected",
+   "text": "exp_slice = slice_bgra_rect(expected_synth_bgra, 1600, 1200, rect)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 489,
+   "keyword": "expected",
+   "text": "assert c_out[\"full_bgra_sha256\"] == expected_synth_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 497,
+   "keyword": "label",
+   "text": "crop_records[label] = c_out"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 501,
+   "keyword": "expected",
+   "text": "assert before_cwd == after_cwd == [], \"In-memory crop() wrote unexpected files to worker cwd\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 505,
+   "keyword": "label",
+   "text": "for label, rect in synth_regions.items():"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 507,
+   "keyword": "label",
+   "text": "sub_bmp = scratch_dir / f\"standalone_{label}.bmp\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 509,
+   "keyword": "label",
+   "text": "standalone_bmps[label] = sub_bmp"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 511,
+   "keyword": "label",
+   "text": "for label, sub_bmp in standalone_bmps.items():"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 513,
+   "keyword": "label",
+   "text": "c_mem = crop_records[label]"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 514,
+   "keyword": "label",
+   "text": "assert f_sub[\"bgra_sha256\"] == c_mem[\"bgra_sha256\"], f\"BGRA digest mismatch on {label}\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 515,
+   "keyword": "label",
+   "text": "assert f_sub[\"text\"] == c_mem[\"text\"], f\"OCR text mismatch on {label}\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 516,
+   "keyword": "label",
+   "text": "assert f_sub[\"lines\"] == c_mem[\"lines\"], f\"OCR lines/boxes mismatch on {label}\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 517,
+   "keyword": "label",
+   "text": "assert f_sub[\"angle\"] == c_mem[\"angle\"], f\"OCR angle mismatch on {label}\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 530,
+   "keyword": "expected",
+   "text": "assert f_again[\"bgra_sha256\"] == expected_synth_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 584,
+   "keyword": "expected",
+   "text": "assert worker.crop([0, 0, 64, 64])[\"full_bgra_sha256\"] == expected_synth_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 621,
+   "keyword": "expected",
+   "text": "assert caught, f\"Expected {exc_cls.__name__} for {bad_path}\""
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/test_worker.py",
+   "line": 632,
+   "keyword": "expected",
+   "text": "assert rec_after[\"pid\"] == info[\"pid\"] and rec_after[\"bgra_sha256\"] == expected_ramp_sha"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/worker.ps1",
+   "line": 160,
+   "keyword": "expected",
+   "text": "int expectedFullLen = checked(fullWidth * fullHeight * 4);"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/worker.ps1",
+   "line": 161,
+   "keyword": "expected",
+   "text": "if (full == null || full.Length != expectedFullLen) {"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/worker.ps1",
+   "line": 246,
+   "keyword": "expected",
+   "text": "throw (\"Unexpected SoftwareBitmap pixel format: \" + $sb.BitmapPixelFormat.ToString())"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/worker.ps1",
+   "line": 261,
+   "keyword": "expected",
+   "text": "throw (\"Unexpected recognizer language tag: \" + $engine.RecognizerLanguage.LanguageTag)"
+  },
+  {
+   "file": "9418bccd339d:docs/research/WP-0019/carbon/worker.ps1",
+   "line": 528,
+   "keyword": "expected",
+   "text": "throw (\"Expected default opaque alpha=255 for \" + $hdr.BitsPerPixel + \"-bit BMP, observed min=\" + $aMin + \" max=\" + $aMax)"
+  },
+  {
+   "file": "9418bccd339d:docs/coordination/WP-0019/execute.py",
+   "line": 1,
+   "keyword": "label",
+   "text": "\"\"\"Run the frozen warm crossover plan serially on one host. Labels never enter this command.\"\"\""
+  },
+  {
+   "file": "9418bccd339d:docs/coordination/WP-0019/execute.py",
+   "line": 35,
+   "keyword": "expected",
+   "text": "if digest(args.plan)!=args.expected_sha256:raise ValueError('release plan identity')"
+  },
+  {
+   "file": "9418bccd339d:docs/coordination/WP-0019/execute.py",
+   "line": 81,
+   "keyword": "expected",
+   "text": "save(args.out/'return.json',dict(candidate=plan['candidate'],planSha256=args.expected_sha256,runs=results))"
+  },
+  {
+   "file": "9418bccd339d:docs/coordination/WP-0019/execute.py",
+   "line": 87,
+   "keyword": "expected",
+   "text": "p.add_argument('--expected-sha256',required=True)"
+  }
+ ],
+ "note": "keyword hits require manual inspection and are not themselves failures"
+}

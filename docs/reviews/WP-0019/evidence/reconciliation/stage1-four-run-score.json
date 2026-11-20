@@ -1,0 +1,2797 @@
+{
+ "kind": "wp0019-review-score",
+ "scorer_sha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+ "runs": {
+  "author-AB": {
+   "order": "AB",
+   "families": {
+    "H": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 19,
+      "critical_lines": 8,
+      "critical_cells": 11,
+      "WR": 0,
+      "RW": 0,
+      "WW": 8,
+      "RR": 11,
+      "WW_changed": 1,
+      "WW_same": 7,
+      "net": 0,
+      "base_wrong": 8,
+      "treat_wrong": 8,
+      "base_unflagged_wrong": 8,
+      "treat_unflagged_wrong": 8,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 19
+      },
+      "flagged_recoveries_excluded": 0,
+      "all_positions": {
+       "RR": 28,
+       "WW": 8
+      },
+      "cells": {
+       "RR": 15,
+       "WW": 5
+      },
+      "lines": {
+       "RR": 13,
+       "WW": 3
+      },
+      "by_class": {
+       "blank": {
+        "RR": 1
+       },
+       "spaced": {
+        "RR": 19,
+        "WW": 3
+       },
+       "single": {
+        "RR": 8,
+        "WW": 5
+       }
+      },
+      "blanks": {
+       "reference": 1,
+       "preserved": 1,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 22,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 19,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 20
+      },
+      "disagreements": {
+       "critical": 1,
+       "all": 1
+      },
+      "diagnostic_crop": {
+       "critical_right": 11,
+       "critical_wrong": 8,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 0
+      },
+      "decisions": {
+       "agree_same": 18,
+       "took_crop": 1
+      },
+      "author_decisions": {
+       "keep_agree": 18,
+       "use_crop_delimiter": 1
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 11,
+       "covered|agree|full_W|crop_W|agree_same|WW": 7,
+       "covered|disagree|full_W|crop_W|took_crop|WW": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": -0.0017543859649122792,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 1,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": {
+      "current": {
+       "correct_cells": 15,
+       "reference_cells": 20,
+       "critical_values": 19,
+       "unflagged_critical_errors": 8,
+       "correct_lines": 13,
+       "reference_lines": 16
+      },
+      "archive": {
+       "correct_cells": 15,
+       "reference_cells": 20,
+       "critical_values": 19,
+       "unflagged_critical_errors": 8,
+       "correct_lines": 13,
+       "reference_lines": 16
+      },
+      "equal_counts": true,
+      "positions_differing": []
+     },
+     "rows_sha256": "553453ed947e0bafce27038faa8badf0cbd289539b460935a2e9d765f3202cd9",
+     "evidence_sha256": "66e8eab99bc480124431ec27e084d27196e6fad4c0c1409b74aed1cf86aef619",
+     "prediction_sha256": {
+      "baseline": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3",
+      "treatment": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+     },
+     "score_sha256": {
+      "baseline": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+      "treatment": "a4040a8283fad8c1333d35308783e870c64a2522cb5c61caaa4f4f550314e6db"
+     },
+     "individual": {
+      "W1": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "IL801493",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "IL801-493",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "IL801-493",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "W3": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "W4": {
+       "transition": "RR",
+       "selected": true,
+       "base": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "words_read": null
+       }
+      }
+     }
+    },
+    "A": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 252,
+      "critical_lines": 108,
+      "critical_cells": 144,
+      "WR": 1,
+      "RW": 0,
+      "WW": 93,
+      "RR": 158,
+      "WW_changed": 10,
+      "WW_same": 83,
+      "net": 1,
+      "base_wrong": 94,
+      "treat_wrong": 93,
+      "base_unflagged_wrong": 94,
+      "treat_unflagged_wrong": 84,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 237,
+       "01": 15
+      },
+      "flagged_recoveries_excluded": 9,
+      "all_positions": {
+       "RR": 472,
+       "WW": 115,
+       "WR": 1
+      },
+      "cells": {
+       "RR": 235,
+       "WW": 64,
+       "WR": 1
+      },
+      "lines": {
+       "RR": 237,
+       "WW": 51
+      },
+      "by_class": {
+       "blank": {
+        "RR": 22
+       },
+       "spaced": {
+        "RR": 249,
+        "WW": 51
+       },
+       "single": {
+        "RR": 201,
+        "WW": 64,
+        "WR": 1
+       }
+      },
+      "blanks": {
+       "reference": 22,
+       "preserved": 22,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 300,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 252,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 2,
+       "unselected_changed": 0,
+       "all_covered": 460
+      },
+      "disagreements": {
+       "critical": 17,
+       "all": 27
+      },
+      "diagnostic_crop": {
+       "critical_right": 153,
+       "critical_wrong": 99,
+       "wrong_full_right_crop": 1,
+       "right_full_wrong_crop": 6
+      },
+      "decisions": {
+       "agree_same": 235,
+       "kept_full_flagged": 15,
+       "took_crop": 2
+      },
+      "author_decisions": {
+       "keep_agree": 235,
+       "keep_no_supported_replacement": 15,
+       "use_crop_delimiter": 2
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 152,
+       "covered|agree|full_W|crop_W|agree_same|WW": 83,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 6,
+       "covered|disagree|full_W|crop_R|took_crop|WR": 1,
+       "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 9,
+       "covered|disagree|full_W|crop_W|took_crop|WW": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": -0.0002267316630767506,
+        "cell_accuracy": 0.0033333333333332993
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 10,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": {
+      "current": {
+       "correct_cells": 235,
+       "reference_cells": 300,
+       "critical_values": 252,
+       "unflagged_critical_errors": 94,
+       "correct_lines": 237,
+       "reference_lines": 288
+      },
+      "archive": {
+       "correct_cells": 235,
+       "reference_cells": 300,
+       "critical_values": 252,
+       "unflagged_critical_errors": 94,
+       "correct_lines": 237,
+       "reference_lines": 288
+      },
+      "equal_counts": true,
+      "positions_differing": []
+     },
+     "rows_sha256": "ed5294fc86713d3f5b75a7fea36333399ce4b82af1547e6b0e171d9e93f998cd",
+     "evidence_sha256": "9570dad2884ba2d86d6a8ae6d70332f1520a5d363d4a89e41c33ebd1f8156cbe",
+     "prediction_sha256": {
+      "baseline": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566",
+      "treatment": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+     },
+     "score_sha256": {
+      "baseline": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+      "treatment": "0df2e01c7dc749d54f6f662e5c54085bdaea5d4d90d9cff3cd05524f953789d3"
+     },
+     "individual": {
+      "W2": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "01801-139",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "01801-139",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "01801-139",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "Z1": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z2": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z3": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": true
+       },
+       "diagnostic": {
+        "observed": "20\u20144",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "Z4": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z5": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": true
+       },
+       "diagnostic": {
+        "observed": "30\u20144",
+        "ok": false,
+        "words_read": null
+       }
+      }
+     }
+    }
+   }
+  },
+  "author-BA": {
+   "order": "BA",
+   "families": {
+    "H": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 19,
+      "critical_lines": 8,
+      "critical_cells": 11,
+      "WR": 0,
+      "RW": 0,
+      "WW": 8,
+      "RR": 11,
+      "WW_changed": 1,
+      "WW_same": 7,
+      "net": 0,
+      "base_wrong": 8,
+      "treat_wrong": 8,
+      "base_unflagged_wrong": 8,
+      "treat_unflagged_wrong": 8,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 19
+      },
+      "flagged_recoveries_excluded": 0,
+      "all_positions": {
+       "RR": 28,
+       "WW": 8
+      },
+      "cells": {
+       "RR": 15,
+       "WW": 5
+      },
+      "lines": {
+       "RR": 13,
+       "WW": 3
+      },
+      "by_class": {
+       "blank": {
+        "RR": 1
+       },
+       "spaced": {
+        "RR": 19,
+        "WW": 3
+       },
+       "single": {
+        "RR": 8,
+        "WW": 5
+       }
+      },
+      "blanks": {
+       "reference": 1,
+       "preserved": 1,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 22,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 19,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 20
+      },
+      "disagreements": {
+       "critical": 1,
+       "all": 1
+      },
+      "diagnostic_crop": {
+       "critical_right": 11,
+       "critical_wrong": 8,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 0
+      },
+      "decisions": {
+       "agree_same": 18,
+       "took_crop": 1
+      },
+      "author_decisions": {
+       "keep_agree": 18,
+       "use_crop_delimiter": 1
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 11,
+       "covered|agree|full_W|crop_W|agree_same|WW": 7,
+       "covered|disagree|full_W|crop_W|took_crop|WW": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": -0.0017543859649122792,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 1,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": {
+      "current": {
+       "correct_cells": 15,
+       "reference_cells": 20,
+       "critical_values": 19,
+       "unflagged_critical_errors": 8,
+       "correct_lines": 13,
+       "reference_lines": 16
+      },
+      "archive": {
+       "correct_cells": 15,
+       "reference_cells": 20,
+       "critical_values": 19,
+       "unflagged_critical_errors": 8,
+       "correct_lines": 13,
+       "reference_lines": 16
+      },
+      "equal_counts": true,
+      "positions_differing": []
+     },
+     "rows_sha256": "553453ed947e0bafce27038faa8badf0cbd289539b460935a2e9d765f3202cd9",
+     "evidence_sha256": "66e8eab99bc480124431ec27e084d27196e6fad4c0c1409b74aed1cf86aef619",
+     "prediction_sha256": {
+      "baseline": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3",
+      "treatment": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+     },
+     "score_sha256": {
+      "baseline": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+      "treatment": "a4040a8283fad8c1333d35308783e870c64a2522cb5c61caaa4f4f550314e6db"
+     },
+     "individual": {
+      "W1": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "IL801493",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "IL801-493",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "IL801-493",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "W3": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "W4": {
+       "transition": "RR",
+       "selected": true,
+       "base": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "words_read": null
+       }
+      }
+     }
+    },
+    "A": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 252,
+      "critical_lines": 108,
+      "critical_cells": 144,
+      "WR": 1,
+      "RW": 0,
+      "WW": 93,
+      "RR": 158,
+      "WW_changed": 10,
+      "WW_same": 83,
+      "net": 1,
+      "base_wrong": 94,
+      "treat_wrong": 93,
+      "base_unflagged_wrong": 94,
+      "treat_unflagged_wrong": 84,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 237,
+       "01": 15
+      },
+      "flagged_recoveries_excluded": 9,
+      "all_positions": {
+       "RR": 472,
+       "WW": 115,
+       "WR": 1
+      },
+      "cells": {
+       "RR": 235,
+       "WW": 64,
+       "WR": 1
+      },
+      "lines": {
+       "RR": 237,
+       "WW": 51
+      },
+      "by_class": {
+       "blank": {
+        "RR": 22
+       },
+       "spaced": {
+        "RR": 249,
+        "WW": 51
+       },
+       "single": {
+        "RR": 201,
+        "WW": 64,
+        "WR": 1
+       }
+      },
+      "blanks": {
+       "reference": 22,
+       "preserved": 22,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 300,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 252,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 2,
+       "unselected_changed": 0,
+       "all_covered": 460
+      },
+      "disagreements": {
+       "critical": 17,
+       "all": 27
+      },
+      "diagnostic_crop": {
+       "critical_right": 153,
+       "critical_wrong": 99,
+       "wrong_full_right_crop": 1,
+       "right_full_wrong_crop": 6
+      },
+      "decisions": {
+       "agree_same": 235,
+       "kept_full_flagged": 15,
+       "took_crop": 2
+      },
+      "author_decisions": {
+       "keep_agree": 235,
+       "keep_no_supported_replacement": 15,
+       "use_crop_delimiter": 2
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 152,
+       "covered|agree|full_W|crop_W|agree_same|WW": 83,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 6,
+       "covered|disagree|full_W|crop_R|took_crop|WR": 1,
+       "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 9,
+       "covered|disagree|full_W|crop_W|took_crop|WW": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": -0.0002267316630767506,
+        "cell_accuracy": 0.0033333333333332993
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 10,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": {
+      "current": {
+       "correct_cells": 235,
+       "reference_cells": 300,
+       "critical_values": 252,
+       "unflagged_critical_errors": 94,
+       "correct_lines": 237,
+       "reference_lines": 288
+      },
+      "archive": {
+       "correct_cells": 235,
+       "reference_cells": 300,
+       "critical_values": 252,
+       "unflagged_critical_errors": 94,
+       "correct_lines": 237,
+       "reference_lines": 288
+      },
+      "equal_counts": true,
+      "positions_differing": []
+     },
+     "rows_sha256": "ed5294fc86713d3f5b75a7fea36333399ce4b82af1547e6b0e171d9e93f998cd",
+     "evidence_sha256": "9570dad2884ba2d86d6a8ae6d70332f1520a5d363d4a89e41c33ebd1f8156cbe",
+     "prediction_sha256": {
+      "baseline": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566",
+      "treatment": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+     },
+     "score_sha256": {
+      "baseline": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+      "treatment": "0df2e01c7dc749d54f6f662e5c54085bdaea5d4d90d9cff3cd05524f953789d3"
+     },
+     "individual": {
+      "W2": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "01801-139",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "01801-139",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "01801-139",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "Z1": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z2": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z3": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": true
+       },
+       "diagnostic": {
+        "observed": "20\u20144",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "Z4": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z5": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": true
+       },
+       "diagnostic": {
+        "observed": "30\u20144",
+        "ok": false,
+        "words_read": null
+       }
+      }
+     }
+    }
+   }
+  },
+  "replay-AB": {
+   "order": "AB",
+   "families": {
+    "H": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 19,
+      "critical_lines": 8,
+      "critical_cells": 11,
+      "WR": 0,
+      "RW": 0,
+      "WW": 8,
+      "RR": 11,
+      "WW_changed": 1,
+      "WW_same": 7,
+      "net": 0,
+      "base_wrong": 8,
+      "treat_wrong": 8,
+      "base_unflagged_wrong": 8,
+      "treat_unflagged_wrong": 8,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 19
+      },
+      "flagged_recoveries_excluded": 0,
+      "all_positions": {
+       "RR": 28,
+       "WW": 8
+      },
+      "cells": {
+       "RR": 15,
+       "WW": 5
+      },
+      "lines": {
+       "RR": 13,
+       "WW": 3
+      },
+      "by_class": {
+       "blank": {
+        "RR": 1
+       },
+       "spaced": {
+        "RR": 19,
+        "WW": 3
+       },
+       "single": {
+        "RR": 8,
+        "WW": 5
+       }
+      },
+      "blanks": {
+       "reference": 1,
+       "preserved": 1,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 22,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 19,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 20
+      },
+      "disagreements": {
+       "critical": 1,
+       "all": 1
+      },
+      "diagnostic_crop": {
+       "critical_right": 11,
+       "critical_wrong": 8,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 0
+      },
+      "decisions": {
+       "agree_same": 18,
+       "took_crop": 1
+      },
+      "author_decisions": {
+       "keep_agree": 18,
+       "use_crop_delimiter": 1
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 11,
+       "covered|agree|full_W|crop_W|agree_same|WW": 7,
+       "covered|disagree|full_W|crop_W|took_crop|WW": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": -0.0017543859649122792,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 1,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": {
+      "current": {
+       "correct_cells": 15,
+       "reference_cells": 20,
+       "critical_values": 19,
+       "unflagged_critical_errors": 8,
+       "correct_lines": 13,
+       "reference_lines": 16
+      },
+      "archive": {
+       "correct_cells": 15,
+       "reference_cells": 20,
+       "critical_values": 19,
+       "unflagged_critical_errors": 8,
+       "correct_lines": 13,
+       "reference_lines": 16
+      },
+      "equal_counts": true,
+      "positions_differing": []
+     },
+     "rows_sha256": "553453ed947e0bafce27038faa8badf0cbd289539b460935a2e9d765f3202cd9",
+     "evidence_sha256": "66e8eab99bc480124431ec27e084d27196e6fad4c0c1409b74aed1cf86aef619",
+     "prediction_sha256": {
+      "baseline": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3",
+      "treatment": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+     },
+     "score_sha256": {
+      "baseline": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+      "treatment": "a4040a8283fad8c1333d35308783e870c64a2522cb5c61caaa4f4f550314e6db"
+     },
+     "individual": {
+      "W1": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "IL801493",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "IL801-493",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "IL801-493",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "W3": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "W4": {
+       "transition": "RR",
+       "selected": true,
+       "base": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "words_read": null
+       }
+      }
+     }
+    },
+    "A": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 252,
+      "critical_lines": 108,
+      "critical_cells": 144,
+      "WR": 1,
+      "RW": 0,
+      "WW": 93,
+      "RR": 158,
+      "WW_changed": 10,
+      "WW_same": 83,
+      "net": 1,
+      "base_wrong": 94,
+      "treat_wrong": 93,
+      "base_unflagged_wrong": 94,
+      "treat_unflagged_wrong": 84,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 237,
+       "01": 15
+      },
+      "flagged_recoveries_excluded": 9,
+      "all_positions": {
+       "RR": 472,
+       "WW": 115,
+       "WR": 1
+      },
+      "cells": {
+       "RR": 235,
+       "WW": 64,
+       "WR": 1
+      },
+      "lines": {
+       "RR": 237,
+       "WW": 51
+      },
+      "by_class": {
+       "blank": {
+        "RR": 22
+       },
+       "spaced": {
+        "RR": 249,
+        "WW": 51
+       },
+       "single": {
+        "RR": 201,
+        "WW": 64,
+        "WR": 1
+       }
+      },
+      "blanks": {
+       "reference": 22,
+       "preserved": 22,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 300,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 252,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 2,
+       "unselected_changed": 0,
+       "all_covered": 460
+      },
+      "disagreements": {
+       "critical": 17,
+       "all": 27
+      },
+      "diagnostic_crop": {
+       "critical_right": 153,
+       "critical_wrong": 99,
+       "wrong_full_right_crop": 1,
+       "right_full_wrong_crop": 6
+      },
+      "decisions": {
+       "agree_same": 235,
+       "kept_full_flagged": 15,
+       "took_crop": 2
+      },
+      "author_decisions": {
+       "keep_agree": 235,
+       "keep_no_supported_replacement": 15,
+       "use_crop_delimiter": 2
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 152,
+       "covered|agree|full_W|crop_W|agree_same|WW": 83,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 6,
+       "covered|disagree|full_W|crop_R|took_crop|WR": 1,
+       "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 9,
+       "covered|disagree|full_W|crop_W|took_crop|WW": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": -0.0002267316630767506,
+        "cell_accuracy": 0.0033333333333332993
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 10,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": {
+      "current": {
+       "correct_cells": 235,
+       "reference_cells": 300,
+       "critical_values": 252,
+       "unflagged_critical_errors": 94,
+       "correct_lines": 237,
+       "reference_lines": 288
+      },
+      "archive": {
+       "correct_cells": 235,
+       "reference_cells": 300,
+       "critical_values": 252,
+       "unflagged_critical_errors": 94,
+       "correct_lines": 237,
+       "reference_lines": 288
+      },
+      "equal_counts": true,
+      "positions_differing": []
+     },
+     "rows_sha256": "ed5294fc86713d3f5b75a7fea36333399ce4b82af1547e6b0e171d9e93f998cd",
+     "evidence_sha256": "9570dad2884ba2d86d6a8ae6d70332f1520a5d363d4a89e41c33ebd1f8156cbe",
+     "prediction_sha256": {
+      "baseline": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566",
+      "treatment": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+     },
+     "score_sha256": {
+      "baseline": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+      "treatment": "0df2e01c7dc749d54f6f662e5c54085bdaea5d4d90d9cff3cd05524f953789d3"
+     },
+     "individual": {
+      "W2": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "01801-139",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "01801-139",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "01801-139",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "Z1": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z2": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z3": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": true
+       },
+       "diagnostic": {
+        "observed": "20\u20144",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "Z4": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z5": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": true
+       },
+       "diagnostic": {
+        "observed": "30\u20144",
+        "ok": false,
+        "words_read": null
+       }
+      }
+     }
+    }
+   }
+  },
+  "replay-BA": {
+   "order": "BA",
+   "families": {
+    "H": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 19,
+      "critical_lines": 8,
+      "critical_cells": 11,
+      "WR": 0,
+      "RW": 0,
+      "WW": 8,
+      "RR": 11,
+      "WW_changed": 1,
+      "WW_same": 7,
+      "net": 0,
+      "base_wrong": 8,
+      "treat_wrong": 8,
+      "base_unflagged_wrong": 8,
+      "treat_unflagged_wrong": 8,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 19
+      },
+      "flagged_recoveries_excluded": 0,
+      "all_positions": {
+       "RR": 28,
+       "WW": 8
+      },
+      "cells": {
+       "RR": 15,
+       "WW": 5
+      },
+      "lines": {
+       "RR": 13,
+       "WW": 3
+      },
+      "by_class": {
+       "blank": {
+        "RR": 1
+       },
+       "spaced": {
+        "RR": 19,
+        "WW": 3
+       },
+       "single": {
+        "RR": 8,
+        "WW": 5
+       }
+      },
+      "blanks": {
+       "reference": 1,
+       "preserved": 1,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 22,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 19,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 0,
+       "unselected_changed": 0,
+       "all_covered": 20
+      },
+      "disagreements": {
+       "critical": 1,
+       "all": 1
+      },
+      "diagnostic_crop": {
+       "critical_right": 11,
+       "critical_wrong": 8,
+       "wrong_full_right_crop": 0,
+       "right_full_wrong_crop": 0
+      },
+      "decisions": {
+       "agree_same": 18,
+       "took_crop": 1
+      },
+      "author_decisions": {
+       "keep_agree": 18,
+       "use_crop_delimiter": 1
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 11,
+       "covered|agree|full_W|crop_W|agree_same|WW": 7,
+       "covered|disagree|full_W|crop_W|took_crop|WW": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": -0.0017543859649122792,
+        "cell_accuracy": 0.0
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 1,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": {
+      "current": {
+       "correct_cells": 15,
+       "reference_cells": 20,
+       "critical_values": 19,
+       "unflagged_critical_errors": 8,
+       "correct_lines": 13,
+       "reference_lines": 16
+      },
+      "archive": {
+       "correct_cells": 15,
+       "reference_cells": 20,
+       "critical_values": 19,
+       "unflagged_critical_errors": 8,
+       "correct_lines": 13,
+       "reference_lines": 16
+      },
+      "equal_counts": true,
+      "positions_differing": []
+     },
+     "rows_sha256": "553453ed947e0bafce27038faa8badf0cbd289539b460935a2e9d765f3202cd9",
+     "evidence_sha256": "66e8eab99bc480124431ec27e084d27196e6fad4c0c1409b74aed1cf86aef619",
+     "prediction_sha256": {
+      "baseline": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3",
+      "treatment": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+     },
+     "score_sha256": {
+      "baseline": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+      "treatment": "a4040a8283fad8c1333d35308783e870c64a2522cb5c61caaa4f4f550314e6db"
+     },
+     "individual": {
+      "W1": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "IL801493",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "IL801-493",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "IL801-493",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "W3": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "Docket 88L1 L-631",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "W4": {
+       "transition": "RR",
+       "selected": true,
+       "base": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "Docket 880LO-977",
+        "ok": true,
+        "words_read": null
+       }
+      }
+     }
+    },
+    "A": {
+     "evaluable": true,
+     "summary": {
+      "criticals": 252,
+      "critical_lines": 108,
+      "critical_cells": 144,
+      "WR": 1,
+      "RW": 0,
+      "WW": 93,
+      "RR": 158,
+      "WW_changed": 10,
+      "WW_same": 83,
+      "net": 1,
+      "base_wrong": 94,
+      "treat_wrong": 93,
+      "base_unflagged_wrong": 94,
+      "treat_unflagged_wrong": 84,
+      "newly_unflagged": 0,
+      "flag_transitions": {
+       "00": 237,
+       "01": 15
+      },
+      "flagged_recoveries_excluded": 9,
+      "all_positions": {
+       "RR": 472,
+       "WW": 115,
+       "WR": 1
+      },
+      "cells": {
+       "RR": 235,
+       "WW": 64,
+       "WR": 1
+      },
+      "lines": {
+       "RR": 237,
+       "WW": 51
+      },
+      "by_class": {
+       "blank": {
+        "RR": 22
+       },
+       "spaced": {
+        "RR": 249,
+        "WW": 51
+       },
+       "single": {
+        "RR": 201,
+        "WW": 64,
+        "WR": 1
+       }
+      },
+      "blanks": {
+       "reference": 22,
+       "preserved": 22,
+       "lost": 0,
+       "recovered": 0,
+       "lost_to_null": 0,
+       "lost_to_text": 0
+      },
+      "legitimate_space": {
+       "spaced_positions": 300,
+       "space_removed": 0,
+       "space_removed_RW": 0,
+       "tokens_increased": 0,
+       "critical_merge_recoveries": 0
+      },
+      "coverage": {
+       "critical_covered": 252,
+       "critical_unselected": 0,
+       "missed_wrong_unselected": 0,
+       "covered_zero_words": 2,
+       "unselected_changed": 0,
+       "all_covered": 460
+      },
+      "disagreements": {
+       "critical": 17,
+       "all": 27
+      },
+      "diagnostic_crop": {
+       "critical_right": 153,
+       "critical_wrong": 99,
+       "wrong_full_right_crop": 1,
+       "right_full_wrong_crop": 6
+      },
+      "decisions": {
+       "agree_same": 235,
+       "kept_full_flagged": 15,
+       "took_crop": 2
+      },
+      "author_decisions": {
+       "keep_agree": 235,
+       "keep_no_supported_replacement": 15,
+       "use_crop_delimiter": 2
+      },
+      "disagreement_matrix_critical": {
+       "covered|agree|full_R|crop_R|agree_same|RR": 152,
+       "covered|agree|full_W|crop_W|agree_same|WW": 83,
+       "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 6,
+       "covered|disagree|full_W|crop_R|took_crop|WR": 1,
+       "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 9,
+       "covered|disagree|full_W|crop_W|took_crop|WW": 1
+      },
+      "frozen_compare": {
+       "delta": {
+        "cer": -0.0002267316630767506,
+        "cell_accuracy": 0.0033333333333332993
+       },
+       "inside_quality_budget": true,
+       "new_or_changed_critical_errors": 10,
+       "complete_matched_pair": true,
+       "new_wrong_source_links": 0
+      },
+      "frozen_compare_consistent": true
+     },
+     "baseline_vs_archive": {
+      "current": {
+       "correct_cells": 235,
+       "reference_cells": 300,
+       "critical_values": 252,
+       "unflagged_critical_errors": 94,
+       "correct_lines": 237,
+       "reference_lines": 288
+      },
+      "archive": {
+       "correct_cells": 235,
+       "reference_cells": 300,
+       "critical_values": 252,
+       "unflagged_critical_errors": 94,
+       "correct_lines": 237,
+       "reference_lines": 288
+      },
+      "equal_counts": true,
+      "positions_differing": []
+     },
+     "rows_sha256": "ed5294fc86713d3f5b75a7fea36333399ce4b82af1547e6b0e171d9e93f998cd",
+     "evidence_sha256": "9570dad2884ba2d86d6a8ae6d70332f1520a5d363d4a89e41c33ebd1f8156cbe",
+     "prediction_sha256": {
+      "baseline": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566",
+      "treatment": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+     },
+     "score_sha256": {
+      "baseline": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+      "treatment": "0df2e01c7dc749d54f6f662e5c54085bdaea5d4d90d9cff3cd05524f953789d3"
+     },
+     "individual": {
+      "W2": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "01801-139",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "01801-139",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": "01801-139",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "Z1": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z2": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z3": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": true
+       },
+       "diagnostic": {
+        "observed": "20\u20144",
+        "ok": false,
+        "words_read": null
+       }
+      },
+      "Z4": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "diagnostic": {
+        "observed": null,
+        "ok": false,
+        "words_read": 0
+       }
+      },
+      "Z5": {
+       "transition": "WW",
+       "selected": true,
+       "base": {
+        "observed": "",
+        "ok": false,
+        "flagged": false
+       },
+       "treat": {
+        "observed": "",
+        "ok": false,
+        "flagged": true
+       },
+       "diagnostic": {
+        "observed": "30\u20144",
+        "ok": false,
+        "words_read": null
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "checks": [
+  {
+   "id": "S0.truth.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "truth digest equals its commitment (WP-0015 for H/A; coordinator key digest for fresh families)",
+   "observed": "91fd9ebc9cc5ae32cf4d66f4d139544fe7b6eec52a070803fa4208e7eb67e8ac",
+   "scope": null
+  },
+  {
+   "id": "S0.truth.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "truth digest equals its commitment (WP-0015 for H/A; coordinator key digest for fresh families)",
+   "observed": "0ec7d6a7be2446409568d68d733636ba7de92e3a59fb40a6dde47fa581f99e6d",
+   "scope": null
+  },
+  {
+   "id": "S0.schema.author-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "canonical run schema",
+   "observed": "wp0019-review-run/1",
+   "scope": null
+  },
+  {
+   "id": "S0.schema.author-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "canonical run schema",
+   "observed": "wp0019-review-run/1",
+   "scope": null
+  },
+  {
+   "id": "S0.schema.replay-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "canonical run schema",
+   "observed": "wp0019-review-run/1",
+   "scope": null
+  },
+  {
+   "id": "S0.schema.replay-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "canonical run schema",
+   "observed": "wp0019-review-run/1",
+   "scope": null
+  },
+  {
+   "id": "S1.score.author-AB.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+    "prediction_sha256": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.author-AB.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "a4040a8283fad8c1333d35308783e870c64a2522cb5c61caaa4f4f550314e6db",
+    "prediction_sha256": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.author-AB.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "af9ac6567ad5c1a00ba88dd5dfa71ec0942830e030e388519247bd4f36145810",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.author-AB.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 19,
+    "reference_cells": 20,
+    "reference_lines": 16,
+    "output_pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.author-AB.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.author-AB.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 19,
+    "reference_cells": 20,
+    "reference_lines": 16,
+    "output_pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.author-AB.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.author-AB.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 1,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.author-AB.H",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.author-AB.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+    "prediction_sha256": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.author-AB.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0df2e01c7dc749d54f6f662e5c54085bdaea5d4d90d9cff3cd05524f953789d3",
+    "prediction_sha256": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.author-AB.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "1f4e8227a83782b55f46a6b189b4ca276c6a0ecd073240dc808e9c27c060909f",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.author-AB.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 252,
+    "reference_cells": 300,
+    "reference_lines": 288,
+    "output_pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.author-AB.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.author-AB.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 252,
+    "reference_cells": 300,
+    "reference_lines": 288,
+    "output_pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.author-AB.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.author-AB.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 10,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.author-AB.A",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.author-BA.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+    "prediction_sha256": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.author-BA.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "a4040a8283fad8c1333d35308783e870c64a2522cb5c61caaa4f4f550314e6db",
+    "prediction_sha256": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.author-BA.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "af9ac6567ad5c1a00ba88dd5dfa71ec0942830e030e388519247bd4f36145810",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.author-BA.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 19,
+    "reference_cells": 20,
+    "reference_lines": 16,
+    "output_pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.author-BA.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.author-BA.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 19,
+    "reference_cells": 20,
+    "reference_lines": 16,
+    "output_pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.author-BA.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.author-BA.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 1,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.author-BA.H",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.author-BA.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+    "prediction_sha256": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.author-BA.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0df2e01c7dc749d54f6f662e5c54085bdaea5d4d90d9cff3cd05524f953789d3",
+    "prediction_sha256": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.author-BA.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "1f4e8227a83782b55f46a6b189b4ca276c6a0ecd073240dc808e9c27c060909f",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.author-BA.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 252,
+    "reference_cells": 300,
+    "reference_lines": 288,
+    "output_pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.author-BA.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.author-BA.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 252,
+    "reference_cells": 300,
+    "reference_lines": 288,
+    "output_pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.author-BA.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.author-BA.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 10,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.author-BA.A",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.replay-AB.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+    "prediction_sha256": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.replay-AB.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "a4040a8283fad8c1333d35308783e870c64a2522cb5c61caaa4f4f550314e6db",
+    "prediction_sha256": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.replay-AB.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "af9ac6567ad5c1a00ba88dd5dfa71ec0942830e030e388519247bd4f36145810",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.replay-AB.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 19,
+    "reference_cells": 20,
+    "reference_lines": 16,
+    "output_pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.replay-AB.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.replay-AB.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 19,
+    "reference_cells": 20,
+    "reference_lines": 16,
+    "output_pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.replay-AB.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.replay-AB.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 1,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.replay-AB.H",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.replay-AB.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+    "prediction_sha256": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.replay-AB.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0df2e01c7dc749d54f6f662e5c54085bdaea5d4d90d9cff3cd05524f953789d3",
+    "prediction_sha256": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.replay-AB.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "1f4e8227a83782b55f46a6b189b4ca276c6a0ecd073240dc808e9c27c060909f",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.replay-AB.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 252,
+    "reference_cells": 300,
+    "reference_lines": 288,
+    "output_pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.replay-AB.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.replay-AB.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 252,
+    "reference_cells": 300,
+    "reference_lines": 288,
+    "output_pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.replay-AB.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.replay-AB.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 10,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.replay-AB.A",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.replay-BA.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+    "prediction_sha256": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.replay-BA.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "a4040a8283fad8c1333d35308783e870c64a2522cb5c61caaa4f4f550314e6db",
+    "prediction_sha256": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.replay-BA.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "af9ac6567ad5c1a00ba88dd5dfa71ec0942830e030e388519247bd4f36145810",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.replay-BA.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 19,
+    "reference_cells": 20,
+    "reference_lines": 16,
+    "output_pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.replay-BA.H.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.replay-BA.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 19,
+    "reference_cells": 20,
+    "reference_lines": 16,
+    "output_pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.replay-BA.H.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.replay-BA.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 1,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.replay-BA.H",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S1.score.replay-BA.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+    "prediction_sha256": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.score.replay-BA.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen scorer exits 0 in a separate process",
+   "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "out_sha256": "0df2e01c7dc749d54f6f662e5c54085bdaea5d4d90d9cff3cd05524f953789d3",
+    "prediction_sha256": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+   },
+   "scope": null
+  },
+  {
+   "id": "S1.compare.replay-BA.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "frozen compare() separate process",
+   "observed": "1f4e8227a83782b55f46a6b189b4ca276c6a0ecd073240dc808e9c27c060909f",
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.replay-BA.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 252,
+    "reference_cells": 300,
+    "reference_lines": 288,
+    "output_pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.replay-BA.A.baseline",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.denominator.replay-BA.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "all criticals/cells/lines/pages in the denominator",
+   "observed": {
+    "critical_values": 252,
+    "reference_cells": 300,
+    "reference_lines": 288,
+    "output_pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "S2.complete.replay-BA.A.treatment",
+   "state": "PASS",
+   "gating": true,
+   "check": "packet complete, no wrong-source links",
+   "observed": {
+    "faults": {}
+   },
+   "scope": null
+  },
+  {
+   "id": "S3.consistency.replay-BA.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "reviewer RW+WW_changed equals frozen compare() new_or_changed_critical_errors",
+   "observed": 10,
+   "scope": null
+  },
+  {
+   "id": "S5.full_attach_unselected_unchanged.replay-BA.A",
+   "state": "PASS",
+   "gating": false,
+   "check": "every position with no covering crop keeps its own full-pass (observed, flagged) in the treatment",
+   "observed": [],
+   "scope": null
+  },
+  {
+   "id": "S4.reproducible.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "per-position (observed, flagged) identical in both arms across every run",
+   "observed": {
+    "author-BA": [],
+    "replay-AB": [],
+    "replay-BA": []
+   },
+   "scope": null
+  },
+  {
+   "id": "S4.reproducible.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "per-position (observed, flagged) identical in both arms across every run",
+   "observed": {
+    "author-BA": [],
+    "replay-AB": [],
+    "replay-BA": []
+   },
+   "scope": null
+  }
+ ],
+ "reproducibility": {
+  "H": {
+   "reference": "author-AB",
+   "compared": [
+    "author-BA",
+    "replay-AB",
+    "replay-BA"
+   ],
+   "differing_positions": {
+    "author-BA": [],
+    "replay-AB": [],
+    "replay-BA": []
+   },
+   "identical": true
+  },
+  "A": {
+   "reference": "author-AB",
+   "compared": [
+    "author-BA",
+    "replay-AB",
+    "replay-BA"
+   ],
+   "differing_positions": {
+    "author-BA": [],
+    "replay-AB": [],
+    "replay-BA": []
+   },
+   "identical": true
+  }
+ },
+ "families": [
+  "H",
+  "A"
+ ],
+ "stage": "1",
+ "gate": {
+  "per_run": {
+   "author-AB": {
+    "evaluable": true,
+    "net_pooled": 1,
+    "WR_pooled": 1,
+    "RW": {
+     "H": 0,
+     "A": 0
+    },
+    "lost_blanks": {
+     "H": 0,
+     "A": 0
+    },
+    "passes": true
+   },
+   "author-BA": {
+    "evaluable": true,
+    "net_pooled": 1,
+    "WR_pooled": 1,
+    "RW": {
+     "H": 0,
+     "A": 0
+    },
+    "lost_blanks": {
+     "H": 0,
+     "A": 0
+    },
+    "passes": true
+   },
+   "replay-AB": {
+    "evaluable": true,
+    "net_pooled": 1,
+    "WR_pooled": 1,
+    "RW": {
+     "H": 0,
+     "A": 0
+    },
+    "lost_blanks": {
+     "H": 0,
+     "A": 0
+    },
+    "passes": true
+   },
+   "replay-BA": {
+    "evaluable": true,
+    "net_pooled": 1,
+    "WR_pooled": 1,
+    "RW": {
+     "H": 0,
+     "A": 0
+    },
+    "lost_blanks": {
+     "H": 0,
+     "A": 0
+    },
+    "passes": true
+   }
+  },
+  "missing_required_runs": [],
+  "all_evaluable": true,
+  "reproducible": true,
+  "quality_rule_met_every_run": true,
+  "score_component": "PASS"
+ },
+ "check_summary": {
+  "PASS": 72,
+  "observation_PASS": 8
+ },
+ "failed_checks": []
+}

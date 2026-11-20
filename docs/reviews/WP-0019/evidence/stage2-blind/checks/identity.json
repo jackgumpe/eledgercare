@@ -1,0 +1,876 @@
+{
+ "kind": "wp0019-review-identity",
+ "checks": [
+  {
+   "id": "I0.language.blind-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "worker language en-US",
+   "observed": "en-US",
+   "scope": null
+  },
+  {
+   "id": "I0.info.blind-AB",
+   "state": "PASS",
+   "gating": true,
+   "check": "worker.info recorded (build, assets, max input size)",
+   "observed": {
+    "asset_sha256": {
+     "System32/Windows.Media.Ocr.dll": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+     "OCR/en-us/MsOcrRes.orp": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908"
+    },
+    "assets": {
+     "System32/Windows.Media.Ocr.dll": {
+      "path": "C:\\WINDOWS\\System32\\Windows.Media.Ocr.dll",
+      "size_bytes": 876544,
+      "sha256": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+      "file_version": "10.0.26100.9278 (WinBuild.160101.0800)",
+      "product_version": "10.0.26100.9278",
+      "file_description": "Windows OCR Runtime DLL"
+     },
+     "OCR/en-us/MsOcrRes.orp": {
+      "path": "C:\\WINDOWS\\OCR\\en-us\\MsOcrRes.orp",
+      "size_bytes": 219754,
+      "sha256": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908",
+      "file_version": null,
+      "product_version": null,
+      "file_description": null
+     }
+    },
+    "byte_semantics": "Top-to-bottom row-major tightly packed 4-byte [B, G, R, A] pixels (length = width * height * 4, row_stride = width * 4) read directly from the WinRT SoftwareBitmap buffer passed to Windows.Media.Ocr.OcrEngine.RecognizeAsync. For 24-bit RGB BMPs, WIC GetSoftwareBitmapAsync(Bgra8, Ignore) populates default opaque alpha A=255 (matching canonical RGB->opaque BGRA8); for 32-bit V4/V5 alpha BMPs, exact [B, G, R, A] bytes are preserved without premultiplication.",
+    "clr_version": "4.0.30319.42000",
+    "decode_mode": {
+     "scale": "1x",
+     "requested_pixel_format": "Bgra8",
+     "requested_alpha_mode": "Ignore",
+     "crop_storage": "in_memory_software_bitmap",
+     "shared_recognition_operation": "Windows.Media.Ocr.OcrEngine.RecognizeAsync(SoftwareBitmap)"
+    },
+    "engine": "Windows.Media.Ocr.OcrEngine",
+    "engine_py_sha256": "fc76db188f5da74e8599c4a01cd6dbca5449b611d55b98bb5d0e7f7a5f7a8824",
+    "engine_version": "10.0.26100.9278",
+    "historical_wp0015_asset_sha256": {
+     "System32/Windows.Media.Ocr.dll": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+     "OCR/en-us/MsOcrRes.orp": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908"
+    },
+    "historical_wp0015_assets_unchanged": true,
+    "historical_wp0015_changed_assets": [],
+    "is_64bit_process": true,
+    "language": "en-US",
+    "language_display_name": "English (United States)",
+    "loaded_ocr_module": {
+     "module_name": "Windows.Media.Ocr.dll",
+     "product_version": "10.0.26100.9278",
+     "file_name": "C:\\Windows\\System32\\Windows.Media.Ocr.dll",
+     "module_memory_size": 880640,
+     "file_version": "10.0.26100.9278 (WinBuild.160101.0800)"
+    },
+    "max_dimension": 10000,
+    "os_build": {
+     "ubr": 9974,
+     "build_lab_ex": "26100.1.amd64fre.ge_release.240331-1435",
+     "current_build": "26300",
+     "product_name": "Windows 10 Home",
+     "display_version": "26H2"
+    },
+    "pid": 16648,
+    "powershell_executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "powershell_version": "5.1.26100.9818",
+    "process_create_filetime": 134396783593819234,
+    "python_pid": 3344,
+    "startup_ms": 578.2126,
+    "worker_script": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\crop19-review-code\\docs\\research\\WP-0019\\carbon\\worker.ps1",
+    "worker_script_sha256": "53a477d7c2b4d9ea4d67506d7e2a5b981bac7c981ca5ece2174f0fed96501ccc"
+   },
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.LIFT.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.LIFT.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.LIFT.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.LIFT.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.LIFT.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.LIFT.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.LIFT.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.LIFT.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.LIFT.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.LIFT.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.LIFT.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.LIFT.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.LIFT.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.LIFT.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.LIFT.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.LIFT.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.LIFT.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.LIFT.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.VALVE.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.VALVE.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.VALVE.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.VALVE.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.VALVE.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.VALVE.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.VALVE.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.VALVE.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.VALVE.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.VALVE.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.VALVE.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.VALVE.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.VALVE.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.VALVE.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.VALVE.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-AB.VALVE.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-AB.VALVE.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-AB.VALVE.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I0.language.blind-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "worker language en-US",
+   "observed": "en-US",
+   "scope": null
+  },
+  {
+   "id": "I0.info.blind-BA",
+   "state": "PASS",
+   "gating": true,
+   "check": "worker.info recorded (build, assets, max input size)",
+   "observed": {
+    "asset_sha256": {
+     "System32/Windows.Media.Ocr.dll": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+     "OCR/en-us/MsOcrRes.orp": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908"
+    },
+    "assets": {
+     "System32/Windows.Media.Ocr.dll": {
+      "path": "C:\\WINDOWS\\System32\\Windows.Media.Ocr.dll",
+      "size_bytes": 876544,
+      "sha256": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+      "file_version": "10.0.26100.9278 (WinBuild.160101.0800)",
+      "product_version": "10.0.26100.9278",
+      "file_description": "Windows OCR Runtime DLL"
+     },
+     "OCR/en-us/MsOcrRes.orp": {
+      "path": "C:\\WINDOWS\\OCR\\en-us\\MsOcrRes.orp",
+      "size_bytes": 219754,
+      "sha256": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908",
+      "file_version": null,
+      "product_version": null,
+      "file_description": null
+     }
+    },
+    "byte_semantics": "Top-to-bottom row-major tightly packed 4-byte [B, G, R, A] pixels (length = width * height * 4, row_stride = width * 4) read directly from the WinRT SoftwareBitmap buffer passed to Windows.Media.Ocr.OcrEngine.RecognizeAsync. For 24-bit RGB BMPs, WIC GetSoftwareBitmapAsync(Bgra8, Ignore) populates default opaque alpha A=255 (matching canonical RGB->opaque BGRA8); for 32-bit V4/V5 alpha BMPs, exact [B, G, R, A] bytes are preserved without premultiplication.",
+    "clr_version": "4.0.30319.42000",
+    "decode_mode": {
+     "scale": "1x",
+     "requested_pixel_format": "Bgra8",
+     "requested_alpha_mode": "Ignore",
+     "crop_storage": "in_memory_software_bitmap",
+     "shared_recognition_operation": "Windows.Media.Ocr.OcrEngine.RecognizeAsync(SoftwareBitmap)"
+    },
+    "engine": "Windows.Media.Ocr.OcrEngine",
+    "engine_py_sha256": "fc76db188f5da74e8599c4a01cd6dbca5449b611d55b98bb5d0e7f7a5f7a8824",
+    "engine_version": "10.0.26100.9278",
+    "historical_wp0015_asset_sha256": {
+     "System32/Windows.Media.Ocr.dll": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+     "OCR/en-us/MsOcrRes.orp": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908"
+    },
+    "historical_wp0015_assets_unchanged": true,
+    "historical_wp0015_changed_assets": [],
+    "is_64bit_process": true,
+    "language": "en-US",
+    "language_display_name": "English (United States)",
+    "loaded_ocr_module": {
+     "module_name": "Windows.Media.Ocr.dll",
+     "product_version": "10.0.26100.9278",
+     "file_name": "C:\\Windows\\System32\\Windows.Media.Ocr.dll",
+     "module_memory_size": 880640,
+     "file_version": "10.0.26100.9278 (WinBuild.160101.0800)"
+    },
+    "max_dimension": 10000,
+    "os_build": {
+     "ubr": 9974,
+     "build_lab_ex": "26100.1.amd64fre.ge_release.240331-1435",
+     "current_build": "26300",
+     "product_name": "Windows 10 Home",
+     "display_version": "26H2"
+    },
+    "pid": 8164,
+    "powershell_executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "powershell_version": "5.1.26100.9818",
+    "process_create_filetime": 134396783709249375,
+    "python_pid": 9144,
+    "startup_ms": 557.5926,
+    "worker_script": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\crop19-review-code\\docs\\research\\WP-0019\\carbon\\worker.ps1",
+    "worker_script_sha256": "53a477d7c2b4d9ea4d67506d7e2a5b981bac7c981ca5ece2174f0fed96501ccc"
+   },
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.LIFT.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.LIFT.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.LIFT.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "65e05e9ba732ea812e2fc8d3411381e9d1515a2a133661375beb7d3f87e47f21",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.LIFT.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.LIFT.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.LIFT.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.LIFT.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "11f7516725f2a3d0942bd46f5bfdfcc19180daf14fa958c9250ab0c5a528039e",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.LIFT.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.LIFT.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.LIFT.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.LIFT.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "e25cb471aaeebec718a6a5a3a883033f1be23286f0ee73f7300ef30ba5182f0d",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.LIFT.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.LIFT.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.LIFT.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.LIFT.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "f5a7739ca2eb20d0819c896b1026227415be66ac2b224caad70365e91b7c9bd8",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.LIFT.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.LIFT.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.LIFT.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.LIFT.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "7e5310669a5d316dd0164eb670994ee745b74dc6634066ae4ff3f029a67587d9",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.LIFT.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.LIFT.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.LIFT.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.LIFT.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "ca50b8bd3a888d93d46433c9eb0c7a8d061a95942fce07c86b25c04f5952208c",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.LIFT.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.VALVE.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.VALVE.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.VALVE.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "01b947211e66bd3d31d943b4a55ed931241aed3f77a123f39668f5b1496992a9",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.VALVE.1",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.VALVE.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.VALVE.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.VALVE.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "25dceddeae835458a4f942bc51a452e21b416b98d5ee80da5de11475dc9dcd57",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.VALVE.2",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.VALVE.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.VALVE.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.VALVE.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "13dcbfbca1d9bd996c742864a9662cda941f69b3284590d697ce8bff7a64367f",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.VALVE.3",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.VALVE.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.VALVE.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.VALVE.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "86b017060ccbe8da9aa3ec04536c02487b7e8fb05640961931458c95a54d1603",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.VALVE.4",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.VALVE.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.VALVE.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.VALVE.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "7bb73c46595f90340a3e8b9d98373678c3edbc7ec412cabcd096ed0a44b57881",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.VALVE.5",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I1.arms_equal.blind-BA.VALVE.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "baseline and treatment full passes equal (raw text/words/boxes/input hash/format; clocks excluded)",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I2.input.blind-BA.VALVE.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "full-pass input equals admitted page",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "I3.runs_equal.blind-BA.VALVE.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "full pass equals run blind-AB",
+   "observed": "3585e3459254f90507479528065d27ebfb77299b3a74ed7e550c5d5e3a8748e8",
+   "scope": null
+  },
+  {
+   "id": "I4.grids_equal.blind-BA.VALVE.6",
+   "state": "PASS",
+   "gating": true,
+   "check": "detected grid identical in both arms",
+   "observed": null,
+   "scope": null
+  }
+ ],
+ "check_summary": {
+  "PASS": 88
+ },
+ "failed_checks": [],
+ "failed_observations": [],
+ "runs": {
+  "blind-AB": {
+   "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\wp0019-data\\review\\s2checks\\bundles\\blind-AB.json",
+   "sha256": "0abe1001506d718dc7b78290be7ad69463c94f2bfb4a77a05493aa8ad8d0f9a4"
+  },
+  "blind-BA": {
+   "path": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\wp0019-data\\review\\s2checks\\bundles\\blind-BA.json",
+   "sha256": "0078c15e6a34c5e960c68627a7fd960a8f5644de31fd1ca22e88cb8bfdbcb4d6"
+  }
+ },
+ "full_pass_digests": {
+  "LIFT/1": "65e05e9ba732ea812e2fc8d3411381e9d1515a2a133661375beb7d3f87e47f21",
+  "LIFT/2": "11f7516725f2a3d0942bd46f5bfdfcc19180daf14fa958c9250ab0c5a528039e",
+  "LIFT/3": "e25cb471aaeebec718a6a5a3a883033f1be23286f0ee73f7300ef30ba5182f0d",
+  "LIFT/4": "f5a7739ca2eb20d0819c896b1026227415be66ac2b224caad70365e91b7c9bd8",
+  "LIFT/5": "7e5310669a5d316dd0164eb670994ee745b74dc6634066ae4ff3f029a67587d9",
+  "LIFT/6": "ca50b8bd3a888d93d46433c9eb0c7a8d061a95942fce07c86b25c04f5952208c",
+  "VALVE/1": "01b947211e66bd3d31d943b4a55ed931241aed3f77a123f39668f5b1496992a9",
+  "VALVE/2": "25dceddeae835458a4f942bc51a452e21b416b98d5ee80da5de11475dc9dcd57",
+  "VALVE/3": "13dcbfbca1d9bd996c742864a9662cda941f69b3284590d697ce8bff7a64367f",
+  "VALVE/4": "86b017060ccbe8da9aa3ec04536c02487b7e8fb05640961931458c95a54d1603",
+  "VALVE/5": "7bb73c46595f90340a3e8b9d98373678c3edbc7ec412cabcd096ed0a44b57881",
+  "VALVE/6": "3585e3459254f90507479528065d27ebfb77299b3a74ed7e550c5d5e3a8748e8"
+ },
+ "archive_classes": {},
+ "archive_class_counts": {},
+ "archive_text_differences": {},
+ "archive_grid_equal": {}
+}

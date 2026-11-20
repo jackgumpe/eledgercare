@@ -1,0 +1,86 @@
+{
+ "kind": "wp0019-review-decision",
+ "stage": "1",
+ "verdict": "INCONCLUSIVE_CONTROL",
+ "score_component": "PASS",
+ "control_failures": {
+  "static": [
+   "K1.no_reference_tokens_in_code"
+  ]
+ },
+ "score_failures": [],
+ "timing_failures": [],
+ "timing_gating": false,
+ "inputs": {
+  "env": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/env.json",
+   "sha256": "1ce72c372b5b2e7b103260098bce572adbd41789a460ec98eb82f037d2e6a93a"
+  },
+  "inputs": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/inputs.json",
+   "sha256": "d6ab11d7edf2a9295193696ecf1eca90b9778bd62970c31efe89b36c6a7b0b39"
+  },
+  "geometry": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/geometry.json",
+   "sha256": "1f86758a6a27a89a2e4ae0c528fed0b12a4c20cd0b1b6e289636bf52907cccf2"
+  },
+  "identity": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/identity.json",
+   "sha256": "d0edd5932b3aeaa2ff776088b4160faa29621a93db692ea2dc8bd3df77a94841"
+  },
+  "timing": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/supp-timing.json",
+   "sha256": "bb070b3972dcd8adba2c11ace49ffb9f78905bcd172e1570d1d31931fc96959b"
+  },
+  "static": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/static.json",
+   "sha256": "8c15f7d1070a97340a358ebfcc16ad6c1dc7afe68fa936d56b05dc514426bef7"
+  },
+  "score": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/score/stage1-score.json",
+   "sha256": "0bfb810fcb690722f0e15a3148550f688ae2ef67b44c6bfe22aab56164999d3d"
+  },
+  "audit": {
+   "path": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/wp0019-data/review/s1checks/audit.json",
+   "sha256": "33b5e2965d7f98f65e1a2dc62aec191dc1ef0005a3b9c55b70a67ebd74cfbca9"
+  }
+ },
+ "gate": {
+  "per_run": {
+   "replay-AB": {
+    "evaluable": true,
+    "net_pooled": 1,
+    "WR_pooled": 1,
+    "RW": {
+     "H": 0,
+     "A": 0
+    },
+    "lost_blanks": {
+     "H": 0,
+     "A": 0
+    },
+    "passes": true
+   },
+   "replay-BA": {
+    "evaluable": true,
+    "net_pooled": 1,
+    "WR_pooled": 1,
+    "RW": {
+     "H": 0,
+     "A": 0
+    },
+    "lost_blanks": {
+     "H": 0,
+     "A": 0
+    },
+    "passes": true
+   }
+  },
+  "missing_required_runs": [],
+  "all_evaluable": true,
+  "reproducible": true,
+  "quality_rule_met_every_run": true,
+  "score_component": "PASS"
+ },
+ "rule": "STAGE2 only if every control passes, every run is evaluable, pooled H+A net critical WR-RW >= 1 and RW=0 per family in every run, and per-position outputs are identical across all runs; Stage 2 additionally gates timing"
+}

@@ -1,0 +1,563 @@
+{
+ "kind": "wp0019-reviewer-STAGE1-RETURN",
+ "author": "eld-rd-reviewer (fresh non-author subscription Claude Opus 5.5, claude-opus-5-5; xhigh requested, applied effort not exposed)",
+ "recorded_utc": "2026-11-20T19:58:01.404034+00:00",
+ "candidate": "9418bccd339dea1d89445f2fec93927168c7a5f0",
+ "policy": "d62a96f8145345ce4c43544850d20fce13659879",
+ "worker": "793fbb7a2a5a3a9354bb753c39b29fcdda959160",
+ "plan": {
+  "commit": "49e106e16a6e848cd0e5ee0a6ab3c87606c0a50c",
+  "sha256": "ef3b946376f9502c67a88e6970d7baa1d13acd9e1aed2689fe5746b3ae809db3"
+ },
+ "control_pin": "8220701429c3f754e27fdfd436915e6f9f8c696c",
+ "prereg_freeze": "c0db9e4363eedfd01913207fa1a972424cc60caa",
+ "replay_freeze_commit": "99404fe150bd273e8ef752245519e51980b7a5e2",
+ "replay_return_json_sha256": "7c0be0b5b1cbb7f429dc3d0adec97bda43b7902d276978a5fd0c3e8fd319d572",
+ "replay_runs": "H-AB, A-BA, H-BA, A-AB; 19:50:20-19:51:54Z; 4 attempts, 0 failed, 0 retries; exact bound execute.py command",
+ "prediction_sha256": {
+  "H": {
+   "A": "d99db147241953276d846ee8a6a3b658a6dbc95e7a8f2d38a0abca9194f194b3",
+   "B": "64b4f05012ff677d12928b93eb108669433e33ddaac1a0c74c50d970757624f7"
+  },
+  "A": {
+   "A": "ffb24dba8912ddba8fbf6cd72e352c4b096cd4160615e4b52e4837e04b1e4566",
+   "B": "9ba3202eceec35c3240f685676b1437e59b25b4f5c3b57676c0cb0d6c76b5a6f"
+  },
+  "identical_across_orders_and_audited_runs": true
+ },
+ "families": {
+  "H": {
+   "criticals": 19,
+   "critical_lines": 8,
+   "critical_cells": 11,
+   "WR": 0,
+   "RW": 0,
+   "WW": 8,
+   "RR": 11,
+   "WW_changed": 1,
+   "net": 0,
+   "base_wrong": 8,
+   "treat_wrong": 8,
+   "base_unflagged_wrong": 8,
+   "treat_unflagged_wrong": 8,
+   "newly_unflagged": 0,
+   "flag_transitions": {
+    "00": 19
+   },
+   "blanks": {
+    "reference": 1,
+    "preserved": 1,
+    "lost": 0,
+    "recovered": 0,
+    "lost_to_null": 0,
+    "lost_to_text": 0
+   },
+   "legitimate_space": {
+    "spaced_positions": 22,
+    "space_removed": 0,
+    "space_removed_RW": 0,
+    "tokens_increased": 0,
+    "critical_merge_recoveries": 0
+   },
+   "coverage": {
+    "critical_covered": 19,
+    "critical_unselected": 0,
+    "missed_wrong_unselected": 0,
+    "covered_zero_words": 0,
+    "unselected_changed": 0,
+    "all_covered": 20
+   },
+   "disagreements": {
+    "critical": 1,
+    "all": 1
+   },
+   "diagnostic_crop": {
+    "critical_right": 11,
+    "critical_wrong": 8,
+    "wrong_full_right_crop": 0,
+    "right_full_wrong_crop": 0
+   },
+   "author_decisions": {
+    "keep_agree": 18,
+    "use_crop_delimiter": 1
+   },
+   "disagreement_matrix_critical": {
+    "covered|agree|full_R|crop_R|agree_same|RR": 11,
+    "covered|agree|full_W|crop_W|agree_same|WW": 7,
+    "covered|disagree|full_W|crop_W|took_crop|WW": 1
+   },
+   "baseline_equals_archive_and_control": true,
+   "individual": {
+    "W1": {
+     "transition": "WW",
+     "selected": true,
+     "base": {
+      "observed": "IL801493",
+      "ok": false,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "IL801-493",
+      "ok": false,
+      "flagged": false
+     },
+     "diagnostic": {
+      "observed": "IL801-493",
+      "ok": false,
+      "words_read": null
+     }
+    },
+    "W3": {
+     "transition": "WW",
+     "selected": true,
+     "base": {
+      "observed": "Docket 88L1 L-631",
+      "ok": false,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "Docket 88L1 L-631",
+      "ok": false,
+      "flagged": false
+     },
+     "diagnostic": {
+      "observed": "Docket 88L1 L-631",
+      "ok": false,
+      "words_read": null
+     }
+    },
+    "W4": {
+     "transition": "RR",
+     "selected": true,
+     "base": {
+      "observed": "Docket 880LO-977",
+      "ok": true,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "Docket 880LO-977",
+      "ok": true,
+      "flagged": false
+     },
+     "diagnostic": {
+      "observed": "Docket 880LO-977",
+      "ok": true,
+      "words_read": null
+     }
+    }
+   }
+  },
+  "A": {
+   "criticals": 252,
+   "critical_lines": 108,
+   "critical_cells": 144,
+   "WR": 1,
+   "RW": 0,
+   "WW": 93,
+   "RR": 158,
+   "WW_changed": 10,
+   "net": 1,
+   "base_wrong": 94,
+   "treat_wrong": 93,
+   "base_unflagged_wrong": 94,
+   "treat_unflagged_wrong": 84,
+   "newly_unflagged": 0,
+   "flag_transitions": {
+    "00": 237,
+    "01": 15
+   },
+   "blanks": {
+    "reference": 22,
+    "preserved": 22,
+    "lost": 0,
+    "recovered": 0,
+    "lost_to_null": 0,
+    "lost_to_text": 0
+   },
+   "legitimate_space": {
+    "spaced_positions": 300,
+    "space_removed": 0,
+    "space_removed_RW": 0,
+    "tokens_increased": 0,
+    "critical_merge_recoveries": 0
+   },
+   "coverage": {
+    "critical_covered": 252,
+    "critical_unselected": 0,
+    "missed_wrong_unselected": 0,
+    "covered_zero_words": 2,
+    "unselected_changed": 0,
+    "all_covered": 460
+   },
+   "disagreements": {
+    "critical": 17,
+    "all": 27
+   },
+   "diagnostic_crop": {
+    "critical_right": 153,
+    "critical_wrong": 99,
+    "wrong_full_right_crop": 1,
+    "right_full_wrong_crop": 6
+   },
+   "author_decisions": {
+    "keep_agree": 235,
+    "keep_no_supported_replacement": 15,
+    "use_crop_delimiter": 2
+   },
+   "disagreement_matrix_critical": {
+    "covered|agree|full_R|crop_R|agree_same|RR": 152,
+    "covered|agree|full_W|crop_W|agree_same|WW": 83,
+    "covered|disagree|full_R|crop_W|kept_full_flagged|RR": 6,
+    "covered|disagree|full_W|crop_R|took_crop|WR": 1,
+    "covered|disagree|full_W|crop_W|kept_full_flagged|WW": 9,
+    "covered|disagree|full_W|crop_W|took_crop|WW": 1
+   },
+   "baseline_equals_archive_and_control": true,
+   "individual": {
+    "W2": {
+     "transition": "WW",
+     "selected": true,
+     "base": {
+      "observed": "01801-139",
+      "ok": false,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "01801-139",
+      "ok": false,
+      "flagged": false
+     },
+     "diagnostic": {
+      "observed": "01801-139",
+      "ok": false,
+      "words_read": null
+     }
+    },
+    "Z1": {
+     "transition": "WW",
+     "selected": true,
+     "base": {
+      "observed": "",
+      "ok": false,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "",
+      "ok": false,
+      "flagged": false
+     },
+     "diagnostic": {
+      "observed": null,
+      "ok": false,
+      "words_read": 0
+     }
+    },
+    "Z2": {
+     "transition": "WW",
+     "selected": true,
+     "base": {
+      "observed": "",
+      "ok": false,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "",
+      "ok": false,
+      "flagged": false
+     },
+     "diagnostic": {
+      "observed": null,
+      "ok": false,
+      "words_read": 0
+     }
+    },
+    "Z3": {
+     "transition": "WW",
+     "selected": true,
+     "base": {
+      "observed": "",
+      "ok": false,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "",
+      "ok": false,
+      "flagged": true
+     },
+     "diagnostic": {
+      "observed": "20\u20144",
+      "ok": false,
+      "words_read": null
+     }
+    },
+    "Z4": {
+     "transition": "WW",
+     "selected": true,
+     "base": {
+      "observed": "",
+      "ok": false,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "",
+      "ok": false,
+      "flagged": false
+     },
+     "diagnostic": {
+      "observed": null,
+      "ok": false,
+      "words_read": 0
+     }
+    },
+    "Z5": {
+     "transition": "WW",
+     "selected": true,
+     "base": {
+      "observed": "",
+      "ok": false,
+      "flagged": false
+     },
+     "treat": {
+      "observed": "",
+      "ok": false,
+      "flagged": true
+     },
+     "diagnostic": {
+      "observed": "30\u20144",
+      "ok": false,
+      "words_read": null
+     }
+    }
+   }
+  }
+ },
+ "pooled": {
+  "WR": 1,
+  "RW_H": 0,
+  "RW_A": 0,
+  "net": 1
+ },
+ "gate": {
+  "per_run": {
+   "replay-AB": {
+    "evaluable": true,
+    "net_pooled": 1,
+    "WR_pooled": 1,
+    "RW": {
+     "H": 0,
+     "A": 0
+    },
+    "lost_blanks": {
+     "H": 0,
+     "A": 0
+    },
+    "passes": true
+   },
+   "replay-BA": {
+    "evaluable": true,
+    "net_pooled": 1,
+    "WR_pooled": 1,
+    "RW": {
+     "H": 0,
+     "A": 0
+    },
+    "lost_blanks": {
+     "H": 0,
+     "A": 0
+    },
+    "passes": true
+   }
+  },
+  "missing_required_runs": [],
+  "all_evaluable": true,
+  "reproducible": true,
+  "quality_rule_met_every_run": true,
+  "score_component": "PASS"
+ },
+ "timing": {
+  "runs": {
+   "H-AB": {
+    "family": "H",
+    "order": "AB",
+    "pages": 4,
+    "startup_ms": 592.4794,
+    "warmup_ms": 330.959,
+    "engine_startup_ms": 592.3633,
+    "engine_pid": 13344,
+    "python_pid": 3944,
+    "A": {
+     "seconds": 1.3187814,
+     "pages_per_min": 181.98618815824972,
+     "ms_per_page": 329.69535
+    },
+    "B": {
+     "seconds": 1.478647,
+     "pages_per_min": 162.3105447074251,
+     "ms_per_page": 369.66175,
+     "crops": 20,
+     "crops_per_page": 5.0,
+     "crop_calls_observed": 20
+    },
+    "added_ms_per_page": 39.9664,
+    "author_added_ms_per_page": 39.9664,
+    "wrapper_seconds": 4.069082800000615,
+    "startUtc": "2026-11-20T19:50:22.429129+00:00",
+    "endUtc": "2026-11-20T19:50:26.504032+00:00"
+   },
+   "A-BA": {
+    "family": "A",
+    "order": "BA",
+    "pages": 60,
+    "startup_ms": 561.7677,
+    "warmup_ms": 311.2081,
+    "engine_startup_ms": 561.647,
+    "engine_pid": 2276,
+    "python_pid": 1696,
+    "A": {
+     "seconds": 18.256497,
+     "pages_per_min": 197.19007430614974,
+     "ms_per_page": 304.27495
+    },
+    "B": {
+     "seconds": 21.4188622,
+     "pages_per_min": 168.07615485756287,
+     "ms_per_page": 356.9810366666667,
+     "crops": 460,
+     "crops_per_page": 7.666666666666667,
+     "crop_calls_observed": 460
+    },
+    "added_ms_per_page": 52.70608666666667,
+    "author_added_ms_per_page": 52.70608666666667,
+    "wrapper_seconds": 40.89630020000004,
+    "startUtc": "2026-11-20T19:50:26.556433+00:00",
+    "endUtc": "2026-11-20T19:51:07.458898+00:00"
+   },
+   "H-BA": {
+    "family": "H",
+    "order": "BA",
+    "pages": 4,
+    "startup_ms": 547.0826,
+    "warmup_ms": 309.6644,
+    "engine_startup_ms": 546.9617,
+    "engine_pid": 2468,
+    "python_pid": 10752,
+    "A": {
+     "seconds": 1.2787082,
+     "pages_per_min": 187.6894196815192,
+     "ms_per_page": 319.67705
+    },
+    "B": {
+     "seconds": 1.4244366,
+     "pages_per_min": 168.48766733457987,
+     "ms_per_page": 356.10915,
+     "crops": 20,
+     "crops_per_page": 5.0,
+     "crop_calls_observed": 20
+    },
+    "added_ms_per_page": 36.4321,
+    "author_added_ms_per_page": 36.4321,
+    "wrapper_seconds": 3.9214191999999457,
+    "startUtc": "2026-11-20T19:51:08.150977+00:00",
+    "endUtc": "2026-11-20T19:51:12.074948+00:00"
+   },
+   "A-AB": {
+    "family": "A",
+    "order": "AB",
+    "pages": 60,
+    "startup_ms": 551.7715,
+    "warmup_ms": 314.8028,
+    "engine_startup_ms": 551.6522,
+    "engine_pid": 17320,
+    "python_pid": 17960,
+    "A": {
+     "seconds": 18.9221464,
+     "pages_per_min": 190.25325794963726,
+     "ms_per_page": 315.3691066666667
+    },
+    "B": {
+     "seconds": 21.1089401,
+     "pages_per_min": 170.54385407062668,
+     "ms_per_page": 351.81566833333335,
+     "crops": 460,
+     "crops_per_page": 7.666666666666667,
+     "crop_calls_observed": 460
+    },
+    "added_ms_per_page": 36.44656166666667,
+    "author_added_ms_per_page": 36.44656166666667,
+    "wrapper_seconds": 41.20948679999856,
+    "startUtc": "2026-11-20T19:51:12.132593+00:00",
+    "endUtc": "2026-11-20T19:51:53.342901+00:00"
+   }
+  },
+  "pooled": {
+   "all": {
+    "pages": 128,
+    "A_seconds": 39.776133,
+    "B_seconds": 45.4308859,
+    "A_pages_per_min": 193.08060941972414,
+    "B_pages_per_min": 169.04799120371104,
+    "added_ms_per_page": 44.17775703124999,
+    "crops_per_page": 7.5
+   },
+   "H": {
+    "pages": 8,
+    "A_seconds": 2.5974896000000003,
+    "B_seconds": 2.9030836,
+    "A_pages_per_min": 184.79381014653532,
+    "B_pages_per_min": 165.3414321241042,
+    "added_ms_per_page": 38.199249999999964,
+    "crops_per_page": 5.0
+   },
+   "A": {
+    "pages": 120,
+    "A_seconds": 37.1786434,
+    "B_seconds": 42.527802300000005,
+    "A_pages_per_min": 193.65956747093145,
+    "B_pages_per_min": 169.30101276359628,
+    "added_ms_per_page": 44.576324166666716,
+    "crops_per_page": 7.666666666666667
+   },
+   "AB": {
+    "pages": 64,
+    "A_seconds": 20.240927799999998,
+    "B_seconds": 22.5875871,
+    "A_pages_per_min": 189.71462365475165,
+    "B_pages_per_min": 170.0048784759307,
+    "added_ms_per_page": 36.66655156250004,
+    "crops_per_page": 7.5
+   },
+   "BA": {
+    "pages": 64,
+    "A_seconds": 19.5352052,
+    "B_seconds": 22.8432988,
+    "A_pages_per_min": 196.56819371418734,
+    "B_pages_per_min": 168.10181548734985,
+    "added_ms_per_page": 51.68896249999999,
+    "crops_per_page": 7.5
+   }
+  },
+  "boundary": "run.py arm clock: ready-input page loop + output dir through durable prediction write; startup, warm-up, module load, receipt and shutdown excluded and reported separately"
+ },
+ "controls": {
+  "env": "PASS (E5 assets+OS equal freeze)",
+  "inputs": "PASS 139/139 (independent render + own BMP parser = preregistered BGRA)",
+  "identity": "PASS 452/452; archive identical 64/64 pages, grids 64/64",
+  "control_8220701": "PASS 4/4 runs, all full passes equal",
+  "geometry": "PASS 1345 (G4 NOT_RUN: page-px projection; G6 obs: isotropic-padding limit only)",
+  "rebuild": "PASS 1480 (independent selector/rects/reasons/decisions/projection/both-arm predictions; rule_tables re-run)",
+  "timing_supplement": "PASS 29/29",
+  "audit": "PASS 14/14 (separate untimed audited runs, predictions identical)",
+  "static": "FAIL K1 (frozen): public witness strings only in carbon/test_worker.py synthetic-image drawing; not imported/executed; runtime path clean"
+ },
+ "frozen_combined_verdict": "INCONCLUSIVE_CONTROL (sole cause K1)",
+ "score_component": "PASS",
+ "reviewer_materiality": "K1 is not a material barrier: the file is test-only and never executed; R2 re-derived every selection from the declared generic rules exactly. No field/byte barrier observed.",
+ "registered_stage1_rule_met_on_reviewer_runs": true,
+ "pending": [
+  "author/primary runs enter S4 and the every-run rule only at reconciliation (public Git stage1-runs), not yet read",
+  "author post-scoring tool 3ba937fa comparison not yet performed"
+ ],
+ "stage2_operation_authorized": true,
+ "stage2_basis": "coordinator's conditional release (b141fbb3) requires the reviewer's independent registered-rule pass and no material field/byte barrier; both hold. Final Stage 2 authorization/disposition remains the coordinator's.",
+ "head_before_this_record": "99404fe150bd273e8ef752245519e51980b7a5e2"
+}

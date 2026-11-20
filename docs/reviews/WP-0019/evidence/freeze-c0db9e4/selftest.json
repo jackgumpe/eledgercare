@@ -1,0 +1,347 @@
+{
+ "kind": "wp0019-review-selftest",
+ "note": "script validation on archive and constructed controls only; not a WP-0019 result",
+ "sources_sha256": {
+  "expected-bgra.json": "90e49c2467f2f585e50a4fb55757cdd04b6c596254906489a4f501ac07986b45",
+  "PREREGISTRATION.md": "56c794ff541504799049c1ca81d4f3c9b18b7d2e259d8b607ab8ea7961d02c66",
+  "review_audit.py": "7d5a376d39eec56b4d99ffe23d3b793542efa4564e8eb3e8a65b8fb3a0d2e2c7",
+  "review_checks.py": "31c280eaaa013f452622a292f4ff9e05163e0bdb3bd07664be8834aafb5ce8c3",
+  "review_common.py": "55d79d4de2ee723905358578a8477341a4aa1eb8aa13a0b24332e877f5e7e3e8",
+  "review_score.py": "64b036bbd917f66af7d750f497108999c993cca81dd3b4cabc43c8a768bac44c",
+  "review_selftest.py": "919430d5be6b38c6bfc4b97cc64c0c178a7427c79b9c411427bc917ac8f5ede7"
+ },
+ "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+ "executable": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+ "checks": [
+  {
+   "id": "V1.scorer",
+   "state": "PASS",
+   "gating": true,
+   "check": "archive control scorer bytes equal repository WP-0015 score.py (frozen SHA)",
+   "observed": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+   "scope": null
+  },
+  {
+   "id": "V2.truth.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "truth digest, critical lines/cells, cells, blanks, pages",
+   "observed": {
+    "sha": "91fd9ebc9cc5ae32cf4d66f4d139544fe7b6eec52a070803fa4208e7eb67e8ac",
+    "critical_lines": 8,
+    "critical_cells": 11,
+    "cells": 20,
+    "blanks": 1,
+    "pages": 4
+   },
+   "scope": null
+  },
+  {
+   "id": "V2.truth.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "truth digest, critical lines/cells, cells, blanks, pages",
+   "observed": {
+    "sha": "0ec7d6a7be2446409568d68d733636ba7de92e3a59fb40a6dde47fa581f99e6d",
+    "critical_lines": 108,
+    "critical_cells": 144,
+    "cells": 300,
+    "blanks": 22,
+    "pages": 60
+   },
+   "scope": null
+  },
+  {
+   "id": "V3.archive_baseline.H",
+   "state": "PASS",
+   "gating": true,
+   "check": "archive prediction rescored in separate process equals historical-score.json (excluding its native-arm 'comparison' block) and pinned counts",
+   "observed": {
+    "correct_cells": 15,
+    "reference_cells": 20,
+    "critical_values": 19,
+    "unflagged_critical_errors": 8,
+    "correct_lines": 13,
+    "reference_lines": 16,
+    "historical_extra_keys": [
+     "comparison"
+    ]
+   },
+   "scope": null
+  },
+  {
+   "id": "V3.archive_baseline.A",
+   "state": "PASS",
+   "gating": true,
+   "check": "archive prediction rescored in separate process equals historical-score.json (excluding its native-arm 'comparison' block) and pinned counts",
+   "observed": {
+    "correct_cells": 235,
+    "reference_cells": 300,
+    "critical_values": 252,
+    "unflagged_critical_errors": 94,
+    "correct_lines": 237,
+    "reference_lines": 288,
+    "historical_extra_keys": [
+     "comparison"
+    ]
+   },
+   "scope": null
+  },
+  {
+   "id": "V4.zero_word_cells",
+   "state": "PASS",
+   "gating": true,
+   "check": "exactly the five preregistered A cells lack any intersecting archive word; 2 critical; all observed '' and wrong",
+   "observed": [
+    [
+     "A",
+     "page/5/table/1/row/5/col/1",
+     false,
+     "",
+     false
+    ],
+    [
+     "A",
+     "page/15/table/1/row/4/col/2",
+     true,
+     "",
+     false
+    ],
+    [
+     "A",
+     "page/20/table/1/row/5/col/1",
+     false,
+     "",
+     false
+    ],
+    [
+     "A",
+     "page/30/table/1/row/3/col/2",
+     true,
+     "",
+     false
+    ],
+    [
+     "A",
+     "page/30/table/1/row/5/col/1",
+     false,
+     "",
+     false
+    ]
+   ],
+   "scope": null
+  },
+  {
+   "id": "V5.projection",
+   "state": "PASS",
+   "gating": true,
+   "check": "pinned round-3 projection equals every archive span",
+   "observed": {
+    "spans": 1389,
+    "mismatches": 0
+   },
+   "scope": null
+  },
+  {
+   "id": "V6.self_join",
+   "state": "PASS",
+   "gating": true,
+   "check": "archive vs itself: 19/252 criticals, 8/94 unflagged wrong, zero transitions, witnesses/zero-word individually traced, gate FAIL_QUALITY",
+   "observed": {
+    "H": {
+     "RR": 28,
+     "WW": 8
+    },
+    "A": {
+     "RR": 472,
+     "WW": 116
+    },
+    "gate": "FAIL_QUALITY",
+    "failed": []
+   },
+   "scope": null
+  },
+  {
+   "id": "V7.constructed_transitions",
+   "state": "PASS",
+   "gating": true,
+   "check": "constructed control: 2 recoveries, 1 harm (newly unflagged), 1 flag-only, 1 blank loss, 1 space loss, 1 merge, crop coverage/diagnostic/decision",
+   "observed": {
+    "want": {
+     "WR": 2,
+     "RW": 1,
+     "flag01": 1,
+     "newly_unflagged": 1,
+     "blanks_lost": 1,
+     "space_removed": 2,
+     "space_removed_RW": 1,
+     "merge": 1,
+     "covered": 1,
+     "disagree": 1,
+     "decision": "took_crop",
+     "W1": "WR",
+     "W3": "WR",
+     "W4": "RR",
+     "gate": "FAIL_QUALITY"
+    },
+    "got": {
+     "WR": 2,
+     "RW": 1,
+     "flag01": 1,
+     "newly_unflagged": 1,
+     "blanks_lost": 1,
+     "space_removed": 2,
+     "space_removed_RW": 1,
+     "merge": 1,
+     "covered": 1,
+     "disagree": 1,
+     "decision": "took_crop",
+     "W1": "WR",
+     "W3": "WR",
+     "W4": "RR",
+     "gate": "FAIL_QUALITY"
+    }
+   },
+   "scope": null
+  },
+  {
+   "id": "V8.gate_pass",
+   "state": "PASS",
+   "gating": true,
+   "check": "gate returns PASS",
+   "observed": "PASS",
+   "scope": null
+  },
+  {
+   "id": "V8.gate_unrepro",
+   "state": "PASS",
+   "gating": true,
+   "check": "gate returns FAIL_NOT_REPRODUCIBLE",
+   "observed": "FAIL_NOT_REPRODUCIBLE",
+   "scope": null
+  },
+  {
+   "id": "V9.bmp_slice",
+   "state": "PASS",
+   "gating": true,
+   "check": "own BMP parser equals constructed BGRA (24-bit bottom-up/top-down, Pillow BMP); half-open slice equals numpy; out-of-page refused",
+   "observed": null,
+   "scope": null
+  },
+  {
+   "id": "V10.geometry",
+   "state": "PASS",
+   "gating": true,
+   "check": "constructed: good crop passes, wrong source-rect hash fails, pinned projection detected",
+   "observed": [
+    "G3.crop.geo-AB.H.1.1"
+   ],
+   "scope": null
+  },
+  {
+   "id": "V11.identity",
+   "state": "PASS",
+   "gating": true,
+   "check": "constructed: one-box full-pass difference between arms is detected",
+   "observed": [
+    "I1.arms_equal.geo-AB.H.1"
+   ],
+   "scope": null
+  },
+  {
+   "id": "V12.timing",
+   "state": "PASS",
+   "gating": true,
+   "check": "constructed: mislabeled order, incomplete page set and overlapping runs detected; pages/min arithmetic",
+   "observed": [
+    "T6.same_pages.geo-AB.H",
+    "T1.order.geo-BA",
+    "T6.same_pages.geo-BA.H",
+    "T8.runs_serial"
+   ],
+   "scope": null
+  },
+  {
+   "id": "V13.audit",
+   "state": "PASS",
+   "gating": true,
+   "check": "audit hook records allowed opens, the launched executable, and denies/records reads below a deny prefix; summarizer flags only the denial",
+   "observed": {
+    "stdout": "DENIED",
+    "violations": [
+     {
+      "t": 11041349883200,
+      "event": "open",
+      "path": "c:\\users\\jackg\\asp.net projects\\eledgercare-worktrees\\wp0019-data\\review\\frozen-c0db9e4-selftest\\audit\\denied\\secret.json",
+      "mode": "r"
+     }
+    ],
+    "summary_failed": [
+     "A1.no_denied_reads.probe"
+    ],
+    "exes": [
+     "python.exe"
+    ],
+    "stderr": ""
+   },
+   "scope": null
+  },
+  {
+   "id": "V14.static",
+   "state": "PASS",
+   "gating": true,
+   "check": "constructed leak detected; reviewer code contains no reference token",
+   "observed": {
+    "ctl": [
+     "K1.no_reference_tokens_in_code"
+    ],
+    "self": []
+   },
+   "scope": null
+  },
+  {
+   "id": "V15.inputs_render",
+   "state": "PASS",
+   "gating": true,
+   "check": "constructed H manifest: independent render equals rasters.json pins; own BMP parser equals Pillow BMP; copies identical",
+   "observed": {
+    "summary": {
+     "observation_FAIL": 1,
+     "PASS": 13
+    },
+    "failed": [],
+    "stderr": "",
+    "bgra_sha256": [
+     "d95c797a92cf4b936085eb40cd7ba3fca3e30360aa4446d13653fdaa1d73b9dd",
+     "a7aa8b70425fa7772875752e3e95921a7ef42a0eda8187602ee7acebf7e241f3",
+     "f72b68269af0147e232771468e3cfa7523cf4b0ab10d9151984f4e7e7edd4ea1",
+     "973e6f3b8990d03910d36fe24122a5d632d761c12e4d617c44ea065bdb1fa0b1"
+    ]
+   },
+   "scope": null
+  },
+  {
+   "id": "V16.stage2_paths",
+   "state": "PASS",
+   "gating": true,
+   "check": "constructed fresh-family pins/commitments: inputs-fresh passes; a lost blank fails Stage 2 but not Stage 1",
+   "observed": {
+    "verdicts": {
+     "s1-ok": "PASS",
+     "s1-blank": "PASS",
+     "s2-ok": "PASS",
+     "s2-blank": "FAIL_QUALITY"
+    },
+    "inputs_fresh": {
+     "PASS": 7
+    },
+    "stderr": ""
+   },
+   "scope": null
+  }
+ ],
+ "check_summary": {
+  "PASS": 19
+ },
+ "failed_checks": []
+}
