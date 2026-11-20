@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex 
 
 ## WP-0019 Windows OCR fixed crop trial
 
-Jack released the post-update full-page control and Stage 1 on exposed H and A. A separate fresh-form check depends on net critical recovery with zero newly wrong H/A criticals. [Assignment](docs/coordination/WP-0019/assignment.md) · [Reservations](INDEX.md#wp-0019-windows-ocr-fixed-crop-trial)
+Stage 1 recovered the missing hyphen in A page 50’s inspection ID with zero critical regressions across 271 H/A fields. The coordinator committed two new six-page form families and their answer-key digests separately. The non-author owns the blind crossover on the same frozen candidate. [Stage 1 gate](docs/coordination/WP-0019/stage1-gate.json) · [Fresh raster commitment](docs/coordination/WP-0019/fresh-rasters/commitments.json) · [Key commitments](docs/coordination/WP-0019/fresh-key-commitments.json) · [Blind release](docs/coordination/WP-0019/stage2-blind-release.json)
 
 ## Completed WP-0018 Windows OCR archive diagnostic
 
