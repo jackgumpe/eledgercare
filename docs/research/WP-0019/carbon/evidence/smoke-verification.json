@@ -1,0 +1,141 @@
+{
+  "all_passed": true,
+  "git_head": "793fbb7a2a5a3a9354bb753c39b29fcdda959160",
+  "python_executable": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+  "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "tests": {
+    "T1_startup_and_fresh_assets": {
+      "engine_version": "10.0.26100.9278",
+      "historical_wp0015_assets_unchanged": true,
+      "max_dimension": 10000,
+      "passed": true,
+      "pid": 2684,
+      "startup_ms": 604.73
+    },
+    "T2_ramp_and_half_open_geometry": {
+      "full_bgra_sha256": "4df498c13abfbc34cf12cd6067a2f239d49c8ef20dcc6f8b83f52b1c488bb63a",
+      "full_dimensions": [
+        317,
+        211
+      ],
+      "passed": true,
+      "verified_crop_count": 15
+    },
+    "T3_padded_stride_and_alpha_preservation": {
+      "bmp24_default_alpha": 255,
+      "bmp32_v4_crop_text": "ALPHA 77410-1<",
+      "bmp32_v4_preserves_exact_bgra_and_alpha": true,
+      "passed": true,
+      "stride_widths_tested": [
+        64,
+        65,
+        66,
+        67
+      ],
+      "top_down_matches_bottom_up": true
+    },
+    "T4_synthetic_parity_and_crop_equivalence": {
+      "matches_original_wp0015_recognize_ps1": true,
+      "passed": true,
+      "regions_verified_identical_to_standalone_full": [
+        "docket_prose_padded",
+        "unicode_bullet_line",
+        "cell_r1_c0_inset",
+        "cell_r2_c0_inset",
+        "cell_r1_c2_inset",
+        "footer_prose"
+      ],
+      "sample_crop_texts": {
+        "cell_r1_c0_inset": "IL801-493",
+        "cell_r1_c2_inset": "142.75",
+        "cell_r2_c0_inset": "01801-139",
+        "docket_prose_padded": "Docket 88LIL-631",
+        "footer_prose": "Technician Signoff: J. CARTER Date: 2026-11-20",
+        "unicode_bullet_line": "Unit \u2022 PUMP-409 \u2022 Status READY"
+      },
+      "wp0015_visual_layout_tables_detected": 1
+    },
+    "T5_warm_worker_persistence_and_zero_disk_scratch": {
+      "isolated_temp_unchanged_across_crops": true,
+      "monitored_cwd_files_created": 0,
+      "passed": true,
+      "persistent_pid": 2684,
+      "process_create_filetime": 134396770530586532
+    },
+    "T6_bounds_and_fail_closed_controls": {
+      "invalid_crop_rects_rejected": 14,
+      "invalid_full_inputs_rejected_and_cleared_retained": 6,
+      "passed": true,
+      "post_close_calls_rejected": true
+    }
+  },
+  "timestamp_utc": "2026-11-20T19:37:33Z",
+  "worker_info": {
+    "asset_sha256": {
+      "OCR/en-us/MsOcrRes.orp": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908",
+      "System32/Windows.Media.Ocr.dll": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1"
+    },
+    "assets": {
+      "OCR/en-us/MsOcrRes.orp": {
+        "file_description": null,
+        "file_version": null,
+        "path": "C:\\WINDOWS\\OCR\\en-us\\MsOcrRes.orp",
+        "product_version": null,
+        "sha256": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908",
+        "size_bytes": 219754
+      },
+      "System32/Windows.Media.Ocr.dll": {
+        "file_description": "Windows OCR Runtime DLL",
+        "file_version": "10.0.26100.9278 (WinBuild.160101.0800)",
+        "path": "C:\\WINDOWS\\System32\\Windows.Media.Ocr.dll",
+        "product_version": "10.0.26100.9278",
+        "sha256": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+        "size_bytes": 876544
+      }
+    },
+    "byte_semantics": "Top-to-bottom row-major tightly packed 4-byte [B, G, R, A] pixels (length = width * height * 4, row_stride = width * 4) read directly from the WinRT SoftwareBitmap buffer passed to Windows.Media.Ocr.OcrEngine.RecognizeAsync. For 24-bit RGB BMPs, WIC GetSoftwareBitmapAsync(Bgra8, Ignore) populates default opaque alpha A=255 (matching canonical RGB->opaque BGRA8); for 32-bit V4/V5 alpha BMPs, exact [B, G, R, A] bytes are preserved without premultiplication.",
+    "clr_version": "4.0.30319.42000",
+    "decode_mode": {
+      "crop_storage": "in_memory_software_bitmap",
+      "requested_alpha_mode": "Ignore",
+      "requested_pixel_format": "Bgra8",
+      "scale": "1x",
+      "shared_recognition_operation": "Windows.Media.Ocr.OcrEngine.RecognizeAsync(SoftwareBitmap)"
+    },
+    "engine": "Windows.Media.Ocr.OcrEngine",
+    "engine_py_sha256": "fc76db188f5da74e8599c4a01cd6dbca5449b611d55b98bb5d0e7f7a5f7a8824",
+    "engine_version": "10.0.26100.9278",
+    "historical_wp0015_asset_sha256": {
+      "OCR/en-us/MsOcrRes.orp": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908",
+      "System32/Windows.Media.Ocr.dll": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1"
+    },
+    "historical_wp0015_assets_unchanged": true,
+    "historical_wp0015_changed_assets": [],
+    "is_64bit_process": true,
+    "language": "en-US",
+    "language_display_name": "English (United States)",
+    "loaded_ocr_module": {
+      "file_name": "C:\\Windows\\System32\\Windows.Media.Ocr.dll",
+      "file_version": "10.0.26100.9278 (WinBuild.160101.0800)",
+      "module_memory_size": 880640,
+      "module_name": "Windows.Media.Ocr.dll",
+      "product_version": "10.0.26100.9278"
+    },
+    "max_dimension": 10000,
+    "os_build": {
+      "build_lab_ex": "26100.1.amd64fre.ge_release.240331-1435",
+      "current_build": "26300",
+      "display_version": "26H2",
+      "product_name": "Windows 10 Home",
+      "ubr": 9974
+    },
+    "pid": 2684,
+    "powershell_executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "powershell_version": "5.1.26100.9818",
+    "process_create_filetime": 134396770530586532,
+    "python_pid": 3980,
+    "startup_ms": 604.73,
+    "worker_script": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\crop19-carbon\\docs\\research\\WP-0019\\carbon\\worker.ps1",
+    "worker_script_sha256": "53a477d7c2b4d9ea4d67506d7e2a5b981bac7c981ca5ece2174f0fed96501ccc"
+  }
+}
