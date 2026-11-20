@@ -1,0 +1,766 @@
+{
+  "H": {
+    "criticalTransitions": {
+      "RR": 11,
+      "WR": 2,
+      "RW": 0,
+      "WW": 6
+    },
+    "correctedNativeAgainstWindowsUpperBound": {
+      "RR": 11,
+      "WR": 6,
+      "RW": 0,
+      "WW": 2
+    },
+    "criticalWitnesses": [
+      {
+        "at": "page/1/line/2",
+        "expected": "88L1L-631",
+        "windows": "Docket 88L1 L-631",
+        "native": "Docket 88L1L-631",
+        "routed": "Docket 88L1L-631"
+      },
+      {
+        "at": "page/3/line/2",
+        "expected": "OLO88-203",
+        "windows": "Docket OL088-203",
+        "native": "Docket OLO88-203",
+        "routed": "Docket OLO88-203"
+      }
+    ],
+    "previouslyCorrectNowWrongLocations": {
+      "cells": [],
+      "lines": []
+    },
+    "scorerHashes": {
+      "windows": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+      "native": "a6f9a5d40babe1bb42f3506ce5e06326c14c9632682947a5c8cce9f0a6ccd15e",
+      "routed": "a2f6d56e24d022c15bbbac673f6a624a45e7b07c59aeff7645d44159b2853746"
+    },
+    "scoreCounts": {
+      "windows": {
+        "edits": 15,
+        "reference_chars": 570,
+        "cer": 0.02631578947368421,
+        "correct_cells": 15,
+        "reference_cells": 20,
+        "extra_cells": 0,
+        "cell_accuracy": 0.75,
+        "correct_lines": 13,
+        "reference_lines": 16,
+        "critical_values": 19,
+        "critical_errors": 8,
+        "unflagged_critical_errors": 8,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "native": {
+        "edits": 2,
+        "reference_chars": 570,
+        "cer": 0.0035087719298245615,
+        "correct_cells": 18,
+        "reference_cells": 20,
+        "extra_cells": 0,
+        "cell_accuracy": 0.9,
+        "correct_lines": 16,
+        "reference_lines": 16,
+        "critical_values": 19,
+        "critical_errors": 2,
+        "unflagged_critical_errors": 2,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "routed": {
+        "edits": 13,
+        "reference_chars": 570,
+        "cer": 0.02280701754385965,
+        "correct_cells": 15,
+        "reference_cells": 20,
+        "extra_cells": 0,
+        "cell_accuracy": 0.75,
+        "correct_lines": 15,
+        "reference_lines": 16,
+        "critical_values": 19,
+        "critical_errors": 6,
+        "unflagged_critical_errors": 6,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      }
+    },
+    "pages": 4,
+    "availableWindows": 2,
+    "requestedWindows": 2,
+    "windowCosts": [
+      {
+        "start": 1,
+        "pages": 3,
+        "beginNs": 501874688204500,
+        "endNs": 501916687646900,
+        "engineSeconds": 41.9994424
+      },
+      {
+        "start": 4,
+        "pages": 1,
+        "beginNs": 501916782888100,
+        "endNs": 501926368228800,
+        "engineSeconds": 9.5853407
+      }
+    ],
+    "observedWindowsSeconds": 1.0232249,
+    "observedNativeFullDocumentSeconds": 51.9156201,
+    "selectedEngineSeconds": 51.584783099999996,
+    "totalBudgetSeconds": 8,
+    "remainingAfterWindowsSeconds": 6.9767751,
+    "modeledSerialWindowsPlusSelectedEngineSeconds": 52.608008,
+    "modeledSumOfDocumentClocksSeconds": 52.938845,
+    "costDisposition": "over budget"
+  },
+  "A": {
+    "criticalTransitions": {
+      "RR": 158,
+      "WR": 60,
+      "RW": 0,
+      "WW": 34
+    },
+    "correctedNativeAgainstWindowsUpperBound": {
+      "RR": 155,
+      "WR": 60,
+      "RW": 3,
+      "WW": 34
+    },
+    "criticalWitnesses": [
+      {
+        "at": "page/3/line/2",
+        "expected": "IILO1-476",
+        "windows": "Inspection IIL01-476",
+        "native": "Inspection IILO1-476",
+        "routed": "Inspection IILO1-476"
+      },
+      {
+        "at": "page/4/line/2",
+        "expected": "I10L8-590",
+        "windows": "Inspection 110L8-590",
+        "native": "Inspection I10L8-590",
+        "routed": "Inspection I10L8-590"
+      },
+      {
+        "at": "page/5/table/1/row/3/col/2",
+        "expected": "IILII-729",
+        "windows": "\"Lil-729",
+        "native": "IILII-729",
+        "routed": "IILII-729"
+      },
+      {
+        "at": "page/6/line/2",
+        "expected": "1LL1L-118",
+        "windows": "Inspection ILLI L-118",
+        "native": "Inspection 1LL1L-118",
+        "routed": "Inspection 1LL1L-118"
+      },
+      {
+        "at": "page/9/line/2",
+        "expected": "L111O-557",
+        "windows": "Inspection LI 110-557",
+        "native": "Inspection L111O-557",
+        "routed": "Inspection L111O-557"
+      },
+      {
+        "at": "page/10/line/2",
+        "expected": "OIO81-114",
+        "windows": "Inspection 01081-114",
+        "native": "Inspection OIO81-114",
+        "routed": "Inspection OIO81-114"
+      },
+      {
+        "at": "page/10/table/1/row/2/col/2",
+        "expected": "11ILI-204",
+        "windows": "11 ILI-204",
+        "native": "11ILI-204",
+        "routed": "11ILI-204"
+      },
+      {
+        "at": "page/10/table/1/row/5/col/2",
+        "expected": "88LL0-611",
+        "windows": "88LLO-611",
+        "native": "88LL0-611",
+        "routed": "88LL0-611"
+      },
+      {
+        "at": "page/11/line/2",
+        "expected": "81L8I-411",
+        "windows": "Inspection 81 L81-411",
+        "native": "Inspection 81L8I-411",
+        "routed": "Inspection 81L8I-411"
+      },
+      {
+        "at": "page/14/line/2",
+        "expected": "8IL01-132",
+        "windows": "Inspection 81L01-132",
+        "native": "Inspection 8IL01-132",
+        "routed": "Inspection 8IL01-132"
+      },
+      {
+        "at": "page/15/line/2",
+        "expected": "L18L0-374",
+        "windows": "Inspection L18LO-374",
+        "native": "Inspection L18L0-374",
+        "routed": "Inspection L18L0-374"
+      },
+      {
+        "at": "page/15/table/1/row/2/col/2",
+        "expected": "ILOO1-733",
+        "windows": "IL001-733",
+        "native": "ILOO1-733",
+        "routed": "ILOO1-733"
+      },
+      {
+        "at": "page/15/table/1/row/4/col/2",
+        "expected": "11III-558",
+        "windows": "",
+        "native": "11III-558",
+        "routed": "11III-558"
+      },
+      {
+        "at": "page/16/line/2",
+        "expected": "IO801-689",
+        "windows": "Inspection 10801-689",
+        "native": "Inspection IO801-689",
+        "routed": "Inspection IO801-689"
+      },
+      {
+        "at": "page/18/line/2",
+        "expected": "LI81L-282",
+        "windows": "Inspection L181 L-282",
+        "native": "Inspection LI81L-282",
+        "routed": "Inspection LI81L-282"
+      },
+      {
+        "at": "page/20/table/1/row/2/col/2",
+        "expected": "LO1LO-157",
+        "windows": "LOILO-157",
+        "native": "LO1LO-157",
+        "routed": "LO1LO-157"
+      },
+      {
+        "at": "page/20/table/1/row/3/col/2",
+        "expected": "OIOOI-568",
+        "windows": "01001-568",
+        "native": "OIOOI-568",
+        "routed": "OIOOI-568"
+      },
+      {
+        "at": "page/20/table/1/row/4/col/2",
+        "expected": "8I08I-180",
+        "windows": "81081-180",
+        "native": "8I08I-180",
+        "routed": "8I08I-180"
+      },
+      {
+        "at": "page/20/table/1/row/5/col/2",
+        "expected": "8O88I-656",
+        "windows": "80881-656",
+        "native": "8O88I-656",
+        "routed": "8O88I-656"
+      },
+      {
+        "at": "page/21/line/2",
+        "expected": "I08O1-388",
+        "windows": "Inspection 10801-388",
+        "native": "Inspection I08O1-388",
+        "routed": "Inspection I08O1-388"
+      },
+      {
+        "at": "page/23/line/2",
+        "expected": "1OL8I-644",
+        "windows": "Inspection IOL81-644",
+        "native": "Inspection 1OL8I-644",
+        "routed": "Inspection 1OL8I-644"
+      },
+      {
+        "at": "page/25/line/2",
+        "expected": "IO11I-958",
+        "windows": "Inspection 10111-958",
+        "native": "Inspection IO11I-958",
+        "routed": "Inspection IO11I-958"
+      },
+      {
+        "at": "page/25/table/1/row/2/col/2",
+        "expected": "0O818-765",
+        "windows": "00818-765",
+        "native": "0O818-765",
+        "routed": "0O818-765"
+      },
+      {
+        "at": "page/25/table/1/row/3/col/2",
+        "expected": "OL0LI-937",
+        "windows": "OLOLI-937",
+        "native": "OL0LI-937",
+        "routed": "OL0LI-937"
+      },
+      {
+        "at": "page/25/table/1/row/4/col/2",
+        "expected": "80I8L-285",
+        "windows": "8018L-285",
+        "native": "80I8L-285",
+        "routed": "80I8L-285"
+      },
+      {
+        "at": "page/25/table/1/row/5/col/2",
+        "expected": "L0OOO-186",
+        "windows": "LOOOO-186",
+        "native": "L0OOO-186",
+        "routed": "L0OOO-186"
+      },
+      {
+        "at": "page/28/line/2",
+        "expected": "1LOL1-518",
+        "windows": "Inspection 1 LOLI -518",
+        "native": "Inspection 1LOL1-518",
+        "routed": "Inspection 1LOL1-518"
+      },
+      {
+        "at": "page/30/line/2",
+        "expected": "O818O-163",
+        "windows": "Inspection 08180-163",
+        "native": "Inspection O818O-163",
+        "routed": "Inspection O818O-163"
+      },
+      {
+        "at": "page/34/line/2",
+        "expected": "8OIIL-289",
+        "windows": "Inspection 8011L-289",
+        "native": "Inspection 8OIIL-289",
+        "routed": "Inspection 8OIIL-289"
+      },
+      {
+        "at": "page/35/line/2",
+        "expected": "00L10-968",
+        "windows": "Inspection OOLI 0-968",
+        "native": "Inspection 00L10-968",
+        "routed": "Inspection 00L10-968"
+      },
+      {
+        "at": "page/35/table/1/row/3/col/2",
+        "expected": "88II8-369",
+        "windows": "88118-369",
+        "native": "88II8-369",
+        "routed": "88II8-369"
+      },
+      {
+        "at": "page/35/table/1/row/5/col/2",
+        "expected": "111LL-655",
+        "windows": "111 LL-655",
+        "native": "111LL-655",
+        "routed": "111LL-655"
+      },
+      {
+        "at": "page/37/line/2",
+        "expected": "8OI10-774",
+        "windows": "Inspection 80110-774",
+        "native": "Inspection 8OI10-774",
+        "routed": "Inspection 8OI10-774"
+      },
+      {
+        "at": "page/39/line/2",
+        "expected": "LLO01-562",
+        "windows": "Inspection LLOOI -562",
+        "native": "Inspection LLO01-562",
+        "routed": "Inspection LLO01-562"
+      },
+      {
+        "at": "page/40/line/2",
+        "expected": "L81IL-307",
+        "windows": "Inspection L81 IL-307",
+        "native": "Inspection L81IL-307",
+        "routed": "Inspection L81IL-307"
+      },
+      {
+        "at": "page/40/table/1/row/2/col/2",
+        "expected": "1L11I-433",
+        "windows": "ILI 11-433",
+        "native": "1L11I-433",
+        "routed": "1L11I-433"
+      },
+      {
+        "at": "page/40/table/1/row/3/col/2",
+        "expected": "1II01-769",
+        "windows": "11101-769",
+        "native": "1II01-769",
+        "routed": "1II01-769"
+      },
+      {
+        "at": "page/40/table/1/row/5/col/2",
+        "expected": "II1OI-186",
+        "windows": "11101-186",
+        "native": "II1OI-186",
+        "routed": "II1OI-186"
+      },
+      {
+        "at": "page/41/line/2",
+        "expected": "010L8-179",
+        "windows": "Inspection 01 OL8-179",
+        "native": "Inspection 010L8-179",
+        "routed": "Inspection 010L8-179"
+      },
+      {
+        "at": "page/42/line/2",
+        "expected": "LLI88-799",
+        "windows": "Inspection LL188-799",
+        "native": "Inspection LLI88-799",
+        "routed": "Inspection LLI88-799"
+      },
+      {
+        "at": "page/45/line/2",
+        "expected": "1L101-943",
+        "windows": "Inspection ILIOI -943",
+        "native": "Inspection 1L101-943",
+        "routed": "Inspection 1L101-943"
+      },
+      {
+        "at": "page/45/table/1/row/3/col/2",
+        "expected": "L0L80-496",
+        "windows": "LOL80496",
+        "native": "L0L80-496",
+        "routed": "L0L80-496"
+      },
+      {
+        "at": "page/45/table/1/row/4/col/2",
+        "expected": "8010O-977",
+        "windows": "80100-977",
+        "native": "8010O-977",
+        "routed": "8010O-977"
+      },
+      {
+        "at": "page/45/table/1/row/5/col/2",
+        "expected": "8ILOL-317",
+        "windows": "81LOL-317",
+        "native": "8ILOL-317",
+        "routed": "8ILOL-317"
+      },
+      {
+        "at": "page/50/table/1/row/2/col/2",
+        "expected": "80808-479",
+        "windows": "80808479",
+        "native": "80808-479",
+        "routed": "80808-479"
+      },
+      {
+        "at": "page/50/table/1/row/3/col/2",
+        "expected": "01O10-267",
+        "windows": "01010-267",
+        "native": "01O10-267",
+        "routed": "01O10-267"
+      },
+      {
+        "at": "page/50/table/1/row/4/col/2",
+        "expected": "81I0L-932",
+        "windows": "81 IOL-932",
+        "native": "81I0L-932",
+        "routed": "81I0L-932"
+      },
+      {
+        "at": "page/51/line/2",
+        "expected": "10L00-614",
+        "windows": "Inspection IOLOO-614",
+        "native": "Inspection 10L00-614",
+        "routed": "Inspection 10L00-614"
+      },
+      {
+        "at": "page/52/line/2",
+        "expected": "8ILO0-663",
+        "windows": "Inspection 81LOO-663",
+        "native": "Inspection 8ILO0-663",
+        "routed": "Inspection 8ILO0-663"
+      },
+      {
+        "at": "page/55/table/1/row/2/col/2",
+        "expected": "I80IO-155",
+        "windows": "18010-155",
+        "native": "I80IO-155",
+        "routed": "I80IO-155"
+      },
+      {
+        "at": "page/55/table/1/row/3/col/2",
+        "expected": "081O8-817",
+        "windows": "08108-817",
+        "native": "081O8-817",
+        "routed": "081O8-817"
+      },
+      {
+        "at": "page/55/table/1/row/4/col/2",
+        "expected": "LO0I1-876",
+        "windows": "LOOM -876",
+        "native": "LO0I1-876",
+        "routed": "LO0I1-876"
+      },
+      {
+        "at": "page/55/table/1/row/5/col/2",
+        "expected": "O018O-876",
+        "windows": "00180-876",
+        "native": "O018O-876",
+        "routed": "O018O-876"
+      },
+      {
+        "at": "page/56/line/2",
+        "expected": "LO8LI-914",
+        "windows": "Inspection L08LI-914",
+        "native": "Inspection LO8LI-914",
+        "routed": "Inspection LO8LI-914"
+      },
+      {
+        "at": "page/57/line/2",
+        "expected": "111LI-488",
+        "windows": "Inspection 11 ILI-488",
+        "native": "Inspection 111LI-488",
+        "routed": "Inspection 111LI-488"
+      },
+      {
+        "at": "page/58/line/2",
+        "expected": "LOI08-856",
+        "windows": "Inspection L0108-856",
+        "native": "Inspection LOI08-856",
+        "routed": "Inspection LOI08-856"
+      },
+      {
+        "at": "page/59/line/2",
+        "expected": "IIO81-959",
+        "windows": "Inspection 11081-959",
+        "native": "Inspection IIO81-959",
+        "routed": "Inspection IIO81-959"
+      },
+      {
+        "at": "page/60/table/1/row/2/col/2",
+        "expected": "0I8O1-139",
+        "windows": "01801-139",
+        "native": "0I8O1-139",
+        "routed": "0I8O1-139"
+      },
+      {
+        "at": "page/60/table/1/row/4/col/2",
+        "expected": "LI010-474",
+        "windows": "L1010-474",
+        "native": "LI010-474",
+        "routed": "LI010-474"
+      },
+      {
+        "at": "page/60/table/1/row/5/col/2",
+        "expected": "O8O88-731",
+        "windows": "08088-731",
+        "native": "O8O88-731",
+        "routed": "O8O88-731"
+      }
+    ],
+    "previouslyCorrectNowWrongLocations": {
+      "cells": [],
+      "lines": []
+    },
+    "scorerHashes": {
+      "windows": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+      "native": "60b7ec411a186836a324e815a57f95238f50996bc6cb940b02ac7d3d15fbbe71",
+      "routed": "286e11b1e340d4a8525fdd6f587a6fad33dc51b255c90856e0bd6568570b0116"
+    },
+    "scoreCounts": {
+      "windows": {
+        "edits": 257,
+        "reference_chars": 8821,
+        "cer": 0.029135018705362205,
+        "correct_cells": 235,
+        "reference_cells": 300,
+        "extra_cells": 0,
+        "cell_accuracy": 0.7833333333333333,
+        "correct_lines": 237,
+        "reference_lines": 288,
+        "critical_values": 252,
+        "critical_errors": 94,
+        "unflagged_critical_errors": 94,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "native": {
+        "edits": 1303,
+        "reference_chars": 8821,
+        "cer": 0.14771567849450176,
+        "correct_cells": 288,
+        "reference_cells": 300,
+        "extra_cells": 37,
+        "cell_accuracy": 0.8545994065281899,
+        "correct_lines": 220,
+        "reference_lines": 288,
+        "critical_values": 252,
+        "critical_errors": 37,
+        "unflagged_critical_errors": 37,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      },
+      "routed": {
+        "edits": 84,
+        "reference_chars": 8821,
+        "cer": 0.009522729849223444,
+        "correct_cells": 266,
+        "reference_cells": 300,
+        "extra_cells": 0,
+        "cell_accuracy": 0.8866666666666667,
+        "correct_lines": 266,
+        "reference_lines": 288,
+        "critical_values": 252,
+        "critical_errors": 34,
+        "unflagged_critical_errors": 34,
+        "flagged_critical": 0,
+        "wrong_source": 0
+      }
+    },
+    "pages": 60,
+    "availableWindows": 20,
+    "requestedWindows": 20,
+    "windowCosts": [
+      {
+        "start": 1,
+        "pages": 3,
+        "beginNs": 504283962938800,
+        "endNs": 504333053653500,
+        "engineSeconds": 49.0907147
+      },
+      {
+        "start": 4,
+        "pages": 3,
+        "beginNs": 504333330804700,
+        "endNs": 504390223683800,
+        "engineSeconds": 56.8928791
+      },
+      {
+        "start": 7,
+        "pages": 3,
+        "beginNs": 504390488215900,
+        "endNs": 504436993900000,
+        "engineSeconds": 46.5056841
+      },
+      {
+        "start": 10,
+        "pages": 3,
+        "beginNs": 504437233188800,
+        "endNs": 504494952388300,
+        "engineSeconds": 57.7191995
+      },
+      {
+        "start": 13,
+        "pages": 3,
+        "beginNs": 504495188816200,
+        "endNs": 504552407465400,
+        "engineSeconds": 57.2186492
+      },
+      {
+        "start": 16,
+        "pages": 3,
+        "beginNs": 504552643225400,
+        "endNs": 504596300261100,
+        "engineSeconds": 43.6570357
+      },
+      {
+        "start": 19,
+        "pages": 3,
+        "beginNs": 504596543392500,
+        "endNs": 504653185757700,
+        "engineSeconds": 56.6423652
+      },
+      {
+        "start": 22,
+        "pages": 3,
+        "beginNs": 504653435634600,
+        "endNs": 504697994443400,
+        "engineSeconds": 44.5588088
+      },
+      {
+        "start": 25,
+        "pages": 3,
+        "beginNs": 504698247573400,
+        "endNs": 504758263609900,
+        "engineSeconds": 60.0160365
+      },
+      {
+        "start": 28,
+        "pages": 3,
+        "beginNs": 504758520154800,
+        "endNs": 504818957599100,
+        "engineSeconds": 60.4374443
+      },
+      {
+        "start": 31,
+        "pages": 3,
+        "beginNs": 504819221697200,
+        "endNs": 504864640003200,
+        "engineSeconds": 45.418306
+      },
+      {
+        "start": 34,
+        "pages": 3,
+        "beginNs": 504864892736900,
+        "endNs": 504925969955500,
+        "engineSeconds": 61.0772186
+      },
+      {
+        "start": 37,
+        "pages": 3,
+        "beginNs": 504926209513000,
+        "endNs": 504972947061800,
+        "engineSeconds": 46.7375488
+      },
+      {
+        "start": 40,
+        "pages": 3,
+        "beginNs": 504973197462400,
+        "endNs": 505039165094000,
+        "engineSeconds": 65.9676316
+      },
+      {
+        "start": 43,
+        "pages": 3,
+        "beginNs": 505039404119700,
+        "endNs": 505094837532100,
+        "engineSeconds": 55.4334124
+      },
+      {
+        "start": 46,
+        "pages": 3,
+        "beginNs": 505095079419700,
+        "endNs": 505139002936700,
+        "engineSeconds": 43.923517
+      },
+      {
+        "start": 49,
+        "pages": 3,
+        "beginNs": 505139255969700,
+        "endNs": 505192487330800,
+        "engineSeconds": 53.2313611
+      },
+      {
+        "start": 52,
+        "pages": 3,
+        "beginNs": 505192714630900,
+        "endNs": 505233132022900,
+        "engineSeconds": 40.417392
+      },
+      {
+        "start": 55,
+        "pages": 3,
+        "beginNs": 505233365426600,
+        "endNs": 505290168167300,
+        "engineSeconds": 56.8027407
+      },
+      {
+        "start": 58,
+        "pages": 3,
+        "beginNs": 505290394827600,
+        "endNs": 505344856517000,
+        "engineSeconds": 54.4616894
+      }
+    ],
+    "observedWindowsSeconds": 15.6546455,
+    "observedNativeFullDocumentSeconds": 1061.1868395,
+    "selectedEngineSeconds": 1056.2096347,
+    "totalBudgetSeconds": 120,
+    "remainingAfterWindowsSeconds": 104.3453545,
+    "modeledSerialWindowsPlusSelectedEngineSeconds": 1071.8642802,
+    "modeledSumOfDocumentClocksSeconds": 1076.841485,
+    "costDisposition": "over budget"
+  }
+}
