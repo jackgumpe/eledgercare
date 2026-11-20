@@ -1,0 +1,155 @@
+{
+  "stage": 1,
+  "decision": "GO_STAGE_2",
+  "uniquePages": 64,
+  "totalGains": 1,
+  "totalRegressions": 0,
+  "netCriticalRecovery": 1,
+  "baselineWrongCritical": 102,
+  "allExplicitBlankObservationsPreserved": true,
+  "pooledTreatmentPagesPerMinute": 167.6299279654693,
+  "pooledAddedMsPerPage": 43.96418593750001,
+  "timingMethod": "Both timed orders. Throughput is the total number of measured treatment pages divided by the sum of their elapsed times. Count unique fields once.",
+  "families": {
+    "H": {
+      "uniquePages": 4,
+      "critical": {
+        "total": 19,
+        "before_correct": 11,
+        "after_correct": 11,
+        "wrong_to_right": 0,
+        "right_to_wrong": 0,
+        "wrong_to_wrong": 8,
+        "right_to_right": 11
+      },
+      "gains": [],
+      "regressions": [],
+      "newlyWrongUnflagged": [],
+      "explicitBlankCells": {
+        "total": 1,
+        "before_correct": 1,
+        "after_correct": 1,
+        "newly_wrong": [],
+        "observations_changed": []
+      },
+      "cropComparisons": {
+        "regions": 36,
+        "eligible": 20,
+        "attempted": 20,
+        "different": 1,
+        "equal": 19,
+        "flagged_regions": 0,
+        "accepted_reads": 1
+      },
+      "cropsPerPage": 5.0,
+      "timing": {
+        "perOrder": [
+          {
+            "order": "AB",
+            "elapsed_s": {
+              "A": 1.3216352,
+              "B": 1.475583
+            },
+            "pages_per_min": {
+              "A": 181.59322633053355,
+              "B": 162.64757726268192
+            },
+            "added_ms_per_page": 38.48695000000002
+          },
+          {
+            "order": "BA",
+            "elapsed_s": {
+              "A": 1.2963583,
+              "B": 1.4272293
+            },
+            "pages_per_min": {
+              "A": 185.1340019190682,
+              "B": 168.1579827432074
+            },
+            "added_ms_per_page": 32.71774999999999
+          }
+        ],
+        "perFamilyPooledSecondsPerPass": {
+          "A": 1.30899675,
+          "B": 1.45140615
+        },
+        "pooledPagesPerMinute": {
+          "A": 183.346520913822,
+          "B": 165.3568851144802
+        },
+        "addedMsPerPage": 35.60235
+      }
+    },
+    "A": {
+      "uniquePages": 60,
+      "critical": {
+        "total": 252,
+        "before_correct": 158,
+        "after_correct": 159,
+        "wrong_to_right": 1,
+        "right_to_wrong": 0,
+        "wrong_to_wrong": 93,
+        "right_to_right": 158
+      },
+      "gains": [
+        "page/50/table/1/row/2/col/2"
+      ],
+      "regressions": [],
+      "newlyWrongUnflagged": [],
+      "explicitBlankCells": {
+        "total": 22,
+        "before_correct": 22,
+        "after_correct": 22,
+        "newly_wrong": [],
+        "observations_changed": []
+      },
+      "cropComparisons": {
+        "regions": 588,
+        "eligible": 460,
+        "attempted": 460,
+        "different": 27,
+        "equal": 433,
+        "flagged_regions": 25,
+        "accepted_reads": 2
+      },
+      "cropsPerPage": 7.666666666666667,
+      "timing": {
+        "perOrder": [
+          {
+            "order": "AB",
+            "elapsed_s": {
+              "A": 19.1148288,
+              "B": 21.3369435
+            },
+            "pages_per_min": {
+              "A": 188.335456083185,
+              "B": 168.72144784936043
+            },
+            "added_ms_per_page": 37.03524499999998
+          },
+          {
+            "order": "BA",
+            "elapsed_s": {
+              "A": 18.4549698,
+              "B": 21.5754521
+            },
+            "pages_per_min": {
+              "A": 195.0694061823932,
+              "B": 166.8562949835012
+            },
+            "added_ms_per_page": 52.00803833333332
+          }
+        ],
+        "perFamilyPooledSecondsPerPass": {
+          "A": 18.7848993,
+          "B": 21.456197799999998
+        },
+        "pooledPagesPerMinute": {
+          "A": 191.64329510140095,
+          "B": 167.78368812390423
+        },
+        "addedMsPerPage": 44.521641666666646
+      }
+    }
+  }
+}
