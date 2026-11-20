@@ -1,0 +1,181 @@
+{
+  "status": "constructed_method_control_only",
+  "description": "One invented page; no OCR call, no H/A archive bytes, no product result. Call the pinned scorer's layout(reference_page,prediction_page,source_sha256) before and after setting tables=[] on the copy.",
+  "scorer_sha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+  "reference_page": {
+    "page": 1,
+    "width": 200,
+    "height": 200,
+    "lines": [
+      {
+        "bbox": [
+          5,
+          10,
+          130,
+          20
+        ],
+        "text": "ID ABC-123",
+        "critical": "ABC-123"
+      }
+    ],
+    "tables": [
+      {
+        "bbox": [
+          5,
+          60,
+          165,
+          100
+        ],
+        "rows": [
+          [
+            {
+              "bbox": [
+                5,
+                60,
+                85,
+                100
+              ],
+              "text": "A1",
+              "critical": true
+            },
+            {
+              "bbox": [
+                85,
+                60,
+                165,
+                100
+              ],
+              "text": "B2",
+              "critical": true
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "prediction_page": {
+    "page": 1,
+    "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "state": "complete",
+    "text": "ID AB C-123 ZZ B2",
+    "spans": [
+      {
+        "text": "ID",
+        "bbox": [
+          7,
+          11,
+          17,
+          18
+        ],
+        "flagged": false
+      },
+      {
+        "text": "AB",
+        "bbox": [
+          20,
+          11,
+          31,
+          18
+        ],
+        "flagged": false
+      },
+      {
+        "text": "C-123",
+        "bbox": [
+          32,
+          11,
+          59,
+          18
+        ],
+        "flagged": false
+      },
+      {
+        "text": "A1",
+        "bbox": [
+          12,
+          66,
+          30,
+          90
+        ],
+        "flagged": false
+      },
+      {
+        "text": "82",
+        "bbox": [
+          93,
+          66,
+          109,
+          90
+        ],
+        "flagged": false
+      }
+    ],
+    "tables": [
+      {
+        "bbox": [
+          5,
+          60,
+          165,
+          100
+        ],
+        "rows": [
+          [
+            "ZZ",
+            "B2"
+          ]
+        ]
+      }
+    ]
+  },
+  "source_sha256_placeholder": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "before": {
+    "cells": [
+      [
+        "page/1/table/1/row/1/col/1",
+        "A1",
+        "ZZ",
+        false
+      ],
+      [
+        "page/1/table/1/row/1/col/2",
+        "B2",
+        "B2",
+        true
+      ]
+    ],
+    "lines": [
+      [
+        "page/1/line/1",
+        "ID AB C-123",
+        false
+      ]
+    ],
+    "extra_cells": 0,
+    "faults": []
+  },
+  "after": {
+    "cells": [
+      [
+        "page/1/table/1/row/1/col/1",
+        "A1",
+        "A1",
+        true
+      ],
+      [
+        "page/1/table/1/row/1/col/2",
+        "B2",
+        "82",
+        false
+      ]
+    ],
+    "lines": [
+      [
+        "page/1/line/1",
+        "ID AB C-123",
+        false
+      ]
+    ],
+    "extra_cells": 0,
+    "faults": []
+  }
+}

@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0018 Windows OCR archive diagnostic
+
+The coordinator has released a CPU-only replay of the saved WP-0015 Windows predictions on H and A. The two research authors own the paired scorer replay and the raw-word traces. A separate non-author will reproduce the decisive checks before coordinator disposition. [Assignment and freeze criteria](docs/coordination/WP-0018/assignment.md) · [Report reservations](INDEX.md#wp-0018-windows-ocr-archive-diagnostic)
+
 ## Completed WP-0017 frozen-weight runtime ablation
 
 All 19 configurations finished. Each of the three eligible pair removals restored the page 37 inspection ID, and every pair still misread page 21. Batched expert decode saved 12.44 seconds across two three-page windows when enabled alone. Ordinary Baidu remains the reference. A1 closed without a candidate for the 18-page or 60-page stages. [Coordinator report 004](docs/agent-reports/eld-coordinator/WP-0017/004_2026-11-18_verification_eld-coordinator.md) · [Independent review 003](docs/agent-reports/eld-rd-reviewer/WP-0017/003_2026-11-18_review_eld-rd-reviewer.md) · [Publication receipt](docs/coordination/WP-0017/publication-receipt.json)

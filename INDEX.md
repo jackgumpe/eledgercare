@@ -1107,3 +1107,14 @@ Jack authorized the [bounded specification and assignment](docs/coordination/WP-
 | 004 | eld-coordinator | docs/agent-reports/eld-coordinator/WP-0017/004_2026-11-18_verification_eld-coordinator.md |
 
 **A1 closed without a qualifying switch removal.** All 19 configurations finished on the original two windows. The six individual removals and all three eligible pairs left page 21 wrong. All three pairs recovered page 37. The unchanged rules withheld A2 and A3. The user authorized a separate fresh xhigh reviewer for the three pairs after the initial Opus command. [Decision](docs/coordination/WP-0017/decision.json) at `b95e329f54ecbb389c2db65a7dbe7d825874a234` · [Coordinator 004](docs/agent-reports/eld-coordinator/WP-0017/004_2026-11-18_verification_eld-coordinator.md) at `cea609be3e0f2dd9e6d27cf27d41d997b2877c55` · [Four report publications](docs/coordination/WP-0017/publication-receipt.json)
+
+## WP-0018 Windows OCR archive diagnostic
+
+Jack authorized a CPU-only diagnosis of exposed H and A under the [assignment](docs/coordination/WP-0018/assignment.md). Starting revision `e255c2a52ce39d5fe8bf041eb5187eab6e6eb24b`. The original WP-0015 archive remains in read-only custody. The coordinator owns reservations and integration.
+
+| Sequence | Owner | Worktree and owned branch | Reserved canonical report |
+|---|---|---|---|
+| 001 | eld-rd-astra | archive18-pair · research/wp-0018-windows-archive | docs/agent-reports/eld-rd-astra/WP-0018/001_2026-11-20_research_eld-rd-astra.md |
+| 002 | eld-archive-tracer | archive18-words · research/wp-0018-word-traces | docs/agent-reports/eld-archive-tracer/WP-0018/002_2026-11-20_research_eld-archive-tracer.md |
+| 003 | eld-rd-reviewer | archive18-review · review/wp-0018-windows-archive | docs/agent-reports/eld-rd-reviewer/WP-0018/003_2026-11-20_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | eledgercare · coordination/bootstrap | docs/agent-reports/eld-coordinator/WP-0018/004_2026-11-20_verification_eld-coordinator.md |
