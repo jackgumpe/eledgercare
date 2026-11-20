@@ -40,6 +40,7 @@ def verify(family, order, run, reference=None):
     counts=Counter()
     decisions=Counter()
     region_events=[]
+    process_ids=set()
     for number in range(1,count+1):
         a,b=[read(run/arm/f'page-{number:03d}.json') for arm in ('A','B')]
         need(a['bitmap']==b['bitmap'], 'page manifest')
@@ -48,6 +49,10 @@ def verify(family, order, run, reference=None):
         if reference:
             need(raw==raw_identity(historic[number-1]['raw']), f'current original raw page {number}')
         meta=b['bitmap']; fi=b['full']
+        for result in (a['full'],fi):
+            need(result['language']=='en-US' and result['requested_alpha_mode']=='Ignore','recognizer configuration')
+            need(result['byte_equality_verified'] is True,'full bitmap verification')
+            process_ids.add(result['pid'])
         with Image.open(meta['bmp']) as im:
             need((im.width,im.height)==(fi['width'],fi['height']) and pix(im)==fi['bgra_sha256']==meta['bgra_sha256'],'full SoftwareBitmap inputs')
             for region in b['regions']:
@@ -59,6 +64,9 @@ def verify(family, order, run, reference=None):
                 rect=region['rect_px'];x0,y0,x1,y1=rect
                 need(all(type(i) is int for i in rect) and 0<=x0<x1<=im.width and 0<=y0<y1<=im.height,'crop rectangle')
                 crop=region['crop']
+                need(crop['byte_equality_verified'] is True and crop['rect']==rect,'verified source rectangle')
+                for key in ('pid','language','pixel_format','alpha_mode','dpi_x','dpi_y'):
+                    need(crop[key]==fi[key],'full/crop runtime mismatch '+key)
                 with im.crop(rect) as tile:
                     sha=pix(tile)
                     need(tile.size==(crop['width'],crop['height']),'crop measured dimensions')
@@ -83,7 +91,9 @@ def verify(family, order, run, reference=None):
                 decisions[region['decision']]+=1
                 region_events.append((number,region['id'],tuple(rect),sha,original,actual,used,region['flagged']))
     elapsed={arm:receipt['arms'][arm]['elapsed_ns']/1e9 for arm in ('A','B')}
+    need(len(process_ids)==1,'one persistent worker per order')
     return dict(family=family,order=order,pages=count,stage1_original_full_pages_checked=count if reference else None,
+                persistentWorkerPid=process_ids.pop(),
                 stats=dict(counts),decisions=dict(decisions),prediction_semantic_hash={'A':canonical(pa),'B':canonical(pb)},
                 selected_readings_hash=canonical(region_events),elapsed_s=elapsed,added_ms_per_page=1000*(elapsed['B']-elapsed['A'])/count,
                 pages_per_min={arm:60*count/v for arm,v in elapsed.items()},crops_per_page=counts['attempted']/count)
