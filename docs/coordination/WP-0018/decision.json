@@ -1,0 +1,184 @@
+{
+  "packet": "WP-0018",
+  "decision": "ACCEPTED_ARCHIVE_DIAGNOSIS_ONLY",
+  "utc": "2026-11-20T06:05:55.653762+00:00",
+  "integrationBase": "e255c2a52ce39d5fe8bf041eb5187eab6e6eb24b",
+  "release": "918701ae318b01395b911b9dbdf597e43908665b",
+  "archiveAdmissionSource": "0a875855c753d5c96772772a671e8a390c341fb9",
+  "frozenScorerSha256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+  "authorReportPublications": {
+    "pair": "8479c239bc21b8ecc1bc82a60194fcec841b4408",
+    "rawTrace": "2bf46a4420b5da29eb94975df4d16e7b12947f20"
+  },
+  "independentReportPublication": "e5cecfaf3ed762c3844aed06ba21acbabbec90d9",
+  "independentReviewEvidence": "3db33e2b75aa64a5ce2df976f05d9c93b9b644e6",
+  "coordinatorCrossCheck": "b1a033d26988fd4b5718803599c86a9023754145",
+  "verifiedPairedReviewerArtifactSha256": "640ea4f05fca0438642a21fe100b5a8dfd45f5333c36afd20232d478a5b7ae4f",
+  "families": {
+    "H": {
+      "original": {
+        "correct_cells": 15,
+        "reference_cells": 20,
+        "correct_lines": 13,
+        "reference_lines": 16,
+        "edits": 15,
+        "reference_chars": 570,
+        "critical_values": 19,
+        "unflagged_critical_errors": 8,
+        "extra_cells": 0,
+        "flagged_critical": 0
+      },
+      "referenceBoxFallback": {
+        "correct_cells": 14,
+        "reference_cells": 20,
+        "correct_lines": 13,
+        "reference_lines": 16,
+        "edits": 15,
+        "reference_chars": 570,
+        "critical_values": 19,
+        "unflagged_critical_errors": 8,
+        "extra_cells": 0,
+        "flagged_critical": 0
+      },
+      "transitions": {
+        "rows": 20,
+        "gain": 0,
+        "loss": 1,
+        "unchanged_wrong": 5,
+        "unchanged_right": 14,
+        "unavailable_score_rows": 0,
+        "wrong_both_observation_changed": 0,
+        "null_observed_before": 0,
+        "null_observed_after": 1,
+        "flagged_before": 0,
+        "flagged_after": 0,
+        "flag_changes": 0
+      },
+      "firstObservableDifferencesAmongOriginallyWrong": {
+        "cell": {
+          "anchored_raw_word_character_difference": 5
+        },
+        "line": {
+          "raw_line_whitespace_difference": 2,
+          "anchored_raw_line_character_difference": 1
+        }
+      },
+      "invariantProseLines": 16
+    },
+    "A": {
+      "original": {
+        "correct_cells": 235,
+        "reference_cells": 300,
+        "correct_lines": 237,
+        "reference_lines": 288,
+        "edits": 257,
+        "reference_chars": 8821,
+        "critical_values": 252,
+        "unflagged_critical_errors": 94,
+        "extra_cells": 0,
+        "flagged_critical": 0
+      },
+      "referenceBoxFallback": {
+        "correct_cells": 213,
+        "reference_cells": 300,
+        "correct_lines": 237,
+        "reference_lines": 288,
+        "edits": 257,
+        "reference_chars": 8821,
+        "critical_values": 252,
+        "unflagged_critical_errors": 94,
+        "extra_cells": 0,
+        "flagged_critical": 0
+      },
+      "transitions": {
+        "rows": 300,
+        "gain": 0,
+        "loss": 22,
+        "unchanged_wrong": 65,
+        "unchanged_right": 213,
+        "unavailable_score_rows": 0,
+        "wrong_both_observation_changed": 5,
+        "null_observed_before": 0,
+        "null_observed_after": 27,
+        "flagged_before": 0,
+        "flagged_after": 0,
+        "flag_changes": 0
+      },
+      "firstObservableDifferencesAmongOriginallyWrong": {
+        "cell": {
+          "anchored_raw_word_character_difference": 54,
+          "no_reference_eligible_group": 5,
+          "raw_line_whitespace_difference": 2,
+          "anchored_raw_line_character_difference": 4
+        },
+        "line": {
+          "anchored_raw_line_character_difference": 50,
+          "raw_line_whitespace_difference": 1
+        }
+      },
+      "invariantProseLines": 288
+    }
+  },
+  "witnesses": [
+    {
+      "location": "H page/2/table/1/row/2/col/1",
+      "expected": "1L8O1-493",
+      "raw": "IL801493",
+      "earliest": "single WinRT word in correct cell"
+    },
+    {
+      "location": "A page/60/table/1/row/2/col/2",
+      "expected": "0I8O1-139",
+      "raw": "01801-139",
+      "earliest": "single WinRT word in correct cell"
+    },
+    {
+      "location": "H page/1/line/2",
+      "expected": "Docket 88L1L-631",
+      "raw": "Docket 88L1 L-631",
+      "wordStrings": [
+        "Docket",
+        "88L1",
+        "L-631"
+      ],
+      "earliest": "WinRT line text and word segmentation; downstream join preserves this split"
+    },
+    {
+      "location": "H page/2/line/2",
+      "expected": "Docket 880LO-977",
+      "raw": "Docket 880LO-977",
+      "earliest": null,
+      "correctControl": true
+    }
+  ],
+  "unflaggedCriticalLocationAttribution": {
+    "H": {
+      "rawTextCell": 5,
+      "rawTextLine": 3,
+      "missingWordGroupCell": 0
+    },
+    "A": {
+      "rawTextCell": 41,
+      "rawTextLine": 51,
+      "missingWordGroupCell": 2
+    }
+  },
+  "interpretation": "Five H and sixty A incorrect cells have conflicting literal text at their raw positions. Five nonempty A reference cells lack an intersecting word. The raw output is insufficient to distinguish omission, merging, corruption or displacement for those locations. Prose and numeric edit counts stayed invariant.",
+  "recommendation": "Target Windows recognition input and word segmentation for separately controlled tests on confusable identifiers. Preserve detected grids and explicit-empty handling. Investigate the five missing groups separately.",
+  "scope": {
+    "data": "Previously exposed synthetic H and A only",
+    "newOcrRuns": 0,
+    "gpuLeases": 0,
+    "sealedPacketOpened": false,
+    "productChanges": false,
+    "training": false,
+    "repairReleased": false,
+    "unattendedUseAccepted": false
+  },
+  "independentReviewNotes": [
+    "The pair author hard-coded the unavailable-score-row summary field to zero. The separate key joins measured full 20/20 and 300/300 score rows. Null observations in the treatment total 1 and 27.",
+    "The designated trace source differs from the original evidence-producing source by trailing blank lines and a line-ending rule. All six published trace artifacts reproduced byte for byte.",
+    "The constructed gain/loss control has no explicit blank. The 23 archive locations supplied direct evidence for empty strings versus null.",
+    "The reviewer corrected the comparison of Windows-only fields against a historical score containing an extra comparator, located and reran the historical supplementary diagnostics, fixed a serialization failure, and removed a generated bytecode file from the disposable reviewer copy. All original named inputs and the four copies were reverified."
+  ]
+}

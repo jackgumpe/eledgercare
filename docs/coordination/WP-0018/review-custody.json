@@ -1,0 +1,67 @@
+{
+  "executor": "eld-rd-reviewer, fresh conversation for WP-0018, resumed for the final comparison and review",
+  "subscriptionPhases": [
+    {
+      "provider": "native Claude Code local subscription",
+      "requestedModel": "claude-opus-5-5",
+      "requestedEffort": "xhigh",
+      "phase": "initial",
+      "startUtc": "2026-11-20T05:26:14.115834+00:00",
+      "exit": 0,
+      "completedUtc": "2026-11-20T05:42:49.093206+00:00",
+      "seconds": 994.978,
+      "isError": false,
+      "subtype": "success",
+      "models": [
+        "claude-opus-5-5"
+      ]
+    },
+    {
+      "provider": "native Claude Code local subscription",
+      "requestedModel": "claude-opus-5-5",
+      "requestedEffort": "xhigh",
+      "phase": "final",
+      "startUtc": "2026-11-20T05:42:49.763804+00:00",
+      "exit": 0,
+      "completedUtc": "2026-11-20T06:05:15.705714+00:00",
+      "seconds": 1345.942,
+      "isError": false,
+      "subtype": "success",
+      "models": [
+        "claude-opus-5-5"
+      ]
+    }
+  ],
+  "preauthorCandidate": "ecbeb8b858f6086027ae767b421465e1c8608b3b",
+  "witnessEvidence": "94eba5b68e1635db8a557c690d85585c1582fea7",
+  "finalEvidence": "3db33e2b75aa64a5ce2df976f05d9c93b9b644e6",
+  "canonicalReportPublication": "e5cecfaf3ed762c3844aed06ba21acbabbec90d9",
+  "coordinatorReplayOfPublishedReviewerTools": {
+    "data": "Separate coordinator copy of H and A",
+    "freshComparison": true,
+    "commands": [
+      "review_checks.py paired --execute-held-paired",
+      "review_attribution.py",
+      "review_compare.py --fresh"
+    ],
+    "sourceTreeDuringRerun": "3db33e2b75aa64a5ce2df976f05d9c93b9b644e6",
+    "pairedChecks": {
+      "total": 18,
+      "passed": 18,
+      "failed": 0,
+      "failed_ids": []
+    },
+    "authorObjectChecks": {
+      "total": 104,
+      "passed": 104,
+      "failed": 0,
+      "failed_ids": []
+    },
+    "disagreements": [],
+    "sha256": {
+      "paired.json": "7848cc8c638cbeadda39a04b91e675d93daf9abebdeb151448ceed0416719446",
+      "attribution.json": "7dff14afdd8efa17b2036991fb9d81b98111a802e38dbe813e3bb0c09ca9eff9",
+      "compare.json": "514f13c29486bb2893e36b6890205b9f90579e07105cea0e3482d3737220d2fc"
+    }
+  }
+}
