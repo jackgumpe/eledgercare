@@ -83,12 +83,31 @@ def canon(obj):  # the pair author's canonical projection (reproduced, not impor
     return json.dumps(obj, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
 
 
+VOLATILE = {"environment", "ended_utc", "began_utc", "started_utc", "command", "cwd", "paired_dir", "paired_json_sha256"}
+COMMITTED = {"paired-94eba5b/paired.json": rc.HERE / "evidence" / "second-phase" / "paired.json",
+             "attribution-d9c5e7f/attribution.json": rc.HERE / "evidence" / "second-phase" / "attribution.json"}
+FRESH = False  # set by --fresh: a new reproduction run instead of the reviewer's recorded scratch outputs
+
+
+def stable(obj):
+    if isinstance(obj, dict):
+        return {k: stable(v) for k, v in obj.items() if k not in VOLATILE}
+    if isinstance(obj, list):
+        return [stable(v) for v in obj]
+    return obj
+
+
 def scratch(paths_root, receipt, name):
+    """Recorded outputs must match the committed receipt byte for byte. A --fresh reproduction must match
+    byte for byte for deterministic scorer/prediction files, and otherwise equal the committed evidence
+    after removing run-environment, timestamp and path fields."""
     path = Path(paths_root) / name
     want = receipt["scratch_files"][name]["sha256"]
-    if rc.sha256(path.read_bytes()) != want:
-        raise SystemExit(f"scratch file changed since the committed receipt: {name}")
-    return path
+    if rc.sha256(path.read_bytes()) == want:
+        return path
+    if FRESH and name in COMMITTED and stable(rc.load(path)) == stable(rc.load(COMMITTED[name])):
+        return path
+    raise SystemExit(f"scratch file differs from the committed receipt/evidence: {name}")
 
 
 def identity(ledger):
@@ -515,10 +534,14 @@ def main():
     ap.add_argument("--data", default=str(rc.DEFAULT_DATA))
     ap.add_argument("--scratch", default=str(rc.DEFAULT_DATA / "out"))
     ap.add_argument("--out", required=True)
+    ap.add_argument("--fresh", action="store_true", help="verify a new reproduction run of paired/attribution outputs")
     args = ap.parse_args()
+    global FRESH
+    FRESH = args.fresh
     out = rc.fresh_dir(args.out)
     env = rc.environment()
     env["compare_sha256"] = rc.sha256(Path(__file__).read_bytes())
+    env["fresh"] = FRESH
     receipt = rc.load(RECEIPT)
     scorer = rc.load_scorer(Path(args.data) / "inputs" / "control" / "score.py")
     ra.norm = scorer.norm
