@@ -399,9 +399,9 @@ def count_audit(ledger, mine_dir, receipt):
         c2 = CLAIMS["002"][fam]
         ledger.check("R4.3", f"{fam}/002-cells", (t["cells_wrong_before"], sum(v for (s, _), v in mine_cells.items() if s == "winrt_text"),
                      mine_cells.get(("no_intersecting_word", "empty_value"), 0), t["printed_empty"]["losses"]) ==
-                     (c2["cells_wrong"], c2["cells_raw"], c2["cells_none"], c2["empty_losses"]), dict(mine_cells), c2)
+                     (c2["cells_wrong"], c2["cells_raw"], c2["cells_none"], c2["empty_losses"]), {f"{a}|{b}": v for (a, b), v in mine_cells.items()}, c2)
         ledger.check("R4.3", f"{fam}/002-prose", (t["lines_wrong"], sum(v for (s, _), v in mine_lines.items() if s == "winrt_text")) ==
-                     (c2["prose_wrong"], c2["prose_raw"]), dict(mine_lines), c2)
+                     (c2["prose_wrong"], c2["prose_raw"]), {f"{a}|{b}": v for (a, b), v in mine_lines.items()}, c2)
         if fam == "A":
             single = sum(1 for c in cells if not c["before"]["correct"] and c["text_effect"] == "character_only")
             ledger.check("R4.3", "A/002-split-detail",
