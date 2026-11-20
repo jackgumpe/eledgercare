@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0019 Windows OCR fixed crop trial
+
+Jack released the post-update full-page control and Stage 1 on exposed H and A. A separate fresh-form check depends on net critical recovery with zero newly wrong H/A criticals. [Assignment](docs/coordination/WP-0019/assignment.md) · [Reservations](INDEX.md#wp-0019-windows-ocr-fixed-crop-trial)
+
 ## Completed WP-0018 Windows OCR archive diagnostic
 
 The independent reviewer reproduced H and A from saved Windows output. Clearing predicted tables recovered zero cells and converted 1 H and 22 A correct blanks to missing observations. WinRT text already differs on all 5 originally wrong H cells, 60 of 65 wrong A cells and all 54 wrong prose lines. The five remaining A cells have no intersecting exported word. A future recognition-input or segmentation test requires a separate release. [Coordinator report 004](docs/agent-reports/eld-coordinator/WP-0018/004_2026-11-20_verification_eld-coordinator.md) · [Independent review 003](docs/agent-reports/eld-rd-reviewer/WP-0018/003_2026-11-20_review_eld-rd-reviewer.md) · [Evidence and recommendation](docs/coordination/WP-0018/decision.json) · [Publication receipt](docs/coordination/WP-0018/publication-receipt.json)

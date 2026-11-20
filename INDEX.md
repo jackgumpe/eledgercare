@@ -1120,3 +1120,14 @@ Jack authorized a CPU-only diagnosis of exposed H and A under the [assignment](d
 | 004 | eld-coordinator | eledgercare · coordination/bootstrap | docs/agent-reports/eld-coordinator/WP-0018/004_2026-11-20_verification_eld-coordinator.md |
 
 **WP-0018 closed with independent reproduction.** All four witnesses and all 320 paired cell results agreed. Clearing page tables recovered zero cells and lost 23 correctly represented blanks. The raw export already shows discrepancies at 8 of 8 unflagged critical errors on H and 92 of 94 on A. The other two A critical errors have no intersecting exported word. [Decision](docs/coordination/WP-0018/decision.json) at `315e89b2eb3858957e81d5dad84aa021654e2ed1` · [Coordinator 004](docs/agent-reports/eld-coordinator/WP-0018/004_2026-11-20_verification_eld-coordinator.md) at `66206f1dbc65381e5ea41de1e8c49960299da95e` · [Four report publications](docs/coordination/WP-0018/publication-receipt.json)
+
+## WP-0019 Windows OCR fixed crop trial
+
+Jack authorized the amended same-pixel fixed-crop trial on the current Windows installation. [Assignment and decision gates](docs/coordination/WP-0019/assignment.md). Starting integration `6706d7671a382ead98b058673ba1822c18477b24`.
+
+| Sequence | Owner | Worktree and owned branch | Reserved canonical report |
+|---|---|---|---|
+| 001 | eld-rd-astra | crop19-astra · research/wp-0019-crop-policy | docs/agent-reports/eld-rd-astra/WP-0019/001_2026-11-20_research_eld-rd-astra.md |
+| 002 | eld-rd-carbon | crop19-carbon · research/wp-0019-winrt-worker | docs/agent-reports/eld-rd-carbon/WP-0019/002_2026-11-20_research_eld-rd-carbon.md |
+| 003 | eld-rd-reviewer | crop19-review · review/wp-0019-fixed-crop | docs/agent-reports/eld-rd-reviewer/WP-0019/003_2026-11-20_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | eledgercare · coordination/bootstrap | docs/agent-reports/eld-coordinator/WP-0019/004_2026-11-20_verification_eld-coordinator.md |
