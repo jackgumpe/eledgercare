@@ -1,0 +1,79 @@
+{
+  "coordinator": "Continuous eld-coordinator; backend effort is not exposed.",
+  "astra": {
+    "role": "policy/runner author",
+    "nativeModelRequested": "gpt-6.2-astra",
+    "reasoningEffortRequested": "xhigh",
+    "source": "d62a96f8145345ce4c43544850d20fce13659879",
+    "report": "c4686e0b90a4acf3e1170730d7995e94826ceff0"
+  },
+  "carbon": {
+    "slot": "carbon",
+    "phase": "initial",
+    "requestedModel": "gemini-4-carbon-high",
+    "requestedEffort": "high",
+    "start": "2026-11-20T19:14:45.923004+00:00",
+    "end": "2026-11-20T19:40:32.405669+00:00",
+    "exit": 0,
+    "observedModel": "gemini-4-carbon-high",
+    "lastType": "result",
+    "isError": null,
+    "subtype": null,
+    "providerStatus": "SUCCESS",
+    "rawEventStreamSha256": "fc511bd564a136436425eb201285d1e5c65ab96445a1f738b47c17dd4cd17e25",
+    "phaseProcessExitVerified": true
+  },
+  "review": [
+    {
+      "slot": "review",
+      "phase": "initial",
+      "requestedModel": "claude-opus-5-5",
+      "requestedEffort": "xhigh",
+      "start": "2026-11-20T19:14:45.923004+00:00",
+      "end": "2026-11-20T19:44:50.358453+00:00",
+      "exit": 0,
+      "models": [
+        "claude-opus-5-5"
+      ],
+      "isError": false,
+      "subtype": "success"
+    },
+    {
+      "slot": "review",
+      "phase": "stage1",
+      "requestedModel": "claude-opus-5-5",
+      "requestedEffort": "xhigh",
+      "start": "2026-11-20T19:45:42.788181+00:00",
+      "end": "2026-11-20T20:01:23.587335+00:00",
+      "exit": 0,
+      "models": [
+        "claude-opus-5-5"
+      ],
+      "isError": false,
+      "subtype": "success"
+    },
+    {
+      "slot": "review",
+      "phase": "final",
+      "requestedModel": "claude-opus-5-5",
+      "requestedEffort": "xhigh",
+      "start": "2026-11-20T20:04:27.643614+00:00",
+      "end": "2026-11-20T20:15:40.715144+00:00",
+      "exit": 1,
+      "models": [
+        "claude-opus-5-5"
+      ],
+      "isError": true,
+      "subtype": "success"
+    }
+  ],
+  "reviewPublication": {
+    "author": "eld-rd-reviewer",
+    "publisher": "eld-coordinator",
+    "sha256": "e75dd1a4ad13f57bb03c375585ae5e0827b2c312f0c9245442364be9334f753a",
+    "evidenceBranch": "review/wp-0019-fixed-crop",
+    "reportBranch": "coordination/bootstrap",
+    "finalProviderStatus": "subscription quota after complete report write"
+  },
+  "independence": "Separate author sessions and a fresh non-author Opus reviewer. The reviewer disclosed seeing a Stage 1 branch subject after writing its checks. Fresh answers were escrowed until independent predictions were committed and verified."
+}

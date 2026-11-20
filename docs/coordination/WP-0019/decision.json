@@ -1,0 +1,289 @@
+{
+  "packet": "WP-0019",
+  "decidedUtc": "2026-11-20T20:19:17Z",
+  "coordinator": "eld-coordinator",
+  "repository": "jackgumpe/eledgercare",
+  "branch": "coordination/bootstrap",
+  "disposition": "CLOSED_STAGE_2_LARGER_RESEARCH_CRITERION_FAILED",
+  "recommendation": "Close this fixed 1x Windows OCR crop policy at the bounded trial. A single exposed punctuation recovery did not repeat on independently operated fresh forms.",
+  "productChanges": 0,
+  "decisiveEvidence": {
+    "reservation": "fc15d1bd3af1b4c7dfbfbf1eac2680b9ae9ac1af",
+    "originalBase": "6706d7671a382ead98b058673ba1822c18477b24",
+    "currentControl": "8220701429c3f754e27fdfd436915e6f9f8c696c",
+    "policy": "d62a96f8145345ce4c43544850d20fce13659879",
+    "worker": "793fbb7a2a5a3a9354bb753c39b29fcdda959160",
+    "pairedRuntime": "9418bccd339dea1d89445f2fec93927168c7a5f0",
+    "scorerSHA256": "1ceb36fe922ef63ea8cd9b2dc2ff55b48abe1193bb818430ddb1531f364f4bf7",
+    "policyResearch": "c4686e0b90a4acf3e1170730d7995e94826ceff0",
+    "workerResearch": "bcd88c82382d2e7eef42bf2eac2ddbf28259fbbc",
+    "postScoreAccounting": "3ba937fa8177a05d8d62c7b42a04bd0fa0def47a",
+    "stage1Gate": "a1aba59e7d3a645e1ddf44e599d0704aa7fe5ec1",
+    "stage1Independent": "fe2c439f547baa88dae0e91d70e5eb4ce84cb188",
+    "generatorMethod": "19b98baa253de3139e1f65807b26723294480359",
+    "freshRasters": "9610737251545cbf2577c4c5035cf36365f9bc29",
+    "freshKeyCommitment": "962bfefd5eb6f84a0be34970b8547a7668897bd9",
+    "freshBlindPlan": "b141fbb36da39bf82c5c4f6c059f3b060f038a31",
+    "nonAuthorBlindReturn": "3f48b04fd33bef91f734af1a0db206c02320d180",
+    "coordinatorBlindSnapshot": "810cf72aa2af3c4bc5fff4711e892ca44e2cecca",
+    "keyRelease": "0d34800ded1c5284257a7f3a2c2f72411c64188b",
+    "independentFreshScore": "bb1c5e52213f156a3c568ced356ccd856f3ccffc",
+    "coordinatorFreshScore": "1f9fbd59651c0fd57262e75b084e8ec23eba255c",
+    "independentEvidence": "a78798e6c1a5ce8d43a9fd08d2561651fa7d9b52",
+    "independentCanonicalReport": "a215cd0272eb409720145524e60c50ea40b2ece9"
+  },
+  "control": {
+    "windows": "26H2, 26300.9974",
+    "language": "en-US",
+    "unchangedHistoricalRawPages": 64,
+    "unchangedHistoricalExportedPages": 64,
+    "modelVersion": null,
+    "trials": [
+      "H 15/20 cells and 8/19 unflagged critical errors",
+      "A 235/300 cells and 94/252 unflagged critical errors"
+    ],
+    "archiveReceiptBeforeAndAfter": "64809c0044a081d2335b461070b48a7dd7536c11b0364ccddb629041a0c8e3bf"
+  },
+  "stage1": {
+    "decision": "GO_STAGE_2",
+    "registeredCondition": "Positive net recovery with zero right-to-wrong criticals in each exposed family; both orders must reproduce.",
+    "net": 1,
+    "regressions": 0,
+    "storedFieldsThatRecovered": [
+      {
+        "family": "A",
+        "at": "page/50/table/1/row/2/col/2",
+        "before": "80808479",
+        "after": "80808-479"
+      }
+    ],
+    "zeroWordCells": {
+      "selected": 5,
+      "exactRecoveries": 0,
+      "detection": "Three crops returned zero words; A20 r5c1 and A30 r5c1 returned em dashes. Flagged empty originals were retained at those two."
+    },
+    "witnessEvidence": "docs/research/WP-0019/astra/evidence/nine-fields.json",
+    "pooledTreatmentPagesPerMinute": 167.6299279654693,
+    "pooledAddedMsPerPage": 43.96418593750001
+  },
+  "stage2": {
+    "decision": "FRESH_PROMOTION_CRITERIA_NOT_MET",
+    "reviewerCriterion": "FAIL",
+    "registeredPrerequisites": {
+      "atLeastOneFreshRecovery": false,
+      "zeroCriticalRegressions": true,
+      "blanksPreserved": true,
+      "atLeast30PagesPerMinute": true
+    },
+    "uniquePages": 12,
+    "uniqueCriticals": 60,
+    "wrongAtBaseline": 18,
+    "fullCorrect": 42,
+    "finalCorrect": 42,
+    "gains": 0,
+    "regressions": 0,
+    "newlyWrongUnflagged": 0,
+    "uniqueDisagreements": 7,
+    "eligibleCrops": 114,
+    "flaggedRealErrors": 5,
+    "flaggedCorrect": 2,
+    "errorsWithIdenticalFullAndCropReadings": 13,
+    "correctDiagnosticCropAtStillWrongCritical": 0,
+    "allLegitimatelySpacedIdsPreserved": 24,
+    "allExplicitBlanksPreserved": 18,
+    "fullOnlyPagesPerMinute": 179.2760519290016,
+    "treatmentPagesPerMinute": 149.087320039569,
+    "addedMsPerPage": 67.76932083333335,
+    "perOrderTreatmentPagesPerMinute": {
+      "AB": 149.92582732038798,
+      "BA": 148.25813982488737
+    },
+    "limits": "Two six-page synthetic form families with 18 baseline errors, all on deliberately confusable identifiers. Warm end-to-end measurements use ready bitmaps on one Windows host."
+  },
+  "byFamily": {
+    "H": {
+      "pages": 4,
+      "critical": {
+        "total": 19,
+        "before_correct": 11,
+        "after_correct": 11,
+        "wrong_to_right": 0,
+        "right_to_wrong": 0,
+        "wrong_to_wrong": 8,
+        "right_to_right": 11
+      },
+      "selectedCriticals": 19,
+      "unselectedCriticals": 0,
+      "blanks": {
+        "total": 1,
+        "before_correct": 1,
+        "after_correct": 1,
+        "newly_wrong": [],
+        "observations_changed": []
+      },
+      "candidateRegions": 36,
+      "crops": 20,
+      "disagreements": 1,
+      "newFlags": 0,
+      "acceptedReads": 1,
+      "addedMsPerPage": 35.60235,
+      "cropsPerPage": 5,
+      "elapsedSecondsPerPass": {
+        "A": 1.30899675,
+        "B": 1.45140615
+      },
+      "pooledPagesPerMinute": {
+        "A": 183.346520913822,
+        "B": 165.3568851144802
+      }
+    },
+    "A": {
+      "pages": 60,
+      "critical": {
+        "total": 252,
+        "before_correct": 158,
+        "after_correct": 159,
+        "wrong_to_right": 1,
+        "right_to_wrong": 0,
+        "wrong_to_wrong": 93,
+        "right_to_right": 158
+      },
+      "selectedCriticals": 252,
+      "unselectedCriticals": 0,
+      "blanks": {
+        "total": 22,
+        "before_correct": 22,
+        "after_correct": 22,
+        "newly_wrong": [],
+        "observations_changed": []
+      },
+      "candidateRegions": 588,
+      "crops": 460,
+      "disagreements": 27,
+      "newFlags": 25,
+      "acceptedReads": 2,
+      "addedMsPerPage": 44.521641666666646,
+      "cropsPerPage": 7.666666666666667,
+      "elapsedSecondsPerPass": {
+        "A": 18.7848993,
+        "B": 21.456197799999998
+      },
+      "pooledPagesPerMinute": {
+        "A": 191.64329510140095,
+        "B": 167.78368812390423
+      }
+    },
+    "LIFT": {
+      "pages": 6,
+      "critical": {
+        "total": 30,
+        "before_correct": 21,
+        "after_correct": 21,
+        "wrong_to_right": 0,
+        "right_to_wrong": 0,
+        "wrong_to_wrong": 9,
+        "right_to_right": 21
+      },
+      "selectedCriticals": 30,
+      "unselectedCriticals": 0,
+      "blanks": {
+        "total": 6,
+        "before_correct": 6,
+        "after_correct": 6,
+        "newly_wrong": [],
+        "observations_changed": []
+      },
+      "candidateRegions": 126,
+      "crops": 48,
+      "disagreements": 6,
+      "newFlags": 6,
+      "acceptedReads": 0,
+      "addedMsPerPage": 58.6850333333333,
+      "cropsPerPage": 8,
+      "elapsedSecondsPerPass": {
+        "A": 2.03075265,
+        "B": 2.38286285
+      },
+      "pooledPagesPerMinute": {
+        "A": 177.2741746760739,
+        "B": 151.07877484430125
+      }
+    },
+    "VALVE": {
+      "pages": 6,
+      "critical": {
+        "total": 30,
+        "before_correct": 21,
+        "after_correct": 21,
+        "wrong_to_right": 0,
+        "right_to_wrong": 0,
+        "wrong_to_wrong": 9,
+        "right_to_right": 21
+      },
+      "selectedCriticals": 30,
+      "unselectedCriticals": 0,
+      "blanks": {
+        "total": 12,
+        "before_correct": 12,
+        "after_correct": 12,
+        "newly_wrong": [],
+        "observations_changed": []
+      },
+      "candidateRegions": 156,
+      "crops": 66,
+      "disagreements": 1,
+      "newFlags": 1,
+      "acceptedReads": 0,
+      "addedMsPerPage": 76.85360833333333,
+      "cropsPerPage": 11,
+      "elapsedSecondsPerPass": {
+        "A": 1.98540005,
+        "B": 2.4465217
+      },
+      "pooledPagesPerMinute": {
+        "A": 181.32365817156094,
+        "B": 147.14768317812184
+      }
+    }
+  },
+  "independentReview": {
+    "requestedEffort": "xhigh",
+    "actualReviewer": "claude-opus-5-5",
+    "appliedEffort": "not exposed",
+    "scoreStages": [
+      "PASS",
+      "FAIL_QUALITY"
+    ],
+    "formalControlStages": [
+      "INCONCLUSIVE_CONTROL",
+      "INCONCLUSIVE_CONTROL"
+    ],
+    "findings": [
+      "A literal match to three exposed witnesses in the synthetic worker test failed the all-source K1 guard. Runtime source only hashes this test for provenance. Independent reconstruction reproduced the full set of selections and decisions.",
+      "The reviewer had seen the exposed Stage 1 headline after writing the checks. The timed fresh runs used procedural escrow. No fresh run received a separate process-access audit. Label-free inputs and published byte commitments were verified before key release.",
+      "Supplementary checks reconstructed geometry and timing where the frozen trace flags lacked sufficient fields. The A p54 noncritical prose flag was absent from the reviewer’s per-line flag join; all critical verdicts and flags matched.",
+      "The report quotes 179.32 full-only pages/min, the arithmetic average of the four family/order rates. Raw receipts and both decision calculations give 179.2761 after pooling pages and elapsed times. The throughput criterion uses treatment, 149.0873 pages/min.",
+      "The independent reviewer published its evidence, then reached its subscription limit after writing the canonical report. The coordinator published the author's verified exact bytes. See reviewer-publication.json."
+    ],
+    "stage1PrimaryReplayPredictionsByteIdentical": 8,
+    "freshCommonScorerOutputsByteIdentical": 8,
+    "freshReviewerFieldRecordsReconciled": 684,
+    "coordinatorBothStageScoringLocationsByOrder": 1812,
+    "coordinatorBothStageCriticalLocationsByOrder": 662
+  },
+  "files": {
+    "control": "control.json",
+    "exposedGate": "stage1-gate.json",
+    "exposedEvidence": "stage1-runs/receipt.json",
+    "exposedIndependent": "stage1-independent.json",
+    "freshGate": "stage2-gate.json",
+    "blindCustody": "blind-escrow-return.json",
+    "freshEvidence": "stage2-runs/receipt.json",
+    "scoredLocations": "stage2-scoring/receipt.json",
+    "negativeControlsAndDisagreement": "fresh-field-analysis.json",
+    "reconciliation": "scoring-reconciliation.json",
+    "preservation": "preservation.json",
+    "publicationAttestation": "reviewer-publication.json",
+    "participants": "participants.json"
+  }
+}
