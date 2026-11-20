@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0019 Windows OCR fixed crop trial
+## Completed WP-0019 Windows OCR fixed-crop trial
 
-Stage 1 recovered the missing hyphen in A page 50’s inspection ID with zero critical regressions across 271 H/A fields. The coordinator committed two new six-page form families and their answer-key digests separately. The non-author owns the blind crossover on the same frozen candidate. [Stage 1 gate](docs/coordination/WP-0019/stage1-gate.json) · [Fresh raster commitment](docs/coordination/WP-0019/fresh-rasters/commitments.json) · [Key commitments](docs/coordination/WP-0019/fresh-key-commitments.json) · [Blind release](docs/coordination/WP-0019/stage2-blind-release.json)
+The warm post-update full-page control reproduced all 64 H/A pages. One missing hyphen recovered on exposed Packet A with zero critical regressions, which released the independent fresh check. On 12 fresh pages, both readings kept 42/60 critical IDs correct. All 18 initially wrong IDs stayed wrong. Seven crop disagreements flagged five errors and two correct IDs. The treatment added 67.77 ms/page and ran at 149.09 pages/min. The frozen policy failed the larger-trial criterion and the packet is closed. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0019/004_2026-11-20_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0019/003_2026-11-20_review_eld-rd-reviewer.md) · [Decision and evidence](docs/coordination/WP-0019/decision.json) · [Publication receipt](docs/coordination/WP-0019/publication-receipt.json)
 
 ## Completed WP-0018 Windows OCR archive diagnostic
 
