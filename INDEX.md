@@ -1133,3 +1133,14 @@ Jack authorized the amended same-pixel fixed-crop trial on the current Windows i
 | 004 | eld-coordinator | eledgercare · coordination/bootstrap | docs/agent-reports/eld-coordinator/WP-0019/004_2026-11-20_verification_eld-coordinator.md |
 
 **Closed after independent review.** Stage 1 recovered A p50 table 1 r2c2 with zero regressions across 271 H/A critical IDs. Stage 2 retained 42/60 correct, recovered zero of the 18 remaining errors, preserved all 18 blanks and added 67.77 ms/page. The fixed-crop policy failed the larger-trial criterion. [Decision](docs/coordination/WP-0019/decision.json) at `266f64c701a210e9a37fc27ed37d2b0b905bae75` · [Independent /003](docs/agent-reports/eld-rd-reviewer/WP-0019/003_2026-11-20_review_eld-rd-reviewer.md) at `a215cd0272eb409720145524e60c50ea40b2ece9`, published verbatim by the coordinator after the reviewer’s [independent evidence](docs/reviews/WP-0019/evidence/reconciliation/stage2-coordinator-comparison.json) at `a78798e6c1a5ce8d43a9fd08d2561651fa7d9b52` · [Coordinator /004](docs/agent-reports/eld-coordinator/WP-0019/004_2026-11-20_verification_eld-coordinator.md) at `abc1e5eaf43d61245a30d6df61f0dd6cc39cbd2e` · [Four verified report publications](docs/coordination/WP-0019/publication-receipt.json)
+
+## WP-0020 Visible identifier labels and archived Baidu routing
+
+Private eLedgerCare, integration `coordination/bootstrap`. The coordinator released the supplied November 20 handoff solely for H/A CPU archive replay at base `d9b41fbcc0b2d5a7c0b5aa774cb9edc1ae2ce984`. [Assignment](docs/coordination/WP-0020/assignment.md) · [Approved handoff](docs/coordination/WP-0020/handoff.md)
+
+| Sequence | Owner | Owned branch and worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-routing-author | research/wp-0020-label-route · route20-author | docs/agent-reports/eld-routing-author/WP-0020/001_2026-11-20_research_eld-routing-author.md |
+| 002 | eld-routing-analysis | research/wp-0020-route-analysis · route20-analysis | docs/agent-reports/eld-routing-analysis/WP-0020/002_2026-11-20_research_eld-routing-analysis.md |
+| 003 | eld-routing-reviewer | review/wp-0020-label-route · route20-review | docs/agent-reports/eld-routing-reviewer/WP-0020/003_2026-11-20_review_eld-routing-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0020/004_2026-11-20_verification_eld-coordinator.md |
