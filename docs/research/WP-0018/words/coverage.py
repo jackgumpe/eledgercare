@@ -308,4 +308,3 @@ if __name__ == "__main__":
     parser.add_argument("--checkpoint", type=Path, default=Path(__file__).with_name("witnesses.json"))
     args = parser.parse_args()
     analyze(args.inputs, args.output, args.checkpoint)
-
