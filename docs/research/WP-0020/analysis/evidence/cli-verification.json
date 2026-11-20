@@ -1,0 +1,114 @@
+{
+  "coordinator_keys_byte_equal_to_historical": true,
+  "corrected_native_prediction_objects_equal_to_coordinator": true,
+  "checks": [
+    {
+      "family": "H",
+      "arm": "windows",
+      "command": [
+        "-I",
+        "-B",
+        "docs/evaluation/WP-0015/score.py",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0015\\review\\scoring-H\\truth.json",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0015\\review\\runs\\h-r1-ab\\04-h-windows\\prediction.json",
+        "--out",
+        "..\\wp0020-data\\analysis\\cli-verification\\H-windows.json"
+      ],
+      "exit_code": 0,
+      "complete_scorer_object_equal": true,
+      "private_output": "H-windows.json",
+      "cli_sha256": "0e59f3ca5d90f1d80839b91e90a4d0599a787538aa0688c33e08668b077a8c56",
+      "analyst_score_sha256": "f11d247879ec26faf29514ba261b18bb3ca5c3d801c099bc1a635b246d69f994"
+    },
+    {
+      "family": "H",
+      "arm": "native",
+      "command": [
+        "-I",
+        "-B",
+        "docs/evaluation/WP-0015/score.py",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0015\\review\\scoring-H\\truth.json",
+        "..\\wp0020-data\\baselines\\H\\native.json",
+        "--out",
+        "..\\wp0020-data\\analysis\\cli-verification\\H-native.json"
+      ],
+      "exit_code": 0,
+      "complete_scorer_object_equal": true,
+      "private_output": "H-native.json",
+      "cli_sha256": "a6f9a5d40babe1bb42f3506ce5e06326c14c9632682947a5c8cce9f0a6ccd15e",
+      "analyst_score_sha256": "3eb80354839c3d96a571460cd6169689c6ffd90c2a01f5c136ce84ee0d484973"
+    },
+    {
+      "family": "H",
+      "arm": "routed",
+      "command": [
+        "-I",
+        "-B",
+        "docs/evaluation/WP-0015/score.py",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0015\\review\\scoring-H\\truth.json",
+        "..\\wp0020-data\\frozen\\H\\prediction.json",
+        "--out",
+        "..\\wp0020-data\\analysis\\cli-verification\\H-routed.json"
+      ],
+      "exit_code": 0,
+      "complete_scorer_object_equal": true,
+      "private_output": "H-routed.json",
+      "cli_sha256": "a2f6d56e24d022c15bbbac673f6a624a45e7b07c59aeff7645d44159b2853746",
+      "analyst_score_sha256": "1f131758017bc941d15edfb1ba12e5483992bf9f3137253dcd34ef563b1afcbb"
+    },
+    {
+      "family": "A",
+      "arm": "windows",
+      "command": [
+        "-I",
+        "-B",
+        "docs/evaluation/WP-0015/score.py",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0015\\review\\scoring-A\\truth.json",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0015\\review\\runs\\a-recovery-ab\\04-a-windows\\prediction.json",
+        "--out",
+        "..\\wp0020-data\\analysis\\cli-verification\\A-windows.json"
+      ],
+      "exit_code": 0,
+      "complete_scorer_object_equal": true,
+      "private_output": "A-windows.json",
+      "cli_sha256": "0db04b1debea6843e29251abffa10273ddb4bdccf150f191b085aad41e40705d",
+      "analyst_score_sha256": "9773f3c8739aa07d0fb301c50e4f5ecaa512812ba5b0b6515fedc8152600f8bd"
+    },
+    {
+      "family": "A",
+      "arm": "native",
+      "command": [
+        "-I",
+        "-B",
+        "docs/evaluation/WP-0015/score.py",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0015\\review\\scoring-A\\truth.json",
+        "..\\wp0020-data\\baselines\\A\\native.json",
+        "--out",
+        "..\\wp0020-data\\analysis\\cli-verification\\A-native.json"
+      ],
+      "exit_code": 0,
+      "complete_scorer_object_equal": true,
+      "private_output": "A-native.json",
+      "cli_sha256": "60b7ec411a186836a324e815a57f95238f50996bc6cb940b02ac7d3d15fbbe71",
+      "analyst_score_sha256": "507a7ebeb1349aca599542a215a72593c5c405b729af68fad9467077e9147f3a"
+    },
+    {
+      "family": "A",
+      "arm": "routed",
+      "command": [
+        "-I",
+        "-B",
+        "docs/evaluation/WP-0015/score.py",
+        "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0015\\review\\scoring-A\\truth.json",
+        "..\\wp0020-data\\frozen\\A\\prediction.json",
+        "--out",
+        "..\\wp0020-data\\analysis\\cli-verification\\A-routed.json"
+      ],
+      "exit_code": 0,
+      "complete_scorer_object_equal": true,
+      "private_output": "A-routed.json",
+      "cli_sha256": "286e11b1e340d4a8525fdd6f587a6fad33dc51b255c90856e0bd6568570b0116",
+      "analyst_score_sha256": "651055dcc496dc4483a52f84ce818bcc3b78aa80c08bd79a2b4b2d2fd7cee40f"
+    }
+  ]
+}
