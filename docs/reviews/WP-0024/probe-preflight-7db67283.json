@@ -1,0 +1,65 @@
+{
+  "calibration_semantics": [
+    "reviewer_case",
+    "space_and_entity",
+    "literal_tag_preserved",
+    "escaped_tag_literal",
+    "non_null_extra_status",
+    "required_status_missing",
+    "summary_casefold",
+    "answerable_abstention",
+    "ambiguous_posting",
+    "ambiguous_abstention",
+    "invalid_type_rejected"
+  ],
+  "torch": "2.13.0+cu130",
+  "cuda_visible": false,
+  "fp32_protected_Linf": 0.0,
+  "summary_Linf": 1.8394217491149902,
+  "pop_rank": 4,
+  "rank_one_backward_finite": true,
+  "empty_rank": 0,
+  "partial_rank_mask": [
+    true,
+    false,
+    true,
+    false
+  ],
+  "parameter_counts": [
+    880258,
+    880258
+  ],
+  "nonzero_finite_gradients": {
+    "M1": {
+      "summary_query": true,
+      "write_key.weight": true,
+      "write_value.weight": true,
+      "query.weight": true,
+      "gates.weight": true,
+      "gates.bias": true,
+      "anchor_value.weight": true,
+      "anchor_gate.weight": true,
+      "anchor_output.weight": true,
+      "pop_key.weight": true,
+      "pop_value.weight": true
+    },
+    "M3": {
+      "summary_query": true,
+      "write_key.weight": true,
+      "write_value.weight": true,
+      "query.weight": true,
+      "gates.weight": true,
+      "gates.bias": true,
+      "anchor_value.weight": true,
+      "anchor_gate.weight": true,
+      "anchor_output.weight": true,
+      "pop_key.weight": true,
+      "pop_value.weight": true
+    }
+  },
+  "symmetric_matrix_transplant": true,
+  "causal_views": 6,
+  "positive_m2_amendment_and_summary": true,
+  "open_child_shadow_hold": true,
+  "disjoint_slot_freeze_and_child_wipe": true
+}
