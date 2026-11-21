@@ -1,0 +1,128 @@
+{
+  "purpose": "CPU regression test using previously published unconditioned WP24 artifacts only",
+  "gate": "FAIL",
+  "streams_equal": 7,
+  "first_scored_pair": {
+    "ordinal_after_load": 2,
+    "S": {
+      "order": "p1",
+      "tag": "b01w01S",
+      "sha256": "887ff948d9da26e2933d1d2f396dd04c865e43c7efd860aeaf3773bfc6f60705",
+      "emitted_before_eos": 284
+    },
+    "H": {
+      "order": "p2",
+      "tag": "b01w01H",
+      "sha256": "d63703395cdc61e15fb86b3df73f021a56adb823ed563eb8065978023ea1554c",
+      "emitted_before_eos": 284
+    },
+    "through_eos_equal": false,
+    "edits": [
+      {
+        "op": "replace",
+        "stock_index": [
+          13,
+          14
+        ],
+        "hook_index": [
+          13,
+          14
+        ],
+        "stock_ids": [
+          20375
+        ],
+        "hook_ids": [
+          21577
+        ],
+        "stock_text": "399",
+        "hook_text": "395",
+        "stock_prefix_tail": "<PAGE><BLOCK>title<LEVEL1>[67, 66, ",
+        "hook_prefix_tail": "<PAGE><BLOCK>title<LEVEL1>[67, 66, "
+      },
+      {
+        "op": "replace",
+        "stock_index": [
+          77,
+          78
+        ],
+        "hook_index": [
+          77,
+          78
+        ],
+        "stock_ids": [
+          21895
+        ],
+        "hook_ids": [
+          22476
+        ],
+        "stock_text": "388",
+        "hook_text": "387",
+        "stock_prefix_tail": " Unit4 / Unit7\n<BLOCK>text[67, 199, ",
+        "hook_prefix_tail": " Unit4 / Unit7\n<BLOCK>text[67, 199, "
+      },
+      {
+        "op": "replace",
+        "stock_index": [
+          100,
+          101
+        ],
+        "hook_index": [
+          100,
+          101
+        ],
+        "stock_ids": [
+          21895
+        ],
+        "hook_ids": [
+          22476
+        ],
+        "stock_text": "388",
+        "hook_text": "387",
+        "stock_prefix_tail": " Item / Amount / Ref\n<BLOCK>text[67, 234, ",
+        "hook_prefix_tail": " Item / Amount / Ref\n<BLOCK>text[67, 234, "
+      },
+      {
+        "op": "replace",
+        "stock_index": [
+          146,
+          147
+        ],
+        "hook_index": [
+          146,
+          147
+        ],
+        "stock_ids": [
+          939
+        ],
+        "hook_ids": [
+          643
+        ],
+        "stock_text": "202",
+        "hook_text": "201",
+        "stock_prefix_tail": "<FORK>Ledger: Oak\n<BLOCK>text[67, 390, ",
+        "hook_prefix_tail": "<FORK>Ledger: Oak\n<BLOCK>text[67, 390, "
+      }
+    ],
+    "differing_native_fields": [
+      "text",
+      "token_ids"
+    ],
+    "source_metadata_equal": false,
+    "page_text_equal": [
+      true,
+      true,
+      true
+    ],
+    "page_grid_equal": [
+      true,
+      true,
+      true
+    ]
+  },
+  "unique_physical_witnesses": {
+    "S": 10,
+    "H": 10
+  },
+  "pooled_vectors_reconstructed": 72,
+  "consumed_positions_verified": 1412
+}
