@@ -1230,3 +1230,14 @@ Reserved for W0 and conditional H0, C1 and memory evaluation. Device calls requi
 W0 and H0 accepted by the independent reviewer at 1d643452ba2b88e6bd54d6d609112ddc743b1cc9. [Gate receipt](docs/coordination/WP-0026/h0-gate.json) and [development C1 release](docs/coordination/WP-0026/train-c1-r1-release.json).
 
 Development C1 acquisition accepted on 28 uncached reads and 12 repeat groups at 039b68997b7566de05c1f6cdd5a0e5ab23ace17a. [Non-author gate](docs/coordination/WP-0026/train-c1-gate.json), [train feature release](docs/coordination/WP-0026/train-features-r1-release.json) and [calibration feature release](docs/coordination/WP-0026/cal-features-r1-release.json).
+
+**Closed after independent review.** The original six-view memory objective is inconclusive on held-out binders. W0 passed on six distinct loads. Development H0 passed 8/8, and development C1 passed 12/12 duplicate acquisition checks and fitted-decision equivalence on both horizons. On blind C1 call 14, native Baidu emitted four page markers for three physical pages, with an empty final segment. The frozen reader stopped. Thirteen of 28 planned uncached blind reads produced verified features. The scorer key was never released. [Frozen decision](docs/coordination/WP-0026/decision.json) at `f45cc7ff9d16ea0bf4ef1f7ad984bdc8f3084006` · [Costs](docs/coordination/WP-0026/final-costs.json) · [Archive inventory](docs/reviews/WP-0026/blind-c1-primary/inventory.json).
+
+| Report | Private publication |
+| --- | --- |
+| [001 custody](docs/agent-reports/eld-twin-custodian/WP-0026/001_2026-11-21_research_eld-twin-custodian.md) | `cef965394b6a4227d954a8b3ea1367e08a2e3e2c` |
+| [002 acquisition and fit](docs/agent-reports/eld-twin-author/WP-0026/002_2026-11-21_research_eld-twin-author.md) | `d4a73206b41c13d92f88bead7fe7950b57cafd11` |
+| [003 independent stop](docs/agent-reports/eld-rd-reviewer/WP-0026/003_2026-11-21_review_eld-rd-reviewer.md) | `e9e24e5ea2730358fb67cfe269049a66a92ce8a5` |
+| [004 coordinator disposition](docs/agent-reports/eld-coordinator/WP-0026/004_2026-11-21_verification_eld-coordinator.md) | `376aa50415110b5fd37fc8fdf7b1a77eb84234c0` |
+
+The [remote publication receipt](docs/coordination/WP-0026/publication-receipt.json) records four verified author reports and 17 decisive evidence objects.
