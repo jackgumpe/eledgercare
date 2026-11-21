@@ -139,6 +139,9 @@ def evaluate_target(target, lines, outputs, source, stack, siblings):
     page, rowbox = target["page"], target["row_box"]
     touched = [(pair, words) for pair, words in lines.items() if pair[0] == page and any(
         overlap(w["bbox"], b) > 0 for w in words for b in [rowbox, *target["note_boxes"]])]
+    region = target["amount_header"]
+    header_words = [w for (pn, _), words in lines.items() if pn == region["page"]
+                    for w in words if located(w["bbox"], region["bbox"])]
     events, trace = [], []
     for pair, words in touched:
         row = outputs.get(pair)
@@ -164,7 +167,9 @@ def evaluate_target(target, lines, outputs, source, stack, siblings):
                             "candidate_minus_amount_header_x0": terminal["bbox"][0] - frame["anchors"][-1]
                             if frame["anchors"] else None})
         trace.append({"line": pair[1], "words": words, "candidate": event, "frozen_output": row,
-                      "header_deltas_pt": margins, **stack[pair]})
+                      "header_deltas_pt": margins, "physical_header_deltas_pt": [
+                          {"ref":w["ref"],"candidate_minus_observed_header_x0":terminal["bbox"][0]-w["bbox"][0]}
+                          for w in header_words], **stack[pair]})
     amount_words = [w["ref"] for _, words in touched for w in words if side(w, target) == "amount"]
     amount_intersections = [w["ref"] for _, words in touched for w in words if overlap(w["bbox"], target["amount_box"]) > 0]
     flags = [e for e in events if e["flag"]]
@@ -188,7 +193,7 @@ def evaluate_target(target, lines, outputs, source, stack, siblings):
     return {"status": status, "pass": status in ("owned", "safe-withholding", "ambiguous-abstention"),
             "amount_words": amount_words, "amount_intersections": amount_intersections,
             "transcription": (good[0]["literal"] == target["literal"]) if status == "owned" else None,
-            "events": events, "trace": trace, "missing_amount_header_pointer": any(not e["expected_amount_header_pointer"] for e in good),
+            "events": events, "trace": trace, "observed_amount_headers": header_words, "missing_amount_header_pointer": any(not e["expected_amount_header_pointer"] for e in good),
             "false_posts": len(posts) - (min(len(good), 1) if kind == "value" else 0)}
 
 
@@ -215,6 +220,9 @@ def run(args):
             for pair, output in outputs.items():
                 assert output["stack_before"] == [f["scope"] for f in stack[pair]["before"]]
                 assert output["stack_after"] == [f["scope"] for f in stack[pair]["after"]]
+            history = [{"page":n, "line":li, "words":ln, "output":outputs.get((n,li)), **stack[n,li]}
+                       for (n,li),ln in lines.items()]
+            save(args.out / f"history-{arm}-{docid}.json", history)
             seen = set()
             for target in cases:
                 result = evaluate_target(target, lines, outputs, source, stack, cases)
