@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0024 Counterfactual Twin-Binder Baidu memory trial
+## Completed WP-0024 Counterfactual Twin-Binder Baidu memory trial
 
-The coordinator and an independent reviewer closed post-WP-0023 Stage A on CPU. Both parsers retain a changed table-header cell on page 8. The external Twin-Binder trial is reserved with separate custody, probe author and independent reviewer roles. Development fixture, recurrence and scoring checks passed independent CPU review. A one-shot H0 watcher is active for 16 B=1 calls and will start when the occupied GPU is free. [CPU evidence and device status](docs/coordination/WP-0024/cpu-checkpoint.md) · [Stage A](docs/coordination/WP-0024/stage-a-closure.md) · [Assignment](docs/coordination/WP-0024/assignment.md)
+Sixteen native B=1 calls completed on two development binders. Seven of eight stock and instrumented windows matched through EOS. Four right-edge coordinates changed in the first window. All 24 page texts and table grids matched, and all ten source witnesses aligned in both views. H0 failed the exact-token requirement. The trial closed before fitting or blind evaluation. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0024/004_2026-11-21_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0024/003_2026-11-21_review_eld-rd-reviewer.md) · [Decision](docs/coordination/WP-0024/decision.json) · [Publication receipts](docs/coordination/WP-0024/publication-receipt.json) · [Post-WP-0023 Stage A](docs/coordination/WP-0024/stage-a-closure.md)
 
 ## Completed WP-0023 Native Baidu B=1 versus B=2 speed trial
 
