@@ -1228,3 +1228,5 @@ Jack supplied the conditional W0 and memory handoff at base `77a858a9278cbd5480a
 Reserved for W0 and conditional H0, C1 and memory evaluation. Device calls require a separate finite release at each gate.
 
 W0 and H0 accepted by the independent reviewer at 1d643452ba2b88e6bd54d6d609112ddc743b1cc9. [Gate receipt](docs/coordination/WP-0026/h0-gate.json) and [development C1 release](docs/coordination/WP-0026/train-c1-r1-release.json).
+
+Development C1 acquisition accepted on 28 uncached reads and 12 repeat groups at 039b68997b7566de05c1f6cdd5a0e5ab23ace17a. [Non-author gate](docs/coordination/WP-0026/train-c1-gate.json), [train feature release](docs/coordination/WP-0026/train-features-r1-release.json) and [calibration feature release](docs/coordination/WP-0026/cal-features-r1-release.json).
