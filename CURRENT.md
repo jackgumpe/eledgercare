@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0025 H0 window repeatability
+
+Reserved for two fresh native B=1 processes reading the same three pages in SHHS and HSSH order. Separate authors and independent review are assigned. The coordinator binds the device after the runner and inputs are frozen. [Handoff and assignments](docs/coordination/WP-0025/assignment.md)
+
 ## Completed WP-0024 Counterfactual Twin-Binder Baidu memory trial
 
 Sixteen native B=1 calls completed on two development binders. Seven of eight stock and instrumented windows matched through EOS. Four right-edge coordinates changed in the first window. All 24 page texts and table grids matched, and all ten source witnesses aligned in both views. H0 failed the exact-token requirement. The trial closed before fitting or blind evaluation. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0024/004_2026-11-21_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0024/003_2026-11-21_review_eld-rd-reviewer.md) · [Decision](docs/coordination/WP-0024/decision.json) · [Publication receipts](docs/coordination/WP-0024/publication-receipt.json) · [Post-WP-0023 Stage A](docs/coordination/WP-0024/stage-a-closure.md)

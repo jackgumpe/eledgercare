@@ -1197,3 +1197,14 @@ Jack released the queued external probe through independent disposition from `46
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0024/004_2026-11-21_verification_eld-coordinator.md |
 
 **Closed after independent review. H0 failed exact token parity.** One of eight paired windows changed four bounding-box coordinates. All eight retained identical text and table grids. The blind corpus remained ungenerated and the memory comparison has no measured outcome. The sole GPU lease returned. [Decision](docs/coordination/WP-0024/decision.json) at `57047bff742610c2c2c51bb9ee87c8c43da4ca81` · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0024/003_2026-11-21_review_eld-rd-reviewer.md) at `b1db32ce45507eda024dd1f83e31c49365f5484f` · [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0024/004_2026-11-21_verification_eld-coordinator.md) at `b4bb3aa02fea3839cc57f06798b5acd0ba294493` · [Four verified publications](docs/coordination/WP-0024/publication-receipt.json)
+
+## WP-0025 H0 window repeatability
+
+Jack supplied H0 Chalkboard Handoff v2 for an eight-call diagnostic on the exposed first three-page window, based on `ceb54580d95310881da00a6b3ddef009b3e2a9f3`. [Assignment and gates](docs/coordination/WP-0025/assignment.md) · [Source PDF](docs/coordination/WP-0025/chalkboard-v2.pdf)
+
+| Seq | Owner | Owned branch and worktree | Canonical report |
+| --- | --- | --- | --- |
+| 001 | eld-repeat-runner | research/wp-0025-window-runner · replay25-runner | docs/agent-reports/eld-repeat-runner/WP-0025/001_2026-11-21_research_eld-repeat-runner.md |
+| 002 | eld-repeat-analysis | research/wp-0025-repeat-analysis · replay25-analysis | docs/agent-reports/eld-repeat-analysis/WP-0025/002_2026-11-21_research_eld-repeat-analysis.md |
+| 003 | eld-repeat-reviewer | review/wp-0025-window-repeat · replay25-review | docs/agent-reports/eld-repeat-reviewer/WP-0025/003_2026-11-21_review_eld-repeat-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0025/004_2026-11-21_verification_eld-coordinator.md |
