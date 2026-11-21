@@ -1,0 +1,50 @@
+{
+  "packet": "WP-0023",
+  "lease": "dev-r1",
+  "candidate": "8682fc7d215c0b063d5c3ef8ccce91a090cff90c",
+  "worktree": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\batch23-review-replay1",
+  "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0023\\review\\runs\\dev-r1",
+  "manifest_sha256": "06abb2ab4cd7bf8d74286741d4ce5da08f6e60fd237050394e2b891ae909058f",
+  "requests": [
+    {
+      "window": "short",
+      "pdf": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\batch23-review-replay1\\docs\\coordination\\WP-0023\\fixtures\\development.pdf",
+      "sha256": "0ac89ffffc412ec73573ecc7bd3daae0c6748ca69e304a59841ded180e2a7f66",
+      "pages": 3,
+      "page_numbers": [
+        4,
+        5,
+        6
+      ],
+      "rgb_sha256": [
+        "e455e692c3b1eefeda2598e385640924429fac816115caf1dd395a12f6398265",
+        "926949326984b53a142a680c3cdada6f9a694816e06099ccc0d13d1f860827ce",
+        "39b84e93dc64dc7a07193149f73f01042852ddfff83be5fda29cfc12fd3e35f2"
+      ]
+    },
+    {
+      "window": "long",
+      "pdf": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\batch23-review-replay1\\docs\\coordination\\WP-0023\\fixtures\\development.pdf",
+      "sha256": "0ac89ffffc412ec73573ecc7bd3daae0c6748ca69e304a59841ded180e2a7f66",
+      "pages": 3,
+      "page_numbers": [
+        7,
+        8,
+        9
+      ],
+      "rgb_sha256": [
+        "2396290d7c303a6f57dc03d6ef7eb203279907ba16f3e6cd74f5d9b0d687a80e",
+        "6c72d6547afba6db7c25e4ed306766323c27d60bc1cff89fb052dc2db16b71ba",
+        "6cd2104b96afb404da1b3db27cee7429885f102bacce4c77b88a8d4fac154ed4"
+      ]
+    }
+  ],
+  "operator": "eld-batch-reviewer",
+  "gates": [
+    "native / wrapper B=1 per window",
+    "each slot against its singleton in both B=2 orders",
+    "on discrepancy trace first divergence and a float32 prefix; timing held",
+    "on complete parity only, excluded warm-ups then AB/BA resident comparison"
+  ],
+  "page_limit": "6 distinct development pages. Scale decision only."
+}
