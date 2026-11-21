@@ -1171,3 +1171,14 @@ Authorized 21 November 2026 for one paired Windows study on fresh nested synthet
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0022/004_2026-11-21_verification_eld-coordinator.md |
 
 **Closed with a layout-rule diagnosis after independent replay.** Of 42 paired targets, 6 passed both arms, 24 passed only rendered input, 0 passed only Windows and 12 failed both. Windows returned the exact amount text at all 36 unambiguous populated positions. No typed parent frame was captured from the Windows stream. [Decision](docs/coordination/WP-0022/decision.json) at `99e848ad427c4110480f0bc4bcc253ca60eb181b` · [Independent review](docs/agent-reports/eld-winrt-reviewer/WP-0022/003_2026-11-21_review_eld-winrt-reviewer.md) at `80022dc0d0b501a9a19972291e7129df8a5fa1f0` · [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0022/004_2026-11-21_verification_eld-coordinator.md) at `08f13bd377592e1631d4af081a7355cdea6b1140` · [Verified publication receipt](docs/coordination/WP-0022/publication-receipt.json)
+
+## WP-0023 Native Baidu B=1 versus B=2 speed trial
+
+Jack released one gated GPU research comparison on two synthetic development windows at `9eedf0f8b684746ff163d614851120c2d7ee88a5`. [Assignment](docs/coordination/WP-0023/assignment.md) · [Release receipt and upstream excerpt](docs/coordination/WP-0023/release-receipt.json)
+
+| Seq | Owner | Owned branch and worktree | Canonical report |
+| --- | --- | --- | --- |
+| 001 | eld-batch-engine | research/wp-0023-native-batch · batch23-engine | docs/agent-reports/eld-batch-engine/WP-0023/001_2026-11-21_research_eld-batch-engine.md |
+| 002 | eld-batch-trial | research/wp-0023-speed-harness · batch23-trial | docs/agent-reports/eld-batch-trial/WP-0023/002_2026-11-21_research_eld-batch-trial.md |
+| 003 | eld-batch-reviewer | review/wp-0023-native-batch · batch23-review | docs/agent-reports/eld-batch-reviewer/WP-0023/003_2026-11-21_review_eld-batch-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0023/004_2026-11-21_verification_eld-coordinator.md |

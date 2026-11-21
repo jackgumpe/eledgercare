@@ -2,9 +2,13 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0023 Native Baidu B=1 versus B=2 speed trial
+
+The coordinator reserved the native three-page-window parity and speed comparison. Separate research authors prepare the wrapper and trial harness. The independent reviewer operates the exact frozen candidate under an exclusive GPU lease. Both B=2 lane orders must clear the native token and stop-state gate before timing. [Assignment](docs/coordination/WP-0023/assignment.md)
+
 ## Queued Baidu studies
 
-The next priority for the Thanksgiving demonstration is the independent native B=1 versus B=2 speed trial on three-page windows. The counterfactual twin-binder memory study follows it as an unnumbered proposal. It compares external probes on frozen Baidu features from matched 12- and 30-page binders. Both studies await a local packet reservation and GPU release. [Supplied twin-binder specification v2](docs/coordination/queued/baidu-twin-binder-v2.pdf)
+The counterfactual twin-binder memory study is queued and unnumbered behind the speed trial. [Supplied specification v2](docs/coordination/queued/baidu-twin-binder-v2.pdf) · [Donor swap and advancement rules](docs/coordination/queued/baidu-twin-binder-v2.md)
 
 ## Completed WP-0022 Rendered versus WinRT ledger ownership
 

@@ -1,0 +1,66 @@
+{
+  "packet": "WP-0023",
+  "reservationBase": "9eedf0f8b684746ff163d614851120c2d7ee88a5",
+  "utc": "2026-11-21T08:56:31.369423+00:00",
+  "checkpoint": "0480966938291445591f69f08a13b041c073a96a",
+  "modelSource": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669\\modeling_unlimitedocr.py",
+  "modelSourceSha256": "f6df813cef23cc28b1daca40fd8cb20740d05a238e7b9dfa2334531fdcf39f1f",
+  "upstream": "https://huggingface.co/baidu/Unlimited-OCR-2/blob/0480966938291445591f69f08a13b041c073a96a/modeling_unlimitedocr.py#L1167",
+  "excerpt": [
+    {
+      "line": 1135,
+      "source": "        device = self.lm_head.weight.device"
+    },
+    {
+      "line": 1136,
+      "source": "        ids = input_ids.unsqueeze(0).to(device)"
+    },
+    {
+      "line": 1141,
+      "source": "        expected_pages = prompt_ids.count(page_id) if page_count_guard else 0"
+    },
+    {
+      "line": 1142,
+      "source": "        guard_st = {'marker_cum': 0, 'scanned': 0, 'page_len': 0}"
+    },
+    {
+      "line": 1165,
+      "source": "            h = out.last_hidden_state[:, -1:]"
+    },
+    {
+      "line": 1166,
+      "source": "            for step in range(max_new_tokens):"
+    },
+    {
+      "line": 1167,
+      "source": "                logits = self.lm_head(h).float()[0, -1]"
+    },
+    {
+      "line": 1168,
+      "source": "                if ngram_size > 0:"
+    },
+    {
+      "line": 1169,
+      "source": "                    logits = _uocr_no_repeat_ngram(logits, gen, ngram_size, ngram_window, ngram_whitelist or set())"
+    },
+    {
+      "line": 1170,
+      "source": "                if expected_pages > 0:"
+    },
+    {
+      "line": 1171,
+      "source": "                    logits = _uocr_page_count_guard(logits, gen, expected_pages, page_id, eos_id,"
+    },
+    {
+      "line": 1172,
+      "source": "                                                    max_page_tokens, guard_st)"
+    },
+    {
+      "line": 1176,
+      "source": "                    nxt = int(torch.argmax(logits))"
+    }
+  ],
+  "cpuRelease": "research preparation and reservation",
+  "gpuRelease": "exact candidate and finite device lease to follow",
+  "allowed": "Two development windows, genuine native B=1 and B>=1 research wrapper. G1 before G2, G2 before warm AB/BA, then a separate scale decision."
+}
