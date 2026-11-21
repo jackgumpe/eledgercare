@@ -16,21 +16,28 @@ def check(path,pin):
     observed = read(operator/"return.json")
     pids = {read(lease/"acquired.json")["pid"],read(lease/"returned.json")["retiring_pid"],
             read(operator/"issued.json")["pid"], read(operator/"started.json")["pid"],observed["pid"]}
+    latest_return = {pid:observed["utc"] for pid in pids}
     for o in rel["orders"]:
+        order_return = lease/(o["run"]+"-returned.json")
+        upper = read(order_return)["utc"] if order_return.exists() else observed["utc"]
         d = Path(o["output"])
         for file,keys in ((lease/(o["run"]+"-issued.json"),["pid"]),
                           (d/"worker-issued.json",["launcher_pid","supervisor_pid","supervisor_parent_pid"]),
                           (d/"sensor/binding.json",["pid","parent_pid"])):
             if file.exists():
                 raw = read(file)
-                pids.update(raw[k] for k in keys)
+                for key in keys:
+                    pid = raw[key]
+                    pids.add(pid)
+                    latest_return[pid] = max(latest_return.get(pid,upper),upper)
     status = {}
     for pid in sorted(pids):
         try:
             p = psutil.Process(pid)
             creation = datetime.fromtimestamp(p.create_time(),tz=timezone.utc)
             status[pid] = {"created":creation.isoformat(),"name":p.name(),
-                           "reused_after_return":creation > datetime.fromisoformat(observed["utc"])}
+                           "own_order_return":latest_return[pid],
+                           "reused_after_return":creation > datetime.fromisoformat(latest_return[pid])}
             assert status[pid]["reused_after_return"], (pid,status[pid])
         except psutil.NoSuchProcess:
             status[pid] = "absent"
