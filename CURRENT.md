@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Queued Baidu studies
+
+The next priority for the Thanksgiving demonstration is the independent native B=1 versus B=2 speed trial on three-page windows. The counterfactual twin-binder memory study follows it as an unnumbered proposal. It compares external probes on frozen Baidu features from matched 12- and 30-page binders. Both studies await a local packet reservation and GPU release. [Supplied twin-binder specification v2](docs/coordination/queued/baidu-twin-binder-v2.pdf)
+
 ## Completed WP-0022 Rendered versus WinRT ledger ownership
 
 Windows OCR returned the exact printed amount at all 36 ordinary target locations. The frozen reader correctly assigned 24/36 using rendered positions and 0/36 using native lines and boxes. The original parent header was split across native lines in all eight logical documents. Both arms withheld four blanks, flagged both ambiguous cases and made zero silent wrong assignments. Independent replay confirmed the layout-rule diagnosis. The one-study cutoff is closed and the SPDB trigger was unmet. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0022/004_2026-11-21_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-winrt-reviewer/WP-0022/003_2026-11-21_review_eld-winrt-reviewer.md) · [Witness rows](docs/coordination/WP-0022/witness-guide.md) · [Publication receipts](docs/coordination/WP-0022/publication-receipt.json)
