@@ -1184,3 +1184,14 @@ Jack released one gated GPU research comparison on two synthetic development win
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0023/004_2026-11-21_verification_eld-coordinator.md |
 
 **Closed after independent review. G1 passed, G2 failed, timed crossover and the 60-page replay were withheld.** Both permutations preserved the short window and changed seven of the 665 long-window emitted IDs. On the first mismatch the BF16 singleton tied token IDs 24254 and 25089. Both FP32 replays selected 25089. The model-tree contents and file write times matched the reservation inventory. [Decision](docs/coordination/WP-0023/decision.json) at `a47a11b76f83eedd99b52096facd4bf303885a81` · [Independent review](docs/agent-reports/eld-batch-reviewer/WP-0023/003_2026-11-21_review_eld-batch-reviewer.md) at `3eb3e9f53db53ba9d148af883a2a05159626c782` · [Coordinator report](docs/agent-reports/eld-coordinator/WP-0023/004_2026-11-21_verification_eld-coordinator.md) at `63727c545492026c68d33b2e1f387643e967ec18` · [Verified publication](docs/coordination/WP-0023/publication-receipt.json)
+
+## WP-0024 Counterfactual Twin-Binder Baidu memory trial
+
+Jack released the queued external probe through independent disposition from `4623feaf7c42e4ee58965370563a9daaadfc6ce9`. The Stage A closure uses retained WP-0023 records. WP-0024 uses frozen B=1 alone for its synthetic documents. [Assignment and gates](docs/coordination/WP-0024/assignment.md) · [Source hierarchy](docs/coordination/WP-0024/inputs/sources.json)
+
+| Seq | Owner | Owned branch and worktree | Canonical report |
+| --- | --- | --- | --- |
+| 001 | eld-twin-custodian | research/wp-0024-twin-custody · twin24-custody | docs/agent-reports/eld-twin-custodian/WP-0024/001_2026-11-21_research_eld-twin-custodian.md |
+| 002 | eld-twin-author | research/wp-0024-twin-probe · twin24-author | docs/agent-reports/eld-twin-author/WP-0024/002_2026-11-21_research_eld-twin-author.md |
+| 003 | eld-rd-reviewer | review/wp-0024-twin-memory · twin24-review | docs/agent-reports/eld-rd-reviewer/WP-0024/003_2026-11-21_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0024/004_2026-11-21_verification_eld-coordinator.md |
