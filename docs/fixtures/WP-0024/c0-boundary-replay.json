@@ -1,0 +1,147 @@
+{
+  "purpose": "CPU-only fabricated child-boundary regression",
+  "input": {
+    "spans": [
+      {
+        "page": 1,
+        "kind": "block",
+        "index": 0,
+        "char_range": [
+          0,
+          1
+        ],
+        "text": "Owners: A / B",
+        "cells": []
+      },
+      {
+        "page": 1,
+        "kind": "block",
+        "index": 1,
+        "char_range": [
+          1,
+          2
+        ],
+        "text": "Supporting schedule",
+        "cells": []
+      },
+      {
+        "page": 1,
+        "kind": "block",
+        "index": 2,
+        "char_range": [
+          2,
+          3
+        ],
+        "text": "Ledger: A",
+        "cells": []
+      },
+      {
+        "page": 1,
+        "kind": "block",
+        "index": 3,
+        "char_range": [
+          3,
+          4
+        ],
+        "text": "Unit: U1",
+        "cells": []
+      },
+      {
+        "page": 1,
+        "kind": "row",
+        "index": 4,
+        "char_range": [
+          4,
+          5
+        ],
+        "text": "Item Amount Ref",
+        "cells": [
+          "Item",
+          "Amount",
+          "Ref"
+        ]
+      }
+    ]
+  },
+  "expected_parent": {
+    "owner": "A",
+    "unit": "U1",
+    "schema": [
+      "Item",
+      "Amount",
+      "Ref"
+    ]
+  },
+  "outputs": {
+    "8750bb30308ae0a7a4755002e3d5b308ec1617af": {
+      "pass_c0": true,
+      "visible": {
+        "owner": "A",
+        "unit": "U1",
+        "schema": [
+          "Item",
+          "Amount",
+          "Ref"
+        ]
+      },
+      "miss_reasons": [],
+      "source_spans": {
+        "owner": {
+          "index": 2,
+          "page": 1,
+          "kind": "block",
+          "text": "Ledger: A",
+          "cells": [],
+          "char_range": [
+            2,
+            3
+          ]
+        },
+        "unit": {
+          "index": 3,
+          "page": 1,
+          "kind": "block",
+          "text": "Unit: U1",
+          "cells": [],
+          "char_range": [
+            3,
+            4
+          ]
+        },
+        "schema": {
+          "index": 4,
+          "page": 1,
+          "kind": "row",
+          "text": "Item Amount Ref",
+          "cells": [
+            "Item",
+            "Amount",
+            "Ref"
+          ],
+          "char_range": [
+            4,
+            5
+          ]
+        }
+      }
+    },
+    "a11b4609a6b4bc9857cf8c78f8868581596ca3fd": {
+      "pass_c0": false,
+      "visible": {
+        "owner": null,
+        "unit": null,
+        "schema": null
+      },
+      "miss_reasons": [
+        "owner_absent",
+        "unit_absent",
+        "schema_absent"
+      ],
+      "source_spans": {
+        "owner": null,
+        "unit": null,
+        "schema": null
+      }
+    }
+  }
+}
