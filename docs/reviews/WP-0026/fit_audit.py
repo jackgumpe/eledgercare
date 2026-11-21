@@ -10,6 +10,9 @@ from preflights import PROBE
 
 def inspect(weights,pin,train,cal):
     import torch
+    torch.set_num_threads(1)
+    torch.set_num_interop_threads(1)
+    torch.use_deterministic_algorithms(True)
     from matrix_audit import materialize
     materialize(PROBE)
     from matrix import Memory
