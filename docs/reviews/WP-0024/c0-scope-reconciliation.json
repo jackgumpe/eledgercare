@@ -1,0 +1,110 @@
+[
+  {
+    "source": "8750bb30308ae0a7a4755002e3d5b308ec1617af",
+    "cases": {
+      "active_before_child": {
+        "passed": true,
+        "misses": [],
+        "visible": {
+          "owner": "A",
+          "unit": "U1",
+          "schema": [
+            "Item",
+            "Amount",
+            "Ref"
+          ]
+        }
+      },
+      "all_declarations_only_inside_child": {
+        "passed": true,
+        "misses": [],
+        "visible": {
+          "owner": "A",
+          "unit": "U1",
+          "schema": [
+            "Item",
+            "Amount",
+            "Ref"
+          ]
+        }
+      },
+      "only_schema_inside_child": {
+        "passed": true,
+        "misses": [],
+        "visible": {
+          "owner": "A",
+          "unit": "U1",
+          "schema": [
+            "Item",
+            "Amount",
+            "Ref"
+          ]
+        }
+      }
+    },
+    "expected": [
+      true,
+      false,
+      false
+    ],
+    "observed": [
+      true,
+      true,
+      true
+    ],
+    "passed": false
+  },
+  {
+    "source": "a11b4609a6b4bc9857cf8c78f8868581596ca3fd",
+    "cases": {
+      "active_before_child": {
+        "passed": true,
+        "misses": [],
+        "visible": {
+          "owner": "A",
+          "unit": "U1",
+          "schema": [
+            "Item",
+            "Amount",
+            "Ref"
+          ]
+        }
+      },
+      "all_declarations_only_inside_child": {
+        "passed": false,
+        "misses": [
+          "owner_absent",
+          "unit_absent",
+          "schema_absent"
+        ],
+        "visible": {
+          "owner": null,
+          "unit": null,
+          "schema": null
+        }
+      },
+      "only_schema_inside_child": {
+        "passed": false,
+        "misses": [
+          "schema_absent"
+        ],
+        "visible": {
+          "owner": "A",
+          "unit": "U1",
+          "schema": null
+        }
+      }
+    },
+    "expected": [
+      true,
+      false,
+      false
+    ],
+    "observed": [
+      true,
+      false,
+      false
+    ],
+    "passed": true
+  }
+]
