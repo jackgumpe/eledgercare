@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Active WP-0026 W0-conditioned Twin-Binder study
+
+The coordinator reserved a disjoint three-page warm-up and matched-ordinal H0 comparison. The two learned probes and blind evaluation depend on the published gates. [Assignment and budgets](docs/coordination/WP-0026/assignment.md)
+
 ## Completed WP-0025 H0 window repeatability
 
 The first read in each fresh process matched the historical stock stream, including the process that started with recording enabled. All six later reads matched the historical hooked stream. Both modes reproduced both outputs on the same three pages. The four right-edge changes recurred together, with identical text, cells and EOS and all 32 source witness checks passing. The bounded diagnostic is closed. The memory comparison remains untested. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0025/004_2026-11-21_verification_eld-coordinator.md) · [Eight-call matrix](docs/coordination/WP-0025/decision.json) · [Independent review](docs/agent-reports/eld-repeat-reviewer/WP-0025/003_2026-11-21_review_eld-repeat-reviewer.md) · [Reviewer erratum](docs/agent-reports/eld-repeat-reviewer/WP-0025/005_2026-11-21_review_eld-repeat-reviewer.md) · [Publication receipts](docs/coordination/WP-0025/publication-receipt.json)

@@ -1213,3 +1213,16 @@ Jack supplied H0 Chalkboard Handoff v2 for an eight-call diagnostic on the expos
 /005 is reserved for a reviewer erratum to the /003 metadata and the absolute decoder-position label. The numerical evidence and primary archive retain their original identities.
 
 **Closed after independent review. Baseline variation observed.** Position within each fresh process predicted which historical stream appeared in all eight calls. The trial observed the same four box changes under both recording modes. No wider causal or memory conclusion was released. [Decision](docs/coordination/WP-0025/decision.json) at `48445861c2b0d6675954a69c2111d5c0c8f3f61d` · [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0025/004_2026-11-21_verification_eld-coordinator.md) at `b4d5fd3a0797f55fbbebddbc7661e16520e7a52d` · [Independent review](docs/agent-reports/eld-repeat-reviewer/WP-0025/003_2026-11-21_review_eld-repeat-reviewer.md) · [Reviewer erratum](docs/agent-reports/eld-repeat-reviewer/WP-0025/005_2026-11-21_review_eld-repeat-reviewer.md) · [Verified reports and primary evidence](docs/coordination/WP-0025/publication-receipt.json)
+
+## WP-0026 W0-conditioned Twin-Binder memory study
+
+Jack supplied the conditional W0 and memory handoff at base `77a858a9278cbd5480a45ece25543ab4c80d987d`. [Assignment and finite phase budgets](docs/coordination/WP-0026/assignment.md) · [Original handoff](docs/coordination/WP-0026/conditional-handoff.pdf)
+
+| Sequence | Stable ID | Owned branch and worktree | Reserved report |
+| ---: | --- | --- | --- |
+| 001 | eld-twin-custodian | research/wp-0026-custody · w026-custody | docs/agent-reports/eld-twin-custodian/WP-0026/001_2026-11-21_research_eld-twin-custodian.md |
+| 002 | eld-twin-author | research/wp-0026-acquisition · w026-author | docs/agent-reports/eld-twin-author/WP-0026/002_2026-11-21_research_eld-twin-author.md |
+| 003 | eld-rd-reviewer | review/wp-0026-warmed-memory · w026-review | docs/agent-reports/eld-rd-reviewer/WP-0026/003_2026-11-21_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0026/004_2026-11-21_verification_eld-coordinator.md |
+
+Reserved for W0 and conditional H0, C1 and memory evaluation. Device calls require a separate finite release at each gate.
