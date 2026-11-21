@@ -1,0 +1,11 @@
+First H0 post-return process check, retained from the original terminal result. Q0 Python -I -B, exit 1.
+The original command ran docs/reviews/WP-0026/return_check.py at 9dc51cf7, before the corrected ancillary readback.
+
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\w026-review\docs\reviews\WP-0026\return_check.py", line 45, in <module>
+    save(Path(sys.argv[3]),check(Path(sys.argv[1]),sys.argv[2]))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\w026-review\docs\reviews\WP-0026\return_check.py", line 34, in check
+    assert status[pid]["reused_after_return"], (pid,status[pid])
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (13288, {'created': '2026-11-21T21:09:25.167467+00:00', 'name': 'svchost.exe', 'reused_after_return': False})
