@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0022 Rendered versus WinRT ledger ownership
+## Completed WP-0022 Rendered versus WinRT ledger ownership
 
-One paired CPU study is reserved. An independent custodian prepares fresh synthetic pages. The two arms use the same page pixels, detected grid and frozen saved-frame reader. An independent reviewer will replay the archived observations. [Assignment](docs/coordination/WP-0022/assignment.md)
+Windows OCR returned the exact printed amount at all 36 ordinary target locations. The frozen reader correctly assigned 24/36 using rendered positions and 0/36 using native lines and boxes. The original parent header was split across native lines in all eight logical documents. Both arms withheld four blanks, flagged both ambiguous cases and made zero silent wrong assignments. Independent replay confirmed the layout-rule diagnosis. The one-study cutoff is closed and the SPDB trigger was unmet. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0022/004_2026-11-21_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-winrt-reviewer/WP-0022/003_2026-11-21_review_eld-winrt-reviewer.md) · [Witness rows](docs/coordination/WP-0022/witness-guide.md) · [Publication receipts](docs/coordination/WP-0022/publication-receipt.json)
 
 ## Completed WP-0021 Windows ledger scope feasibility
 
