@@ -196,8 +196,13 @@ class Trial:
             result = self.measured("g1-wrapper-" + key, lambda: self.wrapped((key,)))
             first[key] = self.verify_order("batch", (key,), result)[key]
         write(self.folder, "g1", first)
+        lengths = {key: len(self.control[key]["token_ids"]) for key in ORDER}
+        eligible = lengths["short"] < lengths["long"]
+        write(self.folder, "g1-lengths", dict(emitted_tokens_excluding_eos=lengths, short_less_than_long=eligible))
         if not all(x["passed"] for x in first.values()):
-            return {"status": "g1-failed"}
+            return {"status": "g1-failed", "emitted_tokens_excluding_eos": lengths}
+        if not eligible:
+            return {"status": "g1-ineligible-window-lengths", "emitted_tokens_excluding_eos": lengths}
         batches, checks = {}, {}
         for order in (ORDER, ORDER[::-1]):
             name = "-".join(order)

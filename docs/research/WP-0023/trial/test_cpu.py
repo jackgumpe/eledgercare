@@ -33,6 +33,8 @@ def model_loop():
 
 def row(key):
     ids = [PAGE, 9 if key == "short" else 10, PAGE, 8, PAGE, 7]
+    if key == "long":
+        ids.append(5)
     return dict(prompt_token_ids=[PAGE]*3, token_ids=ids, eos_id=0, eos_observed=True, stop_cause="eos",
                 finish_reason="stop", num_pages_out=3, expected_pages=3, text="<PAGE>a<PAGE>b<PAGE>c")
 
@@ -48,7 +50,7 @@ class FakeTrial(run.Trial):
     def single(self, key, **kwargs):
         if "prefix" in kwargs:
             return self.probe(kwargs["candidates"], 0)
-        return row(key)
+        return row("short" if self.fail == "equal" else key)
 
     def probe(self, candidates, winner):
         stage = dict(argmax=candidates[winner], top2=[{"id": c, "logit": float(i == winner)}
@@ -59,7 +61,7 @@ class FakeTrial(run.Trial):
     def wrapped(self, order, probe=None):
         if probe is not None:
             return {"probe": self.probe(probe["candidates"], int(len(order) == 2))}
-        lanes = [row(key) for key in order]
+        lanes = [row("short" if self.fail == "equal" else key) for key in order]
         if self.fail == "g1" and len(order) == 1:
             lanes[0]["eos_observed"] = False
         if self.fail == "g2" and len(order) == 2:
@@ -109,7 +111,7 @@ class Checks(unittest.TestCase):
 
     def test_covered_gates(self):
         for fail, status, expected in ((None, "timing-completed", 12), ("g1", "g1-failed", 4),
-                                       ("g2", "g2-failed", 6)):
+                                       ("g2", "g2-failed", 6), ("equal", "g1-ineligible-window-lengths", 4)):
             with tempfile.TemporaryDirectory() as tmp:
                 trial = FakeTrial(Path(tmp), fail)
                 result = trial.execute()

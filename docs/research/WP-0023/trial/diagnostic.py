@@ -106,8 +106,9 @@ def diagnose(trial, batches, checks):
                       b2_selected=two["processed"]["argmax"], cross_shape=deltas(one, two, candidates))
         except (RuntimeError, NotImplementedError, MemoryError) as exc:
             # Unsupported precision or insufficient device memory is evidence, never a permission to time.
-            if not any(word in str(exc).lower() for word in ("dtype", "type", "out of memory", "not implemented",
-                                                              "float", "capacity", "unsupported", "memory")):
+            known_limit = any(word in str(exc).lower() for word in ("dtype", "out of memory", "not implemented",
+                                  "float", "capacity", "unsupported", "memory", "requires the q0 triton-absent"))
+            if not isinstance(exc, (MemoryError, NotImplementedError)) and not known_limit:
                 raise
             fp.update(status="could-not-complete", error_type=type(exc).__name__, error=str(exc),
                       trace=traceback.format_exc(), utc_ns=time.time_ns())
