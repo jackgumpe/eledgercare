@@ -4,7 +4,6 @@ This independent review program accepts the released key only after both predict
 It contains no OCR, grid extraction, document generator or production import.
 """
 import argparse
-import copy
 import hashlib
 import importlib.util
 import json
@@ -40,14 +39,23 @@ def center_inside(a, b):
     return b[0] <= x < b[2] and b[1] <= y < b[3]
 
 
+def located(box, region):
+    return center_inside(box, region) and overlap(box, region) / size(box) >= .5
+
+
+def row_contains(word, target):
+    return any(center_inside(word["bbox"], b) for b in [target["row_box"], *target["note_boxes"]])
+
+
 def side(word, target):
     box = word["bbox"]
-    regions = [("amount", target["amount_box"])] + [("note", b) for b in target["note_boxes"]]
-    centers = [name for name, b in regions if center_inside(box, b)]
-    hits = [name for name, b in regions if overlap(box, b) > 0]
-    if len(centers) == len(hits) == 1:
-        return centers[0]
-    return "straddles-region" if hits else "other"
+    if any(located(box, b) for b in target["note_boxes"]):
+        return "note"
+    if located(box, target["amount_box"]):
+        if any(overlap(box, b) > 0 for b in target["note_boxes"]):
+            return "straddles-region"
+        return "amount"
+    return "other"
 
 
 def import_reader(source):
@@ -120,28 +128,35 @@ def binding(target, row, source):
     for name, key in [("heading", "heading_refs"), ("property_region", "property_refs"), ("unit_region", "unit_refs")]:
         region = target[name]
         expected[name] = bool(row[key]) and all(
-            source[ref][0][0] == region["page"] and center_inside(source[ref][1]["bbox"], region["bbox"])
+            source[ref][0][0] == region["page"] and located(source[ref][1]["bbox"], region["bbox"])
             for ref in row[key])
     # The actual frozen reader stores the Amount header as the final pointer in each schema.
     expected["header_role_pointer"] = bool(row["header_refs"]) and source[row["header_refs"][-1]][1]["text"] == "Amount"
     return expected
 
 
-def evaluate_target(target, lines, outputs, source, stack):
+def evaluate_target(target, lines, outputs, source, stack, siblings):
     page, rowbox = target["page"], target["row_box"]
     touched = [(pair, words) for pair, words in lines.items() if pair[0] == page and any(
-        overlap(w["bbox"], rowbox) > 0 for w in words)]
+        overlap(w["bbox"], b) > 0 for w in words for b in [rowbox, *target["note_boxes"]])]
     events, trace = [], []
     for pair, words in touched:
         row = outputs.get(pair)
         terminal = words[-1]
-        in_row = center_inside(terminal["bbox"], rowbox)
+        in_row = row_contains(terminal, target)
         event = None
         if row and in_row:
             where = side(terminal, target)
             bound = binding(target, row, source)
+            mixed = any(row_contains(w, other) for w in words for other in siblings
+                        if other["page"] == page and other["id"] != target["id"])
+            header = target["amount_header"]
+            header_ref = row["header_refs"][-1] if row["header_refs"] else None
+            header_matched = bool(header_ref and source[header_ref][0][0] == header["page"]
+                                  and located(source[header_ref][1]["bbox"], header["bbox"]))
             event = {"line": pair[1], "source": where, "ref": row["word_ref"], "literal": row["literal"],
-                     "flag": row["flagged"], "binding": bound, "reason": row["reason"]}
+                     "flag": row["flagged"], "binding": bound, "cross_row": mixed,
+                     "expected_amount_header_pointer": header_matched, "reason": row["reason"]}
             events.append(event)
         margins = []
         for frame in stack[pair]["before"]:
@@ -154,22 +169,27 @@ def evaluate_target(target, lines, outputs, source, stack):
     amount_intersections = [w["ref"] for _, words in touched for w in words if overlap(w["bbox"], target["amount_box"]) > 0]
     flags = [e for e in events if e["flag"]]
     posts = [e for e in events if not e["flag"]]
-    good = [e for e in posts if e["source"] == "amount" and all(e["binding"].values())]
+    good = [e for e in posts if e["source"] == "amount" and all(e["binding"].values()) and not e["cross_row"]]
+    amount_flags = [e for e in flags if e["source"] == "amount"]
     kind = target["kind"]
     if kind == "blank":
         status = "silent-wrong" if posts else "safe-withholding"
     elif kind == "ambiguous":
-        status = "silent-wrong" if posts else ("ambiguous-abstention" if flags else "missing-output")
+        status = "silent-wrong" if posts else ("ambiguous-abstention" if amount_flags else
+                                                  "incidental-flag" if flags else "missing-output")
     elif len(posts) == len(good) == 1:
         status = "owned"
     elif posts:
         status = "silent-wrong"
     else:
-        status = "unambiguous-abstention" if flags else "missing-output"
+        status = "unambiguous-abstention" if amount_flags else "incidental-flag" if flags else "missing-output"
+    if kind != "blank" and not amount_intersections and not posts:
+        status = "no-intersecting-source"
     return {"status": status, "pass": status in ("owned", "safe-withholding", "ambiguous-abstention"),
             "amount_words": amount_words, "amount_intersections": amount_intersections,
             "transcription": (good[0]["literal"] == target["literal"]) if status == "owned" else None,
-            "events": events, "trace": trace}
+            "events": events, "trace": trace, "missing_amount_header_pointer": any(not e["expected_amount_header_pointer"] for e in good),
+            "false_posts": len(posts) - (min(len(good), 1) if kind == "value" else 0)}
 
 
 def run(args):
@@ -197,9 +217,18 @@ def run(args):
                 assert output["stack_after"] == [f["scope"] for f in stack[pair]["after"]]
             seen = set()
             for target in cases:
-                result = evaluate_target(target, lines, outputs, source, stack)
+                result = evaluate_target(target, lines, outputs, source, stack, cases)
                 counts[result["status"]] += 1
                 counts["transcription-mismatch"] += result["transcription"] is False
+                counts["false-posts"] += result["false_posts"]
+                counts["owned-missing-intended-amount-header"] += result["missing_amount_header_pointer"]
+                kind = target["kind"]
+                counts["rows-" + kind] += 1
+                flags = [e for e in result["events"] if e["flag"]]
+                counts["flag-rows-" + kind] += bool(flags)
+                counts["amount-flag-rows-" + kind] += any(e["source"] == "amount" for e in flags)
+                counts["flag-events"] += len(flags)
+                counts["no-cell-word-" + kind] += not result["amount_intersections"]
                 counts["positive-blank-representation"] += 0  # No blank-output representation in fixed reader.
                 for event in result["events"]:
                     p = (target["page"], event["line"])
@@ -210,6 +239,7 @@ def run(args):
                 rows.setdefault(target["id"], {"target": target})[arm] = result
             outside[arm].extend({"doc": docid, **row} for pair, row in outputs.items()
                                 if pair not in seen and not row["flagged"])
+            counts["outside-flags"] += sum(row["flagged"] for pair, row in outputs.items() if pair not in seen)
         summaries[arm] = dict(counts)
     for target_id, row in rows.items():
         pair = "".join("P" if row[a]["pass"] else "F" for a in ("R", "W"))
