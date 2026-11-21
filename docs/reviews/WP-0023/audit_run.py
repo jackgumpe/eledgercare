@@ -45,13 +45,27 @@ def compare(stock, cand):
 def shape_check(result, size):
     calls = result["forwards"]
     assert calls["batch_size"] == size and calls["prefill"] == 1
-    assert calls["decode"] == max(len(row["token_ids"]) for row in result["lanes"])
+    if all(row["eos_observed"] for row in result["lanes"]):
+        assert calls["decode"] == max(len(row["token_ids"]) for row in result["lanes"])
+    for phase in ("prefill_shapes", "first_decode_shapes"):
+        shape = calls[phase]
+        assert all(v[0] == size for v in shape.values())
+        assert shape["hidden"][:2] == shape["input_ids"]
+        assert shape["lm_head"][:2] == [size, 1]
+    assert calls["prefill_shapes"]["input_ids"][1] > 1
+    assert calls["first_decode_shapes"]["input_ids"] == [size, 1]
+    for row in result["lanes"]:
+        if row["eos_observed"]:
+            assert row["last_selected_step"] == len(row["token_ids"])
+            assert row["last_selected_token"] == row["eos_id"]
+            assert row["last_guard_scan"] == guards(row["token_ids"], row["eos_id"], [])[0]
     c = result["prefill_cache_shapes"]
     assert c["kv"] and all(v[0] == size and len(v) == 4 for v in c["kv"])
     assert c["dash_index_keys"] and all(v[0] == size for v in c["dash_index_keys"].values())
     assert c["page_rope"] and all(v[0] == size for v in c["page_rope"].values())
     assert all(v[0] == size for v in c["page_state"].values())
     return dict(batch=size, decode=calls["decode"], prefill_kv=c["kv"][0],
+                prefill_shapes=calls["prefill_shapes"], first_decode_shapes=calls["first_decode_shapes"],
                 kv_layers=len(c["kv"]), dash_layers=len(c["dash_index_keys"]), page_rope_layers=len(c["page_rope"]))
 
 
@@ -157,17 +171,21 @@ def audit(folder):
     output = dict(status=decision["status"], control={}, G1={}, G2={}, shapes={}, diagnostics=[])
     for key, value in controls.items():
         terminal = value["terminal_observation"]
-        assert terminal["nxt"] == value["eos_id"] and terminal["step"] == len(value["token_ids"])
-        assert compare(value, value)["passes"]
+        if value["eos_observed"]:
+            assert terminal["nxt"] == value["eos_id"] and terminal["step"] == len(value["token_ids"])
+        else:
+            assert terminal["nxt"] != value["eos_id"] and terminal["step"] + 1 == len(value["token_ids"])
         output["control"][key] = dict(emitted=len(value["token_ids"]), eos=terminal["nxt"],
                                       pages=markers(value["token_ids"]), last_guard=terminal["guard"])
         raw = load(folder,"g1-wrapper-"+key)["result"]
         output["shapes"]["g1-"+key] = shape_check(raw, 1)
         output["G1"][key] = compare(value, raw["lanes"][0])
-    assert output["control"]["long"]["emitted"] > output["control"]["short"]["emitted"]
+    eligible = output["control"]["long"]["emitted"] > output["control"]["short"]["emitted"]
+    assert eligible == load(folder, "g1-lengths")["short_less_than_long"]
     pass1 = all(row["passes"] for row in output["G1"].values())
     assert pass1 == (decision["status"] != "g1-failed")
-    if not pass1:
+    if not pass1 or not eligible:
+        assert decision["status"] == ("g1-ineligible-window-lengths" if pass1 else "g1-failed")
         assert not any(folder.glob("g2-*.json")) and not any(folder.glob("g3-*.json"))
         return output
     for order in (WINDOWS, WINDOWS[::-1]):
