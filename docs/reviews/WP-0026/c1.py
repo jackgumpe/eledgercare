@@ -10,6 +10,28 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from audit_common import HOST, MODEL, cpu, pinned, read, reference, sample, save, sha, stream
 from w0_inputs import RECEIPT
 
+def tensor_differences(left,right,name):
+    import numpy as np
+    dtype = "<u2" if name == "token_hidden.bf16" else "<u4"
+    a,b = [np.frombuffer((p/name).read_bytes(),dtype=dtype) for p in (left,right)]
+    if a.size != b.size or a.size % 1280:
+        return {"same_shape":False,"elements":[int(a.size),int(b.size)]}
+    a,b = a.reshape(-1,1280),b.reshape(-1,1280)
+    difference = a != b
+    where = np.flatnonzero(difference.any(axis=1))
+    assert len(where)
+    first = int(where[0])
+    col = int(np.flatnonzero(difference[first])[0])
+    if dtype == "<u2":
+        af,bf = [(v.astype("<u4")<<16).view("<f4") for v in (a,b)]
+    else:
+        af,bf = [v.view("<f4") for v in (a,b)]
+    delta = np.abs(af.astype(np.float64)-bf.astype(np.float64))
+    limit = float(delta.max()) if np.isfinite(delta).all() else None
+    return {"same_shape":True,"rows":len(a),"width":1280,"changed_rows":len(where),
+            "changed_scalars":int(difference.sum()),"first_index":[first,col],
+            "first_disagreeing_raw_bits":[int(a[first,col]),int(b[first,col])],"max_absolute_delta":limit}
+
 def same_rasters(first,second):
     checks = []
     for left,right in zip(first,second,strict=True):
@@ -64,7 +86,10 @@ def inspect(plan_file,pin,weights=None,fit_pin=None,probe=None,*,run_root=None):
             rasters = []
         if not all(v is True for v in compared.values()):
             failures.append({"pair":[a["tag"],b["tag"]],"differences":[k for k,v in compared.items() if v is not True]})
-        groups.append({"left":a["tag"],"right":b["tag"],"window":a["window"],"encoded_and_rgb":rasters,"equal":compared})
+        tensor = {name:tensor_differences(left,right,name) for name in ("token_hidden.bf16","pooled.f32")
+                  if compared[name] is False}
+        groups.append({"left":a["tag"],"right":b["tag"],"window":a["window"],"encoded_and_rgb":rasters,
+                       "equal":compared,"retained_tensor_disagreements":tensor})
     result = {"stage":"uncached","plan_sha256":pin,"candidate":plan["candidate"],"split":plan["split"],
               "warmup_fixture_sha256":RECEIPT,"sensor_tree":plan["sensor_tree"],"model_revision":MODEL,
               "samples":receipts,"duplicates":groups,"failures":failures}
