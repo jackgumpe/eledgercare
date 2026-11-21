@@ -43,7 +43,7 @@ def candidate_receipt(window):
     return {"inputs": payload, "sha256": hashlib.sha256(raw).hexdigest()}
 
 
-def window1_audit(model, window, cuts):
+def window1_audit(model, window, cuts, zero=False):
     # Audit-only snapshot. The object is discarded and never used by any arm.
     events = [e for s in window.spans for e in identify(s, 1)
               if e.kind in {"OPEN_LEDGER", "DECLARE_UNIT", "HEADER"}]
@@ -61,7 +61,7 @@ def window1_audit(model, window, cuts):
         encoded = state.post(frame, probe)
     else:
         state = NeuralState(model.zero())
-        advance(model, state, window, 1)
+        advance(model, state, window, 1, zero=zero)
         controller = state.controller
         state.controller = Controller()
         q = model.project(window)[2][-1]
@@ -170,6 +170,12 @@ def predict_pair(m1, m3, thresholds, windows_a, windows_b):
     for side, windows in enumerate(twins):
         for record in outputs[side].values():
             record["candidate_receipt"] = {**candidates[side], "pair_equal": identical}
+        audit = window1_audit(m3, windows[0], thresholds["M3"])
+        outputs[side]["M0"]["window1_audit"] = {"source": "suffix_only", "observed": [],
+                                                "decoded_binding": None, "encoded": abstain("suffix_only")}
+        outputs[side]["M1"]["window1_audit"] = window1_audit(m1, windows[0], thresholds["M1"])
         outputs[side]["M2"]["window1_audit"] = window1_audit(None, windows[0], None)
-        outputs[side]["M3"]["window1_audit"] = window1_audit(m3, windows[0], thresholds["M3"])
+        outputs[side]["M3-Zero"]["window1_audit"] = window1_audit(m3, windows[0], thresholds["M3"], zero=True)
+        outputs[side]["M3"]["window1_audit"] = audit
+        outputs[side]["M3-Swap"]["window1_audit"] = {**audit, "source": "original_receiver_before_swap"}
     return outputs

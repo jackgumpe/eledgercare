@@ -142,10 +142,20 @@ def train_one(model, train_pairs, table):
 
 
 def classification(decision, truth):
+    if decision["type"] not in ("Posting", "ABSTAIN"):
+        raise ValueError("unknown calibration decision type")
     posting = decision["type"] == "Posting"
     if truth["ambiguous"]:
         return not posting, posting, posting
-    ok = posting and all(decision[f] == truth[f] for f in FIELDS)
+    def same(field):
+        value, expected = decision.get(field), truth[field]
+        if value is None or expected is None:
+            return value is expected
+        # casefold, decoded HTML entities and folded whitespace; literal
+        # markup is content. Keep the original spelling in the typed record.
+        return key(value) == key(expected)
+
+    ok = posting and all(same(f) for f in FIELDS)
     return ok, posting and not ok, posting
 
 
