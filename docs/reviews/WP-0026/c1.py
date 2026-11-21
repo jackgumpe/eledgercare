@@ -24,13 +24,13 @@ def same_rasters(first,second):
     assert len(checks) == 3
     return checks
 
-def inspect(plan_file,pin,weights=None,fit_pin=None,probe=None):
+def inspect(plan_file,pin,weights=None,fit_pin=None,probe=None,*,run_root=None):
     import c1_audit
     plan = pinned(plan_file,pin)
     assert plan["packet"] == "WP-0026" and plan["phase"] == "c1" and plan["split"] in ("train","blind")
     assert plan["model_revision"] == MODEL and plan["warmup"]["fixture_sha256"] == RECEIPT
     sensor = Path(plan["output"])/"sensor"
-    assert sensor.parent.parent == HOST/"review/runs"
+    assert sensor.parent.parent == (HOST/"review/runs" if run_root is None else run_root)
     assert read(sensor/"binding.json")["plan_sha256"] == pin
     assert len(plan["check_groups"]) == 12 and len(plan["calls"]) == 28
     calls = {c["tag"]:c for c in plan["calls"]}
