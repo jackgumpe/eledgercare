@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex 
 
 ## Active WP-0026 W0-conditioned Twin-Binder study
 
-The coordinator reserved a disjoint three-page warm-up and matched-ordinal H0 comparison. The two learned probes and blind evaluation depend on the published gates. [Assignment and budgets](docs/coordination/WP-0026/assignment.md)
+Both model loads qualified on W0. The reviewer verified 8/8 H0 pairs through EOS, the ten source witnesses in both modes and all 72 pooled vectors. The development C1 release covers 28 uncached singleton calls on complete 12- and 30-page twin pairs. [H0 disposition](docs/coordination/WP-0026/h0-gate.json) [Assignment and budgets](docs/coordination/WP-0026/assignment.md)
 
 ## Completed WP-0025 H0 window repeatability
 

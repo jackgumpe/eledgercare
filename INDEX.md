@@ -1226,3 +1226,5 @@ Jack supplied the conditional W0 and memory handoff at base `77a858a9278cbd5480a
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0026/004_2026-11-21_verification_eld-coordinator.md |
 
 Reserved for W0 and conditional H0, C1 and memory evaluation. Device calls require a separate finite release at each gate.
+
+W0 and H0 accepted by the independent reviewer at 1d643452ba2b88e6bd54d6d609112ddc743b1cc9. [Gate receipt](docs/coordination/WP-0026/h0-gate.json) and [development C1 release](docs/coordination/WP-0026/train-c1-r1-release.json).
