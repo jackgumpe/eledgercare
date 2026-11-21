@@ -75,13 +75,20 @@ def inspect(binding,folder):
             raise ValueError("Source mismatch: "+name)
     summary=folder/"h0-independent-audit.json"
     with summary.open("xb") as out,(folder/"h0-independent-audit.stderr").open("xb") as err:
-        process=subprocess.run([sys.executable,"-I","-B",str(folder/"h0_audit.py")],stdin=subprocess.DEVNULL,
+        entry=binding.get("audit_entrypoint","h0_audit.py")
+        assert entry in binding["audit_files"]
+        process=subprocess.run([sys.executable,"-I","-B",str(folder/entry)],stdin=subprocess.DEVNULL,
                                stdout=out,stderr=err,cwd=binding["review_worktree"],creationflags=subprocess.CREATE_NO_WINDOW)
     details={"exit":process.returncode,"result_sha256":digest(summary),"return_sha256":digest(folder/"return.json")}
     if process.returncode==0:
         evidence=read(summary)
-        details.update(comparisons=len(evidence["comparisons"]),source_witnesses=len(evidence["alignment"]),
-                       unique_literal_and_geometry=evidence["uniquely_aligned_count"])
+        if "alignments" in evidence:
+            details.update(comparisons=len(evidence["comparisons"]),source_witnesses=len(evidence["alignments"]),
+                           unique_literal_and_geometry=evidence["source_witness_uniques"],
+                           exact_token_mismatches=evidence["token_unequal_comparisons"],gate=evidence["gate"])
+        else:
+            details.update(comparisons=len(evidence["comparisons"]),source_witnesses=len(evidence["alignment"]),
+                           unique_literal_and_geometry=evidence["uniquely_aligned_count"])
     result(folder,"ready_for_independent_disposition" if process.returncode==0 else "audit_requires_review",**details)
 
 
