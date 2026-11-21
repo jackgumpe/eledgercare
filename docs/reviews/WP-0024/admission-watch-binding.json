@@ -1,0 +1,42 @@
+{
+  "packet": "WP-0024",
+  "operator": "eld-rd-reviewer",
+  "watcher_sha256": "4392c05cd7e199415504a60e1225698a8a505961c7096b3cabae811b25ce0593",
+  "candidate": "1843cdb7b6279b84b539d3ca1ba7bd0affa1f7dd",
+  "gpu": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "free_floor_mib": 12000,
+  "poll_seconds": 50,
+  "watch_folder": "C:/Users/jackg/eLedgerCare-Speed/WP-0024/review/h0-watch-r1",
+  "guard_receipts": "C:/Users/jackg/eLedgerCare-Speed/WP-0024/coordination/leases/h0-r1",
+  "device_guard_sha256": "a95b9f7fd7ca4e37eb2b1a706c18076e79b492dd6ab8adabe11b87f752a04957",
+  "guard_argv": [
+    "C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "C:/Users/jackg/Asp.net Projects/eledgercare/docs/coordination/WP-0024/device_lease.py",
+    "C:/Users/jackg/Asp.net Projects/eledgercare/docs/coordination/WP-0024/h0-r1-release.json",
+    "0e64d12cf0a39adf681ce6eaece4437e7d2af756449e8b3b6eea8d31e586f82d"
+  ],
+  "observed_desktop_images": [
+    "applicationframehost.exe",
+    "chrome.exe",
+    "copilotapp.exe",
+    "copilotapphost.exe",
+    "crossdeviceresume.exe",
+    "dwm.exe",
+    "explorer.exe",
+    "msedge.exe",
+    "msedgewebview2.exe",
+    "protondrive.exe",
+    "searchhost.exe",
+    "shellexperiencehost.exe",
+    "shellhost.exe",
+    "startmenuexperiencehost.exe",
+    "steam.exe",
+    "steamwebhelper.exe",
+    "systemsettings.exe",
+    "textinputhost.exe",
+    "widgetboard.exe"
+  ],
+  "scope": "Launch the existing h0-r1 guard once. The guard creates the Windows kill-on-close job and its runtime worker joins before execution. The new watcher only supervises admission and records the guard process return."
+}
