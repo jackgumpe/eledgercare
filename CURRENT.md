@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0023 Native Baidu B=1 versus B=2 speed trial
+## Completed WP-0023 Native Baidu B=1 versus B=2 speed trial
 
-The coordinator reserved the native three-page-window parity and speed comparison. Separate research authors prepare the wrapper and trial harness. The independent reviewer operates the exact frozen candidate under an exclusive GPU lease. Both B=2 lane orders must clear the native token and stop-state gate before timing. [Assignment](docs/coordination/WP-0023/assignment.md)
+The independent run reproduced both native B=1 controls through EOS (62 and 665 emitted tokens). At B=2 the short window matched in either slot. The long window changed the same seven tokens in both slots, first at index 84, where a table coordinate changed from 516 to 518. At that fixed prefix full FP32 selected 518 at both batch sizes. The BF16 parity failure closed the speed and 60-page gates. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0023/004_2026-11-21_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-batch-reviewer/WP-0023/003_2026-11-21_review_eld-batch-reviewer.md) · [Gate results](docs/coordination/WP-0023/decision.json) · [Report receipts](docs/coordination/WP-0023/publication-receipt.json)
 
 ## Queued Baidu studies
 
