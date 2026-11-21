@@ -108,7 +108,7 @@ class Sheet:
         return ("\n".join(self.ops)+"\n").encode("ascii")
 
 
-def make_case(family, stratum, variation, side, horizon, balanced):
+def make_case(family, stratum, variation, side, horizon, balanced, posted_total=None):
     fonts, x, cols, style, owners, units, title = family
     reverse_order = variation & 1
     reverse_schema = (variation >> 1) & 1
@@ -116,7 +116,11 @@ def make_case(family, stratum, variation, side, horizon, balanced):
     active = owners[side]
     unit = units[side]
     total = 420 + 20*variation + 10*style
-    second = total if balanced else total + 40
+    second = total
+    if posted_total is not None:
+        low, high = 530 + 70*style, 610 + 70*style
+        second = posted_total
+        total = second if balanced else ({low:high,high:low}[second])
     summary = stratum == "T3"
     ambiguous = stratum == "T4"
     target = ("MAINT-SUMMARY" if summary else "Posting", str(second if summary else 240+variation), str(second if summary else 850+variation))
@@ -150,6 +154,12 @@ def make_case(family, stratum, variation, side, horizon, balanced):
     for i, label in enumerate(fields):
         p.text(118 + (27+style*2)*i, label, x=x+(style*7 if i%2 else 0))
     top = 282 + 14*style
+    if style:
+        # The textual Owners list and the physical top card follow orthogonal axes.
+        for i in range(2):
+            which = i ^ reverse_order ^ reverse_schema
+            p.text(top-16+i*28, f"Directory card: {owners[which]} / {units[which]}", size=14)
+        top += 86
     p.line(x, top-27, x+cols[-1], top-27)
     p.text(top+6, "Ledger: " + active, size=22, bold=True)
     p.text(top+42, "Unit: " + unit, size=17)
@@ -289,7 +299,11 @@ def build(root, split, release=None):
                 for side in range(2):
                     binder = handle(key,"binder",stratum,level,horizon,side)
                     target = handle(key,"target",binder)
-                    streams,truth = make_case(family,stratum,variation,side,horizon,balanced)
+                    posted = None
+                    if stratum == "T3":
+                        high = split=="blind" and variation>=2
+                        posted = (610 if high else 530) + 70*family[3]
+                    streams,truth = make_case(family,stratum,variation,side,horizon,balanced,posted)
                     pages = [page_receipt(stream,family[0],public/"rasters",memory) for stream in streams]
                     windows = []
                     for i in range(0,horizon,3):

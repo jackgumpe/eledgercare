@@ -60,6 +60,8 @@ def verify(root,split,witness_path=None):
     png_seen=set()
     renders={}
     witnesses=[]
+    axes={}
+    subtotal_checks={}
     for binder,doc in docs.items():
         pdf=(public/"pdf"/(binder+".pdf")).read_bytes()
         check(sha(pdf)==receipt["source_pdfs"][binder],"PDF commitment")
@@ -86,6 +88,23 @@ def verify(root,split,witness_path=None):
                         finally:
                             bitmap.close()
                         renders[entry["sha256"]]=True
+                    if split!="h0" and i==0:
+                        lines=page.get_textpage().get_text_bounded().splitlines()
+                        listed=next(line.split(": ",1)[1].split(" / ") for line in lines if line.startswith("Owners: "))
+                        cards=[line.split(": ",1)[1].split(" / ")[0] for line in lines if line.startswith("Directory card: ")]
+                        check(sorted(cards)==sorted(listed) and len(set(listed))==2,"owner directory card symmetry")
+                        boxes=[ink(page,"Directory card: "+v,(120,425)) for v in cards]
+                        check(boxes[0][3]<boxes[1][1],"distinct physical directory card rows")
+                        w1=lookup[binder]["window1"]
+                        if w1["owner"]==sorted(listed)[0]:
+                            axes[lookup[binder]["pair"]]=(listed[0]==w1["owner"],cards[0]==w1["owner"],w1["schema"][1]=="Amount")
+                    if split!="h0" and lookup[binder]["stratum"]=="T3":
+                        lines=page.get_textpage().get_text_bounded().splitlines()
+                        for line in lines:
+                            if line.startswith("Schedule subtotal:"):
+                                subtotal_checks.setdefault(binder,{})["child"]=int(line.split(":")[1].strip())
+                            if line.startswith("MAINT-SUMMARY"):
+                                subtotal_checks.setdefault(binder,{})["target"]=int(line.split()[1])
                     if witness_path and i in (0,10):
                         check(split=="h0","only H0 witness may be public")
                         w1=lookup[binder]["window1"]
@@ -114,7 +133,28 @@ def verify(root,split,witness_path=None):
                 sw=docs[short["binder"]]["windows"]
                 lw=docs[long["binder"]]["windows"]
                 check([w["pages"] for w in sw]==[w["pages"] for w in lw[:2]+lw[-2:]],"matched horizon retained pages")
+    if split!="h0":
+        expected={b for b in lookup if lookup[b]["stratum"]=="T3"}
+        check(set(subtotal_checks)==expected,"natural subtotal/target source coverage")
+        collisions={}
+        for b,values in subtotal_checks.items():
+            k=lookup[b]
+            check(set(values)=={"target","child"} and str(values["target"])==k["literal"] and values["child"]==k["child_subtotal"],"arithmetic source agreement")
+            check((values["target"]==values["child"])==(k["subtotal_status"]=="BALANCED"),"subtotal truth")
+            suffix=tuple(p["rgb_sha256"] for p in docs[b]["windows"][-1]["pages"])
+            collisions.setdefault((cases[k["pair"]]["horizon"],suffix),set()).add(k["subtotal_status"])
+        check(all(outcomes=={"BALANCED","UNBALANCED"} for outcomes in collisions.values()),"suffix-only subtotal leak")
     if split=="blind":
+        child_outcomes={}
+        for b,values in subtotal_checks.items():
+            k=lookup[b]
+            child_outcomes.setdefault((cases[k["pair"]]["horizon"],values["child"]),set()).add(k["subtotal_status"])
+        check(all(v=={"BALANCED","UNBALANCED"} for v in child_outcomes.values()),"child amount alone determines summary")
+        for s in ("T1","T2","T3","T4"):
+            for h in (12,30):
+                obs=[axes[p["pair"]] for p in cases.values() if p["stratum"]==s and p["horizon"]==h]
+                for first,second in ((0,1),(0,2),(1,2)):
+                    check(len({(v[first],v[second]) for v in obs})==4,"list/card/schema pairwise crossing")
         check(Counter((v["stratum"],v["horizon"]) for v in cases.values())=={(s,h):4 for s in ("T1","T2","T3","T4") for h in (12,30)},"blind crossing")
         check(Counter((v["horizon"],v["balanced"]) for v in cases.values() if v["stratum"]=="T3")=={(h,b):2 for h in (12,30) for b in (True,False)},"balanced crossing")
         for s in ("T1","T2","T3","T4"):
