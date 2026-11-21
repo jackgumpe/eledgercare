@@ -39,6 +39,8 @@ def compare(stock, cand):
              and cand["text"].count("<PAGE>") == len(markers(cand["prompt_token_ids"])) == 3)
     delta = first(stream(stock), stream(cand))
     return dict(passes=all(special.values()) and valid and delta is None, same=special, first=delta,
+                different_decisions=[dict(step=n, native=x, batch=y) for n, (x,y) in
+                                     enumerate(zip_longest(stream(stock),stream(cand))) if x!=y],
                 emitted=len(cand["token_ids"]), stop=cand["stop_cause"], pages=pos)
 
 
@@ -200,6 +202,10 @@ def audit(folder):
             if row["first"] and None not in row["first"].values():
                 output["diagnostics"].append(diagnose(folder, order, key, slot, row["first"], controls, raw))
     pass2 = all(row["passes"] for order in output["G2"].values() for row in order.values())
+    normal = load(folder, "g2-short-long")["result"]["lanes"]
+    reverse = load(folder, "g2-long-short")["result"]["lanes"][::-1]
+    output["same_decisions_in_both_orders"] = {
+        k: stream(a) == stream(b) for k, a, b in zip(WINDOWS, normal, reverse, strict=True)}
     if not pass2:
         assert decision["status"] == "g2-failed" and not any(folder.glob("g3-*.json"))
         receipt = load(folder, "diagnostic-fp32")
