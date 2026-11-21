@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import torch
 from matrix import Memory, NeuralState, advance, direction, masked_basis
 from online import Span, Window
-from run import setup
+from run import classification, setup
 from views import predict_pair
 
 
@@ -36,6 +36,36 @@ def histories():
     closed = construct(["Schedule closed"])
     target = construct([["MAINT-SUMMARY", "44", "44"]])
     return [wa, ca, closed, target], [wb, cb, closed, target]
+
+
+def calibration_semantics():
+    truth = dict(ambiguous=False, owner="Birch", unit="U4", column="Amount", subtotal_status=None)
+    p = dict(type="Posting", owner="BIRCH", unit="U4", column="Amount", subtotal_status=None)
+
+    cases = {
+        "reviewer_case": (p, truth, (True, False, True)),
+        "space_and_entity": ({**p, "owner": " Birch   &amp;    Pine\n"},
+                             {**truth, "owner": "birch & Pine"}, (True, False, True)),
+        "literal_tag_preserved": ({**p, "owner": "<b>Birch</b>"}, truth, (False, True, True)),
+        "escaped_tag_literal": ({**p, "owner": "&lt;Birch&gt;"}, {**truth, "owner": "<birch>"},
+                                (True, False, True)),
+        "non_null_extra_status": ({**p, "subtotal_status": ""}, truth, (False, True, True)),
+        "required_status_missing": (p, {**truth, "subtotal_status": "BALANCED"}, (False, True, True)),
+        "summary_casefold": ({**p, "subtotal_status": " Balanced "},
+                             {**truth, "subtotal_status": "BALANCED"}, (True, False, True)),
+        "answerable_abstention": ({"type": "ABSTAIN"}, truth, (False, False, False)),
+        "ambiguous_posting": (p, {**truth, "ambiguous": True}, (False, True, True)),
+        "ambiguous_abstention": ({"type": "ABSTAIN"}, {**truth, "ambiguous": True},
+                                 (True, False, False))}
+    for name, (record, label, expected) in cases.items():
+        assert classification(record, label) == expected, name
+    try:
+        classification({**p, "type": "STATUS"}, truth)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("a subtotal diagnostic is not a typed posting")
+    return list(cases) + ["invalid_type_rejected"]
 
 
 def preflight():
@@ -115,6 +145,11 @@ def preflight():
         assert r["M3-Zero"]["decision"] == {"type": "ABSTAIN", "reason": "zero_state_tie"}
         assert r["M0"]["decision"]["type"] == "ABSTAIN"
         assert r["M3"]["candidate_receipt"]["pair_equal"]
+        assert all("window1_audit" in arm for arm in r.values())
+        assert r["M1"]["window1_audit"]["observed"] == r["M3"]["window1_audit"]["observed"]
+        assert r["M3-Zero"]["window1_audit"]["decoded_binding"] is None
+        assert r["M0"]["window1_audit"]["source"] == "suffix_only"
+        assert r["M3-Swap"]["window1_audit"]["decoded_binding"] == r["M3"]["window1_audit"]["decoded_binding"]
         own = r["M3"]["final_entry"]
         swapped = r["M3-Swap"]["final_entry"]
         donor = results[1 - side]["M3"]["final_entry"]
@@ -146,7 +181,7 @@ def preflight():
         gradients[name] = {n: p.grad is not None and bool(torch.isfinite(p.grad).all())
                            and p.grad.abs().max().item() > 0 for n, p in model.named_parameters()}
         assert all(gradients[name].values())
-    return {"torch": str(torch.__version__), "cuda_visible": False,
+    return {"calibration_semantics": calibration_semantics(), "torch": str(torch.__version__), "cuda_visible": False,
             "fp32_protected_Linf": protected, "summary_Linf": delta, "pop_rank": int(rank.sum()),
             "rank_one_backward_finite": True, "empty_rank": int(flags.sum()), "partial_rank_mask": keep.tolist(),
             "parameter_counts": counts, "nonzero_finite_gradients": gradients,
