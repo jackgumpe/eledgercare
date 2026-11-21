@@ -1,0 +1,53 @@
+{
+  "purpose": "Manufactured duplicate routing over WP24 archive, CPU only, untrained toy models",
+  "positive": {
+    "gate": "PASS",
+    "inherited_two_complete_horizons": {
+      "source": "f05dcc4c1f5ca7d7ecd82e83ca63f889369bc6fd",
+      "model": "0480966938291445591f69f08a13b041c073a96a",
+      "plan_sha256": "f6e38318a08ae416a9fdba9a425ede3a0e6480f5bb6c218799eae8c96f38f1bd",
+      "calls": 28,
+      "complete_pairs": [
+        12,
+        30
+      ],
+      "duplicates_verified": 12,
+      "emitted": 4512,
+      "pools_reconstructed": 232
+    },
+    "six_view_equivalence": [
+      {
+        "pages": 12,
+        "six_views_both_twins_equal": true,
+        "feature_objects": 5,
+        "semantic_provenance_sha256": "83b3e278f2786d981b9c222589d89fcd0c1c3807a75273222242c7a5ecfe4a25"
+      },
+      {
+        "pages": 30,
+        "six_views_both_twins_equal": true,
+        "feature_objects": 5,
+        "semantic_provenance_sha256": "669e620a923e7bbbe60bc4314d5a0481dcdf0c46a6a012afe4b1c546b9f08ae3"
+      }
+    ]
+  },
+  "one_bit_pool_corruption": {
+    "gate": "FAIL",
+    "failures": [
+      {
+        "tag": "k0028",
+        "error": "AssertionError('FP32 pool differs for k0028/0')"
+      },
+      {
+        "pair": [
+          "k0018",
+          "k0028"
+        ],
+        "differences": [
+          "pooled.f32"
+        ]
+      }
+    ]
+  },
+  "real_wp26_device_rows": 0,
+  "fit_or_calibration": false
+}
