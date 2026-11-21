@@ -82,4 +82,4 @@ def sample(directory, hooked, reference, explicit=True):
     return result | {"through_eos_sha256":sha(raw), "through_eos_bytes":len(raw)}
 
 def reference():
-    return json.loads(blob(ARCHIVE25, "docs/coordination/WP-0025/p1-plan.json"))
+    return json.loads(blob("88748016392246031d517efef22c4b3ef48f3057", "docs/coordination/WP-0025/p1-plan.json"))
