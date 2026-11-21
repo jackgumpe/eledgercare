@@ -1146,3 +1146,13 @@ Private eLedgerCare, integration `coordination/bootstrap`. The coordinator relea
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0020/004_2026-11-20_verification_eld-coordinator.md |
 
 **Closed after independent review.** The archive replay recovered 2 H and 60 A critical readings with zero regressions. Packet A requested 20/20 windows. Its 1,071.86-second modeled lower bound exceeded the 120-second budget. [Decision](docs/coordination/WP-0020/decision.json) at `abb98468abf31efa8fc9e4ba8087dc7088adaf16` · [Independent review](docs/agent-reports/eld-routing-reviewer/WP-0020/003_2026-11-20_review_eld-routing-reviewer.md) at `b3c3ee66de04b9941c0aac70e536e96b6ff3cb5d` · [Coordinator verification](docs/agent-reports/eld-coordinator/WP-0020/004_2026-11-20_verification_eld-coordinator.md) at `8c60552531e088cba51d6ab9c4b65e35a1ab9b1f` · [Verified publication receipt](docs/coordination/WP-0020/publication-receipt.json)
+
+## WP-0021 Windows ledger scope feasibility
+
+Delegated architecture direction, 21 November 2026. CPU pilot on constructed nested forms from base `caf79c2bff0545454eabb831b33cdf8f003c2bf1`. [Assignment](docs/coordination/WP-0021/assignment.md)
+
+| Seq | Owner | Owned branch and worktree | Canonical report |
+|---|---|---|---|
+| 001 | eld-scope-author | research/wp-0021-scope-baseline · scope21-author | docs/agent-reports/eld-scope-author/WP-0021/001_2026-11-21_research_eld-scope-author.md |
+| 002 | eld-scope-reviewer | review/wp-0021-scope-baseline · scope21-review | docs/agent-reports/eld-scope-reviewer/WP-0021/002_2026-11-21_review_eld-scope-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0021/003_2026-11-21_verification_eld-coordinator.md |
