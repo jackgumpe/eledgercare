@@ -131,6 +131,51 @@ def assessment(row,key):
     return dict(owner_diagnostic=owner_ok,binding_diagnostic=binding_ok,full=not abstain and not errors,binding=all(fields[f] for f in BIND),fields=fields,silent=errors,abstain=abstain,summary_diagnostic=status)
 
 
+def window1_attribution(arm,binder,preds,common,expected):
+    audit=preds[arm][binder].get("window1_audit")
+    mode={"M0":"suffix_only","M3-Zero":"zero_matrix_control","M3-Swap":"original_receiver_before_swap"}.get(arm,"measured")
+    data=dict(mode=mode,observation=audit,common_capture=common,
+              measured_field_matches=None,exposed_encoding_failure=None)
+    if mode=="original_receiver_before_swap":
+        receiver=preds["M3"][binder].get("window1_audit")
+        data.update(source_arm="M3",source_binder=binder)
+        identical=(isinstance(audit,dict) and isinstance(receiver,dict)
+                   and audit.get("source")=="original_receiver_before_swap"
+                   and {k:v for k,v in audit.items() if k!="source"}==receiver)
+        data["result"]="receiver_reference" if identical else "receiver_reference_unverified"
+        data["inherited_receiver_result"]=(window1_attribution("M3",binder,preds,common,expected)["result"] if identical else None)
+        return data
+    if mode=="suffix_only":
+        suffix_only=(isinstance(audit,dict) and audit.get("source")=="suffix_only"
+                     and audit.get("observed")==[] and audit.get("decoded_binding") is None
+                     and audit.get("encoded")==dict(type="ABSTAIN",reason="suffix_only"))
+        data["result"]="structural_suffix_only" if suffix_only else "suffix_reference_unverified"
+        return data
+    if mode=="zero_matrix_control":
+        # Preserve the actual zero=true read, including any unexpected binding, as control evidence.
+        if not isinstance(audit,dict) or "decoded_binding" not in audit or "encoded" not in audit:
+            data["result"]="zero_control_audit_missing"
+        elif audit["decoded_binding"] is not None or audit["encoded"].get("type")!="ABSTAIN":
+            data["result"]="zero_control_nonempty"
+        else:
+            data["result"]="observed_zero_read"
+        return data
+    if audit is None or "decoded_binding" not in audit:
+        data["result"]="measurement_missing"
+        return data
+    if not common:
+        data["result"]="common_capture_missing"
+        return data
+    decoded=audit["decoded_binding"] or {}
+    wanted=dict(owner=expected["owner"],unit=expected["unit"],column=expected["schema"][1])
+    fields={k:same(decoded.get(k),value) for k,value in wanted.items()}
+    fields["ordered_schema"]=[norm(x) for x in (audit.get("encoded_schema") or [])]==[norm(x) for x in expected["schema"]]
+    failed=not all(fields.values())
+    data.update(measured_field_matches=fields,exposed_encoding_failure=failed,
+                result="encoding_failure" if failed else "encoding_success")
+    return data
+
+
 def pair_counts(items,arm):
     counts=Counter()
     for p in items:
@@ -191,17 +236,9 @@ def score(keys,routes,preds,observations,resources,suffixes=None):
                 per_field_both_correct={f:all(s["fields"].get(f,False) for s in scored) for f in (FIELDS if summary else BIND)} if not ambiguous else {},
                 targets={b:dict(target=k["target"],decision=semantic(row),reason=row.get("reason"),
                                 literal=k["literal"],**s) for b,k,row,s in zip(members,keys2,rows,scored)})
-            if arm in ("M2","M3"):
-                audits={}
-                for b,k in zip(members,keys2):
-                    audit=preds[arm][b].get("window1_audit")
-                    decoded=audit.get("decoded_binding") if audit else None
-                    expected=k["window1"]
-                    bound=dict(owner=expected["owner"],unit=expected["unit"],column=expected["schema"][1])
-                    encode_ok=bool(decoded and all(same(decoded.get(f),bound[f]) for f in BIND) and [norm(x) for x in (audit.get("encoded_schema") or [])]==[norm(x) for x in expected["schema"]])
-                    audits[b]=dict(observation=audit,common_capture=res["c0"][b]["pass_c0"],
-                                   exposed_encoding_failure=res["c0"][b]["pass_c0"] and not encode_ok)
-                res["arms"][arm]["window1_audit"]=audits
+            res["arms"][arm]["window1_audit"]={
+                b:window1_attribution(arm,b,preds,res["c0"][b]["pass_c0"],k["window1"])
+                for b,k in zip(members,keys2)}
             if arm in ("M2","M3") and case["stratum"]=="T1" and res["eligible"] and not res["arms"][arm]["correct"]:
                 t1_failures.append(dict(pair=pid,arm=arm,predictions=rows,c0=res["c0"]))
         candidate_records=[preds[arm][b].get("candidate_receipt",{}) for arm in ARMS for b in members]
@@ -251,6 +288,12 @@ def score(keys,routes,preds,observations,resources,suffixes=None):
         answerable=[p for p in subset if p["stratum"]!="T4"]
         t23=[p for p in subset if p["stratum"] in ("T2","T3")]
         slices[name]=dict(breakdown={},effects={})
+        attribution={}
+        for arm in ARMS:
+            audits=[a for p in subset for a in p["arms"][arm]["window1_audit"].values()]
+            attribution[arm]=dict(binders=len(audits),common_capture_binders=sum(a["common_capture"] for a in audits),
+                                  outcomes=dict(Counter(a["result"] for a in audits)))
+        slices[name]["window1_attribution"]=attribution
         for stratum in ("T1","T2","T3","T4","answerable","T2+T3","all"):
             selected=answerable if stratum=="answerable" else t23 if stratum=="T2+T3" else [p for p in subset if p["stratum"]==stratum or stratum=="all"]
             for h in (12,30,"both"):

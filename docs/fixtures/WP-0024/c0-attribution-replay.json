@@ -1,0 +1,571 @@
+{
+  "check": "Fabricated CPU-only scorer observations",
+  "binder": "T1.0.0",
+  "probe_contract": "998e21e11257d26a868d54cf593cb56bcd18d4eb",
+  "mutation": "Replace the M1 W1 diagnostic unit for this toy binder by wrong-unit; leave each arm target decision untouched.",
+  "common_capture_and_official_decision_equal": true,
+  "outputs": {
+    "a01906ebc9e8eaa25344a04b7756c030be403144": {
+      "c0": {
+        "pass_c0": true,
+        "visible": {
+          "owner": "A",
+          "unit": "U1",
+          "schema": [
+            "Item",
+            "Amount",
+            "Ref"
+          ]
+        },
+        "miss_reasons": [],
+        "source_spans": {
+          "owner": {
+            "index": 3,
+            "page": 1,
+            "kind": "block",
+            "text": "Ledger: A",
+            "cells": [],
+            "char_range": [
+              300,
+              309
+            ],
+            "byte_range": [
+              300,
+              309
+            ],
+            "token_indices": [
+              3
+            ],
+            "bbox999": [
+              20,
+              110,
+              300,
+              135
+            ]
+          },
+          "unit": {
+            "index": 4,
+            "page": 1,
+            "kind": "block",
+            "text": "Unit: U1",
+            "cells": [],
+            "char_range": [
+              400,
+              408
+            ],
+            "byte_range": [
+              400,
+              408
+            ],
+            "token_indices": [
+              4
+            ],
+            "bbox999": [
+              20,
+              140,
+              300,
+              165
+            ]
+          },
+          "schema": {
+            "index": 5,
+            "page": 1,
+            "kind": "row",
+            "text": "Item Amount Ref",
+            "cells": [
+              "Item",
+              "Amount",
+              "Ref"
+            ],
+            "char_range": [
+              500,
+              515
+            ],
+            "byte_range": [
+              500,
+              515
+            ],
+            "token_indices": [
+              5
+            ],
+            "bbox999": [
+              20,
+              170,
+              300,
+              195
+            ]
+          }
+        }
+      },
+      "decision": {
+        "disposition": "ADVANCE ONLY TO FRESH-FAMILY REPLICATION",
+        "entry_or_leakage_failures": [],
+        "safety_or_resource_vetoes": [],
+        "c0_floor_pass": true,
+        "c0_answerable": 24,
+        "c0_counts": {
+          "T1": 8,
+          "T2": 8,
+          "T3": 8
+        },
+        "effect_pass": true,
+        "net_vs_flat": 9,
+        "primary_net_vs_stack": 2,
+        "summary_net_vs_stack": 0,
+        "stack_hurdle": 2,
+        "m2_correct_pair_coverage": 0.9166666666666666,
+        "m2_safe_coverage_resources_pass": true
+      },
+      "attribution": {
+        "M0": null,
+        "M1": null,
+        "M2": {
+          "observation": {
+            "observed": [
+              {
+                "kind": "OPEN_LEDGER",
+                "value": "A",
+                "ptr": [
+                  1,
+                  1,
+                  3
+                ],
+                "literal": "Ledger: A"
+              }
+            ],
+            "encoded": {
+              "type": "Posting",
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount",
+              "subtotal_status": null
+            },
+            "decoded_binding": {
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount"
+            },
+            "encoded_schema": [
+              "Item",
+              "Amount",
+              "Ref"
+            ]
+          },
+          "common_capture": true,
+          "exposed_encoding_failure": false
+        },
+        "M3-Zero": null,
+        "M3": {
+          "observation": {
+            "observed": [
+              {
+                "kind": "OPEN_LEDGER",
+                "value": "A",
+                "ptr": [
+                  1,
+                  1,
+                  3
+                ],
+                "literal": "Ledger: A"
+              }
+            ],
+            "encoded": {
+              "type": "Posting",
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount",
+              "subtotal_status": null
+            },
+            "decoded_binding": {
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount"
+            },
+            "encoded_schema": [
+              "Item",
+              "Amount",
+              "Ref"
+            ]
+          },
+          "common_capture": true,
+          "exposed_encoding_failure": false
+        },
+        "M3-Swap": null
+      },
+      "summary": null
+    },
+    "e6c1abaed36a379780084be826c5fd0afaf3132b": {
+      "c0": {
+        "pass_c0": true,
+        "visible": {
+          "owner": "A",
+          "unit": "U1",
+          "schema": [
+            "Item",
+            "Amount",
+            "Ref"
+          ]
+        },
+        "miss_reasons": [],
+        "source_spans": {
+          "owner": {
+            "index": 3,
+            "page": 1,
+            "kind": "block",
+            "text": "Ledger: A",
+            "cells": [],
+            "char_range": [
+              300,
+              309
+            ],
+            "byte_range": [
+              300,
+              309
+            ],
+            "token_indices": [
+              3
+            ],
+            "bbox999": [
+              20,
+              110,
+              300,
+              135
+            ]
+          },
+          "unit": {
+            "index": 4,
+            "page": 1,
+            "kind": "block",
+            "text": "Unit: U1",
+            "cells": [],
+            "char_range": [
+              400,
+              408
+            ],
+            "byte_range": [
+              400,
+              408
+            ],
+            "token_indices": [
+              4
+            ],
+            "bbox999": [
+              20,
+              140,
+              300,
+              165
+            ]
+          },
+          "schema": {
+            "index": 5,
+            "page": 1,
+            "kind": "row",
+            "text": "Item Amount Ref",
+            "cells": [
+              "Item",
+              "Amount",
+              "Ref"
+            ],
+            "char_range": [
+              500,
+              515
+            ],
+            "byte_range": [
+              500,
+              515
+            ],
+            "token_indices": [
+              5
+            ],
+            "bbox999": [
+              20,
+              170,
+              300,
+              195
+            ]
+          }
+        }
+      },
+      "decision": {
+        "disposition": "ADVANCE ONLY TO FRESH-FAMILY REPLICATION",
+        "entry_or_leakage_failures": [],
+        "safety_or_resource_vetoes": [],
+        "c0_floor_pass": true,
+        "c0_answerable": 24,
+        "c0_counts": {
+          "T1": 8,
+          "T2": 8,
+          "T3": 8
+        },
+        "effect_pass": true,
+        "net_vs_flat": 9,
+        "primary_net_vs_stack": 2,
+        "summary_net_vs_stack": 0,
+        "stack_hurdle": 2,
+        "m2_correct_pair_coverage": 0.9166666666666666,
+        "m2_safe_coverage_resources_pass": true
+      },
+      "attribution": {
+        "M0": {
+          "mode": "suffix_only",
+          "observation": {
+            "source": "suffix_only",
+            "observed": [],
+            "decoded_binding": null,
+            "encoded": {
+              "type": "ABSTAIN",
+              "reason": "suffix_only"
+            }
+          },
+          "common_capture": true,
+          "measured_field_matches": null,
+          "exposed_encoding_failure": null,
+          "result": "structural_suffix_only"
+        },
+        "M1": {
+          "mode": "measured",
+          "observation": {
+            "observed": [
+              {
+                "kind": "OPEN_LEDGER",
+                "value": "A",
+                "ptr": [
+                  1,
+                  1,
+                  3
+                ],
+                "literal": "Ledger: A"
+              }
+            ],
+            "encoded": {
+              "type": "Posting",
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount",
+              "subtotal_status": null
+            },
+            "decoded_binding": {
+              "owner": "A",
+              "unit": "wrong-unit",
+              "column": "Amount"
+            },
+            "encoded_schema": [
+              "Item",
+              "Amount",
+              "Ref"
+            ]
+          },
+          "common_capture": true,
+          "measured_field_matches": {
+            "owner": true,
+            "unit": false,
+            "column": true,
+            "ordered_schema": true
+          },
+          "exposed_encoding_failure": true,
+          "result": "encoding_failure"
+        },
+        "M2": {
+          "mode": "measured",
+          "observation": {
+            "observed": [
+              {
+                "kind": "OPEN_LEDGER",
+                "value": "A",
+                "ptr": [
+                  1,
+                  1,
+                  3
+                ],
+                "literal": "Ledger: A"
+              }
+            ],
+            "encoded": {
+              "type": "Posting",
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount",
+              "subtotal_status": null
+            },
+            "decoded_binding": {
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount"
+            },
+            "encoded_schema": [
+              "Item",
+              "Amount",
+              "Ref"
+            ]
+          },
+          "common_capture": true,
+          "measured_field_matches": {
+            "owner": true,
+            "unit": true,
+            "column": true,
+            "ordered_schema": true
+          },
+          "exposed_encoding_failure": false,
+          "result": "encoding_success"
+        },
+        "M3-Zero": {
+          "mode": "zero_matrix_control",
+          "observation": {
+            "observed": [
+              {
+                "kind": "OPEN_LEDGER",
+                "value": "A",
+                "ptr": [
+                  1,
+                  1,
+                  3
+                ],
+                "literal": "Ledger: A"
+              }
+            ],
+            "encoded": {
+              "type": "ABSTAIN",
+              "reason": "zero_state_tie"
+            },
+            "decoded_binding": null,
+            "encoded_schema": null
+          },
+          "common_capture": true,
+          "measured_field_matches": null,
+          "exposed_encoding_failure": null,
+          "result": "observed_zero_read"
+        },
+        "M3": {
+          "mode": "measured",
+          "observation": {
+            "observed": [
+              {
+                "kind": "OPEN_LEDGER",
+                "value": "A",
+                "ptr": [
+                  1,
+                  1,
+                  3
+                ],
+                "literal": "Ledger: A"
+              }
+            ],
+            "encoded": {
+              "type": "Posting",
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount",
+              "subtotal_status": null
+            },
+            "decoded_binding": {
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount"
+            },
+            "encoded_schema": [
+              "Item",
+              "Amount",
+              "Ref"
+            ]
+          },
+          "common_capture": true,
+          "measured_field_matches": {
+            "owner": true,
+            "unit": true,
+            "column": true,
+            "ordered_schema": true
+          },
+          "exposed_encoding_failure": false,
+          "result": "encoding_success"
+        },
+        "M3-Swap": {
+          "mode": "original_receiver_before_swap",
+          "observation": {
+            "observed": [
+              {
+                "kind": "OPEN_LEDGER",
+                "value": "A",
+                "ptr": [
+                  1,
+                  1,
+                  3
+                ],
+                "literal": "Ledger: A"
+              }
+            ],
+            "encoded": {
+              "type": "Posting",
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount",
+              "subtotal_status": null
+            },
+            "decoded_binding": {
+              "owner": "A",
+              "unit": "U1",
+              "column": "Amount"
+            },
+            "encoded_schema": [
+              "Item",
+              "Amount",
+              "Ref"
+            ],
+            "source": "original_receiver_before_swap"
+          },
+          "common_capture": true,
+          "measured_field_matches": null,
+          "exposed_encoding_failure": null,
+          "source_arm": "M3",
+          "source_binder": "T1.0.0",
+          "result": "receiver_reference",
+          "inherited_receiver_result": "encoding_success"
+        }
+      },
+      "summary": {
+        "M0": {
+          "binders": 64,
+          "common_capture_binders": 64,
+          "outcomes": {
+            "structural_suffix_only": 64
+          }
+        },
+        "M1": {
+          "binders": 64,
+          "common_capture_binders": 64,
+          "outcomes": {
+            "encoding_failure": 1,
+            "encoding_success": 63
+          }
+        },
+        "M2": {
+          "binders": 64,
+          "common_capture_binders": 64,
+          "outcomes": {
+            "encoding_success": 64
+          }
+        },
+        "M3-Zero": {
+          "binders": 64,
+          "common_capture_binders": 64,
+          "outcomes": {
+            "observed_zero_read": 64
+          }
+        },
+        "M3": {
+          "binders": 64,
+          "common_capture_binders": 64,
+          "outcomes": {
+            "encoding_success": 64
+          }
+        },
+        "M3-Swap": {
+          "binders": 64,
+          "common_capture_binders": 64,
+          "outcomes": {
+            "receiver_reference": 64
+          }
+        }
+      }
+    }
+  }
+}

@@ -39,6 +39,17 @@ def toy():
                     sym=dict(choices=["A","B"])
                     can=dict(inputs=sym,sha256=impl["sha"](b'{"choices":["A","B"]}'),pair_equal=True)
                     r=dict(arm=arm,binder=binder,target=target,candidate_receipt=can)
+                    flat_audit=dict(observed=[dict(kind="OPEN_LEDGER",value=owner,ptr=[1,1,3],literal="Ledger: "+owner)],
+                                    encoded=dict(type="Posting",owner=owner,unit=unit,column=schema[1],subtotal_status=None),
+                                    decoded_binding=dict(owner=owner,unit=unit,column=schema[1]),encoded_schema=schema)
+                    if arm=="M0":
+                        r["window1_audit"]=dict(source="suffix_only",observed=[],decoded_binding=None,encoded=dict(type="ABSTAIN",reason="suffix_only"))
+                    elif arm=="M3-Zero":
+                        r["window1_audit"]=flat_audit|dict(decoded_binding=None,encoded_schema=None,encoded=dict(type="ABSTAIN",reason="zero_state_tie"))
+                    elif arm=="M3-Swap":
+                        r["window1_audit"]=flat_audit|dict(source="original_receiver_before_swap")
+                    else:
+                        r["window1_audit"]=flat_audit
                     if arm in ("M3","M3-Swap"):
                         native=impl["sha"](binder.encode())
                         donor=impl["sha"]((pid+"."+str(1-side)).encode())
@@ -67,6 +78,22 @@ def test():
     assert good["slices"]["eligible"]["effects"]["T2+T3/M2"]["net"]==2
     assert good["slices"]["all"]["donor_directions"]=={"full_donor_posting":48,"abstention":16}
     assert not good["t1_failures"]
+    w=deepcopy(preds)
+    exposed=routes["T1.0"][0]
+    w["M1"][exposed]["window1_audit"]["decoded_binding"]["unit"]="wrong-unit"
+    acquisition=score(w)
+    p=acquisition["pairs"][0]
+    assert p["eligible"] and acquisition["decision"]==good["decision"]
+    got={arm:p["arms"][arm]["window1_audit"][exposed] for arm in ARMS}
+    assert got["M1"]["result"]=="encoding_failure" and not got["M1"]["measured_field_matches"]["unit"]
+    assert all(got[a]["result"]=="encoding_success" for a in ("M2","M3"))
+    assert got["M0"]["result"]=="structural_suffix_only" and got["M0"]["exposed_encoding_failure"] is None
+    assert got["M3-Zero"]["result"]=="observed_zero_read" and got["M3-Zero"]["observation"]["encoded"]["reason"]=="zero_state_tie"
+    assert got["M3-Swap"]["source_binder"]==exposed and got["M3-Swap"]["result"]=="receiver_reference" and got["M3-Swap"]["inherited_receiver_result"]=="encoding_success"
+    assert acquisition["slices"]["eligible"]["window1_attribution"]["M1"]["outcomes"]["encoding_failure"]==1
+    assert all(a["common_capture_binders"]==64 for a in acquisition["slices"]["all"]["window1_attribution"].values())
+    w["M1"][exposed].pop("window1_audit")
+    assert score(w)["pairs"][0]["arms"]["M1"]["window1_audit"][exposed]["result"]=="measurement_missing"
     # Directory alone cannot expose a ledger, and incorrect order is not a correct schema.
     unknown=deepcopy(obs)
     for r in routes:
