@@ -48,6 +48,14 @@ def count_case(data, expected, out):
         assert all(row[f] == expected[f] for f in ("property", "unit", "property_refs", "unit_refs"))
         assert row["flagged"] is (row["scope"] is None)
         assert row["column_role"] == (None if row["flagged"] else "Amount")
+        if row["scope"]:
+            labels = [tokens[r] for r in row["heading_refs"]]
+            header = [tokens[r] for r in row["header_refs"]]
+            assert labels == {"parent": ["Ledger"], "child": ["Contractor", "detail"]}[row["scope"]]
+            assert len(header) == 4 and header[-1] == "Amount"
+            assert all(ref.startswith("p1:") for ref in row["heading_refs"] + row["header_refs"])
+        else:
+            assert row["heading_refs"] == row["header_refs"] == []
         status = "abstained" if row["flagged"] else "exact" if row["scope"] == scope else "silent_wrong"
         tally.update([group + "_targets", group + "_" + status])
         if p == 2:
@@ -126,7 +134,10 @@ def main():
             a.author_outputs / mode / (right + ".json")).read_bytes()
     raster_diff = {str(page): pixel_difference(rasters / f"{left}-p{page}.png",
                                                rasters / f"{right}-p{page}.png") for page in (1, 2)}
-    assert all(diff["different_threshold_pixels"] == 0 for diff in raster_diff.values())
+    # The binder sees exported words and grids. Tint can change antialiased glyph
+    # edges on the raster without changing any exported grid or word.
+    assert raster_diff["1"]["different_grayscale_pixels"] == 0
+    assert raster_diff["2"]["different_grayscale_pixels"] > 0
     result["pair"] = {"ids": pair, "identical_observations": True, "identical_predictions": True,
                       "opposite_key": True, "raster_differences": raster_diff}
     a.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
