@@ -234,10 +234,16 @@ def infer(args, output):
         twins = p["twins"]
         signals = [[load_window(w) for w in t["windows"]] for t in twins]
         out = predict_pair(*models, fit_record["thresholds"], *signals)
-        for twin, records in zip(twins, out):
+        for side, (twin, records) in enumerate(zip(twins, out, strict=True)):
             for arm, record in records.items():
                 ids = {"binder": twin["binder"], "target": twin["target"], "arm": arm}
                 semantic = {k: record[k] for k in ("trace", "target_scores", "final_entry", "subtotal_diagnostic", "binding_diagnostic", "window1_audit", "candidate_receipt") if k in record}
+                if arm == "M3-Swap":
+                    # Routing annotation only, after all matrices, logits and
+                    # typed decisions for both twins have already been frozen in memory.
+                    semantic["final_entry"] = {**semantic["final_entry"],
+                                               "receiver_binder": twin["binder"],
+                                               "donor_binder": twins[1 - side]["binder"]}
                 predictions.append({**ids, **record["decision"], **semantic})
                 other = {k: v for k, v in record.items() if k != "decision" and k not in semantic}
                 telemetry.append({**ids, **other})
