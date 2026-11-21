@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex 
 
 ## WP-0024 Counterfactual Twin-Binder Baidu memory trial
 
-The queued external memory probe is reserved. Custody owns the synthetic splits and scoring, a separate author owns the probe, and a non-author reviewer owns decisive device execution and verification. The coordinator owns the read-only native B=1 sensor and finite release. Stage A uses retained WP-0023 archive data. [Assignment](docs/coordination/WP-0024/assignment.md) · [Source hierarchy](docs/coordination/WP-0024/inputs/sources.json)
+The coordinator and an independent reviewer closed post-WP-0023 Stage A on CPU. Both parsers retain a changed table-header cell on page 8. The external Twin-Binder trial is reserved with separate custody, probe author and independent reviewer roles. H0 has a frozen two-binder, sixteen-call B=1 plan. Device admission is pending. [Stage A and H0 evidence](docs/coordination/WP-0024/stage-a-closure.md) · [Assignment](docs/coordination/WP-0024/assignment.md)
 
 ## Completed WP-0023 Native Baidu B=1 versus B=2 speed trial
 
