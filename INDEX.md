@@ -1208,3 +1208,6 @@ Jack supplied H0 Chalkboard Handoff v2 for an eight-call diagnostic on the expos
 | 002 | eld-repeat-analysis | research/wp-0025-repeat-analysis · replay25-analysis | docs/agent-reports/eld-repeat-analysis/WP-0025/002_2026-11-21_research_eld-repeat-analysis.md |
 | 003 | eld-repeat-reviewer | review/wp-0025-window-repeat · replay25-review | docs/agent-reports/eld-repeat-reviewer/WP-0025/003_2026-11-21_review_eld-repeat-reviewer.md |
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0025/004_2026-11-21_verification_eld-coordinator.md |
+| 005 | eld-repeat-reviewer | review/wp-0025-window-repeat · replay25-review | docs/agent-reports/eld-repeat-reviewer/WP-0025/005_2026-11-21_review_eld-repeat-reviewer.md |
+
+/005 is reserved for a reviewer erratum to the /003 metadata and the absolute decoder-position label. The numerical evidence and primary archive retain their original identities.
