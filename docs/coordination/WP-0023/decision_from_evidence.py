@@ -55,6 +55,8 @@ def summarize(path, inventory_path, tokenizer):
                         "verified_native_initialization_s": (cold["end_utc_ns"] - cold["start_utc_ns"])/1e9,
                         "board_observed": inv["stages"]["run/trial/cold.json"]},
                "whole_lease_board_observed": inv["board"], "control": {}, "G1": {}, "G2": {}, "first_divergences": []}
+        obj["board_sampled_mib_by_phase"] = {
+            k.removeprefix("run/trial/").removesuffix(".json"): v for k, v in inv["stages"].items()}
         for k, row in stock.items():
             assert row["terminal_observation"]["nxt"] == row["eos_id"]
             obj["control"][k] = {"pages": row["num_pages_out"], "emitted_excluding_eos": len(row["token_ids"]),
@@ -67,6 +69,12 @@ def summarize(path, inventory_path, tokenizer):
             rows = result("g2-" + label)["lanes"]
             obj["G2"][label] = {k: comparison(stock[k], rows[slot]) for slot, k in enumerate(order)}
             for slot, k in enumerate(order):
+                single, batch = stop_stream(stock[k]), stop_stream(rows[slot])
+                if len(single) == len(batch):
+                    obj["G2"][label][k]["differing_decisions_at_equal_length"] = [
+                        {"zero_based_step": i, "stock": tok(a), "batch": tok(b),
+                         "stock_prefix_tail": vocab.decode(single[max(0, i-8):i], skip_special_tokens=False)}
+                        for i, (a, b) in enumerate(zip(single, batch, strict=True)) if a != b]
                 first = obj["G2"][label][k]["first"]
                 if not first or None in first.values():
                     continue
