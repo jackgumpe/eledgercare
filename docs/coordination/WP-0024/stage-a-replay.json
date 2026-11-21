@@ -1,0 +1,113 @@
+{
+  "packet": "WP-0024",
+  "post_wp0023_stage": "A",
+  "basis": "Cloud Astra's replay as reported in Jack's handoff; local archive replay",
+  "source_sha256": {
+    "docs/reviews/WP-0023/dev-r1.zip": "9d7b818fab660ef7c25ee98bd5161ea10e7d745516f9bb8ff7b796571571e2ed",
+    "docs/research/WP-0015/astra/formats.py": "b832a7ee452f807a01a4acaa4d63fed927241f73b75fc1a47c7ae830ce28c0a6",
+    "docs/research/WP-0015/astra/sensitivity-title-level/rescore.py": "86b9606468d12afff952b0b24dc7fcd1de932aa9c18400c966a3789e1609b700"
+  },
+  "orders": {
+    "short-long": {
+      "changed_token_positions_zero_based": [
+        84,
+        227,
+        316,
+        449,
+        537,
+        540,
+        543
+      ],
+      "page8_header_decision_one_based": 317,
+      "token_at_index316": {
+        "b1": 6813,
+        "b2": 7519
+      },
+      "parsers": {
+        "frozen": {
+          "parsed_cell_changes": [
+            {
+              "pdf_page": 8,
+              "table": 1,
+              "row": 1,
+              "column": 2,
+              "stock": "item",
+              "batch": "Item"
+            }
+          ],
+          "visible_text_changed_pages": [
+            8,
+            9
+          ]
+        },
+        "title-projected": {
+          "parsed_cell_changes": [
+            {
+              "pdf_page": 8,
+              "table": 1,
+              "row": 1,
+              "column": 2,
+              "stock": "item",
+              "batch": "Item"
+            }
+          ],
+          "visible_text_changed_pages": [
+            8
+          ]
+        }
+      }
+    },
+    "long-short": {
+      "changed_token_positions_zero_based": [
+        84,
+        227,
+        316,
+        449,
+        537,
+        540,
+        543
+      ],
+      "page8_header_decision_one_based": 317,
+      "token_at_index316": {
+        "b1": 6813,
+        "b2": 7519
+      },
+      "parsers": {
+        "frozen": {
+          "parsed_cell_changes": [
+            {
+              "pdf_page": 8,
+              "table": 1,
+              "row": 1,
+              "column": 2,
+              "stock": "item",
+              "batch": "Item"
+            }
+          ],
+          "visible_text_changed_pages": [
+            8,
+            9
+          ]
+        },
+        "title-projected": {
+          "parsed_cell_changes": [
+            {
+              "pdf_page": 8,
+              "table": 1,
+              "row": 1,
+              "column": 2,
+              "stock": "item",
+              "batch": "Item"
+            }
+          ],
+          "visible_text_changed_pages": [
+            8
+          ]
+        }
+      }
+    }
+  },
+  "disposition": "Stage A failed visible-cell identity. Close the batch follow-on. Preserve WP-0023 exact-token gate and unmodified native B=1 reference.",
+  "gpu_runs": 0,
+  "stage_b_released": false
+}
