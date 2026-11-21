@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex 
 
 ## Active WP-0026 W0-conditioned Twin-Binder study
 
-Both model loads qualified on W0. The reviewer verified 8/8 H0 pairs through EOS, the ten source witnesses in both modes and all 72 pooled vectors. All 12 uncached duplicate groups on the two development horizons matched their hidden and pooled bytes. Development feature collection has entered its separately signed training and calibration orders. [C1 acquisition disposition](docs/coordination/WP-0026/train-c1-gate.json) [H0 disposition](docs/coordination/WP-0026/h0-gate.json) [Assignment and budgets](docs/coordination/WP-0026/assignment.md)
+Both model loads qualified on W0. The reviewer verified 8/8 H0 pairs through EOS, the ten source witnesses in both modes and all 72 pooled vectors. All 12 uncached duplicate groups on the two development horizons matched their hidden and pooled bytes. Both models completed their matched CPU fits. Calibration selected abstention on all 20 binders. Independent replay verified all six cached and uncached decisions at both horizons. Blind fixture preparation is released under exclusive key custody. [Fit and calibration](docs/reviews/WP-0026/fit-independent.json) [C1 acquisition disposition](docs/coordination/WP-0026/train-c1-gate.json) [H0 disposition](docs/coordination/WP-0026/h0-gate.json) [Assignment and budgets](docs/coordination/WP-0026/assignment.md)
 
 ## Completed WP-0025 H0 window repeatability
 
