@@ -1,0 +1,604 @@
+{
+  "sources": {
+    "ordered_physical_pages": [
+      1,
+      2,
+      3
+    ],
+    "pdf_sha256": "675367788d2b872511d05b704b98069e8b636d02d07d78095cc4bbeab3e63d5b",
+    "png_and_pdf_rgb_verified": [
+      {
+        "image": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0024\\custody\\public\\h0\\rasters\\5537899bdfdb09e4adbedf167b51aa5304860ea2d1e0d9d0a173d5a69bf6f935.png",
+        "sha256": "5537899bdfdb09e4adbedf167b51aa5304860ea2d1e0d9d0a173d5a69bf6f935",
+        "rgb_sha256": "748f2363f0f4c90bbac7876d5ce5df015b97841ada78c4b17d3c94d9e56e1c43"
+      },
+      {
+        "image": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0024\\custody\\public\\h0\\rasters\\28e66ca54c5cc06c60123e999ae1e3dfd24654eab3220331a3b0adcfed211ab1.png",
+        "sha256": "28e66ca54c5cc06c60123e999ae1e3dfd24654eab3220331a3b0adcfed211ab1",
+        "rgb_sha256": "66012bdba3c8b13f541bdc7d72a10d7d6bb33e3f147148a776bcb93c26e77449"
+      },
+      {
+        "image": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0024\\custody\\public\\h0\\rasters\\7ae9abeabaeb2ea35c8d8c74f712cc690c1877de16c03f11ffffee58394a1d33.png",
+        "sha256": "7ae9abeabaeb2ea35c8d8c74f712cc690c1877de16c03f11ffffee58394a1d33",
+        "rgb_sha256": "ebe32602fa5f87ea288997475af849b482de8f92a4fd51cc20cbf00636efcbde"
+      }
+    ],
+    "history_plan_sha256": "0bf358c54fc97f32ca213d9a1dd10cfb2838f42f7c5dcded1625c0cca1fd2f89",
+    "history_archive_sha256": "37670af4116f543e2d0104b5d3599d88f2e2d06fc092418ee1cf839769430fc6",
+    "sensor": "1843cdb7b6279b84b539d3ca1ba7bd0affa1f7dd",
+    "history_source_files_verified": {
+      "docs/coordination/WP-0016/device_lease.py": "1db1a43af825458fff828949ace766b9136a4622c0dc567a838e8089ffbafde8",
+      "docs/coordination/WP-0024/device_lease.py": "a95b9f7fd7ca4e37eb2b1a706c18076e79b492dd6ab8adabe11b87f752a04957",
+      "docs/coordination/WP-0024/plan_h0.py": "96b11b2de804a542909248844de9bef71a6baf21f5b866c7e87726e35acd4ec6",
+      "docs/coordination/WP-0024/supervise.py": "dc207ee8f7363fc51bbb1a9e91ea57e6b827caa11b9605a6e679e4130652a08e",
+      "docs/fixtures/WP-0024/h0/cross-pair.json": "85060391104d8839e8c0bc165a4de0aefc07f586ef1871f17ec0658a8014dc32",
+      "docs/fixtures/WP-0024/h0/manifest.json": "20cb3a35c03e752e4f83a455278dbf558bb9712163057901110069f2ec23bf4e",
+      "docs/fixtures/WP-0024/h0/pairs.json": "f01e6ba6f84658a99737f218c785b9f41f17ce235904f39f136dac91070ef176",
+      "docs/fixtures/WP-0024/h0/receipt.json": "b3e2a8c06aa1b42ec3043595b4d1f7f063dc3d512e195420b5841406ec70e23f",
+      "docs/fixtures/WP-0024/h0/source-witness.json": "dfb55b56833599f111eb29e2b3d4b8a7de9eab13b8caae277e09c9ba60271989",
+      "docs/research/WP-0014/eld-latency-author/probe.py": "4e811c45ab7a1ad92e2f6863fd85d8a276519e5d97e289b30956d75ee79053ee",
+      "docs/research/WP-0015/astra/formats.py": "b832a7ee452f807a01a4acaa4d63fed927241f73b75fc1a47c7ae830ce28c0a6",
+      "docs/research/WP-0015/astra/native.py": "8f4a240792dfab50405499a3c99a0662a16f5f6a53dd70a64f7f287f6367190f",
+      "docs/research/WP-0015/astra/sensitivity-title-level/rescore.py": "86b9606468d12afff952b0b24dc7fcd1de932aa9c18400c966a3789e1609b700",
+      "docs/research/WP-0023/trial/stock.py": "aea3060297b2ab7a9651e936d5693e10a72600ac8a1e9d99afb8d624d09f24fe",
+      "docs/research/WP-0024/sensor/capture.py": "4bd2318d5674c0ff07979471d08d78e66a3c8389ee8fc99ac2cf95a3283aff6f",
+      "docs/research/WP-0024/sensor/run_sensor.py": "d1a0a744f073970790f4e39d77360a03713923a637722366db9dca7cc537885b",
+      "docs/research/WP-0024/sensor/spans.py": "29817b77589e88ef6b741dc1c36e9da3d07bcf641887109f3a77d4b7a39aeece",
+      "docs/research/WP-0024/sensor/test_capture_cpu.py": "720405a93fd10cb8602576b80632bdf7ac7ece2a89587002a1e46815d3e1106a",
+      "qualification/baseline/winjob.py": "6a02c0d1649b755b4f95a341bdb7a5533491edd96b26bd73fa9b43f013fd7b9c"
+    },
+    "cold_identity": {
+      "dependencies": {
+        "forbidden_absent": [
+          "flash_attn",
+          "xformers",
+          "triton"
+        ],
+        "provenance_exceptions": [
+          "torchvision-local-sha256-TOFU"
+        ],
+        "verified_distribution_count": 32
+      },
+      "dependency_lock_sha256": "582071bf20eaca1836c3d1cef21d31cbdaa1e1407184033a918a40612c128111",
+      "eos_id": 1,
+      "load_ms": 11567,
+      "manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+      "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+      "page_id": 128827,
+      "platform": {
+        "arch_list": [
+          "sm_75",
+          "sm_80",
+          "sm_86",
+          "sm_90",
+          "sm_100",
+          "sm_120"
+        ],
+        "cuda_available": true,
+        "device_capability": [
+          12,
+          0
+        ],
+        "device_count": 1,
+        "device_name": "NVIDIA GeForce RTX 5070 Ti",
+        "device_uuid": "9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+        "machine": "AMD64",
+        "os": "Windows",
+        "python": "3.12.10",
+        "torch": "2.13.0+cu130",
+        "torch_cuda_version": "13.0"
+      },
+      "target_dtype": "torch.bfloat16",
+      "tokenizer": "LlamaTokenizerFast",
+      "tokenizer_sha256": "c55c165e32c5a67830362a53e1f548c8930dcc8469efa30ff3252a982799c589",
+      "verified_modules": 8
+    },
+    "pdf": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0024\\custody\\public\\h0\\pdf\\34054347f091c087a39efe17.pdf",
+    "witness_sha256": "dfb55b56833599f111eb29e2b3d4b8a7de9eab13b8caae277e09c9ba60271989"
+  },
+  "original": {
+    "equal": false,
+    "first_divergence": 13,
+    "prefix_length": 13,
+    "edits": [
+      {
+        "op": "replace",
+        "at_left": [
+          13,
+          14
+        ],
+        "at_right": [
+          13,
+          14
+        ],
+        "ids_left": [
+          20375
+        ],
+        "ids_right": [
+          21577
+        ],
+        "text_left": "399",
+        "text_right": "395"
+      },
+      {
+        "op": "replace",
+        "at_left": [
+          77,
+          78
+        ],
+        "at_right": [
+          77,
+          78
+        ],
+        "ids_left": [
+          21895
+        ],
+        "ids_right": [
+          22476
+        ],
+        "text_left": "388",
+        "text_right": "387"
+      },
+      {
+        "op": "replace",
+        "at_left": [
+          100,
+          101
+        ],
+        "at_right": [
+          100,
+          101
+        ],
+        "ids_left": [
+          21895
+        ],
+        "ids_right": [
+          22476
+        ],
+        "text_left": "388",
+        "text_right": "387"
+      },
+      {
+        "op": "replace",
+        "at_left": [
+          146,
+          147
+        ],
+        "at_right": [
+          146,
+          147
+        ],
+        "ids_left": [
+          939
+        ],
+        "ids_right": [
+          643
+        ],
+        "text_left": "202",
+        "text_right": "201"
+      }
+    ],
+    "page_differences": [
+      {
+        "path": "/0/spans/0/bbox/2",
+        "before": 244.432,
+        "after": 241.982
+      },
+      {
+        "path": "/0/spans/3/bbox/2",
+        "before": 237.694,
+        "after": 237.081
+      },
+      {
+        "path": "/0/spans/4/bbox/2",
+        "before": 237.694,
+        "after": 237.081
+      },
+      {
+        "path": "/0/spans/6/bbox/2",
+        "before": 123.748,
+        "after": 123.135
+      }
+    ],
+    "span_differences": [
+      {
+        "i": 0,
+        "changes": [
+          {
+            "path": "/bbox999/2",
+            "before": 399,
+            "after": 395
+          }
+        ],
+        "geometry_max_abs_fp32": 0.18135780096054077
+      },
+      {
+        "i": 3,
+        "changes": [
+          {
+            "path": "/bbox999/2",
+            "before": 388,
+            "after": 387
+          }
+        ],
+        "geometry_max_abs_fp32": 0.04011780023574829
+      },
+      {
+        "i": 4,
+        "changes": [
+          {
+            "path": "/bbox999/2",
+            "before": 388,
+            "after": 387
+          }
+        ],
+        "geometry_max_abs_fp32": 0.04011780023574829
+      },
+      {
+        "i": 6,
+        "changes": [
+          {
+            "path": "/bbox999/2",
+            "before": 202,
+            "after": 201
+          }
+        ],
+        "geometry_max_abs_fp32": 0.03802686929702759
+      }
+    ]
+  },
+  "historical_receipts": {
+    "b01w01S": {
+      "emitted": 284,
+      "eos": 1,
+      "rows": 2,
+      "blocks": 12,
+      "source_pages": 3,
+      "processed_terminal": {
+        "guard": {
+          "marker_cum": 3,
+          "page_len": 41,
+          "scanned": 284
+        },
+        "max_length": 131072,
+        "max_new_tokens": 24000,
+        "nxt": 1,
+        "prompt_length": 827,
+        "step": 284
+      },
+      "through_eos_le_u32_sha256": "887ff948d9da26e2933d1d2f396dd04c865e43c7efd860aeaf3773bfc6f60705",
+      "prompt_sha256": "b03d548d131b2651d56c3457e4b60144ab128b21444f87e4c9138dce1e809f57",
+      "prompt_length": 827,
+      "witnesses": {
+        "owner": {
+          "unique": true,
+          "qualified": [
+            {
+              "index": 5,
+              "raw_text": "Ledger: Oak",
+              "cells": [],
+              "bbox999": [
+                67,
+                340,
+                283,
+                371
+              ],
+              "char_range": [
+                354,
+                365
+              ],
+              "token_indices": [
+                132,
+                133,
+                134,
+                135
+              ],
+              "all_glyph_centers_inside": true,
+              "word_sequence_match": true
+            }
+          ],
+          "expected_pdf_text": [
+            "Ledger: Oak"
+          ]
+        },
+        "unit": {
+          "unique": true,
+          "qualified": [
+            {
+              "index": 6,
+              "raw_text": "Unit: Unit4",
+              "cells": [],
+              "bbox999": [
+                67,
+                390,
+                202,
+                412
+              ],
+              "char_range": [
+                402,
+                413
+              ],
+              "token_indices": [
+                152,
+                153,
+                154,
+                155
+              ],
+              "all_glyph_centers_inside": true,
+              "word_sequence_match": true
+            }
+          ],
+          "expected_pdf_text": [
+            "Unit: Unit4"
+          ]
+        },
+        "schema": {
+          "unique": true,
+          "qualified": [
+            {
+              "index": 8,
+              "raw_text": "Item Amount Ref",
+              "cells": [
+                "Item",
+                "Amount",
+                "Ref"
+              ],
+              "bbox999": [
+                68,
+                442,
+                828,
+                530
+              ],
+              "char_range": [
+                458,
+                507
+              ],
+              "token_indices": [
+                174,
+                175,
+                176,
+                177,
+                178,
+                179,
+                180,
+                181,
+                182,
+                183,
+                184
+              ],
+              "all_glyph_centers_inside": true,
+              "word_sequence_match": true
+            }
+          ],
+          "expected_pdf_text": [
+            "Item",
+            "Amount",
+            "Ref"
+          ]
+        },
+        "ordinary row": {
+          "unique": true,
+          "qualified": [
+            {
+              "index": 9,
+              "raw_text": "Service 180 103",
+              "cells": [
+                "Service",
+                "180",
+                "103"
+              ],
+              "bbox999": [
+                68,
+                442,
+                828,
+                530
+              ],
+              "char_range": [
+                507,
+                556
+              ],
+              "token_indices": [
+                185,
+                186,
+                187,
+                188,
+                189,
+                190,
+                191,
+                192,
+                193,
+                194,
+                195
+              ],
+              "all_glyph_centers_inside": true,
+              "word_sequence_match": true
+            }
+          ],
+          "expected_pdf_text": [
+            "Service",
+            "180",
+            "103"
+          ]
+        }
+      }
+    },
+    "b01w01H": {
+      "emitted": 284,
+      "eos": 1,
+      "rows": 2,
+      "blocks": 12,
+      "source_pages": 3,
+      "positions": 284,
+      "pooled_bit_exact": 14,
+      "pooled_sha256": "b8c75f373345e7ce2edd7cc5c39b9d2fb5427e61657fd472b63fe06915ec5edd",
+      "hidden_sha256": "5f7479024dfdb4f30096a2125e6d605dc26cfacaacc185616ad6680f64122271",
+      "processed_terminal": {
+        "guard": {
+          "marker_cum": 3,
+          "page_len": 41,
+          "scanned": 284
+        },
+        "max_length": 131072,
+        "max_new_tokens": 24000,
+        "nxt": 1,
+        "prompt_length": 827,
+        "step": 284
+      },
+      "through_eos_le_u32_sha256": "d63703395cdc61e15fb86b3df73f021a56adb823ed563eb8065978023ea1554c",
+      "prompt_sha256": "b03d548d131b2651d56c3457e4b60144ab128b21444f87e4c9138dce1e809f57",
+      "prompt_length": 827,
+      "witnesses": {
+        "owner": {
+          "unique": true,
+          "qualified": [
+            {
+              "index": 5,
+              "raw_text": "Ledger: Oak",
+              "cells": [],
+              "bbox999": [
+                67,
+                340,
+                283,
+                371
+              ],
+              "char_range": [
+                354,
+                365
+              ],
+              "token_indices": [
+                132,
+                133,
+                134,
+                135
+              ],
+              "all_glyph_centers_inside": true,
+              "word_sequence_match": true
+            }
+          ],
+          "expected_pdf_text": [
+            "Ledger: Oak"
+          ]
+        },
+        "unit": {
+          "unique": true,
+          "qualified": [
+            {
+              "index": 6,
+              "raw_text": "Unit: Unit4",
+              "cells": [],
+              "bbox999": [
+                67,
+                390,
+                201,
+                412
+              ],
+              "char_range": [
+                402,
+                413
+              ],
+              "token_indices": [
+                152,
+                153,
+                154,
+                155
+              ],
+              "all_glyph_centers_inside": true,
+              "word_sequence_match": true
+            }
+          ],
+          "expected_pdf_text": [
+            "Unit: Unit4"
+          ]
+        },
+        "schema": {
+          "unique": true,
+          "qualified": [
+            {
+              "index": 8,
+              "raw_text": "Item Amount Ref",
+              "cells": [
+                "Item",
+                "Amount",
+                "Ref"
+              ],
+              "bbox999": [
+                68,
+                442,
+                828,
+                530
+              ],
+              "char_range": [
+                458,
+                507
+              ],
+              "token_indices": [
+                174,
+                175,
+                176,
+                177,
+                178,
+                179,
+                180,
+                181,
+                182,
+                183,
+                184
+              ],
+              "all_glyph_centers_inside": true,
+              "word_sequence_match": true
+            }
+          ],
+          "expected_pdf_text": [
+            "Item",
+            "Amount",
+            "Ref"
+          ]
+        },
+        "ordinary row": {
+          "unique": true,
+          "qualified": [
+            {
+              "index": 9,
+              "raw_text": "Service 180 103",
+              "cells": [
+                "Service",
+                "180",
+                "103"
+              ],
+              "bbox999": [
+                68,
+                442,
+                828,
+                530
+              ],
+              "char_range": [
+                507,
+                556
+              ],
+              "token_indices": [
+                185,
+                186,
+                187,
+                188,
+                189,
+                190,
+                191,
+                192,
+                193,
+                194,
+                195
+              ],
+              "all_glyph_centers_inside": true,
+              "word_sequence_match": true
+            }
+          ],
+          "expected_pdf_text": [
+            "Service",
+            "180",
+            "103"
+          ]
+        }
+      }
+    }
+  }
+}
