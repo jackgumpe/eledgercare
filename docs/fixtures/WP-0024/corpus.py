@@ -1,5 +1,6 @@
 """Build opaque WP-0024 sensor plans. CLI permits blind generation only with a root release."""
 import argparse
+from contextlib import closing
 import hashlib
 import hmac
 import io
@@ -221,7 +222,7 @@ def page_receipt(stream, fonts, store, memory):
     if key in memory:
         return memory[key]
     with pdfium.PdfDocument(data) as doc:
-        with doc[0] as page:
+        with closing(doc[0]) as page:
             if page.get_size() != (612.,792.):
                 raise ValueError("unexpected source size")
             bitmap = page.render(scale=300/72)
