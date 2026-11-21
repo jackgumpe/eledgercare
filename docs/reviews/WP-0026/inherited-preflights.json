@@ -1,0 +1,747 @@
+{
+  "probe_revision": "7db67283a4ffd3e7a20bb8d80499572cc7118c71",
+  "scorer_revision": "e6c1abaed36a379780084be826c5fd0afaf3132b",
+  "scratch": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0026\\review\\cpu",
+  "synthetic_or_archived_inputs_only": true,
+  "results": {
+    "matrix": {
+      "check": "matrix",
+      "historical_auditor_sha256": "33bd8322cfb03b7f39f561d6806b0271ee188731f686131706f21edec91fee7e",
+      "result": {
+        "revision": "7db67283a4ffd3e7a20bb8d80499572cc7118c71",
+        "probe_blobs_sha256": {
+          "docs/research/WP-0024/probe/online.py": "82f6d1c6f83bf74961599d0b988fe3f9e32601b2c96d8449a9220bdbc3c2ae9c",
+          "docs/research/WP-0024/probe/matrix.py": "15d7eafaea57c698fb438b57ab30dc4329e4de51319e2edaa0c336433e0a64a8",
+          "docs/research/WP-0024/probe/views.py": "1fa6869c9a78f04a7b77ef2494e0609938e6d609ce6056a8b8ae0d45a3802a08"
+        },
+        "device": "cpu",
+        "torch": "2.13.0+cu130",
+        "matched_parameters": 880258,
+        "same_seed_equal_initial_weights": true,
+        "write_steps_per_model": 24,
+        "max_active_vs_fp64": 2.683645017320657e-07,
+        "max_inactive_change": 0.0,
+        "pop_cases": [
+          {
+            "summary_singular_values": [
+              3.0,
+              2.0,
+              1.0,
+              0.5
+            ],
+            "rank": 4,
+            "protected_fp32_delta": 0.0,
+            "summary_read_linf_delta": 0.8762101531028748,
+            "wiped_child_nonzero": 0
+          },
+          {
+            "summary_singular_values": [
+              3.0,
+              2.0,
+              5e-07,
+              0.0
+            ],
+            "rank": 2,
+            "protected_fp32_delta": 0.0,
+            "summary_read_linf_delta": 1.0445709228515625,
+            "wiped_child_nonzero": 0
+          },
+          {
+            "summary_singular_values": [
+              3.0,
+              2.0,
+              2e-06,
+              0.0
+            ],
+            "rank": 3,
+            "protected_fp32_delta": 0.0,
+            "summary_read_linf_delta": 0.6764450073242188,
+            "wiped_child_nonzero": 0
+          },
+          {
+            "summary_singular_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rank": 0,
+            "protected_fp32_delta": 0.0,
+            "summary_read_linf_delta": 0.0,
+            "wiped_child_nonzero": 0
+          }
+        ]
+      }
+    },
+    "calibration": {
+      "check": "calibration",
+      "historical_auditor_sha256": "bac482f6e7c845d98964e7e80a8949ca9e5819c0b8d4450797a992d7466b220f",
+      "result": {
+        "old_probe": "ae5b78b99d85619e8faca4550ed2ed0ee2fd060d",
+        "new_probe": "7db67283a4ffd3e7a20bb8d80499572cc7118c71",
+        "custody_scorer": "e6c1abaed36a379780084be826c5fd0afaf3132b",
+        "old_run_py_sha256": "b3df36c24e85a86674249cd96a0364a3244f8070c60aeb2b6c7c0a38ee3d57bd",
+        "new_run_py_sha256": "bb6aa0cdd675901157a4b725950f4927fa2cf16d051ddcd6b1128da6f6f28f7c",
+        "score_py_sha256": "55dbe3761cd5098c8593897260f7702148e4f8b9878f24ec6386655f3c2f0c5e",
+        "triple_order": [
+          "full_correct",
+          "silent_error",
+          "posted"
+        ],
+        "old_disagreements": [
+          "same_case",
+          "same_entity_and_spaces"
+        ],
+        "cases": {
+          "exact_post": {
+            "old": [
+              true,
+              false,
+              true
+            ],
+            "new": [
+              true,
+              false,
+              true
+            ],
+            "custody": [
+              true,
+              false,
+              true
+            ]
+          },
+          "same_case": {
+            "old": [
+              false,
+              true,
+              true
+            ],
+            "new": [
+              true,
+              false,
+              true
+            ],
+            "custody": [
+              true,
+              false,
+              true
+            ]
+          },
+          "same_entity_and_spaces": {
+            "old": [
+              false,
+              true,
+              true
+            ],
+            "new": [
+              true,
+              false,
+              true
+            ],
+            "custody": [
+              true,
+              false,
+              true
+            ]
+          },
+          "different_owner": {
+            "old": [
+              false,
+              true,
+              true
+            ],
+            "new": [
+              false,
+              true,
+              true
+            ],
+            "custody": [
+              false,
+              true,
+              true
+            ]
+          },
+          "literal_markup_differs": {
+            "old": [
+              false,
+              true,
+              true
+            ],
+            "new": [
+              false,
+              true,
+              true
+            ],
+            "custody": [
+              false,
+              true,
+              true
+            ]
+          },
+          "nonempty_inapplicable_status": {
+            "old": [
+              false,
+              true,
+              true
+            ],
+            "new": [
+              false,
+              true,
+              true
+            ],
+            "custody": [
+              false,
+              true,
+              true
+            ]
+          },
+          "unobserved_required_status": {
+            "old": [
+              false,
+              true,
+              true
+            ],
+            "new": [
+              false,
+              true,
+              true
+            ],
+            "custody": [
+              false,
+              true,
+              true
+            ]
+          },
+          "answerable_abstention": {
+            "old": [
+              false,
+              false,
+              false
+            ],
+            "new": [
+              false,
+              false,
+              false
+            ],
+            "custody": [
+              false,
+              false,
+              false
+            ]
+          },
+          "undecidable_posting": {
+            "old": [
+              false,
+              true,
+              true
+            ],
+            "new": [
+              false,
+              true,
+              true
+            ],
+            "custody": [
+              false,
+              true,
+              true
+            ]
+          },
+          "undecidable_abstention": {
+            "old": [
+              true,
+              false,
+              false
+            ],
+            "new": [
+              true,
+              false,
+              false
+            ],
+            "custody": [
+              true,
+              false,
+              false
+            ]
+          }
+        }
+      }
+    },
+    "w1": {
+      "check": "w1",
+      "historical_auditor_sha256": "b82a19fea3b11ac6f5394ef3b8d0ac4f1b79127bcee090c7e06d93d8cf063811",
+      "result": {
+        "probe": "7db67283a4ffd3e7a20bb8d80499572cc7118c71",
+        "scorer": "e6c1abaed36a379780084be826c5fd0afaf3132b",
+        "public_toy_only": true,
+        "six_arms_both_directions": {
+          "0": {
+            "M0": {
+              "mode": "suffix_only",
+              "result": "structural_suffix_only"
+            },
+            "M1": {
+              "mode": "measured",
+              "result": "encoding_failure"
+            },
+            "M2": {
+              "mode": "measured",
+              "result": "encoding_success"
+            },
+            "M3-Zero": {
+              "mode": "zero_matrix_control",
+              "result": "observed_zero_read"
+            },
+            "M3": {
+              "mode": "measured",
+              "result": "encoding_failure"
+            },
+            "M3-Swap": {
+              "mode": "original_receiver_before_swap",
+              "result": "receiver_reference"
+            }
+          },
+          "1": {
+            "M0": {
+              "mode": "suffix_only",
+              "result": "structural_suffix_only"
+            },
+            "M1": {
+              "mode": "measured",
+              "result": "encoding_failure"
+            },
+            "M2": {
+              "mode": "measured",
+              "result": "encoding_success"
+            },
+            "M3-Zero": {
+              "mode": "zero_matrix_control",
+              "result": "observed_zero_read"
+            },
+            "M3": {
+              "mode": "measured",
+              "result": "encoding_failure"
+            },
+            "M3-Swap": {
+              "mode": "original_receiver_before_swap",
+              "result": "receiver_reference"
+            }
+          }
+        },
+        "observed_mutation_confined_to_M1": true
+      }
+    },
+    "scorer": {
+      "check": "scorer",
+      "historical_auditor_sha256": "8be7bce0b2dfe89ba599a16c6b5e9f278114e4f5ba5b6b723657ea81992914d5",
+      "result": {
+        "source": "e6c1abaed36a379780084be826c5fd0afaf3132b",
+        "upstream": "PASS synthetic scorer regressions: C0, controls, all-arm completeness, donor directions, field errors, abstention coverage, matched gains, unsafe ambiguity, resource ceiling",
+        "eligible": 24,
+        "three_usable_summary_gains": {
+          "denominator": 16,
+          "owner_tied_pairs": [
+            "T3.0",
+            "T3.1",
+            "T3.2",
+            "T3.3",
+            "T3.4",
+            "T3.5",
+            "T3.6",
+            "T3.7"
+          ],
+          "usable_summary_wins": [
+            "T3.0",
+            "T3.1",
+            "T3.2"
+          ],
+          "opposite_summary_losses": [],
+          "full_T2_T3_pair_losses": [],
+          "union_losses": [],
+          "net": 3
+        },
+        "overlapping_full_and_summary_losses": {
+          "denominator": 16,
+          "owner_tied_pairs": [
+            "T3.0",
+            "T3.1",
+            "T3.2",
+            "T3.3",
+            "T3.4",
+            "T3.5",
+            "T3.6",
+            "T3.7"
+          ],
+          "usable_summary_wins": [
+            "T3.0",
+            "T3.1",
+            "T3.2"
+          ],
+          "opposite_summary_losses": [
+            "T3.3"
+          ],
+          "full_T2_T3_pair_losses": [
+            "T2.4",
+            "T3.3"
+          ],
+          "union_losses": [
+            "T2.4",
+            "T3.3"
+          ],
+          "net": 1
+        },
+        "component_success_during_abstention": {
+          "denominator": 16,
+          "owner_tied_pairs": [
+            "T3.0",
+            "T3.1",
+            "T3.2",
+            "T3.3",
+            "T3.4",
+            "T3.5",
+            "T3.6",
+            "T3.7"
+          ],
+          "usable_summary_wins": [
+            "T3.1",
+            "T3.2"
+          ],
+          "opposite_summary_losses": [
+            "T3.3"
+          ],
+          "full_T2_T3_pair_losses": [
+            "T2.4",
+            "T3.3"
+          ],
+          "union_losses": [
+            "T2.4",
+            "T3.3"
+          ],
+          "net": 0
+        },
+        "changed_matrix_receipt_rejected": true,
+        "changed_candidate_payload_rejected": true
+      }
+    },
+    "parser": {
+      "check": "parser",
+      "historical_auditor_sha256": "c8994bf01bda7d8871f391d2c460b29943ca883a3882d248a3032321d310b528",
+      "result": {
+        "archive_sha256": "9d7b818fab660ef7c25ee98bd5161ea10e7d745516f9bb8ff7b796571571e2ed",
+        "wp23_candidate": "8682fc7d215c0b063d5c3ef8ccce91a090cff90c",
+        "source_sha256": {
+          "a0e738bc03e515999659dda09c5ee76d08fb37df:docs/research/WP-0015/astra/formats.py": "b832a7ee452f807a01a4acaa4d63fed927241f73b75fc1a47c7ae830ce28c0a6",
+          "0186467670074761a777602d77b53deff3451300:docs/research/WP-0015/astra/sensitivity-title-level/rescore.py": "86b9606468d12afff952b0b24dc7fcd1de932aa9c18400c966a3789e1609b700"
+        },
+        "tokenizer_sha256": "c55c165e32c5a67830362a53e1f548c8930dcc8469efa30ff3252a982799c589",
+        "input_pdf_sha256": "0ac89ffffc412ec73573ecc7bd3daae0c6748ca69e304a59841ded180e2a7f66",
+        "manifest_sha256_at_run": "06abb2ab4cd7bf8d74286741d4ce5da08f6e60fd237050394e2b891ae909058f",
+        "long_pages": [
+          7,
+          8,
+          9
+        ],
+        "page_points": [
+          [
+            612.0,
+            792.0
+          ],
+          [
+            612.0,
+            792.0
+          ],
+          [
+            612.0,
+            792.0
+          ]
+        ],
+        "input_pngs_and_rgb_verified": 6,
+        "short_both_orders_equal": true,
+        "b2_permutations_identical": true,
+        "long_pre_eos_tokens": 665,
+        "terminal_id": 1,
+        "single_token_interventions": [
+          {
+            "index_zero_based": 84,
+            "pdf_page": 7,
+            "from_id": 24254,
+            "to_id": 25089,
+            "from_piece": "516",
+            "to_piece": "518",
+            "changed_parser_fields": {
+              "original": [
+                {
+                  "path": "/0/spans/2/bbox/3",
+                  "before": 409.081,
+                  "after": 410.667
+                },
+                {
+                  "path": "/0/tables/0/bbox/3",
+                  "before": 409.081,
+                  "after": 410.667
+                }
+              ],
+              "title_projected": [
+                {
+                  "path": "/0/spans/3/bbox/3",
+                  "before": 409.081,
+                  "after": 410.667
+                },
+                {
+                  "path": "/0/tables/0/bbox/3",
+                  "before": 409.081,
+                  "after": 410.667
+                }
+              ]
+            }
+          },
+          {
+            "index_zero_based": 227,
+            "pdf_page": 8,
+            "from_id": 19,
+            "to_id": 20,
+            "from_piece": "1",
+            "to_piece": "2",
+            "changed_parser_fields": {
+              "original": [
+                {
+                  "path": "/1/text",
+                  "before": "<BLOCK>title<LEVEL1>[76, 77, 543, 103]<FORK>Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities.",
+                  "after": "<BLOCK>title<LEVEL2>[76, 77, 543, 103]<FORK>Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities."
+                }
+              ],
+              "title_projected": []
+            }
+          },
+          {
+            "index_zero_based": 316,
+            "pdf_page": 8,
+            "from_id": 6813,
+            "to_id": 7519,
+            "from_piece": "item",
+            "to_piece": "Item",
+            "changed_parser_fields": {
+              "original": [
+                {
+                  "path": "/1/text",
+                  "before": "<BLOCK>title<LEVEL1>[76, 77, 543, 103]<FORK>Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities.",
+                  "after": "<BLOCK>title<LEVEL1>[76, 77, 543, 103]<FORK>Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part Item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities."
+                },
+                {
+                  "path": "/1/spans/2/text",
+                  "before": "Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50",
+                  "after": "Part Item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50"
+                },
+                {
+                  "path": "/1/tables/0/rows/0/1",
+                  "before": "item",
+                  "after": "Item"
+                }
+              ],
+              "title_projected": [
+                {
+                  "path": "/1/text",
+                  "before": "Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities.",
+                  "after": "Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part Item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities."
+                },
+                {
+                  "path": "/1/spans/3/text",
+                  "before": "Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50",
+                  "after": "Part Item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50"
+                },
+                {
+                  "path": "/1/tables/0/rows/0/1",
+                  "before": "item",
+                  "after": "Item"
+                }
+              ]
+            }
+          },
+          {
+            "index_zero_based": 449,
+            "pdf_page": 9,
+            "from_id": 20,
+            "to_id": 19,
+            "from_piece": "2",
+            "to_piece": "1",
+            "changed_parser_fields": {
+              "original": [
+                {
+                  "path": "/2/text",
+                  "before": "<BLOCK>title<LEVEL2>[76, 77, 588, 105]<FORK>Return flange maintenance order Service ticket S-924. Bay 9. Parts used during the annual inspection Part Item Count Price V91 Seat ring 4 11.10 V92 Steel sleeve 5 13.20 V93 Clamp bolt 6 15.30 V94 Gasket 7 17.40 V95 Vent plug 8 19.50 Technician verified the installed quantities.",
+                  "after": "<BLOCK>title<LEVEL1>[76, 77, 588, 105]<FORK>Return flange maintenance order Service ticket S-924. Bay 9. Parts used during the annual inspection Part Item Count Price V91 Seat ring 4 11.10 V92 Steel sleeve 5 13.20 V93 Clamp bolt 6 15.30 V94 Gasket 7 17.40 V95 Vent plug 8 19.50 Technician verified the installed quantities."
+                }
+              ],
+              "title_projected": []
+            }
+          },
+          {
+            "index_zero_based": 537,
+            "pdf_page": 9,
+            "from_id": 7519,
+            "to_id": 24564,
+            "from_piece": "Item",
+            "to_piece": " Item",
+            "changed_parser_fields": {
+              "original": [],
+              "title_projected": []
+            }
+          },
+          {
+            "index_zero_based": 540,
+            "pdf_page": 9,
+            "from_id": 8420,
+            "to_id": 5277,
+            "from_piece": "Count",
+            "to_piece": " Count",
+            "changed_parser_fields": {
+              "original": [],
+              "title_projected": []
+            }
+          },
+          {
+            "index_zero_based": 543,
+            "pdf_page": 9,
+            "from_id": 20967,
+            "to_id": 15366,
+            "from_piece": "Price",
+            "to_piece": " Price",
+            "changed_parser_fields": {
+              "original": [],
+              "title_projected": []
+            }
+          }
+        ],
+        "joint_differences": {
+          "original": [
+            {
+              "path": "/0/spans/2/bbox/3",
+              "before": 409.081,
+              "after": 410.667
+            },
+            {
+              "path": "/0/tables/0/bbox/3",
+              "before": 409.081,
+              "after": 410.667
+            },
+            {
+              "path": "/1/text",
+              "before": "<BLOCK>title<LEVEL1>[76, 77, 543, 103]<FORK>Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities.",
+              "after": "<BLOCK>title<LEVEL2>[76, 77, 543, 103]<FORK>Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part Item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities."
+            },
+            {
+              "path": "/1/spans/2/text",
+              "before": "Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50",
+              "after": "Part Item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50"
+            },
+            {
+              "path": "/1/tables/0/rows/0/1",
+              "before": "item",
+              "after": "Item"
+            },
+            {
+              "path": "/2/text",
+              "before": "<BLOCK>title<LEVEL2>[76, 77, 588, 105]<FORK>Return flange maintenance order Service ticket S-924. Bay 9. Parts used during the annual inspection Part Item Count Price V91 Seat ring 4 11.10 V92 Steel sleeve 5 13.20 V93 Clamp bolt 6 15.30 V94 Gasket 7 17.40 V95 Vent plug 8 19.50 Technician verified the installed quantities.",
+              "after": "<BLOCK>title<LEVEL1>[76, 77, 588, 105]<FORK>Return flange maintenance order Service ticket S-924. Bay 9. Parts used during the annual inspection Part Item Count Price V91 Seat ring 4 11.10 V92 Steel sleeve 5 13.20 V93 Clamp bolt 6 15.30 V94 Gasket 7 17.40 V95 Vent plug 8 19.50 Technician verified the installed quantities."
+            }
+          ],
+          "title_projected": [
+            {
+              "path": "/0/spans/3/bbox/3",
+              "before": 409.081,
+              "after": 410.667
+            },
+            {
+              "path": "/0/tables/0/bbox/3",
+              "before": 409.081,
+              "after": 410.667
+            },
+            {
+              "path": "/1/text",
+              "before": "Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities.",
+              "after": "Pilot valve maintenance order Service ticket S-824. Bay 8. Parts used during the annual inspection Part Item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50 Technician verified the installed quantities."
+            },
+            {
+              "path": "/1/spans/3/text",
+              "before": "Part item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50",
+              "after": "Part Item Count Price V81 Seat ring 3 10.10 V82 Steel sleeve 4 12.20 V83 Clamp bolt 5 14.30 V84 Gasket 6 16.40 V85 Vent plug 7 18.50"
+            },
+            {
+              "path": "/1/tables/0/rows/0/1",
+              "before": "item",
+              "after": "Item"
+            }
+          ]
+        }
+      }
+    },
+    "probe": {
+      "check": "probe",
+      "source_sha256": "e53e4180c5436a110b0993886dadc3f9d5bbed8a6764958b925258c7947c0c9e",
+      "result": {
+        "calibration_semantics": [
+          "reviewer_case",
+          "space_and_entity",
+          "literal_tag_preserved",
+          "escaped_tag_literal",
+          "non_null_extra_status",
+          "required_status_missing",
+          "summary_casefold",
+          "answerable_abstention",
+          "ambiguous_posting",
+          "ambiguous_abstention",
+          "invalid_type_rejected"
+        ],
+        "torch": "2.13.0+cu130",
+        "cuda_visible": false,
+        "fp32_protected_Linf": 0.0,
+        "summary_Linf": 1.8394217491149902,
+        "pop_rank": 4,
+        "rank_one_backward_finite": true,
+        "empty_rank": 0,
+        "partial_rank_mask": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "parameter_counts": [
+          880258,
+          880258
+        ],
+        "nonzero_finite_gradients": {
+          "M1": {
+            "summary_query": true,
+            "write_key.weight": true,
+            "write_value.weight": true,
+            "query.weight": true,
+            "gates.weight": true,
+            "gates.bias": true,
+            "anchor_value.weight": true,
+            "anchor_gate.weight": true,
+            "anchor_output.weight": true,
+            "pop_key.weight": true,
+            "pop_value.weight": true
+          },
+          "M3": {
+            "summary_query": true,
+            "write_key.weight": true,
+            "write_value.weight": true,
+            "query.weight": true,
+            "gates.weight": true,
+            "gates.bias": true,
+            "anchor_value.weight": true,
+            "anchor_gate.weight": true,
+            "anchor_output.weight": true,
+            "pop_key.weight": true,
+            "pop_value.weight": true
+          }
+        },
+        "symmetric_matrix_transplant": true,
+        "causal_views": 6,
+        "positive_m2_amendment_and_summary": true,
+        "open_child_shadow_hold": true,
+        "disjoint_slot_freeze_and_child_wipe": true
+      }
+    }
+  }
+}
