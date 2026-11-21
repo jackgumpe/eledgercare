@@ -326,4 +326,3 @@ if __name__=="__main__":
     parser.add_argument("--release-sha")
     args=parser.parse_args()
     args.result.write_text(json.dumps(run(args.runs,args.release,args.release_sha),indent=2,ensure_ascii=True,allow_nan=False)+"\n",encoding="utf8")
-

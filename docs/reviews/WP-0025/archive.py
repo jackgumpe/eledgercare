@@ -50,4 +50,3 @@ if __name__=="__main__":
     p.add_argument("inventory",type=Path)
     a=p.parse_args()
     archive(a.release,a.digest,a.zip,a.inventory)
-

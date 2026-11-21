@@ -90,4 +90,3 @@ if __name__=="__main__":
     a.output.parent.mkdir(parents=True,exist_ok=True)
     with a.output.open("x",encoding="utf8") as f:
         json.dump(data,f,indent=2)
-

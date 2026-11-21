@@ -59,4 +59,3 @@ if __name__=="__main__":
     p.add_argument("plans",nargs=2)
     a=p.parse_args()
     sys.exit(execute(a.release.resolve(),a.digest,a.candidate,a.plans))
-
