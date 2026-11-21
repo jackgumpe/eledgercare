@@ -1158,3 +1158,14 @@ Delegated architecture direction, 21 November 2026. CPU pilot on constructed nes
 | 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0021/003_2026-11-21_verification_eld-coordinator.md |
 
 **Closed after independent review.** The combined reader reached 10/10 identifiable assignments and 5/5 parent resumptions on idealized positions, with two warranted abstentions. The grid-only reader silently assigned four right-margin values on the independent supplemental check. [Decision](docs/coordination/WP-0021/decision.json) at `3dae92ed6735b9cdd4e576040335df9a13cab41b` · [Independent review](docs/agent-reports/eld-scope-reviewer/WP-0021/002_2026-11-21_review_eld-scope-reviewer.md) at `e4fc9806dea391d649576d68a9f016acc50287a5` · [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0021/003_2026-11-21_verification_eld-coordinator.md) at `81ea3627de2a580130c4bd8d7351506351c824b0` · [Publication receipt](docs/coordination/WP-0021/publication-receipt.json)
+
+## WP-0022 Rendered versus WinRT ledger ownership
+
+Authorized 21 November 2026 for one paired Windows study on fresh nested synthetic forms. Base `967ac0830d0acb73acd0e8b0e29f37e4732d0237`. [Handoff](docs/coordination/WP-0022/handoff.md) · [Role assignments and execution gates](docs/coordination/WP-0022/assignment.md)
+
+| Seq | Owner | Owned branch and worktree | Canonical report |
+| --- | --- | --- | --- |
+| 001 | eld-winrt-custodian | research/wp-0022-custody · scope22-custody | docs/agent-reports/eld-winrt-custodian/WP-0022/001_2026-11-21_research_eld-winrt-custodian.md |
+| 002 | eld-winrt-author | research/wp-0022-paired · scope22-paired | docs/agent-reports/eld-winrt-author/WP-0022/002_2026-11-21_research_eld-winrt-author.md |
+| 003 | eld-winrt-reviewer | review/wp-0022-paired · scope22-review | docs/agent-reports/eld-winrt-reviewer/WP-0022/003_2026-11-21_review_eld-winrt-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0022/004_2026-11-21_verification_eld-coordinator.md |

@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0022 Rendered versus WinRT ledger ownership
+
+One paired CPU study is reserved. An independent custodian prepares fresh synthetic pages. The two arms use the same page pixels, detected grid and frozen saved-frame reader. An independent reviewer will replay the archived observations. [Assignment](docs/coordination/WP-0022/assignment.md)
+
 ## Completed WP-0021 Windows ledger scope feasibility
 
 On five constructed two-page forms, the saved-frame reader assigned 10/10 distinguishable page-two amounts to the right ledger using grid and synthetic word positions. Grid-only assigned 4/10. Both modes flagged the two ambiguous rows. In a separate right-margin check, the grid-only reader silently assigned all four displaced amounts and the combined reader flagged all four. Independent replay confirmed the result. The next proposed check uses real Windows OCR word boxes on fresh synthetic forms. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0021/003_2026-11-21_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-scope-reviewer/WP-0021/002_2026-11-21_review_eld-scope-reviewer.md) · [Decision](docs/coordination/WP-0021/decision.json) · [Publication receipts](docs/coordination/WP-0021/publication-receipt.json)
