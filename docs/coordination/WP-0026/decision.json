@@ -1,0 +1,246 @@
+{
+  "packet": "WP-0026",
+  "disposition": "CLOSED_STOPPED_BLIND_C1_INCOMPLETE",
+  "memory_comparison": "INCONCLUSIVE_UNSCORED",
+  "decision_utc": "2026-11-21T22:01:45.185043+00:00",
+  "reservation_utc": "2026-11-21T20:56:48+00:00",
+  "reservation_to_decision_s_including_handoffs": 3897.185043,
+  "independent_stop": {
+    "path": "docs/reviews/WP-0026/blind-c1-partial.json",
+    "sha256": "32bf0ddc988df29c2d9059a17a7ca9f61533f08e8fd4a4187ced570a26aca482",
+    "revision": "d6178bb72cd250a40d8b92ff2751afa6fc0f57d7"
+  },
+  "independent_partial_clock": {
+    "path": "docs/reviews/WP-0026/blind-c1-partial-runtime.json",
+    "sha256": "d2f6f85b20fd6839cf7c4e3800d3001f3ec4f87114faebcce14aac3282e94c81",
+    "revision": "d6178bb72cd250a40d8b92ff2751afa6fc0f57d7"
+  },
+  "primary": {
+    "path": "docs/reviews/WP-0026/blind-c1-primary/inventory.json",
+    "sha256": "40cd51f17e6a2fb62dece4acd2d72487db8b414743bfc700c74b661db3e6c9dd",
+    "revision": "d6178bb72cd250a40d8b92ff2751afa6fc0f57d7",
+    "members": 196,
+    "parts": {
+      "primary-001.zip": {
+        "bytes": 6375769,
+        "sha256": "76d203b4c70047b2f75c254da23ca3c51616ffb09d9f540c0f31ffee49d94b0f"
+      }
+    }
+  },
+  "development": {
+    "h0_gate_sha256": "9686edc519c9663733ab2b115cb2f9c22881e8db794068e85ded15e0b2b754cf",
+    "exact_h0_pairs": 8,
+    "first_scored_equal": true,
+    "required_witnesses_per_mode": {
+      "S": 10,
+      "H": 10
+    },
+    "h0_reconstructed_pools": 72,
+    "train_gate_sha256": "107e89a751a9f33d1c00c33dbca38ddb271245056af92709d81e2c111e315e5f",
+    "train_uncached_calls": 28,
+    "train_c1_exact_duplicate_groups": 12,
+    "c1_six_view_decision_equivalence": [
+      {
+        "pages": 12,
+        "six_views_both_twins_equal": true,
+        "feature_objects": 5,
+        "semantic_provenance_sha256": "4403e2082bbb5acc359a36621fe5820622a2f3e4a2641efa9d6ea2608c98e2b5"
+      },
+      {
+        "pages": 30,
+        "six_views_both_twins_equal": true,
+        "feature_objects": 11,
+        "semantic_provenance_sha256": "dacf1ea705e9eda972c61091b0569389da671015095d9a72ff4da26951d695c5"
+      }
+    ],
+    "fit_sha256": "e664109765b0482cb7d330c825c4c9dbbe3b8b8c63e17a991fe6ab14f42925b2",
+    "fit_weights": {
+      "M1": "e2420949c0990992fae61b42280617bedd95dfa7013ce25ff52c8fd760c0f291",
+      "M3": "391b19e5629faf62b2f6ae6614bd18f91ba8e7c112a78dc191cdd6e602d10031"
+    },
+    "matched_parameters_each": 880258,
+    "fit_epochs_each": 6,
+    "thresholds": {
+      "M1": [
+        1.0,
+        0.1
+      ],
+      "M3": [
+        1.0,
+        0.1
+      ]
+    },
+    "calibration_by_arm": {
+      "M1": {
+        "all_20_abstained": true,
+        "tau": 1.0,
+        "margin": 0.1,
+        "answerable_postings": 0,
+        "correct_pairs": 2,
+        "silent": 0
+      },
+      "M3": {
+        "all_20_abstained": true,
+        "tau": 1.0,
+        "margin": 0.1,
+        "answerable_postings": 0,
+        "correct_pairs": 2,
+        "silent": 0
+      }
+    }
+  },
+  "blind": {
+    "bound_pairs": 32,
+    "bound_binders": 64,
+    "within_pair_planned_total_calls": 276,
+    "uncached_planned": 28,
+    "started": 14,
+    "verified_feature_returns": 13,
+    "native_returns": 14,
+    "uncached_not_started": 14,
+    "residual_feature_calls_started": 0,
+    "fully_compared_duplicates": [
+      {
+        "left": "k0002",
+        "right": "k0006",
+        "exact": true,
+        "fields": [
+          "through-eos.u32le",
+          "metadata.json",
+          "observed-positions.json",
+          "token_hidden.bf16",
+          "pooled.f32",
+          "capture.json"
+        ]
+      },
+      {
+        "left": "k0003",
+        "right": "k0007",
+        "exact": true,
+        "fields": [
+          "through-eos.u32le",
+          "metadata.json",
+          "observed-positions.json",
+          "token_hidden.bf16",
+          "pooled.f32",
+          "capture.json"
+        ]
+      },
+      {
+        "left": "k0004",
+        "right": "k0008",
+        "exact": true,
+        "fields": [
+          "through-eos.u32le",
+          "metadata.json",
+          "observed-positions.json",
+          "token_hidden.bf16",
+          "pooled.f32",
+          "capture.json"
+        ]
+      }
+    ],
+    "remaining_unverified_duplicates": 9,
+    "verified_consumed_positions": 2323,
+    "reconstructed_pools": 114,
+    "completed_12_page_pairs": 1,
+    "completed_30_page_pairs": 0,
+    "fitted_decision_equivalence_on_blind": null,
+    "predictions_frozen": 0,
+    "c0": null,
+    "blind_score": null,
+    "donor_outcome": null,
+    "heldout_effect_or_safety_conclusion": null,
+    "truth_commitment": "a5c79547fb086b9d160fba1ee1350c1dce2464a9857e6ef44e6bb0c75e5945dc",
+    "scoring_key_release": null
+  },
+  "failure": {
+    "tag": "k0014",
+    "window": 6,
+    "pages_one_based": [
+      16,
+      17,
+      18
+    ],
+    "model_ordinal": 15,
+    "native_sha256": "ce9d03a8d73ecf4366b96bc2dbbf9e129f5a2ca30265876a16b17c07cc20b169",
+    "error_sha256": "74fb0291ff5f25b0c9f58a54727ce00654ac601ade4799e66cd454653a6a18bf",
+    "expected_pages": 3,
+    "reported_pages": 4,
+    "page_token_id": 128827,
+    "zero_based_page_token_positions": [
+      0,
+      42,
+      81,
+      121
+    ],
+    "raw_page_marker_offsets": [
+      0,
+      122,
+      240,
+      356
+    ],
+    "prefix_tokens_before_eos": 122,
+    "observed_eos_id": 1,
+    "terminal_observation": {
+      "guard": {
+        "marker_cum": 4,
+        "page_len": 0,
+        "scanned": 122
+      },
+      "max_length": 131072,
+      "max_new_tokens": 24000,
+      "nxt": 1,
+      "prompt_length": 827,
+      "step": 122
+    },
+    "final_marker_has_payload": false,
+    "grounded_nonempty_segments": 3,
+    "parser_sha256": "29817b77589e88ef6b741dc1c36e9da3d07bcf641887109f3a77d4b7a39aeece",
+    "frozen_parser_exception": "Expected three grounded native pages",
+    "guard_exit": 1,
+    "guard_reason": null,
+    "guard_source_sha256": "f6df813cef23cc28b1daca40fd8cb20740d05a238e7b9dfa2334531fdcf39f1f",
+    "native_page_guard_line": 583,
+    "frozen_span_gate_line": 108,
+    "cause_limit": "The native guard permits another page marker at the expected count and forces EOS after the count is exceeded. The evidence does not locate why the model selected that marker."
+  },
+  "costs": {
+    "aggregate": {
+      "completed_loads": 6,
+      "load_s": 131.7513067,
+      "w0_calls_started": 6,
+      "w0_qualified": 6,
+      "w0_s": 155.6455864,
+      "w0_inference_s": 154.3834695,
+      "scored_started": 98,
+      "scored_verified": 97,
+      "scored_inference_s": 1892.709535,
+      "scored_with_capture_s": 1894.2102019,
+      "supervised_s": 2226.108999999982,
+      "board_samples": 1071,
+      "physical_calls_started": 104,
+      "peak_board_mib": 8408,
+      "first_issue_to_last_return_s_including_interphase_gaps": 3044.937477
+    },
+    "incomplete_slot_native_reported_s": 14.347541093826294,
+    "incomplete_slot_begin_to_error_s": 14.5938633,
+    "incomplete_slot_wrapper_inference_s": null,
+    "blind_c1_scored_inference_bounds_s": [
+      261.3338295938263,
+      261.5801518
+    ],
+    "fit_phase_s": 10.219913,
+    "optimization_s": {
+      "M1": 2.4229395,
+      "M3": 2.4101639
+    },
+    "scope": "Scored aggregate inference and capture timings cover 97 verified calls only. The partial call is included in physical counts and whole-order time."
+  },
+  "q0": {
+    "matched": true,
+    "entries": 30938,
+    "full_model_content_hashes": 37
+  },
+  "next_gpu_release": null
+}
