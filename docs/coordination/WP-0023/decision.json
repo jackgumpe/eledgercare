@@ -1,0 +1,654 @@
+{
+  "packet": "WP-0023",
+  "candidate": "8682fc7d215c0b063d5c3ef8ccce91a090cff90c",
+  "run": "dev-r1",
+  "gpu": {
+    "arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ],
+    "cuda_available": true,
+    "device_capability": [
+      12,
+      0
+    ],
+    "device_count": 1,
+    "device_name": "NVIDIA GeForce RTX 5070 Ti",
+    "device_uuid": "9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+    "machine": "AMD64",
+    "os": "Windows",
+    "python": "3.12.10",
+    "torch": "2.13.0+cu130",
+    "torch_cuda_version": "13.0"
+  },
+  "archive_sha256": "9d7b818fab660ef7c25ee98bd5161ea10e7d745516f9bb8ff7b796571571e2ed",
+  "status": "g2-failed",
+  "cold": {
+    "model_load_s": 14.062,
+    "verified_native_initialization_s": 25.4702989,
+    "board_observed": {
+      "samples": 12,
+      "peak_used_mib": 6962,
+      "minimum_free_mib": 9036
+    }
+  },
+  "whole_lease_board_observed": {
+    "samples": 212,
+    "peak_used_mib": 14849,
+    "minimum_free_mib": 1149
+  },
+  "control": {
+    "short": {
+      "pages": 3,
+      "emitted_excluding_eos": 62,
+      "eos_id": 1,
+      "stock_stop": "eos"
+    },
+    "long": {
+      "pages": 3,
+      "emitted_excluding_eos": 665,
+      "eos_id": 1,
+      "stock_stop": "eos"
+    }
+  },
+  "G1": {
+    "short": {
+      "parity_through_stop": true,
+      "first": null,
+      "unequal_fields": [],
+      "candidate_emitted_excluding_eos": 62,
+      "terminal": "eos"
+    },
+    "long": {
+      "parity_through_stop": true,
+      "first": null,
+      "unequal_fields": [],
+      "candidate_emitted_excluding_eos": 665,
+      "terminal": "eos"
+    }
+  },
+  "G2": {
+    "short-long": {
+      "short": {
+        "parity_through_stop": true,
+        "first": null,
+        "unequal_fields": [],
+        "candidate_emitted_excluding_eos": 62,
+        "terminal": "eos",
+        "differing_decisions_at_equal_length": []
+      },
+      "long": {
+        "parity_through_stop": false,
+        "first": {
+          "zero_based_step": 84,
+          "b1_id": 24254,
+          "candidate_id": 25089
+        },
+        "unequal_fields": [
+          "text"
+        ],
+        "candidate_emitted_excluding_eos": 665,
+        "terminal": "eos",
+        "differing_decisions_at_equal_length": [
+          {
+            "zero_based_step": 84,
+            "stock": {
+              "id": 24254,
+              "token": "516",
+              "decoded": "516"
+            },
+            "batch": {
+              "id": 25089,
+              "token": "518",
+              "decoded": "518"
+            },
+            "stock_prefix_tail": ", 256, 812, "
+          },
+          {
+            "zero_based_step": 227,
+            "stock": {
+              "id": 19,
+              "token": "1",
+              "decoded": "1"
+            },
+            "batch": {
+              "id": 20,
+              "token": "2",
+              "decoded": "2"
+            },
+            "stock_prefix_tail": " installed quantities.\n<PAGE><BLOCK>title<LEVEL"
+          },
+          {
+            "zero_based_step": 316,
+            "stock": {
+              "id": 6813,
+              "token": "item",
+              "decoded": "item"
+            },
+            "batch": {
+              "id": 7519,
+              "token": "Item",
+              "decoded": "Item"
+            },
+            "stock_prefix_tail": "<FORK><table><tr><td>Part</td><td>"
+          },
+          {
+            "zero_based_step": 449,
+            "stock": {
+              "id": 20,
+              "token": "2",
+              "decoded": "2"
+            },
+            "batch": {
+              "id": 19,
+              "token": "1",
+              "decoded": "1"
+            },
+            "stock_prefix_tail": " installed quantities.\n<PAGE><BLOCK>title<LEVEL"
+          },
+          {
+            "zero_based_step": 537,
+            "stock": {
+              "id": 7519,
+              "token": "Item",
+              "decoded": "Item"
+            },
+            "batch": {
+              "id": 24564,
+              "token": "\u0120Item",
+              "decoded": " Item"
+            },
+            "stock_prefix_tail": "<FORK><table><tr><td>Part</td><td>"
+          },
+          {
+            "zero_based_step": 540,
+            "stock": {
+              "id": 8420,
+              "token": "Count",
+              "decoded": "Count"
+            },
+            "batch": {
+              "id": 5277,
+              "token": "\u0120Count",
+              "decoded": " Count"
+            },
+            "stock_prefix_tail": "<tr><td>Part</td><td>Item</td><td>"
+          },
+          {
+            "zero_based_step": 543,
+            "stock": {
+              "id": 20967,
+              "token": "Price",
+              "decoded": "Price"
+            },
+            "batch": {
+              "id": 15366,
+              "token": "\u0120Price",
+              "decoded": " Price"
+            },
+            "stock_prefix_tail": "</td><td>Item</td><td>Count</td><td>"
+          }
+        ]
+      }
+    },
+    "long-short": {
+      "long": {
+        "parity_through_stop": false,
+        "first": {
+          "zero_based_step": 84,
+          "b1_id": 24254,
+          "candidate_id": 25089
+        },
+        "unequal_fields": [
+          "text"
+        ],
+        "candidate_emitted_excluding_eos": 665,
+        "terminal": "eos",
+        "differing_decisions_at_equal_length": [
+          {
+            "zero_based_step": 84,
+            "stock": {
+              "id": 24254,
+              "token": "516",
+              "decoded": "516"
+            },
+            "batch": {
+              "id": 25089,
+              "token": "518",
+              "decoded": "518"
+            },
+            "stock_prefix_tail": ", 256, 812, "
+          },
+          {
+            "zero_based_step": 227,
+            "stock": {
+              "id": 19,
+              "token": "1",
+              "decoded": "1"
+            },
+            "batch": {
+              "id": 20,
+              "token": "2",
+              "decoded": "2"
+            },
+            "stock_prefix_tail": " installed quantities.\n<PAGE><BLOCK>title<LEVEL"
+          },
+          {
+            "zero_based_step": 316,
+            "stock": {
+              "id": 6813,
+              "token": "item",
+              "decoded": "item"
+            },
+            "batch": {
+              "id": 7519,
+              "token": "Item",
+              "decoded": "Item"
+            },
+            "stock_prefix_tail": "<FORK><table><tr><td>Part</td><td>"
+          },
+          {
+            "zero_based_step": 449,
+            "stock": {
+              "id": 20,
+              "token": "2",
+              "decoded": "2"
+            },
+            "batch": {
+              "id": 19,
+              "token": "1",
+              "decoded": "1"
+            },
+            "stock_prefix_tail": " installed quantities.\n<PAGE><BLOCK>title<LEVEL"
+          },
+          {
+            "zero_based_step": 537,
+            "stock": {
+              "id": 7519,
+              "token": "Item",
+              "decoded": "Item"
+            },
+            "batch": {
+              "id": 24564,
+              "token": "\u0120Item",
+              "decoded": " Item"
+            },
+            "stock_prefix_tail": "<FORK><table><tr><td>Part</td><td>"
+          },
+          {
+            "zero_based_step": 540,
+            "stock": {
+              "id": 8420,
+              "token": "Count",
+              "decoded": "Count"
+            },
+            "batch": {
+              "id": 5277,
+              "token": "\u0120Count",
+              "decoded": " Count"
+            },
+            "stock_prefix_tail": "<tr><td>Part</td><td>Item</td><td>"
+          },
+          {
+            "zero_based_step": 543,
+            "stock": {
+              "id": 20967,
+              "token": "Price",
+              "decoded": "Price"
+            },
+            "batch": {
+              "id": 15366,
+              "token": "\u0120Price",
+              "decoded": " Price"
+            },
+            "stock_prefix_tail": "</td><td>Item</td><td>Count</td><td>"
+          }
+        ]
+      },
+      "short": {
+        "parity_through_stop": true,
+        "first": null,
+        "unequal_fields": [],
+        "candidate_emitted_excluding_eos": 62,
+        "terminal": "eos",
+        "differing_decisions_at_equal_length": []
+      }
+    }
+  },
+  "first_divergences": [
+    {
+      "order": "short-long",
+      "slot_zero_based": 1,
+      "window": "long",
+      "step_zero_based": 84,
+      "stock_winner": {
+        "id": 24254,
+        "token": "516",
+        "decoded": "516"
+      },
+      "batch_winner": {
+        "id": 25089,
+        "token": "518",
+        "decoded": "518"
+      },
+      "prior_context": "<BLOCK>table[76, 256, 812, ",
+      "raw_top2": {
+        "stock": [
+          {
+            "id": 25089,
+            "logit": 58.0
+          },
+          {
+            "id": 24254,
+            "logit": 58.0
+          }
+        ],
+        "batch": [
+          {
+            "id": 25089,
+            "logit": 57.75
+          },
+          {
+            "id": 24254,
+            "logit": 57.5
+          }
+        ]
+      },
+      "processed_top2": {
+        "stock": [
+          {
+            "id": 25089,
+            "logit": 58.0
+          },
+          {
+            "id": 24254,
+            "logit": 58.0
+          }
+        ],
+        "batch": [
+          {
+            "id": 25089,
+            "logit": 57.75
+          },
+          {
+            "id": 24254,
+            "logit": 57.5
+          }
+        ]
+      },
+      "stock_to_b2": {
+        "processed": {
+          "24254": {
+            "b1": 58.0,
+            "b2": 57.5,
+            "b2_minus_b1": -0.5
+          },
+          "25089": {
+            "b1": 58.0,
+            "b2": 57.75,
+            "b2_minus_b1": -0.25
+          }
+        },
+        "raw": {
+          "24254": {
+            "b1": 58.0,
+            "b2": 57.5,
+            "b2_minus_b1": -0.5
+          },
+          "25089": {
+            "b1": 58.0,
+            "b2": 57.75,
+            "b2_minus_b1": -0.25
+          }
+        }
+      },
+      "replay": {
+        "stock": "reproduced",
+        "wrapper_b1": "reproduced",
+        "wrapper_b2": "reproduced"
+      },
+      "peer_already_stopped": true,
+      "guard": {
+        "24254": {
+          "ngram_banned": false,
+          "page_banned": false
+        },
+        "25089": {
+          "ngram_banned": false,
+          "page_banned": false
+        }
+      }
+    },
+    {
+      "order": "long-short",
+      "slot_zero_based": 0,
+      "window": "long",
+      "step_zero_based": 84,
+      "stock_winner": {
+        "id": 24254,
+        "token": "516",
+        "decoded": "516"
+      },
+      "batch_winner": {
+        "id": 25089,
+        "token": "518",
+        "decoded": "518"
+      },
+      "prior_context": "<BLOCK>table[76, 256, 812, ",
+      "raw_top2": {
+        "stock": [
+          {
+            "id": 25089,
+            "logit": 58.0
+          },
+          {
+            "id": 24254,
+            "logit": 58.0
+          }
+        ],
+        "batch": [
+          {
+            "id": 25089,
+            "logit": 57.75
+          },
+          {
+            "id": 24254,
+            "logit": 57.5
+          }
+        ]
+      },
+      "processed_top2": {
+        "stock": [
+          {
+            "id": 25089,
+            "logit": 58.0
+          },
+          {
+            "id": 24254,
+            "logit": 58.0
+          }
+        ],
+        "batch": [
+          {
+            "id": 25089,
+            "logit": 57.75
+          },
+          {
+            "id": 24254,
+            "logit": 57.5
+          }
+        ]
+      },
+      "stock_to_b2": {
+        "processed": {
+          "24254": {
+            "b1": 58.0,
+            "b2": 57.5,
+            "b2_minus_b1": -0.5
+          },
+          "25089": {
+            "b1": 58.0,
+            "b2": 57.75,
+            "b2_minus_b1": -0.25
+          }
+        },
+        "raw": {
+          "24254": {
+            "b1": 58.0,
+            "b2": 57.5,
+            "b2_minus_b1": -0.5
+          },
+          "25089": {
+            "b1": 58.0,
+            "b2": 57.75,
+            "b2_minus_b1": -0.25
+          }
+        }
+      },
+      "replay": {
+        "stock": "reproduced",
+        "wrapper_b1": "reproduced",
+        "wrapper_b2": "reproduced"
+      },
+      "peer_already_stopped": true,
+      "guard": {
+        "24254": {
+          "ngram_banned": false,
+          "page_banned": false
+        },
+        "25089": {
+          "ngram_banned": false,
+          "page_banned": false
+        }
+      }
+    }
+  ],
+  "board_sampled_mib_by_phase": {
+    "cold": {
+      "samples": 12,
+      "peak_used_mib": 6962,
+      "minimum_free_mib": 9036
+    },
+    "diag-long-short-long-wrapper-b2": {
+      "samples": 5,
+      "peak_used_mib": 9355,
+      "minimum_free_mib": 6643
+    },
+    "diag-short-long-long-fp32-b1": {
+      "samples": 5,
+      "peak_used_mib": 14635,
+      "minimum_free_mib": 1363
+    },
+    "diag-short-long-long-fp32-b2": {
+      "samples": 7,
+      "peak_used_mib": 14849,
+      "minimum_free_mib": 1149
+    },
+    "diag-short-long-long-stock": {
+      "samples": 5,
+      "peak_used_mib": 8724,
+      "minimum_free_mib": 7274
+    },
+    "diag-short-long-long-wrapper-b1": {
+      "samples": 4,
+      "peak_used_mib": 8724,
+      "minimum_free_mib": 7274
+    },
+    "diag-short-long-long-wrapper-b2": {
+      "samples": 5,
+      "peak_used_mib": 9356,
+      "minimum_free_mib": 6642
+    },
+    "g1-stock-long": {
+      "samples": 40,
+      "peak_used_mib": 8704,
+      "minimum_free_mib": 7294
+    },
+    "g1-stock-short": {
+      "samples": 14,
+      "peak_used_mib": 8703,
+      "minimum_free_mib": 7295
+    },
+    "g1-wrapper-long": {
+      "samples": 37,
+      "peak_used_mib": 8704,
+      "minimum_free_mib": 7294
+    },
+    "g1-wrapper-short": {
+      "samples": 4,
+      "peak_used_mib": 8704,
+      "minimum_free_mib": 7294
+    },
+    "g2-long-short": {
+      "samples": 35,
+      "peak_used_mib": 8724,
+      "minimum_free_mib": 7274
+    },
+    "g2-short-long": {
+      "samples": 38,
+      "peak_used_mib": 8724,
+      "minimum_free_mib": 7274
+    }
+  },
+  "warm_ab_ba": "not released",
+  "replay_60_pages": "held for failed exact parity or ineligible windows",
+  "fp32_prefix": {
+    "b1_selected": 25089,
+    "b2_selected": 25089,
+    "cross_shape": {
+      "processed": {
+        "24254": {
+          "b1": 58.601356506347656,
+          "b2": 58.601356506347656,
+          "b2_minus_b1": 0.0
+        },
+        "25089": {
+          "b1": 58.728981018066406,
+          "b2": 58.72896194458008,
+          "b2_minus_b1": -1.9073486328125e-05
+        }
+      },
+      "raw": {
+        "24254": {
+          "b1": 58.601356506347656,
+          "b2": 58.601356506347656,
+          "b2_minus_b1": 0.0
+        },
+        "25089": {
+          "b1": 58.728981018066406,
+          "b2": 58.72896194458008,
+          "b2_minus_b1": -1.9073486328125e-05
+        }
+      }
+    },
+    "representative": "diag-short-long-long",
+    "scope": "first comparable mismatch, both batch sizes",
+    "status": "completed",
+    "b1_top2": [
+      {
+        "id": 25089,
+        "logit": 58.728981018066406
+      },
+      {
+        "id": 24254,
+        "logit": 58.601356506347656
+      }
+    ],
+    "b1_scope": "FP32 native vision, input embeddings, decoder, router, KV and head; same checkpoint coefficients and native BF16 raster-builder values promoted to FP32; on-demand FP32 native routed experts; autocast off, CUDA matmul and cuDNN convolution TF32 off; Triton absent, native dense fallback, PyTorch SDPA MATH forced throughout the reference replay",
+    "b2_top2": [
+      {
+        "id": 25089,
+        "logit": 58.72896194458008
+      },
+      {
+        "id": 24254,
+        "logit": 58.601356506347656
+      }
+    ],
+    "b2_scope": "FP32 native vision, input embeddings, decoder, router, KV and head; same checkpoint coefficients and native BF16 raster-builder values promoted to FP32; on-demand FP32 native routed experts; autocast off, CUDA matmul and cuDNN convolution TF32 off; Triton absent, native dense fallback, PyTorch SDPA MATH forced throughout the reference replay"
+  }
+}
