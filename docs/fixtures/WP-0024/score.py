@@ -76,11 +76,15 @@ def captured(metadata, expected):
     found={"owner":None,"unit":None,"schema":None}
     visible={"owner":None,"unit":None,"schema":None}
     ledger=False
+    child_open=False
     # Match complete natural lines. A directory label or child lookup cannot satisfy this rule.
     for s in spans:
+        if child_open:
+            break
         text=s["text"]
         for line in text.splitlines():
             if norm(line)=="supporting schedule":
+                child_open=True
                 break
             owner=re.search(r"(?:^|\s)ledger\s*:\s*([\w-]+)\b",line,flags=re.I)
             if owner:

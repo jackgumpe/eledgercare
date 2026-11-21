@@ -81,6 +81,11 @@ def test():
     wrong[b]["spans"][-1]["cells"]=["Item","Ref","Amount"]
     c0=score(o=wrong)["pairs"][0]["c0"][b]
     assert not c0["pass_c0"] and c0["miss_reasons"]==["schema_mismatch"]
+    child_only=dict(spans=[block(0,"Owners: A / B"),block(1,"Supporting schedule"),
+                           block(2,"Ledger: A"),block(3,"Unit: U1"),
+                           block(4,"Item Amount Ref",["Item","Amount","Ref"])])
+    hidden=impl["captured"](child_only,{"owner":"A","unit":"U1","schema":["Item","Amount","Ref"]})
+    assert not hidden["pass_c0"] and hidden["miss_reasons"]==["owner_absent","unit_absent","schema_absent"]
     changed=deepcopy(preds)
     changed["M3"][b]["unit"]="wrong"
     bad=score(changed)
