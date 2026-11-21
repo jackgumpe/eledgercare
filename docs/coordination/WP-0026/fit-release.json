@@ -1,0 +1,49 @@
+{
+  "packet": "WP-0026",
+  "phase": "fit and calibrate",
+  "authority": "eld-coordinator",
+  "issued_utc": "2026-11-21T21:42:35.379627+00:00",
+  "operator": "eld-twin-author",
+  "checkout": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/w026-author",
+  "candidate": "e6f41a7d3580894a8d6aefdb8704d5d52e2fbb7d",
+  "supervisor": "docs/research/WP-0026/study.py",
+  "frozen_probe_revision": "7db67283a4ffd3e7a20bb8d80499572cc7118c71",
+  "underlying_probe_sha256": "bb6aa0cdd675901157a4b725950f4927fa2cf16d051ddcd6b1128da6f6f28f7c",
+  "inputs": {
+    "train": {
+      "plan": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0026\\train-features-r1-plan.json",
+      "plan_sha256": "f9da68268964208d0676568cda84e15de155cd71541ed5c6735b6e5ae5348781",
+      "route_audit": "docs\\reviews\\WP-0026\\train-features-routes.json",
+      "route_audit_sha256": "a5a42f11bd1ee67b5f9e6e40d4df1f8c114595d8fda38176f449a326f44efd0a",
+      "runtime_audit": "docs\\reviews\\WP-0026\\train-features-runtime.json",
+      "runtime_audit_sha256": "7539f80135c64955159c31cf0dce5ed3314971876c062b2fe41a4cc2c386e9ec",
+      "pairs": 10,
+      "supervised_truth": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0024\\custody\\v2\\private\\train\\truth.json",
+      "truth_sha256": "1cbd433d33ea25f7f5ac3df5b53110db1eff204e54622ba684f8b158bbba5e0f"
+    },
+    "cal": {
+      "plan": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare\\docs\\coordination\\WP-0026\\cal-features-r1-plan.json",
+      "plan_sha256": "000cac60211fe6225ca1ef66ed82e0eb8ecc44e936d9f017b4101db946a11405",
+      "route_audit": "docs\\reviews\\WP-0026\\cal-features-routes.json",
+      "route_audit_sha256": "3a15624596dbd2aed1aa758abf90202c52a55afd280c67838363a6fb9b350139",
+      "runtime_audit": "docs\\reviews\\WP-0026\\cal-features-runtime.json",
+      "runtime_audit_sha256": "7424a5e1607b55ae6b5221a7f44adbeea88f600de9db6316764a915df668c3a0",
+      "pairs": 10,
+      "supervised_truth": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0024\\custody\\v2\\private\\cal\\truth.json",
+      "truth_sha256": "a227da1293bcd6f8b0f636ce3349abd12d02a52361a46b47dbf34969cc773ff1"
+    }
+  },
+  "independent_feature_revisions": {
+    "train": "1e9e85a15ede94d06bc8cf036c8e90b7a392fa3f",
+    "cal": "1f246c71378e973e23ebeabfeb7fda56a8ccca2b"
+  },
+  "h0_gate_sha256": "9686edc519c9663733ab2b115cb2f9c22881e8db794068e85ded15e0b2b754cf",
+  "c1_gate_sha256": "107e89a751a9f33d1c00c33dbca38ddb271245056af92709d81e2c111e315e5f",
+  "parameters_per_model": 880258,
+  "epochs_per_model": 6,
+  "seed": 2401,
+  "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0026\\author\\fit-r1",
+  "device": "isolated CPU, no CUDA",
+  "threshold_selection": "frozen calibration grid on cal only",
+  "separate_reviewer_action": "After a successful fit, independently validate the weights, thresholds, matched budgets and cached/uncached six-view decisions on the designated training C1 witnesses before blind release."
+}
