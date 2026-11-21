@@ -192,4 +192,3 @@ def order_profile(schedule):
         strata[key] = {k:dict(tag_stream=v,distinct_verified_streams=sorted({s for _,s in v if s}))
                        for k,v in groups.items()}
     return strata
-

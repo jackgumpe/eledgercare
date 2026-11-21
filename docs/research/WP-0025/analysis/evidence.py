@@ -191,4 +191,3 @@ def reconstruct_pool(folder, sample, duration):
         rows=len(ids),width=WIDTH,absolute_position_range_half_open=[start,stop],pool_count=len(pools),
         rebuilt_exact_sha256=digest(rebuilt.tobytes()),retained_pool_sha256=capture["pooled_sha256"],
         retained_hidden_sha256=capture["hidden_sha256"],all_span_means_bit_exact=True))
-
