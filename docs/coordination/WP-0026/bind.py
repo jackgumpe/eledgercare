@@ -115,6 +115,9 @@ def corpus_order(repo, split, phase, label, prior, gate):
                     and old["warmup"]["fixture_sha256"] == guard.sha(repo/WARM)
                     and old["model_revision"] == read(H0)["model_revision"], "Incompatible C1 provenance")
     sched = corpus_plan.schedule(public, phase, cached)
+    if split == 'blind' and phase == 'features':
+        from blind_budget import bounded_blind
+        sched = bounded_blind(sched, corpus_plan, public, old, cached)
     if phase == "features" and split in ("train", "cal"):
         require(len(sched["calls"]) == {"train":11,"cal":29}[split], "Development count")
     receipt = read(public / "receipt.json")
