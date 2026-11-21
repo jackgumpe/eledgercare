@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex 
 
 ## WP-0024 Counterfactual Twin-Binder Baidu memory trial
 
-The coordinator and an independent reviewer closed post-WP-0023 Stage A on CPU. Both parsers retain a changed table-header cell on page 8. The external Twin-Binder trial is reserved with separate custody, probe author and independent reviewer roles. H0 has a frozen two-binder, sixteen-call B=1 plan. Device admission is pending. [Stage A and H0 evidence](docs/coordination/WP-0024/stage-a-closure.md) · [Assignment](docs/coordination/WP-0024/assignment.md)
+The coordinator and an independent reviewer closed post-WP-0023 Stage A on CPU. Both parsers retain a changed table-header cell on page 8. The external Twin-Binder trial is reserved with separate custody, probe author and independent reviewer roles. Development fixture, recurrence and scoring checks passed independent CPU review. A one-shot H0 watcher is active for 16 B=1 calls and will start when the occupied GPU is free. [CPU evidence and device status](docs/coordination/WP-0024/cpu-checkpoint.md) · [Stage A](docs/coordination/WP-0024/stage-a-closure.md) · [Assignment](docs/coordination/WP-0024/assignment.md)
 
 ## Completed WP-0023 Native Baidu B=1 versus B=2 speed trial
 
