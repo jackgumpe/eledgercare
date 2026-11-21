@@ -220,8 +220,12 @@ def run(args):
             for pair, output in outputs.items():
                 assert output["stack_before"] == [f["scope"] for f in stack[pair]["before"]]
                 assert output["stack_after"] == [f["scope"] for f in stack[pair]["after"]]
-            history = [{"page":n, "line":li, "words":ln, "output":outputs.get((n,li)), **stack[n,li]}
-                       for (n,li),ln in lines.items()]
+            history = []
+            for page in doc["pages"]:
+                for li, block in enumerate(page["lines"], 1):
+                    k = page["page"], li
+                    history.append({"page":k[0], "line":li, "words":block["words"],
+                                    "native_line_text":block.get("text"), "output":outputs.get(k), **stack[k]})
             save(args.out / f"history-{arm}-{docid}.json", history)
             seen = set()
             for target in cases:

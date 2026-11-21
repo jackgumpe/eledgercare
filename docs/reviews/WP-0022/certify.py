@@ -29,6 +29,8 @@ def main(out, coordinator, dest):
                 loc = f"{entry['page']}/{entry['line']}"
                 other = canonical["lines"][loc]
                 assert entry["words"] == other["words"]
+                if arm == "W":
+                    assert entry["native_line_text"] == other["text"]
                 for phase in ("before","after"):
                     normalized = [dict(scope=f["scope"],headingRefs=f["heading_refs"],headerRefs=f["header_refs"],
                                        x0Anchors=f["anchors"],rules=f["rules"],headerPage=f["header_page"],

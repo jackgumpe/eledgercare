@@ -54,7 +54,8 @@ def build(replay, out):
             for entry in history:
                 result = entry["output"]
                 observations.append({"arm":arm,"page":entry["page"],"line":entry["line"],
-                                     "words":entry["words"], "before":snapshot(entry["before"]),
+                                     "words":entry["words"], "native_line_text":entry["native_line_text"],
+                                     "before":snapshot(entry["before"]),
                                      "after":snapshot(entry["after"]),"reader_output":result})
         targets = []
         for path in sorted(replay.glob(doc + "-T*.json")):
