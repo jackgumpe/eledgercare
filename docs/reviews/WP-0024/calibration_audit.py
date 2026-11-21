@@ -26,13 +26,13 @@ def classify(rev):
     return module["classification"], hashlib.sha256(code).hexdigest()
 
 
-def test(scorer):
+def test(scorer,fixed=FIX):
     isolated_environment()
     ns={}
     code=blob_at(scorer,"docs/fixtures/WP-0024/score.py")
     exec(compile(code,"custody/score.py","exec"),ns)
     a,ah=classify(PRIOR)
-    b,bh=classify(FIX)
+    b,bh=classify(fixed)
     truth=dict(ambiguous=False,stratum="T1",owner="Birch",unit="Unit8",column="Ref",subtotal_status=None)
     posting={k:v for k,v in truth.items() if k not in ("ambiguous","stratum")}|{"type":"Posting"}
     abstention={"type":"ABSTAIN","reason":"zero_state_tie"}
@@ -56,12 +56,12 @@ def test(scorer):
         rows[label]={"old":old,"new":new,"custody":target}
     different=[key for key,row in rows.items() if row["old"]!=row["custody"]]
     assert different==["same_case","same_entity_and_spaces"]
-    return {"old_probe":PRIOR,"new_probe":FIX,"custody_scorer":scorer,"old_run_py_sha256":ah,
+    return {"old_probe":PRIOR,"new_probe":fixed,"custody_scorer":scorer,"old_run_py_sha256":ah,
             "new_run_py_sha256":bh,"score_py_sha256":hashlib.sha256(code).hexdigest(),
             "triple_order":["full_correct","silent_error","posted"],"old_disagreements":different,"cases":rows}
 
 
 if __name__=="__main__":
     assert sys.flags.isolated and sys.dont_write_bytecode
-    print(json.dumps(test(sys.argv[1]),indent=2))
+    print(json.dumps(test(*sys.argv[1:]),indent=2))
 
