@@ -5,6 +5,7 @@ import hashlib
 import hmac
 import io
 import json
+import math
 from pathlib import Path
 import secrets
 
@@ -225,7 +226,8 @@ def page_receipt(stream, fonts, store, memory):
         with closing(doc[0]) as page:
             if page.get_size() != (612.,792.):
                 raise ValueError("unexpected source size")
-            bitmap = page.render(scale=300/72)
+            # PDFium ceil()s dimensions. The nearest lower float yields exactly 2550 x 3300.
+            bitmap = page.render(scale=math.nextafter(300/72,0))
             try:
                 image = bitmap.to_pil().convert("RGB")
                 if image.size != (2550,3300):
