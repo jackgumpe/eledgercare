@@ -1,6 +1,5 @@
 """Preserve complete or interrupted signed output, its guarded order and source inputs in bounded ZIPs."""
 import argparse
-import hashlib
 import json
 import os
 from pathlib import Path
@@ -65,6 +64,9 @@ def archive(release_file,pin,output):
     entries = {"binding/"+release_file.name:release_file}
     for p in local_files(lease):
         entries["guard/"+p.relative_to(lease).as_posix()] = p
+    op = HOST/"review/operator"/label
+    for p in local_files(op):
+        entries["operator/"+p.relative_to(op).as_posix()] = p
     failures,orders = [],{}
     for order in release["orders"]:
         name = order["run"]
