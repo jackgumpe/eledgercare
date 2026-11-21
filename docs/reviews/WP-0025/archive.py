@@ -20,6 +20,16 @@ def archive(release_path, expected_digest, dest, inventory):
         raw_plan=plan.read_bytes()
         assert hashlib.sha256(raw_plan).hexdigest()==order["plan_sha256"]
         entries["binding/"+plan.name]=raw_plan
+        spec=json.loads(raw_plan)
+        assert spec["calls"][0]["pages"]==spec["calls"][-1]["pages"]
+        pdf,=spec["requests"]
+        files=[(Path(pdf["pdf"]),pdf["sha256"])]
+        files.extend((Path(page["image"]),page["sha256"]) for page in spec["calls"][0]["pages"])
+        for path,expected in files:
+            name="inputs/"+path.name
+            if name not in entries:
+                entries[name]=path.read_bytes()
+            assert hashlib.sha256(entries[name]).hexdigest()==expected
     for prefix,path in [("guard",LEASE),("runs",HOST/"review/runs"),("operator",HOST/"review/operator")]:
         for p in sorted(path.rglob("*")):
             relative=p.relative_to(path)
