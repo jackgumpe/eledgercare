@@ -1,0 +1,79 @@
+# WP-0022 / 002 — WinRT read every populated amount and the frozen reader owned none
+
+- Author and publisher — eld-winrt-author, fresh native Codex team session `/root/win22_paired`. Requested effort xhigh. Backend model and applied effort were not exposed.
+- Category and status — research, ready for independent review by eld-winrt-reviewer /003.
+- Canonical report — `docs/agent-reports/eld-winrt-author/WP-0022/002_2026-11-21_research_eld-winrt-author.md`. No earlier report from this author in the packet. [Reservation](https://github.com/jackgumpe/eledgercare/blob/10cbfb0fa8de2befb28a69c6fb10da90ca737219/INDEX.md#wp-0022-rendered-versus-winrt-ledger-ownership)
+- Publication date — 2026-11-21 UTC. Completed author checks at 2026-11-21T06:56:01Z.
+- Repository — private `jackgumpe/eledgercare`, branch `research/wp-0022-paired`, worktree `C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/scope22-paired`.
+- Base — `10cbfb0fa8de2befb28a69c6fb10da90ca737219`. Frozen harness — `e8168f54e1c9fc6d7e81babbeb8d749353922c1c`. Blind deliverable — `dc033d1491e930eba933f6afd694a5ecde1ea8f7`. Post-key witness/timing deliverable — `aeb17ed97dbd84dc1a99f7b6cc9269cf658a3008`.
+
+## Result
+
+On eight fresh two-page synthetic forms, the exact saved-frame reader assigned **24/36 unambiguous values** from renderer observations and **0/36** from Windows OCR observations. In each arm all 36 amount regions contained exactly one center-sourced word and all 36 literals matched the key. **All eight W documents lost the parent header when Windows grouped its four visible words into separate lines.** The reader requires the exact four-word line to capture the parent anchors. W flagged all populated amounts, including the controls and all ten unambiguous resumed-parent values. This comparison covers these constructed forms, with the scoring key opened after both arms were immutable. [Full scores](https://github.com/jackgumpe/eledgercare/blob/d7d3a5f717662e8e0980e86dd726911e7d04fa3e/docs/coordination/WP-0022/scores.json)
+
+| Primary outcome | W passed | W failed |
+| --- | ---: | ---: |
+| R passed | 6 | 24 |
+| R failed | 0 | 12 |
+
+| Measure | R | W |
+| --- | ---: | ---: |
+| All targets passing / 42 | 30 | 6 |
+| Setup targets passing / 16 | 12 | 0 |
+| Post-break targets passing / 26 | 18 | 6 |
+| Properly owned unambiguous values / 36 | 24 | 0 |
+| Value rows with any explicit flag / 36 | 12 | 36 |
+| Value rows with a flag on an actual Amount word / 36 | 8 | 36 |
+| Truly ambiguous targets explicitly flagged / 2 | 2 | 2 |
+| Known blanks safely withheld / 4 | 4 | 4 |
+| Positively represented blank cells / 4 | 0 | 0 |
+| Opposite populated / blank margin notes silently posted | 0 / 0 | 0 / 0 |
+| Unflagged wrong or duplicate posts, inside or outside keyed rows | 0 | 0 |
+| Other unkeyed lines flagged | 12 | 67 |
+| Populated amount regions with zero intersecting words / multiple centered words | 0 / 0 | 0 / 0 |
+| Transcription-only mismatches among owned values | 0 / 24 | 0 / 0 |
+
+The six both-pass rows comprise four withheld blanks and two warranted flags on ambiguous rows. All four true blanks had zero intersecting amount words, and each read retained the note separately or flagged a candidate. Neither output represented an explicit empty cell. N07 and N08 reuse identical page-one and page-two images across their opposing ambiguous keys. The paired matrix counts logical targets, while physical capture counts each PNG once. [Blind inputs and release](https://github.com/jackgumpe/eledgercare/blob/d9118c73fc4fa71e9c09ad52b0a49e8bb17f3993/docs/coordination/WP-0022/release.json)
+
+## Failure evidence
+
+The attached witnesses are part of this report. Each gives the row and cell rectangles, exact source-order lines with every word and point rectangle, the terminal candidate, saved and physical header deltas, and complete before/after stack and banner snapshots. I selected the rows below from my reproduction of the coordinator's diagnostic. The linked full index also covers every remaining target. [Nine complete witness rows](../../../research/WP-0022/analysis/witness-rows.md) · [All 42 paired targets](https://github.com/jackgumpe/eledgercare/blob/d7d3a5f717662e8e0980e86dd726911e7d04fa3e/docs/coordination/WP-0022/witnesses/index.json)
+
+- **W parent header splits before the setup row.** For N01-T01, the single R header becomes W lines 1/4 “Date Description” and 1/7 “Ref Amount”, separated by a body line and a vendor line. R assigns 58.40 on line 1/5 at a saved delta of 0 pt. W proposes it on 1/8 at a *physical* header delta of 0 pt, with the parent heading present but its saved anchors empty before and after. The W amount box differs from R only at x0, by +0.24 pt. Across the suite the parent header split across two or four native lines. [N01-T01](../../../research/WP-0022/analysis/witness-rows.md#n01-t01)
+- **W captures a child header but rejects the child.** On N01-T02 the two arms have the exact same amount rectangle and body words. R posts 65.20. W identifies the child from the current headed grid and measures −0.24 pt to its saved child Amount anchor, well within tolerance. The all-open-frames word check finds the parent lacks anchors, so the reader flags grid-word-disagreement. On N01-T03, W still holds the child with the same anchors across pages, but now the grid comparison also consults every open frame and reports missing-header-grid. These are two distinct paths from the earlier parent header split. [Setup](../../../research/WP-0022/analysis/witness-rows.md#n01-t02) · [Continuation](../../../research/WP-0022/analysis/witness-rows.md#n01-t03)
+- **R rejects eight values outside the 3-point left-edge rule with the correct frame captured.** N03-T03 contains 12,450.00 at [448.08, 125.28, 492.96, 134.4] in both arms. R's correct child header begins at 456.72 pt, so the −8.64 pt delta rejects the amount although the grid uniquely selects the child. R separately proposes the wrapped word “packing”. W splits the body and delivers the amount on 2/22 with no saved child anchor. On the three-line parent return N03-T06 the R grid selects its captured parent, but the physical and saved header delta for (7,814.60) is −10.56 pt. The two continuation lines each offer a further description word. Both frames are retained. [Wide child](../../../research/WP-0022/analysis/witness-rows.md#n03-t03) · [Parent return](../../../research/WP-0022/analysis/witness-rows.md#n03-t06)
+- **R selects the terminal margin note on four populated rows.** In N03-T04 the fourth R word 9.00 lies in the cell at x0 473.28. The fifth, also 9.00, lies in the margin at x0 533.04. R selects the fifth word, +76.32 pt from the child header, and flags the five-word line. W separates the cell and note into lines 2/23 and 2/26 and flags both. In N03-T07 the same R mechanism selects note 214.75 instead of the negative amount -8.75. The note is +100.32 pt from the parent header. No note posts. [Equal literals](../../../research/WP-0022/analysis/witness-rows.md#n03-t04) · [Different literals](../../../research/WP-0022/analysis/witness-rows.md#n03-t07)
+- **Native line order interleaves two children.** In N05-T03 the W amount 63.80 of child A arrives on page 2 line 12, after the child B heading on line 7. Its rectangle matches R exactly. W processed the earlier parts of that body row while child A was active. Both child A and child B lacked captured headers. On N05-T04 the single-row parent return 82.10 has zero physical-header delta in W. The parent lacks anchors before and after all three native lines. R has the typed parent and pops its child. This records the ordering issue and the earlier header loss separately. [Sibling ordering](../../../research/WP-0022/analysis/witness-rows.md#n05-t03) · [Single-row return](../../../research/WP-0022/analysis/witness-rows.md#n05-t04)
+
+The pass/fail rows break down into 22 W decisions lacking the typed intended frame and the two N01 decisions with a captured child and an incomplete parent. Of the 12 fail/fail rows, eight have the R x0 rejection and four have a terminal margin candidate. W lacked a typed intended frame on all 12. For the 13 tagged returns, R produced six correct value assignments, four unambiguous flags, two safe blanks and one warranted ambiguity flag. W produced ten unambiguous flags, the two safe blanks and the warranted ambiguity flag. These witnesses establish a layout-rule failure on R and a line-grouping/reader-contract failure on W; later interleaved line order can add another obstacle. None demonstrates a captured, fully anchored W parent whose return cue the frame mechanism mishandles. The strict SPDB trigger was unmet.
+
+## Environment and cost
+
+Windows 26H2 build **26300.9974**, en-US, x64 Windows PowerShell 5.1.26100.9818, Python 3.12.10, Pillow 13.0.0, NumPy 2.2.6. Loaded system OCR DLL version 10.0.26100.9278 had SHA-256 `0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1`. English `MsOcrRes.orp` had SHA-256 `81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908`. Each PNG was 2550 × 3300 RGB, with a nominal 300 DPI and a WinRT density of 299.99939 DPI. Packed RGB required 7,650 bytes/row. WinRT returned a BGRA8 plane with the Straight alpha label, requested Ignore, 10,200-byte stride, start offset zero. Its canonical bytes matched opaque Pillow BGRA8 for every page. Rectangles were projected corner by corner into the 612 × 792 point frame without rounding or normalization. [Environment and source pins](../../../research/WP-0022/evidence/plan.json)
+
+| Mean standalone cost per logical page appearance | R wall ms | R process CPU ms | W wall ms | W process CPU ms |
+| --- | ---: | ---: | ---: | ---: |
+| Shared detector + this arm's observation and reader + cold W capture | 47.69 | 44.92 | 901.24 | 644.53 |
+| Same stages with only the awaited W recognition counted for capture | 47.69 | 44.92 | 139.62 | 143.55 |
+
+These means span 16 appearances. The second row is an arithmetic stage sum from the same cold requests. Across the 14 unique physical pages, grid detection averaged **48.01 ms wall / 45.76 ms process CPU**, recognition alone **93.53 / 99.33**, and the worker's in-script initialization and image checks **381.65 / 406.25**. Subprocess launch through exit averaged **850.55 ms wall**. W cold CPU includes measured in-script worker CPU and the controller's waiting CPU, excluding unobserved pre-script/exit CPU and work charged to another process. R/W reader wall means were 0.181/0.305 ms. Their submillisecond process-CPU intervals did not advance the Windows process counter. Both standalone estimates count one shared grid per appearance. The actual paired experiment ran the grid detector and OCR 14 times each. Full per-page timings include initialization, preparation and the phase boundaries. [Timing and author audit](../../../research/WP-0022/analysis/timing-and-audit.json) · [Timing definitions](../../../research/WP-0022/README.md)
+
+## Execution and verification
+
+1. Checked the clean reserved branch, origin, and base. Verified frozen reader `613a5ff92e9dd6783b8950529fbda76f6c21e9d3` and detector/format files `a0e738bc03e515999659dda09c5ee76d08fb37df` against their Git bytes. The reader was called once per continuous arm/document in `grid-words` mode. Its terminal-word rule and 3-point tolerance remained fixed.
+2. Ran a zero-recognition preflight on an invented colored RGB image via `capture.ps1 -Preflight`. The native pixel digest, plane geometry and English engine passed. Invented geometry/empty-line controls tested projection, raw line whitespace and timed-reader equality. A scratch-only fabricated native return tested raw/finish persistence. Repeating that fabricated test exited 1 at the exclusive start record and preserved the original bytes.
+3. The coordinator froze scorer `393e8faeaa5ebec777e949601fe1880bbf78450b`, public custody `e207ee56ce1716abf6568ecdb254c6f8e0a89f74` and release `d9118c73fc4fa71e9c09ad52b0a49e8bb17f3993` before study execution. The following was the successful capture command in the owned worktree. The first invocation used the inherited PowerShell 7 module path. Its first worker exited 1 during environment initialization because Windows PowerShell could not resolve `Get-FileHash`. At that checkpoint one grid had completed, and there were zero OCR start, finish or raw records. Correcting only the child process module search path let the unchanged harness reuse that grid. No call was reissued.
+
+```powershell
+$env:PSModulePath = Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/Modules'
+& 'C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe' -B docs/research/WP-0022/paired.py --candidate e8168f54e1c9fc6d7e81babbeb8d749353922c1c --custody e207ee56ce1716abf6568ecdb254c6f8e0a89f74 --scorer 393e8faeaa5ebec777e949601fe1880bbf78450b --release d9118c73fc4fa71e9c09ad52b0a49e8bb17f3993 --manifest-sha256 bb527e498409db4b813f1ca4534bcfcc7967eeb5a48f8acbf99abd2bfab961c3 --rasters 14
+```
+
+4. Actual capture journals extend from 06:49:21.6381252Z to 06:49:33.9597627Z. The run exited 0 and produced 14 unique raw results with 217 native lines and 312 native words. I cross-checked all 147 SHA-256 entries, every W native line/text/word/ref/rectangle against the full-precision projection, both shared grids on each logical page, candidate pointers and complete frozen-reader results. The blind commit was made at 06:49:50Z and verified on the owned remote branch before the coordinator released the key. The SHA-256 of `blind-hashes.json` is `6593f4561ff434c61a225ef515fc727a8793d19b0b1404fab2fb2e178bdfa24b`. [Immutable blind archive](https://github.com/jackgumpe/eledgercare/tree/dc033d1491e930eba933f6afd694a5ecde1ea8f7/docs/research/WP-0022/evidence)
+5. The custodian unsealed `e6ea32afbfa4aaf4e693cdea8af1c1121c0cadd1` at 06:50:50Z. Its truth SHA-256 matched the precommitted `ef32bc6bff114900deda32d6f161dce4bf311930f7802dc23c9a6dd36d8e40df`. In author scratch I exported the exact scorer, trace and key using `git show <rev>:<path>`. I executed `python -B score.py truth.json <blind-evidence> score.json` followed by `python -B trace.py <frozen-read_scope.py> truth.json <blind-evidence> score.json witnesses`. Scorer source SHA-256 was `96593f14664539a7ffc979fee38498a2ac3c8655af4ecfdc9d28e1edd534fa23`, trace source SHA-256 was `d53765984cd9bbb7971a8c77dc7eef0b776a798635659e3c9af1c9bcfd90e6b7`. Scores and all nine witness files matched the coordinator's published bytes at `d7d3a5f717662e8e0980e86dd726911e7d04fa3e`. I inspected raw observations, exact frames, candidate deltas and the source matching the answer key.
+
+## Change inventory and handoff
+
+The base-to-deliverable diff contains 153 added files. The harness consists of `docs/research/WP-0022/{capture.ps1,paired.py,README.md}`. The 148 blind evidence files comprise `plan.json`, `blind-hashes.json`, seven journal/data/timing files per unique SHA, and 16 arm/document files each for observations, predictions and reader/projection timings. The two post-key files are `analysis/witness-rows.md` and `analysis/timing-and-audit.json`. This report is separate publication metadata. External effects were the private owned branch push, synthetic public input copies, invented preflight files, and offline scorer/check outputs in `eledgercare-worktrees/wp0022-data/author`. All workers exited. The protocol authorized one CPU study; second inference, GPU/Baidu, SPDB, product tests and deployment were outside it. [Complete 153-path diff](https://github.com/jackgumpe/eledgercare/compare/10cbfb0fa8de2befb28a69c6fb10da90ca737219...aeb17ed97dbd84dc1a99f7b6cc9269cf658a3008) · [Exact evidence paths and digests](../../../research/WP-0022/evidence/blind-hashes.json)
+
+These results are author verification. The independent reviewer owns /003 and can check every observed failure using the blind publication and exact scorer/trace outputs. Root owns disposition /004.
