@@ -1,0 +1,148 @@
+{
+  "assignment_base": "f05dcc4c1f5ca7d7ecd82e83ca63f889369bc6fd",
+  "w0_candidate": "9ed0b70e53eb47ae2f6d47b35196f846408a0c2c",
+  "w0_receipt_sha256": "7c509b3514daf75854b2b719cc7a94d44175c5af9fdcbae8ef4df0c68ec812e7",
+  "w0_complete_rebuild_files": 5,
+  "w0_rebuild_all_bytes_equal": true,
+  "development_source_and_fixture_checks": {
+    "h0": {
+      "source_commitments": {
+        "receipt.json": "b3e2a8c06aa1b42ec3043595b4d1f7f063dc3d512e195420b5841406ec70e23f",
+        "manifest.json": "20cb3a35c03e752e4f83a455278dbf558bb9712163057901110069f2ec23bf4e",
+        "pairs.json": "f01e6ba6f84658a99737f218c785b9f41f17ce235904f39f136dac91070ef176",
+        "cross-pair.json": "85060391104d8839e8c0bc165a4de0aefc07f586ef1871f17ec0658a8014dc32"
+      },
+      "appearances": 24,
+      "w0_png_overlap": 0,
+      "w0_rgb_overlap": 0,
+      "source_replay": {
+        "split": "h0",
+        "pairs": 1,
+        "binders": 2,
+        "distinct_pngs": 13,
+        "full_pdf_rendered_distinct": 13
+      }
+    },
+    "train": {
+      "source_commitments": {
+        "receipt.json": "3d65c20fe7792e4d062183d1c9f8c8db6a76a5e26242a6889bdddae2b688feb8",
+        "manifest.json": "63bf807667495ec8b18f27d163bc6592a49369636cdb6a38aed0f23e27383f2b",
+        "pairs.json": "60158bf745911bbc7fd6088bccbf8b53134fd35cc3e2942aceb4e53ebc8c5e63",
+        "cross-pair.json": "437233b4ee75132e0d4da092f3768f4c6b698e1f77a832a2d09482a5a0febfdc"
+      },
+      "appearances": 420,
+      "w0_png_overlap": 0,
+      "w0_rgb_overlap": 0,
+      "source_replay": {
+        "split": "train",
+        "pairs": 10,
+        "binders": 20,
+        "distinct_pngs": 53,
+        "full_pdf_rendered_distinct": 53
+      },
+      "declared_feature_triples": 27,
+      "c1_uncached": 28,
+      "c1_duplicate_checks": 12,
+      "c1_unique": 16,
+      "physical_after_c1": 11
+    },
+    "cal": {
+      "source_commitments": {
+        "receipt.json": "c698da52adb55a5611d5aae8749259eac97f371623aac574e880cecb2ecd32a9",
+        "manifest.json": "e41a6aa2f389fc8ca8fae294afbde159fd866d9c4cdef3299ce7bcab324c0efa",
+        "pairs.json": "47919b20093182374cacf11b7391b87678cac673df9eefd0f2fc61e5c53ddc67",
+        "cross-pair.json": "6529fdcafd4af9920db83c2802a16b3e4bbad8601466b63852f9931f2e500612"
+      },
+      "appearances": 420,
+      "w0_png_overlap": 0,
+      "w0_rgb_overlap": 0,
+      "source_replay": {
+        "split": "cal",
+        "pairs": 10,
+        "binders": 20,
+        "distinct_pngs": 55,
+        "full_pdf_rendered_distinct": 55
+      },
+      "declared_feature_triples": 29
+    }
+  },
+  "h0_witness_sha256": "dfb55b56833599f111eb29e2b3d4b8a7de9eab13b8caae277e09c9ba60271989",
+  "h0_witness_exact_source_replay": true,
+  "predecessor_custody_source": "e6c1abaed36a379780084be826c5fd0afaf3132b",
+  "source_sha256": {
+    "docs/fixtures/WP-0024/corpus.py": "2eabf85b2df841f755579419b3cff7ef770b3fe717c1b1988d76c1b348d0b164",
+    "docs/fixtures/WP-0024/verify_fixtures.py": "986fdab53f0dd942800ef63ab4ccd55916a357450cda9aac242cea71055c9477",
+    "docs/fixtures/WP-0024/score.py": "55dbe3761cd5098c8593897260f7702148e4f8b9878f24ec6386655f3c2f0c5e",
+    "docs/fixtures/WP-0024/check_score.py": "956ad3af47e4f96e4ad49c9b3e774640f4f2bdf5c7246316bfbce43915385124",
+    "docs/coordination/WP-0024/corpus_plan.py": "8f7fcadd54cecc6970739c085c37aacb7615eabe4ed230b3eba1eab7fee8aac5",
+    "docs/research/WP-0024/probe/preflight.py": "e53e4180c5436a110b0993886dadc3f9d5bbed8a6764958b925258c7947c0c9e"
+  },
+  "synthetic_scorer_result": "PASS synthetic scorer regressions: C0, controls, all-arm completeness, donor directions, field errors, abstention coverage, matched gains, unsafe ambiguity, resource ceiling",
+  "cpu_probe_preflight_reference_sha256": "5faf26f681cc8aa00179fe00c098ded83972929c8365a184877a706a4d214ff7",
+  "cpu_probe_preflight_result": {
+    "calibration_semantics": [
+      "reviewer_case",
+      "space_and_entity",
+      "literal_tag_preserved",
+      "escaped_tag_literal",
+      "non_null_extra_status",
+      "required_status_missing",
+      "summary_casefold",
+      "answerable_abstention",
+      "ambiguous_posting",
+      "ambiguous_abstention",
+      "invalid_type_rejected"
+    ],
+    "torch": "2.13.0+cu130",
+    "cuda_visible": false,
+    "fp32_protected_Linf": 0.0,
+    "summary_Linf": 1.8394217491149902,
+    "pop_rank": 4,
+    "rank_one_backward_finite": true,
+    "empty_rank": 0,
+    "partial_rank_mask": [
+      true,
+      false,
+      true,
+      false
+    ],
+    "parameter_counts": [
+      880258,
+      880258
+    ],
+    "nonzero_finite_gradients": {
+      "M1": {
+        "summary_query": true,
+        "write_key.weight": true,
+        "write_value.weight": true,
+        "query.weight": true,
+        "gates.weight": true,
+        "gates.bias": true,
+        "anchor_value.weight": true,
+        "anchor_gate.weight": true,
+        "anchor_output.weight": true,
+        "pop_key.weight": true,
+        "pop_value.weight": true
+      },
+      "M3": {
+        "summary_query": true,
+        "write_key.weight": true,
+        "write_value.weight": true,
+        "query.weight": true,
+        "gates.weight": true,
+        "gates.bias": true,
+        "anchor_value.weight": true,
+        "anchor_gate.weight": true,
+        "anchor_output.weight": true,
+        "pop_key.weight": true,
+        "pop_value.weight": true
+      }
+    },
+    "symmetric_matrix_transplant": true,
+    "causal_views": 6,
+    "positive_m2_amendment_and_summary": true,
+    "open_child_shadow_hold": true,
+    "disjoint_slot_freeze_and_child_wipe": true
+  },
+  "notes": "All three development inputs were read from the original custody root. The C1 counts here are source-plan counts. No model extraction, blind materialization, scoring-key read or prediction assessment was performed."
+}
