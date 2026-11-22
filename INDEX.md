@@ -1252,5 +1252,6 @@ Reserved at `40540392bdcd9669c375b9b10f77c22b8c8112a1` from Jack’s [CPU handof
 | 002 | eld-reader-author | research/wp-0027-terminal-reader · w027-reader | docs/agent-reports/eld-reader-author/WP-0027/002_2026-11-22_research_eld-reader-author.md |
 | 003 | eld-rd-reviewer | review/wp-0027-twin-cpu · w027-review | docs/agent-reports/eld-rd-reviewer/WP-0027/003_2026-11-22_review_eld-rd-reviewer.md |
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0027/004_2026-11-22_verification_eld-coordinator.md |
+| 005 | eld-reader-author | research/wp-0027-terminal-reader · w027-reader | docs/agent-reports/eld-reader-author/WP-0027/005_2026-11-22_research_eld-reader-author.md |
 
 Reserved for frozen calibration ranking and a separate prospective reader on one disclosed stream. The original blind stopping decision stands.
