@@ -88,7 +88,7 @@ def preflight():
         name="Local\\eLedgerCare-WP0029-CPU-review-"+uuid.uuid4().hex
         marker=tmp/"joined"
         code=("import sys,time;from pathlib import Path;sys.path.insert(0,sys.argv[1]);"
-              "import winjob;winjob.join(sys.argv[2]);Path(sys.argv[3]).write_text('joined');time.sleep(30)")
+              "import winjob;winjob.join(sys.argv[2]);Path(sys.argv[3]).write_text('joined');time.sleep(30);Path(sys.argv[3]+'.natural').touch()")
         handle=j.create(name)
         with subprocess.Popen([sys.executable,"-I","-B","-c",code,str(root/"qualification/baseline"),name,str(marker)]) as child:
             try:
@@ -98,7 +98,7 @@ def preflight():
             finally:
                 j.close(handle)
             rc=child.wait(timeout=5)
-        assert rc!=0
+        assert not (tmp/'joined.natural').exists()
     # Inspect critical order in exact sources, using AST offsets independent of source formatting.
     guard_src=blob(CANDIDATE,P+"cedar_guard.py").decode()
     names=["with g.exclusive(g.LOCK)","c.LEASE.mkdir(","state = g.ownership()","c.OUTPUT.mkdir(","g.winjob.create(",
