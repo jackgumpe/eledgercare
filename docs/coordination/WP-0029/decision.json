@@ -1,0 +1,166 @@
+{
+  "packet": "WP-0029",
+  "utc": "2026-11-22 19:30:41 UTC",
+  "status": "Closed and accepted after independent review. The native capture and bounded CPU measurements are complete.",
+  "base": "1b5fad0140e1c54c636b2348ae6dc6c6610c8b21",
+  "reservation": "4d94271a56f550bcf96b76d970f54e4c8b845ad5",
+  "integrated_authors_and_reviewer": "40160467e5772b611d25b7f30d99f2565e584026",
+  "scope": "Two preregistered synthetic development pairs, 12 and 30 pages, using the same opening-name edit. The longer binder adds six intervening three-page windows.",
+  "acquisition": {
+    "worker_revision": "9c02c9fae465dc1d1322a81c23eb3af45bbb0aff",
+    "sensor_revision": "1843cdb7b6279b84b539d3ca1ba7bd0affa1f7dd",
+    "native_baidu_model": "0480966938291445591f69f08a13b041c073a96a",
+    "frozen_device_candidate": "5014124e485d5ce89b9191e23458f12cc178bdcd",
+    "bound_release": "fc42ba82075e10114855b3ac648cff7a5c562466",
+    "exclusive_order": "72bfa494e280020e3d7f306f75d3812e75eb90c8",
+    "primary_revision": "48016df280f8f0c2f4a807955d9f431744347ecc",
+    "primary_path": "docs/research/WP-0029/acquisition/native-return.zip",
+    "primary_sha256": "0346091957994fcfc5c12d8d87e40ce177bb0c1ff0cc376b5ba8f4fb7cb2522f",
+    "ordered_rgb_key": "33362fbbeb37e805a64acbf3afdc3ec04315a4706820ed634a8fe0fb865ce2d5",
+    "fresh_loads": 1,
+    "excluded_warmups": 1,
+    "cedar_calls": 1,
+    "total_native_calls": 2,
+    "retries": 0,
+    "dtype": "BF16",
+    "batch": 1,
+    "load_s": 34.3222127,
+    "warmup_s": 26.7884788,
+    "cedar_complete_window_s": 37.6405249,
+    "cedar_inference_s": 37.5948232,
+    "supervised_job_s": 101.125,
+    "supervised_limit_s": 180,
+    "peak_observed_board_mib": 8580,
+    "board_samples": 239,
+    "board_ceiling_mib": 12500,
+    "free_floor_mib": 12000,
+    "free_mib_at_admission": 14799,
+    "free_mib_after_job_close": 14799,
+    "owned_pids_at_postcheck": "All three absent. GPU lease returned and model contents verified against the before inventory.",
+    "observations": {
+      "authenticated": true,
+      "actual_parent": "Ledger: Cedar",
+      "parent_pointer": [
+        1,
+        1,
+        7
+      ],
+      "eligible_owner_candidates": [
+        "Alder",
+        "Cedar"
+      ],
+      "pre_eos_tokens": 332,
+      "through_eos_tokens": 333,
+      "normalized_hidden_bf16_shape": [
+        332,
+        1280
+      ],
+      "source_position_selections": 118,
+      "pooled_f32_shape": [
+        16,
+        1280
+      ],
+      "consumed_position_range_half_open": [
+        827,
+        1159
+      ]
+    }
+  },
+  "scoring": {
+    "frozen_protocol": "3780eab7919108bf37c7fc32adfce0adb30da4e0",
+    "original_measurement_source": "9cb018cecab739097abb9e1554e8c61768b257b0",
+    "new_route": "23c072549886ad9b5f2ab6bb08a98b0fcae423ff",
+    "cpu_dispatch": "55c4011d7ce6032d3c7888fcecdf1a56f292755e",
+    "score_revision": "841233517b4694d18d144f6d2d2b17e0d0a8b444",
+    "raw_score_file": "docs/research/WP-0029/scoring/evidence/result.json",
+    "raw_score_sha256": "93a6054a9f8b4db7a9e231e843ee6681cf55968e85e6adde5d31959c2cdeae1e",
+    "weights_and_thresholds": {
+      "weights": {
+        "M1": "e2420949c0990992fae61b42280617bedd95dfa7013ce25ff52c8fd760c0f291",
+        "M3": "391b19e5629faf62b2f6ae6614bd18f91ba8e7c112a78dc191cdd6e602d10031"
+      },
+      "anchors": {
+        "M1": "157a301c648da690ad83512a2ed7704b6fa230d7fbfadca539383b4154163934",
+        "M3": "eaacad0a1dd00f6539393fde8134988add05e6221dff7ad81647433e21d34de4"
+      },
+      "thresholds": {
+        "M1": [
+          1,
+          0.1
+        ],
+        "M3": [
+          1,
+          0.1
+        ]
+      }
+    },
+    "historical_captures_reused": 10,
+    "new_captures": 1,
+    "logical_window_uses": 28,
+    "logical_uses_of_new_cedar": 2,
+    "distinct_opening_interventions": 1,
+    "document_pairs": 2,
+    "planned_arm_by_horizon_pairs": 4,
+    "admitted_arm_by_horizon_pairs": 4,
+    "completed_arm_by_horizon_pairs": 4,
+    "member_checkpoint_rows": 24,
+    "paired_checkpoint_rows": 12,
+    "strict_paired_wins": 0,
+    "native_final_attempts": 8,
+    "final_abstentions_below_owner_threshold": 8,
+    "margins_axis": "Alder score minus Cedar score for either input",
+    "mu": "Mean of the two member margins",
+    "delta": "Alder-input margin minus Cedar-input margin",
+    "paired_win": "margin_A > 0 > margin_C, equivalently delta > 2*abs(mu)",
+    "ratio_floor": 0.000001,
+    "signed_deltas_by_checkpoint": {
+      "columns": [
+        "after owner write",
+        "end of opening window",
+        "12-page final posting",
+        "30-page final posting"
+      ],
+      "M1": [
+        -0.022005513310432434,
+        0.019793041050434113,
+        0.009357478469610214,
+        0.006276067346334457
+      ],
+      "M3": [
+        -0.017752446234226227,
+        0.004570405930280685,
+        0.0004988275468349457,
+        0.0004988275468349457
+      ]
+    },
+    "reconciliation_revision": "3b38b3d87c8a76e5b5106938771e0731f7647b8d",
+    "recomputed_raw_scores_margins_mu_delta_D_ratio_and_decisions": "docs/coordination/WP-0029/reconciliation.json",
+    "reconciliation_sha256": "28275d953b8ff6f81acba27309133bd42c793fb1ffefc0a5ca5c3a238d0a4165"
+  },
+  "findings": {
+    "printed_name_changed_readout": true,
+    "paired_winner_correct_at_any_observed_checkpoint": false,
+    "last_interval": "A correct paired ranking was never observed. Both probes had an adverse signed response immediately after the owner write, a favorable response by the end of window one, and a smaller favorable response at both final postings.",
+    "rankings": "M1 ranked Cedar first for both twins throughout. M3 reversed both owners immediately after the owner write, then ranked Alder first for both twins at opening end and at each final posting.",
+    "comparability": "Within each probe and twin pair the final source, features, candidate names and target query agreed. Early query and raw score bytes matched across horizons per arm and owner. The final M3 owner scores also matched across horizons while the full matrices differed. The final M1 owner scores differed across horizons.",
+    "inference_unit": "One shared development edit at two horizons. Only the three specified checkpoints were observed. The results locate a change of direction within the opening; they do not identify the responsible write."
+  },
+  "independent": {
+    "preflight": "3674ed58b88184abaececbef601c49602af69489",
+    "capture_gate": "f51fa1dadec3e3f0e61b1d3ddade1891e24779e2",
+    "capture_gate_sha256": "03e7eb07feae1f25c8db1fb4a7141820f0bda8497ab1b539bb4dbe169c51f870",
+    "replay_comparison": "9371eafa5dc3fde10bc512d401a31fb5076d2f80",
+    "replayed": {
+      "member_checkpoints": 24,
+      "paired_arithmetic_rows": 12,
+      "native_field_logits": 48,
+      "final_typed_and_state_comparisons": 8
+    },
+    "reports": {
+      "research/wp-0029-cedar-acquisition": "eb932d8aa5daf8d0f5f378c8f1276172678042e3",
+      "research/wp-0029-cedar-scoring": "bb1e075268d06dfa866d46b6a6b9815baa94fe22",
+      "review/wp-0029-cedar": "7d87328e2650d7583f4fe3a805f70f9c5081b76c"
+    }
+  },
+  "recommendation": "With the current cached features and frozen final query, read both probes after each remaining span write in the opening window. Locate the first favorable response and check for any transient correct paired ranking between the two measured checkpoints. This is a proposed CPU diagnostic."
+}
