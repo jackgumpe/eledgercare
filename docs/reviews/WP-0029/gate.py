@@ -23,7 +23,7 @@ def model_after():
     for kind,spec,folder in (("model","files",Q0/"models"/manifest["model_dir_basename"]),
                              ("notice","notices",Q0/"notices"/manifest["notice_dir_basename"])):
         prior={r["name"]:r for r in pre[kind]}
-        assert {p.name for p in folder.iterdir()}==set(prior)=={r["path"] for r in manifest[spec]}
+        assert (folder/".cache").is_dir() and {p.name for p in folder.iterdir()}-{".cache"}==set(prior)=={r["path"] for r in manifest[spec]}
         for ref in manifest[spec]:
             p=folder/ref["path"]
             assert p.stat().st_size==ref["size"]==prior[p.name]["bytes"]
