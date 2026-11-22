@@ -1254,4 +1254,14 @@ Reserved at `40540392bdcd9669c375b9b10f77c22b8c8112a1` from Jack’s [CPU handof
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0027/004_2026-11-22_verification_eld-coordinator.md |
 | 005 | eld-reader-author | research/wp-0027-terminal-reader · w027-reader | docs/agent-reports/eld-reader-author/WP-0027/005_2026-11-22_research_eld-reader-author.md |
 
-Reserved for frozen calibration ranking and a separate prospective reader on one disclosed stream. The original blind stopping decision stands.
+**Closed after independent review.** All 48 original calibration grid cells reproduced. Both M1 and M3 gave the correct owner first place in one member of each answerable pair (8/8) and in both members of zero pairs (0/8). At the existing posting-producing grid point all 16 answerable postings per arm contained a wrong field. The corrected reader mapped all six k0014 spans to their three independently authenticated pages. The non-author observed one false acceptance on the first reader and zero among the same 26 mandatory withholds on the corrected revision. The reader kept the empty terminal delimiter as evidence. Held-out memory performance remains unmeasured. [Frozen disposition](docs/coordination/WP-0027/decision.json) at `9dac6939a930d63ed5eb03e5b1f01bcbda0c51ec` · [Owner scores](docs/research/WP-0027/owners/owner-rankings.json) · [Corrected reader cases](docs/research/WP-0027/reader/evidence-r2/parser-cases.json) · [Independent same-input comparison](docs/reviews/WP-0027/correction-result.json)
+
+| Report | Private publication |
+| --- | --- |
+| [001 frozen owner rankings](docs/agent-reports/eld-rank-author/WP-0027/001_2026-11-22_research_eld-rank-author.md) | `6f62c1196c33689ac7e640b2bb1e769fa106816c` |
+| [002 original reader](docs/agent-reports/eld-reader-author/WP-0027/002_2026-11-22_research_eld-reader-author.md) | `20c4b5a6001eeded732dd70f381a4d4186346aa0` |
+| [003 independent disposition](docs/agent-reports/eld-rd-reviewer/WP-0027/003_2026-11-22_review_eld-rd-reviewer.md) | `54eec948b5510601e2b06920e01f50e23722b58a` |
+| [004 coordinator disposition](docs/agent-reports/eld-coordinator/WP-0027/004_2026-11-22_verification_eld-coordinator.md) | `aa3bbd49e3cbe33cd8180b57108234c7056f3eda` |
+| [005 reader correction](docs/agent-reports/eld-reader-author/WP-0027/005_2026-11-22_research_eld-reader-author.md) | `8efbb5c6c0ce372fcb0b3a06df7a8461d951535d` |
+
+The [remote publication receipt](docs/coordination/WP-0027/publication-receipt.json) verifies five canonical reports and 21 research, review and coordination objects. The single proposed owner-only follow-up awaits a separate release.
