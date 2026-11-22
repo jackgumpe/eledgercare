@@ -66,7 +66,8 @@ def qualify(work):
                         check(member["checkpoints"][t] == ref["checkpoints"][t],
                               f"Historical checkpoint mismatch {arm} {pair['horizon']} {member['owner']} {t}")
                         checkpoints += 1
-                    check(member["parity"] == ref["parity"], "Native or duplicated CPU parity differs")
+                    persisted = json.loads(json.dumps(member["parity"], allow_nan=False))
+                    check(persisted == ref["parity"], "Native or duplicated CPU parity differs")
                 check(actual["metrics"] == old["metrics"], "Historical paired arithmetic differs")
     packages = json.loads((HOST/"runtime/install.json").read_bytes())["install"]
     deps = {e["metadata"]["name"]:{"version":e["metadata"]["version"],
