@@ -1320,3 +1320,14 @@ Reserved at the verified WP-0029 closure `ee5a226043148dd8fc7cac1a4bc8ef4b43164c
 | 002 | eld-rd-reviewer | review/wp-0030-span-trace · w030-review | docs/agent-reports/eld-rd-reviewer/WP-0030/002_2026-11-22_review_eld-rd-reviewer.md |
 | 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0030/003_2026-11-22_verification_eld-coordinator.md |
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0030/004_2026-11-22_verification_eld-coordinator.md |
+
+**Closed after independent reproduction.** Both probes first showed a favorable response at write 1, the unchanged “Portfolio directory” title, and turned negative at the schema at write 2. After the edited owner declaration at write 8, M1 first turned favorable at write 9 (“Unit: Unit3”) and M3 at write 12 (“Service 180 103”). Neither ranked both owners correctly at any of the 224 paired observations. All 24 prior member checkpoints and eight final decisions reproduced. GPU and native OCR calls were zero. [Decision](docs/coordination/WP-0030/decision.json) · [Full transitions](docs/research/WP-0030/trace/evidence/findings.json) · [Figure](docs/coordination/WP-0030/span-response.png)
+
+| Report | Private publication |
+| --- | --- |
+| [001 per-span trace](docs/agent-reports/eld-owner-probe/WP-0030/001_2026-11-22_research_eld-owner-probe.md) | `81b96a16a6ca9d27186ce8e5d68d955557713f73` |
+| [002 independent review](docs/agent-reports/eld-rd-reviewer/WP-0030/002_2026-11-22_review_eld-rd-reviewer.md) | `e792840e6358ae2fe9a31dac1360383c0514f65c` |
+| [003 coordinator disposition](docs/agent-reports/eld-coordinator/WP-0030/003_2026-11-22_verification_eld-coordinator.md) | `df8c8a4e3d94592165fa371d55aa25380f1dcf38` |
+| [004 correction to the M1 30-page final](docs/agent-reports/eld-coordinator/WP-0030/004_2026-11-22_verification_eld-coordinator.md) | `c76c313f06393b3172a06cdc4098130f3b8d5f2d` |
+
+The M1 30-page response at the native posting is +0.006276067346334457. GitHub verification covered four reports and 37 packet evidence files, with ten direct downloads checked byte-for-byte. [Publication receipt](docs/coordination/WP-0030/publication-receipt.json)
