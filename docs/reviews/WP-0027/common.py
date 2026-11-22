@@ -34,4 +34,3 @@ def save(path, record):
     with path.open("x", encoding="utf8", newline="\n") as handle:
         json.dump(record, handle, sort_keys=True, ensure_ascii=False, indent=2, allow_nan=False)
         handle.write("\n")
-

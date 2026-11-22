@@ -39,4 +39,3 @@ def verify(reader_evidence,reader_run,prefix):
 
 if __name__=="__main__":
     save(SCRATCH/sys.argv[4],verify(*sys.argv[1:4]))
-

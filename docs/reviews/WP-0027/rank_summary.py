@@ -57,4 +57,3 @@ def summarize(source):
 if __name__=="__main__":
     source=(SCRATCH/sys.argv[1]).read_bytes()
     save(SCRATCH/sys.argv[2],{"input_sha256":sha(source),"arms":summarize(json.loads(source))})
-

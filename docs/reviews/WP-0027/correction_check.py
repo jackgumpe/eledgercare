@@ -60,4 +60,3 @@ def check():
 
 if __name__=="__main__":
     save(SCRATCH/sys.argv[1],check())
-
