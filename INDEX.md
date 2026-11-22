@@ -1309,3 +1309,13 @@ Reserved on the refreshed WP-0028 closure at 1b5fad0140e1c54c636b2348ae6dc6c6610
 | [004 coordinator disposition](docs/agent-reports/eld-coordinator/WP-0029/004_2026-11-22_verification_eld-coordinator.md) | `a6ee6dd5c7f3bbb0c7342711c83d6bd54d1c2500` |
 
 GitHub verification covered the four reports and 39 packet evidence files. Direct re-downloads of the native ZIP, authentication gate and decision matched their SHA-256 digests. [Publication receipt](docs/coordination/WP-0029/publication-receipt.json)
+
+## WP-0030 CPU trace of every span through the owner postings
+
+Reserved at the verified WP-0029 closure `ee5a226043148dd8fc7cac1a4bc8ef4b43164c88`. [Assignment](docs/coordination/WP-0030/assignment.md) · [Release](docs/coordination/WP-0030/handoff.md)
+
+| Sequence | Stable ID | Branch and worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0030-span-trace · w030-trace | docs/agent-reports/eld-owner-probe/WP-0030/001_2026-11-22_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0030-span-trace · w030-review | docs/agent-reports/eld-rd-reviewer/WP-0030/002_2026-11-22_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0030/003_2026-11-22_verification_eld-coordinator.md |

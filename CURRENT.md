@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Active WP-0030 per-span CPU trace
+
+Jack authorized replay of the cached Alder and Cedar openings and downstream spans through both postings. The two findings are the first favorable score response and any same-step correct ranking on both twins. [Assignment](docs/coordination/WP-0030/assignment.md) · [Release](docs/coordination/WP-0030/handoff.md)
+
 ## Completed WP-0029 Cedar capture and owner scoring
 
 The one missing Cedar opening authenticated, including the actual owner declaration and all 16 pooled vectors. Each of the four planned probe-by-horizon pairs completed. Both probes moved in the expected direction by the end of the opening and at both final postings. Neither ranked both owners correctly at any measured checkpoint. All eight final posting decisions abstained. The two lengths reuse one printed edit. The proposed follow-up is a CPU trace through the opening’s individual writes. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0029/004_2026-11-22_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0029/003_2026-11-22_review_eld-rd-reviewer.md) · [Raw scores](docs/research/WP-0029/scoring/evidence/result.json) · [Publication receipt](docs/coordination/WP-0029/publication-receipt.json)
