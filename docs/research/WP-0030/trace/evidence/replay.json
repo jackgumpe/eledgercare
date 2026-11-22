@@ -1,0 +1,69 @@
+{
+  "byte_comparison": {
+    "M1-12.json": {
+      "bytes": 145747,
+      "identical_bytes": true,
+      "sha256": "0cb761fa83cdc5608ee32e902efc061dd5612f124709986a82cd0a5396bf4f74"
+    },
+    "M1-30.json": {
+      "bytes": 279113,
+      "identical_bytes": true,
+      "sha256": "bee564c6380fee9126c5aa575e902854266e8260fd667e56439f8b202ce31013"
+    },
+    "M3-12.json": {
+      "bytes": 145632,
+      "identical_bytes": true,
+      "sha256": "3fdd57a3a9dcb3e79bb58ed782208bac6e83624f8e7acac6800c68c007e24950"
+    },
+    "M3-30.json": {
+      "bytes": 278873,
+      "identical_bytes": true,
+      "sha256": "1783b283fd534f0dd397f68bbe5c049aedceb0eacc47736463aec61cdeac7917"
+    },
+    "findings.json": {
+      "bytes": 288559,
+      "identical_bytes": true,
+      "sha256": "297ebf2c526655a7a5b5cac159abc9f8f854367ae0a51427df4a81ec43758f11"
+    },
+    "parity.json": {
+      "bytes": 41591,
+      "identical_bytes": true,
+      "sha256": "6aea90fae131760e93afc04cc3101717cd08b6557616a4d63ba07ced2ca73a91"
+    },
+    "sources.json": {
+      "bytes": 126613,
+      "identical_bytes": true,
+      "sha256": "e046a9796878ed31cdc37943542e1b406b9035d0c121ba02027d7b2894f23d42"
+    }
+  },
+  "candidate": "447a9e7adc2dbd81933510068742ba1b82bbe84d",
+  "correction": "Renamed the observer's attribute to self.owner_anchors at its two references, preserving delegation of the native callable. Original scratch retained.",
+  "failed_at": "First native posting attempted, before completion of any pair. matrix.advance -> attempt -> model.anchors(name, choices[name]) raised TypeError: 'Tensor' object is not callable. The observer's self.anchors attribute shadowed Memory.anchors.",
+  "failed_candidate": "a8b9c69f6f2dd8430d178341ad3aa91307525e3f",
+  "failed_command": "./docs/research/WP-0030/trace/run.ps1 -Candidate a8b9c69f6f2dd8430d178341ad3aa91307525e3f -RunName author-r1",
+  "failed_exit": 1,
+  "failed_output": {
+    "sources.json": "e046a9796878ed31cdc37943542e1b406b9035d0c121ba02027d7b2894f23d42"
+  },
+  "failed_tool_chunk": "811f5a",
+  "first_and_repeat_direct_byte_equal": true,
+  "qualified_runtime_revision": "474713bd25e0173cdd239c3715dffd79b02eac8f",
+  "successful_runs": [
+    {
+      "exit": 0,
+      "exit_chunk": "a9f2d4",
+      "name": "author-r2",
+      "runtime": "runtime.json",
+      "stdout_chunk": "3dc879",
+      "tool_session": 16756
+    },
+    {
+      "exit": 0,
+      "exit_chunk": "67063b",
+      "name": "author-r3",
+      "runtime": "runtime-repeat.json",
+      "stdout_chunk": "74fe60",
+      "tool_session": 21482
+    }
+  ]
+}
