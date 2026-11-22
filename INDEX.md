@@ -1265,3 +1265,16 @@ Reserved at `40540392bdcd9669c375b9b10f77c22b8c8112a1` from Jack’s [CPU handof
 | [005 reader correction](docs/agent-reports/eld-reader-author/WP-0027/005_2026-11-22_research_eld-reader-author.md) | `8efbb5c6c0ce372fcb0b3a06df7a8461d951535d` |
 
 The [remote publication receipt](docs/coordination/WP-0027/publication-receipt.json) verifies five canonical reports and 21 research, review and coordination objects. The single proposed owner-only follow-up awaits a separate release.
+
+## WP-0028 Owner-only matched binders
+
+Reserved from `71e451d8eafdfa15245e522d347bdf781b0c57b7` after fetching the private integration branch. The coordinator owns the [release and preregistration](docs/coordination/WP-0028/assignment.md), [supplied handoff](docs/coordination/WP-0028/handoff.md) and [formula reference](docs/coordination/WP-0028/owner-math.pdf).
+
+| Sequence | Stable ID | Branch and worktree | Reserved report |
+| ---: | --- | --- | --- |
+| 001 | eld-owner-fixture | research/wp-0028-owner-fixtures · w028-fixtures | docs/agent-reports/eld-owner-fixture/WP-0028/001_2026-11-22_research_eld-owner-fixture.md |
+| 002 | eld-owner-probe | research/wp-0028-owner-probe · w028-probe | docs/agent-reports/eld-owner-probe/WP-0028/002_2026-11-22_research_eld-owner-probe.md |
+| 003 | eld-rd-reviewer | review/wp-0028-owner-only · w028-review | docs/agent-reports/eld-rd-reviewer/WP-0028/003_2026-11-22_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0028/004_2026-11-22_verification_eld-coordinator.md |
+
+Reserved for synthetic owner-only fixtures, authenticated feature admission and frozen CPU measurement on the two matched horizons.

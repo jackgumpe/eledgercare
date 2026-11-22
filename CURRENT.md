@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Active WP-0028 owner-only matched binders
+
+Two matched development horizons and the signed owner-score rules are preregistered. An independent reviewer will check physical fixture identity, feature admission and frozen replay. [Assignment](docs/coordination/WP-0028/assignment.md)
+
 ## Completed WP-0027 Twin-Binder CPU diagnosis
 
 Both frozen probes ranked the correct owner first in exactly one twin of each of the eight answerable calibration pairs. Neither got both right in any pair. The corrected reader mapped six spans to k0014 pages 16–18, retained the fourth marker separately and preserved 22 spans and 171 feature-position selections on two archived controls. Independent testing found one false acceptance on the first reader and zero on the same 26 required withholds after correction. Held-out memory accuracy remains unmeasured. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0027/004_2026-11-22_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0027/003_2026-11-22_review_eld-rd-reviewer.md) · [Corrected reader cases](docs/research/WP-0027/reader/evidence-r2/parser-cases.json) · [Publication receipts](docs/coordination/WP-0027/publication-receipt.json)
