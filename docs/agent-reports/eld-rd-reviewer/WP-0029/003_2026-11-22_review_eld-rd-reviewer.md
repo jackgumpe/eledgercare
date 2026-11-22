@@ -1,0 +1,61 @@
+# WP-0029 / 003 — Independent Cedar acquisition and owner-readout review
+
+| Field | Record |
+| --- | --- |
+| Report and reservation | `docs/agent-reports/eld-rd-reviewer/WP-0029/003_2026-11-22_review_eld-rd-reviewer.md`, [INDEX reservation](https://github.com/jackgumpe/eledgercare/blob/4d94271a56f550bcf96b76d970f54e4c8b845ad5/INDEX.md#wp-0029-cedar-capture-and-owner-scoring) |
+| Author and publisher | eld-rd-reviewer, fresh native Codex subagent `/root/w29_review`, thread `01a204b0-0b78-7cf1-be78-3e1888a7695e`, requested xhigh. Actual backend and effective effort were unexposed. |
+| Category, status and next owner | Independent review, accepted. eld-coordinator receives the disposition. |
+| Timestamp | 2026-11-22T19:29:10Z |
+| Repository | Private `jackgumpe/eledgercare`, `review/wp-0029-cedar`, sibling worktree `w029-review` |
+| Base | `4d94271a56f550bcf96b76d970f54e4c8b845ad5`. the preceding WP-0028 closure was `1b5fad0140e1c54c636b2348ae6dc6c6610c8b21`. |
+| Reviewer source and evidence | Raw reconstruction and score observer `723f99d89dbe54dc4dcdcf56233e5c2df4bb60e6`. preflight source `b175ccbc9fb26dc0e3fd535cfb6e6db4fc617803`. final gate source `a0ef8233e648924e55b6c844a2995ef9e16e9542`. scorer comparison source `b82cbf0269aa62e8f6bce143710e79e2697c8e1b`. final evidence `9371eafa5dc3fde10bc512d401a31fb5076d2f80`. |
+| Reviewed | [Operator /001](https://github.com/jackgumpe/eledgercare/blob/eb932d8aa5daf8d0f5f378c8f1276172678042e3/docs/agent-reports/eld-cedar-operator/WP-0029/001_2026-11-22_research_eld-cedar-operator.md) and [scorer /002](https://github.com/jackgumpe/eledgercare/blob/bb1e075268d06dfa866d46b6a6b9815baa94fe22/docs/agent-reports/eld-owner-probe/WP-0029/002_2026-11-22_research_eld-owner-probe.md). This is my first report in this packet. |
+| Environment | Windows, PowerShell, isolated read-only Q0 CPython 3.12.10, CPU FP32 torch 2.13.0+cu130 with CUDA hidden. No reviewer participation in fixture, acquisition, launch glue, production or scoring authorship. |
+
+## Independent finding
+
+The printed owner changed the readout in every measured arm and checkpoint. Neither arm ranked both owners correctly at any checkpoint. M1 preferred Cedar on both inputs throughout. Immediately after the parent write, M3 preferred Cedar on the Alder input and Alder on the Cedar input. By the end of the opening, M3 preferred Alder on both and kept that preference through both final postings. Both arms' signed response went from negative to positive between the first two reads. The positive response was smaller at the final posting in each case. Every final typed decision abstained on the owner threshold. There was no interval over which a previously correct pair of winners was lost.
+
+| Arm | Pages | Immediately after parent write δ | End of opening δ | At posting δ | At posting μ | Raw winner at posting (Alder input / Cedar input) |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| M1 | 12 | −0.02200551 | +0.01979304 | +0.00935748 | −0.06728978 | Cedar / Cedar |
+| M1 | 30 | −0.02200551 | +0.01979304 | +0.00627607 | −0.05095824 | Cedar / Cedar |
+| M3 | 12 | −0.01775245 | +0.00457041 | +0.00049883 | +0.10071920 | Alder / Alder |
+| M3 | 30 | −0.01775245 | +0.00457041 | +0.00049883 | +0.10071920 | Alder / Alder |
+
+On the fixed Alder-minus-Cedar axis, μ is the mean of the two margins and δ is the Alder-input margin minus the Cedar-input margin. Both winners would be correct only under the strict inequality δ > 2|μ|. The independent results include all 48 raw owner logits, both margins, μ, δ, δ minus its initial value, signed ratios with the original denominator floor, event identities, matrix/read/query digests, all field logits and typed results. The two horizons share the opening intervention. At both early checkpoints, query, matrix, owner read and score bytes matched between horizons for each member. At the final checkpoint M3's owner scores and reads still matched across horizons despite different full matrices. M1's final owner scores and reads differed. [Independent scores](https://github.com/jackgumpe/eledgercare/blob/9371eafa5dc3fde10bc512d401a31fb5076d2f80/docs/reviews/WP-0029/independent-scores.json)
+
+## Criteria and execution
+
+1. Inspect the exact frozen candidate, signed plan, device controls and inputs before issuance. The candidate was `5014124e485d5ce89b9191e23458f12cc178bdcd`, with binding `fc42ba82075e10114855b3ac648cff7a5c562466`. The 52 pinned source files matched. The WP-0026 worker calls the unchanged WP-0024 sensor, WP-0023 stock generation and original reader. The worker joins its named Windows job before runtime imports. The guard acquires the common board lock, checks actual ownership and memory, creates the single-use lease and output, and starts the monotonic 180-second timer before its sole child launch. On a disposable CPU-only Windows job I confirmed that closing its only handle ended the joined child before its natural completion code. The warm-up wrapper rejected three mutated receipts. The monitor accepted exactly 12,500 MiB and stopped on 12,501 MiB or a telemetry failure. Actual hardware admission remained the operator's responsibility. [Preflight evidence](https://github.com/jackgumpe/eledgercare/blob/3674ed58b88184abaececbef601c49602af69489/docs/reviews/WP-0029/preflight.json)
+2. Authenticate the terminal primary before releasing features. All 27 members matched the raw Git object from `48016df280f8f0c2f4a807955d9f431744347ecc`, ZIP SHA-256 `0346091957994fcfc5c12d8d87e40ce177bb0c1ff0cc376b5ba8f4fb7cb2522f`. I decoded the 332 non-EOS IDs, validated the 333-word little-endian stream including EOS and the terminal guard state, and reconstructed the 3-page source map and original byte overlap for every mapped span. All three disjoint W0 pages and the three Cedar pages matched canonical PNG, dimensions and RGB. The actual W0 returned the historical 62-token-plus-EOS fingerprint. The 827 prompt IDs, contiguous absolute positions 827–1158 inclusive and consumed IDs agreed. The rehashed native implementation feeds the normalized last decoder state to the LM head after consuming each token. The sensor's paired pre-hooks copy that input. For every one of the 118 span-position memberships, I expanded retained BF16 bits into FP32 and accumulated and divided by the actual count. All 16 × 1,280 pooled FP32 values matched bit-for-bit. The authentic parent was **Ledger: Cedar** at (1,1,7), with both eligible candidate names already registered. [Capture gate](https://github.com/jackgumpe/eledgercare/blob/f51fa1dadec3e3f0e61b1d3ddade1891e24779e2/docs/reviews/WP-0029/capture-gate.json)
+3. Reconcile resources to issued order. One load, one excluded W0, one Cedar and zero retries were planned, admitted and completed. The job took 101.125 seconds. The board measured 14,799 MiB free at admission and return, and peaked at 8,580 MiB over 239 samples. The guard and worker returned successfully. All three guard/launcher/worker PIDs were absent when checked. All 18 model files and the notice matched the post-run hash inventory and the pinned upstream identities. Peaks describe sampled board use. The warm-up schema retains its verified fingerprint and terminal observation. Cedar additionally retains every original ID. [Raw primary](https://github.com/jackgumpe/eledgercare/blob/48016df280f8f0c2f4a807955d9f431744347ecc/docs/research/WP-0029/acquisition/native-return.zip)
+4. After the published gate and coordinator CPU release, independently rebuild each binder using the 10 accepted historical triples and the 1 authenticated Cedar triple. Of the 28 logical window references, 2 use the Cedar return. Both physical pairs and all 4 arm–horizon pairs were admitted and completed. The original owner anchors, fitted weights, selected thresholds (1.0, 0.1), eventual per-arm projected query, candidate set and native source target were preserved. The target was `Posting 241 851` at (4,2,3) or (10,2,3). I ran the frozen independent WP-0028 reviewer observer with separately loaded feature bytes, a fresh state per traversal, a second instrumented traversal, a plain comparison and the frozen public `state_for` path, which calls `advance` with `audit=False`. All 24 member-checkpoint records and 12 derived paired rows agreed, including unit/column controls. All 48 native field-logit values across the eight postings and all eight final matrices/typed results agreed. The separate reviewer invocation of the exact candidate `23c072549886ad9b5f2ab6bb08a98b0fcae423ff` produced byte-identical historical controls and complete released JSON against `841233517b4694d18d144f6d2d2b17e0d0a8b444`. [Comparison](https://github.com/jackgumpe/eledgercare/blob/9371eafa5dc3fde10bc512d401a31fb5076d2f80/docs/reviews/WP-0029/score-comparison.json)
+
+## Commands and inventory
+
+Commands ran from `w029-review`. The candidate scorer files were exported using `git archive` into the reviewer's own scratch and read Git objects through the reviewer's `GIT_DIR`. The abbreviated paths below refer to `$review = 'docs/reviews/WP-0029'`, the Q0 interpreter `$py`, and the exact digest-bound author wrapper under `C:/Users/jackg/eLedgerCare-Speed/WP-0029/review/audited-source/docs/research/WP-0029/scoring/run.ps1`.
+
+```powershell
+& $py -I -B "$review/preflight.py" preflight.json
+& $py -I -B "$review/gate.py" 48016df280f8f0c2f4a807955d9f431744347ecc capture-gate.json
+& $py -I -B "$review/scores.py" f51fa1dadec3e3f0e61b1d3ddade1891e24779e2 independent-scores.json
+& pwsh -NoProfile -File $wrapper -Role review -RunName controls-r1 -Mode controls -Candidate 23c072549886ad9b5f2ab6bb08a98b0fcae423ff
+& pwsh -NoProfile -File $wrapper -Role review -RunName released-r1 -Mode released -Candidate 23c072549886ad9b5f2ab6bb08a98b0fcae423ff -GateRevision f51fa1dadec3e3f0e61b1d3ddade1891e24779e2 -GateSha256 03e7eb07feae1f25c8db1fb4a7141820f0bda8497ab1b539bb4dbe169c51f870
+& $py -I -B "$review/compare.py" 841233517b4694d18d144f6d2d2b17e0d0a8b444 docs/research/WP-0029/scoring/evidence/result.json score-comparison.json
+```
+
+| Added under `docs/reviews/WP-0029/` | Contents |
+| --- | --- |
+| `audit.py`, `preflight.py`, `auth.py`, `gate.py` | CPU isolation, source/guard inspection, token/source/position/pool verification, post-run model inventory, process and board checks |
+| `scores.py`, `compare.py` | Independent state observer, arithmetic, native comparisons and exact author-byte reconciliation |
+| `preflight.json`, `capture-gate.json` | Device and feature admissions recorded before the respective releases |
+| `independent-scores.json`, `score-comparison.json`, `author-replay-runtime.json`, `controls-replay-runtime.json` | Per-member primary recomputation, comparison counts, exact reviewer invocation receipts |
+
+This report is the subsequent publication metadata. Reviewer external writes were confined to the assigned branch, `WP-0029/review` scratch and one temporary CPU-only Windows job. The review did not issue native OCR, open blind material, train a probe or modify model/product files. [Reviewer diff to final evidence](https://github.com/jackgumpe/eledgercare/compare/4d94271a56f550bcf96b76d970f54e4c8b845ad5...9371eafa5dc3fde10bc512d401a31fb5076d2f80)
+
+## Corrections, scope and handoff
+
+Two reviewer checks initially stopped in reviewer code. Windows returned exit code 0 for the disposable child after forced job closure. I replaced the exit-code assumption with evidence that the joined process exited before its 30-second natural completion marker, froze the fix, and reran. The first return check mistook the pre-existing Hugging Face `.cache` metadata directory in Q0 for a model object. I aligned the directory check with the historical namespace, then reran the entire gate and rehashed every manifest object. Neither event issued a hardware call or changed any author artifact.
+
+Accept /001 and /002 for these two development horizons. If a follow-up is separately authorized, inspect the intervening writes between the parent write and the end of the opening using the archived features, where both signed responses reversed. The present observations locate that interval without identifying a particular write or mechanism. The coordinator receives independently verified evidence `9371eafa5dc3fde10bc512d401a31fb5076d2f80` and owns closure.
