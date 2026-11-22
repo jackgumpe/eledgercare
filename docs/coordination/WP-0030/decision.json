@@ -1,0 +1,102 @@
+{
+  "packet": "WP-0030",
+  "status": "Closed and accepted after independent reproduction and reconciliation",
+  "scope": "CPU per-span trace from an independent zero state through the actual posting and its separate subsequent write. Two probes and two lengths share one opening edit on synthetic development binders.",
+  "findings": {
+    "first_positive_overall": {
+      "source": "Portfolio directory",
+      "page": 1,
+      "write": 1,
+      "window": 1,
+      "type": "title block, no parser event",
+      "prior_delta": 0,
+      "M1_delta": 0.0006333887577056885,
+      "M3_delta": 0.0005374550819396973,
+      "eligible": false,
+      "ranking": "Both probes favored Cedar on both inputs. The registry lists both names at write 3."
+    },
+    "first_strict_reversal": {
+      "write": 2,
+      "source": "Schema: Item / Ref / Amount",
+      "type": "text block with DIRECTORY_SCHEMA event",
+      "M1_delta": -0.007469784468412399,
+      "M3_delta": -0.0004481971263885498
+    },
+    "first_positive_after_owner": {
+      "owner_write": 8,
+      "M1": {
+        "write": 9,
+        "page": 1,
+        "source": "Unit: Unit3",
+        "type": "text block with DECLARE_UNIT event",
+        "prior_delta": -0.022005513310432434,
+        "delta": 0.01377890445291996
+      },
+      "M3": {
+        "write": 12,
+        "page": 1,
+        "source": "Service 180 103",
+        "type": "table row with no parser event",
+        "prior_delta": -0.00026670098304748535,
+        "delta": 0.0004915148019790649
+      },
+      "later_reversals": 0
+    },
+    "paired_winners": {
+      "paired_reads": 224,
+      "paired_post_writes": 216,
+      "initial_reads": 4,
+      "native_pre_target_reads": 4,
+      "strict_paired_wins": 0,
+      "member_reads": 448,
+      "native_typed_abstentions": 8,
+      "typed_reason": "below_threshold_owner",
+      "M3_inverted_pair": "At write 8 M3 ranked Cedar first on the Alder input and Alder first on the Cedar input. Every other nonzero-state read across both probes had the same unique leader on both twins."
+    },
+    "attenuation": "All decreases and sign transitions with source text, pointers and exact values are in trace/evidence/findings.json. After the opening, the largest M3 drop in each length occurs at 'Record carried forward.' on pages 10 and 28, from 0.004405591636896133 to 0.000967513769865036. The favorable response persists through the posting.",
+    "source_identity": "Only write 8 changes its literal in the 16-span opening. All 16 opening feature rows differ across the matched twins. Observing a difference immediately after an unchanged title does not establish a specific cause inside the OCR or memory mechanism.",
+    "fixed_query": "Original and new observations use the same eventual target query within each arm and binder at all checkpoints. The final M3 readout matches across lengths even though intermediate reads vary."
+  },
+  "verification": {
+    "historical_member_checkpoints_bit_exact": 24,
+    "native_final_typed_decisions_bit_exact": 8,
+    "author_deterministic_outputs_byte_equal": 7,
+    "independently_recreated_files": 7,
+    "independently_recreated_bytes": 1306128,
+    "archived_unique_windows": 11,
+    "archived_source_rows": 90,
+    "admitted_completed_arm_horizon_pairs": 4,
+    "native_baidu_or_gpu_calls": 0,
+    "native_ocr_model_loads": 0,
+    "execution": "Offline CPU-only PyTorch 2.13.0+cpu with NumPy 2.2.6; original frozen M1/M3 weights read as CPU tensors. The corrected observer ran twice and a non-author independently implemented and ran a full traversal.",
+    "initial_check": "Runtime qualification initially stopped on tuple versus JSON array comparison. The persisted value check retained all original numeric checks. The first author observer stopped at the first CPU posting because an attribute shadowed the original anchors method. The accepted correction only renames the observer's stored tensor."
+  },
+  "paths": {
+    "full_transitions": "docs/research/WP-0030/trace/evidence/findings.json",
+    "raw_traces": [
+      "docs/research/WP-0030/trace/evidence/M1-12.json",
+      "docs/research/WP-0030/trace/evidence/M1-30.json",
+      "docs/research/WP-0030/trace/evidence/M3-12.json",
+      "docs/research/WP-0030/trace/evidence/M3-30.json"
+    ],
+    "source_evidence": "docs/research/WP-0030/trace/evidence/sources.json",
+    "independent_comparison": "docs/reviews/WP-0030/evidence/comparison.json",
+    "reconciliation": "docs/coordination/WP-0030/reconciliation.json",
+    "plot": "docs/coordination/WP-0030/span-response.png"
+  },
+  "revisions": {
+    "accepted_base": "ee5a226043148dd8fc7cac1a4bc8ef4b43164c88",
+    "reservation": "f19d7fdca840af7b81e6a0bb1edd062d690898de",
+    "runtime": "474713bd25e0173cdd239c3715dffd79b02eac8f",
+    "failed_author_candidate": "a8b9c69f6f2dd8430d178341ad3aa91307525e3f",
+    "author_candidate": "447a9e7adc2dbd81933510068742ba1b82bbe84d",
+    "author_evidence": "6c9ecae26aff3b2faa47d90d2f16bcee12b8a191",
+    "author_report": "81b96a16a6ca9d27186ce8e5d68d955557713f73",
+    "independent_candidate": "603cfbc85c259112fb76ea7c1b9c514557149653",
+    "independent_evidence": "7d65875a1ff2d7ad8a008ea83f5484507dbd5db3",
+    "independent_comparison": "6d62d773399c53c8efbbce0ee38067ea474a7d4d",
+    "independent_report": "e792840e6358ae2fe9a31dac1360383c0514f65c",
+    "coordinator_reconciliation": "777903d87bcbf7c61efd7d99a9566ec83c0612f3",
+    "integrated": "27c9f2bb2890e16e30baa0da54b8e6cbffce6f79"
+  }
+}
