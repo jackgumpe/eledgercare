@@ -22,7 +22,10 @@ def verify(reader_evidence,reader_run,prefix):
     actual_rows={c["case"]:key(c) for c in actual["cases"]}
     assert actual_rows=={c["case"]:key(c) for c in published["cases"]}
     saved={}
-    for name in ("b01w01H.json","b01w02H.json","k0014-native.json","k0014-source.json","k0014-ids-through-eos.u32le","k0014.json"):
+    files=["b01w01H.json","b01w02H.json","k0014-native.json","k0014-source.json","k0014-ids-through-eos.u32le","k0014.json"]
+    if (folder/"review-counterexample.json").exists():
+        files.append("review-counterexample.json")
+    for name in files:
         data=(folder/name).read_bytes()
         assert data==blob(reader_evidence,prefix+"/"+name)
         saved[name]=sha(data)
