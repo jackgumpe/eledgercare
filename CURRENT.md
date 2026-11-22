@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Active WP-0027 Twin-Binder CPU diagnosis
+
+The coordinator reserved two CPU replays covering calibration owner rankings and the prospective terminal-delimiter reader. [Assignment](docs/coordination/WP-0027/assignment.md)
+
 ## Completed WP-0026 W0-conditioned Twin-Binder study
 
 The disjoint warm-up qualified all six model loads. Development H0 matched 8/8 windows through EOS, and all twelve uncached development duplicate groups matched. Both fitted models abstained on every calibration binder. Blind C1 stopped on its 14th read when Baidu emitted a fourth, empty page marker for a three-page window. Thirteen blind windows produced verified features. Three short duplicate groups qualified, and the nine long groups remained unverified. The answer key stays sealed and the held-out memory comparison is inconclusive. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0026/004_2026-11-21_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0026/003_2026-11-21_review_eld-rd-reviewer.md) · [Partial replay](docs/reviews/WP-0026/blind-c1-partial.json) · [Decision](docs/coordination/WP-0026/decision.json) · [Publication receipts](docs/coordination/WP-0026/publication-receipt.json)

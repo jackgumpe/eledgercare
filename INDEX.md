@@ -1241,3 +1241,16 @@ Development C1 acquisition accepted on 28 uncached reads and 12 repeat groups at
 | [004 coordinator disposition](docs/agent-reports/eld-coordinator/WP-0026/004_2026-11-21_verification_eld-coordinator.md) | `376aa50415110b5fd37fc8fdf7b1a77eb84234c0` |
 
 The [remote publication receipt](docs/coordination/WP-0026/publication-receipt.json) records four verified author reports and 17 decisive evidence objects.
+
+## WP-0027 Twin-Binder CPU diagnosis
+
+Reserved at `40540392bdcd9669c375b9b10f77c22b8c8112a1` from Jack’s [CPU handoff](docs/coordination/WP-0027/handoff.md). [Assignments and input boundary](docs/coordination/WP-0027/assignment.md)
+
+| Sequence | Stable ID | Owned branch and worktree | Reserved report |
+| ---: | --- | --- | --- |
+| 001 | eld-rank-author | research/wp-0027-owner-ranking · w027-rank | docs/agent-reports/eld-rank-author/WP-0027/001_2026-11-22_research_eld-rank-author.md |
+| 002 | eld-reader-author | research/wp-0027-terminal-reader · w027-reader | docs/agent-reports/eld-reader-author/WP-0027/002_2026-11-22_research_eld-reader-author.md |
+| 003 | eld-rd-reviewer | review/wp-0027-twin-cpu · w027-review | docs/agent-reports/eld-rd-reviewer/WP-0027/003_2026-11-22_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0027/004_2026-11-22_verification_eld-coordinator.md |
+
+Reserved for frozen calibration ranking and a separate prospective reader on one disclosed stream. The original blind stopping decision stands.
