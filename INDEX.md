@@ -1298,3 +1298,14 @@ Reserved on the refreshed WP-0028 closure at 1b5fad0140e1c54c636b2348ae6dc6c6610
 | 002 | eld-owner-probe | research/wp-0029-cedar-scoring · w029-score | docs/agent-reports/eld-owner-probe/WP-0029/002_2026-11-22_research_eld-owner-probe.md |
 | 003 | eld-rd-reviewer | review/wp-0029-cedar · w029-review | docs/agent-reports/eld-rd-reviewer/WP-0029/003_2026-11-22_review_eld-rd-reviewer.md |
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0029/004_2026-11-22_verification_eld-coordinator.md |
+
+**Closed and independently accepted.** One stock W0 and one Cedar capture finished on the same native load in 101.125 seconds under the exclusive GPU guard. The actual opening emitted “Ledger: Cedar.” Both frozen probes changed their response from negative after the owner write to positive at opening end and retained a smaller positive response at both final postings. Neither ranked both owners correctly at a measured checkpoint. All eight final attempts abstained below the owner threshold. All four arm–horizon pairs were admitted and completed. Both lengths share one opening intervention. [Decision](docs/coordination/WP-0029/decision.json) · [Raw trajectories](docs/research/WP-0029/scoring/evidence/result.json) · [Independent score comparison](docs/reviews/WP-0029/score-comparison.json)
+
+| Report | Private publication |
+| --- | --- |
+| [001 native acquisition](docs/agent-reports/eld-cedar-operator/WP-0029/001_2026-11-22_research_eld-cedar-operator.md) | `eb932d8aa5daf8d0f5f378c8f1276172678042e3` |
+| [002 owner scoring](docs/agent-reports/eld-owner-probe/WP-0029/002_2026-11-22_research_eld-owner-probe.md) | `bb1e075268d06dfa866d46b6a6b9815baa94fe22` |
+| [003 independent verification](docs/agent-reports/eld-rd-reviewer/WP-0029/003_2026-11-22_review_eld-rd-reviewer.md) | `7d87328e2650d7583f4fe3a805f70f9c5081b76c` |
+| [004 coordinator disposition](docs/agent-reports/eld-coordinator/WP-0029/004_2026-11-22_verification_eld-coordinator.md) | `a6ee6dd5c7f3bbb0c7342711c83d6bd54d1c2500` |
+
+GitHub verification covered the four reports and 39 packet evidence files. Direct re-downloads of the native ZIP, authentication gate and decision matched their SHA-256 digests. [Publication receipt](docs/coordination/WP-0029/publication-receipt.json)
