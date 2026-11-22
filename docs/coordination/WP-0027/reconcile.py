@@ -90,8 +90,8 @@ def owners(ref):
     return totals
 
 
-def reader(ref):
-    prefix = "docs/research/WP-0027/reader/evidence/"
+def reader(ref, directory):
+    prefix = f"docs/research/WP-0027/reader/{directory}/"
     def get(name):
         return blob(ref, prefix + name)
     cases = json.loads(get("parser-cases.json"))
@@ -143,6 +143,6 @@ def reader(ref):
 
 
 if __name__ == "__main__":
-    rank_ref, reader_ref = sys.argv[1:]
+    rank_ref, reader_ref, reader_directory = sys.argv[1:]
     print(json.dumps({"owner_evidence_commit": rank_ref, "reader_evidence_commit": reader_ref,
-                      "owners": owners(rank_ref), "reader": reader(reader_ref)}, indent=2))
+                      "owners": owners(rank_ref), "reader": reader(reader_ref, reader_directory)}, indent=2))
