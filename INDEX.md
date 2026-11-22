@@ -1277,4 +1277,13 @@ Reserved from `71e451d8eafdfa15245e522d347bdf781b0c57b7` after fetching the priv
 | 003 | eld-rd-reviewer | review/wp-0028-owner-only · w028-review | docs/agent-reports/eld-rd-reviewer/WP-0028/003_2026-11-22_review_eld-rd-reviewer.md |
 | 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0028/004_2026-11-22_verification_eld-coordinator.md |
 
-Reserved for synthetic owner-only fixtures, authenticated feature admission and frozen CPU measurement on the two matched horizons.
+**Closed after independent review. Controlled owner measurements blocked at feature admission.** For the two T1 horizons the sole edited source name changes 4,331 RGB pixels inside the declared region, with zero differences outside. The archive covered 26/28 logical windows and 10/11 unique triples. Both Cedar openings depend on the same missing whole-window feature. M1 and M3 each had one planned pair, zero admitted and zero completed at each horizon. The eight original pairs replayed for both frozen arms. One separate B=1 acquisition after a single excluded W0 is proposed, with two native calls total and a 180-second ceiling. GPU calls in this release were zero. [Disposition](docs/coordination/WP-0028/decision.json) at `5775c96257d2b0edcd62030092a39f8a43b5bc60` · [Historical scores](docs/research/WP-0028/evidence/historical.json) · [Controlled observation rows](docs/research/WP-0028/evidence/controlled.json) · [Scoped acquisition proposal](docs/coordination/WP-0028/acquisition-scope.json)
+
+| Report | Private publication |
+| --- | --- |
+| [001 fixtures and archived features](docs/agent-reports/eld-owner-fixture/WP-0028/001_2026-11-22_research_eld-owner-fixture.md) | `98702b5583d27b654b52507673985e9d307e7a54` |
+| [002 frozen probe replay](docs/agent-reports/eld-owner-probe/WP-0028/002_2026-11-22_research_eld-owner-probe.md) | `b4cd4a6492b9405c729ee7f7bb78b998daa34e78` |
+| [003 independent review](docs/agent-reports/eld-rd-reviewer/WP-0028/003_2026-11-22_review_eld-rd-reviewer.md) | `16159e90927a9e62a8e052d7a7fafbfce1aec921` |
+| [004 coordinator disposition](docs/agent-reports/eld-coordinator/WP-0028/004_2026-11-22_verification_eld-coordinator.md) | `eb82bd6bcbad5da0f33c335fb731996647175699` |
+
+The [publication receipt](docs/coordination/WP-0028/publication-receipt.json) verifies four reports and 53 evidence objects, including all four PDFs and all 31 distinct canonical PNGs.
