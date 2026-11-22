@@ -3,6 +3,7 @@ import argparse
 from copy import deepcopy
 from datetime import datetime, timezone
 from importlib.metadata import version
+from io import BytesIO
 import json
 import os
 from pathlib import Path
@@ -17,6 +18,8 @@ from fixtures import (ARCHIVE_SHA, PLAN_SHA, SYNTHETIC, bound, development, prin
                       synthetic_native, synthetic_sections)
 from reader import (MARKER, ROOT, SPAN_SHA, TOKENIZER_SHA, Reader, check_hash, digest,
                     packed, parse_json, require, uint32_bytes)
+from review_regression import replay as replay_review_regression
+from PIL import Image, ImageDraw
 
 SPEED = Path("C:/Users/jackg/eLedgerCare-Speed/WP-0027")
 INPUT = SPEED / "coordination/inputs/k0014"
@@ -131,6 +134,21 @@ def development_cases(cases):
              ordered_input_authority=dict(archive_sha256=ARCHIVE_SHA, plan_sha256=PLAN_SHA,
                                           source_pdf_sha256=json.loads(binding)["document_sha256"]))))
         cases.rows[-1]["witness"] = filename
+        if tag == "b01w01H":
+            claimed = json.loads(binding)
+            claimed["document_sha256"] = "f"*64
+            cases.run("foreign-document-with-original-ruling", native, packed(claimed), images,
+                      "incomplete_source_pixel_coverage")
+            claimed = json.loads(binding)
+            with Image.open(BytesIO(images[0])) as changed:
+                ImageDraw.Draw(changed).text((40, 3210), "New text outside every declared glyph line.", fill="black")
+                out = BytesIO()
+                changed.save(out, format="PNG")
+                png = out.getvalue()
+                claimed["pages"][0].update(rgb_sha256=digest(changed.tobytes()), png_sha256=digest(png),
+                                           verified_pdf_ruling=actual["source_to_section"][0]["source"]["verified_pdf_ruling"])
+            cases.run("changed-pixels-with-copied-ruling-proof", native, packed(claimed), [png, *images[1:]],
+                      "incomplete_source_pixel_coverage")
     return raw["prompt_token_ids"]
 
 
@@ -185,6 +203,8 @@ def synthetic_cases(cases, prompt):
     omitted_line[0]["lines"].pop()
     one("omitted-from-witness-and-output", [a.split("\n")[0]+"\n", b, c, MARKER],
         "incomplete_source_pixel_coverage", source=omitted_line)
+    one("omitted-from-ordinary-witness-and-output", [a.split("\n")[0]+"\n", b, c],
+        "incomplete_source_pixel_coverage", source=omitted_line)
     blank = [SYNTHETIC[0], [], SYNTHETIC[2]]
     blank_pages, blank_pngs = printed_fixture(blank)
     one("true-blank-in-original-position", synthetic_sections(blank), "verified_blank_source_withheld",
@@ -211,7 +231,8 @@ def main():
     git = r"C:/Program Files/Git/cmd/git.exe"
     head = subprocess.check_output([git, "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip()
     require(re.fullmatch("[0-9a-f]{40}", args.candidate), "full_candidate_commit_required")
-    code = [str(HERE / name) for name in ("reader.py", "replay.py", "fixtures.py", "run.ps1", "POLICY.md")]
+    code = [str(HERE / name) for name in ("reader.py", "replay.py", "fixtures.py", "run.ps1", "POLICY.md",
+                                          "source_ruling.py", "review_regression.py")]
     source_diff = subprocess.run([git, "-C", str(ROOT), "diff", "--quiet", args.candidate, "--",
                                   *code, str(ROOT/"docs/research/WP-0024/sensor/spans.py")]).returncode
     require(source_diff == 0, "candidate_source_changed")
@@ -225,6 +246,14 @@ def main():
     cases.run("k0014", native, binding, images, "one_empty_terminal_marker", evidence=old)
     prompt = development_cases(cases)
     synthetic_cases(cases, prompt)
+
+    class ReviewCase:
+        def map(self, native, binding, pin, images):
+            return cases.run("independent-ordinary-extra-source-line", native, binding, images,
+                             "incomplete_source_pixel_coverage", pin=pin)
+    regression = replay_review_regression(reader, ReviewCase(), prompt)
+    (folder / "review-counterexample.json").write_bytes(packed(regression))
+    cases.rows[-1]["witness"] = "review-counterexample.json"
     require("torch" not in sys.modules and "transformers" not in sys.modules, "unexpected_model_runtime")
     table = dict(schema="wp0027-terminal-reader-cases-v1", candidate=args.candidate, execution_head=head,
                  started_utc=begun, finished_utc=datetime.now(timezone.utc).isoformat(),

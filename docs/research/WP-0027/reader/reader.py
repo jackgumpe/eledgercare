@@ -161,7 +161,7 @@ class Reader:
                 require(lo == hi and unused["marker_token"] + 1 == observation["observed_eos"]["token_index"],
                         "extra_section_has_payload")
 
-            evidence = authenticate_pages(binding, raster_bytes)
+            evidence = authenticate_pages(binding, binding_pin, raster_bytes)
             for section in sections[:3]:
                 lo, hi = section["payload_byte_range"]
                 if lo == hi:
@@ -186,9 +186,8 @@ class Reader:
                 lo, hi = section["char_range"]
                 selected = self.section_lines(native["text"][lo:hi], rows)
                 require([r["text"] for r in selected] == list(keys[index-1]), "source_line_sequence_mismatch")
-                if unused:
-                    require(source["ink_outside_source_lines"] == 0
-                            and all(source["source_line_contains_ink"]), "incomplete_source_pixel_coverage")
+                require((source["ink_outside_source_lines"] == 0 or source["verified_pdf_ruling"] is not None)
+                        and all(source["source_line_contains_ink"]), "incomplete_source_pixel_coverage")
                 correspondences = []
                 for line, span in zip(source["lines"], selected, strict=True):
                     a, b, c, d = line["bbox999"]
@@ -210,7 +209,7 @@ class Reader:
                         else f"invalid_record:{type(exc).__name__}:{exc}")
 
 
-def authenticate_pages(binding, images):
+def authenticate_pages(binding, binding_pin, images):
     require(binding["schema"] == "wp0027-reader-binding-v1" and isinstance(binding["call"], str)
             and binding["call"] and HASH.fullmatch(binding["document_sha256"]),
             "incomplete_call_binding")
@@ -230,6 +229,7 @@ def authenticate_pages(binding, images):
             white = ink.getbbox() is None
             remainder = ink.copy()
             contains_ink = []
+            clips = []
             w, h = image.size
             require(isinstance(p["lines"], list), "invalid_source_lines")
             for line in p["lines"]:
@@ -244,8 +244,13 @@ def authenticate_pages(binding, images):
                         min(w, math.ceil((right+1)*w/999)), min(h, math.ceil((bottom+1)*h/999)))
                 contains_ink.append(ink.crop(clip).getbbox() is not None)
                 remainder.paste(0, clip)
+                clips.append(clip)
             outside = sum(remainder.histogram()[1:])
+            ruling = None
+            if outside:
+                from source_ruling import verify_h0_ruling
+                ruling = verify_h0_ruling(binding, binding_pin, p, image, clips)
         require(not (white and p["lines"]), "blank_source_line_conflict")
         verified.append(dict(p, white=white, source_line_contains_ink=contains_ink,
-                             ink_outside_source_lines=outside))
+                             ink_outside_source_lines=outside, verified_pdf_ruling=ruling))
     return verified
