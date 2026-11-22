@@ -71,7 +71,7 @@ class Readout:
         self.rgb_key = rgb_key
         self.query = query
         self.query_sha = query_sha
-        self.anchors = anchors
+        self.owner_anchors = anchors
         self.cuts = cuts
         self.rows = rows
         self.prior_writes = prior_writes
@@ -102,7 +102,7 @@ class Readout:
         def row(phase, step, at, labels):
             return {"phase": phase, "step_index": step, "source": source,
                     "control_events": list(controls), "checkpoints": labels,
-                    **observe(self.model, self.state, at, self.query, self.query_sha, self.anchors, self.cuts)}
+                    **observe(self.model, self.state, at, self.query, self.query_sha, self.owner_anchors, self.cuts)}
 
         ptr = tuple(source["pointer"])
         if ptr == self.target_ptr:
