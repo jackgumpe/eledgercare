@@ -51,6 +51,16 @@ def replay(model, windows, active, modules):
         checkpoints[name]={"ptr":list(ptr),"depth":state.controller.depth,
             "matrix":sha(arr(torch.stack(mats))),"query":sha(arr(target_query)),"read":sha(arr(logits)),
             "scores":{online.key(k):float(v) for k,v in zip(choices,values,strict=True)}}
+        diagnostics={}
+        for f in ("unit","column"):
+            candidates=state.registry.choices()[f]
+            if len(candidates)>=2:
+                read=model.read(mats,state.controller.depth,target_query,f)
+                values=model.anchors(f,candidates) @ matrix.direction(read)
+                diagnostics[f]={k:float(v) for k,v in zip(candidates,values,strict=True)}
+            else:
+                diagnostics[f]=None
+        checkpoints[name]["unit_column"]=diagnostics
     def attempt(m,s,q,event):
         assert event.ptr==target.ptr and torch.equal(q,target_query)
         snapshot("t3",s.matrices,event.ptr)

@@ -11,7 +11,7 @@ def stage(kind, candidate, run_name, fixture=None):
     if not (dest/".git").exists():
         subprocess.run(["git","init","--quiet",str(dest)],check=True)
     common=subprocess.check_output(["git","rev-parse","--path-format=absolute","--git-common-dir"],cwd=ROOT,text=True).strip()
-    (dest/".git/objects/info/alternates").write_text(Path(common,"objects").as_posix()+"\n",encoding="utf8")
+    (dest/".git/objects/info/alternates").write_text(Path(common,"objects").as_posix()+"\n",encoding="utf8",newline="\n")
     sub="docs/fixtures/WP-0028" if kind=="fixtures" else "docs/research/WP-0028"
     sources=[(candidate,p) for p in subprocess.check_output(["git","ls-tree","-r","--name-only",candidate,"--",sub],cwd=ROOT,text=True).splitlines()
              if p.endswith((".py",".md",".ps1"))]
