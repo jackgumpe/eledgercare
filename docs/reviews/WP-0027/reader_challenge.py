@@ -134,11 +134,11 @@ def development(rund):
                            "archive_positions_sha256":sha(z.read(root+"observed-positions.json"))})
     return checks
 
-def audit():
+def audit(candidate=CANDIDATE, run="reader-replay-01"):
     start=time.perf_counter()
     checkout=SCRATCH/"reader-source/docs/research/WP-0027/reader"
     for f in ("reader.py","replay.py","fixtures.py","POLICY.md","run.ps1"):
-        assert (checkout/f).read_bytes()==blob(CANDIDATE,"docs/research/WP-0027/reader/"+f)
+        assert (checkout/f).read_bytes()==blob(candidate,"docs/research/WP-0027/reader/"+f)
     sys.path.insert(0,str(checkout))
     from reader import Reader
     reader=Reader()
@@ -147,7 +147,7 @@ def audit():
     witness_record=json.loads((WITNESS/"native.json").read_bytes())
     prompt=witness_record["prompt_token_ids"]
     rows=[test(reader,t,vocab,added,old,c,prompt) for c in (*CASES,*EXTRA)]
-    folder=SCRATCH/"reader-replay-01/results"
+    folder=SCRATCH/run/"results"
     actual=json.loads((folder/"k0014.json").read_bytes())["candidate"]
     ref=json.loads((SCRATCH/"witness-r1.json").read_bytes())
     assert actual["decision"]=="accepted" and actual["native_sha256"]==ref["native_sha256"]
@@ -156,11 +156,11 @@ def audit():
     assert [page["source"]["page"] for page in actual["source_to_section"]]==[16,17,18]
     assert [page["source"]["rgb_sha256"] for page in actual["source_to_section"]]==[p["rgb_sha256"] for p in ref["source_pages"]]
     assert actual["unused_delimiter"]["token_range"]==[121,122] and actual["unused_delimiter"]["byte_range"]==[356,362]
-    return {"candidate":CANDIDATE,"seconds":time.perf_counter()-start,"cases":rows,
+    return {"candidate":candidate,"seconds":time.perf_counter()-start,"cases":rows,
             "mismatches":[r["case"] for r in rows if not r["match"]],
             "development":development(folder),"k0014_equality":"original authenticated pixels, spans, raw IDs through EOS, delimiter offsets",
             "observed_feature_return_for_k0014":False}
 
 if __name__=="__main__":
-    save(SCRATCH/sys.argv[1],audit())
+    save(SCRATCH/sys.argv[1],audit(*sys.argv[2:]))
 
