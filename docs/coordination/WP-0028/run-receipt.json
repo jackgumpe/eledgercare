@@ -1,0 +1,118 @@
+{
+  "packet": "WP-0028",
+  "base_at_fetch": "71e451d8eafdfa15245e522d347bdf781b0c57b7",
+  "reservation": "c000c0299619345c887859b95c45befbb0c68987",
+  "original_inputs": [
+    {
+      "file": "eLedgerCare-Owner-Only-Handoff.md",
+      "path": "docs/coordination/WP-0028/handoff.md",
+      "sha256": "561609e611657e83ac761cd58c696c63cade5a8334c7a088dd90d992706dbf83"
+    },
+    {
+      "file": "Twin-Binder-Owner-Math-Reference.pdf",
+      "path": "docs/coordination/WP-0028/owner-math.pdf",
+      "pages": 1,
+      "sha256": "926356c85d186244cfa7e22947d72604d44dc3f483ea3cb91979ab20d1ed0f94"
+    }
+  ],
+  "coordinator": {
+    "role": "eld-coordinator",
+    "route": "registered receiving Codex CLI session",
+    "exact_backend": "not exposed"
+  },
+  "independent_sessions": [
+    {
+      "id": "eld-owner-fixture",
+      "route": "/root/w28_fixtures",
+      "effort_requested": "xhigh",
+      "history": "fresh native Codex session",
+      "exact_serving_backend": "not exposed",
+      "branch": "research/wp-0028-owner-fixtures",
+      "base": "c000c0299619345c887859b95c45befbb0c68987",
+      "worktree": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/w028-fixtures"
+    },
+    {
+      "id": "eld-owner-probe",
+      "route": "/root/w28_probe",
+      "effort_requested": "xhigh",
+      "history": "fresh native Codex session",
+      "exact_serving_backend": "not exposed",
+      "branch": "research/wp-0028-owner-probe",
+      "base": "c000c0299619345c887859b95c45befbb0c68987",
+      "worktree": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/w028-probe"
+    },
+    {
+      "id": "eld-rd-reviewer",
+      "route": "/root/w28_review",
+      "effort_requested": "xhigh",
+      "history": "fresh native Codex session",
+      "exact_serving_backend": "not exposed",
+      "branch": "review/wp-0028-owner-only",
+      "base": "c000c0299619345c887859b95c45befbb0c68987",
+      "worktree": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/w028-review"
+    }
+  ],
+  "environment": {
+    "cpu_only": true,
+    "executable": "C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe",
+    "flags": [
+      "-I",
+      "-B",
+      "-X",
+      "utf8"
+    ],
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "offline": [
+      "HF_HUB_OFFLINE=1",
+      "TRANSFORMERS_OFFLINE=1",
+      "HF_DATASETS_OFFLINE=1",
+      "HF_HUB_DISABLE_TELEMETRY=1",
+      "PIP_NO_INDEX=1"
+    ],
+    "threads": [
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1"
+    ],
+    "owned_caches": "C:/Users/jackg/eLedgerCare-Speed/WP-0028/coordination/cache"
+  },
+  "coordinator_checks": [
+    {
+      "source": "9377977d43042a78dd14d018878f714bb8b763e6",
+      "argv": [
+        "C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe",
+        "-I",
+        "-B",
+        "-X",
+        "utf8",
+        "docs/coordination/WP-0028/acquisition_scope.py",
+        "C:/Users/jackg/eLedgerCare-Speed/WP-0028/coordination/acquisition-scope.json"
+      ],
+      "workdir": "C:/Users/jackg/Asp.net Projects/eledgercare",
+      "published": "docs/coordination/WP-0028/acquisition-scope.json",
+      "output_sha256": "887772656057b4188118adc5b7501bfb592f196ccd6decb496d8dbd3ba9a08b1",
+      "wall_seconds": 1.4063512,
+      "exit": 0
+    },
+    {
+      "source": "ad54a777646389bb39af1e35cbba96999caec2e6",
+      "argv": [
+        "C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe",
+        "-I",
+        "-B",
+        "-X",
+        "utf8",
+        "docs/coordination/WP-0028/reconcile.py",
+        "ee8e96afcbd7a3c1f3eaa8125c05e68003c4a893",
+        "fcaf30465f0ce120c8077369155e4b624044baad"
+      ],
+      "workdir": "C:/Users/jackg/Asp.net Projects/eledgercare",
+      "stdout_encoding": "UTF-8 JSON with LF endings and a final LF",
+      "published": "docs/coordination/WP-0028/reconciliation.json",
+      "output_sha256": "e76871ec2f740131d1bfca5929e390e103775dd50633a6a497bd2a69dd3be980",
+      "wall_seconds": 0.3462231,
+      "exit": 0
+    }
+  ],
+  "gpu_calls": 0,
+  "lease": null
+}
