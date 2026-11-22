@@ -115,7 +115,7 @@ def check():
                         assert (key(actual) if actual is not None else None)==predicted.get(f)
                         if (key(x["expected"]) if x["expected"] is not None else None)!=predicted.get(f):
                             wrong.append(f)
-                    assert wrong==answer["wrong_fields"] and answer["silent"]==bool(wrong)
+                    assert set(wrong)==set(answer["wrong_fields"]) and answer["silent"]==bool(wrong)
                     if "owner" not in wrong:
                         owner_right["+ ".join(wrong) or "all_correct"]+=1
                     count.update(wrong)
