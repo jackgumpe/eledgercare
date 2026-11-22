@@ -1,0 +1,35 @@
+{
+  "packet": "WP-0030",
+  "utc_recorded": "2026-11-22 20:09:22 UTC",
+  "reservation": "f19d7fdca840af7b81e6a0bb1edd062d690898de",
+  "cpu_runtime": {
+    "revision": "474713bd25e0173cdd239c3715dffd79b02eac8f",
+    "path": "docs/coordination/WP-0030/runtime.json",
+    "python": "C:/Users/jackg/eLedgerCare-Speed/WP-0030/runtime/venv/Scripts/python.exe",
+    "pytorch": "2.13.0+cpu",
+    "cuda_build": null,
+    "historical_member_checkpoints": 24,
+    "historical_native_final_postings": 8
+  },
+  "source_inputs": "Eleven archive-proven three-page features; the two existing CPU weight files, literal anchors and original frozen final posting queries. Both declared sessions are separate from the cloud design participants.",
+  "author": {
+    "role": "eld-owner-probe",
+    "candidate": "a8b9c69f6f2dd8430d178341ad3aa91307525e3f",
+    "worktree": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/w030-trace",
+    "command": "./docs/research/WP-0030/trace/run.ps1 -Candidate a8b9c69f6f2dd8430d178341ad3aa91307525e3f -RunName author-r1"
+  },
+  "reviewer": {
+    "role": "eld-rd-reviewer",
+    "candidate": "603cfbc85c259112fb76ea7c1b9c514557149653",
+    "worktree": "C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/w030-review",
+    "argv": [
+      "C:/Users/jackg/eLedgerCare-Speed/WP-0030/runtime/venv/Scripts/python.exe",
+      "-I",
+      "-B",
+      "docs/reviews/WP-0030/replay.py",
+      "603cfbc85c259112fb76ea7c1b9c514557149653"
+    ],
+    "independence": "Fresh local session. Independent replay source frozen before author evidence. Independent reproduction and comparison required."
+  },
+  "scope": "CPU only; trace from zero to the actual final posting plus its separately identified post-write state. Stop after verified publication."
+}
