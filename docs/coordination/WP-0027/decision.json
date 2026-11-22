@@ -1,0 +1,365 @@
+{
+  "packet": "WP-0027",
+  "disposition": "accepted bounded CPU diagnosis after independent reproduction and one correction",
+  "base": "40540392bdcd9669c375b9b10f77c22b8c8112a1",
+  "reservation": "ce04b773329c3c67cd0ab4b578ddf442690019a0",
+  "coordinator_reconciliation": {
+    "command": [
+      "C:/Users/jackg/eLedgerCare-Q0/WP-0005/venv/Scripts/python.exe",
+      "-I",
+      "-B",
+      "-X",
+      "utf8",
+      "docs/coordination/WP-0027/reconcile.py",
+      "0573f69c481eea2e815899e00ddd5e68bb4e3c42",
+      "b0a4d3a90a825a9a3f27d334ded2e11759edfd20",
+      "evidence-r2"
+    ],
+    "digest_encoding": "UTF-8 stdout, normalized LF with a final LF",
+    "sha256": "c5c755332529cce3c447dcd686125ac30d187b07a20a2df7b3dedc135d515aa2"
+  },
+  "source_freezes": {
+    "rank": "aa3ecc3b04dada439529621cdfa93f8f8cf581e5",
+    "initial_reader": "67e0898e09ee9fc848677990850f9320a7d3cd6f",
+    "corrected_reader": "8bf8ec2c9eb6eff282366d61711ec1a249f4760a",
+    "input_source_constructor": "f13a148225efeecb7faf287179a3e010f3c385ac",
+    "coordinator_reconciliation": "6add1a1095787bab02760d3ffe6b869f728887bd"
+  },
+  "independent_review": {
+    "author": "eld-rd-reviewer",
+    "report": "54eec948b5510601e2b06920e01f50e23722b58a",
+    "initial_reader": {
+      "total": 31,
+      "matched": 30,
+      "positive_expected": 4,
+      "withhold_required": 26,
+      "false_acceptances": 1,
+      "blank_retain_or_withhold": 1,
+      "blank_withheld": 1,
+      "withheld_total": 26,
+      "mismatches": [
+        {
+          "case": "source raster contains untranscribed text/ordinary",
+          "expected": "U",
+          "actual": "A"
+        }
+      ],
+      "wall_seconds": 1.7262618000095244
+    },
+    "corrected_reader": {
+      "total": 31,
+      "matched": 31,
+      "positive_expected": 4,
+      "withhold_required": 26,
+      "false_acceptances": 0,
+      "blank_retain_or_withhold": 1,
+      "blank_withheld": 1,
+      "withheld_total": 27,
+      "mismatches": [],
+      "wall_seconds": 1.5746215999824926
+    },
+    "additional_checks": {
+      "original_review_commit": "309b9cd834a2f91728cbb88f974f589fedb0ff58",
+      "final_reviewer_source": "4caffeff219665a4b28ee79020f3d73f7cd7485a",
+      "final_normalized_scripts_replayed": 8,
+      "hash_identical_synthetic_inputs": 31,
+      "changed_decisions": 1,
+      "ordinary_source_ruling": {
+        "pages": [
+          1,
+          4
+        ],
+        "nontext_axis_aligned_paths": [
+          8,
+          7
+        ],
+        "residual_ink_pixels": [
+          30470,
+          24690
+        ],
+        "unaccounted_residual_pixels": [
+          0,
+          0
+        ]
+      },
+      "calibration_score_records_checked": 128,
+      "archived_digests_and_positions_verified": true
+    }
+  },
+  "deliverables": [
+    {
+      "item": "48 frozen calibration cells and 40 selected decisions",
+      "evidence": "reproduced"
+    },
+    {
+      "item": "Owner is ranked first in both answerable twins",
+      "evidence": "contradicted",
+      "result": "0 of 8 pairs for each arm"
+    },
+    {
+      "item": "Per-binder keyed scores, candidate and input comparability, checkpoint observations and field-wise diagnosis",
+      "evidence": "reproduced"
+    },
+    {
+      "item": "Original k0014 rejection and ordered physical-page witness",
+      "evidence": "reproduced"
+    },
+    {
+      "item": "Initial reader withholds incomplete mappings on ordinary and exceptional controls",
+      "evidence": "contradicted",
+      "result": "Visible untranscribed line accepted on one independent ordinary control"
+    },
+    {
+      "item": "Corrected k0014 mapping, historic feature-position parity and controls at the final revision",
+      "evidence": "reproduced"
+    },
+    {
+      "item": "Historical k0014 accepted hidden feature return",
+      "evidence": "blocked",
+      "missing_observation": "The original worker stopped after emitting native tokens and before returning accepted hidden features. Its archival absence cannot be repaired by a reader replay."
+    },
+    {
+      "item": "Held-out owner performance",
+      "evidence": "blocked",
+      "missing_observation": "No scored held-out paired postings. The scorer key remains sealed. The CPU diagnosis uses development scores only."
+    }
+  ],
+  "owner_rank_results": {
+    "M1": {
+      "binders": 20,
+      "verified_grid_cells": 24,
+      "selected_cell": {
+        "answerable_postings": 0,
+        "correct_pairs": 2,
+        "margin": 0.1,
+        "silent": 0,
+        "tau": 1.0
+      },
+      "selected_abstention_reasons": {
+        "below_threshold_owner": 16,
+        "no_target": 4
+      },
+      "ambiguous_pairs": 2,
+      "answerable_pairs": 8,
+      "both": 0,
+      "one": 8,
+      "neither": 0,
+      "ties": 0,
+      "unscorable_pairs": 0,
+      "reverse_flips": 0,
+      "leader_by_binder": {
+        "alder": 8,
+        "cedar": 8
+      },
+      "positive_within_pair_shifts": 8,
+      "min_max_Alder_minus_Cedar_shift": [
+        0.0033292286098003387,
+        0.011483810842037201
+      ],
+      "open_grid_point": [
+        -0.25,
+        0
+      ],
+      "open_wrong_postings": 16,
+      "open_errors_when_owner_right": {
+        "column": 4,
+        "subtotal_status": 2,
+        "unit": 2
+      },
+      "open_fields": {
+        "owner": {
+          "correct": 8,
+          "wrong": 8
+        },
+        "unit": {
+          "correct": 8,
+          "wrong": 8
+        },
+        "column": {
+          "wrong": 8,
+          "correct": 8
+        },
+        "subtotal_status": {
+          "correct": 4,
+          "na": 8,
+          "wrong": 4
+        }
+      }
+    },
+    "M3": {
+      "binders": 20,
+      "verified_grid_cells": 24,
+      "selected_cell": {
+        "answerable_postings": 0,
+        "correct_pairs": 2,
+        "margin": 0.1,
+        "silent": 0,
+        "tau": 1.0
+      },
+      "selected_abstention_reasons": {
+        "below_threshold_owner": 16,
+        "no_target": 4
+      },
+      "ambiguous_pairs": 2,
+      "answerable_pairs": 8,
+      "both": 0,
+      "one": 8,
+      "neither": 0,
+      "ties": 0,
+      "unscorable_pairs": 0,
+      "reverse_flips": 0,
+      "leader_by_binder": {
+        "alder": 16
+      },
+      "positive_within_pair_shifts": 8,
+      "min_max_Alder_minus_Cedar_shift": [
+        0.00013338401913642883,
+        0.028647001832723618
+      ],
+      "open_grid_point": [
+        -0.25,
+        0
+      ],
+      "open_wrong_postings": 16,
+      "open_errors_when_owner_right": {
+        "column": 4,
+        "unit": 2,
+        "subtotal_status": 2
+      },
+      "open_fields": {
+        "owner": {
+          "correct": 8,
+          "wrong": 8
+        },
+        "unit": {
+          "correct": 8,
+          "wrong": 8
+        },
+        "column": {
+          "wrong": 8,
+          "correct": 8
+        },
+        "subtotal_status": {
+          "correct": 4,
+          "na": 8,
+          "wrong": 4
+        }
+      }
+    }
+  },
+  "owner_interpretation": {
+    "selection": "Both arms abstained on 20/20 at (1.0, 0.10). The only two correctly scored pairs were the ambiguous controls. Sixteen answerable binders per arm reached an owner score. Four ambiguous binders had no row target.",
+    "polarity": "For each arm the Alder-minus-Cedar score was higher in the Alder binder than in its Cedar twin in all eight answerable pairs. The unique first-ranked name remained the same within every pair.",
+    "observable_scope": "Final source bytes and candidate sets agree within each pair. Separate ledger literals were present. Both arms lacked correct two-member separation at the first ledger-write checkpoints using the eventual query and at the final target. M3 briefly reversed the ranking on four early cue checkpoints. State/read vectors differ at measured stages. The earlier windows also varied in unit or schema cues. These observations cannot isolate the owner write, establish what latent information remains decodable, or locate a single causal defective layer.",
+    "whole_postings": "At the frozen (-0.25, 0) cell all 16 answerable postings per arm had a wrong field. For the eight with the correct owner, exactly one other field was wrong. Four missed the column, two the unit and two the subtotal. Eight of 16 binders per arm have a scored subtotal and eight carry null."
+  },
+  "reader_result": {
+    "author_cases": 36,
+    "author_positive": 5,
+    "author_negative": 31,
+    "author_false_acceptances": 0,
+    "original_error": "Expected three grounded native pages",
+    "physical_pages": [
+      16,
+      17,
+      18
+    ],
+    "lines": 6,
+    "grounded_spans": 6,
+    "marker_indices": [
+      0,
+      42,
+      81,
+      121
+    ],
+    "unassigned_bytes": [
+      356,
+      362
+    ],
+    "unassigned_tokens": [
+      121,
+      122
+    ],
+    "eos_token_index": 122,
+    "native_sha256": "ce9d03a8d73ecf4366b96bc2dbbf9e129f5a2ca30265876a16b17c07cc20b169",
+    "through_eos_u32le_sha256": "aa252199f6a1b963d5d9b11a32cba39c784dff494fea3db85d702215dc705f26",
+    "raw_utf8_sha256": "6d30b721626204a3628246c2a7aff0a0d2325a39707b75f1263570c5ee7d4cec",
+    "ordinary_saved_controls": [
+      {
+        "call": "b01w01H",
+        "grounded_spans": 14,
+        "position_selections": 102
+      },
+      {
+        "call": "b01w02H",
+        "grounded_spans": 8,
+        "position_selections": 69
+      }
+    ]
+  },
+  "reader_limits": "The positive finding uses the complete independently bound PDF glyph evidence, ordered source images and recorded EOS. Residual graphics allowances apply only under the corrected candidate contract. The observed false-acceptance counts describe these controls. A scan with no independent complete transcript has no established page-identity proof under this method.",
+  "followup": {
+    "released": false,
+    "one_test": "One separately authorized owner-only matched-pair study on development fixtures. Change only the active ledger owner, holding owner list/order, unit, schema, layout and final posting window fixed. Use both frozen probes and the same scoring direction at the immediate cue, end of the first window and target.",
+    "discriminating_observation": "Compare the within-pair owner score shift with the common candidate preference. An owner-only response persisting to the target while the same label still wins supports an insufficient signal relative to common preference. An early owner response that disappears bounds the loss interval. No owner-specific response under the tested readout leaves latent storage unresolved."
+  },
+  "runtime": {
+    "rank_author_seconds": 7.893689699994866,
+    "rank_per_arm_seconds": {
+      "M1": 1.2872853000008035,
+      "M3": 1.2939509999996517
+    },
+    "reader_author_seconds": 2.7399075,
+    "coordinator_reconciliation_wall_seconds": 0.5393061,
+    "coordinator_witness_wall_seconds": 0.7584236,
+    "q0_ocr_calls": 0,
+    "gpu_leases": 0
+  },
+  "evidence": {
+    "ranking": {
+      "publication": "0573f69c481eea2e815899e00ddd5e68bb4e3c42",
+      "path": "docs/research/WP-0027/owners/owner-rankings.json",
+      "sha256": "c43be2f4e02789743b1f5b02ed91be1d6614cb6d618fd0ce791a9de477e20a5a"
+    },
+    "progression": {
+      "publication": "0573f69c481eea2e815899e00ddd5e68bb4e3c42",
+      "path": "docs/research/WP-0027/owners/owner-progression.json",
+      "sha256": "38d782fb3c57cc009d7d29dd3a8d5fa66f48a191f2657548fc97f5e6fc3cc11c"
+    },
+    "initial_parser_cases": {
+      "publication": "10f64a7e26e2e2477435a05543efbf647cefdff8",
+      "path": "docs/research/WP-0027/reader/evidence/parser-cases.json",
+      "sha256": "2c768486fa89691f525aa2921972cc8a8c5b854432b4a878a274fc5885f1607e"
+    },
+    "corrected_parser_cases": {
+      "publication": "b0a4d3a90a825a9a3f27d334ded2e11759edfd20",
+      "path": "docs/research/WP-0027/reader/evidence-r2/parser-cases.json",
+      "sha256": "fa8cbeae8b05ea07b662ff5357f7a8e2b4dfe374b6cc2576be325e01300de151"
+    },
+    "independent_initial_cases": {
+      "publication": "309b9cd834a2f91728cbb88f974f589fedb0ff58",
+      "path": "docs/reviews/WP-0027/reader-challenge-r1.json",
+      "sha256": "77cf921e6ddb96aed942eb70014fb6d379bb19d3e853eb65765cbd84d8957f47"
+    },
+    "independent_final_cases": {
+      "publication": "44572822207e10872c2daae4481468f4643b4f57",
+      "path": "docs/reviews/WP-0027/reader-challenge-r2.json",
+      "sha256": "b7b15acaaabd57e97a67c93b5c2a8ef90fe4accd13eb091fcce10eb7f927be29"
+    },
+    "independent_development_source": {
+      "publication": "bd06f11681d68e021268eb174fc5a45da39c794e",
+      "path": "docs/reviews/WP-0027/h0-residual-r1.json",
+      "sha256": "49b33839a6462e398881f81bab34e78140bd9debca697b6a87ae36b5191a0704"
+    },
+    "independent_scores": {
+      "publication": "309b9cd834a2f91728cbb88f974f589fedb0ff58",
+      "path": "docs/reviews/WP-0027/ranks-r1.json",
+      "sha256": "05bd11c70f719991b5459edb7853c5c5e842d6938e9d1bbcfed84c52734ce9e5"
+    },
+    "independent_source_return": {
+      "publication": "309b9cd834a2f91728cbb88f974f589fedb0ff58",
+      "path": "docs/reviews/WP-0027/witness-r1.json",
+      "sha256": "8afee4584ec862a2076194a824fca4316c4aa06664baff9008ad06dfb06ae8a3"
+    }
+  }
+}
