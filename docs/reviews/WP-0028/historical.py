@@ -88,6 +88,7 @@ def replay(model, windows, active, modules):
         assert fields["owner"]==checkpoints["t3"]["scores"]
     return {"final_matrix":sha(arr(torch.stack(state.matrices))),"typed":matrix.result(state,(1.0,0.1)),
             "open":matrix.result(state,(-0.25,0.0)),"fields":fields,"trace":state.trace,
+            "field_bytes":{n:arr(values).hex() for n,values in attempt.scores.items()},
             "registry":state.registry.choices(),"growth":state.growth},checkpoints
 
 def main():
@@ -130,6 +131,7 @@ def main():
             table={}
             native_tie=matrix.Attempt(scores={"owner":torch.tensor([0.125,0.125])},choices={"owner":["Alder","Cedar"]})
             assert native_tie.typed((-0.25,0.0))=={"type":"ABSTAIN","reason":"zero_state_tie"}
+            zero_control=False
             for p in routes:
                 binders={}
                 for tr in p["twins"]:
@@ -138,6 +140,14 @@ def main():
                     if label["ambiguous"]:
                         continue
                     windows=[features[Path(w).name] for w in tr["windows"]]
+                    if not zero_control:
+                        zero_state=matrix.NeuralState(model.zero())
+                        for ordinal,window in enumerate(windows,1):
+                            matrix.advance(model,zero_state,window,ordinal,zero=True)
+                        zero_attempt,=zero_state.attempts
+                        assert zero_attempt.zero and torch.count_nonzero(zero_attempt.scores["owner"]).item()==0
+                        assert matrix.result(zero_state,(-.25,0.))=={"type":"ABSTAIN","reason":"zero_state_tie"}
+                        zero_control=True
                     recording,recs=replay(model,windows,True,modules)
                     baseline,_=replay(model,windows,False,modules)
                     again,repeat=replay(model,windows,True,modules)
