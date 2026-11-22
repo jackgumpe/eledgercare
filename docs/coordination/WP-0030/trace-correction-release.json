@@ -1,0 +1,17 @@
+{
+  "packet": "WP-0030",
+  "utc": "2026-11-22 20:10:11 UTC",
+  "initial_candidate": "a8b9c69f6f2dd8430d178341ad3aa91307525e3f",
+  "initial_author_run": "author-r1",
+  "last_boundary": "Author observer stopped at the first native CPU posting. No complete arm pair was published from this attempt.",
+  "reported_error": "The observer stored its owner anchors under the same attribute name as the original Memory.anchors() method.",
+  "verified_change": "Two-line rename of the observer's stored tensor attribute to owner_anchors.",
+  "replacement": "447a9e7adc2dbd81933510068742ba1b82bbe84d",
+  "released_runs": [
+    "author-r2",
+    "author-r3"
+  ],
+  "entrypoint": "docs/research/WP-0030/trace/run.ps1 -Candidate 447a9e7adc2dbd81933510068742ba1b82bbe84d -RunName <run>",
+  "required": "Two clean CPU results plus the separately frozen non-author replay. Source, audit evidence and archived input hashes remain inspectable.",
+  "gpu_or_ocr_authority": 0
+}
