@@ -1,0 +1,324 @@
+{
+  "packet": "WP-0028",
+  "base": "71e451d8eafdfa15245e522d347bdf781b0c57b7",
+  "reservation": "c000c0299619345c887859b95c45befbb0c68987",
+  "status": "Closed after independent review. The development fixtures and historical replay are accepted. The new paired measurement is blocked at feature admission.",
+  "scope": "CPU-only on synthetic development data and frozen M1/M3 probes, with no native Baidu calls and no GPU lease.",
+  "study": {
+    "axis": "score(Alder) minus score(Cedar), in both members",
+    "delta": "Alder-owned margin minus Cedar-owned margin",
+    "mu": "Half the sum of the Alder-owned and Cedar-owned margins",
+    "win": "Alder-owned margin > 0 > Cedar-owned margin",
+    "ratio_floor": 0.000001,
+    "template_choice": "The preregistered calibration T1 Alder template at the 12- and 30-page horizons shares an opening and a final posting. Only the five-letter parent declaration was replaced. The 30-page version adds six intermediate windows.",
+    "document_pairs_planned": 2,
+    "population_by_probe_and_horizon": [
+      {
+        "arm": "M1",
+        "horizon": 12,
+        "admitted": 0,
+        "completed": 0,
+        "planned": 1,
+        "trajectory_t1_t2_t3": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "arm": "M1",
+        "horizon": 30,
+        "admitted": 0,
+        "completed": 0,
+        "planned": 1,
+        "trajectory_t1_t2_t3": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "arm": "M3",
+        "horizon": 12,
+        "admitted": 0,
+        "completed": 0,
+        "planned": 1,
+        "trajectory_t1_t2_t3": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "arm": "M3",
+        "horizon": 30,
+        "admitted": 0,
+        "completed": 0,
+        "planned": 1,
+        "trajectory_t1_t2_t3": [
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "measurement_questions": {
+      "immediate_owner_only_response": null,
+      "owner_only_response_at_target": null,
+      "correct_owner_only_winner_change": null
+    },
+    "missing_observation": "No archived whole-window native feature return on the three source images starting with the edited Cedar declaration. The readout scores and typed posting for the complete Cedar trajectory remain unobserved.",
+    "reason": "The original Cedar control changes additional printed fields. Copying its feature or editing recognized text cannot supply an image-level intervention."
+  },
+  "admission": {
+    "physical_source_checks": [
+      {
+        "pages": 12,
+        "changed_page": 1,
+        "changed_rgb_pixels": 4331,
+        "change_bbox_xyxy_exclusive": [
+          583,
+          1616,
+          804,
+          1677
+        ],
+        "outside_roi": 0,
+        "other_byte_identical_pages": 11
+      },
+      {
+        "pages": 30,
+        "changed_page": 1,
+        "changed_rgb_pixels": 4331,
+        "change_bbox_xyxy_exclusive": [
+          583,
+          1616,
+          804,
+          1677
+        ],
+        "outside_roi": 0,
+        "other_byte_identical_pages": 29
+      }
+    ],
+    "authentic_development_primary_archives": 4,
+    "acquisition_orders": 5,
+    "archived_physical_calls": 84,
+    "hooked_feature_recordings": 76,
+    "distinct_hooked_ordered_triples": 61,
+    "planned_logical_window_uses": 28,
+    "cached_logical_window_uses": 26,
+    "missing_logical_window_uses": 2,
+    "planned_distinct_window_inputs": 11,
+    "cached_distinct_window_inputs": 10,
+    "missing_distinct_window_inputs": 1,
+    "missing_rgb_key": "33362fbbeb37e805a64acbf3afdc3ec04315a4706820ed634a8fe0fb865ce2d5",
+    "missing": [
+      {
+        "ordered_pages": [
+          {
+            "position": 1,
+            "png_sha256": "d5f8785feabb6dfc9186f691594575214dd82981fb9dbd66795fbd9ef2c3dc9d",
+            "rgb_sha256": "e5d8954a3a800e6b44a2e42016ad5bd6eb4026de6b6a94eb81d56b81ec8e4d40"
+          },
+          {
+            "position": 2,
+            "png_sha256": "70643dfe1ebf8b76759fb98565b1d38f5db06c6997413fd5fe07bf18fca49542",
+            "rgb_sha256": "e9b7007cfc80e5585eebddf457b54f0c9a5f61688ddb78845767786a735b9907"
+          },
+          {
+            "position": 3,
+            "png_sha256": "357d61870673f337ebfcf12ed0e95a3fb695c7ddec379e10e079489044ba4429",
+            "rgb_sha256": "67a1e3eeb9d1b503bbf1c53c97f97421ffc90c10bf62076ed55df44682ab35f7"
+          }
+        ],
+        "uses": [
+          {
+            "horizon": 12,
+            "owner": "Cedar",
+            "window": 1
+          },
+          {
+            "horizon": 30,
+            "owner": "Cedar",
+            "window": 1
+          }
+        ]
+      }
+    ],
+    "per_horizon_cache": [
+      {
+        "pages": 12,
+        "logical": 8,
+        "cached": 7
+      },
+      {
+        "pages": 30,
+        "logical": 20,
+        "cached": 19
+      }
+    ],
+    "fixed_input_evidence_sha256": {
+      "scope_sha256": "887772656057b4188118adc5b7501bfb592f196ccd6decb496d8dbd3ba9a08b1",
+      "fixture_manifest_sha256": "cb058f1931758c516e21e2d791d5b5dffd04646bc773b8e967a11024fdf58cf2",
+      "geometry_sha256": "db4a3315534dd18be845132ac9272feaecd06a827d5631fd400cf1491fb814b1",
+      "historical_scores_sha256": "0db140d33dcfedba8787316ad4ef51b6ef2574db3dd15310d867212d74789d89",
+      "controlled_gate_sha256": "080fe21cc127cc36f86620ff28306bc154320617cfece01bb911958ea5f715f5"
+    }
+  },
+  "historical": {
+    "arms": {
+      "M1": {
+        "historical_pairs": 8,
+        "paired_observations": {
+          "t1": 8,
+          "t2": 8,
+          "t3": 8
+        },
+        "positive_historical_responses": {
+          "t1": 0,
+          "t2": 8,
+          "t3": 8
+        },
+        "correct_historical_paired_wins": {
+          "t1": 0,
+          "t2": 0,
+          "t3": 0
+        }
+      },
+      "M3": {
+        "historical_pairs": 8,
+        "paired_observations": {
+          "t1": 8,
+          "t2": 8,
+          "t3": 8
+        },
+        "positive_historical_responses": {
+          "t1": 4,
+          "t2": 8,
+          "t3": 8
+        },
+        "correct_historical_paired_wins": {
+          "t1": 0,
+          "t2": 0,
+          "t3": 0
+        }
+      }
+    },
+    "scope": "The WP-0027 calibration twins also change unit or schema cues. These positive or negative historical responses do not estimate the effect of the single owner edit.",
+    "numeric_parity": "All 48 historical pair/checkpoint observations (96 member/checkpoint records) agreed with both the frozen score sources and the independent rerun. Inputs and final query matched within each pair. Duplicate CPU traversals and the ordinary scorer agreed with the instrumented paths.",
+    "pdf_example": {
+      "arm": "M3",
+      "checkpoint": "t3",
+      "expected_decimal": {
+        "delta": "0.0001334",
+        "margin_Alder_input": "0.1030183",
+        "margin_Cedar_input": "0.1028849",
+        "mu": "0.1029516"
+      },
+      "full_precision": {
+        "D": 0.02118339017033577,
+        "correct_paired_win": false,
+        "delta": 0.00013338401913642883,
+        "delta_gt_twice_abs_mu": false,
+        "margin_Alder_input": 0.10301829874515533,
+        "margin_Cedar_input": 0.1028849147260189,
+        "mu": 0.10295160673558712,
+        "positive_response": true,
+        "ratio": -0.006336531123950725
+      },
+      "other_earlier_cues_varied": true,
+      "pair": "03fe821e0efada96bdc61e31",
+      "winner_each": [
+        "Alder",
+        "Alder"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "item": "Frozen source, two owner-only fixture pairs, pixel/geometry evidence, source-to-recording manifests and missing-window inventory",
+      "disposition": "reproduced"
+    },
+    {
+      "item": "Historical M1 and M3 native score and typed-decision replay, ratio floor, exact tie, swapped reporting labels and original final decisions",
+      "disposition": "reproduced"
+    },
+    {
+      "item": "Owner-only raw scores, trajectory, initial detection, persistence and paired winner for M1/M3 at both horizons",
+      "disposition": "blocked",
+      "detail": "Four arm/horizon rows, 24 member checkpoints, 48 literal scores, 12 paired derivations. Unavailable fields are null and reason-coded in the controlled table. None contribute to a win or loss denominator."
+    },
+    {
+      "item": "Independent fixture, historical score, missing input and cost verification",
+      "disposition": "reproduced"
+    }
+  ],
+  "provenance_deviation": {
+    "observed": "Before implementation, an exploratory parent-relative path opened and printed one row of the superseded v1 development calibration sidecar.",
+    "effect_and_checks": "The two base identities and region had already been fixed in the reservation. The author disclosed and excluded the row. The frozen builder checked the authorized v2 sidecar digest before parsing. The reviewer regenerated matching fixtures and archive results from the scoped inputs. No blind or held-out data was opened.",
+    "report": "98702b5583d27b654b52507673985e9d307e7a54"
+  },
+  "independent": {
+    "report": "16159e90927a9e62a8e052d7a7fafbfce1aec921",
+    "evidence": "28be00df3b48aee0a3016a0d6eef63876c7a629a",
+    "checks": {
+      "physical_replay_source": "authorized selected v2 calibration only",
+      "reproduced_fixture_artifacts": 38,
+      "reproduced_historical_member_checkpoints": 96,
+      "reproduced_historical_paired_checkpoints": 48,
+      "reproduced_native_field_scores": 224,
+      "reproduced_native_attempts": 32,
+      "confirmed_unmeasured_member_checkpoints": 24,
+      "confirmed_null_owner_scores": 48,
+      "authorship": "fresh non-author, separate investigation and replay of both author candidates",
+      "review_source": "bf0ff7af0d8da893beb0dae742c133dbb1880aa1"
+    }
+  },
+  "sole_followup": {
+    "status": "proposed only, separate authority required",
+    "objective": "Obtain the one missing source-bound native B=1 capture. On acceptance, the same physical feature serves both Cedar openings for the already specified CPU readouts.",
+    "parameters": {
+      "released": false,
+      "device_execution_in_this_packet": 0,
+      "loads": 1,
+      "excluded_W0_calls": 1,
+      "scored_B1_calls": 1,
+      "maximum_total_native_calls": 2,
+      "automatic_retries": 0,
+      "hard_supervised_wall_seconds": 180,
+      "historical_device_ceiling_mib": 12500,
+      "historical_preflight_free_floor_mib": 12000,
+      "native_model_revision": "0480966938291445591f69f08a13b041c073a96a",
+      "model_manifest_sha256": "0df07bc60abf6937c917040bced32afabd7e4d11bafc0bd99902abca610a81be",
+      "pinned_worker_revision": "9c02c9fae465dc1d1322a81c23eb3af45bbb0aff",
+      "capture_revision": "1843cdb7b6279b84b539d3ca1ba7bd0affa1f7dd",
+      "dtype": "torch.bfloat16",
+      "warmup_fixture_sha256": "7c509b3514daf75854b2b719cc7a94d44175c5af9fdcbae8ef4df0c68ec812e7",
+      "operator": "Uninvolved native research reviewer on one verified exclusive device lease in a separately authorized packet.",
+      "admission": "One verified W0 on the new load, then exactly the listed missing ordered RGB triple. Reject on identity or W0 mismatch, missing EOS, invalid source-page span or feature-position binding, invalid hash, time or VRAM ceiling. Bind through-EOS IDs, metadata, normalized decoder input to the LM head, pooled F32, and acquisition receipts together. An independent verifier must check source/worker identity, source order, archive bytes and W0/return provenance before a CPU probe reads it.",
+      "reuse": "Point both identical opening-window uses at the one authenticated return; keep all existing validated feature references. A stopped or unverifiable call ends this proposal's budget."
+    },
+    "historical_comparator": {
+      "tag": "k0007",
+      "duration_sha256": "ae2d749744b862a2ebaca4c3d9e5759bb2e36b158080d0b139dcffef496f95b0",
+      "source": "runs/cal-features-r1/sensor/k0007/duration.json",
+      "complete_window_seconds": 38.7288812,
+      "warmup_receipt_sha256": "18b36879279160b6e1a19af1e4cee6bc23897f3f36b16b62fcd57f7c97c2c675",
+      "load_seconds": 20.5959215,
+      "warmup_seconds": 24.7535243,
+      "historical_global_peak_board_mib": 8388,
+      "combined_comparator_seconds": 84.078327
+    },
+    "cost_limit_interpretation": "The 84.078327 s reference is a historical cold-load, W0 and unedited opening comparison. The 180 s ceiling is a proposed stop cap, not a performance measurement on the new source."
+  },
+  "publications": {
+    "coordinator_checks": "bda5f97f139319bf0ce79664695d391be39a10b0",
+    "fixture_source": "083564a96b015384de091f3578a76b41883ab1f0",
+    "fixture_evidence": "ee8e96afcbd7a3c1f3eaa8125c05e68003c4a893",
+    "fixture_report": "98702b5583d27b654b52507673985e9d307e7a54",
+    "probe_protocol": "3780eab7919108bf37c7fc32adfce0adb30da4e0",
+    "probe_source": "9cb018cecab739097abb9e1554e8c61768b257b0",
+    "probe_evidence": "fcaf30465f0ce120c8077369155e4b624044baad",
+    "probe_report": "b4cd4a6492b9405c729ee7f7bb78b998daa34e78"
+  },
+  "gpu_calls": 0
+}
