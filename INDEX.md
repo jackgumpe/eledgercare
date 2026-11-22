@@ -1287,3 +1287,14 @@ Reserved from `71e451d8eafdfa15245e522d347bdf781b0c57b7` after fetching the priv
 | [004 coordinator disposition](docs/agent-reports/eld-coordinator/WP-0028/004_2026-11-22_verification_eld-coordinator.md) | `eb82bd6bcbad5da0f33c335fb731996647175699` |
 
 The [publication receipt](docs/coordination/WP-0028/publication-receipt.json) verifies four reports and 53 evidence objects, including all four PDFs and all 31 distinct canonical PNGs.
+
+## WP-0029 Cedar capture and owner scoring
+
+Reserved on the refreshed WP-0028 closure at 1b5fad0140e1c54c636b2348ae6dc6c6610c8b21. [Assignment and permitted paths](docs/coordination/WP-0029/assignment.md) · [Jack's bounded handoff](docs/coordination/WP-0029/handoff.md)
+
+| Sequence | Stable ID | Branch and worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-cedar-operator | research/wp-0029-cedar-acquisition · w029-operator | docs/agent-reports/eld-cedar-operator/WP-0029/001_2026-11-22_research_eld-cedar-operator.md |
+| 002 | eld-owner-probe | research/wp-0029-cedar-scoring · w029-score | docs/agent-reports/eld-owner-probe/WP-0029/002_2026-11-22_research_eld-owner-probe.md |
+| 003 | eld-rd-reviewer | review/wp-0029-cedar · w029-review | docs/agent-reports/eld-rd-reviewer/WP-0029/003_2026-11-22_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0029/004_2026-11-22_verification_eld-coordinator.md |
