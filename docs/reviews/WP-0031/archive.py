@@ -65,7 +65,10 @@ def read_archive(work):
     windows = {}
     occurrences = {}
     for horizon, pair in by_horizon.items():
-        assert pair["admitted"]
+        # This fixture manifest predates acquisition of the missing Cedar opening.
+        for probe in weights:
+            admitted, = (p for p in history["arms"][probe] if p["pair"] == pair["pair"])
+            assert admitted["horizon"] == horizon and admitted["counts"] == {"planned": 1, "completed": 1, "admitted": 1}
         for m in pair["members"]:
             recording = m["windows"]
             owner = m["owner"]
