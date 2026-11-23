@@ -1,0 +1,16 @@
+2026-11-23 UTC. First frozen review candidate ea731fd4287cbaa997c5cef507e42956c24f7002.
+Worktree C:/Users/jackg/Asp.net Projects/eledgercare-worktrees/w031-review
+& 'C:/Users/jackg/eLedgerCare-Speed/WP-0030/runtime/venv/Scripts/python.exe' -I -B docs/reviews/WP-0031/replay.py ea731fd4287cbaa997c5cef507e42956c24f7002
+Exit 1, before importing torch and before any writes to probe memory.
+Traceback (most recent call last):
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\w031-review\docs\reviews\WP-0031\replay.py", line 272, in <module>
+    main(*sys.argv[1:])
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\w031-review\docs\reviews\WP-0031\replay.py", line 247, in main
+    weights, bindings, trace, anchors, sources = read_archive(work)
+                                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jackg\Asp.net Projects\eledgercare-worktrees\w031-review\docs\reviews\WP-0031\archive.py", line 68, in read_archive
+    assert pair["admitted"]
+           ~~~~^^^^^^^^^^^^
+AssertionError
+
+WP-0028 predates admission of the missing Cedar opening. Candidate 6260131f85ec3844acb54326799c7f6d48115323 verifies WP-0029's completed and admitted pair counts by probe, pair ID and horizon. The complete new run exited 0.
