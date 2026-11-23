@@ -1,0 +1,232 @@
+{
+  "status": "all compared equal",
+  "source": "2a1d1aa16be76fcb40a636b71e6cbe517cde38f3",
+  "author_source": "5e1a464a38ad4213b94b3b25695bd70d9054a6a3",
+  "author_data": "8f31cc66c4878ca086fa5da1498c4a73ed6a6306",
+  "independent_source": "6260131f85ec3844acb54326799c7f6d48115323",
+  "author_files_sha256": {
+    "M1-Alder-write7.f32": "8e1514a6889cc38f23b3a918e69a8f416a857123c8cf417fae29375f88cd6c0a",
+    "M1-Cedar-write7.f32": "ee4819ef75dafebb3eb5fc8ed4071ea31380a4829bafd4a1499d6d09f6c40914",
+    "M1.json": "b1c4f9d55b78c85a780a4664e1266b22eabc30f841b1671271d2798da80fc059",
+    "M3-Alder-write7.f32": "11824a49235e1ca7b621b3162cdb7f674935a9540d3ddc2af2ef2837b64a4a66",
+    "M3-Cedar-write7.f32": "23c400fddfa612ff2f9f291b90e2fcee44ad69a38fe6059d1fa333f78b542de3",
+    "M3.json": "c3828b2a5bcdff827aecd773214e590c0be32b90a719956eb9b49c02e5d1f100",
+    "inputs.json": "9f265ca6958f824a07c6ffb457a3ad53182c3351dfcf3316c57670ea98c96121"
+  },
+  "independent_replay_sha256": "870409c461c5a1966061dc041670b499dfe43eba6d8533064883c1be6a127e04",
+  "independent_prefix_zip_sha256": "e69be6e7e4b1ef3edd0b8c0ecf47dccd1f78479db1d7072102af925fd678bdc5",
+  "checks": {
+    "M1": {
+      "prefix": {
+        "Alder": {
+          "bytes_equal": 65536,
+          "matrix_sha256": "8e1514a6889cc38f23b3a918e69a8f416a857123c8cf417fae29375f88cd6c0a",
+          "discrete_sha256": "6a52abce5fd5637f953557267477dcd59ed5501c29329acaf89a4bcc761fce9e",
+          "donor_input_sha256": "abc8c59c335d644d7d3c04bcecc975cf04ff7a0a2342a4bfb2206d3086af97a8",
+          "k_v_a_b_sha256": "247d6ac945cc0fef212ff86bcc9bc4a0215f506b69c2ba0fc5e031873715442e",
+          "ordered_anchor_sha256": "157a301c648da690ad83512a2ed7704b6fa230d7fbfadca539383b4154163934",
+          "query_sha256": "61261baff556b5c09e13bedd14777e653ae73c9cb6ead2487c69b3946fb2c79f"
+        },
+        "Cedar": {
+          "bytes_equal": 65536,
+          "matrix_sha256": "ee4819ef75dafebb3eb5fc8ed4071ea31380a4829bafd4a1499d6d09f6c40914",
+          "discrete_sha256": "6a52abce5fd5637f953557267477dcd59ed5501c29329acaf89a4bcc761fce9e",
+          "donor_input_sha256": "12c7a91c85d04a8fc5ebe19749b0f8fae8ec792f0041737f3f2aab8ff20eb8b3",
+          "k_v_a_b_sha256": "8acf61cbbb19439678af8e457c1570fe120aea9f64446884dd0ebd20bd2d7584",
+          "ordered_anchor_sha256": "157a301c648da690ad83512a2ed7704b6fa230d7fbfadca539383b4154163934",
+          "query_sha256": "61261baff556b5c09e13bedd14777e653ae73c9cb6ead2487c69b3946fb2c79f"
+        }
+      },
+      "cells": {
+        "AA": {
+          "recipient": "Alder",
+          "donor": "Alder",
+          "donor_input_sha256": "abc8c59c335d644d7d3c04bcecc975cf04ff7a0a2342a4bfb2206d3086af97a8",
+          "recipient_matrix_sha256": "8e1514a6889cc38f23b3a918e69a8f416a857123c8cf417fae29375f88cd6c0a",
+          "residual_sha256": "c5e38155c9b50894f70961da9cef29352dc19e96fbf162ea3c17ab1a25141d47",
+          "matrix_sha256": "3a91615450ff14e8ff496f1edf6006c09f09e55bb75a5a52613c824e1e1575ba",
+          "read_sha256": "10a84b5240f116b2e151e79d5ad94c85f4dd7969fcebcc7394a9cd0ec14f9b4c",
+          "score_f32le": "ae5239bd18d06d3c",
+          "margin_f64le": "00000080d698aebf"
+        },
+        "AC": {
+          "recipient": "Alder",
+          "donor": "Cedar",
+          "donor_input_sha256": "12c7a91c85d04a8fc5ebe19749b0f8fae8ec792f0041737f3f2aab8ff20eb8b3",
+          "recipient_matrix_sha256": "8e1514a6889cc38f23b3a918e69a8f416a857123c8cf417fae29375f88cd6c0a",
+          "residual_sha256": "12c1dcb5dad7727413083fa8e212954d72f74019ce9d15e48c8baa84d617db90",
+          "matrix_sha256": "e52f63018dbe3d3e8f867c3081b064fe1cbfd7e5e58bba47ba1ad17495b00db1",
+          "read_sha256": "866d2d7ac8632e5ed0b9f66d1bcea53c4dd8139f1c1160cf7740545e5186af40",
+          "score_f32le": "532aa63cf4c2773d",
+          "margin_f64le": "00000050b995a4bf"
+        },
+        "CA": {
+          "recipient": "Cedar",
+          "donor": "Alder",
+          "donor_input_sha256": "abc8c59c335d644d7d3c04bcecc975cf04ff7a0a2342a4bfb2206d3086af97a8",
+          "recipient_matrix_sha256": "ee4819ef75dafebb3eb5fc8ed4071ea31380a4829bafd4a1499d6d09f6c40914",
+          "residual_sha256": "20a1c8f29a95878c6c50f3503ba48292ee99d82a0a0d649613206c31f727e358",
+          "matrix_sha256": "e0180f1989de4bc9e7218db8d0f119a9e4e2d255fcc2af95bdf17578297aa777",
+          "read_sha256": "6763b1ace1958522090d3fb85873cd46672984ae2f84427d2689a8f503d7e8e8",
+          "score_f32le": "f4e91ebd4ab99c3c",
+          "margin_f64le": "00000020d3a8adbf"
+        },
+        "CC": {
+          "recipient": "Cedar",
+          "donor": "Cedar",
+          "donor_input_sha256": "12c7a91c85d04a8fc5ebe19749b0f8fae8ec792f0041737f3f2aab8ff20eb8b3",
+          "recipient_matrix_sha256": "ee4819ef75dafebb3eb5fc8ed4071ea31380a4829bafd4a1499d6d09f6c40914",
+          "residual_sha256": "47508c21bc3e0b15bea10623c9d1c620e6c9b069e7a3a29bbe2f235bd5467073",
+          "matrix_sha256": "a8d4a53fcb503977442d657a2b4f785650f3bdea428a43e7e61b004aaa2bde8e",
+          "read_sha256": "fd4a4b98a947dd093f4744d29c534f68f76615b85dd6f4524e9c2c4450258a1e",
+          "score_f32le": "1496f83ca5778b3d",
+          "margin_f64le": "000000008854a3bf"
+        },
+        "0A": {
+          "recipient": "zero",
+          "donor": "Alder",
+          "donor_input_sha256": "abc8c59c335d644d7d3c04bcecc975cf04ff7a0a2342a4bfb2206d3086af97a8",
+          "recipient_matrix_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+          "residual_sha256": "c36c568959cbf0edbb3d7127eb76b1c3099490796f49d1a6d99de03c37648de2",
+          "matrix_sha256": "de279f500aff36b11ff486749914a300e9bbcdf1784617369c84678c3582b5b5",
+          "read_sha256": "f545562ffe6e39ca2df31ba2563b00c33a27e6fd26a7528388bc664e362445b9",
+          "score_f32le": "ccb77f3ece25323e",
+          "margin_f64le": "000000807f64b33f"
+        },
+        "0C": {
+          "recipient": "zero",
+          "donor": "Cedar",
+          "donor_input_sha256": "12c7a91c85d04a8fc5ebe19749b0f8fae8ec792f0041737f3f2aab8ff20eb8b3",
+          "recipient_matrix_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+          "residual_sha256": "3f7edfd081303828709162e623d82348605676320db678a52ab74d79aa3138e6",
+          "matrix_sha256": "a05d595a7a1ddd9575be75058e763c561639865799045f3198893ad0c6a06b89",
+          "read_sha256": "daf17fea7081e5fb726665a51e980feddf48f5bf93b8b0c1ff0d05c0c7ac52fc",
+          "score_f32le": "b6e5473ec13d303e",
+          "margin_f64le": "00000000f5a7973f"
+        }
+      },
+      "contrasts_f64le": {
+        "DA": "000000603a0694bf",
+        "DC": "0000004096a894bf",
+        "I": "000000007c4b443f",
+        "PA": "000000006c005ebf",
+        "PC": "00000000151364bf",
+        "delta_native": "000000009d8896bf"
+      },
+      "trigger": {
+        "DA": -0.01955500803887844,
+        "DC": -0.020174358040094376,
+        "abs_I": 0.0006193500012159348,
+        "five_percent_limit": 0.0010087179020047189,
+        "run": true
+      },
+      "D0": 0.052650585770606995
+    },
+    "M3": {
+      "prefix": {
+        "Alder": {
+          "bytes_equal": 524288,
+          "matrix_sha256": "11824a49235e1ca7b621b3162cdb7f674935a9540d3ddc2af2ef2837b64a4a66",
+          "discrete_sha256": "6a52abce5fd5637f953557267477dcd59ed5501c29329acaf89a4bcc761fce9e",
+          "donor_input_sha256": "2f6059ccadbcb34b4525f0c6219db3289144a990a3ef1d4ae4cbf94f3486791f",
+          "k_v_a_b_sha256": "82304632f0c760e353b75ef21317dbd117a865325ca11947ee0f4d48b3c915a3",
+          "ordered_anchor_sha256": "eaacad0a1dd00f6539393fde8134988add05e6221dff7ad81647433e21d34de4",
+          "query_sha256": "9021294c0d841f2fdc9038194e1ef8dfe64805bce51d85413707b8c4887c368a"
+        },
+        "Cedar": {
+          "bytes_equal": 524288,
+          "matrix_sha256": "23c400fddfa612ff2f9f291b90e2fcee44ad69a38fe6059d1fa333f78b542de3",
+          "discrete_sha256": "6a52abce5fd5637f953557267477dcd59ed5501c29329acaf89a4bcc761fce9e",
+          "donor_input_sha256": "1d990a2901db104c2fa2ade486ffc9fd5b90d6ac6c5e1e7180213c7e087b675e",
+          "k_v_a_b_sha256": "ec6de97a26f74f67c2f1eb27f4cd0b6e06a6ad9540ff30e14e6f5357575b9618",
+          "ordered_anchor_sha256": "eaacad0a1dd00f6539393fde8134988add05e6221dff7ad81647433e21d34de4",
+          "query_sha256": "9021294c0d841f2fdc9038194e1ef8dfe64805bce51d85413707b8c4887c368a"
+        }
+      },
+      "cells": {
+        "AA": {
+          "recipient": "Alder",
+          "donor": "Alder",
+          "donor_input_sha256": "2f6059ccadbcb34b4525f0c6219db3289144a990a3ef1d4ae4cbf94f3486791f",
+          "recipient_matrix_sha256": "11824a49235e1ca7b621b3162cdb7f674935a9540d3ddc2af2ef2837b64a4a66",
+          "residual_sha256": "b322703c087e25f4ac68b4e0a7a9c4d84f4debfd62d83d9d76cef06829ba2083",
+          "matrix_sha256": "6357ecae1dbcacf09af462aa7dbd518edf8ab9bf39b9696bbe0cc73716f1c062",
+          "read_sha256": "8c2f14f4cbc8289ef4a34f796bfb4942bcff2495b59c436a9e43c14dbc0ffa57",
+          "score_f32le": "2b02113ec059123e",
+          "margin_f64le": "00000000507955bf"
+        },
+        "AC": {
+          "recipient": "Alder",
+          "donor": "Cedar",
+          "donor_input_sha256": "1d990a2901db104c2fa2ade486ffc9fd5b90d6ac6c5e1e7180213c7e087b675e",
+          "recipient_matrix_sha256": "11824a49235e1ca7b621b3162cdb7f674935a9540d3ddc2af2ef2837b64a4a66",
+          "residual_sha256": "e9843f1306b6ba7d7b64fa149da79bd273ab4111d0b2d59f027ff5cc94ae616b",
+          "matrix_sha256": "74633f163523875699fe122b4bb7b031b05fe6aa0b071d31b3dd3b071b53ea40",
+          "read_sha256": "f3f8346f2f719df731b351ea1563cd0ff563e32c922efc57679dd869f949e17e",
+          "score_f32le": "ec94fb3d2a01db3d",
+          "margin_f64le": "00000000e149903f"
+        },
+        "CA": {
+          "recipient": "Cedar",
+          "donor": "Alder",
+          "donor_input_sha256": "2f6059ccadbcb34b4525f0c6219db3289144a990a3ef1d4ae4cbf94f3486791f",
+          "recipient_matrix_sha256": "23c400fddfa612ff2f9f291b90e2fcee44ad69a38fe6059d1fa333f78b542de3",
+          "residual_sha256": "d1ac05b1ac4518bca41afe8a9d305f1122894cc233fc1da97b23351b2dbbe491",
+          "matrix_sha256": "ac846880e9e279faf42affa2968fdc773a529d6234a624151007d31e419ce1f3",
+          "read_sha256": "e99bddc1e1e24ab7912fa72c70cc2500f2e11819590feff14bccb06e94b47110",
+          "score_f32le": "76b5113e0fa4123e",
+          "margin_f64le": "0000000020d34dbf"
+        },
+        "CC": {
+          "recipient": "Cedar",
+          "donor": "Cedar",
+          "donor_input_sha256": "1d990a2901db104c2fa2ade486ffc9fd5b90d6ac6c5e1e7180213c7e087b675e",
+          "recipient_matrix_sha256": "23c400fddfa612ff2f9f291b90e2fcee44ad69a38fe6059d1fa333f78b542de3",
+          "residual_sha256": "dbe2664b29875af7ddcb296c48ea9c826788f2641f5ae662022fc4974cd94d91",
+          "matrix_sha256": "5fefe27e4fdbfe0eddd3ba08349775fe37a0f4e7bee8155d6ed24cb2b8529a37",
+          "read_sha256": "ab6d3e3d94dbd1a946db4e3deaf3ab7bba1b834c565fb95b3c8298cfb95b6edf",
+          "score_f32le": "bbc7fc3d801bdb3d",
+          "margin_f64le": "000000801dd6903f"
+        },
+        "0A": {
+          "recipient": "zero",
+          "donor": "Alder",
+          "donor_input_sha256": "2f6059ccadbcb34b4525f0c6219db3289144a990a3ef1d4ae4cbf94f3486791f",
+          "recipient_matrix_sha256": "07854d2fef297a06ba81685e660c332de36d5d18d546927d30daad6d7fda1541",
+          "residual_sha256": "c740fcf83514067b04d1410c65ce75d8163c938c19d9278c64b3891cc43f3e32",
+          "matrix_sha256": "4dac53e5ff22349f2bcb8ad2629c605c8998e6bb058069716a283e08be474904",
+          "read_sha256": "39d31f67f4298f417fdd2d06b1fa930f6489fef59eee55ab78b9f5e0d3c48dd2",
+          "score_f32le": "ea95c83d130e143e",
+          "margin_f64le": "000000008fe1a7bf"
+        },
+        "0C": {
+          "recipient": "zero",
+          "donor": "Cedar",
+          "donor_input_sha256": "1d990a2901db104c2fa2ade486ffc9fd5b90d6ac6c5e1e7180213c7e087b675e",
+          "recipient_matrix_sha256": "07854d2fef297a06ba81685e660c332de36d5d18d546927d30daad6d7fda1541",
+          "residual_sha256": "f8abcda73f4197adce76ad5753d13673c20219b854ef3be0e146084110d7de54",
+          "matrix_sha256": "51fa71db03810f1c1825773041a5f62e43e514bd8cd9379ddde027983ca760ec",
+          "read_sha256": "1fe5d025821591e29e7c6f2b891a4003ce4f59d80fb90ffe67689687d4f9d3ef",
+          "score_f32le": "e791883d5197a23d",
+          "margin_f64le": "000000006a058abf"
+        }
+      },
+      "contrasts_f64le": {
+        "DA": "0000000076a191bf",
+        "DC": "00000080b6c491bf",
+        "I": "0000000040a0213f",
+        "PA": "00000000003f3abf",
+        "PC": "00000000908741bf",
+        "delta_native": "00000080b22d92bf"
+      },
+      "trigger": {
+        "DA": -0.0172174870967865,
+        "DC": -0.017351962625980377,
+        "abs_I": 0.00013447552919387817,
+        "five_percent_limit": 0.0008675981312990189,
+        "run": true
+      },
+      "D0": -0.033937111496925354
+    }
+  }
+}
