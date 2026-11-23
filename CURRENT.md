@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex sess
 
 ## WP-0031 bounded write-8 CPU replay
 
-Jack released Option A for M1 and M3 on the shared matched development opening. WP-0031 is reserved for author execution, independent reproduction and disposition. [Assignment and release](docs/coordination/WP-0031/assignment.md)
+Jack released Option A for M1 and M3 on the shared matched development opening. The author and independent reviewer have started in separate CPU worktrees. [Session bindings and native controls](docs/coordination/WP-0031/dispatch.json) [Assignment and release](docs/coordination/WP-0031/assignment.md)
 
 ## Coordinator succession at the WP-0030 closeout
 

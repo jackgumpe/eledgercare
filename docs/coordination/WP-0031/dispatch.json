@@ -1,0 +1,155 @@
+{
+  "packet": "WP-0031",
+  "recorded_utc": "2026-11-23T22:16:08.018322+00:00",
+  "authority_base": "40fa358cd3c94efbf8fe9df93f188e7c02e1c6e4",
+  "reservation": "74f23b10d428acc3477db6ce4af7eb663e28d9f4",
+  "release_order": {
+    "file": "Option A Release Order - Write-8 Bounded CPU Replay.pdf",
+    "pages": 6,
+    "sha256": "2e77963afa6b49730f86957ad85ff6bd8597f264077c665769e3be01b5df4bb1",
+    "verdict": "AMEND"
+  },
+  "coordinator_thread": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "workers": [
+    {
+      "role": "eld-owner-probe",
+      "native_task": "/root/write8_author",
+      "thread": "01a20a79-b5d1-7cc0-9d1a-474e208698ec",
+      "branch": "research/wp-0031-write8",
+      "worktree": "w031-author"
+    },
+    {
+      "role": "eld-rd-reviewer",
+      "native_task": "/root/write8_review",
+      "thread": "01a20a79-ec05-7850-8af4-f4632b3f20ec",
+      "branch": "review/wp-0031-write8",
+      "worktree": "w031-review"
+    }
+  ],
+  "dispatch_configuration": {
+    "model": "gpt-6.2-astra",
+    "reasoning_effort": "xhigh",
+    "fork_turns": "none",
+    "actual_start": "Both sessions acknowledged their own exact thread ID, role and clean worktree on the reservation commit."
+  },
+  "qualified_cpu": {
+    "runtime_record": {
+      "revision": "40fa358cd3c94efbf8fe9df93f188e7c02e1c6e4",
+      "path": "docs/coordination/WP-0030/runtime.json",
+      "git_blob": "fed1bb87ec59ce7ba55fe2e57fcd979c41c96d22",
+      "sha256": "f2e1ad60a23e4d7f324330154e8624606fe226130682ff35c0de5e4fa8d942a6"
+    },
+    "verified_local_python_sha256": "0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14",
+    "pytorch": "2.13.0+cpu",
+    "torch_build_cuda": null,
+    "threads": [
+      1,
+      1
+    ]
+  },
+  "native_reference": {
+    "steps": {
+      "revision": "40fa358cd3c94efbf8fe9df93f188e7c02e1c6e4",
+      "path": "docs/reviews/WP-0030/evidence/steps.jsonl",
+      "git_blob": "da2bc20a492b7f838d7dcac420b44fe07d26d79b",
+      "sha256": "cd1bc86b9e4b1e8e9c49d1c1ba86f96586afb33336741580746ab938f1e3600c"
+    },
+    "binding": {
+      "revision": "40fa358cd3c94efbf8fe9df93f188e7c02e1c6e4",
+      "path": "docs/reviews/WP-0030/evidence/bindings.json",
+      "git_blob": "294439d8b21e56463cc9a96d6c133e2fe05cecd9",
+      "sha256": "649a618dcadfeeebdc67b51e90b1c5cfb57cc6f2b8a609b2eca25a158300a5f7"
+    },
+    "members": {
+      "M1": {
+        "steps": {
+          "7": {
+            "Alder": {
+              "score_f32le": "dcb4083e81bbdc3d",
+              "matrix_sha256": "8e1514a6889cc38f23b3a918e69a8f416a857123c8cf417fae29375f88cd6c0a",
+              "read_sha256": "9139e8595c47f9a101be1ff3a4bdb8527cc34292d221136a744fb57759a5121d",
+              "query_sha256": "61261baff556b5c09e13bedd14777e653ae73c9cb6ead2487c69b3946fb2c79f",
+              "margin": 0.025722913444042206
+            },
+            "Cedar": {
+              "score_f32le": "f60e153ece61ef3d",
+              "matrix_sha256": "ee4819ef75dafebb3eb5fc8ed4071ea31380a4829bafd4a1499d6d09f6c40914",
+              "read_sha256": "5438bf7ce8afa29ec4c8fe99de5c0e3a7ec47bab4702ba1bc3a269bc2cc45ab2",
+              "query_sha256": "61261baff556b5c09e13bedd14777e653ae73c9cb6ead2487c69b3946fb2c79f",
+              "margin": 0.028679117560386658
+            }
+          },
+          "8": {
+            "Alder": {
+              "score_f32le": "ae5239bd18d06d3c",
+              "matrix_sha256": "3a91615450ff14e8ff496f1edf6006c09f09e55bb75a5a52613c824e1e1575ba",
+              "read_sha256": "10a84b5240f116b2e151e79d5ad94c85f4dd7969fcebcc7394a9cd0ec14f9b4c",
+              "query_sha256": "61261baff556b5c09e13bedd14777e653ae73c9cb6ead2487c69b3946fb2c79f",
+              "margin": -0.05975981056690216
+            },
+            "Cedar": {
+              "score_f32le": "1496f83ca5778b3d",
+              "matrix_sha256": "a8d4a53fcb503977442d657a2b4f785650f3bdea428a43e7e61b004aaa2bde8e",
+              "read_sha256": "fd4a4b98a947dd093f4744d29c534f68f76615b85dd6f4524e9c2c4450258a1e",
+              "query_sha256": "61261baff556b5c09e13bedd14777e653ae73c9cb6ead2487c69b3946fb2c79f",
+              "margin": -0.03775429725646973
+            }
+          }
+        },
+        "archive_ordered_anchor_sha256": "157a301c648da690ad83512a2ed7704b6fa230d7fbfadca539383b4154163934",
+        "same_native_step_7_and_8_on_12_and_30": true
+      },
+      "M3": {
+        "steps": {
+          "7": {
+            "Alder": {
+              "score_f32le": "4e950f3eea670e3e",
+              "matrix_sha256": "11824a49235e1ca7b621b3162cdb7f674935a9540d3ddc2af2ef2837b64a4a66",
+              "read_sha256": "51fb4e604c43cf3299cb54a86cfc47068f12c56959597956605fcd0e5fa7e49b",
+              "query_sha256": "9021294c0d841f2fdc9038194e1ef8dfe64805bce51d85413707b8c4887c368a",
+              "margin": 0.0011497139930725098
+            },
+            "Cedar": {
+              "score_f32le": "8636103e74240e3e",
+              "matrix_sha256": "23c400fddfa612ff2f9f291b90e2fcee44ad69a38fe6059d1fa333f78b542de3",
+              "read_sha256": "6e13c0990569555097ccedf965851d957a04042e44993fc1e40f9311637a66cb",
+              "query_sha256": "9021294c0d841f2fdc9038194e1ef8dfe64805bce51d85413707b8c4887c368a",
+              "margin": 0.0020220577716827393
+            }
+          },
+          "8": {
+            "Alder": {
+              "score_f32le": "2b02113ec059123e",
+              "matrix_sha256": "6357ecae1dbcacf09af462aa7dbd518edf8ab9bf39b9696bbe0cc73716f1c062",
+              "read_sha256": "8c2f14f4cbc8289ef4a34f796bfb4942bcff2495b59c436a9e43c14dbc0ffa57",
+              "query_sha256": "9021294c0d841f2fdc9038194e1ef8dfe64805bce51d85413707b8c4887c368a",
+              "margin": -0.0013106614351272583
+            },
+            "Cedar": {
+              "score_f32le": "bbc7fc3d801bdb3d",
+              "matrix_sha256": "5fefe27e4fdbfe0eddd3ba08349775fe37a0f4e7bee8155d6ed24cb2b8529a37",
+              "read_sha256": "ab6d3e3d94dbd1a946db4e3deaf3ab7bba1b834c565fb95b3c8298cfb95b6edf",
+              "query_sha256": "9021294c0d841f2fdc9038194e1ef8dfe64805bce51d85413707b8c4887c368a",
+              "margin": 0.01644178479909897
+            }
+          }
+        },
+        "archive_ordered_anchor_sha256": "eaacad0a1dd00f6539393fde8134988add05e6221dff7ad81647433e21d34de4",
+        "same_native_step_7_and_8_on_12_and_30": true
+      }
+    }
+  },
+  "source_reconciliation": {
+    "frozen_source": "7db67283a4ffd3e7a20bb8d80499572cc7118c71:docs/research/WP-0024/probe/matrix.py",
+    "residual": "v - a * (old @ k)",
+    "active_lane_update": "updated = a * old + b * torch.outer(residual, k)",
+    "pdf_page_4": "The displayed leading old term omits its a multiplier. Both workers were instructed to call the unchanged native Memory.write. Its byte parity is the blocking control. The old=0 identity is unaffected."
+  },
+  "preservation": {
+    "working_package_sha256": "6af72a0583bf4a640633ac17b0cc3e9adc83a5f4df12d09b01ae70dcec0546e0",
+    "stash": "bcc4b085be6b5f2c64bca52443f410398db15aa1",
+    "index_handoff_blob": "c949e721c435c3bf856441e3ca54608fd024b267",
+    "index_accepted_blob": "4f455f41f7941027243b50088cdbf058b1564394",
+    "primary_fast_forward": true
+  }
+}
