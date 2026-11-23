@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## Coordinator succession pending at the WP-0030 closeout
+
+The session identified above parks as ledger writer upon publication of this handoff. No successor has accepted. A fresh local session starts read-only and requires Jack's designation plus the single-commit acceptance procedure before routine ledger work. The write-8 proposal is unnumbered and unreleased. [Succession handoff and transfer procedure](docs/coordination/succession/2026-11-23-wp0030/HANDOFF.md) · [Live snapshot and preservation inventory](docs/coordination/succession/2026-11-23-wp0030/snapshot.json)
+
 ## Completed WP-0030 CPU trace through the final posting
 
 The first favorable shift occurred on the unchanged title at write 1 for both probes. They reversed at write 2. After the owner declaration, M1 recovered at the unit text at write 9 and M3 at the service row at write 12. Across 224 paired reads neither probe ranked both owners correctly at the same step. The independent reviewer reproduced all seven deterministic evidence files. [Coordinator disposition](docs/agent-reports/eld-coordinator/WP-0030/003_2026-11-22_verification_eld-coordinator.md) · [Numerical correction](docs/agent-reports/eld-coordinator/WP-0030/004_2026-11-22_verification_eld-coordinator.md) · [Independent reviewer](docs/agent-reports/eld-rd-reviewer/WP-0030/002_2026-11-22_review_eld-rd-reviewer.md) · [Span trajectories](docs/coordination/WP-0030/span-response.png) · [Publication receipt](docs/coordination/WP-0030/publication-receipt.json)
