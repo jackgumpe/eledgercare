@@ -1343,3 +1343,11 @@ Jack released the amended Option A order on the accepted integration commit `40f
 | 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0031/003_2026-11-23_verification_eld-coordinator.md |
 
 **Closed after independent reproduction.** All twelve write-8 cells matched. Both probes met the 5% trigger. The donor contrast reversed on empty memory for M1 and persisted for M3. [Coordinator /003](docs/agent-reports/eld-coordinator/WP-0031/003_2026-11-23_verification_eld-coordinator.md) · [Author /001](docs/agent-reports/eld-owner-probe/WP-0031/001_2026-11-23_research_eld-owner-probe.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0031/002_2026-11-23_review_eld-rd-reviewer.md) · [Lossless score reconciliation](docs/coordination/WP-0031/reconciliation.json)
+
+| Report | Verified publication |
+| --- | --- |
+| [001 author replay](https://github.com/jackgumpe/eledgercare/blob/013499d9fdf5b19e587c91cd93dfd502c0448e04/docs/agent-reports/eld-owner-probe/WP-0031/001_2026-11-23_research_eld-owner-probe.md) | `013499d9fdf5b19e587c91cd93dfd502c0448e04` |
+| [002 independent review](https://github.com/jackgumpe/eledgercare/blob/91d99471ff5d2a279e18525828d89b9f92fdd65b/docs/agent-reports/eld-rd-reviewer/WP-0031/002_2026-11-23_review_eld-rd-reviewer.md) | `91d99471ff5d2a279e18525828d89b9f92fdd65b` |
+| [003 coordinator disposition](https://github.com/jackgumpe/eledgercare/blob/0e503aa6beb3dbc727c5b2a054c52cf48d2a656f/docs/agent-reports/eld-coordinator/WP-0031/003_2026-11-23_verification_eld-coordinator.md) | `0e503aa6beb3dbc727c5b2a054c52cf48d2a656f` |
+
+The [publication receipt](docs/coordination/WP-0031/publication-receipt.json) verifies all 29 published files at the coordinator report commit.
