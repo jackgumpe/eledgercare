@@ -1342,4 +1342,4 @@ Jack released the amended Option A order on the accepted integration commit `40f
 | 002 | eld-rd-reviewer | review/wp-0031-write8 · w031-review | docs/agent-reports/eld-rd-reviewer/WP-0031/002_2026-11-23_review_eld-rd-reviewer.md |
 | 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0031/003_2026-11-23_verification_eld-coordinator.md |
 
-Reserved for author execution, independent reproduction and coordinator disposition.
+**Closed after independent reproduction.** All twelve write-8 cells matched. Both probes met the 5% trigger. The donor contrast reversed on empty memory for M1 and persisted for M3. [Coordinator /003](docs/agent-reports/eld-coordinator/WP-0031/003_2026-11-23_verification_eld-coordinator.md) · [Author /001](docs/agent-reports/eld-owner-probe/WP-0031/001_2026-11-23_research_eld-owner-probe.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0031/002_2026-11-23_review_eld-rd-reviewer.md) · [Lossless score reconciliation](docs/coordination/WP-0031/reconciliation.json)

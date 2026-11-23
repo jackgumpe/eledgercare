@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0031 bounded write-8 CPU replay
+## WP-0031 bounded write-8 CPU replay closed after independent review
 
-Jack released Option A for M1 and M3 on the shared matched development opening. The author and independent reviewer have started in separate CPU worktrees. [Session bindings and native controls](docs/coordination/WP-0031/dispatch.json) [Assignment and release](docs/coordination/WP-0031/assignment.md)
+Both probes shifted toward Cedar under the Alder declaration on either populated prefix. With empty incoming matrices, the donor contrast reversed for M1 (+0.052650585770606995) and persisted for M3 (−0.033937111496925354). The independent reviewer reproduced all twelve reads on this one shared development opening. The release ended at write 8. [Disposition](docs/agent-reports/eld-coordinator/WP-0031/003_2026-11-23_verification_eld-coordinator.md) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0031/002_2026-11-23_review_eld-rd-reviewer.md) · [Exact score tables](docs/coordination/WP-0031/reconciliation.json)
 
 ## Coordinator succession at the WP-0030 closeout
 
