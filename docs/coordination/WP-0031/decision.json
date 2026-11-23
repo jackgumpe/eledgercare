@@ -1,0 +1,100 @@
+{
+  "packet": "WP-0031",
+  "disposition": "accepted and closed after independent reproduction",
+  "decision_utc": "2026-11-23T22:26:16.617456+00:00",
+  "reservation": "74f23b10d428acc3477db6ce4af7eb663e28d9f4",
+  "accepted_base": "40fa358cd3c94efbf8fe9df93f188e7c02e1c6e4",
+  "integration_of_both_roles": "b808855262d77d9471484ca5c28a0c253aca9eed",
+  "author_source": "5e1a464a38ad4213b94b3b25695bd70d9054a6a3",
+  "author_evidence": "8f31cc66c4878ca086fa5da1498c4a73ed6a6306",
+  "author_report": "013499d9fdf5b19e587c91cd93dfd502c0448e04",
+  "review_replay": "6260131f85ec3844acb54326799c7f6d48115323",
+  "review_comparison": "2a1d1aa16be76fcb40a636b71e6cbe517cde38f3",
+  "review_evidence": "6ee777088c7d6121611091556246bb964c5a4227",
+  "review_report": "91d99471ff5d2a279e18525828d89b9f92fdd65b",
+  "coordinator_check_source": "6fb4faba153f93eb40c7d7a4a7fe3deb79029e22",
+  "reconciliation_sha256": "8c070299c75e1ddc9c8ea715a7d5267ebc27bbc00908fbb903aeaf8cd37e7207",
+  "root_recomputed_from_raw_score_bytes": true,
+  "repeated_reconciliation_byte_identical": true,
+  "measured": {
+    "development_openings": 1,
+    "frozen_probes": [
+      "M1",
+      "M3"
+    ],
+    "original_matrix_cells": 4,
+    "crossed_matrix_cells": 4,
+    "triggered_zero_matrix_cells": 4,
+    "prefix_matrix_bytes_independently_compared": 1179648,
+    "matching_complete_discrete_snapshots": 4,
+    "intraop_threads": 1,
+    "interop_threads": 1,
+    "last_write": 8,
+    "ocr_calls": 0,
+    "gpu_calls": 0,
+    "held_out_inputs": 0,
+    "postings_created": 0
+  },
+  "results": {
+    "M1": {
+      "contrasts": {
+        "DA": -0.01955500803887844,
+        "DC": -0.020174358040094376,
+        "PA": -0.0018311552703380585,
+        "PC": -0.0024505052715539932,
+        "I": 0.0006193500012159348,
+        "delta_native": -0.022005513310432434
+      },
+      "zero_triggered": true,
+      "five_percent_limit": 0.0010087179020047189,
+      "D0": 0.052650585770606995
+    },
+    "M3": {
+      "contrasts": {
+        "DA": -0.0172174870967865,
+        "DC": -0.017351962625980377,
+        "PA": -0.0004004836082458496,
+        "PC": -0.0005349591374397278,
+        "I": 0.00013447552919387817,
+        "delta_native": -0.017752446234226227
+      },
+      "zero_triggered": true,
+      "five_percent_limit": 0.0008675981312990189,
+      "D0": -0.033937111496925354
+    }
+  },
+  "interpretation": {
+    "M1": "On either populated prefix the Alder donor shifted the owner margin toward Cedar. Empty memory reversed the sign, supporting inspection of how populated matrices and the complete declaration combine in the write and readout.",
+    "M3": "On either populated prefix the Alder donor shifted the margin toward Cedar, and the sign persisted on zero matrices. This supports inspection of the full declaration projection and readout.",
+    "limits": "One opening edit. The horizons share the opening. The synthetic intervention cells have no binder correctness label. No isolated residual, box, pooled-vector or earlier-span cause was established. Held-out accuracy remains unmeasured."
+  },
+  "published_source_discrepancy": "The PDF omits alpha on the old-matrix carry term. Both runs called the pinned native Memory.write, whose active-lane carry is alpha times old; native diagonals matched.",
+  "reviewer_preflight": "Initial independent admission check stopped before importing torch. Later authoritative WP-0029 pair admission was validated in a new frozen revision; first failure retained.",
+  "preservation": {
+    "verified_utc": "2026-11-23T22:25:54.029065+00:00",
+    "historical_worktrees_checked": 94,
+    "registered_worktrees": 97,
+    "expected_additions": [
+      "succession-20261123-01a20a53",
+      "w031-author",
+      "w031-review"
+    ],
+    "historical_dirty_worktrees": 3,
+    "preserved_working_files": 73,
+    "recovery_manifest_sha256": "048424200f5aa80f91fe9726dba4fd4d26f706e514663b54d409ef38f4c8faae",
+    "recovery_files": 73,
+    "recovery_bytes": 21903348,
+    "recovery_stash_bundle_sha256": "d3a76aaafab951c41e873d7263de5793072c2c57a2714507a2ad870b60b6ee50",
+    "stash": "bcc4b085be6b5f2c64bca52443f410398db15aa1",
+    "primary_working_package_sha256": "6af72a0583bf4a640633ac17b0cc3e9adc83a5f4df12d09b01ae70dcec0546e0",
+    "existing_q0_branch_exception": {
+      "branch": "review/wp-0005-q0",
+      "local": "2e41d3a91b8f08b53d643b20a1fb038b5aec1500",
+      "remote": "ef72849519c83a71e59e80c311b48719252d0cd6",
+      "configured_upstream": "origin/review/wp-0005-q0",
+      "ahead": 9,
+      "behind": 0,
+      "commits_absent_from_all_remote_heads": 0
+    }
+  }
+}
