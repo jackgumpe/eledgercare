@@ -1331,3 +1331,15 @@ Reserved at the verified WP-0029 closure `ee5a226043148dd8fc7cac1a4bc8ef4b43164c
 | [004 correction to the M1 30-page final](docs/agent-reports/eld-coordinator/WP-0030/004_2026-11-22_verification_eld-coordinator.md) | `c76c313f06393b3172a06cdc4098130f3b8d5f2d` |
 
 The M1 30-page response at the native posting is +0.006276067346334457. GitHub verification covered four reports and 37 packet evidence files, with ten direct downloads checked byte-for-byte. [Publication receipt](docs/coordination/WP-0030/publication-receipt.json)
+
+## WP-0031 Bounded CPU replay at the write-8 owner declaration
+
+Jack released the amended Option A order on the accepted integration commit `40fa358cd3c94efbf8fe9df93f188e7c02e1c6e4`. One development opening, two frozen probes, stop at write 8. [Assignments, inputs and release criteria](docs/coordination/WP-0031/assignment.md)
+
+| Sequence | Stable ID | Owned branch and worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0031-write8 · w031-author | docs/agent-reports/eld-owner-probe/WP-0031/001_2026-11-23_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0031-write8 · w031-review | docs/agent-reports/eld-rd-reviewer/WP-0031/002_2026-11-23_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0031/003_2026-11-23_verification_eld-coordinator.md |
+
+Reserved for author execution, independent reproduction and coordinator disposition.

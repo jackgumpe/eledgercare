@@ -1,10 +1,14 @@
 # Current routing
 
-Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
+Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
+
+## WP-0031 bounded write-8 CPU replay
+
+Jack released Option A for M1 and M3 on the shared matched development opening. WP-0031 is reserved for author execution, independent reproduction and disposition. [Assignment and release](docs/coordination/WP-0031/assignment.md)
 
 ## Coordinator succession at the WP-0030 closeout
 
-Jack designated the incoming session by exact ID and confirmed that outgoing session `01a1d895-c605-7ab2-b7ec-c3159c0634ba` is parked. The receiver accepted eLedgerCare custody under the [dated binding](docs/coordination/handoff-acceptance.md#coordinator-succession-on-2026-11-23). The write-8 proposal is unnumbered and unreleased. [Succession handoff and transfer procedure](docs/coordination/succession/2026-11-23-wp0030/HANDOFF.md) · [Live snapshot and preservation inventory](docs/coordination/succession/2026-11-23-wp0030/snapshot.json)
+Jack designated the incoming session by exact ID and confirmed that outgoing session `01a1d895-c605-7ab2-b7ec-c3159c0634ba` is parked. The receiver accepted eLedgerCare custody under the [dated binding](docs/coordination/handoff-acceptance.md#coordinator-succession-on-2026-11-23). At transfer, the write-8 proposal was unnumbered and unreleased. [Succession handoff and transfer procedure](docs/coordination/succession/2026-11-23-wp0030/HANDOFF.md) · [Live snapshot and preservation inventory](docs/coordination/succession/2026-11-23-wp0030/snapshot.json)
 
 ## Completed WP-0030 CPU trace through the final posting
 
