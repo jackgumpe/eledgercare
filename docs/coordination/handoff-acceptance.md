@@ -16,3 +16,11 @@ The handoff conveys no Workspace Ledger or Unity ownership. Product application 
 The first seed and detailed technical profile are provisional/unreviewed. Coordinator identity acceptance is not independent technical acceptance. Remote publication, execution, review, acceptance, and merge will be recorded separately.
 
 Source: docs/inputs/bootstrap-kit/00-START-COORDINATOR.txt and the user-supplied repository contract. The bounded stop milestone is first product acceptance plus first R&D backlog/corpus review, without automatic expansion into OCR execution or deployment.
+
+## Coordinator succession on 2026-11-23
+
+At 2026-11-23T21:45:45Z, I accept sole eLedgerCare ledger authority as `eld-coordinator`. Jack designated this local Codex receiver by exact ID in the outgoing relay conversation and confirmed that outgoing writer `01a1d895-c605-7ab2-b7ec-c3159c0634ba` is parked. My environment reports `CODEX_THREAD_ID=01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver's launch options specify `gpt-6.2-astra` and `xhigh` reasoning effort.
+
+I verified the handoff commit `2c7bed3ddbcede96c7e5ad1f1ec59420b92fab6e` on `origin/coordination/bootstrap`, its WP-0030 closeout parent `a33ac75d454e33c74183a85670daa3bf9980d7cb` and its ledger blob `c949e721c435c3bf856441e3ca54608fd024b267`. This transfer takes effect upon verified fast-forward publication of the three binding records. [Succession handoff](succession/2026-11-23-wp0030/HANDOFF.md)
+
+My mandate is limited to eLedgerCare. I own the shared ledger and routing records and will launch and supervise assigned local Codex, Gemini and Claude workers and reviewers at their designated effort levels. WP-0030 is closed. The write-8 proposal is unnumbered and unreleased.

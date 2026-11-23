@@ -1,10 +1,10 @@
 # Current routing
 
-Sole coordinator and shared-ledger writer: **eld-coordinator**, receiving Codex session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. Actual coordinator backend/model effort is not exposed. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
+Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is private; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## Coordinator succession pending at the WP-0030 closeout
+## Coordinator succession at the WP-0030 closeout
 
-The session identified above parks as ledger writer upon publication of this handoff. No successor has accepted. A fresh local session starts read-only and requires Jack's designation plus the single-commit acceptance procedure before routine ledger work. The write-8 proposal is unnumbered and unreleased. [Succession handoff and transfer procedure](docs/coordination/succession/2026-11-23-wp0030/HANDOFF.md) · [Live snapshot and preservation inventory](docs/coordination/succession/2026-11-23-wp0030/snapshot.json)
+Jack designated the incoming session by exact ID and confirmed that outgoing session `01a1d895-c605-7ab2-b7ec-c3159c0634ba` is parked. The receiver accepted eLedgerCare custody under the [dated binding](docs/coordination/handoff-acceptance.md#coordinator-succession-on-2026-11-23). The write-8 proposal is unnumbered and unreleased. [Succession handoff and transfer procedure](docs/coordination/succession/2026-11-23-wp0030/HANDOFF.md) · [Live snapshot and preservation inventory](docs/coordination/succession/2026-11-23-wp0030/snapshot.json)
 
 ## Completed WP-0030 CPU trace through the final posting
 

@@ -1,6 +1,6 @@
 # eLedgerCare work and report index
 
-Sole writer: **eld-coordinator**, session `01a1d895-c605-7ab2-b7ec-c3159c0634ba`. All numbers below are newly allocated in this repository; none are Workspace Ledger reservations.
+Sole writer: **eld-coordinator**, session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. All numbers below are newly allocated in this repository; none are Workspace Ledger reservations.
 
 ## Bootstrap exception
 
