@@ -1383,3 +1383,11 @@ Jack separately authorized the complete eight-page handoff. Parent da76b51172bd7
 | 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0033/003_2026-11-24_verification_eld-coordinator.md |
 
 **Closed after independent reproduction.** All 52 native score pairs, read vectors and post-write matrix identities matched. Both fixed M1 gain predictions and M3’s raw and normalized attribution passed. One development opening was measured through write 8. [Author /001](docs/agent-reports/eld-owner-probe/WP-0033/001_2026-11-24_research_eld-owner-probe.md) · [Independent /002](docs/agent-reports/eld-rd-reviewer/WP-0033/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator /003](docs/agent-reports/eld-coordinator/WP-0033/003_2026-11-24_verification_eld-coordinator.md) · [All 52 rows](docs/coordination/WP-0033/reconciliation.json) · [M3 attribution](docs/coordination/WP-0033/value-reconciliation.json)
+
+| Report | Verified original publication |
+| --- | --- |
+| [001](https://github.com/jackgumpe/eledgercare/blob/394cfe4daf2a80dab0571db04c7f8c0477f546e0/docs/agent-reports/eld-owner-probe/WP-0033/001_2026-11-24_research_eld-owner-probe.md) | `394cfe4daf2a80dab0571db04c7f8c0477f546e0` |
+| [002](https://github.com/jackgumpe/eledgercare/blob/894a811ed499dc1045a3de256ef4ffe92582dc55/docs/agent-reports/eld-rd-reviewer/WP-0033/002_2026-11-24_review_eld-rd-reviewer.md) | `894a811ed499dc1045a3de256ef4ffe92582dc55` |
+| [003](https://github.com/jackgumpe/eledgercare/blob/6c9e0a7bc6af5cb09d6f12a01d747ce422d13848/docs/agent-reports/eld-coordinator/WP-0033/003_2026-11-24_verification_eld-coordinator.md) | `6c9e0a7bc6af5cb09d6f12a01d747ce422d13848` |
+
+The [public download receipt](docs/coordination/WP-0033/publication-receipt.json) records byte equality for all 40 changed files at the coordinator report commit.
