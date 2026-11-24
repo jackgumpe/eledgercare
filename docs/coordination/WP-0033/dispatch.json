@@ -1,0 +1,45 @@
+{
+  "packet": "WP-0033",
+  "reservation": "297f028350b1521096061cf27c7ce89702b73e54",
+  "accepted_base": "da76b51172bd7a59828d0a9c0fe9306229f47932",
+  "authority": "Jack selected Authorize WP-0033 in answer to the Section 7 release question.",
+  "coordinator": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "handoff_sha256": "17e48ab6b08cd3133d9f79647f193097e588b206b300f62fbc8ae0deebd022b0",
+  "scope": "One synthetic opening, 48 M1 declaration-only and 4 empty M3 reads per implementation, plus separate native baseline checks, deterministic one-thread CPU through write eight.",
+  "configuration": {
+    "model": "gpt-6.2-astra",
+    "reasoning_effort": "xhigh",
+    "fork_turns": "none",
+    "provider": "fresh native local Codex collaboration sessions"
+  },
+  "roles": {
+    "author": {
+      "task": "/root/gain_author",
+      "id": "eld-owner-probe",
+      "thread": "01a20b5b-98f7-7d70-be9a-6619f6377ca2",
+      "branch": "research/wp-0033-write8",
+      "worktree": "w033-author",
+      "report": "docs/agent-reports/eld-owner-probe/WP-0033/001_2026-11-24_research_eld-owner-probe.md",
+      "releases": []
+    },
+    "reviewer": {
+      "task": "/root/gain_review",
+      "id": "eld-rd-reviewer",
+      "thread": "01a20b5b-d3cf-71d3-9cba-4a6b8dee98db",
+      "branch": "review/wp-0033-write8",
+      "worktree": "w033-review",
+      "report": "docs/agent-reports/eld-rd-reviewer/WP-0033/002_2026-11-24_review_eld-rd-reviewer.md",
+      "releases": []
+    }
+  },
+  "independence": "The reviewer fixes and publishes independent evidence before receiving any WP-0033 author source, tables or report.",
+  "preflight": {
+    "live_integration": "da76b51172bd7a59828d0a9c0fe9306229f47932",
+    "preexisting_worktrees": 99,
+    "working_package_sha256": "6af72a0583bf4a640633ac17b0cc3e9adc83a5f4df12d09b01ae70dcec0546e0",
+    "stash": "bcc4b085be6b5f2c64bca52443f410398db15aa1",
+    "prior_working_files_verified": 73
+  },
+  "contract_git_blob": "213590c8fc975b0b3e7baddde6417916dfa90824",
+  "recorded_at": "2026-11-24T02:24:09.226201+00:00"
+}
