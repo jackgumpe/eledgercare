@@ -1,0 +1,464 @@
+{
+  "captures": {
+    "Alder": {
+      "rgb_key": "e3c14ce8f7af2549b83da967d281a63e177259ee3930de396c3006db22bd2b81",
+      "prefix": "runs/cal-features-r1/sensor/k0007/",
+      "source": [
+        "c000c0299619345c887859b95c45befbb0c68987",
+        "docs/reviews/WP-0026/cal-features-primary/primary-001.zip",
+        "e708b33aa56fbcb78ceae2e3c59a795482d9a8f09bd6796b5d5291969540b46d"
+      ],
+      "members": {
+        "metadata.json": "344971694436a790388e93bdd53737a1d095e486ab5020e80994848b1ecbc311",
+        "pooled.f32": "f71d07a64ee5789445f18aca25408d1c6aab9740d6932d808d151a1933217684",
+        "through-eos.u32le": "0dee541ce0d501928f594d72c154040fd4297e5e2f7f03960d9b40c78d52c428",
+        "capture.json": "f700d5448e4b085bdd63cac014539f3dfb1291dd0d7c860a49b7d243ff7dadf6",
+        "native.json": "b5ac4cb82050f7ab00378e15c3e9b6eaee801c90bbf410e8cffc35a670f6a0d3",
+        "receipt.json": "4e770fda310f62566c358b85ba1e2165295ba86ae2df5eab910060e9343ce046"
+      },
+      "page_rgb_sha256": [
+        "55b24f09c36d6c1d667db30ef163c7e37b0cc7749056c15fbf8f534f24d9e349",
+        "e9b7007cfc80e5585eebddf457b54f0c9a5f61688ddb78845767786a735b9907",
+        "67a1e3eeb9d1b503bbf1c53c97f97421ffc90c10bf62076ed55df44682ab35f7"
+      ],
+      "binders": {
+        "12": "097e2bb5c201709ec32fbb54",
+        "30": "eed9f381739ceff89219e5ef"
+      }
+    },
+    "Cedar": {
+      "rgb_key": "33362fbbeb37e805a64acbf3afdc3ec04315a4706820ed634a8fe0fb865ce2d5",
+      "prefix": "sensor/k0001/",
+      "source": [
+        "48016df280f8f0c2f4a807955d9f431744347ecc",
+        "docs/research/WP-0029/acquisition/native-return.zip",
+        "0346091957994fcfc5c12d8d87e40ce177bb0c1ff0cc376b5ba8f4fb7cb2522f"
+      ],
+      "members": {
+        "metadata.json": "099160f02b042c53d4e6443045432e94a51e38bcca11190f11f6fce9d6da023b",
+        "pooled.f32": "060a840b1a5b35ef8b4a58396abb2c3b2c4791f85664569b896b4f2bc085dfe2",
+        "through-eos.u32le": "20714ce511ac713d2ad321017a1266ea04b26594bdfe1501d7198493c298f436",
+        "capture.json": "637c68068575488ec86611c05998de4d9a56a90a73a296cdc0aa9f0691290451",
+        "native.json": "a10ccabb34966097f84d1532441f486b5a781a97cff42072c0e9882a6817c668",
+        "receipt.json": "0f04efbcedbf285f1c939a549248d0419ce68eac706154130010353ccb0dc25f"
+      },
+      "page_rgb_sha256": [
+        "e5d8954a3a800e6b44a2e42016ad5bd6eb4026de6b6a94eb81d56b81ec8e4d40",
+        "e9b7007cfc80e5585eebddf457b54f0c9a5f61688ddb78845767786a735b9907",
+        "67a1e3eeb9d1b503bbf1c53c97f97421ffc90c10bf62076ed55df44682ab35f7"
+      ],
+      "binders": {
+        "12": "b1319c493624d146b9905f68",
+        "30": "64ca02ee321c80c200e01a1a"
+      }
+    }
+  },
+  "arms": {
+    "M1": {
+      "A": {
+        "snapshot": {
+          "discrete": {
+            "attempts": [],
+            "controller": {
+              "depth": 0,
+              "fault": "",
+              "held": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "growth": [],
+            "lookup_ns": 0,
+            "registry": {
+              "owners": [
+                "Alder",
+                "Cedar"
+              ],
+              "schemas": [
+                [
+                  "Item",
+                  "Amount",
+                  "Ref"
+                ],
+                [
+                  "Item",
+                  "Ref",
+                  "Amount"
+                ]
+              ],
+              "units": [
+                "Unit3",
+                "Unit9"
+              ]
+            },
+            "trace": []
+          },
+          "discrete_sha256": "6a52abce5fd5637f953557267477dcd59ed5501c29329acaf89a4bcc761fce9e",
+          "dtype": "float32-le",
+          "matrices_file": "M1-Alder-write7.f32",
+          "matrix_sha256": "8e1514a6889cc38f23b3a918e69a8f416a857123c8cf417fae29375f88cd6c0a",
+          "shape": [
+            1,
+            128,
+            128
+          ]
+        },
+        "query_f32le": "91fabc3fc4c14cbddc9b803e7c92573f8bdc033e77437cbf3190843f83221a3e21356c3fb97290be0c99f03ee3bdf3bfa31db4be99ff09bfd33717bfd6d89a3fa08f8d3ec4eaa43e9a78533d9a481fbebf799abf5e63af3ec5d7123eafb25e3f5ab9f93d18d6763e7029d43e706bb63fb1feb03f7009253c097ae53e43a656bf054483bf3aa3c83dcce3f63edfa2003ff86db4bfd86a0abf9f81c8bfeab81e400b6f043f9666b93e29b771bf2222bf3f778830bf4b2594bfaffe433f30c839bfedc84bbfac6e623e5072d33e1403a0bd55da11bf7855d4bf6a9ad5bfe576813f28bca8befb88adbe750e78bd8686c1befa410d404b8a41be71092bbf615e173e721dd2bf09e1abbf9927a13e32f8cbbefa3f483f82f7a8bf6e0f53bfca678f3f8e30833f62f7293ebb79a33f03068a3ef4179fbf2f626f3e379b323f4d0436be385aa23e3026463db63eb83fbdd3a93f710a38bf71050b3f1f20243f1bf9363f2d8a9fbf07a7efbe8d5ea03e4eefb0bf70beca3f7d7fbcbfd8ad803f01e6043f2b3d803d5fd29d3efbaa1a3e0934f73e0898b43cc8f3f83e1c161fbe3c318dbee88987bee7130cbf8f739f3eded0d3bee22da73ecf25ea3dda02833dfbda6f3e8216da3e520cc63efc6e083f10a31d3eaaffe43ee0d6e43d7198a03df38bcbbd80bd5c3cc087a63cfcc48c3ee18a2bbfb9820b3ff2b23b3e89019fbde1653b3e",
+        "anchor_f32le": "1e9aef3d6a7b3cbe17f6c6bcadea2cbdf407aabdd03848bd570e8d3d7fe1853d203acabd84fda13ddb11593d95ac633ddca7983ba40948bb43c1e3bd9351083d2d320f3e2f4ad43d9e21ecbdbbf96bbdb52b12beba8a333dc81b923b2a0047be2f0c653b93876b3c5c0dfabd3127aa3cdb5bc33dfc9aa83dcf8cc6bde13ad83da697d83dc37894bdce411e3b77af963d1262243d726f063e8dfd183d54c8c3bc33ba5dbbc1849a3dee1115be23a400bdad487f3deeb60d3db9098bbd4cf8a9bd07674ebedc98fcbda84e163e5213c23d1a31bbbd31858ebddf7e873bb70c58bdd9a9bebd3470613e83e098bd9576353d68ef6abb3374ccbd58489a3dfb8e503d10a6293c1be362bdc223763d0b645abc9e0853bc0f8cd73c0d3a1abea6bf02be4ce4993d272329be5aefe83c60c3483d1d09fb3d5a59883c75e127bc293894bde203aebd6b433dbd75986cbd71e2c73df549f23de54a953db50e983d0e31cd3d0b1ff23cf79692bd8306943d53d79cbd7bc8fd3c3a89553c1a694a3e5832babd011e22bee2bc713c8a51de3d6ef951bde276753c89ec823dff97a4bdcad81c3e51dce0bdbbfae73db881db3d76603bbd6455f53dd8cec73d72d2ccbc6994383d6d0208bd05d6733de05931bc83234b3ef3c644bd4f058bbd38fcb5bd9896bc3d1e0867bd09ea45bd5fd4c53ce481c23d3eef54bd446e8abdde49cc3d6ce707bc5ba0f13ddf8e29beca93b3bc1639e3bd07c9ebbdb0af1a3bb264f63da284373d370c07be670c6a3da36e143dfa01d53d07bb4dbdf694f1bce2bd37be3365293c76a0263e070fab3d93b38b3c75acc23c16df4abef58c8abc36e72b3d150f3abefe026a3bbb69893dd27df5bd17552ebd814ea33d2a94833db76dff3abbfd0e3e6363c13c0fce59bd7bb386bdd674013eceb189bc3138c93d194a233d3cee213c2d9185bb7f9ab33c8e6246be367a8e3d37087c3df0fbaf3cd0a1b5bc3034b03cbbe435be8190c6bd4226fd3d38ee703d17e1bcbd20d7cabd57d7c83d0bf2fbbdfc302a3df848e93db195d0bd12c8f83bf6c32e3d42d467bd594d8f3d5666cf3d65f7343d4df5613dbbf8f13d77f18ebd01491abdcfc48d3dfbf631bee5a3bfbc437ea03d2e9b37be38af133d55e99b3d4c6a483d184b2f3c13fe08bd80c601bc4548403cc27483bda87d07be4e256b3d3a7b813d02602b3dc2273a3a7302c83df8cc8e3ddadfe3bd349886bc3b2d25bc11c066bd82d6583deb473a3e7e902dbe896819be03ff6ebd4beb0e3ed32b25bdcc7463bdeed7583d8e624bbde103e23d40f961bd1f1b133ce603023d16a57f3d9a63c63df5764c3d4e6bc4bd2cad963db43599bcf742593daf1f9b3dcd3a593ec2daa0bd13b67bbd666993bd0c36353ee8ad423d0878aebca6e37a3c6e24653db2d2693d4b57fabcf736ae3d6fd219bd",
+        "bbox": [
+          53,
+          486,
+          339,
+          515
+        ],
+        "bbox_i32le_sha256": "16d69e2d20c7faaf33eab8876ce4ac9e8061fd1f75316f73c22b3e824fdf0b10",
+        "window_metadata_sha256": "344971694436a790388e93bdd53737a1d095e486ab5020e80994848b1ecbc311",
+        "pooled_window_sha256": "f71d07a64ee5789445f18aca25408d1c6aab9740d6932d808d151a1933217684",
+        "pooled_row_sha256": [
+          "7c9444e3f4b228c87b137525142726a6a4d6e7666ba73845e608692469f201ca",
+          "c49b8cd5c3e334199bbffa895c4d2b9dcd59202bc2774f89830da012ab7733f3",
+          "756b1b3c182802c09a99d9892f29ecc8380f1614ac77a23215202659b1273ead",
+          "2631d05a317474acefe6e35c1dd344a21b08683ef6bb82a2843219803e1be948",
+          "c3200c645c74902c59914d6918566a344b1580703d77d651ba69dd4f29f10a43",
+          "9cb38ca9f16a6a32371c0426852e2bf76673b17e0c40808c81a04c20018c6857",
+          "ee8c44d38b6902d84be497965439ca721a81a6545d7985655e7245d9c7dd8ce4",
+          "2ca292a57dc947c285d1611a18a82563b9c3170c24adc7cf31df08ad87785ffd",
+          "2fc1eb003aeda2a0d0454811b35b1ed95b670eb334233f32d1b90d74f73bb135",
+          "3afdfcd6d7948d1252c54ef4a6ac5fc612432dab79dd82d62c2cf862eb76ef30",
+          "4a1cbb5c416b4ef5c3bc094ae9913581fff2170837dd0aaa64cf9c2ae213311e",
+          "7f1b75b67ae89219126b7a410a371289b4deb0953fa56c0f0434dcaa1825bbdd",
+          "12b3b57b2be03d34362288ddd7670697fe91ed65202bfa0f8543dee5cd3f5c60",
+          "abcd46328bc64c928459cdcba85d77ec43efac9d50ecc9109ec66121eebdb8bd",
+          "921bd98ce6ee1690bac73ab064e2a6de9d98269d8925a98d64a34405b4794b7e",
+          "088157667340203edf6def8af91af221dc01530051c1d858cdefee346b241fc8"
+        ],
+        "donor_input_sha256": "abc8c59c335d644d7d3c04bcecc975cf04ff7a0a2342a4bfb2206d3086af97a8",
+        "projected": {
+          "k": "6d2283bdd790843cfc30273d8c29033d7c7f863d34dace3d5c352dbcdb6881bd61a8093d6d51afbbdbc9b1bce229d63d415402bbfab6a8bc1790043d494d00bca31c713d69b061bd33e93abc29f829bd94832e3ddd92f13ca548753c0aef10bdfedcb13d2599a0bc5a93c43ac3b363bd746b37bd5d61f5bc98abf5bc63d7353d5f0aeb3dd2f811beb62c32bc429418bd22cf063e5d600b3ee47d0d3ed6aa3bbe5a569ebd5183a2bdfdc18b3d985b13bef9dd6f3d2dda993c2a0ff2bc9a34ad3d996fc83d6e4e18beac12aabdb58e1bbd81af0e3e3cd6da3dc8df163ea7aa65bd6ffe8f3db85a5d3cc851d13d9cef033e810f09be253e80bc1ee9f7bbdd032f3e62a3963d2eee993dcc545cbe2dacdc3da43988bd068d003e2ee1603da4b418be63e17dbd415025be71d658be80b723b94d95de3d463e463dc92d8fbd56761f3eefe694bb35ab4d3d90db1bbe16572abeca8b0d3e624649bdc3af4abe27e8f8bdf88da63d5d32b9bbc84530be5949323e40ef50bea84d3c3ee0441bbe8c1d9fbd80640abd9e5bde3da8e0303d93af11bd29e7acbc5e009b3ce7a993ba713f0b3d3858a5bb3b534ebc69bdcebb3f59dd3c7c18b6bc3055abbcca8d453d1492b03ceb8db93dde1d85bc98a13ebd89c008bdbe10e63c2c26f03c9219c83b94560b3c021ba23c8606e43ced30563de4cf75bcd0c8b83d7346d3bb4cee0e3cfcd526bd",
+          "v": "364f14bd261c8d3ea62c973ef473683d21f23b3ee0270d3ee81c9aba8c0d51be1edcd43dfba89a3daff733be7c1c533e2266cabdba42da3c36b28cbe7c9da2bc345a9cbe8e63fabd387c933e7957f43d7236cebd3316793db1b752be3c8b95bd3386883ca259a13eb699543ecaf607beb66f403eae5b04bdaa024c3e2891ffbe742657bc8f2c22be3a916e3ea2d8e5bdd981883e5c3f21bee7dd42be49c1c03dff827f3e770dd7be4a5e67be0c433bbecc683fbe7004b7bc1bef23bebed3da3d603f733c2388813ef48bfcbee64701be7ca3653e0e57a23d902a8dbef7f7a53df0792c3fd81804bee8fc283ea8c5153e2bb7cb3d9187b5bd7e9560be606c273e14093fbdfa731dbf170ad03e337480bea092793cd0403fbe220d083ef53193bd23f9043e285fe73d1c6c943cc88e363e9e34d8bd74796cbe2cd33d3d1d9491bc44b539bea237c23ea4ab2c3edebb31be1be2dabd6893debd7469f13d7d499d3ea681583e650911be337de2bda0332b3b4634bb3c2865393c8813983e5c03423e4049963d1b96ae3ec29dc3bedaa1c13dec2b83bedb57e1bd22de1e3de4efdc3da0d2b83e275612be96346b3ea6d045bdc79f22bef615e5bdc75fc2bea8c1e03e9a93d0bdc3ef9dbe73d5353e16858dbe78616ebdaf0f5bbe0498523ec99b2abd8b56653df1cec43d37779f3d802ed53b5c60d8bcf2fd193ddaa3ccbdba4869bd",
+          "alpha": "2f427f3f",
+          "beta": "f513cc3f"
+        }
+      },
+      "C": {
+        "snapshot": {
+          "discrete": {
+            "attempts": [],
+            "controller": {
+              "depth": 0,
+              "fault": "",
+              "held": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "growth": [],
+            "lookup_ns": 0,
+            "registry": {
+              "owners": [
+                "Alder",
+                "Cedar"
+              ],
+              "schemas": [
+                [
+                  "Item",
+                  "Amount",
+                  "Ref"
+                ],
+                [
+                  "Item",
+                  "Ref",
+                  "Amount"
+                ]
+              ],
+              "units": [
+                "Unit3",
+                "Unit9"
+              ]
+            },
+            "trace": []
+          },
+          "discrete_sha256": "6a52abce5fd5637f953557267477dcd59ed5501c29329acaf89a4bcc761fce9e",
+          "dtype": "float32-le",
+          "matrices_file": "M1-Cedar-write7.f32",
+          "matrix_sha256": "ee4819ef75dafebb3eb5fc8ed4071ea31380a4829bafd4a1499d6d09f6c40914",
+          "shape": [
+            1,
+            128,
+            128
+          ]
+        },
+        "query_f32le": "91fabc3fc4c14cbddc9b803e7c92573f8bdc033e77437cbf3190843f83221a3e21356c3fb97290be0c99f03ee3bdf3bfa31db4be99ff09bfd33717bfd6d89a3fa08f8d3ec4eaa43e9a78533d9a481fbebf799abf5e63af3ec5d7123eafb25e3f5ab9f93d18d6763e7029d43e706bb63fb1feb03f7009253c097ae53e43a656bf054483bf3aa3c83dcce3f63edfa2003ff86db4bfd86a0abf9f81c8bfeab81e400b6f043f9666b93e29b771bf2222bf3f778830bf4b2594bfaffe433f30c839bfedc84bbfac6e623e5072d33e1403a0bd55da11bf7855d4bf6a9ad5bfe576813f28bca8befb88adbe750e78bd8686c1befa410d404b8a41be71092bbf615e173e721dd2bf09e1abbf9927a13e32f8cbbefa3f483f82f7a8bf6e0f53bfca678f3f8e30833f62f7293ebb79a33f03068a3ef4179fbf2f626f3e379b323f4d0436be385aa23e3026463db63eb83fbdd3a93f710a38bf71050b3f1f20243f1bf9363f2d8a9fbf07a7efbe8d5ea03e4eefb0bf70beca3f7d7fbcbfd8ad803f01e6043f2b3d803d5fd29d3efbaa1a3e0934f73e0898b43cc8f3f83e1c161fbe3c318dbee88987bee7130cbf8f739f3eded0d3bee22da73ecf25ea3dda02833dfbda6f3e8216da3e520cc63efc6e083f10a31d3eaaffe43ee0d6e43d7198a03df38bcbbd80bd5c3cc087a63cfcc48c3ee18a2bbfb9820b3ff2b23b3e89019fbde1653b3e",
+        "anchor_f32le": "1e9aef3d6a7b3cbe17f6c6bcadea2cbdf407aabdd03848bd570e8d3d7fe1853d203acabd84fda13ddb11593d95ac633ddca7983ba40948bb43c1e3bd9351083d2d320f3e2f4ad43d9e21ecbdbbf96bbdb52b12beba8a333dc81b923b2a0047be2f0c653b93876b3c5c0dfabd3127aa3cdb5bc33dfc9aa83dcf8cc6bde13ad83da697d83dc37894bdce411e3b77af963d1262243d726f063e8dfd183d54c8c3bc33ba5dbbc1849a3dee1115be23a400bdad487f3deeb60d3db9098bbd4cf8a9bd07674ebedc98fcbda84e163e5213c23d1a31bbbd31858ebddf7e873bb70c58bdd9a9bebd3470613e83e098bd9576353d68ef6abb3374ccbd58489a3dfb8e503d10a6293c1be362bdc223763d0b645abc9e0853bc0f8cd73c0d3a1abea6bf02be4ce4993d272329be5aefe83c60c3483d1d09fb3d5a59883c75e127bc293894bde203aebd6b433dbd75986cbd71e2c73df549f23de54a953db50e983d0e31cd3d0b1ff23cf79692bd8306943d53d79cbd7bc8fd3c3a89553c1a694a3e5832babd011e22bee2bc713c8a51de3d6ef951bde276753c89ec823dff97a4bdcad81c3e51dce0bdbbfae73db881db3d76603bbd6455f53dd8cec73d72d2ccbc6994383d6d0208bd05d6733de05931bc83234b3ef3c644bd4f058bbd38fcb5bd9896bc3d1e0867bd09ea45bd5fd4c53ce481c23d3eef54bd446e8abdde49cc3d6ce707bc5ba0f13ddf8e29beca93b3bc1639e3bd07c9ebbdb0af1a3bb264f63da284373d370c07be670c6a3da36e143dfa01d53d07bb4dbdf694f1bce2bd37be3365293c76a0263e070fab3d93b38b3c75acc23c16df4abef58c8abc36e72b3d150f3abefe026a3bbb69893dd27df5bd17552ebd814ea33d2a94833db76dff3abbfd0e3e6363c13c0fce59bd7bb386bdd674013eceb189bc3138c93d194a233d3cee213c2d9185bb7f9ab33c8e6246be367a8e3d37087c3df0fbaf3cd0a1b5bc3034b03cbbe435be8190c6bd4226fd3d38ee703d17e1bcbd20d7cabd57d7c83d0bf2fbbdfc302a3df848e93db195d0bd12c8f83bf6c32e3d42d467bd594d8f3d5666cf3d65f7343d4df5613dbbf8f13d77f18ebd01491abdcfc48d3dfbf631bee5a3bfbc437ea03d2e9b37be38af133d55e99b3d4c6a483d184b2f3c13fe08bd80c601bc4548403cc27483bda87d07be4e256b3d3a7b813d02602b3dc2273a3a7302c83df8cc8e3ddadfe3bd349886bc3b2d25bc11c066bd82d6583deb473a3e7e902dbe896819be03ff6ebd4beb0e3ed32b25bdcc7463bdeed7583d8e624bbde103e23d40f961bd1f1b133ce603023d16a57f3d9a63c63df5764c3d4e6bc4bd2cad963db43599bcf742593daf1f9b3dcd3a593ec2daa0bd13b67bbd666993bd0c36353ee8ad423d0878aebca6e37a3c6e24653db2d2693d4b57fabcf736ae3d6fd219bd",
+        "bbox": [
+          53,
+          487,
+          339,
+          515
+        ],
+        "bbox_i32le_sha256": "95f9ca1baa82df0d21a86602374c7b637f156d1d14cf9386f450b09b5995807a",
+        "window_metadata_sha256": "099160f02b042c53d4e6443045432e94a51e38bcca11190f11f6fce9d6da023b",
+        "pooled_window_sha256": "060a840b1a5b35ef8b4a58396abb2c3b2c4791f85664569b896b4f2bc085dfe2",
+        "pooled_row_sha256": [
+          "c6ae800df2040c94a23bb88554b2f8c17b48c73c7c5924dd6dac84aa8f0cd923",
+          "5d5192ce2f4b53d872df20761bbb74b94cc4c98bfea877a934e0fc9e90ebdace",
+          "cf9654be329e058e718fd9732a924651b8019d2db7855d1e4a58e6477d6df203",
+          "7622dd20aaad15fb8cd81b6d545928a9ba1016bd6385bc2daf47c45e5108b62e",
+          "f191a2428bb82d930168890bfeefa9f3e9255ab578239db60629dfda8c96a526",
+          "31384ba198e46f8f0f6790dd26118b8cbd5aaad3f3a6a9fc747a13b5aa65a975",
+          "c47ba4eb73797edc2f33ce72de30d9d947c03924ef36c0a9dadf96512385c374",
+          "6383e6f9de302c77a2777b1204a7108df56277cb69a9d2c1616d0da699f600d2",
+          "e161f7dce019c7acc39a2bea5f6317fc644181b83ca77ac1f33cd80964d5c1a4",
+          "c0933d570ad84ad841a5024bcc8b9c93f9107bf5f96e8f46018e7ec87c7637c4",
+          "814bde3a30fdbef6361e3851db9ea9f0442e5d98f15d5ef40cb2adb00436e83c",
+          "c0bb7d65db7c924357c998b3e8835d12589464777dc2693f6bf6b3c98d6ba2cd",
+          "13a813cb4c48beaac2d8bf8a23d27f8186b6379c104381d27ea0b1f65191c925",
+          "0016f11746db47bc1676c4b659d4fe250a853d86e2f518aba87ea613cd7f2d9c",
+          "dc138013abbe98bd48853d07df107dddb09acca6dfe8a5241fbeee4925b615a4",
+          "bffb8cd7b8858f18271dee914eb08d5e835673d7ea2a1a480ae0e4c491abfcbb"
+        ],
+        "donor_input_sha256": "12c7a91c85d04a8fc5ebe19749b0f8fae8ec792f0041737f3f2aab8ff20eb8b3",
+        "projected": {
+          "k": "fe9b37bd7765b93c59c68e3d45862a3da74dab3c26d5113da1761c3c66b4eabc588a4d3d2975733c7809c43a5e224d3d64459f3b2f9ad9bc1cedc53be9fe0bbb8538073d232353bc86985c3b905c493cbc4b1b3db5a3f53c435e10bd707e10bd32df913bb7be95bc0d4b8d3cd967f0bc000a0ebd0907b9bb356177bb6346253d8109023e599509be6af731bd688cf53ce5d4433ea321143ef684ea3d94f239bebca044bd6b3780bd8e8ae63d32a4ffbd1c93df3d04feb53ce2b37d3cbcaf0f3ef125a23d19213dbe03a1f7bdfe9b61bbe5eb0f3eafce6f3d509f0b3ed58e823c6172b73c97b43b3d48c91b3e7d42243e8af5efbdfd0e50bc216a4ebb7c70333ee978ad3d92fed93ddf8f19bed840d53d6176bcbdb08b083eea2cb43dd37b51be60ac68bdba1c29be78b338be547e51bb9e1cc23d5b3d993dda03a7ba36d5173ed76f4dbd7e345c3d7c0610be2b194bbe4bef0d3e8c9dbcbc581c21bed560ebbd7341953d19e29dbd24f140befe2c193e96defdbddc31743e792e32bebe428abdf052acbbe2c0ac3d4132933cab549fbc6685c93ce05ba0bbc00bb9bca3d8ed3b73006b3d6578bdbbe8956fbbcb2b8ebcc9b87bbced1455bda254083d95015fbb8a8c8b3d313638bcb6cc90bb475d3fbd1a5e593b45108b3d9677393c2a80c93c40b8ef3cf687993d884b5a3d11ac28bdb3aa8a3d51f5333c966f9cbc6180823c",
+          "v": "a804bfbdce39d13de0b9f33d4051233eb836f1bc668563be1a80d63d5052a7bdc40377bd6bc0c63de88432bd00a3543e808b0e3e1ad90e3e7023fdbd7c7ab9bd5c89c6be672128bdf8a0b03edafc913e145a4c3c2593193e3d9dadbe91e21bbe8139813d3e361f3eb276633d30f72cbc3cd56f3e67991d3e3aaf253e71d9adbe10dc1fbd6a38c4bd565a143eae30cabe2efd2d3e3a7df63c59ab81be308235bc0b04503e4f240dbe3878533c034a8fbd53e88abef66a8c3e3cb6ecbcba4b7b3da84f1d3dc64c613ee63dd5be7cff72bec6805f3eb872e43dad599cbe55b7a73c1897c03e9cc6873dfccd1cbdc15c66bed05f8f3db89ef93d2c130a3ef008fcbc22ed8d3da10e8fbe20a87e3ef4d88bbcc5e1b1bdbe092ebef1ba0c3d099c193d78cde23c57de363e32c8b03dbc07733ce62d03bec22f99bebe32afbdbd85f23ce06fadbd77e4aa3ec40e683edc1b0bbe6c1484bd10a7373dde28993cf42a543eccaf273e06adb2bd0a2934bde190febd3f2b1e3e5ed9633d3ebf543d7667423e60da993d632a7d3ea0fdd4bd92eb9abeaf04acbe84d8a6bc00d211bde846523d8f7ab03e70515cbd902b913e7cabe3bc160c93be9a9ffbbcd08129bed8b3c73ec3f90b3e08ddebbe99939b3e16de85bd0c889cbea9f2aabd26c1babd98e89fbee4d5673c94ef09be12818abd30d458bc80eb4dbc4a5a1f3ecd42763eba9951be",
+          "alpha": "28317f3f",
+          "beta": "8c68c53f"
+        }
+      }
+    },
+    "M3": {
+      "A": {
+        "snapshot": {
+          "discrete": {
+            "attempts": [],
+            "controller": {
+              "depth": 0,
+              "fault": "",
+              "held": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "growth": [],
+            "lookup_ns": 0,
+            "registry": {
+              "owners": [
+                "Alder",
+                "Cedar"
+              ],
+              "schemas": [
+                [
+                  "Item",
+                  "Amount",
+                  "Ref"
+                ],
+                [
+                  "Item",
+                  "Ref",
+                  "Amount"
+                ]
+              ],
+              "units": [
+                "Unit3",
+                "Unit9"
+              ]
+            },
+            "trace": []
+          },
+          "discrete_sha256": "6a52abce5fd5637f953557267477dcd59ed5501c29329acaf89a4bcc761fce9e",
+          "dtype": "float32-le",
+          "matrices_file": "M3-Alder-write7.f32",
+          "matrix_sha256": "11824a49235e1ca7b621b3162cdb7f674935a9540d3ddc2af2ef2837b64a4a66",
+          "shape": [
+            8,
+            128,
+            128
+          ]
+        },
+        "query_f32le": "8ced843f4a69babf8d4e173f0d91c43f284a0a3fa275443e181c253fc001c4be9c69033f96f0ccbe36bbc73ea742b0be53767ebee456f83eb21ea3bfc249a4bf802561bbd842d43fd6f9e7bd6c5dc6be02d44d3ffdfceebcdc697f3f1aab983e6d09433f4103bc3fff348c3f533eb03eedf1853fd13664be19f1903d843e9bbf0c6be8bed7601cbfb6f30e3fd0c04c3f8a9f3bbf47b298bf2178ccbe8183bc3f0bdf253f6e9b943fef0155bea1fb303f8442aabf98ab553f1ca9c13c9de9b2bf1842cebf76d7b6be2bb2b73f55290bbfe1c0c2bfd68f1cbf6d80acbf24af743fd90a43bf6aabb6bdb162023e74c8a13f1873bbbf33391bbf4c22003f361c5ebf8cae83bfa7651a3f1417463f56e092be04c7c03e8f2d323f29ec7dbfa225763f4682173f48f607bfddf400bfeda090be1b9acabf320d32bf52cc0d3ff03d12bf0787513ecd44a6bfd673403eb606cb3fd71767bfc2e9133f39fe34bfbe7a803f4e53c0bf6a13d23e787445bf8d3211bfd64ab83fc66e40bf094c493f6ec3453f7ef5d53feb47b63eb62cabbf4addad3f4a12c03fd3646ebf0297c1bf7c71d7be8d5b7cbfaf7461bf36c8e83ecb178abfcfa0923eea6fd63f33ae033fcc2afd3f245a5a3f9ce3953ef89c803e887386bfd63c63bf7c5a9a3f8427153f7e6234c084d977be154296be34d00f3f9719d63e684281bf7ded0fc003281d3e44d7d2be",
+        "anchor_f32le": "5b5ff63d56fd0abe68d00abded441d3d9f3fdbbdd641d53bc82e2b3dcd0f433da57b99bd339cb23be0d4e73bb91da93d6e1fe4bdae7fb03c369df8bd062d283d225b293ea55df1bc1d7f4dbe9215d7bbed4c24be99eb7a3de4c68a3aa912d3bdc371333d798231bcae6d20be9902e3bdb027333ddc05773dfad808befa8dcf3ce472013eb96abbbd963f5c3c2854cd3dd84bcabc5a28513e8272113defc4d13c61625e3cb76897bc0ed9f3bd6f414d3bd1f779bccc144e3d6f234a3c48d4afbd0dd430be31fa14bef00df53d5ea9f03cd389023d5a79aebdd30d093d69421ebeb4c38bbd92ef4a3e211c09bd14b437bc900d5cbdebefe4bd83a9043d487dec3df47d72bd84937abdbcd6bc3d782078bdada3703d36dc74bcd7153ebe265425bd7ef37e3d37411ebed10c90bdac4dbd3c8f41e33c787140bd87e7c4bd8731a7bdb37156bd0f4be7bb676ef7bd1bc8703d53159fbaa3aa92bdfc9ed93d25b7e53d057b8e3d9b5cb5bd755a783d98dca2bb3b394abc7769963dbefb803e9ca9f4bc28501bbecd00653b3631ab3dddef2439d03d48bdfe8d863dc16633bd60ca073ea2aad5bd5df58538c458a43dc7cf253a4cb2e33c587b3b3b422f8abdcff8b73d717ddcbdb879d23cb92aaabcd7924e3eac7cc4ba05a51fbc5bd4003db2fcc33d0cb2dbbc6b6fb1bbf94c853d3f29893ddb95973c0b6529be5addf43d0ecdb5bda3290d3e998fa0bd20157f3ced0775bc81e60bbef596a63da25cfa3de3a6e93ce28ad9bd6506c1bcb3be58bcb235b83d3b1005be1f6c9ebc39b3c7bde927d6bbf2b7403ef932b4bc7d4bc5bc8af8903d5e2afdbdd43e12bc192af63c929e01bd2b206a3c7f53983cba541bbed93441be0e1f6fbb2f33f4bcee9e713c1fbefb3ceaa7843c37cb6cbd0f6ce5bd97e11b3e9615bfbdff96173e5b68aebc8a3f7d3d4698d03cb58350bd7be714becc10173e30c9053ca5e88c3d39399d3d99b1743d5775d3bd34cc9ebdd6779a3de4ee7abc4f3c423d3d8986bdf8d9143edd155fbea4bc113e19f90ebc19213abda061a5bd5734a6bcb61b4ebd5cf80fbd8540303ecbc5f1bc7b83bd3d15eaf13d53111fbe00edd0bc7601053d9dc82ebe0c4ff73d867d343d84070abe4163debd5cbdd03d378fa3bd9c428cbd3da104be27b5c23cf202503d698301bda04c1dbe2b73ebbc09638abddf67b0bcd0e1953c8ace973d746dad3da4ef83bde9e072bdcf14963db3ced0bde22a543df690303e0b56b8bd8a801fbda39ebfbd4fd2d83dc5e10c3c4347b0bd6ddd033d4d24e63c29bbec3cde3df23c34f69ebda80f973c9ea8093ecd2873bd55b741bdb21b01be41c9b23d4cb0acbdf6eba03cfadc373d2f22ef3d131714bdbe935f3c0005933dd6142b3e368ffc3d6aae0a3bd7da813d504581bc519ec73d1e6a06be176984ba7a6db2bd",
+        "bbox": [
+          53,
+          486,
+          339,
+          515
+        ],
+        "bbox_i32le_sha256": "16d69e2d20c7faaf33eab8876ce4ac9e8061fd1f75316f73c22b3e824fdf0b10",
+        "window_metadata_sha256": "344971694436a790388e93bdd53737a1d095e486ab5020e80994848b1ecbc311",
+        "pooled_window_sha256": "f71d07a64ee5789445f18aca25408d1c6aab9740d6932d808d151a1933217684",
+        "pooled_row_sha256": [
+          "7c9444e3f4b228c87b137525142726a6a4d6e7666ba73845e608692469f201ca",
+          "c49b8cd5c3e334199bbffa895c4d2b9dcd59202bc2774f89830da012ab7733f3",
+          "756b1b3c182802c09a99d9892f29ecc8380f1614ac77a23215202659b1273ead",
+          "2631d05a317474acefe6e35c1dd344a21b08683ef6bb82a2843219803e1be948",
+          "c3200c645c74902c59914d6918566a344b1580703d77d651ba69dd4f29f10a43",
+          "9cb38ca9f16a6a32371c0426852e2bf76673b17e0c40808c81a04c20018c6857",
+          "ee8c44d38b6902d84be497965439ca721a81a6545d7985655e7245d9c7dd8ce4",
+          "2ca292a57dc947c285d1611a18a82563b9c3170c24adc7cf31df08ad87785ffd",
+          "2fc1eb003aeda2a0d0454811b35b1ed95b670eb334233f32d1b90d74f73bb135",
+          "3afdfcd6d7948d1252c54ef4a6ac5fc612432dab79dd82d62c2cf862eb76ef30",
+          "4a1cbb5c416b4ef5c3bc094ae9913581fff2170837dd0aaa64cf9c2ae213311e",
+          "7f1b75b67ae89219126b7a410a371289b4deb0953fa56c0f0434dcaa1825bbdd",
+          "12b3b57b2be03d34362288ddd7670697fe91ed65202bfa0f8543dee5cd3f5c60",
+          "abcd46328bc64c928459cdcba85d77ec43efac9d50ecc9109ec66121eebdb8bd",
+          "921bd98ce6ee1690bac73ab064e2a6de9d98269d8925a98d64a34405b4794b7e",
+          "088157667340203edf6def8af91af221dc01530051c1d858cdefee346b241fc8"
+        ],
+        "donor_input_sha256": "2f6059ccadbcb34b4525f0c6219db3289144a990a3ef1d4ae4cbf94f3486791f",
+        "projected": {
+          "k": "c1eec6bde9c687bd0686fa3da9db0c3c8516aa3d4be0373e6873063ef18f473d445fa6bd85510ebe4ccfaf3d0977a83dcf2549ba1b32363ed0f95b3d5972af3d053b0fbe20f4ef3b8183333db13a37be0499fd3d61ee103ca788463eb8cf47bd0f6fad3ddf70283b0a661a3ecbf337bdfe22ac3d4ac985bdc5b947bd6a3d4a3bcc40b5bd89e45f3cb84b353ef8930f3e234972bca57b583d0d4567bd71a5c93cd945ef3c6ca2b8bce76aa1bdd0cfbb3c2fc137be28db473d2eff403d3a74e3bdff69c9bd0601d8bc185d2e3e0c3bfabde858b9bde34ab33cde663ebe59292c3e806938bd2cff99bd046971bc6c102b3e66a1c9bdc6fe7ebe402a383d9a552c3d1be7edbdb1d267bde249043ddd75e9bcc8c5503e3852973d550325be27b8ad3b4a5b3f3e3e790cbe6794babde8ff4abe89edacbda88b813cbb47af3cae05dfbdfdaf153edd8617bd6063d53a3801153ee4219ebdb5787d3d744aabbd447ecd3d7ca7f0bd0f26c6bc2a272bbc4699913bd0a6df3cffd2463c10c21e3d1f1ffe3d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "v": "d361883e1b6b233f566eaa3e669f90be910a65beca3636bed8017dbe0bda473f9e36ed3da08209be07bfb9bd86a2603e054682be02a90dbcced0c5bd9a61f23e84550bbe14705abe8e5b0a3f6b2d803e08752abe10de543d755136be843244bee4cc1b3e37cb123e3412c6bc42affcbd5e2e0e3eaced88be01a19c3e44ca68be4bd2a33ee2fb86bda0ff31bd0a7fe03e2b4c10be8e16403db33d95bd1e6412bdaaf8883c178002bf749c5dbf5aaa69be35c59a3eabfdf6be31c39bbef8ad6e3e865d5fbe2cbd3a3e9e7ed7befa0868beacd69f3ea5b264bd1abcfdbdff41aa3e0e6a863e90f313be757e2e3ebcf0cd3e49e0aa3ef6fe25be7b6be0be2e564b3eac13803e3a057cbe5527163feebca0be27cdb6bdbe9f1a3f92d46d3dd47833be81e6953eac29e83d10740e3e88c0b33c9793983e1ca534bd5046d1bc1079f9be78a38ebedc7020be2b0e17bdf26d763eefc0edbe466bb9be908bdfbd7f8e2f3f8552263f4a9040be3ad4f3bdd9ae7d3eb07139bc1cccb9bd642fed3ea20e41bdbe7d8fbe9cec703e502ff1be24a4833f96d58dbecce72d3dbab5003f201fba3eb533bb3e003b04bdea923d3faf2eacbe0af4edbe85b014bd5cf5133d69ec7c3ed31508beb44492bd94aabf3dc3c219bf5c88d23ea70624be393f3a3e6f92bb3ee406cbbd468b863e3a29a23e9ecd4d3eb4a6293db1c6fc3db4a0483d5b50683e",
+          "alpha": "d6237e3f",
+          "beta": "baf7af3f"
+        }
+      },
+      "C": {
+        "snapshot": {
+          "discrete": {
+            "attempts": [],
+            "controller": {
+              "depth": 0,
+              "fault": "",
+              "held": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "growth": [],
+            "lookup_ns": 0,
+            "registry": {
+              "owners": [
+                "Alder",
+                "Cedar"
+              ],
+              "schemas": [
+                [
+                  "Item",
+                  "Amount",
+                  "Ref"
+                ],
+                [
+                  "Item",
+                  "Ref",
+                  "Amount"
+                ]
+              ],
+              "units": [
+                "Unit3",
+                "Unit9"
+              ]
+            },
+            "trace": []
+          },
+          "discrete_sha256": "6a52abce5fd5637f953557267477dcd59ed5501c29329acaf89a4bcc761fce9e",
+          "dtype": "float32-le",
+          "matrices_file": "M3-Cedar-write7.f32",
+          "matrix_sha256": "23c400fddfa612ff2f9f291b90e2fcee44ad69a38fe6059d1fa333f78b542de3",
+          "shape": [
+            8,
+            128,
+            128
+          ]
+        },
+        "query_f32le": "8ced843f4a69babf8d4e173f0d91c43f284a0a3fa275443e181c253fc001c4be9c69033f96f0ccbe36bbc73ea742b0be53767ebee456f83eb21ea3bfc249a4bf802561bbd842d43fd6f9e7bd6c5dc6be02d44d3ffdfceebcdc697f3f1aab983e6d09433f4103bc3fff348c3f533eb03eedf1853fd13664be19f1903d843e9bbf0c6be8bed7601cbfb6f30e3fd0c04c3f8a9f3bbf47b298bf2178ccbe8183bc3f0bdf253f6e9b943fef0155bea1fb303f8442aabf98ab553f1ca9c13c9de9b2bf1842cebf76d7b6be2bb2b73f55290bbfe1c0c2bfd68f1cbf6d80acbf24af743fd90a43bf6aabb6bdb162023e74c8a13f1873bbbf33391bbf4c22003f361c5ebf8cae83bfa7651a3f1417463f56e092be04c7c03e8f2d323f29ec7dbfa225763f4682173f48f607bfddf400bfeda090be1b9acabf320d32bf52cc0d3ff03d12bf0787513ecd44a6bfd673403eb606cb3fd71767bfc2e9133f39fe34bfbe7a803f4e53c0bf6a13d23e787445bf8d3211bfd64ab83fc66e40bf094c493f6ec3453f7ef5d53feb47b63eb62cabbf4addad3f4a12c03fd3646ebf0297c1bf7c71d7be8d5b7cbfaf7461bf36c8e83ecb178abfcfa0923eea6fd63f33ae033fcc2afd3f245a5a3f9ce3953ef89c803e887386bfd63c63bf7c5a9a3f8427153f7e6234c084d977be154296be34d00f3f9719d63e684281bf7ded0fc003281d3e44d7d2be",
+        "anchor_f32le": "5b5ff63d56fd0abe68d00abded441d3d9f3fdbbdd641d53bc82e2b3dcd0f433da57b99bd339cb23be0d4e73bb91da93d6e1fe4bdae7fb03c369df8bd062d283d225b293ea55df1bc1d7f4dbe9215d7bbed4c24be99eb7a3de4c68a3aa912d3bdc371333d798231bcae6d20be9902e3bdb027333ddc05773dfad808befa8dcf3ce472013eb96abbbd963f5c3c2854cd3dd84bcabc5a28513e8272113defc4d13c61625e3cb76897bc0ed9f3bd6f414d3bd1f779bccc144e3d6f234a3c48d4afbd0dd430be31fa14bef00df53d5ea9f03cd389023d5a79aebdd30d093d69421ebeb4c38bbd92ef4a3e211c09bd14b437bc900d5cbdebefe4bd83a9043d487dec3df47d72bd84937abdbcd6bc3d782078bdada3703d36dc74bcd7153ebe265425bd7ef37e3d37411ebed10c90bdac4dbd3c8f41e33c787140bd87e7c4bd8731a7bdb37156bd0f4be7bb676ef7bd1bc8703d53159fbaa3aa92bdfc9ed93d25b7e53d057b8e3d9b5cb5bd755a783d98dca2bb3b394abc7769963dbefb803e9ca9f4bc28501bbecd00653b3631ab3dddef2439d03d48bdfe8d863dc16633bd60ca073ea2aad5bd5df58538c458a43dc7cf253a4cb2e33c587b3b3b422f8abdcff8b73d717ddcbdb879d23cb92aaabcd7924e3eac7cc4ba05a51fbc5bd4003db2fcc33d0cb2dbbc6b6fb1bbf94c853d3f29893ddb95973c0b6529be5addf43d0ecdb5bda3290d3e998fa0bd20157f3ced0775bc81e60bbef596a63da25cfa3de3a6e93ce28ad9bd6506c1bcb3be58bcb235b83d3b1005be1f6c9ebc39b3c7bde927d6bbf2b7403ef932b4bc7d4bc5bc8af8903d5e2afdbdd43e12bc192af63c929e01bd2b206a3c7f53983cba541bbed93441be0e1f6fbb2f33f4bcee9e713c1fbefb3ceaa7843c37cb6cbd0f6ce5bd97e11b3e9615bfbdff96173e5b68aebc8a3f7d3d4698d03cb58350bd7be714becc10173e30c9053ca5e88c3d39399d3d99b1743d5775d3bd34cc9ebdd6779a3de4ee7abc4f3c423d3d8986bdf8d9143edd155fbea4bc113e19f90ebc19213abda061a5bd5734a6bcb61b4ebd5cf80fbd8540303ecbc5f1bc7b83bd3d15eaf13d53111fbe00edd0bc7601053d9dc82ebe0c4ff73d867d343d84070abe4163debd5cbdd03d378fa3bd9c428cbd3da104be27b5c23cf202503d698301bda04c1dbe2b73ebbc09638abddf67b0bcd0e1953c8ace973d746dad3da4ef83bde9e072bdcf14963db3ced0bde22a543df690303e0b56b8bd8a801fbda39ebfbd4fd2d83dc5e10c3c4347b0bd6ddd033d4d24e63c29bbec3cde3df23c34f69ebda80f973c9ea8093ecd2873bd55b741bdb21b01be41c9b23d4cb0acbdf6eba03cfadc373d2f22ef3d131714bdbe935f3c0005933dd6142b3e368ffc3d6aae0a3bd7da813d504581bc519ec73d1e6a06be176984ba7a6db2bd",
+        "bbox": [
+          53,
+          487,
+          339,
+          515
+        ],
+        "bbox_i32le_sha256": "95f9ca1baa82df0d21a86602374c7b637f156d1d14cf9386f450b09b5995807a",
+        "window_metadata_sha256": "099160f02b042c53d4e6443045432e94a51e38bcca11190f11f6fce9d6da023b",
+        "pooled_window_sha256": "060a840b1a5b35ef8b4a58396abb2c3b2c4791f85664569b896b4f2bc085dfe2",
+        "pooled_row_sha256": [
+          "c6ae800df2040c94a23bb88554b2f8c17b48c73c7c5924dd6dac84aa8f0cd923",
+          "5d5192ce2f4b53d872df20761bbb74b94cc4c98bfea877a934e0fc9e90ebdace",
+          "cf9654be329e058e718fd9732a924651b8019d2db7855d1e4a58e6477d6df203",
+          "7622dd20aaad15fb8cd81b6d545928a9ba1016bd6385bc2daf47c45e5108b62e",
+          "f191a2428bb82d930168890bfeefa9f3e9255ab578239db60629dfda8c96a526",
+          "31384ba198e46f8f0f6790dd26118b8cbd5aaad3f3a6a9fc747a13b5aa65a975",
+          "c47ba4eb73797edc2f33ce72de30d9d947c03924ef36c0a9dadf96512385c374",
+          "6383e6f9de302c77a2777b1204a7108df56277cb69a9d2c1616d0da699f600d2",
+          "e161f7dce019c7acc39a2bea5f6317fc644181b83ca77ac1f33cd80964d5c1a4",
+          "c0933d570ad84ad841a5024bcc8b9c93f9107bf5f96e8f46018e7ec87c7637c4",
+          "814bde3a30fdbef6361e3851db9ea9f0442e5d98f15d5ef40cb2adb00436e83c",
+          "c0bb7d65db7c924357c998b3e8835d12589464777dc2693f6bf6b3c98d6ba2cd",
+          "13a813cb4c48beaac2d8bf8a23d27f8186b6379c104381d27ea0b1f65191c925",
+          "0016f11746db47bc1676c4b659d4fe250a853d86e2f518aba87ea613cd7f2d9c",
+          "dc138013abbe98bd48853d07df107dddb09acca6dfe8a5241fbeee4925b615a4",
+          "bffb8cd7b8858f18271dee914eb08d5e835673d7ea2a1a480ae0e4c491abfcbb"
+        ],
+        "donor_input_sha256": "1d990a2901db104c2fa2ade486ffc9fd5b90d6ac6c5e1e7180213c7e087b675e",
+        "projected": {
+          "k": "68f9bbbdbcb444bd22bf0b3e1968543cb970203d6f71183e86a50d3ea17c653d6d36aebd955705be44b3c63d5a30563dc6c21e3cdbaf3e3e46c22d3d8227803d2e391fbef468273d87c1353d2f2917be71320f3ea196c4bb983d313e264d93bdf1d6d73c35f41e3c41d41a3e8d9b0abda1d2b13de9db6dbda0f108bd52fd663c0886a6bd046c293db3901e3e84233b3ef9277b3dc3267f3d84ee85bd80e7c43bf6be693df2f91cbce18755bdb63ef83c230c0cbede82833ddbfaab3da09994bd9e8bd2bd207b64bd25ed133e92f4c0bdf835b3bd8722193b5ead45be50264e3edb3c9bbdd56e66bd73cd0c3de8f9413e2543a5bdb27183beecb2873d060c383d10e7e9bdeb46f7bcd964b93d2e0a0bbdbb89353e47c7c33dc29d10be897b36bd7e67413e3d820cbe19ecb0bda9285bbe41b5a5bdbd164a3d3b6c773de5e0efbdcd9b003efe2497bc823d813c1870073e3d0fb2bd15e6883de54d8dbde6e2d43db136d4bdaa66b4bd0761a0bcff590abcad7a8f3db0938c3d784f9a3a07041b3e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "v": "64285c3e8a4efa3e6d145d3e50fa5cbe8f1302bf664ddcbef0910abe28b4543fea0ef7bb724539beb3cc8e3cef27bc3e06f0d5bdb775a63c547791bd922ff93ea1feb3be12837dbe84363a3f96b6093fe85294bde9b0393e2bb9aebe8e907bbe4774953e5ca2033e78794ebcfaff35bd5677843e2ffac4bd5f90823e48bba9bd48607c3ef860073d54290b3c4833373ed45969beab1b973ec09337bedc505dbe8039a63bcc9ea1bef55c30bfce74eebd02917c3e92704fbefb05d3bd56d89f3e2a907ebece61853e2d98cbbef151c1be181fc53e0ca4c4bd11b71bbe8760af3ea6285e3df0a0c6bca0b8b83c41138c3da280ae3e9bcbe53df2f721bdd4460f3dfc80b13eceaf52bddd72233fedddaabd1196ffbdecac083f52bc7a3d05359abd6497a63eced6733edcd4463ef2c00abed19f763e58aa35be081c1ebed586f7be437857be363408be48cd2f3ec885a13e0558bfbea482babebe3e57be585a0f3fc8733b3f55da78be5ccbd2bc5fc72d3e6f97163e243036bd44f0af3ea6fd03bcb03890bebef3803e9bddc0be4074313f1841a1be6f46183d9516e23e5f15d13e80cce53ef03d58bd5dea523f1ef8a9be00ea17bf504606bd45ad353e96fd4a3ec4b8af3c0e124bbe579e623eae9feabe7b0f433efe0f12bd269e7cbd69f8b03d06f839be8440b33df321383e28becb3d08d3723cb3f2913e9e0bd33ea23ef83d",
+          "alpha": "a2ed7d3f",
+          "beta": "051ca73f"
+        }
+      }
+    }
+  },
+  "blobs_sha256": {
+    "e46e514c7863dacef44c28028fb24e98d9958451:docs/reviews/WP-0033/run.py": "b915beed41a293699fb0897c78cc4f7dc72077953ddb447064106fc30f6f92dd",
+    "e46e514c7863dacef44c28028fb24e98d9958451:docs/reviews/WP-0033/trial.py": "5ba2b87f77d96cc4af88c27e2bf8af2cb54705ec0795a7d30e029d8100d35f9b",
+    "e46e514c7863dacef44c28028fb24e98d9958451:docs/reviews/WP-0033/audit.py": "f8f83f1c98c851ffa649f6d218c3bc499cba3f1cbd7c40b77432c4d8b1fd4cee",
+    "297f028350b1521096061cf27c7ce89702b73e54:docs/coordination/WP-0033/contract.json": "535e63aae82a149da743f50d69554247bd8c8368e3f37ddb24bd96aa2c2c25f6",
+    "f17396bf4d3915b53cff0e22a37e1b928cdf2919:docs/research/WP-0032/run.py": "4a70c5ed17fb53fd5b1eefe2f136ee5323893576525460d8a7e2cd9bed73e3a0",
+    "f17396bf4d3915b53cff0e22a37e1b928cdf2919:docs/research/WP-0032/restore.py": "e390e6b185ef120dcc6f1f13a664856203208fd4d913c817ec12b983a875452e",
+    "f17396bf4d3915b53cff0e22a37e1b928cdf2919:docs/research/WP-0032/account.py": "12271e47790878741f2d1e668670f94b4e5a2edc45e688f516aaf6c9f556444a",
+    "8f31cc66c4878ca086fa5da1498c4a73ed6a6306:docs/research/WP-0031/evidence/runtime.json": "40396bc5f1f87ee7f5c9d6ddd1e7c7d0437a428f67a7560518605380336b67a0",
+    "8f31cc66c4878ca086fa5da1498c4a73ed6a6306:docs/research/WP-0031/evidence/inputs.json": "9f265ca6958f824a07c6ffb457a3ad53182c3351dfcf3316c57670ea98c96121",
+    "5e1a464a38ad4213b94b3b25695bd70d9054a6a3:docs/research/WP-0031/experiment.py": "7b6bc8982c277e6482c0a35bf6c57b22a224b896d02e6666b00084211c8a80d2",
+    "5e1a464a38ad4213b94b3b25695bd70d9054a6a3:docs/research/WP-0031/inputs.py": "baf3ceec741c67e917de6fd0250e1be38ba401d519c2a09a77fe4fbc05bfb170",
+    "5e1a464a38ad4213b94b3b25695bd70d9054a6a3:docs/research/WP-0031/replay.py": "56ff6039b1f5b194ea8239f9daf3ceb38c5d36aeffd69f06c2bdd84787a77ce1",
+    "7db67283a4ffd3e7a20bb8d80499572cc7118c71:docs/research/WP-0024/probe/matrix.py": "15d7eafaea57c698fb438b57ab30dc4329e4de51319e2edaa0c336433e0a64a8",
+    "7db67283a4ffd3e7a20bb8d80499572cc7118c71:docs/research/WP-0024/probe/online.py": "82f6d1c6f83bf74961599d0b988fe3f9e32601b2c96d8449a9220bdbc3c2ae9c",
+    "6ee777088c7d6121611091556246bb964c5a4227:docs/reviews/WP-0031/evidence/replay.json": "870409c461c5a1966061dc041670b499dfe43eba6d8533064883c1be6a127e04",
+    "8962868f6476ce26b4c108daa960a13265db10cc:docs/coordination/WP-0031/reconciliation.json": "8c070299c75e1ddc9c8ea715a7d5267ebc27bbc00908fbb903aeaf8cd37e7207",
+    "6d79c24364ba10a1d9bfa4c72c837e2f216cf4bc:docs/research/WP-0026/fit/fit.json": "e664109765b0482cb7d330c825c4c9dbbe3b8b8c63e17a991fe6ab14f42925b2",
+    "8f31cc66c4878ca086fa5da1498c4a73ed6a6306:docs/research/WP-0031/evidence/M1.json": "b1c4f9d55b78c85a780a4664e1266b22eabc30f841b1671271d2798da80fc059",
+    "6d79c24364ba10a1d9bfa4c72c837e2f216cf4bc:docs/research/WP-0026/fit/M1.pt": "e2420949c0990992fae61b42280617bedd95dfa7013ce25ff52c8fd760c0f291",
+    "8f31cc66c4878ca086fa5da1498c4a73ed6a6306:docs/research/WP-0031/evidence/M1-Alder-write7.f32": "8e1514a6889cc38f23b3a918e69a8f416a857123c8cf417fae29375f88cd6c0a",
+    "8f31cc66c4878ca086fa5da1498c4a73ed6a6306:docs/research/WP-0031/evidence/M1-Cedar-write7.f32": "ee4819ef75dafebb3eb5fc8ed4071ea31380a4829bafd4a1499d6d09f6c40914",
+    "8f31cc66c4878ca086fa5da1498c4a73ed6a6306:docs/research/WP-0031/evidence/M3.json": "c3828b2a5bcdff827aecd773214e590c0be32b90a719956eb9b49c02e5d1f100",
+    "6d79c24364ba10a1d9bfa4c72c837e2f216cf4bc:docs/research/WP-0026/fit/M3.pt": "391b19e5629faf62b2f6ae6614bd18f91ba8e7c112a78dc191cdd6e602d10031",
+    "603cfbc85c259112fb76ea7c1b9c514557149653:docs/reviews/WP-0030/inputs.py": "49de8e59412e32ed286497d56b0ce7ae367c9bd4288e242a95a5cd336abb97d9",
+    "603cfbc85c259112fb76ea7c1b9c514557149653:docs/reviews/WP-0030/replay.py": "211e08c0f31b35b78b16642f5b1121c820414574c75740b0c934e39963d77a65",
+    "ee8e96afcbd7a3c1f3eaa8125c05e68003c4a893:docs/fixtures/WP-0028/manifest.json": "cb058f1931758c516e21e2d791d5b5dffd04646bc773b8e967a11024fdf58cf2",
+    "841233517b4694d18d144f6d2d2b17e0d0a8b444:docs/research/WP-0029/scoring/evidence/result.json": "93a6054a9f8b4db7a9e231e843ee6681cf55968e85e6adde5d31959c2cdeae1e",
+    "f51fa1dadec3e3f0e61b1d3ddade1891e24779e2:docs/reviews/WP-0029/capture-gate.json": "03e7eb07feae1f25c8db1fb4a7141820f0bda8497ab1b539bb4dbe169c51f870",
+    "7d65875a1ff2d7ad8a008ea83f5484507dbd5db3:docs/reviews/WP-0030/evidence/bindings.json": "649a618dcadfeeebdc67b51e90b1c5cfb57cc6f2b8a609b2eca25a158300a5f7",
+    "7d65875a1ff2d7ad8a008ea83f5484507dbd5db3:docs/reviews/WP-0030/evidence/steps.jsonl": "cd1bc86b9e4b1e8e9c49d1c1ba86f96586afb33336741580746ab938f1e3600c",
+    "c000c0299619345c887859b95c45befbb0c68987:docs/reviews/WP-0026/cal-features-primary/primary-001.zip": "e708b33aa56fbcb78ceae2e3c59a795482d9a8f09bd6796b5d5291969540b46d",
+    "48016df280f8f0c2f4a807955d9f431744347ecc:docs/research/WP-0029/acquisition/native-return.zip": "0346091957994fcfc5c12d8d87e40ce177bb0c1ff0cc376b5ba8f4fb7cb2522f",
+    "fe97734d3ad68c8fea5b3d9e6bfccacc9f65711e:docs/coordination/WP-0032/reconciliation.json": "2259db4a2b43a95685c04a0b2c78fb1b4c594e52788ad910d35a5ef90a63b41e",
+    "bbb0e63f505fb0fae151592709d39ad8afd4bd04:docs/reviews/WP-0032/evidence/tables.json": "b70e61e12e35af68bebd814a78724f7190312ffe23845ec67eaa93dfe3448cc8",
+    "8f31cc66c4878ca086fa5da1498c4a73ed6a6306:docs/research/WP-0031/evidence/M3-Alder-write7.f32": "11824a49235e1ca7b621b3162cdb7f674935a9540d3ddc2af2ef2837b64a4a66",
+    "8f31cc66c4878ca086fa5da1498c4a73ed6a6306:docs/research/WP-0031/evidence/M3-Cedar-write7.f32": "23c400fddfa612ff2f9f291b90e2fcee44ad69a38fe6059d1fa333f78b542de3"
+  }
+}
