@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0033 authorized CPU diagnostic at write 8
+## WP-0033 write-8 diagnostic closed after independent review
 
-Jack released 48 M1 erasure rows and four M3 pooled-row/box combinations per independent implementation. The assignment is reserved. [Frozen schedule and gates](docs/coordination/WP-0033/contract.json) · [Assignment](docs/coordination/WP-0033/assignment.md)
+M1 ranked the donor first in all four cells at relative ρ = 0.50 and absolute η = 0.80. Relative ρ = 0.80 ranked Cedar first in all four. Every read fell below both frozen posting cutoffs. In M3 the pooled row made the larger contribution to the negative owner-margin shift. The explicit box contribution also resolved on both rows, narrowly on the Alder row. The normalized interaction sign was unresolved. [Author /001](docs/agent-reports/eld-owner-probe/WP-0033/001_2026-11-24_research_eld-owner-probe.md) · [Independent /002](docs/agent-reports/eld-rd-reviewer/WP-0033/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator /003](docs/agent-reports/eld-coordinator/WP-0033/003_2026-11-24_verification_eld-coordinator.md) · [All 52 rows](docs/coordination/WP-0033/reconciliation.json) · [M3 attribution](docs/coordination/WP-0033/value-reconciliation.json)
 
 ## WP-0032 six-read write-8 accounting closed after independent review
 
