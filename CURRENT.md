@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0034 fresh cohort admission
+## WP-0034 closed at the fresh-cohort admission gate
 
-Independent custody and non-author inventory verification are reserved. Fresh evaluation requires a complete authorized 16-pair cohort with frozen sensor captures. [Assignment](docs/coordination/WP-0034/assignment.md) · [Admission terms](docs/coordination/WP-0034/contract.json)
+Independent custody and non-author review found receipt support for 0 of 8 required fresh pairs at 12 pages and 0 of 8 at 30 pages. Each implementation executed 0 of 96 scheduled fresh decisions. Posting, rank, safety and coverage remain unmeasured. [Custody /004](docs/agent-reports/eld-twin-custodian/WP-0034/004_2026-11-24_research_eld-twin-custodian.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0034/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator disposition /003](docs/agent-reports/eld-coordinator/WP-0034/003_2026-11-24_verification_eld-coordinator.md) · [Per-stratum accounting](docs/coordination/WP-0034/decision.json)
 
 ## WP-0033 write-8 diagnostic closed after independent review
 
