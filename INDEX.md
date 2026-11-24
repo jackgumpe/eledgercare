@@ -1412,3 +1412,13 @@ Closed at the custody gate after independent verification. At each horizon, the 
 | [004 custody inventory](https://github.com/jackgumpe/eledgercare/blob/147e24835ee0eab8ca6561ff6fcb1c05dedf11ce/docs/agent-reports/eld-twin-custodian/WP-0034/004_2026-11-24_research_eld-twin-custodian.md) | `147e24835ee0eab8ca6561ff6fcb1c05dedf11ce` |
 
 The [public download receipt](docs/coordination/WP-0034/publication-receipt.json) verifies all 21 changed files at the disposition publication.
+
+## WP-0035 Full-horizon trajectory and exposed calibration trial
+
+Jack released the five-step order on d9741d6e880d06192b9f3e56ab8056d391da1b9e. [Scope, conventions and admission](docs/coordination/WP-0035/assignment.md)
+
+| Slot | Owner | Branch / worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0035-trajectory / w035-author | docs/agent-reports/eld-owner-probe/WP-0035/001_2026-11-24_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0035-trajectory / w035-review | docs/agent-reports/eld-rd-reviewer/WP-0035/002_2026-11-24_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0035/003_2026-11-24_verification_eld-coordinator.md |
