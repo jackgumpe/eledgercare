@@ -1,0 +1,263 @@
+{
+  "packet": "WP-0033",
+  "status": "accepted after independent reproduction and non-author review",
+  "utc": "2026-11-24T02:36:57.037497+00:00",
+  "base": "da76b51172bd7a59828d0a9c0fe9306229f47932",
+  "reservation": "297f028350b1521096061cf27c7ce89702b73e54",
+  "release_commit": "6d018f51b0ed294d72ca72dbe71e259b64754a69",
+  "author": {
+    "source": "6e0f1cd046ddc3683e8e9c532f75380e8d6cef29",
+    "evidence": "8849be2f8f7fb83559d944e2db5527d9929aa8b7",
+    "report": "394cfe4daf2a80dab0571db04c7f8c0477f546e0"
+  },
+  "reviewer": {
+    "source": "e46e514c7863dacef44c28028fb24e98d9958451",
+    "independent_evidence": "b65574714e8ffa3731a0f7f7c1f1fb560214adbb",
+    "comparison_source": "ded5876456c33a304c32e2435a639c3c6febbec7",
+    "comparison_evidence": "221101886159247b6a9da2571fffc04ee7bc8f83",
+    "report": "894a811ed499dc1045a3de256ef4ffe92582dc55"
+  },
+  "coordinator": {
+    "row_checker": "afe189d18715722d042d77756f41cd1301082a2b",
+    "value_checker": "868ae56d246788f6e7f2d2de9e7c1cc22da29b97",
+    "paired_reconciliation": "b5137ffcb066a5e80a38e2e169dd2f74adb6d9a3",
+    "reconciled_sha256": {
+      "reconciliation.json": "f51b2e7ec3f5f5f4564821c3f27001b6cb74766e6398cfa7f61a6fc345345917",
+      "value-reconciliation.json": "345127231effc142a77ab7045768ab3c7bc152e2092b58b2df9b83f26d55e0af"
+    }
+  },
+  "checks": {
+    "exact_native_rows": 52,
+    "six_original_native_controls": 6,
+    "independent_native_check_records_passed": {
+      "M1": 8188,
+      "M3": 1298
+    },
+    "cross_implementation_numeric": 11100,
+    "cross_implementation_exact": 22432,
+    "author_scalar_checks_reverified": {
+      "M1": 8700,
+      "M3": 1135
+    },
+    "maxima": {
+      "operator_numerator": {
+        "location": "M1/relative/0.20/AA",
+        "residual": 1.3877787807814457e-17,
+        "limit": 2.0672536471256905e-05
+      },
+      "operator_read_norm": {
+        "location": "M1/relative/root_CC/CA",
+        "residual": 2.220446049250313e-16,
+        "limit": 3.4897787675535244e-05
+      },
+      "operator_margin": {
+        "location": "M1/relative/0/AA",
+        "residual": 0.0,
+        "limit": 2.122716248035431e-05
+      },
+      "M1_WP32_numerator": {
+        "location": "M1/relative/0.60/CA",
+        "residual": 6.378260291022703e-09,
+        "limit": 2.004968706545539e-05
+      },
+      "M1_WP32_read_norm": {
+        "location": "M1/absolute/0.80/AA",
+        "residual": 1.3237875129412657e-08,
+        "limit": 3.4867740414885e-05
+      },
+      "M1_WP32_Alder": {
+        "location": "M1/relative/0/AC",
+        "residual": 4.034361669735809e-08,
+        "limit": 2.369013845920563e-05
+      },
+      "M1_WP32_Cedar": {
+        "location": "M1/relative/0.20/AC",
+        "residual": 3.390603606212572e-08,
+        "limit": 2.274567782878876e-05
+      },
+      "M1_WP32_margin": {
+        "location": "M1/relative/0.20/CA",
+        "residual": 4.3389888210176863e-08,
+        "limit": 2.087527719493094e-05
+      }
+    }
+  },
+  "review_checks_summary": "The reviewer independently accepted both arms and recorded 11,100 numerical and 22,432 exact cross-implementation checks, including row-level identities. The reviewer also recalculated the author's 8,700 M1 and 1,135 M3 scalar gates. [Comparison evidence](../../../reviews/WP-0033/evidence/comparison.json)",
+  "M1": {
+    "verdict": "The four signs at relative rho=0.50 reproduce the prior predictions. Fixed absolute eta=0.80 also yields four correct ranks. Relative rho=0.80 yields four Cedar rankings and two correct donors. The declared owner follows the donor.",
+    "roots_and_intervals": {
+      "cells": {
+        "AA": {
+          "P": 0.052432596049284796,
+          "L": -0.09402888063875442,
+          "rho_root": 0.557622250664914,
+          "eta_root": 0.889050076397909,
+          "rho_zero_budget_band": [
+            0.5574095458036827,
+            0.5578349555261453
+          ]
+        },
+        "AC": {
+          "P": 0.017675145138361954,
+          "L": -0.040085921862248255,
+          "rho_root": 0.4409314870966679,
+          "eta_root": 0.6800279164527654,
+          "rho_zero_budget_band": [
+            0.4404325488390739,
+            0.4414304253542619
+          ]
+        },
+        "CA": {
+          "P": 0.05392424820304305,
+          "L": -0.09401432516258693,
+          "rho_root": 0.5735748047947723,
+          "eta_root": 0.9144841752900906,
+          "rho_zero_budget_band": [
+            0.5733620670021708,
+            0.5737875425873737
+          ]
+        },
+        "CC": {
+          "P": 0.019166408610293954,
+          "L": -0.0400911725505464,
+          "rho_root": 0.4780705424898513,
+          "eta_root": 0.7373057366972366,
+          "rho_zero_budget_band": [
+            0.47757166957754665,
+            0.478569415402156
+          ]
+        }
+      },
+      "raw_relative_donor_roots": {
+        "A": 0.644337123866865,
+        "C": 0.6445809992383125
+      },
+      "correct_rank_intervals": {
+        "rho": {
+          "all_four_open": [
+            0.4780705424898513,
+            0.557622250664914
+          ],
+          "original_twins_open": [
+            0.4780705424898513,
+            0.557622250664914
+          ]
+        },
+        "eta": {
+          "all_four_open": [
+            0.7373057366972366,
+            0.889050076397909
+          ],
+          "original_twins_open": [
+            0.7373057366972366,
+            0.889050076397909
+          ]
+        }
+      }
+    },
+    "unresolved_cell_numerators": {
+      "M1/relative/root_AA/AA": {
+        "value": 1.2734209971221322e-09,
+        "zero_budget": 2.000000002546842e-05,
+        "sign": "unresolved"
+      },
+      "M1/relative/root_CC/CC": {
+        "value": -1.0574602686552748e-09,
+        "zero_budget": 2.0000000021149208e-05,
+        "sign": "unresolved"
+      }
+    },
+    "unresolved_donor_contrasts": {
+      "relative/0.70/A": {
+        "margin": {
+          "value": -1.3716518878936768e-05,
+          "zero_budget": 4.074767723679543e-05,
+          "sign": "unresolved"
+        }
+      }
+    }
+  },
+  "M3": {
+    "verdict": "Both pooled and explicit box effects on margin resolve in the negative direction on both backgrounds. The pooled change dominates. The box contrast on the Alder pooled row narrowly clears the propagated signed gate. All normalized interaction signs remain unresolved. Both native diagonal controls, raw additivity and both normalized paths passed.",
+    "normalized_margin": {
+      "feature_at_A_box": {
+        "value": -0.03388115018606186,
+        "zero_budget": 4.1188087016344074e-05,
+        "sign": "negative"
+      },
+      "feature_at_C_box": {
+        "value": -0.03389519453048706,
+        "zero_budget": 4.118612945079804e-05,
+        "sign": "negative"
+      },
+      "box_at_A_feature": {
+        "value": -4.191696643829346e-05,
+        "zero_budget": 4.186487168073655e-05,
+        "sign": "negative"
+      },
+      "box_at_C_feature": {
+        "value": -5.596131086349487e-05,
+        "zero_budget": 4.0509344786405563e-05,
+        "sign": "negative"
+      },
+      "interaction": {
+        "value": 1.4044344425201416e-05,
+        "zero_budget": 8.237421646714211e-05,
+        "sign": "unresolved"
+      },
+      "diagonal": {
+        "value": -0.033937111496925354,
+        "zero_budget": 4.11869677901268e-05,
+        "sign": "negative"
+      }
+    },
+    "raw_linear_pooled": -0.12335041988598514,
+    "raw_linear_box": -0.00020818630046752495
+  },
+  "reads_passing_top_cutoff": 0,
+  "reads_passing_gap_cutoff": 0,
+  "thresholds": [
+    1.0,
+    0.1
+  ],
+  "future_M1": "Separately propose one declaration-only relative rho=0.50 on fresh synthetic owner pairs at the actual posting target. Compare native M1 and M2 symbolic, recording both-twins rank, correct per eligible posting, wrong postings and abstentions.",
+  "future_M3": "Prioritize pooled representation/value-to-anchor alignment and retain an explicit box control. Layout may be encoded in the pooled row. No generalization estimate or next release.",
+  "operational_notes": [
+    "Both released runs completed at their first candidate. No numerical gate failed.",
+    "An initial coordinator inventory probe treated the archived M3 D0 aggregate as an input cell; selecting the two named controls resolved the lookup before run release.",
+    "The author corrected a shell path for the report-link check. The independent canonical report records its own tooling observations."
+  ],
+  "preservation": {
+    "verified_utc": "2026-11-24T02:37:00.400913+00:00",
+    "historical_worktrees_checked": 94,
+    "preexisting_worktrees_checked": 99,
+    "registered_worktrees": 101,
+    "expected_additions": [
+      "succession-20261123-01a20a53",
+      "w031-author",
+      "w031-review",
+      "w032-author",
+      "w032-review",
+      "w033-author",
+      "w033-review"
+    ],
+    "historical_dirty_worktrees": 3,
+    "preserved_working_files": 73,
+    "recovery_manifest_sha256": "048424200f5aa80f91fe9726dba4fd4d26f706e514663b54d409ef38f4c8faae",
+    "recovery_files": 73,
+    "recovery_bytes": 21903348,
+    "recovery_stash_bundle_sha256": "d3a76aaafab951c41e873d7263de5793072c2c57a2714507a2ad870b60b6ee50",
+    "stash": "bcc4b085be6b5f2c64bca52443f410398db15aa1",
+    "primary_working_package_sha256": "6af72a0583bf4a640633ac17b0cc3e9adc83a5f4df12d09b01ae70dcec0546e0",
+    "existing_q0_branch_exception": {
+      "branch": "review/wp-0005-q0",
+      "local": "2e41d3a91b8f08b53d643b20a1fb038b5aec1500",
+      "remote": "ef72849519c83a71e59e80c311b48719252d0cd6",
+      "configured_upstream": "origin/review/wp-0005-q0",
+      "ahead": 9,
+      "behind": 0,
+      "commits_absent_from_all_remote_heads": 0
+    }
+  },
+  "boundary": "One prior-exposed synthetic opening shared by two lengths, frozen CPU through window 1/page 1/span 7. No later write, fresh pair, held-out, GPU, OCR, fitting, product change or posting-target evaluation."
+}
