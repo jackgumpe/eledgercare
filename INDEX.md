@@ -1432,3 +1432,14 @@ Closed after independent reproduction. All 12 neural write/read combinations yie
 | [003](https://github.com/jackgumpe/eledgercare/blob/00cd7bf5ce44dfa01b7343919cb7a342929e588a/docs/agent-reports/eld-coordinator/WP-0035/003_2026-11-24_verification_eld-coordinator.md) | `00cd7bf5ce44dfa01b7343919cb7a342929e588a` |
 
 The [public download receipt](docs/coordination/WP-0035/publication-receipt.json) records byte equality for all 66 changed files at the coordinator report commit.
+
+## WP-0036 PGDA v3 bounded CPU verification
+
+Jack released the CPU verification at 7643bb9b26d15c9d435234e9d3a5d11b742dc771. [Scope and gates](docs/coordination/WP-0036/assignment.md)
+
+| Slot | Owner | Branch / worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0036-pgda / w036-author | docs/agent-reports/eld-owner-probe/WP-0036/001_2026-11-24_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0036-pgda / w036-review | docs/agent-reports/eld-rd-reviewer/WP-0036/002_2026-11-24_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0036/003_2026-11-24_verification_eld-coordinator.md |
+| 004 | eld-pgda-neon | design/wp-0036-neon / w036-neon | docs/agent-reports/eld-pgda-neon/WP-0036/004_2026-11-24_design_eld-pgda-neon.md |

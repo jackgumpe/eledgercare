@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0036 PGDA v3 bounded CPU verification
+
+Reserved under Jack’s release, with Gemini Neon xhigh design participation and independent author/reviewer CPU runs. [Assignment](docs/coordination/WP-0036/assignment.md)
+
 ## WP-0035 full-horizon trajectory and exposed calibration trial closed
 
 No neural configuration won both twins at either terminal horizon or on any of eight answerable calibration pairs. Every neural arm abstained. Symbolic M2 posted all four development binders and all 16 answerable calibration binders correctly, with four correct safety abstentions. Independent runs agreed on 2,880 scores, 1,440 paired contrasts and 312 full decisions. Fresh capture for these treatments is deferred. [Author /001](docs/agent-reports/eld-owner-probe/WP-0035/001_2026-11-24_research_eld-owner-probe.md) · [Independent /002](docs/agent-reports/eld-rd-reviewer/WP-0035/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator /003](docs/agent-reports/eld-coordinator/WP-0035/003_2026-11-24_verification_eld-coordinator.md) · [Terminal metrics](docs/coordination/WP-0035/terminal-metrics.csv) · [Checkpoints](docs/coordination/WP-0035/checkpoints.csv) · [Per-pair custody](docs/coordination/WP-0035/input-custody.json) · [Publication receipt](docs/coordination/WP-0035/publication-receipt.json)
