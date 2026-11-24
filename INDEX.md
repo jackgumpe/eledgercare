@@ -1371,3 +1371,15 @@ Jack authorized the six-read recommendation at the WP-0031 closeout `a9c7669f15d
 | [003 coordinator disposition](https://github.com/jackgumpe/eledgercare/blob/fefd30080a6cf5307bb304943902ea615dd7b656/docs/agent-reports/eld-coordinator/WP-0032/003_2026-11-24_verification_eld-coordinator.md) | `fefd30080a6cf5307bb304943902ea615dd7b656` |
 
 The [public download receipt](docs/coordination/WP-0032/publication-receipt.json) records byte equality for all 25 changed files at the coordinator report commit.
+
+## WP-0033 Declaration erasure and input attribution at write 8
+
+Jack separately authorized the complete eight-page handoff. Parent da76b51172bd7a59828d0a9c0fe9306229f47932. [Assignment](docs/coordination/WP-0033/assignment.md) · [Numerical contract](docs/coordination/WP-0033/contract.json)
+
+| Sequence | Author | Branch and worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0033-write8 · w033-author | docs/agent-reports/eld-owner-probe/WP-0033/001_2026-11-24_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0033-write8 · w033-review | docs/agent-reports/eld-rd-reviewer/WP-0033/002_2026-11-24_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0033/003_2026-11-24_verification_eld-coordinator.md |
+
+Reserved for independent CPU execution and public disposition.

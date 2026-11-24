@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0033 authorized CPU diagnostic at write 8
+
+Jack released 48 M1 erasure rows and four M3 pooled-row/box combinations per independent implementation. The assignment is reserved. [Frozen schedule and gates](docs/coordination/WP-0033/contract.json) · [Assignment](docs/coordination/WP-0033/assignment.md)
+
 ## WP-0032 six-read write-8 accounting closed after independent review
 
 The signed prefix subtraction reversed all four M1 rankings and both fixed-prefix donor contrasts. On empty M3 memory, the Alder declaration raised Cedar’s score by 0.065195 and Alder’s by 0.031258. All six native score pairs matched the archive in both independent implementations. An independent M1 erasure gain is the first candidate for a future test. The packet closed at write 8 on one synthetic development opening. [Author /001](docs/agent-reports/eld-owner-probe/WP-0032/001_2026-11-24_research_eld-owner-probe.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0032/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator disposition /003](docs/agent-reports/eld-coordinator/WP-0032/003_2026-11-24_verification_eld-coordinator.md) · [Exact numerical reconciliation](docs/coordination/WP-0032/reconciliation.json) · [Publication receipt](docs/coordination/WP-0032/publication-receipt.json)
