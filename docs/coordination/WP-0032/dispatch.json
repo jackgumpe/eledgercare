@@ -1,0 +1,100 @@
+{
+  "packet": "WP-0032",
+  "authority_base": "a9c7669f15dba6f4948e8ac83a0632c72bfc252c",
+  "reservation": "537ab866bb5803328d378bc00f11f5782bb5ef00",
+  "coordinator": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "repository": "jackgumpe/eledgercare",
+  "scope": {
+    "M1": [
+      "AA",
+      "AC",
+      "CA",
+      "CC"
+    ],
+    "M3": [
+      "0A",
+      "0C"
+    ],
+    "cpu_only": true,
+    "threads": [
+      1,
+      1
+    ],
+    "last_write": 8
+  },
+  "numerical_gates": {
+    "native": "exact ordered FP32 score bytes per cell",
+    "rearranged": "abs(error) <= 2e-5 * (1 + max(abs(reference), abs(reconstructed))); sum of two cell limits for donor differences",
+    "selection": "Fixed before results in the reservation. Report actual residuals."
+  },
+  "qualified_runtime": "docs/coordination/WP-0030/runtime.json",
+  "input_data": "8f31cc66c4878ca086fa5da1498c4a73ed6a6306",
+  "frozen_primitive": "7db67283a4ffd3e7a20bb8d80499572cc7118c71",
+  "coordinator_scalar_check": "d8f412d82ed260e1d8a84de743284463d22a8c22",
+  "roles": {
+    "author": {
+      "id": "eld-owner-probe",
+      "task": "/root/account_author",
+      "thread": "01a20b1f-82d2-7583-ae45-ba050547c229",
+      "branch": "research/wp-0032-accounting",
+      "worktree": "w032-author",
+      "releases": [
+        {
+          "sha": "f17396bf4d3915b53cff0e22a37e1b928cdf2919",
+          "entry": "docs/research/WP-0032/run.py",
+          "argv": "qualified runtime -I -B docs/research/WP-0032/run.py f17396bf4d3915b53cff0e22a37e1b928cdf2919",
+          "approved_by": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+          "source_blobs": [
+            ":000000 100644 0000000000000000000000000000000000000000 4816aa587bcbeb40b81f9840430ebdf0f63bab0a A\tdocs/research/WP-0032/account.py",
+            ":000000 100644 0000000000000000000000000000000000000000 844a66985b11f72a6db835919f9b60f35903bbd8 A\tdocs/research/WP-0032/restore.py",
+            ":000000 100644 0000000000000000000000000000000000000000 d40a00b8f7f6df4d72bdc87dbcc89a1174b5d6fa A\tdocs/research/WP-0032/run.py"
+          ]
+        }
+      ]
+    },
+    "reviewer": {
+      "id": "eld-rd-reviewer",
+      "task": "/root/account_review",
+      "thread": "01a20b1f-b484-7ce0-82b6-35c697f780f8",
+      "branch": "review/wp-0032-accounting",
+      "worktree": "w032-review",
+      "releases": [
+        {
+          "sha": "6281121dd59aa1602e6fc872e9bca885bb91eeb0",
+          "entry": "docs/reviews/WP-0032/run.py",
+          "argv": "qualified runtime -I -B docs/reviews/WP-0032/run.py 6281121dd59aa1602e6fc872e9bca885bb91eeb0",
+          "approved_by": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+          "source_blobs": [
+            ":000000 100644 0000000000000000000000000000000000000000 1234e0bc9798e0e8c2303841c42bfd0f8b343b41 A\tdocs/reviews/WP-0032/account.py",
+            ":000000 100644 0000000000000000000000000000000000000000 473e218107de1d31e2e0436030fbc6ca2a96b2ba A\tdocs/reviews/WP-0032/run.py"
+          ]
+        }
+      ]
+    }
+  },
+  "dispatcher_configuration": {
+    "model": "gpt-6.2-astra",
+    "reasoning_effort": "xhigh",
+    "fork_turns": "none",
+    "independence": "Separate fresh native sessions, worktrees, source paths, scratch and publications. Reviewer must freeze and run independently before viewing new author results."
+  },
+  "advisory_sources": [
+    {
+      "name": "Pushdown Gauge-Delta Architecture PGDA  OCR Advancements Compendium.pdf",
+      "sha256": "f982fb3ad07dee41bacc1b30957ee7dcfe1c0c437d8641a4801e2cea78626ee7"
+    },
+    {
+      "name": "PGDA Compendium Part 1 - Formula Amendments & Formal Proofs.pdf",
+      "sha256": "d0bdb5855a86d92c20971197deadce042c5c86e8a5fa71f67712c2616ab7ff14"
+    },
+    {
+      "name": "ELedgerCare Repository Status - Google Gemini - open questions.pdf",
+      "sha256": "c5a579ac41ef6e3f6857474d53ca12718cb12b38ef2a5f889562dfc01eb7eea1"
+    },
+    {
+      "name": "ChatGPT-Cloud review verdict-20261123-2003.pdf",
+      "sha256": "21da37064739e3d78a8387762581ba9a1b3d3e7c7573759a4a96d5113f484978"
+    }
+  ],
+  "recorded_utc": "2026-11-24T01:21:16.359708+00:00"
+}

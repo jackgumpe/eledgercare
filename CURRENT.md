@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex sess
 
 ## WP-0032 six-read accounting at write 8
 
-The packet is reserved for four M1 populated reads and two M3 empty-memory reads from the WP-0031 development opening. [Assignment and numerical gates](docs/coordination/WP-0032/assignment.md)
+The two independently owned CPU sessions have received exact candidate releases for four M1 populated reads and two M3 empty-memory reads from the WP-0031 development opening. [Assignment and numerical gates](docs/coordination/WP-0032/assignment.md) | [Frozen source releases](docs/coordination/WP-0032/dispatch.json)
 
 ## WP-0031 bounded write-8 CPU replay closed after independent review
 
