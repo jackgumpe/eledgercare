@@ -1404,3 +1404,11 @@ Jack authorized custody verification and conditional evaluation at ffec32d08f413
 | 004 | eld-twin-custodian | research/wp-0034-custody · w034-custody | docs/agent-reports/eld-twin-custodian/WP-0034/004_2026-11-24_research_eld-twin-custodian.md |
 
 Closed at the custody gate after independent verification. At each horizon, the public receipts supported 0 of the 8 required fresh pairs and 0 of 16 binders. All 96 planned fresh decisions per implementation are unavailable. Slot /001 remains unused. [Custody /004](docs/agent-reports/eld-twin-custodian/WP-0034/004_2026-11-24_research_eld-twin-custodian.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0034/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator disposition /003](docs/agent-reports/eld-coordinator/WP-0034/003_2026-11-24_verification_eld-coordinator.md) · [Per-stratum accounting](docs/coordination/WP-0034/decision.json)
+
+| Published report | Original commit |
+| --- | --- |
+| [002 independent review](https://github.com/jackgumpe/eledgercare/blob/11a8dc79c10a21b824ea8f733215dc31465249be/docs/agent-reports/eld-rd-reviewer/WP-0034/002_2026-11-24_review_eld-rd-reviewer.md) | `11a8dc79c10a21b824ea8f733215dc31465249be` |
+| [003 coordinator disposition](https://github.com/jackgumpe/eledgercare/blob/da777958d189a55d3fd14ea1022746ba424d448c/docs/agent-reports/eld-coordinator/WP-0034/003_2026-11-24_verification_eld-coordinator.md) | `da777958d189a55d3fd14ea1022746ba424d448c` |
+| [004 custody inventory](https://github.com/jackgumpe/eledgercare/blob/147e24835ee0eab8ca6561ff6fcb1c05dedf11ce/docs/agent-reports/eld-twin-custodian/WP-0034/004_2026-11-24_research_eld-twin-custodian.md) | `147e24835ee0eab8ca6561ff6fcb1c05dedf11ce` |
+
+The [public download receipt](docs/coordination/WP-0034/publication-receipt.json) verifies all 21 changed files at the disposition publication.
