@@ -1363,3 +1363,11 @@ Jack authorized the six-read recommendation at the WP-0031 closeout `a9c7669f15d
 | 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0032/003_2026-11-24_verification_eld-coordinator.md |
 
 **Closed after independent reproduction.** The reviewer accepted both independently reconstructed tables, including exact native score bytes for all six reads. The M1 subtraction reversed both donor contrasts and all four rankings. M3’s negative empty-memory contrast followed the declaration values’ relative alignment with both lexical anchors. An independent erasure gain is a proposed M1 test only. [Author /001](docs/agent-reports/eld-owner-probe/WP-0032/001_2026-11-24_research_eld-owner-probe.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0032/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator disposition /003](docs/agent-reports/eld-coordinator/WP-0032/003_2026-11-24_verification_eld-coordinator.md) · [Exact numerical reconciliation](docs/coordination/WP-0032/reconciliation.json)
+
+| Report | Verified publication |
+| --- | --- |
+| [001 author accounting](https://github.com/jackgumpe/eledgercare/blob/707794967c4505131d8d8b5f9e08313d3e7ffa7f/docs/agent-reports/eld-owner-probe/WP-0032/001_2026-11-24_research_eld-owner-probe.md) | `707794967c4505131d8d8b5f9e08313d3e7ffa7f` |
+| [002 independent review](https://github.com/jackgumpe/eledgercare/blob/bbb0e63f505fb0fae151592709d39ad8afd4bd04/docs/agent-reports/eld-rd-reviewer/WP-0032/002_2026-11-24_review_eld-rd-reviewer.md) | `bbb0e63f505fb0fae151592709d39ad8afd4bd04` |
+| [003 coordinator disposition](https://github.com/jackgumpe/eledgercare/blob/fefd30080a6cf5307bb304943902ea615dd7b656/docs/agent-reports/eld-coordinator/WP-0032/003_2026-11-24_verification_eld-coordinator.md) | `fefd30080a6cf5307bb304943902ea615dd7b656` |
+
+The [public download receipt](docs/coordination/WP-0032/publication-receipt.json) records byte equality for all 25 changed files at the coordinator report commit.
