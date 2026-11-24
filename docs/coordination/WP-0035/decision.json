@@ -1,0 +1,580 @@
+{
+  "status": "closed_after_independent_review",
+  "utc": "2026-11-24T04:59:01.074931+00:00",
+  "base": "d9741d6e880d06192b9f3e56ab8056d391da1b9e",
+  "reservation": "d8db225dae2c2ea4d70896c1936a1e1e22a104e2",
+  "release_order_sha256": "e7efb9a2371fedb28e6bbd43c00ac88f8128e73239e62a87d5eb2addd175a749",
+  "configuration": {
+    "author": "98328bf4e6fd240fecbf0ae91c2a03ad95071a6b",
+    "author_evidence": "65df68e86fe540c4c61ec2deba813e8d95b10da9",
+    "author_report": "67f085fa55ade219ae5381b8b467c9ebc1656da3",
+    "reviewer": "520c3dab56ce12976616a4b6c654613e6e285155",
+    "reviewer_evidence": "43a3464b50154a1d800ce9fe3b56f3c226e574b4",
+    "reviewer_comparison": "e7646336c8fc720d84dd46cdfca4caf4a3400ee4",
+    "reviewer_report": "bb1d09a22159a36efa63e46cc6f25f3c2ebce98f"
+  },
+  "coordinator_reconciliation": "575641db1a1893707833a119736d5f91286f2422",
+  "admission": {
+    "paired_records": 224,
+    "per_member_ordered_score_bytes": 448,
+    "terminal_phase": "native_pre",
+    "write_after_read": {
+      "12": 36,
+      "30": 72
+    },
+    "reads_after_writes": {
+      "12": 35,
+      "30": 71
+    }
+  },
+  "completed": {
+    "scores": 2880,
+    "contrasts": 1440,
+    "terminals": 312,
+    "custody": 10
+  },
+  "populations": {
+    "A": {
+      "matched_horizons": [
+        12,
+        30
+      ],
+      "opening_families": 1,
+      "binders": 4,
+      "unique_exposed_captures": 11
+    },
+    "B": {
+      "pairs_per_horizon": {
+        "12": {
+          "answerable": 4,
+          "safety": 1
+        },
+        "30": {
+          "answerable": 4,
+          "safety": 1
+        }
+      },
+      "binder_total": 20,
+      "tier1_pairs": 10,
+      "tier2_pairs": 0,
+      "tier3_pairs": 0,
+      "physical_captures": 29,
+      "ordered_window_references": 140,
+      "current_source": "Exposed 8 answerable and 2 no-target pairs under original WP-0027 cal transport. WP-0028..0030 matched fixtures bind to two of those exposed base binders."
+    }
+  },
+  "population_disposition": {
+    "A": {
+      "number_neural_combinations": 12,
+      "max_terminal_owner_top_score": 0.134517639875412,
+      "neural_per_arm": {
+        "answerable_pairs": 2,
+        "answerable_binders": 4,
+        "safety_binders": 0,
+        "simultaneous_wins": 0,
+        "member_rank_correct": 2,
+        "typed_correct_postings": 0,
+        "typed_wrong_postings": 0,
+        "typed_abstentions": 4
+      },
+      "symbolic": {
+        "typed_correct_postings": 4,
+        "typed_wrong_postings": 0,
+        "typed_abstentions": 0,
+        "safety_correct_abstentions": 0
+      }
+    },
+    "B": {
+      "number_neural_combinations": 12,
+      "max_terminal_owner_top_score": 0.2970581352710724,
+      "neural_per_arm": {
+        "answerable_pairs": 8,
+        "answerable_binders": 16,
+        "safety_binders": 4,
+        "simultaneous_wins": 0,
+        "member_rank_correct": 8,
+        "typed_correct_postings": 0,
+        "typed_wrong_postings": 0,
+        "typed_abstentions": 20
+      },
+      "symbolic": {
+        "typed_correct_postings": 16,
+        "typed_wrong_postings": 0,
+        "typed_abstentions": 4,
+        "safety_correct_abstentions": 4
+      }
+    }
+  },
+  "interpretation": {
+    "W1": "M1 declaration-only damping recovers the write-8 controls and briefly produces simultaneous native-read wins. Both horizon terminals lose the simultaneous win.",
+    "W2a": "Changing downstream parent erasure did not restore simultaneous terminal ranks or postings.",
+    "W2b": "Setting retention to one in addition to damping did not restore simultaneous terminal ranks or postings.",
+    "R1": "Centering raw anchors within each binder changes geometry and some gap decisions. No evaluated neural arm reached a simultaneous terminal win or a complete posting.",
+    "M3": "The 98.5% magnitude loss applies to native M3 on the shared opening. Native M1 reverses sign with a smaller magnitude loss. No eligible native parent write had alpha*beta > 1.",
+    "M2": "All exposed answerable binders posted correctly. All four calibration safety binders returned no_target.",
+    "fresh_capture": "Do not commission GPU capture of 16 fresh pairs for these treatments on this evidence. Fresh accuracy remains unknown."
+  },
+  "terminal_profiles": [
+    {
+      "model": "M1",
+      "write": "W0",
+      "read": "R0",
+      "horizon": 30,
+      "delta_at_8": -0.022005513310432434,
+      "delta_at_11": 0.0132791418582201,
+      "delta_magnitude_loss_8_to_11_percent": 39.65538694375882,
+      "gamma_at_posting": -0.09564041346311569,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W0",
+      "read": "R1",
+      "horizon": 30,
+      "delta_at_8": -0.11795536801218987,
+      "delta_at_11": 0.03540940582752228,
+      "delta_magnitude_loss_8_to_11_percent": 69.9806745345723,
+      "gamma_at_posting": -0.2462347224354744,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W1",
+      "read": "R0",
+      "horizon": 30,
+      "delta_at_8": 0.008865438401699066,
+      "delta_at_11": 0.025887567549943924,
+      "delta_magnitude_loss_8_to_11_percent": -192.00549794562397,
+      "gamma_at_posting": -0.05196981877088547,
+      "member_wins_at_8_9_11_12_posting": [
+        2,
+        1,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W1",
+      "read": "R1",
+      "horizon": 30,
+      "delta_at_8": 0.018968980759382248,
+      "delta_at_11": 0.0897265113890171,
+      "delta_magnitude_loss_8_to_11_percent": -373.01704043659527,
+      "gamma_at_posting": -0.05256182327866554,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W2a",
+      "read": "R0",
+      "horizon": 30,
+      "delta_at_8": 0.008865438401699066,
+      "delta_at_11": 0.018111569806933403,
+      "delta_magnitude_loss_8_to_11_percent": -104.2941249635473,
+      "gamma_at_posting": -0.08168530091643333,
+      "member_wins_at_8_9_11_12_posting": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W2a",
+      "read": "R1",
+      "horizon": 30,
+      "delta_at_8": 0.018968980759382248,
+      "delta_at_11": 0.06887802947312593,
+      "delta_magnitude_loss_8_to_11_percent": -263.1087528994312,
+      "gamma_at_posting": -0.178327776491642,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W2b",
+      "read": "R0",
+      "horizon": 30,
+      "delta_at_8": 0.008865438401699066,
+      "delta_at_11": 0.018128151074051857,
+      "delta_magnitude_loss_8_to_11_percent": -104.48115764447236,
+      "gamma_at_posting": -0.08085097372531891,
+      "member_wins_at_8_9_11_12_posting": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W2b",
+      "read": "R1",
+      "horizon": 30,
+      "delta_at_8": 0.018968980759382248,
+      "delta_at_11": 0.06892934627830982,
+      "delta_magnitude_loss_8_to_11_percent": -263.3792830129614,
+      "gamma_at_posting": -0.17480012774467468,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M3",
+      "write": "W0",
+      "read": "R0",
+      "horizon": 30,
+      "delta_at_8": -0.017752446234226227,
+      "delta_at_11": -0.00026670098304748535,
+      "delta_magnitude_loss_8_to_11_percent": 98.4976662960776,
+      "gamma_at_posting": -0.20093956589698792,
+      "member_wins_at_8_9_11_12_posting": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M3",
+      "write": "W0",
+      "read": "R1",
+      "horizon": 30,
+      "delta_at_8": -0.0501264538615942,
+      "delta_at_11": -0.00011277012526988983,
+      "delta_magnitude_loss_8_to_11_percent": 99.7750287192043,
+      "gamma_at_posting": -0.42641739547252655,
+      "member_wins_at_8_9_11_12_posting": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M3",
+      "write": "W1",
+      "read": "R0",
+      "horizon": 30,
+      "delta_at_8": -0.014756746590137482,
+      "delta_at_11": -1.4185905456542969e-05,
+      "delta_magnitude_loss_8_to_11_percent": 99.90386834001728,
+      "gamma_at_posting": -0.20502561330795288,
+      "member_wins_at_8_9_11_12_posting": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M3",
+      "write": "W1",
+      "read": "R1",
+      "horizon": 30,
+      "delta_at_8": -0.0409909188747406,
+      "delta_at_11": 0.0005074460059404373,
+      "delta_magnitude_loss_8_to_11_percent": 98.76205262074977,
+      "gamma_at_posting": -0.4367164522409439,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W0",
+      "read": "R0",
+      "horizon": 12,
+      "delta_at_8": -0.022005513310432434,
+      "delta_at_11": 0.0132791418582201,
+      "delta_magnitude_loss_8_to_11_percent": 39.65538694375882,
+      "gamma_at_posting": -0.1252220720052719,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W0",
+      "read": "R1",
+      "horizon": 12,
+      "delta_at_8": -0.11795536801218987,
+      "delta_at_11": 0.03540940582752228,
+      "delta_magnitude_loss_8_to_11_percent": 69.9806745345723,
+      "gamma_at_posting": -0.3801901936531067,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W1",
+      "read": "R0",
+      "horizon": 12,
+      "delta_at_8": 0.008865438401699066,
+      "delta_at_11": 0.025887567549943924,
+      "delta_magnitude_loss_8_to_11_percent": -192.00549794562397,
+      "gamma_at_posting": -0.07131602242588997,
+      "member_wins_at_8_9_11_12_posting": [
+        2,
+        1,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W1",
+      "read": "R1",
+      "horizon": 12,
+      "delta_at_8": 0.018968980759382248,
+      "delta_at_11": 0.0897265113890171,
+      "delta_magnitude_loss_8_to_11_percent": -373.01704043659527,
+      "gamma_at_posting": -0.14059194922447205,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W2a",
+      "read": "R0",
+      "horizon": 12,
+      "delta_at_8": 0.008865438401699066,
+      "delta_at_11": 0.018111569806933403,
+      "delta_magnitude_loss_8_to_11_percent": -104.2941249635473,
+      "gamma_at_posting": -0.10727179795503616,
+      "member_wins_at_8_9_11_12_posting": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W2a",
+      "read": "R1",
+      "horizon": 12,
+      "delta_at_8": 0.018968980759382248,
+      "delta_at_11": 0.06887802947312593,
+      "delta_magnitude_loss_8_to_11_percent": -263.1087528994312,
+      "gamma_at_posting": -0.29185639321804047,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W2b",
+      "read": "R0",
+      "horizon": 12,
+      "delta_at_8": 0.008865438401699066,
+      "delta_at_11": 0.018128151074051857,
+      "delta_magnitude_loss_8_to_11_percent": -104.48115764447236,
+      "gamma_at_posting": -0.10639822483062744,
+      "member_wins_at_8_9_11_12_posting": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M1",
+      "write": "W2b",
+      "read": "R1",
+      "horizon": 12,
+      "delta_at_8": 0.018968980759382248,
+      "delta_at_11": 0.06892934627830982,
+      "delta_magnitude_loss_8_to_11_percent": -263.3792830129614,
+      "gamma_at_posting": -0.2881998121738434,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M3",
+      "write": "W0",
+      "read": "R0",
+      "horizon": 12,
+      "delta_at_8": -0.017752446234226227,
+      "delta_at_11": -0.00026670098304748535,
+      "delta_magnitude_loss_8_to_11_percent": 98.4976662960776,
+      "gamma_at_posting": -0.20093956589698792,
+      "member_wins_at_8_9_11_12_posting": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M3",
+      "write": "W0",
+      "read": "R1",
+      "horizon": 12,
+      "delta_at_8": -0.0501264538615942,
+      "delta_at_11": -0.00011277012526988983,
+      "delta_magnitude_loss_8_to_11_percent": 99.7750287192043,
+      "gamma_at_posting": -0.42641739547252655,
+      "member_wins_at_8_9_11_12_posting": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M3",
+      "write": "W1",
+      "read": "R0",
+      "horizon": 12,
+      "delta_at_8": -0.014756746590137482,
+      "delta_at_11": -1.4185905456542969e-05,
+      "delta_magnitude_loss_8_to_11_percent": 99.90386834001728,
+      "gamma_at_posting": -0.20502561330795288,
+      "member_wins_at_8_9_11_12_posting": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "model": "M3",
+      "write": "W1",
+      "read": "R1",
+      "horizon": 12,
+      "delta_at_8": -0.0409909188747406,
+      "delta_at_11": 0.0005074460059404373,
+      "delta_magnitude_loss_8_to_11_percent": 98.76205262074977,
+      "gamma_at_posting": -0.4367164522409439,
+      "member_wins_at_8_9_11_12_posting": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "score_gate_geometry": {
+    "M1": {
+      "raw_fp64_norms": [
+        0.09314811824655302,
+        0.07098023833281193
+      ],
+      "angle_radians": 0.6278926770143168,
+      "measured_axis_norm_ratio": 3.238189125395287,
+      "native_centered_axis_cosine": 0.9232997894287109,
+      "centered_antipodal_max_abs": 6.705522537231445e-08,
+      "equal_norm_scaling_axis_residual": 0.7833275378035982,
+      "raw_sha256": "4db6456c8d8ee593b167337dee8f716314785936ad5811b2c645b9f05c6c0c3f",
+      "native_sha256": "157a301c648da690ad83512a2ed7704b6fa230d7fbfadca539383b4154163934",
+      "centered_sha256": "64ce82f372e04a3d84592337b3fbe5aa455198668fa7b01106e89d3a542980a4"
+    },
+    "M3": {
+      "raw_fp64_norms": [
+        0.054463878488002056,
+        0.06173804247291839
+      ],
+      "angle_radians": 0.8622282605328851,
+      "measured_axis_norm_ratio": 2.3930119183627983,
+      "native_centered_axis_cosine": 0.9908658266067505,
+      "centered_antipodal_max_abs": 3.91155481338501e-08,
+      "equal_norm_scaling_axis_residual": 0.27032043298656205,
+      "raw_sha256": "b58bcd39fb82d520d89495b4900f95b23432794c38778e5cbbbae71423442b80",
+      "native_sha256": "eaacad0a1dd00f6539393fde8134988add05e6221dff7ad81647433e21d34de4",
+      "centered_sha256": "c5c227494f420073fad27db7319a668d3b886f7afe144a6a93d4789906199e5b"
+    }
+  },
+  "reproduction": {
+    "common_state_rows": 2880,
+    "common_writes": 7752,
+    "author_only_post_target_writes": 288,
+    "effect_on_eligible_terminal_scores_and_decisions": 0,
+    "reviewer_other_fields": {
+      "development_members": 66,
+      "git_source_blobs": 32,
+      "population_rows": 117,
+      "dynamic_rows": 144,
+      "effects": 1680,
+      "crossed_score_read_matrix_query": 4
+    }
+  },
+  "limitations": [
+    "Two development horizons share one opening; calibration sources and literal owner names were exposed. Results do not estimate fresh-family accuracy.",
+    "The 4 no-target binders have native typed decisions but no terminal query, neural rank or cutoff scores. M2 has typed outcomes only.",
+    "Author traversed the target write and two later writes per calibration answerable binder and neural write configuration. Reviewer stopped at the actual terminal read; the extra writes have no independent post-read trajectory claim."
+  ],
+  "operational_corrections": [
+    "Initial coordinator custody check at 01c7f393774f304d3312d1bb96e401925cb5a513 incorrectly required the same revision ID for the same ZIP. Verified the identical bytes at both original revisions; 6b193db196ac5da2935dad26169333ac9742c74c passed.",
+    "Coordinator comparison 9a5f29941da87095f54d633dadb5ead6b3904b7a looked up the event field under event instead of kind when labeling archived checkpoints. 61e1fd081e04286975b23e56c526da30fa8e0943 rechecked both immutable original publications; no numerical operator rerun."
+  ]
+}
