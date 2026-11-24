@@ -1,0 +1,40 @@
+{
+  "reservation": "604a3a051d901ec8a1a8f7d6407ef57d99b19c10",
+  "base": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+  "coordinator": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "handoff_sha256": "d023ee6321fd3b1a040ed5108b4222d5aea33a1d8d864c7a51f66a837cf0c425",
+  "stage": "receipt-level admission only",
+  "native_dispatch": {
+    "model": "gpt-6.2-astra",
+    "reasoning_effort": "xhigh",
+    "fork_turns": "none"
+  },
+  "active": {
+    "custody": {
+      "stable_id": "eld-twin-custodian",
+      "thread": "01a20ba3-1765-7931-9da0-c74fdee62a7c",
+      "task": "/root/fresh_custody",
+      "branch": "research/wp-0034-custody",
+      "worktree": "w034-custody",
+      "sequence": 4,
+      "releases": []
+    },
+    "review": {
+      "stable_id": "eld-rd-reviewer",
+      "thread": "01a20ba3-4f3a-7fc3-ac8c-d4989cb2c87c",
+      "task": "/root/fresh_audit",
+      "branch": "review/wp-0034-admission",
+      "worktree": "w034-review",
+      "sequence": 2,
+      "releases": []
+    }
+  },
+  "trial_author": {
+    "stable_id": "eld-owner-probe",
+    "sequence": 1,
+    "status": "conditional on cohort admission; no author session or worktree launched"
+  },
+  "isolation": "At dispatch each worktree materialized nine policy/assignment files. Historical evidence is consulted only through approved public aggregate records and Git path/ref metadata.",
+  "independence": "Inventory reviewer seals its own evidence before seeing WP-0034 custodian deliverables. Only root writes shared ledgers.",
+  "utc": "2026-11-24T03:41:08.462763+00:00"
+}
