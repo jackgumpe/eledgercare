@@ -91,7 +91,8 @@ def admit(online):
                                             tuple(online.clean(t if isinstance(t,str) else t["text"]) for t in s["cells"]),tuple(s["bbox999"]))
                     feature = pooled[5120*i:5120*(i+1)]
                     assert all(math.isfinite(v[0]) for v in struct.iter_unpack("<f",feature))
-                    spans.append(dict(canonical=canonical, observed=observed.decode(), byte_range=[start,end],
+                    span_hash=sha(json.dumps(s,sort_keys=True,separators=(",",":"),allow_nan=False).encode("utf8"))
+                    spans.append(dict(canonical=canonical, observed=observed.decode(), byte_range=[start,end],metadata_span_sha256=span_hash,
                                       sha256=sha(observed), projected=feature[:512], feature_sha256=sha(feature)))
                 physical[tag] = dict(spans=spans, triplet=triplet, raw_sha256=sha(doc))
                 audit.append(dict(tag=tag, archive=archive_name, prefix=folder, members=artifacts, json_keys=keys,

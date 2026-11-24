@@ -139,10 +139,10 @@ class Stack:
                     measured_confidence=None,end_to_end="unmeasured",target=list(e.ptr))
 
 
-def source_descriptor(span,item,wi,key,physical,tag,events):
+def source_descriptor(span,item,wi,key,events):
     return dict(bbox=list(span.box),block=span.block_kind,cells=list(span.cells),
                 events=[dict(kind=e.kind,literal=e.literal,value=list(e.value) if isinstance(e.value,tuple) else e.value) for e in events],
-                feature_f32le_sha256=item["feature_sha256"],key=key,kind=span.kind,metadata_sha256=physical[tag]["triplet"][1],
+                feature_f32le_sha256=item["feature_sha256"],key=key,kind=span.kind,metadata_sha256=item["metadata_span_sha256"],
                 page=(wi-1)*3+span.page,ptr=[wi,span.page,span.index],raw_slice_sha256=item["sha256"],text=span.text,
                 text_sha256=sha(span.text.encode()))
 
@@ -161,7 +161,7 @@ def stream(route,physical,online):
         for item in physical[tag]["spans"]:
             span=item["canonical"]
             events=list(online.identify(span,wi))
-            descriptor=source_descriptor(span,item,wi,key,physical,tag,events)
+            descriptor=source_descriptor(span,item,wi,key,events)
             snap=dict(source=descriptor,events=[e.kind for e in events])
             if any(e.kind=="TARGET" for e in events):
                 tgt,=[e for e in events if e.kind=="TARGET"]
