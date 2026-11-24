@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0036 PGDA v3 bounded CPU verification
+## WP-0036 PGDA v3 bounded CPU verification closed
 
-Reserved under Jack’s release, with Gemini Neon xhigh design participation and independent author/reviewer CPU runs. [Assignment](docs/coordination/WP-0036/assignment.md)
+WP-0036 closed after independent CPU review. All 1,526 common keyed comparisons matched. The structural root owner stayed bit-identical on all 376 protected member points. At each edit cost the conditional decoder posted 20/20 answerable binders correctly and withheld all four no-target binders. Zero archived arithmetic fault cells and zero archived vocabulary-logit rows qualified. Full confidence-gated posting, empirical calibration and the full-vector snapshot memory estimate remain unresolved. WP-0037 stays on the roadmap. [Author /001](docs/agent-reports/eld-owner-probe/WP-0036/001_2026-11-24_research_eld-owner-probe.md) · [Independent /002](docs/agent-reports/eld-rd-reviewer/WP-0036/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator /003](docs/agent-reports/eld-coordinator/WP-0036/003_2026-11-24_verification_eld-coordinator.md) · [Gemini Neon /004](docs/agent-reports/eld-pgda-neon/WP-0036/004_2026-11-24_design_eld-pgda-neon.md) · [Per-binder evidence](docs/coordination/WP-0036/reconciliation.json)
 
 ## WP-0035 full-horizon trajectory and exposed calibration trial closed
 
