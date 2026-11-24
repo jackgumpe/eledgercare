@@ -1445,3 +1445,12 @@ Jack released the CPU verification at 7643bb9b26d15c9d435234e9d3a5d11b742dc771. 
 | 004 | eld-pgda-neon | design/wp-0036-neon / w036-neon | docs/agent-reports/eld-pgda-neon/WP-0036/004_2026-11-24_design_eld-pgda-neon.md |
 
 WP-0036 closed after independent CPU review. All 1,526 common keyed comparisons matched. The structural root owner stayed bit-identical on all 376 protected member points. At each edit cost the conditional decoder posted 20/20 answerable binders correctly and withheld all four no-target binders. Zero archived arithmetic fault cells and zero archived vocabulary-logit rows qualified. Full confidence-gated posting, empirical calibration and the full-vector snapshot memory estimate remain unresolved. WP-0037 stays on the roadmap. [Author /001](docs/agent-reports/eld-owner-probe/WP-0036/001_2026-11-24_research_eld-owner-probe.md) · [Independent /002](docs/agent-reports/eld-rd-reviewer/WP-0036/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator /003](docs/agent-reports/eld-coordinator/WP-0036/003_2026-11-24_verification_eld-coordinator.md) · [Gemini Neon /004](docs/agent-reports/eld-pgda-neon/WP-0036/004_2026-11-24_design_eld-pgda-neon.md) · [Per-binder evidence](docs/coordination/WP-0036/reconciliation.json)
+
+| Report | Verified original publication |
+| --- | --- |
+| [001](https://github.com/jackgumpe/eledgercare/blob/f7d5f6278862cc86ce6f668875de0fa3541e7401/docs/agent-reports/eld-owner-probe/WP-0036/001_2026-11-24_research_eld-owner-probe.md) | `f7d5f6278862cc86ce6f668875de0fa3541e7401` |
+| [002](https://github.com/jackgumpe/eledgercare/blob/6a5dcc6de1aacbaf8f69e86c8a039d43e5868262/docs/agent-reports/eld-rd-reviewer/WP-0036/002_2026-11-24_review_eld-rd-reviewer.md) | `6a5dcc6de1aacbaf8f69e86c8a039d43e5868262` |
+| [003](https://github.com/jackgumpe/eledgercare/blob/699ff0bdca9c0782a4910c06fca2481b2be358e2/docs/agent-reports/eld-coordinator/WP-0036/003_2026-11-24_verification_eld-coordinator.md) | `699ff0bdca9c0782a4910c06fca2481b2be358e2` |
+| [004](https://github.com/jackgumpe/eledgercare/blob/04b03ec5827d770eaff02adbbeb7cf6e7bd03ca9/docs/agent-reports/eld-pgda-neon/WP-0036/004_2026-11-24_design_eld-pgda-neon.md) | `04b03ec5827d770eaff02adbbeb7cf6e7bd03ca9` |
+
+The [public download receipt](docs/coordination/WP-0036/publication-receipt.json) records byte equality for all 67 changed files at the coordinator report commit.
