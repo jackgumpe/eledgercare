@@ -51,6 +51,31 @@ def effects(cells):
     return e
 
 
+def gain_roots(components, terms):
+    cells = {}
+    for tag, reference in components.items():
+        intercept = reference["omitted_numerator"]
+        slope = reference["term_numerators"][2]
+        beta = terms[tag]["beta"]
+        assert intercept > 0 and slope < 0 and beta > 0
+        root = -intercept / slope
+        # Solves |P+rho L| <= 2e-5*(1+|P+rho L|) for the analytical zero check.
+        width = 2e-5 / ((1-2e-5)*abs(slope))
+        cells[tag] = {"P":intercept, "L":slope, "rho_root":root, "eta_root":beta*root,
+                      "rho_zero_budget_band":[root-width,root+width]}
+    contrast_roots = {}
+    for prefix in "AC":
+        a,c = (cells[prefix+d] for d in "AC")
+        contrast_roots[prefix] = (a["P"]-c["P"]) / (c["L"]-a["L"])
+    windows = {}
+    for mode in ("rho", "eta"):
+        key = mode+"_root"
+        windows[mode] = {"all_four_open":[max(cells[tag][key] for tag in ("AC","CC")),
+                                           min(cells[tag][key] for tag in ("AA","CA"))],
+                         "original_twins_open":[cells["CC"][key],cells["AA"][key]]}
+    return {"cells":cells,"raw_relative_donor_roots":contrast_roots,"correct_rank_intervals":windows}
+
+
 def by_key(sha, area):
     records = document(sha, f"docs/{area}/WP-0033/evidence/parity.json")
     rows = {(r["arm"], r["mode"], str(r["point"]), r["cell"]): r for r in records}
@@ -98,6 +123,7 @@ def reconcile(author, reviewer):
         for field in ("score_f32le","read_sha256","matrix_sha256"):
             assert a[field] == b[field] and re.fullmatch(r"[0-9a-f]+",a[field]), (loc,field)
         scores = unpack(a["score_f32le"], "f")
+        assert len(a["read_sha256"]) == len(a["matrix_sha256"]) == 64
         assert len(scores) == 2 and scores[0]-scores[1] == a["margin"] == b["margin"]
         for field in ("numerator","read_norm","margin"):
             check("operator_"+field,loc,a[field],b[field])
@@ -132,7 +158,7 @@ def reconcile(author, reviewer):
           for field in (*NAMES,"margin")}
     return {"reservation":RESERVATION,"author_evidence":author,"independent_evidence":reviewer,
             "exact_rows":len(result),"original_score_controls":native_controls,"residual_maxima":maxima,
-            "rows":result,"M1_donor_contrasts":m1_contrasts,"M3_normalized_effects":m3}
+            "rows":result,"M1_gain_roots":gain_roots(previous["M1"],terms),"M1_donor_contrasts":m1_contrasts,"M3_normalized_effects":m3}
 
 
 if __name__ == "__main__":
