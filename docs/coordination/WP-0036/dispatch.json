@@ -15,7 +15,7 @@
           "source": "06b0270b2b653f5bf45a32e45582b6198cb6af48",
           "command": "pwsh -NoProfile -File docs/research/WP-0036/run.ps1 -Candidate 06b0270b2b653f5bf45a32e45582b6198cb6af48 -RunName attempt-01",
           "utc": "2026-11-24T06:14:14.009975+00:00",
-          "status": "active",
+          "status": "failed",
           "input_custody": "7643bb9b26d15c9d435234e9d3a5d11b742dc771",
           "source_blobs": {
             "docs/research/WP-0036/archive.py": "14d206438fc6213b230f9ef5122cd74092dd5c3a",
@@ -26,7 +26,9 @@
             "docs/research/WP-0036/run.ps1": "09185fca3950d6804324ed3d2d34693f98ad7058",
             "docs/research/WP-0036/slots.py": "6f905532caa796847c74f67c717bcae5e1e9b2da",
             "docs/research/WP-0036/trial.py": "583d715090d6ec4b5a086bf736cce588650d0833"
-          }
+          },
+          "returned_utc": "2026-11-24T06:14:51.501281+00:00",
+          "return_record": "attempt-01 exit 1, span metadata serialization identity differed from whole capture digest. Preserve first failure and repair exact provenance before retry."
         }
       ]
     },
@@ -37,7 +39,23 @@
       "worktree": "w036-review",
       "model_request": "gpt-6.2-astra",
       "effort_request": "xhigh",
-      "releases": []
+      "releases": [
+        {
+          "source": "831a3265d04e643f263e7609851d8c3fd8755bb4",
+          "command": "C:/Users/jackg/AppData/Local/Programs/Python/Python312/python.exe -I -B docs/reviews/WP-0036/verify.py --candidate 831a3265d04e643f263e7609851d8c3fd8755bb4 --out C:/Users/jackg/eLedgerCare-Speed/WP-0036/review/independent-01",
+          "utc": "2026-11-24T06:14:51.744137+00:00",
+          "status": "active",
+          "input_custody": "7643bb9b26d15c9d435234e9d3a5d11b742dc771",
+          "source_blobs": {
+            "docs/reviews/WP-0036/inputs.py": "ee7246d2c8852df6992915ac4c50d114f25b21c7",
+            "docs/reviews/WP-0036/machine.py": "fe1c06f0c6b50fa59a70022191569eeb0a716c28",
+            "docs/reviews/WP-0036/method.md": "3a48165d5bb2b3c4c9d83a23ff71b101385bb8d8",
+            "docs/reviews/WP-0036/metric.py": "b6ff9fe320292852c4db99e71a61ed4ccff47f6d",
+            "docs/reviews/WP-0036/money.py": "820ab0faf0f40b6e0ecf78f51caf90718d0f4a08",
+            "docs/reviews/WP-0036/verify.py": "70048ea21a15c7f63daf37ebd107165c22c9c45c"
+          }
+        }
+      ]
     }
   },
   "design_partner": {
