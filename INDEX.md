@@ -1351,3 +1351,15 @@ Jack released the amended Option A order on the accepted integration commit `40f
 | [003 coordinator disposition](https://github.com/jackgumpe/eledgercare/blob/0e503aa6beb3dbc727c5b2a054c52cf48d2a656f/docs/agent-reports/eld-coordinator/WP-0031/003_2026-11-23_verification_eld-coordinator.md) | `0e503aa6beb3dbc727c5b2a054c52cf48d2a656f` |
 
 The [publication receipt](docs/coordination/WP-0031/publication-receipt.json) verifies all 29 published files at the coordinator report commit.
+
+## WP-0032 Six-read accounting of the write-8 owner margin
+
+Jack authorized the six-read recommendation at the WP-0031 closeout `a9c7669f15dba6f4948e8ac83a0632c72bfc252c`. [Assignments, frozen inputs, tolerances and acceptance criteria](docs/coordination/WP-0032/assignment.md)
+
+| Sequence | Stable ID | Owned branch and worktree | Canonical report reservation |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0032-accounting · w032-author | docs/agent-reports/eld-owner-probe/WP-0032/001_2026-11-24_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0032-accounting · w032-review | docs/agent-reports/eld-rd-reviewer/WP-0032/002_2026-11-24_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0032/003_2026-11-24_verification_eld-coordinator.md |
+
+Reserved for author execution, independent reproduction and coordinator disposition.
