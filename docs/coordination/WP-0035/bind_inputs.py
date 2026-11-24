@@ -96,6 +96,8 @@ def inventory():
     with zipfile.ZipFile(io.BytesIO(new_raw)) as archive:
         cedar = [sha(archive.read("sensor/k0001/" + n)) for n in ITEMS]
     check(cedar == [gate["members_sha256"]["sensor/k0001/" + n] for n in ITEMS], "Cedar triplet")
+    historical_a = "c000c0299619345c887859b95c45befbb0c68987"
+    read(historical_a, CAL_ZIP, sha(cal_raw))
     task_a = {}
     for pair in fixture["pairs"]:
         result = {"horizon": pair["horizon"], "base_pair": pair["base_pair"], "base_binder": pair["base_binder"], "members": {}}
@@ -108,7 +110,7 @@ def inventory():
                     ordered.append({"rgb_key": window["rgb_key"], "capture": "cedar", "hashes": cedar})
                 else:
                     hashes = [f[k] for k in ("receipt_sha256", "metadata_sha256", "pooled_sha256")]
-                    check(f["archive"] == CAL_ZIP and f["archive_revision"] == CAL and hashes == windows[f["tag"]], "Task A historical input")
+                    check(f["archive"] == CAL_ZIP and f["archive_revision"] == historical_a and hashes == windows[f["tag"]], "Task A historical input")
                     ordered.append({"rgb_key": window["rgb_key"], "capture": f["tag"], "hashes": hashes})
             expected = {**by_binder[pair["base_binder"]]["expected"], "owner": member["owner"]}
             result["members"][member["binder"]] = {"owner": member["owner"], "expected": expected, "windows": ordered}
