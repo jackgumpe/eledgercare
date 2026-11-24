@@ -1,0 +1,461 @@
+{
+  "packet": "WP-0034",
+  "owner": "eld-rd-reviewer",
+  "independent_candidate": "839e4c7f342585c7ddaf920729e8501848179dc9",
+  "observed_utc": "2026-11-24T03:48:32.364747+00:00",
+  "public_base": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+  "contract": {
+    "revision": "604a3a051d901ec8a1a8f7d6407ef57d99b19c10",
+    "path": "docs/coordination/WP-0034/contract.json",
+    "git_blob": "f4dff5400ab478287e3606d2b1db52002c94b1db",
+    "sha256": "40b3be705525ead5adc17759c0309259177f2b13114547c17644854ed730677f"
+  },
+  "runtime": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+    "git": "git version 2.55.0.windows.1"
+  },
+  "public_remote_heads": {
+    "coordination/bootstrap": "318463589b32db69076da14c0f48b00aca071edd",
+    "coordination/wp-0016-control": "61bec47689dcdf272a525185013f2dce6335fa24",
+    "coordination/wp-0019-replay": "9418bccd339dea1d89445f2fec93927168c7a5f0",
+    "evaluation/wp-0009-fresh-families": "c723df666f9148747ff2d713867590789959b4a9",
+    "evaluation/wp-0011-diagnostic-families": "e5a1a995a22c6fb89722b75ea5152966cb21ab98",
+    "evaluation/wp-0013-vocabulary-families": "ba454dd45c9f25d618d8480aeb7d0b0e634a568a",
+    "evaluation/wp-0015-packets": "3db4b71fd6ef5f947eadd4d64b63108d8b1650e2",
+    "feature/wp-0003-durable-intake": "418804b54e691d91851143191d2c95847036abef",
+    "feature/wp-0006-local-extraction": "3ece293f4ea9b78f19dbfb7f95472b95d091d79e",
+    "feature/wp-0008-f3-review": "ac997eed58f2f10d79dfeb7b4e23819ee347c49a",
+    "feature/wp-0010-f4-archive": "0f689d9b6eaf415d17095f14ad57dff2d716bac5",
+    "qualification/wp-0005-harness": "72fffbcbfa47f3c93425d9de5f338e511df7da3e",
+    "rehearsal/wp-0012-product": "ed9651edfb4206cb13d564924a342b91679277c2",
+    "research/wp-0004-astra": "c3215f75fc311c2e3c61a8ecc5da7d950f933157",
+    "research/wp-0004-carbon": "fef02d64aca2594e146930e4a0cb3ec18e355ed5",
+    "research/wp-0004-carbon-recovery": "f69c9e4fdec2e12f481e6131965b5e4e184e013f",
+    "research/wp-0005-runtime-preflight": "951d408aabf7bdad3602c0e7698869e2e2457aed",
+    "research/wp-0007-vanilla-baseline": "d1858bec883ab4066ae6a05096ed4bf3c85230e3",
+    "research/wp-0009-mapping": "73b5c5d3ce123adc33ba0397dcc74029208606c5",
+    "research/wp-0011-coverage": "97821f17926f9a6c409fe4c3b409b66f1cd9b824",
+    "research/wp-0013-vocabulary": "0bd4ebc26228266fa6f365e7e9bbc6f8dd2845ec",
+    "research/wp-0014-latency-scheduling": "32a76c52dc3e761da99a83ec5cf3fe575a9517ad",
+    "research/wp-0014-ocr-latency": "6c52aa39500d82c442347f5198338071d6b91717",
+    "research/wp-0015-astra": "9a8ac1e68849a8871c6e7ca5a61c3c2cf3b7d731",
+    "research/wp-0015-carbon": "9f0f9e9f79f01264b9828e838055d521f1269235",
+    "research/wp-0016-design": "b7323eaf2d901f3c4c1566f1dcee7a54391bbca3",
+    "research/wp-0016-engine": "c7acd437795f37eac2633b8635a0760ceab9df4c",
+    "research/wp-0017-design": "ba6db76435ec1882d1834de7ca3459ae1a53989c",
+    "research/wp-0017-engine": "cdb58f09af9d1bc5a5100f5d1526fc0c655ade9d",
+    "research/wp-0018-windows-archive": "8479c239bc21b8ecc1bc82a60194fcec841b4408",
+    "research/wp-0018-word-traces": "2bf46a4420b5da29eb94975df4d16e7b12947f20",
+    "research/wp-0019-crop-policy": "c4686e0b90a4acf3e1170730d7995e94826ceff0",
+    "research/wp-0019-winrt-worker": "bcd88c82382d2e7eef42bf2eac2ddbf28259fbbc",
+    "research/wp-0020-label-route": "104ae09534bf9491052d43e0c786bbd3ceea353a",
+    "research/wp-0020-route-analysis": "1a451a9ad6af82018ac6724c79caccc2bb334a89",
+    "research/wp-0021-scope-baseline": "24eb1dd1afa6925d07571cd9ff86116c01572537",
+    "research/wp-0022-custody": "b011231afb8634b29b13c339ca3d7e3e5dd0ed58",
+    "research/wp-0022-paired": "a1c2d41cfe39a8fffdffe157633dc1247b32ad4b",
+    "research/wp-0023-native-batch": "9129ef3976fc754e0c41ca225e9922079b12227d",
+    "research/wp-0023-speed-harness": "e707b3347956d0333a8094b6329fd85c1feb7b0c",
+    "research/wp-0024-twin-custody": "b66be9a6827f209fa6b6584b6e01a6af95802af5",
+    "research/wp-0024-twin-probe": "7599ea66b520714900704336b3882c8dcfa346fa",
+    "research/wp-0025-repeat-analysis": "95a15980f5de86bf7f13e3fcec37a46d265d60da",
+    "research/wp-0025-window-runner": "9064b7bed4beb1b900113460fd34734e42622948",
+    "research/wp-0026-acquisition": "d4a73206b41c13d92f88bead7fe7950b57cafd11",
+    "research/wp-0026-custody": "cef965394b6a4227d954a8b3ea1367e08a2e3e2c",
+    "research/wp-0027-owner-ranking": "6f62c1196c33689ac7e640b2bb1e769fa106816c",
+    "research/wp-0027-terminal-reader": "8efbb5c6c0ce372fcb0b3a06df7a8461d951535d",
+    "research/wp-0028-owner-fixtures": "98702b5583d27b654b52507673985e9d307e7a54",
+    "research/wp-0028-owner-probe": "b4cd4a6492b9405c729ee7f7bb78b998daa34e78",
+    "research/wp-0029-cedar-acquisition": "eb932d8aa5daf8d0f5f378c8f1276172678042e3",
+    "research/wp-0029-cedar-scoring": "bb1e075268d06dfa866d46b6a6b9815baa94fe22",
+    "research/wp-0030-span-trace": "81b96a16a6ca9d27186ce8e5d68d955557713f73",
+    "research/wp-0031-write8": "013499d9fdf5b19e587c91cd93dfd502c0448e04",
+    "research/wp-0032-accounting": "707794967c4505131d8d8b5f9e08313d3e7ffa7f",
+    "research/wp-0033-write8": "394cfe4daf2a80dab0571db04c7f8c0477f546e0",
+    "review/wp-0002-contract": "6722ff0eb8fdfa3b4fd17a9d0024c90c7bc98449",
+    "review/wp-0003-durable-intake": "b1d6514a5a6d1cf086be9193123e115a11654c93",
+    "review/wp-0004-rd": "da58038960eb5c4cc83be76e26d917ee378b2f07",
+    "review/wp-0005-q0": "ef72849519c83a71e59e80c311b48719252d0cd6",
+    "review/wp-0005-q0-carbon": "848fe70bd6d6fce9c958f11b76102d2fdfad77d4",
+    "review/wp-0006-0007-next-tracks": "c854a1d4c306c3b10d78df42a1a2552a06bb4a98",
+    "review/wp-0007-baseline": "73d1b16d86c8692f457c5398797787f44fe612be",
+    "review/wp-0008-f3": "299b9ee81528191e4d964b9e22745f477f2c4e8c",
+    "review/wp-0009-mapping": "187ca27ad2c6deb4a23b5fbecd47434ca286a829",
+    "review/wp-0010-f4": "ce4109a1515af1a8583a208e8085f2fa3bfa2d72",
+    "review/wp-0011-coverage": "c61f1822a4a24a8bdd4a880643ca180dd42f4100",
+    "review/wp-0012-product-rehearsal": "a772984ae153a9d2bf4b2eb73df8fd3d7bdd1c98",
+    "review/wp-0013-vocabulary": "b882001f13177d6cd56cdde7dcb590a16836c211",
+    "review/wp-0014-ocr-latency": "4d86fdeba4eea547b0415e756e7f8d559d2f6cb6",
+    "review/wp-0015-architecture": "565d67400c07d5ece61257a9633a67e9bd779e87",
+    "review/wp-0016-escrow": "3731c04b24984c1e28ff39043a0dce7e35cd920d",
+    "review/wp-0017-escrow": "bd6d7e11a5d9ec2e85fd5dd628fa365331bfaf80",
+    "review/wp-0017-pair-codex": "e479b8c8a39bf5703ee084d89527dbe3b872bf8f",
+    "review/wp-0018-windows-archive": "e5cecfaf3ed762c3844aed06ba21acbabbec90d9",
+    "review/wp-0019-fixed-crop": "a78798e6c1a5ce8d43a9fd08d2561651fa7d9b52",
+    "review/wp-0020-label-route": "b3c3ee66de04b9941c0aac70e536e96b6ff3cb5d",
+    "review/wp-0021-scope-baseline": "e4fc9806dea391d649576d68a9f016acc50287a5",
+    "review/wp-0022-paired": "80022dc0d0b501a9a19972291e7129df8a5fa1f0",
+    "review/wp-0023-native-batch": "3eb3e9f53db53ba9d148af883a2a05159626c782",
+    "review/wp-0024-twin-memory": "b1db32ce45507eda024dd1f83e31c49365f5484f",
+    "review/wp-0025-window-repeat": "b928859a332f2b2ee725f2f73611db82bb33656e",
+    "review/wp-0026-warmed-memory": "e9e24e5ea2730358fb67cfe269049a66a92ce8a5",
+    "review/wp-0027-twin-cpu": "54eec948b5510601e2b06920e01f50e23722b58a",
+    "review/wp-0028-owner-only": "16159e90927a9e62a8e052d7a7fafbfce1aec921",
+    "review/wp-0029-cedar": "7d87328e2650d7583f4fe3a805f70f9c5081b76c",
+    "review/wp-0030-span-trace": "e792840e6358ae2fe9a31dac1360383c0514f65c",
+    "review/wp-0031-write8": "91d99471ff5d2a279e18525828d89b9f92fdd65b",
+    "review/wp-0032-accounting": "bbb0e63f505fb0fae151592709d39ad8afd4bd04",
+    "review/wp-0033-write8": "894a811ed499dc1045a3de256ef4ffe92582dc55",
+    "review/wp-0034-admission": "839e4c7f342585c7ddaf920729e8501848179dc9"
+  },
+  "directory_observations": {
+    "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+    "public_tree_children": {
+      "docs/fixtures": [
+        "WP-0022",
+        "WP-0024",
+        "WP-0026",
+        "WP-0028"
+      ],
+      "docs/research": [
+        "WP-0009",
+        "WP-0011",
+        "WP-0013",
+        "WP-0014",
+        "WP-0015",
+        "WP-0016",
+        "WP-0017",
+        "WP-0018",
+        "WP-0019",
+        "WP-0020",
+        "WP-0021",
+        "WP-0022",
+        "WP-0023",
+        "WP-0024",
+        "WP-0025",
+        "WP-0026",
+        "WP-0027",
+        "WP-0028",
+        "WP-0029",
+        "WP-0030",
+        "WP-0031",
+        "WP-0032",
+        "WP-0033"
+      ],
+      "docs/evidence": [
+        "WP-0003",
+        "WP-0007",
+        "WP-0009",
+        "WP-0011"
+      ],
+      "docs/evaluation": [
+        "WP-0009",
+        "WP-0011",
+        "WP-0013",
+        "WP-0015"
+      ]
+    },
+    "scratch_directory_names_only": [
+      "WP-0015",
+      "WP-0016",
+      "WP-0017",
+      "WP-0023",
+      "WP-0024",
+      "WP-0025",
+      "WP-0026",
+      "WP-0027",
+      "WP-0028",
+      "WP-0029",
+      "WP-0030",
+      "WP-0031",
+      "WP-0032",
+      "WP-0033",
+      "WP-0034",
+      "coordination"
+    ]
+  },
+  "historical_evidence": [
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0022/decision.json",
+      "git_blob": "d989a0aa46b89387910cac01268b847f3125f5fe",
+      "sha256": "a3c759890bbc4015a4c4c42da8b792ec2260d546389d123247f56a3222abc5ba",
+      "excluded_because": "Two-page WinRT documents",
+      "public_fields": {
+        "cohort.documents": 8,
+        "cohort.page_appearances": 16
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0024/decision.json",
+      "git_blob": "13bf312d526afad32979cf8e50e5e99713841725",
+      "sha256": "2032c2a8d36f3feba66838645e70db95366dc82a4b8485ec456aa7b257fb3152",
+      "excluded_because": "Development H0 and unmaterialized separate design",
+      "public_fields": {
+        "real_b1_calls": 16,
+        "total_pairs": 8,
+        "subsequent_trial_observations.C1": null,
+        "subsequent_trial_observations.heldout_views": null
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0025/decision.json",
+      "git_blob": "ef4b3d26934c4af744b61198bcbbbc013178fa28",
+      "sha256": "cc59ece1eb6514c4753a41d664080c9b78160c14582f427be506183a6a625d31",
+      "excluded_because": "Repeat of a historical three-page window",
+      "public_fields": {
+        "scope": "historical b01w01 ordered three-page input only"
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0026/decision.json",
+      "git_blob": "d6a1e6f5d04c261f2fb67b19a373e514e56145de",
+      "sha256": "6e91221054d2cb71021671e3caea1c8c3a06d84c805939f675e2a191df180158",
+      "excluded_because": "Used development captures and separately authorized held-out cohort with partial capture",
+      "public_fields": {
+        "development.exact_h0_pairs": 8,
+        "development.train_c1_exact_duplicate_groups": 12,
+        "blind.bound_pairs": 32,
+        "blind.bound_binders": 64,
+        "blind.uncached_planned": 28,
+        "blind.started": 14,
+        "blind.verified_feature_returns": 13,
+        "blind.completed_12_page_pairs": 1,
+        "blind.completed_30_page_pairs": 0
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0028/decision.json",
+      "git_blob": "b51cb3db33da47c6427237b9e4b806e9abd10e10",
+      "sha256": "4ef7d39caf8d0a10adea94793e489986ce79f073117fe6ef03fdfb88598ce365",
+      "excluded_because": "Synthetic development fixture and cache inventory",
+      "public_fields": {
+        "study.document_pairs_planned": 2,
+        "admission.planned_distinct_window_inputs": 11,
+        "admission.cached_distinct_window_inputs": 10,
+        "scope": "CPU-only on synthetic development data and frozen M1/M3 probes, with no native Baidu calls and no GPU lease."
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0029/decision.json",
+      "git_blob": "85c85b271695751e824cb636d8872f6816b8e99f",
+      "sha256": "2c78c2e82c032c716f615cc24f51377dfb11656fcdb1a54d85964b737517d65d",
+      "excluded_because": "One exposed opening edit reused at two horizons",
+      "public_fields": {
+        "scope": "Two preregistered synthetic development pairs, 12 and 30 pages, using the same opening-name edit. The longer binder adds six intervening three-page windows.",
+        "acquisition.excluded_warmups": 1,
+        "acquisition.cedar_calls": 1,
+        "acquisition.total_native_calls": 2
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0030/decision.json",
+      "git_blob": "8bcaeda89635428bd16c499bd5e5a36bc441958c",
+      "sha256": "270660436142a5553c6162973b08126447fe3f5e3edbab20811a8d083a74991b",
+      "excluded_because": "Exposed development trace",
+      "public_fields": {
+        "scope": "CPU per-span trace from an independent zero state through the actual posting and its separate subsequent write. Two probes and two lengths share one opening edit on synthetic development binders."
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0031/decision.json",
+      "git_blob": "17525aed1cd0dee912352f688cbf14a107c04449",
+      "sha256": "5b63a7a4f3fa5697647315147d630d625ec9501289bb94e15b59e206262a7fa5",
+      "excluded_because": "CPU replay",
+      "public_fields": {
+        "measured.development_openings": 1,
+        "measured.held_out_inputs": 0,
+        "measured.ocr_calls": 0
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0032/decision.json",
+      "git_blob": "61a249409f2288ddceb4765736a92f65af760b3f",
+      "sha256": "cde02bfc97d4d94ee8660f87a7cd84348134d73411a42976db1215a5e2d7e7c3",
+      "excluded_because": "Existing opening, write 8 only",
+      "public_fields": {
+        "scope": "Four populated M1 cells and two empty M3 cells on the single archived synthetic development opening at write 8. Original thresholds 1.0/0.1, deterministic one-thread CPU."
+      }
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0033/decision.json",
+      "git_blob": "cabe2edae27057f9b76242f033fe733ea4829b18",
+      "sha256": "e2d68382a4544659ce61fd41d3e20acb939024b5b77e69d39e07887af6cb2f17",
+      "excluded_because": "Existing opening, no acquisition",
+      "public_fields": {
+        "boundary": "One prior-exposed synthetic opening shared by two lengths, frozen CPU through window 1/page 1/span 7. No later write, fresh pair, held-out, GPU, OCR, fitting, product change or posting-target evaluation."
+      }
+    },
+    {
+      "revision": "b66be9a6827f209fa6b6584b6e01a6af95802af5",
+      "path": "docs/agent-reports/eld-twin-custodian/WP-0024/001_2026-11-21_research_eld-twin-custodian.md",
+      "git_blob": "49d1e0a0fab695a4be3564ac0fda79aa4a1fdd2a",
+      "sha256": "0f2a429ac0ceef7738bf7ed20dba0c906129df28bd7cfd74f8b60614131ecce2",
+      "public_provenance_statement": "The blind corpus was never materialized, extracted or scored.",
+      "same_blob_at_base": true
+    },
+    {
+      "revision": "cef965394b6a4227d954a8b3ea1367e08a2e3e2c",
+      "path": "docs/agent-reports/eld-twin-custodian/WP-0026/001_2026-11-21_research_eld-twin-custodian.md",
+      "git_blob": "8334d173a6fba9158e6531cb5a9e56222d40e0ef",
+      "sha256": "4038460132f526f91ddadf3a8a1d2533655b17bf568acff8f299946192527ff3",
+      "public_provenance_statement": "Custody materialized the single authorized 32-pair held-out family after fit and calibration freeze.",
+      "same_blob_at_base": true
+    },
+    {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "CURRENT.md",
+      "git_blob": "f7df122bb218352a0491582f3652ab89ee1caaca",
+      "sha256": "78d91a3d970dd877564b29a8e80c46ef4bfc33caa6bdb1edb8a15367f8f569bf",
+      "WP-0027_scope_witness": "eight answerable calibration pairs"
+    }
+  ],
+  "scope": "Receipt-supported availability in the named public product inventory and contemporaneous public refs. No inference about inaccessible or off-repository holdings.",
+  "required_unattested": [
+    "Authorized source or generator/version and generation commitments, independent family identity and freshness/duplicate checks, new owner names and openings, one horizon per family",
+    "Opaque 16-pair/32-binder inventory, exact balanced four-stratum schedule, permutations, matched designs, rendered suffix and target definitions",
+    "Per-window bindings to authenticated frozen sensor receipts, token/span maps, pooled tensors and box metadata through the end of every binder",
+    "Independent custody and sealed truth commitment with later opaque-key join, inaccessible to both implementing roles"
+  ],
+  "strata": [
+    {
+      "pages": 12,
+      "stratum": "ordinary_answerable",
+      "planned_pairs": 3,
+      "supported_pairs": 0,
+      "missing_pairs": 3,
+      "planned_binders": 6,
+      "supported_binders": 0,
+      "missing_binders": 6,
+      "unavailable_terminal_slots_per_arm": 6
+    },
+    {
+      "pages": 12,
+      "stratum": "maintenance_summary_answerable",
+      "planned_pairs": 3,
+      "supported_pairs": 0,
+      "missing_pairs": 3,
+      "planned_binders": 6,
+      "supported_binders": 0,
+      "missing_binders": 6,
+      "unavailable_terminal_slots_per_arm": 6
+    },
+    {
+      "pages": 12,
+      "stratum": "unresolved_scope_must_abstain",
+      "planned_pairs": 1,
+      "supported_pairs": 0,
+      "missing_pairs": 1,
+      "planned_binders": 2,
+      "supported_binders": 0,
+      "missing_binders": 2,
+      "unavailable_terminal_slots_per_arm": 2
+    },
+    {
+      "pages": 12,
+      "stratum": "target_structure_ambiguity_must_abstain",
+      "planned_pairs": 1,
+      "supported_pairs": 0,
+      "missing_pairs": 1,
+      "planned_binders": 2,
+      "supported_binders": 0,
+      "missing_binders": 2,
+      "unavailable_terminal_slots_per_arm": 2
+    },
+    {
+      "pages": 30,
+      "stratum": "ordinary_answerable",
+      "planned_pairs": 3,
+      "supported_pairs": 0,
+      "missing_pairs": 3,
+      "planned_binders": 6,
+      "supported_binders": 0,
+      "missing_binders": 6,
+      "unavailable_terminal_slots_per_arm": 6
+    },
+    {
+      "pages": 30,
+      "stratum": "maintenance_summary_answerable",
+      "planned_pairs": 3,
+      "supported_pairs": 0,
+      "missing_pairs": 3,
+      "planned_binders": 6,
+      "supported_binders": 0,
+      "missing_binders": 6,
+      "unavailable_terminal_slots_per_arm": 6
+    },
+    {
+      "pages": 30,
+      "stratum": "unresolved_scope_must_abstain",
+      "planned_pairs": 1,
+      "supported_pairs": 0,
+      "missing_pairs": 1,
+      "planned_binders": 2,
+      "supported_binders": 0,
+      "missing_binders": 2,
+      "unavailable_terminal_slots_per_arm": 2
+    },
+    {
+      "pages": 30,
+      "stratum": "target_structure_ambiguity_must_abstain",
+      "planned_pairs": 1,
+      "supported_pairs": 0,
+      "missing_pairs": 1,
+      "planned_binders": 2,
+      "supported_binders": 0,
+      "missing_binders": 2,
+      "unavailable_terminal_slots_per_arm": 2
+    }
+  ],
+  "per_implementation": {
+    "independent_families_required": 16,
+    "confirmed_families": 0,
+    "answerable_binders_planned": 24,
+    "safety_binders_planned": 8,
+    "arms": {
+      "native M1": {
+        "scheduled_terminal_slots": 32,
+        "unavailable": 32,
+        "C": null,
+        "W": null,
+        "A": null,
+        "correct_posting_coverage": null,
+        "safety": null
+      },
+      "M1 relative rho=0.50 at designated root declaration only": {
+        "scheduled_terminal_slots": 32,
+        "unavailable": 32,
+        "C": null,
+        "W": null,
+        "A": null,
+        "correct_posting_coverage": null,
+        "safety": null
+      },
+      "symbolic M2": {
+        "scheduled_terminal_slots": 32,
+        "unavailable": 32,
+        "C": null,
+        "W": null,
+        "A": null,
+        "correct_posting_coverage": null,
+        "safety": null
+      }
+    },
+    "scheduled_terminal_slots": 96,
+    "unavailable": 96,
+    "answerable_rank_denominator_pairs": 12,
+    "rank_result": null,
+    "scores": null
+  },
+  "decision": "admission_blocked_missing_receipts",
+  "technical_reason": "No qualifying, authorized fresh pair with complete source, pairing, per-window frozen captures and sealed truth attestation."
+}
