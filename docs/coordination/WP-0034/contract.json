@@ -1,0 +1,74 @@
+{
+  "packet": "WP-0034",
+  "public_base": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+  "authority": "Jack selected Authorize WP-0034. Verify custody of the 16 fresh pairs. Proceed to the three-arm CPU trial only if all inputs qualify. Otherwise publish the independently verified inventory and stop before scoring or acquisition.",
+  "handoff": {
+    "file": "eLedgerCare-WP-0034-Amended-Handoff.pdf",
+    "pages": 8,
+    "sha256": "d023ee6321fd3b1a040ed5108b4222d5aea33a1d8d864c7a51f66a837cf0c425"
+  },
+  "owner": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "horizons": [
+    12,
+    30
+  ],
+  "independent_families": 16,
+  "required_pairs_per_horizon": {
+    "ordinary_answerable": 3,
+    "maintenance_summary_answerable": 3,
+    "unresolved_scope_must_abstain": 1,
+    "target_structure_ambiguity_must_abstain": 1
+  },
+  "members_per_pair": 2,
+  "arms": [
+    "native M1",
+    "M1 relative rho=0.50 at designated root declaration only",
+    "symbolic M2"
+  ],
+  "planned_decisions_per_implementation": 96,
+  "required_public_attestations": [
+    "Authorized source or generator/version and generation commitments, independent family identity and freshness/duplicate checks, new owner names and openings, one horizon per family",
+    "Opaque 16-pair/32-binder inventory, exact balanced four-stratum schedule, permutations, matched designs, rendered suffix and target definitions",
+    "Per-window bindings to authenticated frozen sensor receipts, token/span maps, pooled tensors and box metadata through the end of every binder",
+    "Independent custody and sealed truth commitment with later opaque-key join, inaccessible to both implementing roles"
+  ],
+  "authorized_inventory": "Product-only public custody receipts, safe aggregate metadata, public refs, committed path names and product inventory top-level names. Only read public acquisition counts and provenance in any mixed historical record. Do not open any sealed corpus, binder opening, protected truth/key, private custody tree, sensor archive or prediction. Do not execute any model, scorer, generator, control or acquisition during admission.",
+  "failure_policy": "A missing admission element blocks the cohort. Preserve denominators, all unavailable terminal slots, technical reason and null metrics; actual score/abstention/coverage/safety outcomes are unavailable. No cohort replacement/reduction or acquisition.",
+  "pins": {
+    "native": "7db67283a4ffd3e7a20bb8d80499572cc7118c71",
+    "fit": "6d79c24364ba10a1d9bfa4c72c837e2f216cf4bc",
+    "accepted_gain": "6e0f1cd046ddc3683e8e9c532f75380e8d6cef29",
+    "prior_disposition": "6c9e0a7bc6af5cb09d6f12a01d747ce422d13848",
+    "runtime": "ffec32d08f4137bea6d01505b1677b64cccbf5bc:docs/coordination/WP-0030/runtime.json"
+  },
+  "roles": [
+    {
+      "id": "eld-owner-probe",
+      "branch": "research/wp-0034-posting",
+      "worktree": "w034-author",
+      "report": "docs/agent-reports/eld-owner-probe/WP-0034/001_2026-11-24_research_eld-owner-probe.md",
+      "status": "conditional on full admission, not dispatched"
+    },
+    {
+      "id": "eld-rd-reviewer",
+      "branch": "review/wp-0034-admission",
+      "worktree": "w034-review",
+      "report": "docs/agent-reports/eld-rd-reviewer/WP-0034/002_2026-11-24_review_eld-rd-reviewer.md",
+      "status": "independent admission verification"
+    },
+    {
+      "id": "eld-coordinator",
+      "branch": "coordination/bootstrap",
+      "worktree": "eledgercare",
+      "report": "docs/agent-reports/eld-coordinator/WP-0034/003_2026-11-24_verification_eld-coordinator.md",
+      "status": "sole coordinator"
+    },
+    {
+      "id": "eld-twin-custodian",
+      "branch": "research/wp-0034-custody",
+      "worktree": "w034-custody",
+      "report": "docs/agent-reports/eld-twin-custodian/WP-0034/004_2026-11-24_research_eld-twin-custodian.md",
+      "status": "independent admission inventory"
+    }
+  ]
+}

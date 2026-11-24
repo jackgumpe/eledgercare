@@ -1391,3 +1391,16 @@ Jack separately authorized the complete eight-page handoff. Parent da76b51172bd7
 | [003](https://github.com/jackgumpe/eledgercare/blob/6c9e0a7bc6af5cb09d6f12a01d747ce422d13848/docs/agent-reports/eld-coordinator/WP-0033/003_2026-11-24_verification_eld-coordinator.md) | `6c9e0a7bc6af5cb09d6f12a01d747ce422d13848` |
 
 The [public download receipt](docs/coordination/WP-0033/publication-receipt.json) records byte equality for all 40 changed files at the coordinator report commit.
+
+## WP-0034 Fresh-pair posting trial and cohort admission
+
+Jack authorized custody verification and conditional evaluation at ffec32d08f4137bea6d01505b1677b64cccbf5bc. [Assignment](docs/coordination/WP-0034/assignment.md) · [Contract](docs/coordination/WP-0034/contract.json)
+
+| Slot | Owner | Branch and worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0034-posting · w034-author | docs/agent-reports/eld-owner-probe/WP-0034/001_2026-11-24_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0034-admission · w034-review | docs/agent-reports/eld-rd-reviewer/WP-0034/002_2026-11-24_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap · eledgercare | docs/agent-reports/eld-coordinator/WP-0034/003_2026-11-24_verification_eld-coordinator.md |
+| 004 | eld-twin-custodian | research/wp-0034-custody · w034-custody | docs/agent-reports/eld-twin-custodian/WP-0034/004_2026-11-24_research_eld-twin-custodian.md |
+
+Reserved. Independent custody /004 and inventory review /002 precede the conditional author /001.
