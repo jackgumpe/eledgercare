@@ -1,0 +1,119 @@
+{
+  "basis": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+  "reservation": "604a3a051d901ec8a1a8f7d6407ef57d99b19c10",
+  "utc": "2026-11-24T03:43:46.319869+00:00",
+  "source_receipts": {
+    "docs/coordination/WP-0026/blind-custody-release.json": {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0026/blind-custody-release.json",
+      "sha256": "8dd958b4535112971d1fca05d4cdfe398d7622b33fd63af9ca9be85b1d03892b"
+    },
+    "docs/fixtures/WP-0026/blind/receipt.json": {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/fixtures/WP-0026/blind/receipt.json",
+      "sha256": "647ad65aa2a3787931c0b7af057432492fb8de8fc282c9f9a87304f28d8b1953"
+    },
+    "docs/reviews/WP-0026/blind-c1-partial-runtime.json": {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/reviews/WP-0026/blind-c1-partial-runtime.json",
+      "sha256": "d2f6f85b20fd6839cf7c4e3800d3001f3ec4f87114faebcce14aac3282e94c81"
+    },
+    "docs/coordination/WP-0029/decision.json": {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/coordination/WP-0029/decision.json",
+      "sha256": "2c78c2e82c032c716f615cc24f51377dfb11656fcdb1a54d85964b737517d65d"
+    },
+    "docs/fixtures/WP-0024/v2/train/receipt.json": {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/fixtures/WP-0024/v2/train/receipt.json",
+      "sha256": "3d65c20fe7792e4d062183d1c9f8c8db6a76a5e26242a6889bdddae2b688feb8"
+    },
+    "docs/fixtures/WP-0024/v2/cal/receipt.json": {
+      "revision": "ffec32d08f4137bea6d01505b1677b64cccbf5bc",
+      "path": "docs/fixtures/WP-0024/v2/cal/receipt.json",
+      "sha256": "c698da52adb55a5611d5aae8749259eac97f371623aac574e880cecb2ecd32a9"
+    }
+  },
+  "public_head_count": 90,
+  "local_ref_count": 183,
+  "public_head_list_sha256": "5ff4a1df93be7fdc54d767c5516bfda206e97d036088cc887cdd6a72d79d2b27",
+  "tips_outside_accepted_history": {
+    "refs/heads/coordination/bootstrap@2301f4415b327a99c54bf2cd78e77edfd9dd276d": {
+      "public": false,
+      "local": true,
+      "tip": "2301f4415b327a99c54bf2cd78e77edfd9dd276d",
+      "changed_path_count": 7,
+      "outside_packet_paths": []
+    },
+    "refs/heads/coordination/bootstrap@318463589b32db69076da14c0f48b00aca071edd": {
+      "public": true,
+      "local": false,
+      "tip": "318463589b32db69076da14c0f48b00aca071edd",
+      "changed_path_count": 6,
+      "outside_packet_paths": []
+    },
+    "refs/heads/research/wp-0034-custody@604a3a051d901ec8a1a8f7d6407ef57d99b19c10": {
+      "public": false,
+      "local": true,
+      "tip": "604a3a051d901ec8a1a8f7d6407ef57d99b19c10",
+      "changed_path_count": 4,
+      "outside_packet_paths": []
+    },
+    "refs/heads/review/wp-0034-admission@604a3a051d901ec8a1a8f7d6407ef57d99b19c10": {
+      "public": false,
+      "local": true,
+      "tip": "604a3a051d901ec8a1a8f7d6407ef57d99b19c10",
+      "changed_path_count": 4,
+      "outside_packet_paths": []
+    }
+  },
+  "tracked_fixture_directories": [
+    "WP-0022",
+    "WP-0024",
+    "WP-0026",
+    "WP-0028"
+  ],
+  "product_scratch_top_level_names": [
+    "WP-0015",
+    "WP-0016",
+    "WP-0017",
+    "WP-0023",
+    "WP-0024",
+    "WP-0025",
+    "WP-0026",
+    "WP-0027",
+    "WP-0028",
+    "WP-0029",
+    "WP-0030",
+    "WP-0031",
+    "WP-0032",
+    "WP-0033",
+    "WP-0034",
+    "coordination"
+  ],
+  "prior_inputs": {
+    "exposed_development": "Two preregistered synthetic development pairs, 12 and 30 pages, using the same opening-name edit. The longer binder adds six intervening three-page windows.",
+    "WP0024_public_development_receipts": {
+      "train": {
+        "pairs": 10,
+        "binders": 20
+      },
+      "cal": {
+        "pairs": 10,
+        "binders": 20
+      }
+    },
+    "WP0026_separate_custody": {
+      "action": "materialize-wp0024-blind",
+      "horizons": [
+        12,
+        30
+      ],
+      "pairs": 32,
+      "binders": 64,
+      "capture_windows_issued": 14,
+      "capture_windows_verified": 13
+    }
+  },
+  "scope": "Committed product public metadata, names of public/manual local refs and top-level product inventory. Historical blind sources are represented by a custody order, aggregate receipt and acquisition counters only. External or undisclosed holdings are outside the search."
+}
