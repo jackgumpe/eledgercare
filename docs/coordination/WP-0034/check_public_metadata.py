@@ -22,12 +22,12 @@ def witness():
     branches = dict(reversed(line.split()) for line in git("ls-remote","--heads","origin").decode().splitlines())
     local = dict(line.split() for line in git("for-each-ref","--format=%(refname) %(objectname)","refs/heads","refs/remotes").decode().splitlines())
     paths = {}
-    for branch,sha in {**local,**branches}.items():
+    for branch,sha in sorted(set(local.items()) | set(branches.items())):
         if sha in history:
             continue
         parent=git("merge-base",BASE,sha).decode().strip()
         changed=git("diff","--name-only",parent,sha).decode().splitlines()
-        paths[branch]={"tip":sha,"changed_path_count":len(changed),"outside_packet_paths":
+        paths[branch+"@"+sha]={"public":branches.get(branch)==sha,"local":local.get(branch)==sha,"tip":sha,"changed_path_count":len(changed),"outside_packet_paths":
             [p for p in changed if "WP-0034/" not in p and p not in ("INDEX.md","CURRENT.md")]}
     names = git("ls-tree","-d","--name-only",f"{BASE}:docs/fixtures").decode().splitlines()
     receipts={}
