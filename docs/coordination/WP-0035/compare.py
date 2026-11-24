@@ -104,7 +104,7 @@ def structural(phase, step, archived):
         return []
     if step in (7, 8, 9, 11, 12):
         names.append(f"write_{step}")
-    events = [e["event"] for e in archived["Alder"]["events_applied"]]
+    events = [e["kind"] for e in archived["Alder"]["events_applied"]]
     names.extend(e for e in events if e in ("OPEN_CHILD", "TENTATIVE_CLOSE", "CONFIRM_POP", "TARGET"))
     return names
 
