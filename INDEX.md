@@ -1424,3 +1424,11 @@ Jack released the five-step order on d9741d6e880d06192b9f3e56ab8056d391da1b9e. [
 | 003 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0035/003_2026-11-24_verification_eld-coordinator.md |
 
 Closed after independent reproduction. All 12 neural write/read combinations yielded 0/2 simultaneous terminal wins on the shared opening and 0/8 on answerable calibration pairs. All neural arms abstained, with zero wrong postings. Symbolic M2 posted 4/4 and 16/16 answerable binders correctly and withheld all four no-target binders. [Author /001](docs/agent-reports/eld-owner-probe/WP-0035/001_2026-11-24_research_eld-owner-probe.md) · [Independent /002](docs/agent-reports/eld-rd-reviewer/WP-0035/002_2026-11-24_review_eld-rd-reviewer.md) · [Coordinator /003](docs/agent-reports/eld-coordinator/WP-0035/003_2026-11-24_verification_eld-coordinator.md) · [Terminal metrics](docs/coordination/WP-0035/terminal-metrics.csv) · [Checkpoints](docs/coordination/WP-0035/checkpoints.csv) · [Per-pair custody](docs/coordination/WP-0035/input-custody.json)
+
+| Report | Verified original publication |
+| --- | --- |
+| [001](https://github.com/jackgumpe/eledgercare/blob/67f085fa55ade219ae5381b8b467c9ebc1656da3/docs/agent-reports/eld-owner-probe/WP-0035/001_2026-11-24_research_eld-owner-probe.md) | `67f085fa55ade219ae5381b8b467c9ebc1656da3` |
+| [002](https://github.com/jackgumpe/eledgercare/blob/bb1d09a22159a36efa63e46cc6f25f3c2ebce98f/docs/agent-reports/eld-rd-reviewer/WP-0035/002_2026-11-24_review_eld-rd-reviewer.md) | `bb1d09a22159a36efa63e46cc6f25f3c2ebce98f` |
+| [003](https://github.com/jackgumpe/eledgercare/blob/00cd7bf5ce44dfa01b7343919cb7a342929e588a/docs/agent-reports/eld-coordinator/WP-0035/003_2026-11-24_verification_eld-coordinator.md) | `00cd7bf5ce44dfa01b7343919cb7a342929e588a` |
+
+The [public download receipt](docs/coordination/WP-0035/publication-receipt.json) records byte equality for all 66 changed files at the coordinator report commit.
