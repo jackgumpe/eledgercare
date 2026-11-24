@@ -29,6 +29,23 @@
           },
           "returned_utc": "2026-11-24T06:14:51.501281+00:00",
           "return_record": "attempt-01 exit 1, span metadata serialization identity differed from whole capture digest. Preserve first failure and repair exact provenance before retry."
+        },
+        {
+          "source": "8d234eca96fa987baab9fe736ce204ba51dd14ec",
+          "command": "pwsh -NoProfile -File docs/research/WP-0036/run.ps1 -Candidate 8d234eca96fa987baab9fe736ce204ba51dd14ec -RunName attempt-02",
+          "utc": "2026-11-24T06:15:30.095838+00:00",
+          "status": "active",
+          "input_custody": "7643bb9b26d15c9d435234e9d3a5d11b742dc771",
+          "source_blobs": {
+            "docs/research/WP-0036/archive.py": "d32b6f305fbc8e6375d27aae0b629431225279b9",
+            "docs/research/WP-0036/arithmetic.py": "770fece101ec91c0be3c801217284546bc46ec8d",
+            "docs/research/WP-0036/directory.py": "8e005b2c41294bf6e7885965711b8bde0db93d78",
+            "docs/research/WP-0036/margins.py": "282be49e56e715cd7dd42a5d8075f4a5a0d1eda2",
+            "docs/research/WP-0036/protocol.md": "90bfd422ca4cc64b6b65fe7d6c7be32a4a30d9e7",
+            "docs/research/WP-0036/run.ps1": "09185fca3950d6804324ed3d2d34693f98ad7058",
+            "docs/research/WP-0036/slots.py": "796658c9456ef205b5e5003ace6a50fbacae8d9f",
+            "docs/research/WP-0036/trial.py": "583d715090d6ec4b5a086bf736cce588650d0833"
+          }
         }
       ]
     },
@@ -44,7 +61,7 @@
           "source": "831a3265d04e643f263e7609851d8c3fd8755bb4",
           "command": "C:/Users/jackg/AppData/Local/Programs/Python/Python312/python.exe -I -B docs/reviews/WP-0036/verify.py --candidate 831a3265d04e643f263e7609851d8c3fd8755bb4 --out C:/Users/jackg/eLedgerCare-Speed/WP-0036/review/independent-01",
           "utc": "2026-11-24T06:14:51.744137+00:00",
-          "status": "active",
+          "status": "returned",
           "input_custody": "7643bb9b26d15c9d435234e9d3a5d11b742dc771",
           "source_blobs": {
             "docs/reviews/WP-0036/inputs.py": "ee7246d2c8852df6992915ac4c50d114f25b21c7",
@@ -53,7 +70,9 @@
             "docs/reviews/WP-0036/metric.py": "b6ff9fe320292852c4db99e71a61ed4ccff47f6d",
             "docs/reviews/WP-0036/money.py": "820ab0faf0f40b6e0ecf78f51caf90718d0f4a08",
             "docs/reviews/WP-0036/verify.py": "70048ea21a15c7f63daf37ebd107165c22c9c45c"
-          }
+          },
+          "returned_utc": "2026-11-24T06:15:29.848785+00:00",
+          "return_record": "independent-01 exit 0, 06:15:10.8422397Z to 06:15:11.5714989Z. Blind evidence freeze follows."
         }
       ]
     }
