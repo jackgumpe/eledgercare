@@ -1,0 +1,112 @@
+{
+  "packet": "WP-0032",
+  "disposition": "accepted after independent reproduction",
+  "scope": "Four populated M1 cells and two empty M3 cells on the single archived synthetic development opening at write 8. Original thresholds 1.0/0.1, deterministic one-thread CPU.",
+  "accepted_base": "a9c7669f15dba6f4948e8ac83a0632c72bfc252c",
+  "reservation": "537ab866bb5803328d378bc00f11f5782bb5ef00",
+  "dispatch": "6c8bc31f1df1be04f5fe9c92abe6280412370b5b",
+  "author_source": "f17396bf4d3915b53cff0e22a37e1b928cdf2919",
+  "author_evidence": "e7096ca975820e2be98c912d52c1a0a731de288f",
+  "author_report": "707794967c4505131d8d8b5f9e08313d3e7ffa7f",
+  "independent_source": "6281121dd59aa1602e6fc872e9bca885bb91eeb0",
+  "independent_evidence": "be72e777178fe627f355ad240598c14217e267e8",
+  "comparison_source": "4f013c667db719aab745cba75ce672c3ef22ec74",
+  "comparison_evidence": "0bf997ef2ac4c42801dfa6fc5d07406301431a0d",
+  "independent_report": "bbb0e63f505fb0fae151592709d39ad8afd4bd04",
+  "coordinator_scalar_source": "d8f412d82ed260e1d8a84de743284463d22a8c22",
+  "coordinator_comparison_source": "2594e50edc84cfd74bea5d94e1eaa644feec4010",
+  "native_score_pairs_byte_exact": 6,
+  "author_gates_passed": 900,
+  "reviewer_gates_passed": 1417,
+  "cross_table_scalar_checks": 3548,
+  "cross_table_exact_checks": 150,
+  "coordinate_values_reconciled_by_root": 1536,
+  "numerical_bounds": {
+    "scalar": "2e-5 * (1 + max(abs(reference), abs(reconstruction)))",
+    "paired": "Sum of the two scalar limits. For a difference of contrasts sum the two paired limits.",
+    "sign": "Resolved only outside its propagated limit.",
+    "rationale": "Near-zero absolute floor and scale allowance for up to 128 FP32 reductions, products and normalization. An engineering budget frozen before either run."
+  },
+  "absolute_residual_maxima": {
+    "native_read_norm": {
+      "cell": "M3 0A",
+      "rounded_up": 8.513e-08
+    },
+    "native_margin": {
+      "cell": "M1 AC",
+      "rounded_up": 2.013e-08
+    },
+    "across_role_tables": {
+      "quantity": "M3 0A value norm",
+      "absolute": 4.440892098500626e-16
+    }
+  },
+  "reconciliation_sha256": "2259db4a2b43a95685c04a0b2c78fb1b4c594e52788ad910d35a5ef90a63b41e",
+  "M1": "All four owner rankings and both fixed-prefix donor contrasts reverse when signed key-projected subtraction is restored. Numerator reversal precedes normalization. Omission also ranks Alder above Cedar on both Cedar declarations.",
+  "M3": "Both owner-slice key-query dots are positive. Replacing Cedar's declaration with Alder's raises the Cedar score more than the Alder score. D0 = -0.033937111496925354. Positive read scale largely cancels under the original normalization with finite epsilon.",
+  "architecture_priority": "First candidate for a separately released M1 test: independent gain on key-projected erasure, with the direct-write gain and prefix retention held fixed. The zero-erasure endpoint does not establish a useful bound or an accuracy gain. M3 points to value alignment with the two lexical anchors; the paired box and pooled-feature change remains confounded.",
+  "operational_observations": [
+    "The author found a missing scratch directory and located historical cell rows under cells during preflight. The independent reviewer used historical runtime.json after an exploratory manifest lookup missed. The canonical reports retain both accounts.",
+    "No decisive run or numerical gate failed. Independent tables froze before access to the author's new evidence."
+  ],
+  "scope_end": "Write 8. No treatment, training, new owner, OCR, GPU, held-out or production work was executed or released.",
+  "preservation": {
+    "verified_utc": "2026-11-24T01:27:44.594797+00:00",
+    "historical_worktrees_checked": 94,
+    "preexisting_worktrees_checked": 97,
+    "registered_worktrees": 99,
+    "expected_additions": [
+      "succession-20261123-01a20a53",
+      "w031-author",
+      "w031-review",
+      "w032-author",
+      "w032-review"
+    ],
+    "historical_dirty_worktrees": 3,
+    "preserved_working_files": 73,
+    "recovery_manifest_sha256": "048424200f5aa80f91fe9726dba4fd4d26f706e514663b54d409ef38f4c8faae",
+    "recovery_files": 73,
+    "recovery_bytes": 21903348,
+    "recovery_stash_bundle_sha256": "d3a76aaafab951c41e873d7263de5793072c2c57a2714507a2ad870b60b6ee50",
+    "stash": "bcc4b085be6b5f2c64bca52443f410398db15aa1",
+    "primary_working_package_sha256": "6af72a0583bf4a640633ac17b0cc3e9adc83a5f4df12d09b01ae70dcec0546e0",
+    "existing_q0_branch_exception": {
+      "branch": "review/wp-0005-q0",
+      "local": "2e41d3a91b8f08b53d643b20a1fb038b5aec1500",
+      "remote": "ef72849519c83a71e59e80c311b48719252d0cd6",
+      "configured_upstream": "origin/review/wp-0005-q0",
+      "ahead": 9,
+      "behind": 0,
+      "commits_absent_from_all_remote_heads": 0
+    }
+  },
+  "verified_worker_integrations": [
+    "fbdfe55391b6a5089ddae2ac2ad9d136b56d7cb7",
+    "1b52b0f8798ccacd4df6e976904a0f579334402d"
+  ],
+  "M1_donor_contrasts": {
+    "A": {
+      "omitted_numerator": 0.034757450910922846,
+      "restored_numerator": -0.019185507865583318,
+      "omitted_margin": 0.030829627856177093,
+      "restored_margin": -0.019555002755621442,
+      "native_margin": -0.01955500803887844,
+      "effect_on_numerator": -0.053942958776506164,
+      "effect_on_margin": -0.050384630611798535
+    },
+    "C": {
+      "omitted_numerator": 0.0347578395927491,
+      "restored_numerator": -0.01916531301929142,
+      "omitted_margin": 0.029995722478820708,
+      "restored_margin": -0.020174363456068253,
+      "native_margin": -0.020174358040094376,
+      "effect_on_numerator": -0.05392315261204052,
+      "effect_on_margin": -0.05017008593488896
+    }
+  },
+  "M3_candidate_shifts_native": {
+    "Alder": 0.03125765174627304,
+    "Cedar": 0.0651947632431984
+  },
+  "M3_reconstructed_D0": -0.033937106984910106
+}
