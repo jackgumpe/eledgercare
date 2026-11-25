@@ -70,7 +70,7 @@ def validate(label,truth,v,a):
     assert a["points"]==[list(t) for t in sorted(set(map(tuple,a["points"])))]
     assert a["count"]==("infinite" if a["line"] else len(a["points"]))
     assert status==("RESOLVED" if a["count"]==1 else "INCONSISTENT" if a["count"]==0 else "AMBIGUOUS")
-    if group!="control":
+    if group in ("grid","named"):
         assert status=="RESOLVED" and a["points"]==[truth]
     elif id.startswith("c1_"):
         mc,amin,ac,fc={"tie":(0,1,2,2),"tie_lost":(1,1,2,0),"exact_active":(1,0,1,1),
