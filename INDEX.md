@@ -1507,3 +1507,12 @@ Released by eld-coordinator at b527d946d4530475a90536124ec69ec98a987a09. Physica
 | 004 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0040/004_2026-11-25_verification_eld-coordinator.md |
 
 Closed after independent review. Custody found 0 eligible physical families, 0 authentic pilot cell-box sets and no authorized pilot reader. Physical execution is withheld. H1 and H2 are unmeasured. Both methods matched on 1,623 scheduled CPU evaluations and the corrected explicit singleton helper passed six regressions. WP-0037 remains parked. [Custody /001](docs/agent-reports/eld-twin-custodian/WP-0040/001_2026-11-25_research_eld-twin-custodian.md) · [Author /002](docs/agent-reports/eld-owner-probe/WP-0040/002_2026-11-25_research_eld-owner-probe.md) · [Independent review /003](docs/agent-reports/eld-rd-reviewer/WP-0040/003_2026-11-25_review_eld-rd-reviewer.md) · [Disposition /004](docs/agent-reports/eld-coordinator/WP-0040/004_2026-11-25_verification_eld-coordinator.md) · [Constructed controls](docs/coordination/WP-0040/results/) · [Physical denominators](docs/coordination/WP-0040/physical.json)
+
+| Report | Verified original publication |
+| --- | --- |
+| [001](https://github.com/jackgumpe/eledgercare/blob/0a240490561772f0584895411cf3094864a6bfa2/docs/agent-reports/eld-twin-custodian/WP-0040/001_2026-11-25_research_eld-twin-custodian.md) | `0a240490561772f0584895411cf3094864a6bfa2` |
+| [002](https://github.com/jackgumpe/eledgercare/blob/901fae31a7f25677e0827a770923628b2cc0e32d/docs/agent-reports/eld-owner-probe/WP-0040/002_2026-11-25_research_eld-owner-probe.md) | `901fae31a7f25677e0827a770923628b2cc0e32d` |
+| [003](https://github.com/jackgumpe/eledgercare/blob/d0ff621ff8b61b71c45f489e6e09131d778253b8/docs/agent-reports/eld-rd-reviewer/WP-0040/003_2026-11-25_review_eld-rd-reviewer.md) | `d0ff621ff8b61b71c45f489e6e09131d778253b8` |
+| [004](https://github.com/jackgumpe/eledgercare/blob/2a447db8eb00e5ba7bb19955d98b27480a3c74d7/docs/agent-reports/eld-coordinator/WP-0040/004_2026-11-25_verification_eld-coordinator.md) | `2a447db8eb00e5ba7bb19955d98b27480a3c74d7` |
+
+The [public download receipt](docs/coordination/WP-0040/publication-receipt.json) records byte equality for all 35 changed files at the coordinator report commit.
