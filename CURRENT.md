@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0039 exact-cell discrimination on frozen arithmetic candidates
+## WP-0039 exact-cell discrimination closed
 
-Released by the local coordinator from 5cd88ed3f38dd23102045cb8c32580b310dc1424. [Assignment and predeclared comparison](docs/coordination/WP-0039/assignment.md)
+Closed after independent acceptance. Across 288 synthetic grid observations, 76 needed no additional reading, 146 needed one exact cell value and 66 needed two. The 20 named calls included two pre-solve opening refusals. Both routes agreed on all 39,648 query subsets and all 1,087 minimum sets across the two populations. Crop costs and physical reread accuracy remain unmeasured. WP-0037 remains parked. [Author /001](docs/agent-reports/eld-owner-probe/WP-0039/001_2026-11-25_research_eld-owner-probe.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0039/002_2026-11-25_review_eld-rd-reviewer.md) · [Coordinator disposition /003](docs/agent-reports/eld-coordinator/WP-0039/003_2026-11-25_verification_eld-coordinator.md) · [Grid, named and interface results](docs/coordination/WP-0039/results/)
 
 ## WP-0038 synthetic arithmetic ambiguity comparison closed
 
