@@ -1,0 +1,44 @@
+{
+  "coordinator": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "reservation": "2a9b44f86151f6976846094259771a14efcdbfcd",
+  "base": "b527d946d4530475a90536124ec69ec98a987a09",
+  "sanitized_input_sha256": "5d6b94d6ff62f5b6be389bd079fde9e52f9c33e513ba5fc20c1edaa853638a61",
+  "calls": 1623,
+  "roles": [
+    {
+      "role": "eld-twin-custodian",
+      "branch": "research/wp-0040-custody",
+      "worktree": "w040-custody",
+      "thread": "01a213b4-dd1e-73d3-af78-cafc93d6090d",
+      "model_request": "gpt-6.2-astra",
+      "reasoning_effort": "xhigh",
+      "candidate": null,
+      "cpu_command": null
+    },
+    {
+      "role": "eld-owner-probe",
+      "branch": "research/wp-0040-reread",
+      "worktree": "w040-author",
+      "thread": "01a213b4-fab2-7ba3-9fdd-1daa2732ef50",
+      "model_request": "gpt-6.2-astra",
+      "reasoning_effort": "xhigh",
+      "candidate": "9502f458a89f48523714cf03ac3d4c7d9cdc69f0",
+      "cpu_command": "python -I -B '../../eledgercare/docs/coordination/WP-0040/operate.py' --candidate 9502f458a89f48523714cf03ac3d4c7d9cdc69f0 --planner docs/research/WP-0040/policy.py --observations 'C:/Users/jackg/eLedgerCare-Speed/WP-0040/author/inputs.jsonl' --input-sha 5d6b94d6ff62f5b6be389bd079fde9e52f9c33e513ba5fc20c1edaa853638a61 --out 'C:/Users/jackg/eLedgerCare-Speed/WP-0040/author/run-01'"
+    },
+    {
+      "role": "eld-rd-reviewer",
+      "branch": "review/wp-0040-reread",
+      "worktree": "w040-review",
+      "thread": "01a213b5-21c6-7950-b79f-07232eb95d3c",
+      "model_request": "gpt-6.2-astra",
+      "reasoning_effort": "xhigh",
+      "candidate": "9db73813285931ad456c4a83b0a5ec8b99b0b06a",
+      "cpu_command": "python -I -B '../../eledgercare/docs/coordination/WP-0040/operate.py' --candidate 9db73813285931ad456c4a83b0a5ec8b99b0b06a --planner docs/reviews/WP-0040/policy.py --observations 'C:/Users/jackg/eLedgerCare-Speed/WP-0040/review/inputs.jsonl' --input-sha 5d6b94d6ff62f5b6be389bd079fde9e52f9c33e513ba5fc20c1edaa853638a61 --out 'C:/Users/jackg/eLedgerCare-Speed/WP-0040/review/run-01'"
+    }
+  ],
+  "order": [
+    "author",
+    "review"
+  ],
+  "cpu": "Only on individual coordinator release; raw returns before comparison."
+}
