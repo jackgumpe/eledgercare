@@ -1466,3 +1466,11 @@ Released by the local coordinator at 40fc3f97f6558123fe9b537583a79c27bb315266 un
 | 003 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0038/003_2026-11-25_verification_eld-coordinator.md |
 
 Closed after independent review. The exact signed results matched on 288 generated cases and 11 named assertions (20 domain-specific calls). The grid contained 76 unique, 205 finitely ambiguous and seven infinite-family outcomes. Both conflicting trusted openings skipped solving and yielded zero candidates. This verifies bounded synthetic arithmetic only. WP-0037 retains its GPU roadmap designation. [Author /001](docs/agent-reports/eld-owner-probe/WP-0038/001_2026-11-25_research_eld-owner-probe.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0038/002_2026-11-25_review_eld-rd-reviewer.md) · [Disposition /003](docs/agent-reports/eld-coordinator/WP-0038/003_2026-11-25_verification_eld-coordinator.md) · [Grid and named evidence](docs/coordination/WP-0038/results/)
+
+| Report | Verified original publication |
+| --- | --- |
+| [001](https://github.com/jackgumpe/eledgercare/blob/4dee32e61ef23463f703020de3bf3c9ebd0978a0/docs/agent-reports/eld-owner-probe/WP-0038/001_2026-11-25_research_eld-owner-probe.md) | `4dee32e61ef23463f703020de3bf3c9ebd0978a0` |
+| [002](https://github.com/jackgumpe/eledgercare/blob/1d0b2c58498556651d88f781ec45ddf61b2c5f45/docs/agent-reports/eld-rd-reviewer/WP-0038/002_2026-11-25_review_eld-rd-reviewer.md) | `1d0b2c58498556651d88f781ec45ddf61b2c5f45` |
+| [003](https://github.com/jackgumpe/eledgercare/blob/3bbb96fc591d985217ca8cfd9f63884a4ffed1b7/docs/agent-reports/eld-coordinator/WP-0038/003_2026-11-25_verification_eld-coordinator.md) | `3bbb96fc591d985217ca8cfd9f63884a4ffed1b7` |
+
+The [public download receipt](docs/coordination/WP-0038/publication-receipt.json) records byte equality for all 23 changed files at the coordinator report commit.
