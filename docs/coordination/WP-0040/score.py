@@ -41,7 +41,7 @@ def validate(label,truth,v,a):
         assert status==expected and q is None and a["count"] is None
         return
     full=len(v["dist"])-1
-    if v["dist"][full] is None:
+    if v["dist"][full] is None and arm!="H":
         assert status=="FIRST_PASS_SINGLETON" and q==0 and a["count"]==1 and a["points"]==v["points"][:1]
         return
     if arm in "RFT" and v["dist"][full]<2:
@@ -101,6 +101,10 @@ def validate(label,truth,v,a):
         mc=0 if arm=="F" else 1
         d=a["diag"]
         assert (d["mc"],d["min_active"],d["active_count"],a["count"],d["exact_full"])==(mc,1,1,1-mc,False)
+    elif arm=="H" and id=="helper_singleton":
+        point=v["points"][0]
+        misses=sum(point[j]!=v["y"][j] for j in range(len(point)) if q>>j&1)
+        assert a["points"]==([point] if misses<=radius else [])
     elif arm=="H":
         expected={"divisibility":[[4,4]],"excluded":[],"generic_infinite":[],
                   "constant_slope":[[-4,7]],"finite_line_duplicate":[[4,4]]}
