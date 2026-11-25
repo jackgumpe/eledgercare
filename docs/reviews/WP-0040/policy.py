@@ -94,14 +94,14 @@ def evaluate(r):
         else:
             points.add(tuple(line["h"]))
             line = None
-    if line is None and len(points) <= 1:
-        if points:
-            result.update(status="FIRST_PASS_SINGLETON", q=0, points=[list(points.pop())], count=1)
-        else:
-            result["status"] = "ADMITTED_EMPTY"
+    arm = r["arm"]
+    if line is None and not points:
+        result["status"] = "ADMITTED_EMPTY"
+        return result
+    if line is None and len(points) == 1 and arm != "H":
+        result.update(status="FIRST_PASS_SINGLETON", q=0, points=[list(points.pop())], count=1)
         return result
 
-    arm = r["arm"]
     if arm == "B":
         result.update(status="FIRST_PASS_AMBIGUOUS", q=0, d=r["dist"][0])
         return result
