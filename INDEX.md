@@ -1454,3 +1454,13 @@ WP-0036 closed after independent CPU review. All 1,526 common keyed comparisons 
 | [004](https://github.com/jackgumpe/eledgercare/blob/04b03ec5827d770eaff02adbbeb7cf6e7bd03ca9/docs/agent-reports/eld-pgda-neon/WP-0036/004_2026-11-24_design_eld-pgda-neon.md) | `04b03ec5827d770eaff02adbbeb7cf6e7bd03ca9` |
 
 The [public download receipt](docs/coordination/WP-0036/publication-receipt.json) records byte equality for all 67 changed files at the coordinator report commit.
+
+## WP-0038 synthetic arithmetic ambiguity comparison
+
+Released by the local coordinator at 40fc3f97f6558123fe9b537583a79c27bb315266 under Jack's request for a decision. [Assignment and frozen criteria](docs/coordination/WP-0038/assignment.md)
+
+| Slot | Owner | Branch / worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0038-d53 / w038-author | docs/agent-reports/eld-owner-probe/WP-0038/001_2026-11-25_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0038-d53 / w038-review | docs/agent-reports/eld-rd-reviewer/WP-0038/002_2026-11-25_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0038/003_2026-11-25_verification_eld-coordinator.md |
