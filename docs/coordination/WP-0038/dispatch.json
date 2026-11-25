@@ -1,0 +1,30 @@
+{
+  "coordinator": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "reservation": "0e31fd950c48a6548d19595b2cec326ce79021fe",
+  "input_observations_sha256": "867cbfc7ca3a8945cd10c9987be578a48b8fe885bf9301d2ad1358e493ace40d",
+  "scorer_fixture_source_precommit_sha256": "23436968adea018b57904df20872ed6497e5048773047f60c78952cf7013d2c3",
+  "separation": "The two processes receive shuffled observations via solve(observed); the coordinator keeps the fixture join, cell changes and expected answers outside the solver worktrees before both evidence freezes. The brief describes the design publicly.",
+  "interruption": "Initial sessions both recorded turn_aborted before any source commit or lease. Workspace, scratch and live processes checked at 07:25 UTC. Both existing role threads resumed by name under the same root, no duplicate role dispatch.",
+  "roles": {
+    "author": {
+      "id": "eld-owner-probe",
+      "thread": "01a2117e-a21e-7811-8289-093475101f1e",
+      "model_request": "gpt-6.2-astra",
+      "effort_request": "xhigh",
+      "configuration_evidence": "Initial turn_context model and effort; no independent service attestation.",
+      "branch": "research/wp-0038-d53",
+      "worktree": "w038-author",
+      "releases": []
+    },
+    "review": {
+      "id": "eld-rd-reviewer",
+      "thread": "01a2117e-d229-7ec2-8f8c-3164fc96cd12",
+      "model_request": "gpt-6.2-astra",
+      "effort_request": "xhigh",
+      "configuration_evidence": "Initial turn_context model and effort; no independent service attestation.",
+      "branch": "review/wp-0038-d53",
+      "worktree": "w038-review",
+      "releases": []
+    }
+  }
+}
