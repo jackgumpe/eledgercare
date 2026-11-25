@@ -33,11 +33,13 @@
           "source": "15bc8cb7f1710b03f2f34de5b9a3b1d8b85a70f8",
           "command": "python -I -B '../../eledgercare/docs/coordination/WP-0039/operate.py' --candidate 15bc8cb7f1710b03f2f34de5b9a3b1d8b85a70f8 --planner docs/research/WP-0039/planner.py --observations C:/Users/jackg/eLedgerCare-Speed/WP-0039/author/inputs.jsonl --input-sha d2f64e31f668cad2aa11a75dab0697b45f61ea2f9d9226dd1c14295b9f16f611 --out C:/Users/jackg/eLedgerCare-Speed/WP-0039/author/run-01",
           "utc": "2026-11-25T15:12:06.383760+00:00",
-          "status": "active",
+          "status": "returned",
           "input_custody": "d2f64e31f668cad2aa11a75dab0697b45f61ea2f9d9226dd1c14295b9f16f611",
           "source_blobs": {
             "docs/research/WP-0039/planner.py": "159702fe7627402837a6bac1d63f859cf03cee1d"
-          }
+          },
+          "returned_utc": "2026-11-25T15:13:08.540594+00:00",
+          "return_record": "run-01 exit 0; 310 calls, zero exceptions; ended 15:12:35.890316Z. Compressed output 3b24c26bca5f6aaea630cf7aae7e455fc46e45584391169e035fa7d458730085."
         }
       ],
       "initial_source_freeze": "15bc8cb7f1710b03f2f34de5b9a3b1d8b85a70f8"
@@ -49,7 +51,18 @@
       "worktree": "w039-review",
       "model_request": "gpt-6.2-astra",
       "effort_request": "xhigh",
-      "releases": [],
+      "releases": [
+        {
+          "source": "2989d1ad2295089ea325fa0e1d1c392fad2249d3",
+          "command": "python -I -B '../../eledgercare/docs/coordination/WP-0039/operate.py' --candidate 2989d1ad2295089ea325fa0e1d1c392fad2249d3 --planner docs/reviews/WP-0039/planner.py --observations C:/Users/jackg/eLedgerCare-Speed/WP-0039/review/inputs.jsonl --input-sha d2f64e31f668cad2aa11a75dab0697b45f61ea2f9d9226dd1c14295b9f16f611 --out C:/Users/jackg/eLedgerCare-Speed/WP-0039/review/run-01",
+          "utc": "2026-11-25T15:13:08.786626+00:00",
+          "status": "active",
+          "input_custody": "d2f64e31f668cad2aa11a75dab0697b45f61ea2f9d9226dd1c14295b9f16f611",
+          "source_blobs": {
+            "docs/reviews/WP-0039/planner.py": "6dba1cde6cb584853fe4745b961860e0d2e3cacd"
+          }
+        }
+      ],
       "initial_source_freeze": "2989d1ad2295089ea325fa0e1d1c392fad2249d3"
     }
   }
