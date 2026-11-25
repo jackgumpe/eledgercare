@@ -1494,3 +1494,14 @@ Closed after independent acceptance. Across 288 synthetic grid observations, 76 
 | [003](https://github.com/jackgumpe/eledgercare/blob/cf3b047e9303a471a4a042488c2823c2284cb1b7/docs/agent-reports/eld-coordinator/WP-0039/003_2026-11-25_verification_eld-coordinator.md) | `cf3b047e9303a471a4a042488c2823c2284cb1b7` |
 
 The [public download receipt](docs/coordination/WP-0039/publication-receipt.json) records byte equality for all 25 changed files at the coordinator report commit.
+
+## WP-0040 selective reread custody intake and CPU decision controls
+
+Released by eld-coordinator at b527d946d4530475a90536124ec69ec98a987a09. Physical execution awaits a separate local decision. [Assignment and control contract](docs/coordination/WP-0040/assignment.md)
+
+| Slot | Owner | Branch / worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-twin-custodian | research/wp-0040-custody / w040-custody | docs/agent-reports/eld-twin-custodian/WP-0040/001_2026-11-25_research_eld-twin-custodian.md |
+| 002 | eld-owner-probe | research/wp-0040-reread / w040-author | docs/agent-reports/eld-owner-probe/WP-0040/002_2026-11-25_research_eld-owner-probe.md |
+| 003 | eld-rd-reviewer | review/wp-0040-reread / w040-review | docs/agent-reports/eld-rd-reviewer/WP-0040/003_2026-11-25_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0040/004_2026-11-25_verification_eld-coordinator.md |
