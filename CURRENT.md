@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0038 synthetic arithmetic ambiguity comparison
+## WP-0038 synthetic arithmetic ambiguity comparison closed
 
-Released by the local coordinator at 40fc3f97f6558123fe9b537583a79c27bb315266 under Jack's request for a decision. [Assignment and frozen criteria](docs/coordination/WP-0038/assignment.md)
+Closed after independent review. The exact signed results matched on 288 generated cases and 11 named assertions (20 domain-specific calls). The grid contained 76 unique, 205 finitely ambiguous and seven infinite-family outcomes. Both conflicting trusted openings skipped solving and yielded zero candidates. This verifies bounded synthetic arithmetic only. WP-0037 retains its GPU roadmap designation. [Author /001](docs/agent-reports/eld-owner-probe/WP-0038/001_2026-11-25_research_eld-owner-probe.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0038/002_2026-11-25_review_eld-rd-reviewer.md) · [Disposition /003](docs/agent-reports/eld-coordinator/WP-0038/003_2026-11-25_verification_eld-coordinator.md) · [Grid and named evidence](docs/coordination/WP-0038/results/)
 
 ## WP-0036 PGDA v3 bounded CPU verification closed
 
