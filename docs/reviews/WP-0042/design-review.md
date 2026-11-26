@@ -18,3 +18,13 @@ The following issues went to the coordinator for a single exchange with the auth
 
 Existing test programs exercise CPU-only synthetic representations. The exact source and runtime environment, independently implemented scorer and stock observer, artifact schema including per-field missingness, numerical budgets and sole device ownership must still be frozen before any stock observation. A future private candidate must additionally satisfy stock acceptance, namespace and writable-set coverage, restore, event-order and distinct source/branch custody. Neither the six control results nor this design review provides a device release.
 
+
+## Final reconciliation and disposition
+
+The corrected source is cd563dd06932a2cdecad4932b39d030efbe06699, whose parent e42ee5ac623b2bc9aedcbd4951ae19221c4ec541 retains the original CPU evidence and initial design parent a1b3978309dde6cc4e4b3477f07a1d528260029a. I compared both candidate trees and inspected each changed paragraph in all three final blobs. The exact change is six lines removed and six added across the three Markdown documents. The programs, native source pins and control evidence are unchanged.
+
+* The corrected scorer expressly treats r and zN maxima as diagnostics and requires y=first argmax(z), y∈A. In the example r=(9,4), z=(−∞,4), native 1 satisfies both predicates while the raw diagnostic stays 0.
+* The final-state check now compares the paused-and-resumed source's observed post-finally projections to matched instrumented stock at the same phase. Its untouched comparator exposes deterministic returns only. I inspected the reset assignments in actual native source. Retaining _infer_params after disable meets that contract.
+* The 40 pair comparisons now cover both candidate D states and the separate 10 selection records verify a's entire committed D and b's fenced teardown, explicitly excluding a b bridge. A missing b remains missing, and an actual b continuation conflicts with the one-commit rule.
+
+I accept the corrected design as a qualification design and the byte-exact local policy proposal as an insertion in the eLedgerCare agreement. The independent mathematical judgment covers the conditional proofs and toy checks only. Measured native field status is U. Next candidate is a stock-only observer and an independent scorer under a separate exact implementation and resource decision. Source protection, actual linked private identity and continued document parity require a subsequent independent stage. All three raised points were resolved by one exchange. No escalation remains.
