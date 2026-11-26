@@ -1550,3 +1550,11 @@ Released from f5e68668a5999a12ba399eb0f5103ffa835e4b30. [Assignment and gates](d
 | 003 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0042/003_2026-11-26_verification_eld-coordinator.md |
 
 Closed after independent review. Both local routes passed the six constructed controls. The corrected stock observer and private P1/P2 qualification design is accepted. F07.warm1 retains five known predictions, zero complete native entries and an unmeasured parity verdict. The exact local research-handoff policy was adopted. Any stock observation requires a separately bound candidate and resource decision. WP-0037 remains parked. [Author /001](docs/agent-reports/eld-owner-probe/WP-0042/001_2026-11-26_research_eld-owner-probe.md) · [Independent review /002](docs/agent-reports/eld-rd-reviewer/WP-0042/002_2026-11-26_review_eld-rd-reviewer.md) · [Disposition /003](docs/agent-reports/eld-coordinator/WP-0042/003_2026-11-26_verification_eld-coordinator.md) · [Source cutpoints](docs/research/WP-0042/source-cuts.md) · [Scoring contract](docs/research/WP-0042/scoring.md) · [Gate record](docs/coordination/WP-0042/disposition.json)
+
+| Report | Verified original publication |
+| --- | --- |
+| [001](https://github.com/jackgumpe/eledgercare/blob/997ecf5b3041eeb3f90b1902332d7ccbb08b4472/docs/agent-reports/eld-owner-probe/WP-0042/001_2026-11-26_research_eld-owner-probe.md) | `997ecf5b3041eeb3f90b1902332d7ccbb08b4472` |
+| [002](https://github.com/jackgumpe/eledgercare/blob/29dde86cbc221dd210b690d3489ad8bbf25d8d15/docs/agent-reports/eld-rd-reviewer/WP-0042/002_2026-11-26_review_eld-rd-reviewer.md) | `29dde86cbc221dd210b690d3489ad8bbf25d8d15` |
+| [003](https://github.com/jackgumpe/eledgercare/blob/0f11d9f78220701555df81d55d5e30c54c25f0d7/docs/agent-reports/eld-coordinator/WP-0042/003_2026-11-26_verification_eld-coordinator.md) | `0f11d9f78220701555df81d55d5e30c54c25f0d7` |
+
+The [public download receipt](docs/coordination/WP-0042/publication-receipt.json) records byte equality for all 34 changed files at the coordinator report commit.
