@@ -1,0 +1,52 @@
+{
+  "packet": "WP-0041",
+  "stable_id": "eld-twin-custodian",
+  "session_id": "01a21654-c9bd-7fb1-bc66-92e96459070c",
+  "role_worktree": "w041-custody",
+  "reservation": "5f73e671ccd2fc12eb0f2d85b2effae713dc867c",
+  "frozen_verifier": "091a8e0557c264629612422dd59a6767771ef4c7",
+  "scope": "One public, synthetic development field. All historical observations refer to the WP-0005 author capture. No fresh model or device calls.",
+  "attempts": [
+    {
+      "source": "f1823bf12411d31cf89403548d3e18ba73a3ab4e",
+      "check": "git diff --cached --check",
+      "exit_code": 1,
+      "output": "docs/custody/WP-0041/verify.py:234: new blank line at EOF.",
+      "disposition": "Removed before executing verifier."
+    },
+    {
+      "source": "e7a52c391beb6fd169dfed0b154c1ebe1ea9cb73",
+      "command": "python -I -B docs/custody/WP-0041/verify.py",
+      "exit_code": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w041-custody\\docs\\custody\\WP-0041\\verify.py\", line 233, in <module>\n    main()\n  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w041-custody\\docs\\custody\\WP-0041\\verify.py\", line 217, in main\n    verify(index[filename]['full_sha256'] == sources[RUN+filename]['sha256'], 'historical output receipt')\n           ~~~~~^^^^^^^^^^\nTypeError: 'int' object is not subscriptable\n",
+      "disposition": "The loop reused the receipt map's name. Retained the failure. Renamed the map, froze the new source and ran every check again on the same reserved field."
+    },
+    {
+      "source": "091a8e0557c264629612422dd59a6767771ef4c7",
+      "command": "python -I -B docs/custody/WP-0041/verify.py",
+      "exit_code": 0,
+      "wall_s_shell_tool": 1.5582666,
+      "stdout_windows_crlf_sha256": "275d71976174ffc89363db2c117cd9cd5cc41fb344c05b951179e798aa4a509f",
+      "field_json_lf_sha256": "11aa760ae7f87abf21fe89c2dfc6e5dbc42f9f11bb65f6287588bc0d1ecf194a",
+      "output": "field.json",
+      "metadata_blobs_hashed": 32
+    }
+  ],
+  "denominators": {
+    "structural_development_fields_reserved": 1,
+    "development_fields_with_cell_geometry_and_native_boundaries": 1,
+    "verified_arithmetic_selections_on_this_field": 0,
+    "fields_with_complete_native_step_state": 0,
+    "fields_with_both_parity_arms": 0,
+    "new_stock_calls": 0,
+    "P1_calls": 0,
+    "P2_calls": 0,
+    "L2_calls": 0,
+    "leased_devices": 0
+  },
+  "first_missing_replay_observation": "Native layer-10-exit h0 on source input token 618 at absolute model position 1445, and its complete before-consuming-token state. Also missing the other four positions and required native outputs/post-state.",
+  "snapshot_inventory": "No dtype/shape/bytes of h0, h1 (layer 11 output), final-normalized hidden for this field, private K/V and DASH state, chosen router indices, rotary/page counters, processor mutable state, raw logits, processed score/mask/tie data, post-state or original document-branch equality. Counts and deterministic ID/text comparisons are archived.",
+  "arithmetic_trigger": "No documented arithmetic trigger for this field. The public source coordinate and amount are a structural feasibility probe. A later triggered study needs a separate target-selection record.",
+  "decision": "SOURCE_FIELD_BOUND_RUNTIME_WITHHELD",
+  "required_release": "Exact reviewed observer and private replay harness, source-identical runtime and image/prefix, proved sole asset ownership, coordinator-issued stock/P1/P2 command and lease. Stock observation alone cannot establish P1/P2 parity."
+}
