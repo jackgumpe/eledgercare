@@ -1,0 +1,19 @@
+# F07.warm1 observer and private replay qualification design
+
+Can two independent copies at the input to block 11 reproduce the native price decision and advance state once? Edition 3 (pp. 1–11) governs. Gemini's Draft 2 review (pp. 12–21) is attributed prior criticism. Five token IDs on one correct development field and zero complete entry snapshots are the starting evidence. The retained Edition 3 manifest pins all 14 payloads and compares all seven historical records directly to Git. The research base in jackgumpe/eledgercare is f5e68668a5999a12ba399eb0f5103ffa835e4b30, the native reader is 0480966938291445591f69f08a13b041c073a96a. Python 3 standard library only for the six CPU controls. Check actual installed interpreter and bytes. No network for controls, no model load or import, no device lease. One decisive CPU lane. Preserve the original script and expected stdout. Record command, Python/version, native transport, raw lengths/hashes and comparison with an explicitly declared LF representation.
+
+## Deliverables and stop
+
+The author inspects exact stock source and records addressable cutpoints, predicates and phase order. Bind field projections and restore/commit rules for active caches, routing, MoE, RoPE, guards and canonical bytes. Specify alias equivalence and disjoint private writes, source protection, stream ordering, untouched stock comparator, source resumption through terminal, anchored P1/P2a/P2b, linked P1 and P2 and single-commit continuation. Freeze a finite obligation set with missingness and validity, realistic first failure diagnostics, a device-admission checklist and a precise next step. Include A1–A5 changes, counterexamples and each control's actual coverage and blind spots. No L2, accuracy, resource or physical measurements are released. WP-0037 stays parked.
+
+The reviewer independently verifies inputs, six controls and their limitations, source-bound design and exact proposed AGENTS insertion. Preserve prior mathematics rule, boilerplate, authorship and all non-product state. The coordinator decides application after review. A separate exact stock observer candidate, stock comparator, field, command, qualified environment, private output destinations, sole resource and fail-closed ceilings would be needed before stock observation. Private replay requires further admission after stock fidelity. No device run is part of this reservation.
+
+## Ownership and isolation
+
+Root is eld-coordinator, local session 01a20a53-eec1-72c1-864c-9f8be8f4aff5. Only root edits the agreement, assignment, shared ledgers and coordination records in the primary checkout. Worker worktrees live in sibling eledgercare-worktrees. Each starts at the reservation commit on the listed branch, commits deliverables before tests, writes only its own packet area and report, and returns exact source, evidence and report SHAs. Use fresh actual Codex Astra xhigh sessions. Packet scratch is C:/Users/jackg/eLedgerCare-Speed/WP-0042/<role>. Check exact routing below. Author owns docs/research/WP-0042, reviewer owns docs/reviews/WP-0042. Publish only owned branch by ordinary push. Author gets first control execution, reviewer may inspect sources in parallel and runs its independent suite only after coordinator handoff. Research author reports to independent reviewer, reviewer reports to coordinator for disposition and receipt.
+
+| Sequence | Owner | Branch / worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0042-layer11 / w042-author | docs/agent-reports/eld-owner-probe/WP-0042/001_2026-11-26_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0042-layer11 / w042-review | docs/agent-reports/eld-rd-reviewer/WP-0042/002_2026-11-26_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0042/003_2026-11-26_verification_eld-coordinator.md |

@@ -1538,3 +1538,13 @@ Closed after independent verification. The permitted WP-0005 F07 Unit Price fiel
 | [004](https://github.com/jackgumpe/eledgercare/blob/1888300bf1df50de61e7b61a04ab5ecc0ad408b0/docs/agent-reports/eld-coordinator/WP-0041/004_2026-11-26_verification_eld-coordinator.md) | `1888300bf1df50de61e7b61a04ab5ecc0ad408b0` |
 
 The [public download receipt](docs/coordination/WP-0041/publication-receipt.json) records byte equality for all 29 changed files at the coordinator report commit.
+
+## WP-0042 F07 stock observer and private replay qualification design
+
+Released from f5e68668a5999a12ba399eb0f5103ffa835e4b30. [Assignment and gates](docs/coordination/WP-0042/assignment.md) · [Verified Edition 3 inputs](docs/coordination/WP-0042/inputs.json)
+
+| Sequence | Owner | Branch / worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-owner-probe | research/wp-0042-layer11 / w042-author | docs/agent-reports/eld-owner-probe/WP-0042/001_2026-11-26_research_eld-owner-probe.md |
+| 002 | eld-rd-reviewer | review/wp-0042-layer11 / w042-review | docs/agent-reports/eld-rd-reviewer/WP-0042/002_2026-11-26_review_eld-rd-reviewer.md |
+| 003 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0042/003_2026-11-26_verification_eld-coordinator.md |
