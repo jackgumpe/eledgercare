@@ -1,0 +1,211 @@
+{
+  "archive": {
+    "inventory_count": 72,
+    "source_head": "9e73ef86600b5e16f74b056676a6d3a4f1474058",
+    "status": "QUALIFIED_RUNTIME_OBSERVATION",
+    "raw_bytes": 7617,
+    "native_ids": 2558,
+    "raw_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+    "id_file_sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+    "id_list_sha256": "e8a89b0c086a405be010b37eb2edeff723fb89aad54b7260f13afb716f96d635",
+    "aggregate_cache": {
+      "cache_types": [
+        "DynamicCache"
+      ],
+      "dash_idx_bytes_final": 20797440,
+      "decode_steps_observed": 2558,
+      "final_seq_len": 3385,
+      "forward_returns": 2559,
+      "grows_by_one_each_decode_step": true,
+      "kv_bytes_after_prefill": 50810880,
+      "kv_bytes_final": 207974400,
+      "kv_bytes_max": 207974400,
+      "kv_bytes_per_token_derived": 61440.0,
+      "observed": true,
+      "prefill_seq_len": 827,
+      "provenance": "direct",
+      "ring_buffer_marker_seen": false,
+      "seq_len_samples_head": [
+        827,
+        828,
+        829,
+        830
+      ],
+      "seq_len_samples_tail": [
+        3382,
+        3383,
+        3384,
+        3385
+      ]
+    },
+    "kernel_path": {
+      "decode_attend_fp32_calls": 30696,
+      "decode_forward_calls": 30696,
+      "dense_sdpa_calls": 12,
+      "label": "triton_import_failed_dense_fallback",
+      "non_dash_attention_calls": 0,
+      "prefill_attend_calls": 12,
+      "provenance": "direct",
+      "triton_attempts": 12,
+      "triton_import_exception_types": [],
+      "triton_kernel_entries": null,
+      "triton_non_null_returns": 0,
+      "unobservable": "Which GPU kernels Triton/SDPA dispatch internally is not observed (unsupported without profiler hooks)."
+    },
+    "executed_kwargs": {
+      "base_size": 1024,
+      "crop_mode": false,
+      "dash_topm": 16,
+      "eval_mode": false,
+      "image_size": 640,
+      "max_crops": 16,
+      "max_length": 131072,
+      "max_new_tokens": 24000,
+      "max_page_tokens": 20000,
+      "ngram_whitelist_token_ids": null,
+      "ngram_window": 1024,
+      "no_repeat_ngram_size": 35,
+      "output_path": "",
+      "page_count_guard": true,
+      "save_results": false,
+      "temperature": 0.0,
+      "test_compress": false,
+      "tps_interval": 0
+    },
+    "prompt_len": 827,
+    "lease": "WP-0005-author-004-20261115T202152Z",
+    "lease_return": "2026-11-15T20:47:38.8753245Z"
+  },
+  "cell": {
+    "raw_ranges_open_value_close": [
+      [
+        1823,
+        1827
+      ],
+      [
+        1827,
+        1833
+      ],
+      [
+        1833,
+        1838
+      ]
+    ],
+    "minor_units": 2850,
+    "native_tokens_i_id_start_end_piece": [
+      [
+        618,
+        128821,
+        1823,
+        1827,
+        "<td>"
+      ],
+      [
+        619,
+        6,
+        1827,
+        1828,
+        "$"
+      ],
+      [
+        620,
+        1449,
+        1828,
+        1830,
+        "28"
+      ],
+      [
+        621,
+        16,
+        1830,
+        1831,
+        "."
+      ],
+      [
+        622,
+        1328,
+        1831,
+        1833,
+        "50"
+      ],
+      [
+        623,
+        128822,
+        1833,
+        1838,
+        "</td>"
+      ]
+    ],
+    "predicting_input_generated_indices": [
+      618,
+      619,
+      620,
+      621,
+      622
+    ],
+    "predicting_input_absolute_positions": [
+      1445,
+      1446,
+      1447,
+      1448,
+      1449
+    ]
+  },
+  "pdf": {
+    "pdf_sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+    "pdf_cell_left_bottom_right_top": [
+      344,
+      504.5,
+      398,
+      529.5
+    ],
+    "actual_Q0_render": {
+      "height": 3301,
+      "page": 1,
+      "rgb_bytes": 25252650,
+      "rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+      "width": 2550
+    },
+    "independent_reader": {
+      "full_native_decoded_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+      "pdfium_nearest_grid_corners": [
+        [
+          1433,
+          1094
+        ],
+        [
+          1658,
+          1198
+        ]
+      ],
+      "rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+      "rgb_size": [
+        2550,
+        3301
+      ],
+      "installed": {
+        "pypdfium2": "5.15.2",
+        "tokenizers": "0.21.4",
+        "torch": "2.13.0+cu130",
+        "transformers": "4.52.1"
+      },
+      "model_modules_loaded": false
+    }
+  },
+  "verified_local_source_blobs": {
+    "tokenizer.json": "c55c165e32c5a67830362a53e1f548c8930dcc8469efa30ff3252a982799c589",
+    "tokenizer_config.json": "ceba7d221f265cca4c98b5e0a1d48c10107270b7b29c12396610d6d0fd64b126",
+    "special_tokens_map.json": "9e89493d7938e7710c524dbaff613c3648f0a018262417af78505128004e5cb4",
+    "config.json": "607d130a70d5af5a35329aa237acd68651f45504c62cc7ced981066f4e781126",
+    "generation_config.json": "dcd0479f3a12e5e4413d956197f8a4074408e4901834b38c7e036519134e05af",
+    "model.safetensors.index.json": "dc60a31ecb77eb03e166345d18cbe25bc71d2a19cc6fc089d8a9ac1c7f209671",
+    "_sparse_base_impl.py": "86da9c5638704bb9338575040568a97b3e10820bbeb426f51c07e866f3423ccd",
+    "configuration_deepseek_v2.py": "b8470dd616ba8745fce6e27b093aef73a098863cc891b2477dcf9326a36000f7",
+    "conversation.py": "ec7b6ce89bcda643de1f43269ffa66a7b2e65dc3ed30e427958f776546b4ba03",
+    "dash_attention.py": "960b460acd816df8e561e73dccd5683acb95445eddc723c4f0d6ed1f462b2f77",
+    "deepencoder.py": "419b63388c1645b9b72c716070cdca36cd0be6047049424dc75941d3a00aaf1f",
+    "modeling_deepseekv2.py": "24a15dfd47578ab24a7a4d4e977dc5d7a23dfef0a2a4c4bf73fcf3e2ce7acaf2",
+    "modeling_unlimitedocr.py": "f6df813cef23cc28b1daca40fd8cb20740d05a238e7b9dfa2334531fdcf39f1f",
+    "packing_patch.py": "e60d842c210c9f1d6cd2ae328cf9127a75f7941a0cea2a8e9abc14662f770c6c"
+  }
+}
