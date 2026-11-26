@@ -72,7 +72,7 @@ def main():
     dest.mkdir(exist_ok=True)
     (dest/"AGENTS.md").write_bytes(agents)
     for args in [["--check"],[]]:
-        subprocess.run(["git","apply","--no-index",*args,str(patch)],cwd=dest,check=True)
+        subprocess.run(["git","-c","core.autocrlf=false","apply","--no-index",*args,str(patch)],cwd=dest,check=True)
     actual = (dest/"AGENTS.md").read_bytes()
     assert actual == expected
     source = json.loads(outer.attachments["WP0041-model-source.json"][0])
