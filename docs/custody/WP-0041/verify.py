@@ -149,9 +149,9 @@ def main():
     code = context['code_identity']
     verify(code['harness_clean'] and not code['dirty'] and code['head'] == context['release']['harness_commit'], 'running harness')
     verify(context['protocol_sha256'] == digest(blob(Q0+'protocol.json')), 'executed protocol')
-    index = {r['name']:r for r in context['evidence_index']}
-    capture_labels = sorted(name.removesuffix('.observation.json') for name in index if name.endswith('.observation.json'))
-    historical_names = sorted(index)
+    evidence_index = {r['name']:r for r in context['evidence_index']}
+    capture_labels = sorted(name.removesuffix('.observation.json') for name in evidence_index if name.endswith('.observation.json'))
+    historical_names = sorted(evidence_index)
     verify(len(capture_labels) == 6 and len(set(capture_labels)) == 6, 'historical capture count')
     model_files = {row['path']: row for row in record(RUN+'model-files.json')['files']}
     local = {}
@@ -214,7 +214,7 @@ def main():
                  'docs/custody/WP-0040/intake.json','docs/coordination/WP-0041/assignment.md']:
         blob(path)
     for filename in [LABEL+'.raw.txt', LABEL+'.token_ids.json', LABEL+'.observation.json']:
-        verify(index[filename]['full_sha256'] == sources[RUN+filename]['sha256'], 'historical output receipt')
+        verify(evidence_index[filename]['full_sha256'] == sources[RUN+filename]['sha256'], 'historical output receipt')
     output = {'base': BASE, 'selected_capture_id': LABEL,'observed_candidates_before_stop': checked,
               'fixture': FIXTURE, 'model': PIN, 'verified_local_files':local,
               'original_ids':len(ids),'raw_utf8_bytes':len(raw),'raw_sha256':digest(raw),
