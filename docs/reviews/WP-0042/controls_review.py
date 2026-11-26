@@ -91,7 +91,7 @@ def main():
     normalized = proc.stdout.replace(b"\r\n", b"\n")
     assert proc.returncode == 0 and proc.stderr == b"" and normalized == expected
     forced = subprocess.run([sys.executable, "-IB", "-c",
-        "import runpy,sys;sys.stdout.reconfigure(newline='\n');runpy.run_path(sys.argv[1],run_name='__main__')",
+        r"import runpy,sys;sys.stdout.reconfigure(newline='\n');runpy.run_path(sys.argv[1],run_name='__main__')",
         str(script)], cwd=SCRATCH, capture_output=True)
     assert forced.returncode == 0 and forced.stderr == b"" and forced.stdout == expected
     (SCRATCH / "six.explicit-lf.bin").write_bytes(forced.stdout)
