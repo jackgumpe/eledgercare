@@ -90,6 +90,11 @@ def main():
     (SCRATCH / "six.stderr.bin").write_bytes(proc.stderr)
     normalized = proc.stdout.replace(b"\r\n", b"\n")
     assert proc.returncode == 0 and proc.stderr == b"" and normalized == expected
+    forced = subprocess.run([sys.executable, "-IB", "-c",
+        "import runpy,sys;sys.stdout.reconfigure(newline='\n');runpy.run_path(sys.argv[1],run_name='__main__')",
+        str(script)], cwd=SCRATCH, capture_output=True)
+    assert forced.returncode == 0 and forced.stderr == b"" and forced.stdout == expected
+    (SCRATCH / "six.explicit-lf.bin").write_bytes(forced.stdout)
     p = list(range(200, 234))
     assert guard(p + [1328] + p, 128) == {1328}
     assert guard(p + [6] + p, 128) == {6}
@@ -144,7 +149,7 @@ def main():
         "control_argv":proc.args,"control_exit":proc.returncode,"stdout_native":[len(proc.stdout),sha(proc.stdout)],
         "stdout_crlf":proc.stdout.count(b"\r\n"),"stdout_lf":[len(normalized),sha(normalized)],
         "stderr":[len(proc.stderr),sha(proc.stderr)], "expected":[len(expected),sha(expected)],
-        "raw_equal":proc.stdout==expected,"normalized_equal":True,"oracle":{"window_128_vs_1024":[[],[1328]],
+        "explicit_lf_argv":forced.args, "explicit_lf_direct":[len(forced.stdout),sha(forced.stdout)], "raw_equal":proc.stdout==expected,"normalized_equal":True,"oracle":{"window_128_vs_1024":[[],[1328]],
         "memory":memory,"block_indices":[clean[-1],second[-1]],"traces":observed,
         "validity_independent_of_equality":True,"first_max_tie_index":1,"verdicts":tally}}
     print(json.dumps(output, indent=2))
