@@ -1529,3 +1529,12 @@ Source/custody and mathematical review released from a0bf6122d082675d483ffd9aeb7
 | 004 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0041/004_2026-11-26_verification_eld-coordinator.md |
 
 Closed after independent verification. The permitted WP-0005 F07 Unit Price field binds to five native prediction positions through its closing delimiter. Zero positions have the full native pre-token state and score evidence required for P1/P2. Replay is unmeasured. The page-6 mathematical handoff rule was adopted in the eLedgerCare agreement. WP-0037 remains parked. [Custody /001](docs/agent-reports/eld-twin-custodian/WP-0041/001_2026-11-26_research_eld-twin-custodian.md) · [Source and mathematics /002](docs/agent-reports/eld-owner-probe/WP-0041/002_2026-11-26_research_eld-owner-probe.md) · [Independent review /003](docs/agent-reports/eld-rd-reviewer/WP-0041/003_2026-11-26_review_eld-rd-reviewer.md) · [Disposition /004](docs/agent-reports/eld-coordinator/WP-0041/004_2026-11-26_verification_eld-coordinator.md) · [Field and replay gate](docs/coordination/WP-0041/replay-gate.json)
+
+| Report | Verified original publication |
+| --- | --- |
+| [001](https://github.com/jackgumpe/eledgercare/blob/76c2bc6963ba52dedcfc357b0489cd0eec93939c/docs/agent-reports/eld-twin-custodian/WP-0041/001_2026-11-26_research_eld-twin-custodian.md) | `76c2bc6963ba52dedcfc357b0489cd0eec93939c` |
+| [002](https://github.com/jackgumpe/eledgercare/blob/02852b225250b3efd852f87826fa0a3cf58ced6f/docs/agent-reports/eld-owner-probe/WP-0041/002_2026-11-26_research_eld-owner-probe.md) | `02852b225250b3efd852f87826fa0a3cf58ced6f` |
+| [003](https://github.com/jackgumpe/eledgercare/blob/9c7e1a30508f490f29a70110debaa66850c04db3/docs/agent-reports/eld-rd-reviewer/WP-0041/003_2026-11-26_review_eld-rd-reviewer.md) | `9c7e1a30508f490f29a70110debaa66850c04db3` |
+| [004](https://github.com/jackgumpe/eledgercare/blob/1888300bf1df50de61e7b61a04ab5ecc0ad408b0/docs/agent-reports/eld-coordinator/WP-0041/004_2026-11-26_verification_eld-coordinator.md) | `1888300bf1df50de61e7b61a04ab5ecc0ad408b0` |
+
+The [public download receipt](docs/coordination/WP-0041/publication-receipt.json) records byte equality for all 29 changed files at the coordinator report commit.
