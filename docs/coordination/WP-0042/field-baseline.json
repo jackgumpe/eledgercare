@@ -1,0 +1,135 @@
+{
+  "base": "f5e68668a5999a12ba399eb0f5103ffa835e4b30",
+  "source_reader": "0480966938291445591f69f08a13b041c073a96a",
+  "historical_objects": {
+    "qualification/q0/harness/evidence/004-gpu-trial/9e73ef86/run-20261115T202627Z-eb5bf7da/evidence/F07.warm1.observation.json": {
+      "bytes": 8834,
+      "sha256": "0550505135cd181dd0e326c3aa4752fab24a63654af6981636339e449d65219e",
+      "blob": "053ae6b5ebd452cbd5093c8c046a6311543a37b7"
+    },
+    "qualification/q0/harness/evidence/004-gpu-trial/9e73ef86/run-20261115T202627Z-eb5bf7da/evidence/F07.warm1.raw.txt": {
+      "bytes": 7617,
+      "sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+      "blob": "ae7b3ce30ae23b97b51493b6db2810e7e271226a"
+    },
+    "qualification/q0/harness/evidence/004-gpu-trial/9e73ef86/run-20261115T202627Z-eb5bf7da/evidence/F07.warm1.token_ids.json": {
+      "bytes": 20504,
+      "sha256": "532ffea05870c45189f473d1cb16ded1d26c583f07737e1462ac325ecdae5982",
+      "blob": "57d73eeafadca12758119c43eac6735a8ccf08af"
+    }
+  },
+  "field": {
+    "family": "F07",
+    "run": "20261115T202627Z-eb5bf7da",
+    "observation": "F07.warm1",
+    "page": 1,
+    "table": 2,
+    "row": 2,
+    "column": 5,
+    "index_convention": "one-based, including header row",
+    "label": "L01 / Unit Price",
+    "literal": "$28.50",
+    "signed_minor_units": 2850,
+    "byte_indices": "UTF-8 half-open in original decoded stream",
+    "open_bytes": [
+      1823,
+      1827
+    ],
+    "amount_bytes": [
+      1827,
+      1833
+    ],
+    "close_bytes": [
+      1833,
+      1838
+    ],
+    "source_cell_pdf_points_bottom_left": [
+      344,
+      504.5,
+      398,
+      529.5
+    ],
+    "text_origin_pdf_points": [
+      371.44,
+      519
+    ],
+    "prompt_length": 827,
+    "generated_length": 2558,
+    "decoded_bytes": 7617,
+    "comparison_positions": [
+      {
+        "consume": 618,
+        "absolute_input_position": 1445,
+        "predict": 619,
+        "id": 6,
+        "piece": "$"
+      },
+      {
+        "consume": 619,
+        "absolute_input_position": 1446,
+        "predict": 620,
+        "id": 1449,
+        "piece": "28"
+      },
+      {
+        "consume": 620,
+        "absolute_input_position": 1447,
+        "predict": 621,
+        "id": 16,
+        "piece": "."
+      },
+      {
+        "consume": 621,
+        "absolute_input_position": 1448,
+        "predict": 622,
+        "id": 1328,
+        "piece": "50"
+      },
+      {
+        "consume": 622,
+        "absolute_input_position": 1449,
+        "predict": 623,
+        "id": 128822,
+        "piece": "</td>"
+      }
+    ],
+    "opening_id": 128821,
+    "indexing": "Zero-based native generated indices; absolute input position equals prompt length plus consumed index."
+  },
+  "stored_native_document": {
+    "finish_reason": "stop",
+    "expected_pages": 3,
+    "num_pages_out": 3,
+    "output_tokens": 2558,
+    "prompt_len": 827,
+    "text_sha256": "893bf5783fb25ba58cbff1a021d177bb6c7c30e55ac530fc9eaefa37fe4a517e",
+    "token_ids_sha256": "e8a89b0c086a405be010b37eb2edeff723fb89aad54b7260f13afb716f96d635"
+  },
+  "artifact_note": "The SHA-256 of the stored JSON file is distinct from the native ordered-ID stream digest. EOS is tested before append in the stock decoder. The raw text includes the later equal Net Line amount.",
+  "historical_generation": {
+    "no_repeat_ngram_size": 35,
+    "ngram_window": 1024,
+    "ngram_whitelist_token_ids": null,
+    "max_length": 131072
+  },
+  "archived_native_evidence_counts": {
+    "wp0040_admitted_physical_families": 0,
+    "development_fields_with_verified_context_and_geometry": 1,
+    "fields_with_complete_native_state_trace": 0,
+    "requested_comparison_positions": 5,
+    "native_positions_with_full_byte_evidence": 0,
+    "P1_positions_measured": 0,
+    "P2_positions_measured": 0,
+    "archive_parity_result": null,
+    "original_document_branch_nonmutation_verified_by_live_comparison": null,
+    "L2_runs": 0,
+    "new_model_loads": 0,
+    "new_stock_runs": 0,
+    "new_device_leases": 0,
+    "crop_runs": 0,
+    "paired_accuracy_trial_N": 0,
+    "paired_delta": null,
+    "latency_effect": null
+  },
+  "unobserved": "Per-position full layer-11 entry, dispatch/route, guard support and before/after canonical bytes are prerequisites for native parity. Document output and aggregate path counts cannot supply them."
+}
