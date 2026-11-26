@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0041 Layer 11 one-field feasibility and handoff rule review
+
+Source/custody and mathematical review released from a0bf6122d082675d483ffd9aeb7f4dbedbfb174c. Native/P1/P2 require a separate resource and field gate. [Assignment](docs/coordination/WP-0041/assignment.md)
+
 ## WP-0040 selective reread intake and CPU controls closed
 
 Closed after independent review. Custody found 0 eligible physical families, 0 authentic pilot cell-box sets and no authorized pilot reader. Physical execution is withheld. H1 and H2 are unmeasured. Both methods matched on 1,623 scheduled CPU evaluations and the corrected explicit singleton helper passed six regressions. WP-0037 remains parked. [Custody /001](docs/agent-reports/eld-twin-custodian/WP-0040/001_2026-11-25_research_eld-twin-custodian.md) · [Author /002](docs/agent-reports/eld-owner-probe/WP-0040/002_2026-11-25_research_eld-owner-probe.md) · [Independent review /003](docs/agent-reports/eld-rd-reviewer/WP-0040/003_2026-11-25_review_eld-rd-reviewer.md) · [Disposition /004](docs/agent-reports/eld-coordinator/WP-0040/004_2026-11-25_verification_eld-coordinator.md) · [Constructed controls](docs/coordination/WP-0040/results/) · [Physical denominators](docs/coordination/WP-0040/physical.json) · [Publication receipt](docs/coordination/WP-0040/publication-receipt.json)

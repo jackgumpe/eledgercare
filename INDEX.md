@@ -1516,3 +1516,14 @@ Closed after independent review. Custody found 0 eligible physical families, 0 a
 | [004](https://github.com/jackgumpe/eledgercare/blob/2a447db8eb00e5ba7bb19955d98b27480a3c74d7/docs/agent-reports/eld-coordinator/WP-0040/004_2026-11-25_verification_eld-coordinator.md) | `2a447db8eb00e5ba7bb19955d98b27480a3c74d7` |
 
 The [public download receipt](docs/coordination/WP-0040/publication-receipt.json) records byte equality for all 35 changed files at the coordinator report commit.
+
+## WP-0041 Layer 11 one-field feasibility and handoff rule review
+
+Source/custody and mathematical review released from a0bf6122d082675d483ffd9aeb7f4dbedbfb174c. Native/P1/P2 require a separate resource and field gate. [Assignment](docs/coordination/WP-0041/assignment.md)
+
+| Slot | Owner | Branch / worktree | Reserved report |
+| --- | --- | --- | --- |
+| 001 | eld-twin-custodian | research/wp-0041-custody / w041-custody | docs/agent-reports/eld-twin-custodian/WP-0041/001_2026-11-26_research_eld-twin-custodian.md |
+| 002 | eld-owner-probe | research/wp-0041-layer11 / w041-author | docs/agent-reports/eld-owner-probe/WP-0041/002_2026-11-26_research_eld-owner-probe.md |
+| 003 | eld-rd-reviewer | review/wp-0041-layer11 / w041-review | docs/agent-reports/eld-rd-reviewer/WP-0041/003_2026-11-26_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0041/004_2026-11-26_verification_eld-coordinator.md |
