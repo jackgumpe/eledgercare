@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0041 Layer 11 one-field feasibility and handoff rule review
+## WP-0041 one-field source and replay feasibility closed
 
-Source/custody and mathematical review released from a0bf6122d082675d483ffd9aeb7f4dbedbfb174c. Native/P1/P2 require a separate resource and field gate. [Assignment](docs/coordination/WP-0041/assignment.md)
+Closed after independent verification. The permitted WP-0005 F07 Unit Price field binds to five native prediction positions through its closing delimiter. Zero positions have the full native pre-token state and score evidence required for P1/P2. Replay is unmeasured. The page-6 mathematical handoff rule was adopted in the eLedgerCare agreement. WP-0037 remains parked. [Custody /001](docs/agent-reports/eld-twin-custodian/WP-0041/001_2026-11-26_research_eld-twin-custodian.md) · [Source and mathematics /002](docs/agent-reports/eld-owner-probe/WP-0041/002_2026-11-26_research_eld-owner-probe.md) · [Independent review /003](docs/agent-reports/eld-rd-reviewer/WP-0041/003_2026-11-26_review_eld-rd-reviewer.md) · [Disposition /004](docs/agent-reports/eld-coordinator/WP-0041/004_2026-11-26_verification_eld-coordinator.md) · [Field and replay gate](docs/coordination/WP-0041/replay-gate.json)
 
 ## WP-0040 selective reread intake and CPU controls closed
 
