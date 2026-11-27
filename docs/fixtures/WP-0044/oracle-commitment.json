@@ -1,0 +1,42 @@
+{
+ "schema": "wp0044.oracle-commitment.v1",
+ "packet": "WP-0044",
+ "owner": "eld-fixture-claude",
+ "model": "Claude Code, claude-opus-5-5 (effort not exposed; INDEX request: high)",
+ "fixture_commit": "40eb491db2330a70fb2203f721ce921f79fa03a9",
+ "fixture_manifest": {
+  "path": "docs/fixtures/WP-0044/manifest.json",
+  "version": "wp0044.fixtures.v1",
+  "sha256": "1ebfc264433eac127434589acb8a1cd92bd357286b2a8803a7e7d3a5199b212c"
+ },
+ "sealed_location": "current-user eLedgerCare-Speed/WP-0044/eld-fixture-claude/oracle/ (outside Git)",
+ "sealed_files": {
+  "oracle.py": {
+   "sha256": "7e177e654a86a730e90ccce45891eb92234cc6c81fc43c94ef8b69d6f21dc74b",
+   "bytes": 30805,
+   "role": "independent executable oracle: own predicate, hand-written intent cross-check, live ideal-observer models, exact archive and mathematical recomputation"
+  },
+  "selftest.py": {
+   "sha256": "1758612cf5a25d5b45efb2d22e6a1ec0dc649ed0e202df710c2233864cd8623f",
+   "bytes": 3174,
+   "role": "negative controls for the oracle predicate and intent cross-check"
+  },
+  "expected.json": {
+   "sha256": "42db1f24c102a9c83f2b215bf261fac44c10dd4b1dc2f671b1c18933d421eff8",
+   "bytes": 24673,
+   "role": "frozen expectations wp0044.expected.v1 for all 33 rows; embeds the fixture manifest sha256"
+  }
+ },
+ "hiding": "Each sealed file embeds the same random 256-bit commitment nonce, so a guessed file cannot be confirmed against these digests.",
+ "rows": {"total": 33, "live": 10, "constructed": 16, "archive": 3, "mathematical": 4},
+ "reproduce_at_opening": "python -I oracle.py --fixtures docs/fixtures/WP-0044 --repo <worktree at fixture_commit or descendant> --out expected.json  (must reproduce expected.json sha256 byte for byte)",
+ "pre_commitment_checks": {
+  "python": "CPython 3.12.10, -I",
+  "build_fixtures_check": "21 files checked, 0 mismatched, 0 unexpected; committed blobs equal manifest digests, no CRLF",
+  "oracle_runs": "computed diagnosis equals hand-written intent on all 33 rows; all three executions produced byte-identical expected.json (the last after adding only interpretation comments to oracle.py)",
+  "selftest": "37 checks: 32 required rejections rejected, 5 classifications as stated",
+  "comparator_selftest": "expected vs itself 33/33; perturbed copy 31/33 (phase change and absent row fail, reordered conflict list matches)",
+  "pinned_reference_checks_zip": "check.py stdout equal to expected.txt (5 lines)"
+ },
+ "opening_condition": "Only on eld-coordinator authorization, after both implementations freeze and their blind results are committed."
+}
