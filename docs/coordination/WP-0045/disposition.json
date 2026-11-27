@@ -1,0 +1,196 @@
+{
+  "packet": "WP-0045",
+  "decision_utc": "2026-11-27T18:14:22.508073+00:00",
+  "coordinator_thread": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "base": "7f9281bd247e312bbce89af9a3021832fca965da",
+  "reservation": "1439d0c944a38d0993283b0485f59daa15b73be4",
+  "execution_release": "365f619dd273a517736a76f4f028256355003a65",
+  "provider_records": "dispatch.json",
+  "candidate_commits": {
+    "eld-owner-probe": "b641dacb75e7a92caf4964eedbf4141a64de0ef6",
+    "eld-depth-author": "6fd7c96db7071c565c742fb27263e7c1b031f81c",
+    "eld-rd-reviewer": "12c2e05ab507cb8f5c79c9d235a74b5730496cce"
+  },
+  "input_freeze": "c9a0402fe815441169eb5bfe2331be7b170526fa",
+  "oracle_commitment": "261f36893db27ee5ad8627366c3842fa140c8383",
+  "original_oracle_opened": "3d8a82ed0cdf21f000c0eb612b3c48c6f6cb0d32",
+  "evidence_commits": {
+    "direct": "2514ca6c7d31f417b0617ec230037c688c610e52",
+    "edition": "2c9637e465ed0ca6e9ce4d023aba3e5c2be548bf",
+    "review": "5f1ce93dc933a52fe8dd5d6c8668b9aa34a374e6",
+    "independent_audit": "af91d3a50c02ff5023b35ee53d1e1451c8ba7457",
+    "final_edition": "fdac9ec35403a2b1489ccb32a401996b44f58264",
+    "correction_freeze": "cd8e4796ff89da361e89aed8d96267f213bdcc96",
+    "correction_evidence": "fc46492bd115a8547b155b0e71c919ff375c7edc"
+  },
+  "reports_before_coordinator": {
+    "001": {
+      "role": "eld-fixture-claude",
+      "path": "docs/agent-reports/eld-fixture-claude/WP-0045/001_2026-11-27_research_eld-fixture-claude.md",
+      "report_commit": "803150533a0fa74e78ad556cf03f1961c4af75dc"
+    },
+    "002": {
+      "role": "eld-owner-probe",
+      "path": "docs/agent-reports/eld-owner-probe/WP-0045/002_2026-11-27_research_eld-owner-probe.md",
+      "report_commit": "5c0ef75bee608c8a72ad7d0aa65879f015909803"
+    },
+    "003": {
+      "role": "eld-depth-author",
+      "path": "docs/agent-reports/eld-depth-author/WP-0045/003_2026-11-27_research_eld-depth-author.md",
+      "report_commit": "76fbaee429cbda843ab8fe3bdc8798382392222f"
+    },
+    "004": {
+      "role": "eld-rd-reviewer",
+      "path": "docs/agent-reports/eld-rd-reviewer/WP-0045/004_2026-11-27_review_eld-rd-reviewer.md",
+      "report_commit": "d39088ecd9806b98f77d134cee11594e67625a83"
+    },
+    "006": {
+      "role": "eld-fixture-claude",
+      "path": "docs/agent-reports/eld-fixture-claude/WP-0045/006_2026-11-27_research_eld-fixture-claude.md",
+      "report_commit": "624919fa9176ed12e7c54b0d202c4d3e2d17a0a6"
+    }
+  },
+  "complete_row_agreement_with_sealed_oracle": {
+    "direct": {
+      "live": [
+        2,
+        2
+      ],
+      "constructed": [
+        9,
+        9
+      ],
+      "archive": [
+        1,
+        1
+      ]
+    },
+    "edition": {
+      "A1": [
+        6,
+        6
+      ],
+      "A2": [
+        5,
+        6
+      ],
+      "C1": [
+        8,
+        8
+      ]
+    },
+    "review": {
+      "live": [
+        2,
+        2
+      ],
+      "constructed": [
+        9,
+        9
+      ],
+      "archive": [
+        1,
+        1
+      ],
+      "A1": [
+        6,
+        6
+      ],
+      "A2": [
+        5,
+        6
+      ],
+      "C1": [
+        8,
+        8
+      ]
+    }
+  },
+  "returned_scheduled": {
+    "direct": [
+      12,
+      12
+    ],
+    "edition": [
+      20,
+      20
+    ],
+    "reviewer": [
+      32,
+      32
+    ]
+  },
+  "candidate_rows_identical_across_implementations": [
+    32,
+    32
+  ],
+  "direct_launch": {
+    "decision": "Accepted for the measured ordinary-user cooperative topology on pinned Windows CPython 3.12.10.",
+    "live_genuine_passed_by_route": [
+      2,
+      2
+    ],
+    "live_genuine_scheduled_by_route": [
+      2,
+      2
+    ],
+    "atoms_passed_per_genuine": 15,
+    "constructed_per_route": {
+      "mismatch": 6,
+      "missing_without_mismatch": 3
+    },
+    "archive_rows_per_route": 1,
+    "observed": "The selected supervisor made the direct call. An independent creation event joined the returned object to the running child, its birth and image. A distinct protected original from each creation reached the scorer through its own acquisition and read.",
+    "trust": "Correct OS and trusted frozen recorder, supervisor, inert worker and sidecars; only the cooperative worker holds a writable capability under their source and measured lifetime. The HMAC authenticates the run/member binding. An independent same-user adversary, unobserved aliases outside this trust model, and a compromised signing component require additional independent evidence.",
+    "runtime": "Direct runtime fields met predeclared expectations. Prior venv comparisons have intentional invocation, environment and prefix differences and incomplete historical field coverage. See windows-check.json for counts by arm and denominator.",
+    "evidence": [
+      "windows-check.json",
+      "../../research/WP-0045/witnesses.json",
+      "../../reviews/WP-0045/opening/audit.json"
+    ]
+  },
+  "edition": {
+    "version": "02.1",
+    "A1": "Accepted within the finite branch and commit model. Blind full-field agreement 6/6 per implementation.",
+    "A2": "Accept the published per-phase text, implementation and post-opening correction. The original all-rows blind gate remains unmet at 5/6 on each implementation.",
+    "A2_exception": "A2.illegal_repeat has repeat[2]=ff7fffff, page[2]=ff800000. Index 2 is outside the page mask. Both independent candidates also flagged page/2. The sealed oracle applied the cumulative mask at that cut.",
+    "A2_reconciliation": "One expected top-level field differs in r1; all 32 corrected rows equal both pre-opening result sets. All six additional frozen-before-execution, post-opening regression cases passed.",
+    "C1": "Accepted for finite supplied conditional reader laws, primitive source history, equal costs and the frozen confidence/budget rule. Blind full-field agreement 8/8 per implementation. The exact uniform/noiseless rule is retained.",
+    "historical_reference": {
+      "vectors": 24,
+      "projected_checks": 448,
+      "stdout_transport": "LF-normalized equality; raw Windows CRLF retained"
+    },
+    "author_worked_cases": [
+      23,
+      23
+    ],
+    "documents": {
+      "catalog_and_source": "All three complete local assemblies rebuilt exactly. Each carries the exact predecessor, original attachments, new shared sources and public supplement. Paper III embeds both amended companions. See edition-binding-audit.json.",
+      "original_bookmarks": [
+        11,
+        31,
+        5
+      ],
+      "original_named_destinations": [
+        49,
+        80,
+        19
+      ],
+      "complete_pages": [
+        16,
+        16,
+        10
+      ],
+      "limitations": "The first assembled editions lost predecessor bookmarks/labels. Final binding corrected this. Windows raster repeats also varied on unchanged inputs. Structural and rebuild results are separate from raster repeatability.",
+      "external_review": "Gemini reviewed Edition 02. The non-author review of 02.1 is local; there is no new cloud assessment of 02.1."
+    }
+  },
+  "historical_dispositions": {
+    "WP-0044": "Genuine joint/custody U: 0/2 positives per route. Full oracle 14/33 and 13/33. The old redirector creator remains unobserved.",
+    "WP-0043": "Historical M, 0/1 fully qualified pair, 0/5 full rows. All 15 score vectors retained."
+  },
+  "integrity": "integrity.json",
+  "followup_owner": "eld-owner-probe, proposal only",
+  "next_decision": "Document the intended stock runtime profile and the remaining direct-to-stock observation cuts before requesting a separate resource decision. Fresh unseen A2 cases would be required for a new blind claim. WP-0037 stays parked."
+}

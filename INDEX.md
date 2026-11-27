@@ -1631,3 +1631,15 @@ Admitted 2026-11-27 by the bound coordinator after Jack’s approval. Parent 7f9
 ### WP-0045 A2 oracle reconciliation
 
 The sealed oracle and the two frozen implementations differ on one phase/index pair in A2.illegal_repeat. The coordinator reserves /006 for eld-fixture-claude on owned research/wp-0045-fixtures in w045-fixtures. Same Claude Code Opus 5.5/high-requested session 21bc8c8f-24b3-4ac8-85ac-c2f89f461322. Current opened publication 3d8a82ed0cdf21f000c0eb612b3c48c6f6cb0d32; continue from the unchanged /001 report on this branch. [Reserved report](docs/agent-reports/eld-fixture-claude/WP-0045/006_2026-11-27_research_eld-fixture-claude.md). Compare the immediate supplied predecessor and own-phase mask at page ID 2. Provide an evidence reconciliation and, if indicated, an explicitly post-opening versioned correction under docs/fixtures/WP-0045/reconciliation. Preserve all original inputs, commitments, expected rows and blind counts. Independent reviewer verifies before /004. This bounded A2 analysis releases no new native run or blind denominator.
+
+### WP-0045 closed
+
+Four cooperative direct launches qualified. Full blind clause returns per implementation were A1 6/6, A2 5/6 and C1 8/8. A2 r1 matches both prior returns after opening. [Decision and remaining limits](docs/coordination/WP-0045/disposition.json) · [Research editions](docs/editions/WP-0045/README.md).
+
+| Immutable publication | Original commit |
+| --- | --- |
+| [001 eld-fixture-claude](https://github.com/jackgumpe/eledgercare/blob/803150533a0fa74e78ad556cf03f1961c4af75dc/docs/agent-reports/eld-fixture-claude/WP-0045/001_2026-11-27_research_eld-fixture-claude.md) | 803150533a0fa74e78ad556cf03f1961c4af75dc |
+| [002 eld-owner-probe](https://github.com/jackgumpe/eledgercare/blob/5c0ef75bee608c8a72ad7d0aa65879f015909803/docs/agent-reports/eld-owner-probe/WP-0045/002_2026-11-27_research_eld-owner-probe.md) | 5c0ef75bee608c8a72ad7d0aa65879f015909803 |
+| [003 eld-depth-author](https://github.com/jackgumpe/eledgercare/blob/76fbaee429cbda843ab8fe3bdc8798382392222f/docs/agent-reports/eld-depth-author/WP-0045/003_2026-11-27_research_eld-depth-author.md) | 76fbaee429cbda843ab8fe3bdc8798382392222f |
+| [004 eld-rd-reviewer](https://github.com/jackgumpe/eledgercare/blob/d39088ecd9806b98f77d134cee11594e67625a83/docs/agent-reports/eld-rd-reviewer/WP-0045/004_2026-11-27_review_eld-rd-reviewer.md) | d39088ecd9806b98f77d134cee11594e67625a83 |
+| [006 eld-fixture-claude](https://github.com/jackgumpe/eledgercare/blob/624919fa9176ed12e7c54b0d202c4d3e2d17a0a6/docs/agent-reports/eld-fixture-claude/WP-0045/006_2026-11-27_research_eld-fixture-claude.md) | 624919fa9176ed12e7c54b0d202c4d3e2d17a0a6 |

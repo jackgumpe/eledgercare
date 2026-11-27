@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0045 direct launch and Edition 02.1 active
+## WP-0045 direct launch and Edition 02.1 closed
 
-The coordinator owns the serial CPU lane. Direct-launch and edition corrections have independent gates. [Reservation and assignments](docs/coordination/WP-0045/assignment.md) and [frozen comparison contract](docs/coordination/WP-0045/wire.md).
+Both implementations matched all 12 Windows provenance records. All four new direct launches qualified within the cooperative ordinary-user topology. Edition 02.1 blind full-row agreement was A1 6/6, A2 5/6 and C1 8/8 per implementation. Both candidates found an extra required page-phase conflict. The corrected, post-opening oracle agrees on 32/32. eld-owner-probe owns proposal-only follow-up on the intended stock runtime. WP-0037 stays parked. [Disposition](docs/coordination/WP-0045/disposition.json) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0045/004_2026-11-27_review_eld-rd-reviewer.md) · [Coordinator report](docs/agent-reports/eld-coordinator/WP-0045/005_2026-11-27_verification_eld-coordinator.md) · [Edition 02.1](docs/editions/WP-0045/README.md) · [Public receipt](docs/coordination/WP-0045/publication-receipt.json)
 
 ## WP-0044 prospective Windows run provenance closed
 
