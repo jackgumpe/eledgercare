@@ -1,0 +1,25 @@
+% Edition 02.1. Load after exact Edition 02 tex/model.tex.
+% Operative equations replace all invocations of the three predecessor macros.
+% Full state, observability, support, terminal and tie definitions travel in shared.md.
+\renewcommand{\CNative}{\begin{equation}\begin{aligned}
+ \xi&=\st{Snapshot}(s),\quad (h_b,u_b)=B_{11}(x_b;\st{Fresh}_b(\xi)),\\
+ x_{\rm stock}=x_{\rm dup}&=a,\quad x_{k1}=h_{\rm stock},\quad x_{k(i+1)}=h_{ki},\\
+ (y_b,g_b)&=\st{Dec}(h_b;\st{Guard}_b(\xi)),\quad t_b=(u_b,y_b,g_b),\\
+ s^+&=\begin{cases}\st{CommitOnce}(s,t_{b^*})&V=\st P,\ c=1,\\
+ s&\text{private or unsuccessful exit.}\end{cases}
+\end{aligned}\tag{A1.1}\end{equation}}
+\renewcommand{\CDecode}{\begin{equation}\begin{aligned}
+ z_0&=\st{Head}(h),\quad z_1=M_{A_N}(z_0),\quad z_2=M_{A_P}(z_1),\\
+ [M_D(z)]_j&=\begin{cases}z_j\text{ (same native bits)}& j\in D,\\
+ -\infty_{\rm native}&j\notin D,\end{cases}\\
+ A&=A_N\cap A_P,\quad z_0\in{\mathbb R}^{|V|},\quad A\ne\varnothing,\\
+ y&=\min\{j\in A:z_{2j}=\max_{i\in A}z_{2i}\}.
+\end{aligned}\tag{A2.1}\end{equation}}
+\renewcommand{\CQuery}{\begin{equation}\begin{aligned}
+ i^*_{\rm exact}&=\min\arg\min_{i:\,|\pi_i F|>1}\sum_v|F[i,v]|^2,\\
+ m_o&=\sum_y p_y L_i(o|y,\mathcal H),\quad p^o_y=p_y L_i(o|y,\mathcal H)/m_o\ (m_o>0),\\
+ G_i&=\sum_{o:m_o>0}m_o\|p^o\|_2^2-\|p\|_2^2,\quad
+ I=\{i:\st{src}(i)\notin U,\ G_i>0\},\\
+ i^*_{\rm noisy}&=\min\arg\max_{i\in I}G_i
+ \quad[\max p<\tau,\ b>0,\ I\ne\varnothing].
+\end{aligned}\tag{C1.1}\end{equation}}

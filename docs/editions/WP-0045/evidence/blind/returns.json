@@ -1,0 +1,490 @@
+{
+  "A1.duplicate_first": {
+    "calls": [
+      [
+        "stock",
+        -7,
+        -6
+      ],
+      [
+        "duplicate",
+        -7,
+        -6
+      ]
+    ],
+    "commits": 1,
+    "decoded": [
+      [
+        "stock",
+        -6
+      ],
+      [
+        "duplicate",
+        -6
+      ]
+    ],
+    "history": [
+      [
+        "u:stock",
+        -6,
+        "g:stock"
+      ]
+    ],
+    "selected": "stock",
+    "status": "P",
+    "transition": [
+      "u:stock",
+      -6,
+      "g:stock"
+    ]
+  },
+  "A1.duplicate_second_commit": {
+    "calls": [
+      [
+        "stock",
+        12,
+        13
+      ],
+      [
+        "duplicate",
+        12,
+        13
+      ]
+    ],
+    "commits": 1,
+    "decoded": [
+      [
+        "stock",
+        13
+      ],
+      [
+        "duplicate",
+        13
+      ]
+    ],
+    "history": [
+      [
+        "u:duplicate",
+        13,
+        "g:duplicate"
+      ]
+    ],
+    "selected": "duplicate",
+    "status": "P",
+    "transition": [
+      "u:duplicate",
+      13,
+      "g:duplicate"
+    ]
+  },
+  "A1.duplicate_second_private": {
+    "calls": [
+      [
+        "stock",
+        0,
+        1
+      ],
+      [
+        "duplicate",
+        0,
+        1
+      ]
+    ],
+    "commits": 0,
+    "decoded": [
+      [
+        "stock",
+        1
+      ],
+      [
+        "duplicate",
+        1
+      ]
+    ],
+    "history": [],
+    "selected": "duplicate",
+    "status": "P",
+    "transition": [
+      "u:duplicate",
+      1,
+      "g:duplicate"
+    ]
+  },
+  "A1.invalid": {
+    "commits": 0,
+    "history": [],
+    "reason": "invalid_selection",
+    "status": "M"
+  },
+  "A1.literal": {
+    "calls": [
+      [
+        "stock",
+        5,
+        6
+      ],
+      [
+        "k1",
+        6,
+        7
+      ],
+      [
+        "k2",
+        7,
+        8
+      ],
+      [
+        "k3",
+        8,
+        9
+      ]
+    ],
+    "commits": 1,
+    "decoded": [
+      [
+        "k3",
+        9
+      ]
+    ],
+    "history": [
+      [
+        "u:k3",
+        9,
+        "g:k3"
+      ]
+    ],
+    "selected": "k3",
+    "status": "P",
+    "transition": [
+      "u:k3",
+      9,
+      "g:k3"
+    ]
+  },
+  "A1.stock": {
+    "calls": [
+      [
+        "stock",
+        41,
+        42
+      ]
+    ],
+    "commits": 1,
+    "decoded": [
+      [
+        "stock",
+        42
+      ]
+    ],
+    "history": [
+      [
+        "u:stock",
+        42,
+        "g:stock"
+      ]
+    ],
+    "selected": "stock",
+    "status": "P",
+    "transition": [
+      "u:stock",
+      42,
+      "g:stock"
+    ]
+  },
+  "A2.clean": {
+    "allowed": [
+      0,
+      2,
+      4,
+      5
+    ],
+    "conflicts": [],
+    "first": null,
+    "page": [
+      "3f800000",
+      "ff800000",
+      "3fc00000",
+      "ff800000",
+      "bf800000",
+      "00000001"
+    ],
+    "raw": [
+      "3f800000",
+      "40800000",
+      "3fc00000",
+      "40400000",
+      "bf800000",
+      "00000001"
+    ],
+    "repeat": [
+      "3f800000",
+      "ff800000",
+      "3fc00000",
+      "40400000",
+      "bf800000",
+      "00000001"
+    ],
+    "status": "P",
+    "winner": 2
+  },
+  "A2.empty": {
+    "allowed": [],
+    "conflicts": [
+      [
+        "support",
+        -1
+      ]
+    ],
+    "first": [
+      "support",
+      -1
+    ],
+    "page": [
+      "ff800000",
+      "ff800000",
+      "ff800000"
+    ],
+    "raw": [
+      "3f800000",
+      "40000000",
+      "3f000000"
+    ],
+    "repeat": [
+      "ff800000",
+      "40000000",
+      "ff800000"
+    ],
+    "status": "M",
+    "winner": null
+  },
+  "A2.illegal_repeat": {
+    "allowed": [
+      1,
+      3,
+      4
+    ],
+    "conflicts": [
+      [
+        "repeat",
+        1
+      ],
+      [
+        "repeat",
+        2
+      ],
+      [
+        "page",
+        2
+      ],
+      [
+        "page",
+        4
+      ]
+    ],
+    "first": [
+      "repeat",
+      1
+    ],
+    "page": [
+      "ff800000",
+      "40000001",
+      "ff800000",
+      "3f000000",
+      "40000000"
+    ],
+    "raw": [
+      "3f800000",
+      "40000000",
+      "40400000",
+      "3f000000",
+      "c0000000"
+    ],
+    "repeat": [
+      "3f800000",
+      "40000001",
+      "ff7fffff",
+      "3f000000",
+      "c0000000"
+    ],
+    "status": "M",
+    "winner": null
+  },
+  "A2.masked_nan": {
+    "allowed": [
+      0,
+      2
+    ],
+    "conflicts": [
+      [
+        "raw",
+        1
+      ],
+      [
+        "raw",
+        3
+      ]
+    ],
+    "first": [
+      "raw",
+      1
+    ],
+    "page": [
+      "40000000",
+      "ff800000",
+      "3f800000",
+      "ff800000"
+    ],
+    "raw": [
+      "40000000",
+      "7fc00000",
+      "3f800000",
+      "ffc00000"
+    ],
+    "repeat": [
+      "40000000",
+      "ff800000",
+      "3f800000",
+      "ffc00000"
+    ],
+    "status": "M",
+    "winner": null
+  },
+  "A2.raw_inf": {
+    "allowed": [
+      1,
+      2
+    ],
+    "conflicts": [
+      [
+        "raw",
+        1
+      ],
+      [
+        "raw",
+        3
+      ]
+    ],
+    "first": [
+      "raw",
+      1
+    ],
+    "page": [
+      "ff800000",
+      "7f800000",
+      "40000000",
+      "ff800000"
+    ],
+    "raw": [
+      "3f800000",
+      "7f800000",
+      "40000000",
+      "ff800000"
+    ],
+    "repeat": [
+      "3f800000",
+      "7f800000",
+      "40000000",
+      "ff800000"
+    ],
+    "status": "M",
+    "winner": null
+  },
+  "A2.signed_zero": {
+    "allowed": [
+      1,
+      2,
+      3
+    ],
+    "conflicts": [],
+    "first": null,
+    "page": [
+      "ff800000",
+      "80000000",
+      "bf800000",
+      "00000000",
+      "ff800000"
+    ],
+    "raw": [
+      "40000000",
+      "80000000",
+      "bf800000",
+      "00000000",
+      "c0000000"
+    ],
+    "repeat": [
+      "ff800000",
+      "80000000",
+      "bf800000",
+      "00000000",
+      "c0000000"
+    ],
+    "status": "P",
+    "winner": 1
+  },
+  "C1.budget": {
+    "action": null,
+    "gain": null,
+    "posterior": [
+      "1/4",
+      "3/4"
+    ],
+    "status": "UNRESOLVED"
+  },
+  "C1.duplicate": {
+    "action": 2,
+    "gain": "9/175",
+    "posterior": [
+      "3/5",
+      "2/5"
+    ],
+    "status": "QUERY"
+  },
+  "C1.exact": {
+    "action": 1,
+    "status": "QUERY"
+  },
+  "C1.impossible": {
+    "action": null,
+    "gain": null,
+    "posterior": null,
+    "status": "MODEL_CONFLICT"
+  },
+  "C1.informative": {
+    "action": 2,
+    "gain": "54/169",
+    "posterior": [
+      "9/13",
+      "2/13",
+      "2/13"
+    ],
+    "status": "QUERY"
+  },
+  "C1.threshold": {
+    "action": null,
+    "gain": null,
+    "posterior": [
+      "4/5",
+      "1/5"
+    ],
+    "status": "ACCEPT"
+  },
+  "C1.tie": {
+    "action": 4,
+    "gain": "1/8",
+    "posterior": [
+      "1/2",
+      "1/2"
+    ],
+    "status": "QUERY"
+  },
+  "C1.uninformative": {
+    "action": null,
+    "gain": null,
+    "posterior": [
+      "1/4",
+      "1/4",
+      "1/2"
+    ],
+    "status": "UNRESOLVED"
+  }
+}

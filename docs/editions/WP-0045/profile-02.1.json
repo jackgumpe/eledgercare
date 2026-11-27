@@ -1,0 +1,52 @@
+{
+  "edition": "02.1",
+  "base_profile_sha256": "ce4f75df3da12ba4922f02cb4dc15aebd7eb79d64519755b13eeaa5326112893",
+  "status": "author proposal for independent review",
+  "changed_clauses": [
+    "A1",
+    "A2",
+    "C1"
+  ],
+  "precedence": "In these clauses use shared.md, the three operative papers and model-02.1.tex in place of Edition 02 conflicting equations, TOKEN or RECONCILE listings and associated text.",
+  "A1": {
+    "mode": {
+      "stock": [
+        "stock"
+      ],
+      "duplicate": [
+        "stock",
+        "duplicate"
+      ],
+      "literal": [
+        "final literal branch"
+      ]
+    },
+    "readout": {
+      "stock": "stock",
+      "duplicate": "both independent branches",
+      "literal": "selected final only"
+    },
+    "transaction": "validate selector, snapshot once, fresh disjoint scratch per call, retain checked selected update/token/guard, one atomic commit on accepted committing path only",
+    "exit": "private=0, conflict=0, unresolved=0, rejected=0, failed atomic commit=0, accepted committing=1"
+  },
+  "A2": {
+    "domain": "finite native raw vector at every ID",
+    "phase_order": [
+      "raw",
+      "repeat",
+      "page"
+    ],
+    "allowed": "native repetition support intersect native page support; source and guard-state bound",
+    "phase_bits": "replace newly banned indices with native negative infinity and preserve the supplied immediate predecessor elsewhere, byte-exact",
+    "winner": "least allowed ID on a tie incl signed zero",
+    "missing": "U absent required evidence; visible conflicts dominate while missing keys are retained"
+  },
+  "C1": {
+    "exact": "uniform equal-cost expected remaining candidate count: minimize sum squared varying-field bucket counts, ties lowest field ID",
+    "noisy": "history-conditioned expected posterior squared-norm gain; positive only, equal costs, ties lowest action ID",
+    "eligibility": "primitive source unused and conditional likelihood identified",
+    "termination": "zero marginal MODEL_CONFLICT; threshold ACCEPT; exhausted budget or no informative unused actions UNRESOLVED; missing live observation retained and unresolved",
+    "used_source": "repeated deterministic read leaves posterior and acquisition budget unchanged"
+  },
+  "legacy_reference": "The complete private source bundle keeps the unmodified predecessor profile, reference, fixture bytes and expected transcript together for historical reproduction."
+}
