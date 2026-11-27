@@ -1,0 +1,416 @@
+{
+  "branch.first": {
+    "calls": [
+      [
+        "stock",
+        15,
+        16
+      ],
+      [
+        "duplicate",
+        15,
+        16
+      ]
+    ],
+    "commits": 0,
+    "decoded": [
+      [
+        "stock",
+        16
+      ],
+      [
+        "duplicate",
+        16
+      ]
+    ],
+    "history": [],
+    "selected": "stock",
+    "status": "P",
+    "transition": [
+      "u:stock",
+      16,
+      "g:stock"
+    ]
+  },
+  "branch.invalid": {
+    "commits": 0,
+    "history": [],
+    "reason": "invalid_selection",
+    "status": "M"
+  },
+  "branch.private": {
+    "calls": [
+      [
+        "stock",
+        2,
+        3
+      ],
+      [
+        "k1",
+        3,
+        4
+      ],
+      [
+        "k2",
+        4,
+        5
+      ],
+      [
+        "k3",
+        5,
+        6
+      ]
+    ],
+    "commits": 0,
+    "decoded": [
+      [
+        "k3",
+        6
+      ]
+    ],
+    "history": [],
+    "selected": "k3",
+    "status": "P",
+    "transition": [
+      "u:k3",
+      6,
+      "g:k3"
+    ]
+  },
+  "branch.second": {
+    "calls": [
+      [
+        "stock",
+        11,
+        12
+      ],
+      [
+        "duplicate",
+        11,
+        12
+      ]
+    ],
+    "commits": 1,
+    "decoded": [
+      [
+        "stock",
+        12
+      ],
+      [
+        "duplicate",
+        12
+      ]
+    ],
+    "history": [
+      [
+        "u:duplicate",
+        12,
+        "g:duplicate"
+      ]
+    ],
+    "selected": "duplicate",
+    "status": "P",
+    "transition": [
+      "u:duplicate",
+      12,
+      "g:duplicate"
+    ]
+  },
+  "branch.stock": {
+    "calls": [
+      [
+        "stock",
+        -9,
+        -8
+      ]
+    ],
+    "commits": 1,
+    "decoded": [
+      [
+        "stock",
+        -8
+      ]
+    ],
+    "history": [
+      [
+        "u:stock",
+        -8,
+        "g:stock"
+      ]
+    ],
+    "selected": "stock",
+    "status": "P",
+    "transition": [
+      "u:stock",
+      -8,
+      "g:stock"
+    ]
+  },
+  "guard.force-banned": {
+    "allowed": [],
+    "conflicts": [
+      [
+        "support",
+        -1
+      ]
+    ],
+    "first": [
+      "support",
+      -1
+    ],
+    "page": [
+      "ff800000",
+      "ff800000"
+    ],
+    "raw": [
+      "3f800000",
+      "40000000"
+    ],
+    "repeat": [
+      "ff800000",
+      "40000000"
+    ],
+    "status": "M",
+    "winner": null
+  },
+  "guard.masked-nan": {
+    "allowed": [
+      0,
+      2
+    ],
+    "conflicts": [
+      [
+        "raw",
+        1
+      ]
+    ],
+    "first": [
+      "raw",
+      1
+    ],
+    "page": [
+      "3f800000",
+      "ff800000",
+      "40000000"
+    ],
+    "raw": [
+      "3f800000",
+      "7fc00001",
+      "40000000"
+    ],
+    "repeat": [
+      "3f800000",
+      "7fc00001",
+      "40000000"
+    ],
+    "status": "M",
+    "winner": null
+  },
+  "guard.preserve-immediate": {
+    "allowed": [
+      0,
+      1
+    ],
+    "conflicts": [
+      [
+        "repeat",
+        1
+      ]
+    ],
+    "first": [
+      "repeat",
+      1
+    ],
+    "page": [
+      "3f800000",
+      "3f800000"
+    ],
+    "raw": [
+      "3f800000",
+      "40000000"
+    ],
+    "repeat": [
+      "3f800000",
+      "3f800000"
+    ],
+    "status": "M",
+    "winner": null
+  },
+  "guard.repeated-mask": {
+    "allowed": [
+      1
+    ],
+    "conflicts": [],
+    "first": null,
+    "page": [
+      "ff800000",
+      "40000000"
+    ],
+    "raw": [
+      "3f800000",
+      "40000000"
+    ],
+    "repeat": [
+      "ff800000",
+      "40000000"
+    ],
+    "status": "P",
+    "winner": 1
+  },
+  "guard.two-changes": {
+    "allowed": [
+      0,
+      2
+    ],
+    "conflicts": [
+      [
+        "raw",
+        1
+      ],
+      [
+        "repeat",
+        0
+      ],
+      [
+        "page",
+        2
+      ]
+    ],
+    "first": [
+      "raw",
+      1
+    ],
+    "page": [
+      "00000000",
+      "ff800000",
+      "80000000"
+    ],
+    "raw": [
+      "80000000",
+      "7f800000",
+      "00000000"
+    ],
+    "repeat": [
+      "00000000",
+      "ff800000",
+      "00000000"
+    ],
+    "status": "M",
+    "winner": null
+  },
+  "guard.zero-tie": {
+    "allowed": [
+      0,
+      2
+    ],
+    "conflicts": [],
+    "first": null,
+    "page": [
+      "80000000",
+      "ff800000",
+      "00000000"
+    ],
+    "raw": [
+      "80000000",
+      "3f800000",
+      "00000000"
+    ],
+    "repeat": [
+      "80000000",
+      "ff800000",
+      "00000000"
+    ],
+    "status": "P",
+    "winner": 0
+  },
+  "plan.empty": {
+    "action": null,
+    "status": "CONFLICT"
+  },
+  "plan.singleton": {
+    "action": null,
+    "status": "IDENTIFIED"
+  },
+  "plan.worst-case": {
+    "action": 0,
+    "status": "QUERY"
+  },
+  "read.duplicate": {
+    "action": null,
+    "gain": null,
+    "posterior": [
+      "9/10",
+      "1/10"
+    ],
+    "status": "UNRESOLVED"
+  },
+  "read.exhausted": {
+    "action": null,
+    "gain": null,
+    "posterior": [
+      "9/10",
+      "1/10"
+    ],
+    "status": "UNRESOLVED"
+  },
+  "read.impossible": {
+    "action": null,
+    "gain": null,
+    "posterior": null,
+    "status": "MODEL_CONFLICT"
+  },
+  "read.independent": {
+    "action": 14,
+    "gain": "9/50",
+    "posterior": [
+      "9/10",
+      "1/10"
+    ],
+    "status": "QUERY"
+  },
+  "read.no-budget": {
+    "action": null,
+    "gain": null,
+    "posterior": [
+      "1/2",
+      "1/2"
+    ],
+    "status": "UNRESOLVED"
+  },
+  "read.signal": {
+    "action": 11,
+    "gain": "8/25",
+    "posterior": [
+      "1/2",
+      "1/2"
+    ],
+    "status": "QUERY"
+  },
+  "read.threshold": {
+    "action": null,
+    "gain": null,
+    "posterior": [
+      "9/10",
+      "1/10"
+    ],
+    "status": "ACCEPT"
+  },
+  "read.tie": {
+    "action": 2,
+    "gain": "1/2",
+    "posterior": [
+      "1/2",
+      "1/2"
+    ],
+    "status": "QUERY"
+  },
+  "read.uniform-buckets": {
+    "action": null,
+    "gain": null,
+    "posterior": [
+      "1/2",
+      "1/2"
+    ],
+    "status": "UNRESOLVED"
+  }
+}
