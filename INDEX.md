@@ -1571,3 +1571,5 @@ CPU work released at e7c7c63fa8db0328881ec6aeb50cf5ecaff08f23. [Assignment](docs
 | 004 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0043/004_2026-11-27_verification_eld-coordinator.md |
 
 The [one-pair device release](docs/coordination/WP-0043/device-release.json) binds the two cold stock arms to reviewed executable ef2b44240730fd12e7cdd268d97811176ab23176 and independent qualification 0a00fa0016eb49e375633aaf0fe4af068eac805b.
+
+The initial pre-lock plan digest stopped admission at zero loads and zero calls. The separately issued corrected lease binds the original typed-plan bytes. [Admission record](docs/coordination/WP-0043/admission-01.json)

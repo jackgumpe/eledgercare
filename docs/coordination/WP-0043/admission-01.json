@@ -1,0 +1,45 @@
+{
+  "release": "e95b754bd4dedd44da6f7ab8366843907e676f7c",
+  "parent": {
+    "started": "2026-11-27T02:02:08.310662+00:00",
+    "venv_launcher_pid": 25848,
+    "argv": [
+      "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+      "-B",
+      "-u",
+      "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author\\docs\\research\\WP-0043\\stock.py",
+      "run"
+    ]
+  },
+  "return": {
+    "exit": 1,
+    "finished": "2026-11-27T02:02:08.681794+00:00"
+  },
+  "stderr_sha256": "7e020a2c28e07f929825b88fc48b84826b8b11669486f00c537129476030ab72",
+  "stderr": [
+    "Traceback (most recent call last):",
+    "  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author\\docs\\research\\WP-0043\\stock.py\", line 38, in <module>",
+    "    main()",
+    "  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author\\docs\\research\\WP-0043\\stock.py\", line 33, in main",
+    "    result=run()",
+    "           ^^^^^",
+    "  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author\\docs\\research\\WP-0043\\native.py\", line 262, in run",
+    "    release=admission()",
+    "            ^^^^^^^^^^^",
+    "  File \"C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author\\docs\\research\\WP-0043\\native.py\", line 103, in admission",
+    "    raise RuntimeError(\"coordinator plan binding absent\")",
+    "RuntimeError: coordinator plan binding absent"
+  ],
+  "first_error": "Coordinator bound a digest of the CLI JSON after parsing and reserialization. The runner canonicalizes the original typed plan. Its instruction-offset keys are integers.",
+  "first_different_byte": 280,
+  "cli_roundtrip_plan_sha256": "e10c57de22b1e56a872ffbe560256fe4ab2aff836197ca0451078d7073fd2d4e",
+  "native_typed_plan_sha256": "60318641e36666d69139aeb4f3e2691f4d15b13ed6ee2539fc1fe7aa4d894072",
+  "decoded_plan_equal": true,
+  "native_run_directory_created": false,
+  "child_arms_started": 0,
+  "loads": 0,
+  "calls": 0,
+  "device_lock_opened": false,
+  "evidence": "Source call order puts this failed digest comparison before opening the exclusive device handle, validating hardware, creating the run directory or dispatching a worker. No prior device budget consumed. The first parent-wrapper lookup also exited before invoking stock.py because it used an incorrect ledger path.",
+  "policy": "First admission ended. No automatic retry; fresh independent validation and a separate coordinator administrative correction would be required."
+}
