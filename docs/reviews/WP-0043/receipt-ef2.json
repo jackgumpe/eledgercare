@@ -1,0 +1,123 @@
+[
+  {
+    "scenario": "inside",
+    "arm": "untouched",
+    "outcome": "finished",
+    "elapsed_s": 0.156,
+    "observed_call_s": 0.0,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 0,
+    "surviving_interpreter": false,
+    "journal_entries": 6
+  },
+  {
+    "scenario": "exit_between_polls",
+    "arm": "untouched",
+    "outcome": "ValueError: completed phase exceeded deadline: F07.warm1",
+    "elapsed_s": 0.594,
+    "observed_call_s": 0.454,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 0,
+    "surviving_interpreter": false,
+    "journal_entries": 6
+  },
+  {
+    "scenario": "live",
+    "arm": "untouched",
+    "outcome": "ValueError: current phase exceeded deadline: F07.warm1",
+    "elapsed_s": 1.078,
+    "observed_call_s": null,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 178,
+    "surviving_interpreter": false,
+    "journal_entries": 5
+  },
+  {
+    "scenario": "stderr_stall",
+    "arm": "observed",
+    "outcome": "ValueError: current phase exceeded deadline: F07.warm1",
+    "elapsed_s": 0.391,
+    "observed_call_s": null,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 42,
+    "surviving_interpreter": false,
+    "journal_entries": 5
+  },
+  {
+    "scenario": "expires",
+    "arm": "observed",
+    "outcome": "RuntimeError: supervisor wall/phase/lease deadline",
+    "elapsed_s": 0.64,
+    "observed_call_s": null,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 90,
+    "surviving_interpreter": false,
+    "journal_entries": 5
+  },
+  {
+    "scenario": "end_files",
+    "arm": "untouched",
+    "outcome": "RuntimeError: final resource/lease check",
+    "elapsed_s": 0.156,
+    "observed_call_s": 0.0,
+    "partial_inventory_count": 8,
+    "stderr_bytes": 0,
+    "surviving_interpreter": false,
+    "journal_entries": 6
+  },
+  {
+    "scenario": "untouched_progress",
+    "arm": "untouched",
+    "outcome": "ValueError: unbound append progress",
+    "elapsed_s": 0.125,
+    "observed_call_s": 0.0,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 0,
+    "surviving_interpreter": false,
+    "journal_entries": 7
+  },
+  {
+    "scenario": "bad_progress",
+    "arm": "observed",
+    "outcome": "ValueError: unbound append progress",
+    "elapsed_s": 0.141,
+    "observed_call_s": 0.0,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 0,
+    "surviving_interpreter": false,
+    "journal_entries": 7
+  },
+  {
+    "scenario": "observed_progress",
+    "arm": "observed",
+    "outcome": "finished",
+    "elapsed_s": 0.156,
+    "observed_call_s": 0.0,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 0,
+    "surviving_interpreter": false,
+    "journal_entries": 8
+  },
+  {
+    "scenario": "missing_finish",
+    "arm": "untouched",
+    "outcome": "ValueError: final phase receipt missing",
+    "elapsed_s": 0.141,
+    "observed_call_s": null,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 0,
+    "surviving_interpreter": false,
+    "journal_entries": 5
+  },
+  {
+    "scenario": "truncated",
+    "arm": "observed",
+    "outcome": "ValueError: final timing receipt truncated",
+    "elapsed_s": 0.156,
+    "observed_call_s": 0.0,
+    "partial_inventory_count": 4,
+    "stderr_bytes": 0,
+    "surviving_interpreter": false,
+    "journal_entries": 7
+  }
+]
