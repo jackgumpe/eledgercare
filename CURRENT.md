@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0044 prospective Windows run provenance
+
+Admitted for ordinary-user inert CPU fixtures. eld-owner-probe owns the Windows contract, eld-fixture-claude the sealed oracle, and eld-rd-reviewer independent reproduction. Coordinator controls serial execution. [Assignment](docs/coordination/WP-0044/assignment.md) and [frozen schedule](docs/coordination/WP-0044/schedule.json).
+
 ## WP-0043 stock observer closed
 
 Two cold processes returned all eight calls. One F07 target pair matched through EOS. The independent reviewer verified all 15 score vectors at five positions. The frozen runtime identity check yielded M in the joint verdict and withheld the five full capture rows. The lease is returned. eld-owner-probe owns any subsequent proposal for dual launcher/interpreter identity, pending independent review and a new release. WP-0037 remains parked. [Disposition](docs/coordination/WP-0043/disposition.json) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0043/003_2026-11-27_review_eld-rd-reviewer.md) · [Native evidence](docs/coordination/WP-0043/native-evidence.json) · [CPU evidence](docs/coordination/WP-0043/cpu-results.json) · [Publication receipt](docs/coordination/WP-0043/publication-receipt.json)

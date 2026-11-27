@@ -1593,3 +1593,14 @@ WP-0043 is closed. All eight calls reached EOS, the matched target document agre
 | [005](https://github.com/jackgumpe/eledgercare/blob/e637ff593933ee01b1b0462114b3d2ad94fecf83/docs/agent-reports/eld-owner-probe/WP-0043/005_2026-11-27_research_eld-owner-probe.md) | `e637ff593933ee01b1b0462114b3d2ad94fecf83` |
 
 The [public download receipt](docs/coordination/WP-0043/publication-receipt.json) records byte equality for all 329 changed files at the coordinator report commit.
+
+## WP-0044 prospective Windows run provenance
+
+Admitted on 2026-11-27 by the bound coordinator. Parent 13753c13893232a58bc38e5f0ebc5a476fc746bb. The [assignment](docs/coordination/WP-0044/assignment.md), [schedule](docs/coordination/WP-0044/schedule.json) and [source pins](docs/coordination/WP-0044/source-pins.json) freeze the research release. Each worker branches from this reservation commit. Worktrees are under eledgercare-worktrees. No device lease.
+
+| Owner | Branch / worktree | Requested provider | Reserved report |
+| --- | --- | --- | --- |
+| eld-fixture-claude | research/wp-0044-fixtures / w044-fixtures | Claude Code claude-opus-5-5 / high | docs/agent-reports/eld-fixture-claude/WP-0044/001_2026-11-27_research_eld-fixture-claude.md |
+| eld-owner-probe | research/wp-0044-provenance / w044-author | fresh Codex gpt-6.2-astra / xhigh | docs/agent-reports/eld-owner-probe/WP-0044/002_2026-11-27_research_eld-owner-probe.md |
+| eld-rd-reviewer | review/wp-0044-provenance / w044-review | fresh independent Codex gpt-6.2-astra / xhigh | docs/agent-reports/eld-rd-reviewer/WP-0044/003_2026-11-27_review_eld-rd-reviewer.md |
+| eld-coordinator | coordination/bootstrap / primary | bound local Codex / xhigh | docs/agent-reports/eld-coordinator/WP-0044/004_2026-11-27_verification_eld-coordinator.md |
