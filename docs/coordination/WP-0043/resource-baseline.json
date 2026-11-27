@@ -1,0 +1,35 @@
+{
+  "source_base": "e7c7c63fa8db0328881ec6aeb50cf5ecaff08f23",
+  "historical_run": "20261115T202627Z-eb5bf7da",
+  "historical_seconds_by_call": {
+    "F01.warmup": 140.3216702,
+    "F07.warmup": 275.5882855,
+    "F01.warm1": 120.23052,
+    "F07.warm1": 273.4319594
+  },
+  "historical_four_calls_seconds": 809.5724351,
+  "historical_F07_peak_device_allocated_bytes": 7310478336,
+  "historical_F07_peak_device_reserved_bytes": 7480541184,
+  "historical_F07_sampled_peak_process_private_bytes_lower_bound": 11063623680,
+  "conditional_logical_storage": {
+    "cache_bytes": 978588160,
+    "score_bytes": 7756800,
+    "sum_bytes": 986344960,
+    "sum_MiB": 940.65185546875,
+    "formula": "c=5632 B/layer/position; B(t)=c(12t+11), D(t)=12c(t+1), five t from 1445 to 1449. 15 full FP32 score vectors with 129280 entries. Excludes staged copies, bindings, other tensors and metadata."
+  },
+  "pre_candidate_inventory": {
+    "utc": "2026-11-27T01:09:20.869612+00:00",
+    "gpu_query": "NVIDIA GeForce RTX 5070 Ti, GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d, 16303 MiB, 1456 MiB, 14542 MiB, 621.01, Default",
+    "WDDM_process_rows": 22,
+    "process_vram_unavailable": 22,
+    "free_volume_bytes": 9677287424,
+    "host": {
+      "free_virtual_bytes": 20627087360,
+      "free_host_bytes": 16929816576,
+      "visible_host_bytes": 34264649728
+    },
+    "note": "Read-only inventory. Desktop WDDM processes and N/A per-process budgets do not certify exclusive workload ownership, demonstrate allocator drift or supply a lease."
+  },
+  "status": "Intake observation only. Historical times exclude the two new loads and capture overhead. The resting device sample supplies no lease or assurance of exclusive model ownership. The comparison needs enforced budgets on both arms and an admissible observed implementation."
+}
