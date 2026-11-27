@@ -1,0 +1,46 @@
+{
+ "schema": "wp0045.oracle-commitment.v1",
+ "packet": "WP-0045",
+ "owner": "eld-fixture-claude",
+ "model": "Claude Code, claude-opus-5-5 (applied effort not exposed; INDEX request: high)",
+ "reservation_commit": "1439d0c944a38d0993283b0485f59daa15b73be4",
+ "fixture_commit": "c9a0402fe815441169eb5bfe2331be7b170526fa",
+ "fixture_manifest": {
+  "path": "docs/fixtures/WP-0045/manifest.json",
+  "version": "wp0045.fixtures.v1",
+  "sha256": "2c15a26dd1a4d6c5da68c8c5f57e54f0994f75b5926f09ae24b4b6d9e44c0cc0"
+ },
+ "sealed_location": "current-user eLedgerCare-Speed/WP-0045/eld-fixture-claude/oracle/ (outside Git, read-only)",
+ "sealed_files": {
+  "oracle.py": {
+   "sha256": "74feda7a2175b34efc907106443e76ad530263f0b1166970fbd9aa33a1f0fb8d",
+   "bytes": 22323,
+   "role": "independent executable expected-value oracle: content-dispatched Q1 projection, live ideal-observer model, pinned WP-0044 archive record, A1/A2/C1 exact evaluators, hand-written intent cross-check"
+  },
+  "selftest.py": {
+   "sha256": "7e1690a31f1e3d4120334c35e91de6df0fee288598392f658d97d638208beb4c",
+   "bytes": 9328,
+   "role": "negative controls and Edition 02 reference-vector cross-checks (A02-A06, C01-C06, Q01-Q02)"
+  },
+  "expected-manifest.json": {
+   "sha256": "4e7587eb3fd473449068c4c69416b08e1cf947b340532514f11d2e6df6b312e3",
+   "bytes": 5606,
+   "role": "wp0045.expected.v1: maps all 32 IDs to expected/<ID>.json path, sha256 and bytes; embeds the fixture manifest sha256 and the commitment nonce"
+  }
+ },
+ "expected_rows": "32 files expected/<ID>.json, each one unwrapped projected row (canonical JSON sort_keys, separators (',',':'), ensure_ascii=false, UTF-8, one LF); bound individually by digest inside the sealed expected manifest",
+ "hiding": "oracle.py, selftest.py and expected-manifest.json embed one random 256-bit nonce. Per-row digests are not published, so short guessed rows cannot be confirmed before opening.",
+ "rows": {"total": 32, "Q1": 12, "A1": 6, "A2": 6, "C1": 8},
+ "reproduce_at_opening": "python -I oracle.py --fixtures docs/fixtures/WP-0045 --repo <worktree containing 7f9281bd> --out <dir>; expected-manifest.json and all 32 rows must match byte for byte",
+ "pre_commitment_checks": {
+  "python": "CPython 3.12.10, -I",
+  "source_pins": "all six source-pins.json digests, Edition 02 profile/vectors/clause-source digests and all 18 SHA256SUMS.txt entries verified; extracted tree equals Edition02-source.zip",
+  "reference": "Edition 02 reference.py offline: exit 0, 24 vectors and 448 checks; stdout equals expected.txt after CRLF to LF (raw Windows stdout transport is CRLF)",
+  "build_fixtures_check": "33 files checked, 0 mismatched, 0 unexpected; committed blobs at fixture_commit equal manifest digests; no CR in committed fixture files",
+  "oracle_runs": "computed rows equal the hand-written intent on 32/32; three executions (pre-commit bytes, worktree at fixture_commit, clean git-archive export of fixture_commit) byte-identical",
+  "selftest": "94 checks, 0 failed",
+  "comparator_selftest": "expected vs identical copy 32/32 (exit 0); perturbed copy 29/32 with the extra ID flagged (exit 1)"
+ },
+ "not_done": "No native execution, Windows trial, process launch, device, model or network use. No candidate or peer material accessed.",
+ "opening_condition": "Only on eld-coordinator authorization, after the blind author and reviewer results are committed."
+}
