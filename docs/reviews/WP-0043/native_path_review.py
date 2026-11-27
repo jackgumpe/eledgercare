@@ -4,6 +4,7 @@ import json
 import math
 from pathlib import Path
 import sys
+import struct
 
 PHASES=("C0_raw","C1_post_rep","C2_post_page")
 CHAIN=("model_producer","page_before","page_after","B","block_exit","head_producer","C0_raw","rep_producer",
@@ -84,7 +85,7 @@ def main(root):
                "decode_path":sorted([d["layer"],d["site"],d["q_len"]] for d in path[k]),"cuts":{},"graphs":{},"active_locals":{}}
             for i,t in enumerate(PHASES):
                 d=f(t)["event"]
-                s["cuts"][t]={n:d.get(n) for n in ("instruction","seq","bytes","run","api","copy_stream","producer_stream","pinned",
+                s["cuts"][t]={n:d.get(n) for n in ("offset","seq","bytes","run","api","copy_stream","producer_stream","pinned",
                                                     "completion","complete_before_return","byte_runs","source_shape","source_strides")}
                 nxt=f(("rep_producer","page_producer","choice_consumer")[i])
                 s["cuts"][t]["same_source_at_next"]=nxt.get("previous_source")==d.get("source")
@@ -113,6 +114,27 @@ def main(root):
                 if "nodes" in data and "root" in data:
                     g=Graph(data)
                     s["active_locals"][t]={n:leaf(v,g) for n,v in g.root.items()}
+            s["independent_active_values"]={}
+            for site,field,mask in (("attention_exit","attention_result",None),
+                                    ("scores_pre_clean","x","cand"),("route_final","bias","valid")):
+                g=Graph(f(site))
+                n=g.val(g.root[field])
+                stream.seek(n["start"])
+                raw=stream.read(n["bytes"])
+                if n["dtype"]=="torch.bfloat16":
+                    finite=[(v&0x7f80)!=0x7f80 for (v,) in struct.iter_unpack("<H",raw)]
+                elif n["dtype"]=="torch.float32":
+                    finite=[math.isfinite(v) for (v,) in struct.iter_unpack("<f",raw)]
+                else:
+                    raise ValueError(n["dtype"])
+                active=[True]*len(finite)
+                if mask:
+                    m=g.val(g.root[mask])
+                    stream.seek(m["start"])
+                    active=list(stream.read(m["bytes"]))
+                assert len(active)==len(finite)
+                s["independent_active_values"][site+"/"+field]={"total":len(active),"active":sum(map(bool,active)),
+                    "first_nonfinite_active":next((i for i,(a,b) in enumerate(zip(active,finite)) if a and not b),None)}
             outcomes.append(s)
     a,b=(globals[t]["data"] for t in ("terminal_eos","cleanup"))
     terminal={t:{"cache_len":x["data"]["length"],"ids":len(x["data"]["ids"]),"nxt":x["data"]["nxt"],
