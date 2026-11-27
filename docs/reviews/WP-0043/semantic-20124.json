@@ -1,0 +1,166 @@
+{
+ "cases": 50,
+ "cases_with_differences": [
+  "F1.dense_late_raw",
+  "F1.late_raw",
+  "F1.all_late",
+  "F2.forced_banned",
+  "F3.tie_last",
+  "F4.b_duplicate_copy",
+  "F4.c_late_hook_inactive",
+  "F4.g_interrupt_after_differing",
+  "F5.interrupt_with_conflict",
+  "F6.alias_end",
+  "F6.zN_alias_late",
+  "F7a.reset_recorded",
+  "F7a.reset_unrecorded",
+  "F7b.out_window_minus1",
+  "F7b.in_window_plus1",
+  "F7b.prompt_included",
+  "F7c.neg_zero_pick_last"
+ ],
+ "difference_classes": {
+  "byte_detail:-": 5,
+  "candidate_extra_conflict:visibility_event_receipt": 2,
+  "candidate_extra_key:visibility_event_receipt": 8,
+  "candidate_extra_key:visibility_raw_reference": 6,
+  "candidate_extra_missing:derived_diagnostic": 1,
+  "first:-": 1,
+  "oracle_atom_without_candidate_counterpart:candidate_missed": 4,
+  "verdict:visibility": 1
+ },
+ "extras_not_scored_against_frozen_rows": [
+  {
+   "case_id": "X.F1.recompute_raw_ancestry",
+   "conflict_keys": [
+    "capture_payload_mismatch",
+    "duplicate_copy_event_id",
+    "phase_cut_binding_mismatch"
+   ],
+   "first_conflict": {
+    "also": [
+     0,
+     "C1_post_rep"
+    ],
+    "key": "duplicate_copy_event_id",
+    "phase": "C0_raw",
+    "row": 0
+   },
+   "first_divergent_phase": "C0_raw",
+   "missing_keys": [],
+   "parent": "F1.recompute_forged",
+   "verdict": "M",
+   "wire_ops": [
+    {
+     "ancestry": "raw",
+     "op": "recompute",
+     "phase": "C1_post_rep",
+     "row": 0
+    },
+    {
+     "ancestry": "raw",
+     "op": "recompute",
+     "phase": "C2_post_page",
+     "row": 0
+    }
+   ]
+  },
+  {
+   "case_id": "X.F6.alias_end.view",
+   "conflict_keys": [
+    "capture_payload_mismatch",
+    "owned_copy_violation",
+    "raw_non_finite",
+    "raw_word_mismatch"
+   ],
+   "first_conflict": {
+    "key": "owned_copy_violation",
+    "phase": "C0_raw",
+    "row": 0
+   },
+   "first_divergent_phase": "C0_raw",
+   "missing_keys": [],
+   "parent": "F6.alias_end",
+   "verdict": "M",
+   "wire_ops": [
+    {
+     "op": "alias",
+     "phase": "C0_raw",
+     "row": 0
+    },
+    {
+     "op": "alias",
+     "phase": "C1_post_rep",
+     "row": 0
+    },
+    {
+     "op": "alias",
+     "phase": "C2_post_page",
+     "row": 0
+    }
+   ]
+  },
+  {
+   "case_id": "X.F6.zN_alias_late.view",
+   "conflict_keys": [
+    "capture_payload_mismatch",
+    "owned_copy_violation",
+    "post_rep_word_mismatch"
+   ],
+   "first_conflict": {
+    "key": "owned_copy_violation",
+    "phase": "C1_post_rep",
+    "row": 0
+   },
+   "first_divergent_phase": "C1_post_rep",
+   "missing_keys": [],
+   "parent": "F6.zN_alias_late",
+   "verdict": "M",
+   "wire_ops": [
+    {
+     "op": "alias",
+     "phase": "C1_post_rep",
+     "row": 0
+    }
+   ]
+  }
+ ],
+ "failed": [],
+ "first_relation": {
+  "candidate_only": 1,
+  "exact": 31,
+  "n/a": 14,
+  "within_interval": 1
+ },
+ "rejected_unsupported": [
+  {
+   "case_id": "F1.recompute_forged",
+   "expected_verdict": "P",
+   "needed": "none by design: the candidate ledger emits receipts only for genuine copies",
+   "reason": "offline synthesis with native-looking distinct copy receipts"
+  },
+  {
+   "case_id": "F5.interrupt_in_field",
+   "expected_verdict": "U",
+   "needed": "omit_row (withhold a scheduled row's capture and selection) op",
+   "reason": "observed run interrupted before scheduled row(s) [3, 4]"
+  },
+  {
+   "case_id": "F6.torn_raw",
+   "expected_verdict": "M",
+   "needed": "torn read with an explicit token-ID set or multiple byte ranges per cut",
+   "reason": "phase C0_raw read schedule (stages by slot) is neither uniform nor a later-suffix split and has no byte-equivalent prefix/suffix representation"
+  }
+ ],
+ "schema": "wp0043.semantic-summary.v2",
+ "scored": 47,
+ "semantic_agree": 37,
+ "unchecked_observable_count": 0,
+ "verdict_equal": 46,
+ "verdict_pairs": {
+  "M->M": 27,
+  "P->M": 1,
+  "P->P": 14,
+  "U->U": 5
+ }
+}

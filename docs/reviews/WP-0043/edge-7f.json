@@ -1,0 +1,102 @@
+[
+  {
+    "test": "complete synthetic reference",
+    "verdict": "P",
+    "first_divergent_phase": null,
+    "conflict_keys": [],
+    "missing_keys": []
+  },
+  {
+    "test": "independent alteration seq",
+    "verdict": "M",
+    "first_divergent_phase": "C0_raw",
+    "conflict_keys": [
+      "copy_event_invalid"
+    ],
+    "missing_keys": []
+  },
+  {
+    "test": "independent alteration bytes",
+    "verdict": "M",
+    "first_divergent_phase": "C0_raw",
+    "conflict_keys": [
+      "copy_event_invalid"
+    ],
+    "missing_keys": []
+  },
+  {
+    "test": "independent alteration receiver",
+    "verdict": "U",
+    "first_divergent_phase": "C0_raw",
+    "conflict_keys": [],
+    "missing_keys": [
+      "copy_ancestry_missing"
+    ]
+  },
+  {
+    "test": "independent alteration frame",
+    "verdict": "M",
+    "first_divergent_phase": "C0_raw",
+    "conflict_keys": [
+      "copy_event_invalid"
+    ],
+    "missing_keys": []
+  },
+  {
+    "test": "independent alteration source",
+    "verdict": "M",
+    "first_divergent_phase": "C0_raw",
+    "conflict_keys": [
+      "copy_event_invalid",
+      "guard_source_binding"
+    ],
+    "missing_keys": []
+  },
+  {
+    "test": "missing intermediate and wrong selection",
+    "verdict": "M",
+    "first_divergent_phase": "C0_raw",
+    "conflict_keys": [
+      "orphan_copy_event",
+      "y_mismatch"
+    ],
+    "missing_keys": [
+      "phase_missing"
+    ]
+  },
+  {
+    "test": "extra unreferenced observed event",
+    "verdict": "M",
+    "first_divergent_phase": "C0_raw",
+    "conflict_keys": [
+      "non_monotonic_capture_seq",
+      "orphan_copy_event"
+    ],
+    "missing_keys": []
+  },
+  {
+    "test": "native tensor shape but no byte extent, backing or artifact",
+    "conflicts": [],
+    "missing": [
+      {
+        "row": 0,
+        "phase": "B",
+        "key": "tensor_schema_incomplete",
+        "node": 1,
+        "fields": [
+          "bytes",
+          "chunks",
+          "device",
+          "element_size",
+          "sha256",
+          "start",
+          "storage_base",
+          "storage_bytes",
+          "storage_offset",
+          "strides",
+          "transfer"
+        ]
+      }
+    ]
+  }
+]
