@@ -1,0 +1,47 @@
+{
+  "reservation": "eb2b09c176cf3793ea9e9f930b913b9769d516e8",
+  "fixtures": "40eb491db2330a70fb2203f721ce921f79fa03a9",
+  "fixture_manifest_sha256": "1ebfc264433eac127434589acb8a1cd92bd357286b2a8803a7e7d3a5199b212c",
+  "oracle_commitment": "75d1beb4514c7982a4c7b77107d1eedb7365d24d",
+  "expected_sha256": "42db1f24c102a9c83f2b215bf261fac44c10dd4b1dc2f671b1c18933d421eff8",
+  "order": [
+    "eld-owner-probe",
+    "eld-rd-reviewer"
+  ],
+  "input_sha256": {
+    "W2.helper": "0d5de45cac5122ec8aaeff91b494aef5716e8ac2eb8af1e0ba8e38e281f4db6b",
+    "W3.missing": "4410fd570608505387d6fe02bf9b6b45b98cc9ed9f3bea7316df1a5c7eaba6f6",
+    "W3.late_missing": "bedbd9e729c63ad9e33991600eac091f9d44415a895a72ad81549ca2bd60e1df",
+    "W3.reuse": "73420b129fba072d670335fc05f51543591dc053ef1def55c88ca1e73b82f14f",
+    "W4.bad_I": "142d7da4e28cccf193d828d5bc620d4aea283ff991653b66ef7b4ca772b02daa",
+    "W4.no_I": "fbdfa71ad545bb992803d7dd31fb675848bb755b49c6918cc9994ea09e52ce41",
+    "W4.bad_L": "463cb88c66484504f0d23456be3362349d5934c3215ed95e22204d669d123f0e",
+    "W5.args": "e7d0b42a3bb0e3e60fa36dce8383bc7e19adb0928b663b4f3322c692773ed06f",
+    "W5.script": "dcccd3d63114b57ea238b5f864f91b0392e32152b9e58a4798315f14f3d77f0a",
+    "W5.config": "5878db2597c1e986667273b8ea71cb2e1ca8d3702a8763c08cce6a59710957ce",
+    "W5.empty": "090b5df1c668b6148217236f07e54147c8306516865faf03dbe667c07f77ab50",
+    "W5.unobserved": "fc5de1935e22707caf7b2addf19fcedbdd95c99334f926ad942361698e6bf8ca",
+    "W6.escape": "aa8ebb22c2b61e1f52b2b49661e2d1ccdaa46e65f1664f821fc197bb09261e6c",
+    "W6.writer": "117f9df778636eebc069fd62b5eb839e04e1fc0f2c204b6c673cce6deb899e0c",
+    "B5.member_missing": "e85f49c64184de1182c73da5f72ff9ece5a8e5e22856412a015bebf5727460b8",
+    "B5.writer_missing": "d0abc9b5e015d44649cc3b8c89e5ccd2a69bf293765f500fd4598fdafc2d593d"
+  },
+  "routes": {
+    "eld-owner-probe": {
+      "candidate": "8e78cc23abbc796b846ce59284ff46f66fde866b",
+      "worktree": "w044-author",
+      "manifest_sha256": "87a4ded6ceac20c88bd5108b0b912c844c23c690996f9d64ba50fc02dddde7c1",
+      "expectations_sha256": "2ed04310a2f8a4d6f6c61878638927ddb7b220a4b0519fdf3eed06cac85b13cd",
+      "command": "py -3.12 -B docs/research/WP-0044/probe.py run",
+      "private_review": "eLedgerCare-Speed/WP-0044/eld-rd-reviewer under the current Windows user profile"
+    },
+    "eld-rd-reviewer": {
+      "candidate": "5ddc7324c5570d33b96089c5f908b54d536592a6",
+      "worktree": "w044-review",
+      "manifest_sha256": "3ca9f68d4aea2575ae3e4333cc60d11efdbe935f8700107d342ed1c63d5996d5",
+      "expectations_sha256": "e3591e053a7abfa415143dd13bcad8c93ce6d10606bfe0e32e6c77a1b4cfb868",
+      "command": "py -3.12 -B docs/reviews/WP-0044/route.py run --out <private-review>/decisive01 --manifest docs/reviews/WP-0044/manifest.json --inputs <private-review>/blind-digests.json",
+      "private_review": "eLedgerCare-Speed/WP-0044/eld-rd-reviewer under the current Windows user profile"
+    }
+  }
+}
