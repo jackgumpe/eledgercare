@@ -71,27 +71,40 @@ def main(model_dir):
     phases = []
     guard_calls = []
 
-    def track(frame, event, arg):
-        if frame.f_code is code and frame.f_locals["self"] is receiver:
-            frame.f_trace_opcodes = True
-            if event == "opcode" and frame.f_lasti in next_instruction and frame.f_locals.get("step") == len(history):
-                label = next_instruction[frame.f_lasti]
-                x = frame.f_locals["logits"]
-                phases.append([label,frame.f_lasti,int(x.argmax()),list(frame.f_locals["gen"][-2:])])
-                words.append(x[[7,EOS,8]].clone())
-            return track
-        if event == "call" and frame.f_code in (rep,pg) and frame.f_back.f_code is code:
-            if frame.f_back.f_locals.get("step") == len(history):
-                guard_calls.append([frame.f_code.co_name,frame.f_back.f_lasti])
-        return None
+    def instruction(executing, offset):
+        if offset not in next_instruction:
+            return
+        frame = sys._getframe(1)
+        assert executing is frame.f_code is code and frame.f_locals["self"] is receiver
+        if frame.f_locals.get("step") == len(history):
+            x = frame.f_locals["logits"]
+            phases.append([next_instruction[offset],offset,int(x.argmax()),list(frame.f_locals["gen"][-2:])])
+            words.append(x[[7,EOS,8]].clone())
+
+    def guard_start(executing, offset):
+        frame = sys._getframe(1)
+        assert executing is frame.f_code and frame.f_back.f_code is code
+        if frame.f_back.f_locals.get("step") == len(history):
+            guard_calls.append([executing.co_name,frame.f_back.f_lasti])
 
     assert not torch.cuda.is_initialized()
-    sys.settrace(track)
+    monitoring = sys.monitoring
+    tool_id = 3
+    monitoring.use_tool_id(tool_id, "WP-0043 independent CPU witness")
+    monitoring.register_callback(tool_id, monitoring.events.INSTRUCTION, instruction)
+    monitoring.register_callback(tool_id, monitoring.events.PY_START, guard_start)
+    monitoring.set_local_events(tool_id, code, monitoring.events.INSTRUCTION)
+    for guard in (rep, pg):
+        monitoring.set_local_events(tool_id, guard, monitoring.events.PY_START)
     try:
         output = generate(receiver,SimpleNamespace(eos_token_id=EOS,decode=lambda ids,**kwargs: str(len(ids))),
                           torch.tensor([PAGE,PAGE]), None,None,None,100,131072,0.0,True,20000,35,1024,None,16,False,0)
     finally:
-        sys.settrace(None)
+        for target in (code, rep, pg):
+            monitoring.set_local_events(tool_id, target, 0)
+        monitoring.register_callback(tool_id, monitoring.events.INSTRUCTION, None)
+        monitoring.register_callback(tool_id, monitoring.events.PY_START, None)
+        monitoring.free_tool_id(tool_id)
     assert not torch.cuda.is_initialized()
     assert output["finish_reason"] == "stop" and output["token_ids"] == history+tail and EOS not in output["token_ids"]
     assert [r[:3] for r in phases] == [["C0",1174,7],["C1",1238,1],["C2",1282,8],["D",1854,8]]
