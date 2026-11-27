@@ -97,7 +97,7 @@ def main(root):
                 cards={}
                 slots={}
                 for name in ("key_cache","value_cache","_dash_idx_k"):
-                    group=g.val(fs[name])["items"]
+                    group=([v for _,v in sorted(g.mapping(fs[name]).items())] if name=="_dash_idx_k" else g.val(fs[name])["items"])
                     vals=[g.val(ref) for ref in group]
                     cards[name]=[n["shape"][-2] for n in vals]
                     slots.update({(name,j):n for j,n in enumerate(vals)})
