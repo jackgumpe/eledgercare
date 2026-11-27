@@ -73,12 +73,12 @@ class Findings:
         else:
             self.equal(left,name,right[reference],row,phase,key)
 
-    def byte_diff(self,row,phase,key,slot,token,expected,observed):
+    def byte_diff(self,row,phase,key,slot,token,expected,observed,**comparison):
         if expected[:len(observed)] == observed:
             return
         lane = next(i for i in range(len(observed)) if expected[i]!=observed[i])
         self.mismatch(row,phase,key,id=token,lane=lane,dense_offset=4*token+lane,
-                      compact_offset=4*slot+lane,expected_le=expected.hex(),observed_le=observed.hex())
+                      compact_offset=4*slot+lane,expected_le=expected.hex(),observed_le=observed.hex(),**comparison)
 
     def result(self,rows):
         order_before=["page_before","page_after","B","dash_dispatch","kv_before","kv_after","idx_1d","idx_2d",
@@ -305,6 +305,17 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
                     expected = NEG_INF
                 if j==2 and token in allowed and len(word)==4 and not math.isfinite(f32(word)):
                     find.mismatch(i,phase,"allowed_non_finite",id=token)
+                if j==2:
+                    # Compare both native equations independently. A damaged C1 can be
+                    # faithfully preserved at C2 while disagreeing with the composition at C0.
+                    baselines=[("captured_C0",captures.get(PHASES[0]))]
+                    if reference is not None:
+                        baselines.append(("controlled_input",reference))
+                    for origin,raw in baselines:
+                        composed=NEG_INF if token not in allowed else (raw or b"")[start:start+4]
+                        if len(composed)>=len(word):
+                            find.byte_diff(i,phase,"post_page_composed_word_mismatch",slot,token,composed,word,
+                                           comparison=origin)
                 if len(expected)<len(word):
                     continue
                 key = ["raw_word_mismatch","post_rep_word_mismatch","post_page_word_mismatch"][j]
@@ -320,7 +331,7 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
                         find.mismatch(i,phase,"guard_source_binding",field="source")
         pairs = list(receipts.items())
         for (p,a),(q,b) in zip(pairs,pairs[1:]):
-            if a["id"]!=b["id"] and isinstance(a.get("seq"),int) and isinstance(b.get("seq"),int) and a["seq"]>=b["seq"]:
+            if type(a.get("seq"))==int and type(b.get("seq"))==int and a["seq"]>=b["seq"]:
                 find.mismatch(i,p,"non_monotonic_capture_seq",also=q)
             for field in ("source","frame","receiver","run","source_storage"):
                 if field in a and field in b and a[field]!=b[field]:
@@ -329,11 +340,13 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
         ties = firstmax(final,vocab) if len(final)==len(vocab)*4 else []
         if "y" not in r:
             find.absent(i,"D_selection","selection_missing")
-        elif ties and r["y"]!=ties[0]:
-            find.mismatch(i,"D_selection","firstmax_tie_violation" if r["y"] in ties else "y_mismatch",
-                          expected=ties[0],observed=r["y"])
-        elif allowed and r["y"] not in allowed:
-            find.mismatch(i,"D_selection","y_mismatch",observed=r["y"])
+        else:
+            y=r["y"]
+            if ties and y!=ties[0]:
+                find.mismatch(i,"D_selection","firstmax_tie_violation" if y in ties else "y_mismatch",
+                              expected=ties[0],observed=y)
+            if type(y)!=int or y not in allowed:
+                find.mismatch(i,"D_selection","selection_outside_support",observed=y,support_size=len(allowed))
         summaries.append({"row":i,"banned":sorted(banned),"support":sorted(allowed),"ties":ties,"y":r.get("y")})
     for cid,event in events.items():
         if cid not in used:
