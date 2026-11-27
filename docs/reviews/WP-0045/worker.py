@@ -51,4 +51,3 @@ if __name__=="__main__":
         import traceback
         Path("worker-error.txt").write_text(traceback.format_exc(), encoding="utf8")
         raise
-

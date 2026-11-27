@@ -129,4 +129,3 @@ def compare(expected, rows, official_digests, hashes):
                    differing_fields=sorted(f for f in set(rows.get(k,{}))|set(expected.get(k,{}))
                        if f not in rows.get(k,{}) or f not in expected.get(k,{})
                        or typed(rows[k][f])!=typed(expected[k][f]))) for k in all_ids}
-

@@ -67,4 +67,3 @@ def collect(path, request, manifest, atoms):
     published=dict(observer=events,supervisor=s,worker=w)
     save(path/"public-witness.json",published)
     return provenance(rel,atoms)
-

@@ -61,4 +61,3 @@ def compare_old(witness, arm):
             else:
                 unknown(role,key,cfg[key],"full field absent at historical public observation cut")
     return out
-

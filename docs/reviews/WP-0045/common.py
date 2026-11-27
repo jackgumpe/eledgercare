@@ -120,4 +120,3 @@ def filesystem(handle):
     buf=ct.create_unicode_buffer(32)
     win.checked(f(handle,None,0,None,None,None,buf,len(buf)))
     return buf.value
-

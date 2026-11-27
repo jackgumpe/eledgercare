@@ -69,4 +69,3 @@ def observe(path):
         raise
     finally:
         win.close(job)
-

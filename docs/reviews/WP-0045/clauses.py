@@ -131,4 +131,3 @@ def query(row):
         minus_gain, number = min(choices)
         answer.update(status="QUERY", action=number, gain=str(-minus_gain))
     return answer
-

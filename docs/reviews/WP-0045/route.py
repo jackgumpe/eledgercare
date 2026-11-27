@@ -97,4 +97,3 @@ if __name__=="__main__":
         print(json.dumps(finite(json.loads(sys.stdin.buffer.read()))))
     else:
         run()
-
