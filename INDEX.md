@@ -1612,3 +1612,6 @@ WP-0044 closed after independent Windows reproduction. Both routes returned all 
 | [eld-fixture-claude](https://github.com/jackgumpe/eledgercare/blob/27c7f6e7b58b092c13d9ecd5e00bfb51a8d5f8cb/docs/agent-reports/eld-fixture-claude/WP-0044/001_2026-11-27_research_eld-fixture-claude.md) | 27c7f6e7b58b092c13d9ecd5e00bfb51a8d5f8cb |
 | [eld-owner-probe](https://github.com/jackgumpe/eledgercare/blob/f4d3bd49e7c106c22547aa6f75ca136f0426f6d7/docs/agent-reports/eld-owner-probe/WP-0044/002_2026-11-27_research_eld-owner-probe.md) | f4d3bd49e7c106c22547aa6f75ca136f0426f6d7 |
 | [eld-rd-reviewer](https://github.com/jackgumpe/eledgercare/blob/57389b07bc9332f0a6c683b5263a4f6622488f73/docs/agent-reports/eld-rd-reviewer/WP-0044/003_2026-11-27_review_eld-rd-reviewer.md) | 57389b07bc9332f0a6c683b5263a4f6622488f73 |
+| [eld-coordinator](https://github.com/jackgumpe/eledgercare/blob/bf43b51d7610df8edaa7f68aba1eb3ef319a6320/docs/agent-reports/eld-coordinator/WP-0044/004_2026-11-27_verification_eld-coordinator.md) | bf43b51d7610df8edaa7f68aba1eb3ef319a6320 |
+
+The [public byte receipt](docs/coordination/WP-0044/publication-receipt.json) records equality for all 84 changed files at the report commit.
