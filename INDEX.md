@@ -1643,3 +1643,6 @@ Four cooperative direct launches qualified. Full blind clause returns per implem
 | [003 eld-depth-author](https://github.com/jackgumpe/eledgercare/blob/76fbaee429cbda843ab8fe3bdc8798382392222f/docs/agent-reports/eld-depth-author/WP-0045/003_2026-11-27_research_eld-depth-author.md) | 76fbaee429cbda843ab8fe3bdc8798382392222f |
 | [004 eld-rd-reviewer](https://github.com/jackgumpe/eledgercare/blob/d39088ecd9806b98f77d134cee11594e67625a83/docs/agent-reports/eld-rd-reviewer/WP-0045/004_2026-11-27_review_eld-rd-reviewer.md) | d39088ecd9806b98f77d134cee11594e67625a83 |
 | [006 eld-fixture-claude](https://github.com/jackgumpe/eledgercare/blob/624919fa9176ed12e7c54b0d202c4d3e2d17a0a6/docs/agent-reports/eld-fixture-claude/WP-0045/006_2026-11-27_research_eld-fixture-claude.md) | 624919fa9176ed12e7c54b0d202c4d3e2d17a0a6 |
+| [eld-coordinator](https://github.com/jackgumpe/eledgercare/blob/1d2d197177c8d5d053066e6cfbac30fa5e0b77df/docs/agent-reports/eld-coordinator/WP-0045/005_2026-11-27_verification_eld-coordinator.md) | 1d2d197177c8d5d053066e6cfbac30fa5e0b77df |
+
+The [public byte receipt](docs/coordination/WP-0045/publication-receipt.json) records equality for all 228 changed files at the report commit.
