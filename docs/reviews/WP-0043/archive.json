@@ -1,0 +1,79 @@
+{
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "pypdf": "6.16.2",
+  "packages": {
+    "wp0042-offline-sources.zip": {
+      "sha256": "d0647826973fbd7c57a48d11983cc79cd67e962d506a31225fba9bd0f2dffb6e",
+      "script": "derive_field.py",
+      "script_sha256": "859b66251b02eea7a2f725477541e88ce27af6384d60394e15efbaa471484fd5",
+      "exit": 0,
+      "members_verified": 17,
+      "stdout": [
+        "Generated IDs: 2558 | Page markers: [0, 1145, 1896] | UTF-8 bytes: 7617",
+        "t 1445 g 618 matches [] ngram bans [] final allowed 129279 emitted 6",
+        "t 1446 g 619 matches [] ngram bans [] final allowed 129279 emitted 1449",
+        "t 1447 g 620 matches [] ngram bans [] final allowed 129279 emitted 16",
+        "t 1448 g 621 matches [] ngram bans [] final allowed 129279 emitted 1328",
+        "t 1449 g 622 matches [] ngram bans [] final allowed 129279 emitted 128822",
+        "Five triples of FP32 score vectors: 7756800 bytes",
+        "Full, uncompressed logical K/V+DASH bytes for B and D:",
+        "B: [97720832, 97788416, 97856000, 97923584, 97991168] D: [97726464, 97794048, 97861632, 97929216, 97996800] total: 978588160",
+        "Terminal model cache length expected: 3385"
+      ]
+    },
+    "f07-math-check.zip": {
+      "sha256": "d688dbcbdbe649d3e4b7042982f21e5cb53699f4eb0292288b0f10ea049cc621",
+      "script": "check.py",
+      "script_sha256": "ea04db478dbce2496bf06a0b512750bf1e0d723097f1f3f8d2bd2337be9457ef",
+      "exit": 0,
+      "members_verified": 10,
+      "stdout": [
+        "Archive: 2558 IDs, 7617 UTF-8 bytes, 3385 final cache positions",
+        "Predicted IDs: [6, 1449, 16, 1328, 128822]",
+        "Longest completed prior matches: [2, 0, 0, 1, 2]",
+        "Five empty ban sets; five final supports of 129279 IDs",
+        "Constructed phase maxima: [7, 1, 8] | first bad byte: 30",
+        "Five-row reductions: 211 mismatch, 31 unmeasured, 1 pass",
+        "Cache: 978588160 bytes | scores: 7756800 bytes | sum: 986344960 bytes",
+        "All offline checks passed."
+      ]
+    }
+  },
+  "independent_rows_n_starts_max_suffix_y": [
+    [
+      619,
+      585,
+      2,
+      6
+    ],
+    [
+      620,
+      586,
+      0,
+      1449
+    ],
+    [
+      621,
+      587,
+      0,
+      16
+    ],
+    [
+      622,
+      588,
+      1,
+      1328
+    ],
+    [
+      623,
+      589,
+      2,
+      128822
+    ]
+  ],
+  "historical_document": [
+    2558,
+    7617,
+    3385
+  ]
+}
