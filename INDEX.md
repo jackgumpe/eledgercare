@@ -1558,3 +1558,14 @@ Closed after independent review. Both local routes passed the six constructed co
 | [003](https://github.com/jackgumpe/eledgercare/blob/0f11d9f78220701555df81d55d5e30c54c25f0d7/docs/agent-reports/eld-coordinator/WP-0042/003_2026-11-26_verification_eld-coordinator.md) | `0f11d9f78220701555df81d55d5e30c54c25f0d7` |
 
 The [public download receipt](docs/coordination/WP-0042/publication-receipt.json) records byte equality for all 34 changed files at the coordinator report commit.
+
+## WP-0043 F07 executable stock observer and challenge qualification
+
+CPU work released at e7c7c63fa8db0328881ec6aeb50cf5ecaff08f23. [Assignment](docs/coordination/WP-0043/assignment.md) · [Input bindings](docs/coordination/WP-0043/inputs.json)
+
+| Slot | Owner | Branch / worktree | Report |
+| --- | --- | --- | --- |
+| 001 | eld-fixture-claude | research/wp-0043-fixtures / w043-fixtures | docs/agent-reports/eld-fixture-claude/WP-0043/001_2026-11-27_research_eld-fixture-claude.md |
+| 002 | eld-owner-probe | research/wp-0043-stock / w043-author | docs/agent-reports/eld-owner-probe/WP-0043/002_2026-11-27_research_eld-owner-probe.md |
+| 003 | eld-rd-reviewer | review/wp-0043-stock / w043-review | docs/agent-reports/eld-rd-reviewer/WP-0043/003_2026-11-27_review_eld-rd-reviewer.md |
+| 004 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0043/004_2026-11-27_verification_eld-coordinator.md |
