@@ -1581,3 +1581,5 @@ The device release ended after two loads and eight returns. The original CLI rai
 | Slot | Owner | Branch / worktree | Report |
 | --- | --- | --- | --- |
 | 005 | eld-owner-probe | research/wp-0043-stock / w043-author | docs/agent-reports/eld-owner-probe/WP-0043/005_2026-11-27_research_eld-owner-probe.md |
+
+WP-0043 is closed. All eight calls reached EOS, the matched target document agreed through stop, and five score triples were byte-verified. Literal worker argv identity failed in both arms, yielding joint M, five custody U rows, and zero fully qualified pairs or rows. The GPU lease has been returned. [Disposition](docs/coordination/WP-0043/disposition.json) · [Native record](docs/coordination/WP-0043/native-evidence.json) · [CPU comparisons](docs/coordination/WP-0043/cpu-results.json)

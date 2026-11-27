@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0043 stock observer and CPU challenge suite released
+## WP-0043 stock observer closed
 
-Both stock processes completed their four calls. The [device return](docs/coordination/WP-0043/device-return.json) closes the lease. The original offline command raised UnboundLocalError on the populated capture. eld-owner-probe owns read-only correction /005. eld-rd-reviewer retains independent qualification /003 and the coordinator retains disposition /004. [Assignment](docs/coordination/WP-0043/assignment.md)
+Two cold processes returned all eight calls. One F07 target pair matched through EOS. The independent reviewer verified all 15 score vectors at five positions. The frozen runtime identity check yielded M in the joint verdict and withheld the five full capture rows. The lease is returned. eld-owner-probe owns any subsequent proposal for dual launcher/interpreter identity, pending independent review and a new release. WP-0037 remains parked. [Disposition](docs/coordination/WP-0043/disposition.json) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0043/003_2026-11-27_review_eld-rd-reviewer.md) · [Native evidence](docs/coordination/WP-0043/native-evidence.json) · [CPU evidence](docs/coordination/WP-0043/cpu-results.json)
 
 ## WP-0042 F07 observer and private replay design closed
 
