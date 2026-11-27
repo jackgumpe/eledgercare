@@ -58,7 +58,7 @@ def main():
         writer = PdfWriter(clone_from=old)
         for i,page in enumerate(document.pages):
             writer.insert_page(page,i)
-        bookmarks = writer.root_object["/Outlines"]
+        bookmarks = writer.get_outline_root()
         first, last = bookmarks.raw_get("/First"), bookmarks.raw_get("/Last")
         operative = writer.add_outline_item("Edition 02.1 - operative amendment", 0)
         historical = writer.add_outline_item("Edition 02 - historical text", len(document.pages))
