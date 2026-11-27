@@ -17,7 +17,7 @@ REPO = "jackgumpe/eledgercare"
 BASE = "7f9281bd247e312bbce89af9a3021832fca965da"
 BRANCHES = ("coordination/bootstrap", "research/wp-0045-fixtures", "research/wp-0045-direct", "research/wp-0045-edition", "review/wp-0045-bounded")
 ROLES = ("eld-fixture-claude", "eld-owner-probe", "eld-depth-author", "eld-rd-reviewer", "eld-coordinator")
-REPORT_SLOTS = {"001": ROLES[0], "002": ROLES[1], "003": ROLES[2], "004": ROLES[3], "005": ROLES[4]}
+REPORT_SLOTS = {"001": ROLES[0], "002": ROLES[1], "003": ROLES[2], "004": ROLES[3], "005": ROLES[4], "006": ROLES[0]}
 
 
 def git(*args):
