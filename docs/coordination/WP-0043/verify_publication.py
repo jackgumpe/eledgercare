@@ -17,6 +17,7 @@ REPO = "jackgumpe/eledgercare"
 BASE = "e7c7c63fa8db0328881ec6aeb50cf5ecaff08f23"
 BRANCHES = ("coordination/bootstrap", "research/wp-0043-fixtures", "research/wp-0043-stock", "review/wp-0043-stock")
 ROLES = ("eld-fixture-claude", "eld-owner-probe", "eld-rd-reviewer", "eld-coordinator")
+REPORT_SLOTS = {"001": ROLES[0], "002": ROLES[1], "003": ROLES[2], "004": ROLES[3], "005": ROLES[1]}
 
 
 def git(*args):
@@ -65,9 +66,12 @@ def verify(head):
     if git("show", head + ":AGENTS.md") != git("show", BASE + ":AGENTS.md"):
         raise ValueError("The packet must preserve the prior authority bytes.")
     reports = [p for p in changed if p.startswith(report_dirs)]
-    for sequence, folder in enumerate(report_dirs, 1):
-        if len([p for p in reports if p.startswith(folder + f"{sequence:03}_")]) != 1:
-            raise ValueError(f"Missing or duplicate canonical report in {folder}")
+    if len(reports) != len(REPORT_SLOTS):
+        raise ValueError(f"Unexpected canonical report inventory: {reports}")
+    for number, role in REPORT_SLOTS.items():
+        prefix = f"docs/agent-reports/{role}/WP-0043/{number}_"
+        if sum(p.startswith(prefix) for p in reports) != 1:
+            raise ValueError(f"Missing or duplicate canonical report for {number} and {role}")
 
     def verify_path(path):
         expected = git("show", f"{head}:{path}")
