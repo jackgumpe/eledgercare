@@ -8,7 +8,7 @@ from capture import PHASES, code_identity, digest
 from bindings import GEN,resolve
 from native import ARCH,ARM,BASE,HIST,LABELS,LIMITS,MODEL,OUT,SCHEME,RELEASE,blob,bytes_json,plan,hash_file
 from native_observer import CACHE_FIELDS,LOCAL_FIELDS
-from timing import read_timing,timeline
+from timing import read_timing,timeline as validate_timing
 from scorer import Findings,public_document,score_rows
 from native_validation import TENSOR_KEYS,local_contract,require,rooted_state,runtime_receipt,score_events,transfer_contract
 
@@ -375,7 +375,7 @@ def score_native():
                 f.absent(None,"public_document","arm_timing_missing",arm=arm)
                 continue
             try:
-                timeline(read_timing(OUT/arm),arm,LABELS,LIMITS,interval["origin_ns"],interval["exit_check_ns"],finished=True)
+                validate_timing(read_timing(OUT/arm),arm,LABELS,LIMITS,interval["origin_ns"],interval["exit_check_ns"],finished=True)
             except (TypeError,KeyError,ValueError,OSError,RuntimeError) as exc:
                 f.mismatch(None,"public_document","arm_timing_invalid",arm=arm,detail=str(exc))
     if done.get("status")!="finished":
