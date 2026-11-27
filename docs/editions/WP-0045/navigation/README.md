@@ -1,0 +1,15 @@
+# Edition 02.1 reader navigation
+
+This document-only packaging correction restores the active predecessor bookmarks and original page labels to the outer complete editions. It preserves the immutable 02.1 operative PDFs, original edition/source/review attachments, clause evaluator and blind evidence at 6fd7c96db7071c565c742fb27263e7c1b031f81c and 2c9637e465ed0ca6e9ce4d023aba3e5c2be548bf.
+
+The first build used append with import_outline=False. pypdf also warned of a difference of six supported link annotations while copying. Paper II p. 2 holds six internal citation links. That number refers to a transient extraction comparison in pypdf.generic._link.extract_links; the final action dictionaries and named destinations are measurable on the serialized PDFs. The reader-visible omission of old bookmarks is separate. The first complete bindings and digests remain preserved.
+
+The new packager clones the original catalog, inserts the five public amendment pages first, preserves each /Names and /Outlines object, adds operative/historical entry bookmarks, and opens on the amendment. Old page labels survive at their new physical pages. The registry adds the exact original PDF, advisory, public supplement, frozen common source ZIP, packaging ZIP and (in Paper III) both corrected complete companions with their digest manifest. The immutable original PDF attachment also preserves original catalog opening behavior and metadata.
+
+Use CPython 3.12.10, pypdf 6.16.2, zlib runtime 1.3.1 and PYTHONHASHSEED=0. INPUTS is the coordinator's prefix with four original PDFs, companions.json and the original ZIP. SOURCE is the unchanged local Edition02.1-source.zip from the first build. PAPERS is the three public PDFs. All output directories must be new. Each audit compares full annotation dictionaries, URI/GoTo targets, destination pages and coordinates, nested outline titles, target coordinates, ordering and display flags; raw and decoded page content streams; page labels and extracted text; and the complete document-level attachment inventory. A native Windows.Data.Pdf raster check compares PNG streams page-by-page using an independent PDF renderer.
+
+    python -B navigation/package.py INPUTS SOURCE PAPERS OUTPUT
+    python -B navigation/audit.py INPUTS PAPERS OUTPUT AUDIT.json
+    powershell -NoProfile -File navigation/render.ps1 INPUTS PAPERS OUTPUT RASTER.json
+
+For the second construction, extract the unchanged Edition02.1-source.zip into a fresh directory, then extract Edition02.1-navigation.zip into its edition021/navigation directory. From edition021 rerun the three commands with separate outputs. Compare file-by-file digests of both complete outputs. For diagnosis only, the same audit can be run on the preserved original binding; a failed outline/label check is expected and retained. No scientific case is re-evaluated by these commands. Bookmarks, attachment payloads, raw and decoded contents, named destinations, and visual renders on all 42 visible pages are the units of packaging comparison.
