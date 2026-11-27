@@ -14,6 +14,8 @@ The section of each PDF headed by its paper-specific research question is follow
 
 ## Reproduction
 
+The current local complete editions use the navigation correction. Build the initial OUT as below to verify the immutable scientific source, then run the navigation packager with INPUTS, OUT/Edition02.1-source.zip and papers as its three sources. Its destination contains the final PDFs. The archived first binding omitted historical bookmarks in the outer documents. The corrected binding preserves the original bookmark trees, historical page labels, named destinations and links. [Navigation rebuild](navigation/README.md) · [Final complete-edition digests](evidence/navigation/complete-bindings.json) · [Catalog and page audits](evidence/navigation/catalog-audits.json) · [Independent renderer results](evidence/navigation/raster-audit.json)
+
 From this directory, use CPython 3.12.10 and pypdf 6.16.2 for assembly. Set PYTHONHASHSEED=0 on the building process. All destinations must be fresh directories. INPUTS contains the exact three original PDFs, the Gemini advisory, Edition02-source.zip and companions.json. If staged plaintext or unzipped source is present, the build also verifies it against the actual PDFs and ZIP. Generate public supplements with the same command omitting the inputs flag.
 
     python -B build.py OUT --inputs INPUTS
