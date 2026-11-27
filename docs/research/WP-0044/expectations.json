@@ -1,0 +1,547 @@
+{
+  "W1.A": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "P",
+    "joint": "P",
+    "content": "P",
+    "conflicts": [],
+    "missing": []
+  },
+  "W1.B": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "P",
+    "joint": "P",
+    "content": "P",
+    "conflicts": [],
+    "missing": []
+  },
+  "W2.other": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "M",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "E.launcher"
+    ],
+    "missing": []
+  },
+  "W4.denied": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "P",
+    "joint": "P",
+    "content": "P",
+    "conflicts": [],
+    "missing": []
+  },
+  "B1.original": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "P",
+    "joint": "P",
+    "content": "P",
+    "conflicts": [],
+    "missing": []
+  },
+  "B2.other": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "B.origin"
+    ],
+    "missing": []
+  },
+  "B3.copy": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "U"
+    },
+    "custody": "U",
+    "joint": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "B.direct",
+      "B.origin"
+    ]
+  },
+  "B4.invalid": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "B.seal"
+    ],
+    "missing": [
+      "B.direct",
+      "B.origin"
+    ]
+  },
+  "B4.unavailable": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "U"
+    },
+    "custody": "U",
+    "joint": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "B.direct",
+      "B.origin",
+      "B.seal"
+    ]
+  },
+  "B5.reopen": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "U"
+    },
+    "custody": "U",
+    "joint": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "B.direct",
+      "B.origin",
+      "B.protection"
+    ]
+  },
+  "W2.helper": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "M",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "E.parent"
+    ],
+    "missing": []
+  },
+  "W3.missing": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "U",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "U",
+    "joint": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "E.parent"
+    ]
+  },
+  "W3.late_missing": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "M",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "E.order"
+    ],
+    "missing": [
+      "E.parent"
+    ]
+  },
+  "W3.reuse": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "M",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "E.instance"
+    ],
+    "missing": []
+  },
+  "W4.bad_I": {
+    "coordinates": {
+      "L": "P",
+      "I": "M",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "I.image"
+    ],
+    "missing": []
+  },
+  "W4.no_I": {
+    "coordinates": {
+      "L": "P",
+      "I": "U",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "U",
+    "joint": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "I.image"
+    ]
+  },
+  "W4.bad_L": {
+    "coordinates": {
+      "L": "M",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "L.image"
+    ],
+    "missing": []
+  },
+  "W5.args": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "M",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "A.args"
+    ],
+    "missing": []
+  },
+  "W5.script": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "M",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "A.script"
+    ],
+    "missing": []
+  },
+  "W5.config": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "M",
+      "B": "P"
+    },
+    "custody": "P",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "C.include_system"
+    ],
+    "missing": []
+  },
+  "W5.empty": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "M",
+      "B": "P"
+    },
+    "custody": "P",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "C.PYTHONPATH"
+    ],
+    "missing": []
+  },
+  "W5.unobserved": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "U",
+      "B": "P"
+    },
+    "custody": "P",
+    "joint": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "C.PYTHONSAFEPATH"
+    ]
+  },
+  "W6.escape": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "M",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "E.job"
+    ],
+    "missing": []
+  },
+  "W6.writer": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "B.writer"
+    ],
+    "missing": []
+  },
+  "B5.member_missing": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "B.members"
+    ],
+    "missing": [
+      "B.direct"
+    ]
+  },
+  "B5.writer_missing": {
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "joint": "M",
+    "content": "P",
+    "conflicts": [
+      "B.writer"
+    ],
+    "missing": [
+      "B.direct"
+    ]
+  },
+  "archive.gaps": [
+    10.875,
+    15.1875,
+    13.5625,
+    15.375,
+    13.875
+  ],
+  "archive.support": [
+    {
+      "vocabulary": 129280,
+      "excluded": [
+        1
+      ],
+      "allowed": 129279
+    },
+    {
+      "vocabulary": 129280,
+      "excluded": [
+        1
+      ],
+      "allowed": 129279
+    },
+    {
+      "vocabulary": 129280,
+      "excluded": [
+        1
+      ],
+      "allowed": 129279
+    },
+    {
+      "vocabulary": 129280,
+      "excluded": [
+        1
+      ],
+      "allowed": 129279
+    },
+    {
+      "vocabulary": 129280,
+      "excluded": [
+        1
+      ],
+      "allowed": 129279
+    }
+  ],
+  "archive.verdict": {
+    "joint": "M",
+    "argv0_conflicts": 2,
+    "qualified_pairs": 0,
+    "scheduled_pairs": 1,
+    "qualified_rows": 0,
+    "scheduled_rows": 5,
+    "row_verdicts": [
+      "U",
+      "U",
+      "U",
+      "U",
+      "U"
+    ],
+    "target_document_equal": true
+  },
+  "math.shift": {
+    "linf": 10,
+    "oscillation": 0,
+    "old": 0,
+    "new": 0,
+    "gap": 10.875
+  },
+  "math.tie": {
+    "unique": false,
+    "higher_id_competitor": {
+      "before": 0,
+      "after": 0
+    },
+    "lower_id_competitor": {
+      "before": 1,
+      "after": 0
+    },
+    "gap": 10.875
+  },
+  "math.signed_zero": {
+    "equal": true,
+    "positive": "00000000",
+    "negative": "00000080"
+  },
+  "math.linked": {
+    "first": 0,
+    "reset": 0,
+    "linked": 1,
+    "reset_scores": [
+      1,
+      0
+    ],
+    "linked_scores": [
+      -1,
+      2
+    ]
+  }
+}
