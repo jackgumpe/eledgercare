@@ -37,6 +37,8 @@ LIMITS={"allocator_bytes":10<<30,"device_free_initial":11<<30,"device_free_durin
         "disk_free_initial":4<<30,"disk_free_during":1<<30,"files":512,"log_bytes":32*MIB,
         "wall_s":7200,"load_s":900,"call_s":1200,"stall_s":360,"poll_s":1}
 RELEASE="docs/coordination/WP-0043/device-release.json"
+ACTIVE_RUNTIME={"torch/lib/cudart64_13.dll":"58c509047f9dd1879cf82c6d5375a95c02c7bd295ae6c8362c745c936e2afc31",
+                "torch/cuda/streams.py":"44762c1ec5b741b6430812e37fcc7364c6a5556834caa6ba2f15b1154fad699d"}
 WHEELS="docs/reviews/WP-0005/eld-q0-reviewer/runtime-005/checks/02-verify-wheelhouse.json"
 
 
@@ -62,8 +64,11 @@ def bytes_json(obj):
 
 
 def write_new(path,obj):
+    data=bytes_json(obj)
+    if len(data)>16*MIB or path.name=="outcome.json" and len(data)>MIB:
+        raise RuntimeError("bounded JSON receipt size")
     with path.open("xb") as f:
-        f.write(bytes_json(obj))
+        f.write(data)
 
 
 def plan():
@@ -98,6 +103,8 @@ def admission():
         raise RuntimeError("observed ownership and exact resident process list required")
     if Path(sys.executable).resolve()!=PYTHON.resolve():
         raise RuntimeError("incorrect Python")
+    if bool(set(release["allowed_resident_pids"])-{i for i in release["allowed_resident_pids"] if type(i)==int and i>0}):
+        raise RuntimeError("invalid resident process inventory")
     return release
 
 
@@ -141,6 +148,30 @@ def inventory():
     return len(files),sum(p.stat().st_size for p in files)
 
 
+def final_limits(start,release):
+    n,size=inventory()
+    logs=sum(p.stat().st_size for p in OUT.rglob("*.log"))
+    if (n+1>LIMITS["files"] or size+MIB>LIMITS["output_bytes"] or logs>LIMITS["log_bytes"] or
+        shutil.disk_usage(OUT).free-MIB<LIMITS["disk_free_during"] or time.monotonic()-start>LIMITS["wall_s"]
+        or dt.datetime.now(dt.timezone.utc)>=dt.datetime.fromisoformat(release["end_utc"])):
+        raise RuntimeError("final resource/lease check")
+    return {"files":n,"bytes":size,"logs":logs,"elapsed_s":time.monotonic()-start}
+
+
+def partial_inventory():
+    # Bound the exception path even if an external writer violated the output lease.
+    result={}
+    total=0
+    for p in OUT.rglob("*"):
+        if not p.is_file():
+            continue
+        if len(result)>=LIMITS["files"] or total+p.stat().st_size>LIMITS["output_bytes"]:
+            break
+        total+=p.stat().st_size
+        result[p.relative_to(OUT).as_posix()]=hash_file(p)
+    return result
+
+
 def env_for(out):
     env={k:os.environ[k] for k in ("SystemRoot","windir","OS","ComSpec","NUMBER_OF_PROCESSORS",
                                     "PROCESSOR_ARCHITECTURE","PATHEXT") if k in os.environ}
@@ -158,16 +189,16 @@ def env_for(out):
 
 
 def supervise(arm,argv,release,start):
-    from limits import job
+    from limits import job,job_member
     import psutil
     folder=OUT/arm
     folder.mkdir()
     device_check(release,initial=True)
     with (folder/"stdout.log").open("xb") as stdout,(folder/"stderr.log").open("xb") as stderr:
         proc=subprocess.Popen(argv,cwd=REPO,env=env_for(folder),stdin=subprocess.PIPE,stdout=stdout,stderr=stderr,
-                              creationflags=subprocess.CREATE_NO_WINDOW)
+                              creationflags=subprocess.CREATE_NO_WINDOW|4)
         try:
-            with job(proc,LIMITS["host_job_commit"]):
+            with job(proc,LIMITS["host_job_commit"]) as job_handle:
                 proc.stdin.write(bytes_json({"parent":os.getpid(),"lease":release["lease_id"]})+b"\n")
                 proc.stdin.close()
                 progress=None
@@ -181,19 +212,25 @@ def supervise(arm,argv,release,start):
                         last_phase=phase
                     count,used=inventory()
                     logsize=(folder/"stdout.log").stat().st_size+(folder/"stderr.log").stat().st_size
-                    marker=(phase,logsize,(folder/"observations.jsonl").stat().st_size if (folder/"observations.jsonl").exists() else 0)
+                    # Only actual retained stock append receipts certify observed decode progress.
+                    # Untouched calls have no token probe; apply the conservative 360 s bound
+                    # from call entry. Native stderr/diagnostic traffic never resets the clock.
+                    marker=(phase,(folder/"progress").read_bytes() if (folder/"progress").exists() else b"")
                     if marker!=progress:
                         stamp=now
                         progress=marker
                     owned={proc.pid,*[p.pid for p in psutil.Process(proc.pid).children(recursive=True)]}
+                    if not all(job_member(pid,job_handle) for pid in owned):
+                        raise RuntimeError("worker escaped bound Windows Job")
                     device_check(release,owned)
                     if (now-start>LIMITS["wall_s"] or now-phase_time>LIMITS["call_s" if phase in LABELS else "load_s"]
-                        or phase in LABELS and now-stamp>LIMITS["stall_s"] or used>LIMITS["output_bytes"]
-                        or count>LIMITS["files"] or logsize>LIMITS["log_bytes"]
+                        or phase in LABELS and now-stamp>LIMITS["stall_s"] or used+MIB>LIMITS["output_bytes"]
+                        or count+1>LIMITS["files"] or logsize>LIMITS["log_bytes"]
                         or shutil.disk_usage(OUT).free<LIMITS["disk_free_during"]
                         or dt.datetime.now(dt.timezone.utc)>=dt.datetime.fromisoformat(release["end_utc"])):
                         raise RuntimeError("supervisor ceiling: "+phase)
                     time.sleep(LIMITS["poll_s"])
+                final_limits(start,release)
                 if proc.returncode:
                     raise RuntimeError(f"{arm} exit {proc.returncode}")
         finally:
@@ -209,17 +246,20 @@ def run():
         raise RuntimeError("fresh resource directory and initial disk headroom required")
     start=time.monotonic()
     with device_lock(SPEED/(UUID+".lock")):
-        device_check(release,initial=True)
+        initial=device_check(release,initial=True)
         OUT.mkdir()
         try:
             receipt=validate_files()
-            write_new(OUT/"admission.json",{"release":release,"plan":plan(),"n_model":receipt["n_model"],"wheels":receipt["wheels"]})
+            write_new(OUT/"admission.json",{"release":release,"plan":plan(),"initial_device":initial,"n_model":receipt["n_model"],"wheels":receipt["wheels"]})
             for arm,argv in zip(ARM,plan()["worker_argv"],strict=True):
                 supervise(arm,argv,release,start)
-            outcome={"status":"finished","files":{p.relative_to(OUT).as_posix():hash_file(p)
-                     for p in OUT.rglob("*") if p.is_file()}}
+            files=partial_inventory()
+            stats=final_limits(start,release)
+            if len(files)!=stats["files"]:
+                raise RuntimeError("incomplete bounded outcome inventory")
+            outcome={"status":"finished","final_resources":stats,"files":files}
         except BaseException as exc:
-            outcome={"status":"partial","reason":str(exc),"files":{p.relative_to(OUT).as_posix():hash_file(p) for p in OUT.rglob("*") if p.is_file()}}
+            outcome={"status":"partial","reason":str(exc),"files":partial_inventory()}
             write_new(OUT/"outcome.json",outcome)
             raise
         write_new(OUT/"outcome.json",outcome)
@@ -269,7 +309,7 @@ def worker(arm):
             raise RuntimeError("distribution: "+name)
     if util.find_spec("triton") is not None:
         raise RuntimeError("Triton differs from Q0")
-    for name,sha in source["versions"]["runtime_source_sha256"].items():
+    for name,sha in {**source["versions"]["runtime_source_sha256"],**ACTIVE_RUNTIME}.items():
         if hash_file(ROOT/"venv/Lib/site-packages"/name)!=sha:
             raise RuntimeError("runtime source: "+name)
     import torch
@@ -283,8 +323,10 @@ def worker(arm):
     tok=AutoTokenizer.from_pretrained(str(MODEL),local_files_only=True,trust_remote_code=True)
     model=AutoModel.from_pretrained(str(MODEL),local_files_only=True,trust_remote_code=True,
                                     use_safetensors=True,torch_dtype=torch.bfloat16).eval().cuda()
-    torch.cuda.synchronize()
+    torch.cuda.current_stream().synchronize()
     package=type(model).__module__.rsplit(".",1)[0]
+    if any(m.training for m in model.modules()) or any(getattr(m,"ep_size",1)!=1 for m in model.modules()):
+        raise RuntimeError("unqualified training or distributed writer")
     origins={}
     for obj in sys.modules.copy().values():
         name=getattr(obj,"__name__","")
@@ -293,7 +335,7 @@ def worker(arm):
             if not file.is_relative_to((out/"modules").resolve()) or hash_file(file)!=source["files"][file.name]["sha256"]:
                 raise RuntimeError("dynamic origin: "+name)
             origins[name]={"path":str(file),"sha256":hash_file(file)}
-    write_new(out/"runtime.json",{"modules":origins,"eval":not model.training,"device":str(torch.cuda.get_device_properties(0)),
+    write_new(out/"runtime.json",{"pid":os.getpid(),"parent":message["parent"],"receivers":{"generator":id(model),"decoder":id(model.model),"layer11":id(model.model.layers[11])},"argv":sys.orig_argv,"arm":arm,"schema":SCHEME,"uuid":UUID,"active_runtime":ACTIVE_RUNTIME,"modules":origins,"eval":not model.training,"device":str(torch.cuda.get_device_properties(0)),
              "allocator_limit":LIMITS["allocator_bytes"],"cuda":torch.version.cuda,"torch":str(torch.__version__),
              "deterministic":torch.are_deterministic_algorithms_enabled(),"tf32":torch.backends.cuda.matmul.allow_tf32,
              "cudnn_tf32":torch.backends.cudnn.allow_tf32,"autocast":torch.is_autocast_enabled(),
@@ -309,7 +351,7 @@ def worker(arm):
             (out/"phase").write_text(label)
             with obs.monitor if obs and i==3 else contextlib.nullcontext():
                 result=model.infer(tok,prompt=options["call"]["prompt"],image_file=list(pages),return_dict=True,**kwargs)
-            torch.cuda.synchronize()
+            torch.cuda.current_stream().synchronize()
             document={k:v for k,v in result.items() if k not in {"time","prefill_time"}}
             document["ids"]=document.pop("token_ids")
             document["terminal"]=document.pop("finish_reason")

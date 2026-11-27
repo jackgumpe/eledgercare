@@ -40,15 +40,33 @@ def select(scores):
     return scores.vocab[max(range(len(values)), key=values.__getitem__)]
 
 
-def predict(scores, history, ngram_history, contract, window, page_count, state):
+def call_rep(logits,history,order,window,receipts):
+    result=_uocr_no_repeat_ngram(logits,history,order,window,set())
+    receipts.append({"kind":"rep","source":id(logits),"result":id(result),
+                     "guard":code_identity(_uocr_no_repeat_ngram.__code__)})
+    return result
+
+
+def call_page(logits,history,count,c,state,extra,receipts):
+    for invocation in [None,*extra]:
+        if invocation and "cursor" in invocation:
+            state["scanned"]=invocation["cursor"]
+        initial=dict(state)
+        result=_uocr_page_count_guard(logits,history,count,c["page"],c["eos"],c["cap"],state)
+        receipts.append({"kind":"page","source":id(logits),"result":id(result),"before":initial,
+                         "after":dict(state),"guard":code_identity(_uocr_page_count_guard.__code__)})
+    return result
+
+
+def predict(scores, history, ngram_history, contract, window, page_count, state, extra,receipts):
     logits = scores
-    logits = _uocr_no_repeat_ngram(logits, ngram_history, contract["order"], window, set())
-    logits = _uocr_page_count_guard(logits, history, page_count, contract["page"], contract["eos"], contract["cap"], state)
+    logits = call_rep(logits, ngram_history, contract["order"], window, receipts)
+    logits = call_page(logits, history, page_count, contract, state,extra,receipts)
     return select(logits)
 
 
 def bindings():
-    targets = ["_uocr_no_repeat_ngram", "_uocr_page_count_guard", "select"]
+    targets = ["call_rep", "call_page", "select"]
     code = predict.__code__
     offsets = [i.offset for i in dis.get_instructions(code)
                if i.opname == "LOAD_GLOBAL" and i.argval in targets]
@@ -65,7 +83,7 @@ def clone_cpu(scores, alias):
 
 
 OPS = {"capture_at","swap","duplicate","unwitness","drop","truncate","alias","write","choose",
-       "cursor","ngram_start","include_prompt"}
+       "cursor","ngram_start","include_prompt","torn","omit_state","reenter_page","recompute","lastmax"}
 
 
 def capture_analogue(scenario):
@@ -80,8 +98,17 @@ def capture_analogue(scenario):
             raise ValueError("unsupported injection")
         schedule[instruction.get("row", 0)].append(instruction)
     cuts = bindings()
-    ledger = CaptureAdapter(predict.__code__, clone_cpu, "cpu")
+    read_span=None
+    def read_cpu(source,alias):
+        if read_span is None:
+            return clone_cpu(source,alias)
+        start,end=read_span
+        data=bytes(memoryview(source.data)[start:end])
+        return data,{"transport":"cpu-owned","source_storage":id(source.data),"dest_storage":id(data),
+                     "bytes":len(data),"source_byte_start":start,"source_byte_end":end}
+    ledger = CaptureAdapter(predict.__code__, read_cpu, "cpu")
     rows = []
+    lost_receipts=set()
     for row, (history, words) in enumerate(zip(histories, c["raw_words"], strict=True)):
         actions = schedule[row]
         if len(history) == 0:
@@ -110,20 +137,67 @@ def capture_analogue(scenario):
             elif a["op"] == "alias":
                 aliases.add(a["phase"])
         before = dict(st)
+        skipped={a["to"] for a in actions if a["op"]=="duplicate"} | {a["phase"] for a in actions if a["op"]=="drop"}
         records = {}
+        fragments={}
         def visit(at, frame):
+            nonlocal read_span
             source = frame.f_locals["logits"]
             for a in actions:
                 if a["op"] == "write" and a["phase"] == at:
                     source[a["id"]] = Word(pack_word(a["value"]))
             for label, site in offsets.items():
-                if site == at:
+                if site == at and label not in skipped:
+                    torn=next((a for a in actions if a["op"]=="torn" and a["phase"]==label),None)
+                    if torn:
+                        if torn["at"] not in PHASES[PHASES.index(at)+1:] or not 0<torn["bytes"]<len(source.data):
+                            raise ValueError("invalid two-cut fragment schedule")
+                        read_span=(0,torn["bytes"])
                     records[label] = ledger.copy(row, frame, source, label in aliases)
+                    read_span=None
+                    if torn:
+                        fragments[label]=[records[label]["copy"]]
+            for a in actions:
+                if a["op"]=="torn" and a["at"]==at:
+                    label=a["phase"]
+                    read_span=(a["bytes"],len(source.data))
+                    tail=ledger.copy(row,frame,source)
+                    read_span=None
+                    fragments[label].append(tail["copy"])
+                    records[label]["data"]+=tail["data"]
+                    records[label]["fragments"]=fragments[label]
         inverse = {offset:phase for phase,offset in cuts.items()}
+        guard_calls=[]
+        extra=[a for a in actions if a["op"]=="reenter_page"]
         with InstructionMonitor({predict.__code__: inverse},visit):
-            y = predict(Scores(vocab,words),history,ngram_history,c,window,expected_pages,st)
+            y = predict(Scores(vocab,words),history,ngram_history,c,window,expected_pages,st,extra,guard_calls)
+        after=dict(st)
         for a in actions:
             op = a["op"]
+            if op=="omit_state":
+                state={"before":before,"after":after}[a["when"]]
+                state.pop(a["field"],None)
+            elif op=="lastmax":
+                final=records[PHASES[-1]]["data"]
+                values=[v for v, in struct.iter_unpack("<f",final)]
+                y=vocab[max(range(len(values)),key=lambda j:(values[j],j))]
+            elif op=="recompute":
+                phase=a["phase"]
+                replica=Scores(vocab,words)
+                if phase in PHASES[1:]:
+                    _uocr_no_repeat_ngram(replica,history,c["order"],c["window"],set())
+                if phase==PHASES[2]:
+                    baseline={"scanned":0,"marker_cum":0,"page_len":0}
+                    _uocr_page_count_guard(replica,history,expected_pages,c["page"],c["eos"],c["cap"],baseline)
+                r=records[phase]
+                old=r.pop("copy",None)
+                if old:
+                    lost_receipts.add(old)
+                if a["ancestry"]=="raw":
+                    r["copy"]=records[PHASES[0]]["copy"]
+                elif a["ancestry"]!="absent":
+                    raise ValueError("invalid recomputed-byte provenance")
+                r["data"]=bytes(replica.data)
             if op == "choose":
                 y = a["id"]
             elif op == "swap":
@@ -132,18 +206,21 @@ def capture_analogue(scenario):
             elif op == "duplicate":
                 records[a["to"]] = dict(records[a["from"]])
             elif op == "unwitness":
-                records[a["phase"]].pop("copy",None)
+                lost_receipts.add(records[a["phase"]].pop("copy",None))
             elif op == "drop":
                 records.pop(a["phase"],None)
             elif op == "truncate":
                 data = records[a["phase"]]
-                data["data"] = data["data"][:a["bytes"]]
+                limit=a["bytes"] if "bytes" in a else int(len(data["data"])*a["fraction"])
+                if limit<0 or limit>len(data["data"]):
+                    raise ValueError("truncate extent")
+                data["data"] = data["data"][:limit]
                 data["complete"] = a["complete"]
         for rec in records.values():
             data = bytes(rec.pop("data"))
             rec.update(hex=data.hex(),sha256=digest(data))
-        rows.append({"index":row,"history":history,"before":before,"after":dict(st),
+        rows.append({"index":row,"history":history,"before":before,"after":after,"guard_calls":guard_calls,
                      "phases":records,"y":y,"page":c["page"],"eos":c["eos"],
                      "cap":c["cap"],"expected_pages":expected_pages})
-    return {"schema":"wp43-cpu/1","events":ledger.events,"rows":rows,
+    return {"schema":"wp43-cpu/1","events":[e for e in ledger.events if e["id"] not in lost_receipts],"rows":rows,
             "document":scenario.get("document",{}),"prompt":c["prompt"],"vocab":vocab}

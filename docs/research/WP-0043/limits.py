@@ -44,6 +44,47 @@ def device_lock(path):
         k.CloseHandle(h)
 
 
+class ThreadEntry(C.Structure):
+    _fields_=[("size",W.DWORD),("usage",W.DWORD),("tid",W.DWORD),("pid",W.DWORD),
+              ("base_priority",C.c_long),("delta_priority",C.c_long),("flags",W.DWORD)]
+
+
+def resume_job_child(k,pid):
+    # Popen closes the thread HANDLE. Enumerate the still-suspended initial thread.
+    for name,params,result in (
+        ("CreateToolhelp32Snapshot",[W.DWORD,W.DWORD],W.HANDLE),
+        ("Thread32First",[W.HANDLE,C.POINTER(ThreadEntry)],W.BOOL),
+        ("Thread32Next",[W.HANDLE,C.POINTER(ThreadEntry)],W.BOOL),
+        ("OpenThread",[W.DWORD,W.BOOL,W.DWORD],W.HANDLE),("ResumeThread",[W.HANDLE],W.DWORD)):
+        f=getattr(k,name)
+        f.argtypes=params
+        f.restype=result
+    snapshot=k.CreateToolhelp32Snapshot(4,0)
+    if snapshot==W.HANDLE(-1).value:
+        raise C.WinError(C.get_last_error())
+    entries=[]
+    try:
+        e=ThreadEntry()
+        e.size=C.sizeof(e)
+        found=k.Thread32First(snapshot,C.byref(e))
+        while found:
+            if e.pid==pid:
+                entries.append(e.tid)
+            found=k.Thread32Next(snapshot,C.byref(e))
+    finally:
+        k.CloseHandle(snapshot)
+    if len(entries)!=1:
+        raise RuntimeError("unbound suspended child threads")
+    thread=k.OpenThread(2,False,entries[0])
+    if not thread:
+        raise C.WinError(C.get_last_error())
+    try:
+        if k.ResumeThread(thread)!=1:
+            raise RuntimeError("unexpected suspension count")
+    finally:
+        k.CloseHandle(thread)
+
+
 @contextmanager
 def job(proc,limit):
     k=winapi()
@@ -58,6 +99,25 @@ def job(proc,limit):
             raise C.WinError(C.get_last_error())
         if not k.AssignProcessToJobObject(h,int(proc._handle)):
             raise C.WinError(C.get_last_error())
-        yield
+        resume_job_child(k,proc.pid)
+        yield h
     finally:
         k.CloseHandle(h)
+
+
+def job_member(pid,handle):
+    k=winapi()
+    k.OpenProcess.argtypes=[W.DWORD,W.BOOL,W.DWORD]
+    k.OpenProcess.restype=W.HANDLE
+    k.IsProcessInJob.argtypes=[W.HANDLE,W.HANDLE,C.POINTER(W.BOOL)]
+    k.IsProcessInJob.restype=W.BOOL
+    process=k.OpenProcess(0x1000,False,pid)
+    if not process:
+        raise C.WinError(C.get_last_error())
+    try:
+        result=W.BOOL()
+        if not k.IsProcessInJob(process,handle,C.byref(result)):
+            raise C.WinError(C.get_last_error())
+        return bool(result)
+    finally:
+        k.CloseHandle(process)

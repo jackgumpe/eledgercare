@@ -1,6 +1,7 @@
 """A synchronous copy ledger shared by CPU and stock instruction observers."""
 import dis
 import hashlib
+import types
 import json
 import struct
 import sys
@@ -14,9 +15,22 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def executable_shape(c):
+    def constant(x):
+        if isinstance(x,types.CodeType):
+            return ["code",executable_shape(x)]
+        if isinstance(x,(tuple,frozenset)):
+            children=[constant(v) for v in x]
+            return [type(x).__name__,sorted(children,key=repr) if isinstance(x,frozenset) else children]
+        return [type(x).__name__,repr(x)]
+    return [c.co_qualname,c.co_code.hex(),c.co_linetable.hex(),c.co_exceptiontable.hex(),
+            c.co_flags,c.co_firstlineno,c.co_argcount,c.co_posonlyargcount,c.co_kwonlyargcount,
+            c.co_names,c.co_varnames,c.co_cellvars,c.co_freevars,[constant(v) for v in c.co_consts]]
+
+
 def code_identity(code):
     # Filename is recorded separately. Use the executable bytecode and source statement map.
-    return {"qualname": code.co_qualname, "code_sha256": digest(code.co_code),
+    return {"qualname": code.co_qualname, "executable_sha256":digest(json.dumps(executable_shape(code),separators=(",",":")).encode()), "code_sha256": digest(code.co_code),
             "positions_sha256": digest(code.co_linetable),
             "source_sha256": digest(Path(code.co_filename).read_bytes())}
 

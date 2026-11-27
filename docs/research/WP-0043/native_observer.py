@@ -3,6 +3,7 @@ import json
 import sys
 from pathlib import Path
 from bindings import GEN, LAYER, resolve
+from transfer import PinnedTransport
 from capture import CaptureAdapter, InstructionMonitor, PHASES, code_identity, digest
 
 MIB=1<<20
@@ -17,7 +18,7 @@ LOCAL_FIELDS={
  "dash_dispatch":("q_len","position_ids"),"generic_dispatch":("q_len","position_ids"),
  "idx_2d":("coords","pos_ids"),"idx_1d":("coords","pos_ids"),"idx_main":("coords","pos_ids"),
  "shared_output":("down_proj",),
- "attention_exit":("residual","hidden_states"),
+ "attention_exit":("residual","hidden_states","attention_result"),
  "residual":("residual","hidden_states","self_attn_weights","kl_loss"),
  "post_rms":("hidden_states",),"mixture":("hidden_states",),"block_exit":("hidden_states",),
  "kv_before":("coords","cos","sin","position_ids","k","v","q"),
@@ -36,38 +37,18 @@ LOCAL_FIELDS={
 class Arena:
     def __init__(self,torch,out):
         self.torch=torch
-        self.host=torch.empty(PINNED_BYTES,dtype=torch.uint8,pin_memory=True)
-        self.copy_done=torch.cuda.Event()
-        self.copy_done.record(torch.cuda.current_stream())
-        self.copy_done.synchronize()  # allocate native event before either warm-up
+        self.transport=PinnedTransport(torch,PINNED_BYTES)
         self.pack=(out/"tensors.bin").open("xb")
         self.seq=0
         self.by_digest={}
 
-    def transfer(self,tensor):
-        torch=self.torch
-        n=tensor.numel()*tensor.element_size()
-        if n>PINNED_BYTES or sys.byteorder!="little":
-            raise ValueError("unrepresentable tensor in fixed host arena")
-        dst=self.host[:n].view(tensor.dtype).reshape(tensor.shape)
-        stream=torch.cuda.current_stream()
-        if tensor.is_cuda:
-            torch.cuda.synchronize(tensor.device)
-        dst.copy_(tensor.detach(),non_blocking=tensor.is_cuda)
-        self.copy_done.record(stream)
-        self.copy_done.synchronize()
-        self.seq+=1
-        transfer={"transport":"cuda-fenced-pinned" if tensor.is_cuda else "host-fenced",
-                  "producer_stream":stream.cuda_stream,"copy_stream":stream.cuda_stream,
-                  "source_storage":tensor.untyped_storage().data_ptr(),"dest_storage":self.host.data_ptr(),
-                  "completion":self.copy_done.query(),"complete_before_return":True,
-                  "fence_serial":self.seq,"pinned":dst.is_pinned(),"bytes":n}
-        return self.host[:n].numpy().tobytes(),transfer
-
     def scores(self,tensor,alias):
         if alias or tuple(tensor.shape)!=(129280,) or tensor.dtype!=self.torch.float32 or not tensor.is_cuda:
             raise ValueError("unexpected native score source")
-        return self.transfer(tensor)
+        data,chunks=self.transport.read(tensor)
+        if len(chunks)!=1:
+            raise ValueError("score row does not fit one owned transfer")
+        return data,chunks[0]
 
     def tensor(self,t):
         n=t.numel()*t.element_size()
@@ -76,18 +57,10 @@ class Arena:
              "storage_bytes":t.untyped_storage().nbytes(),"element_size":t.element_size(),"bytes":n}
         if t.layout!=self.torch.strided or n>192*MIB:
             return {**rec,"unobserved":"layout or individual byte ceiling"}
-        chunks=[]
-        def transfer(src):
-            if src.numel()*src.element_size()<=PINNED_BYTES:
-                data,receipt=self.transfer(src)
-                chunks.append((data,receipt))
-                return
-            axis=next(i for i,width in enumerate(src.shape) if width>1)
-            half=src.shape[axis]//2
-            transfer(src.narrow(axis,0,half))
-            transfer(src.narrow(axis,half,src.shape[axis]-half))
-        transfer(t)
-        data=b"".join(part for part,_ in chunks)
+        try:
+            data,chunks=self.transport.read(t)
+        except ValueError as e:
+            return {**rec,"unobserved":str(e)}
         sha=digest(data)
         start=self.by_digest.get(sha)
         if start is None:
@@ -96,7 +69,7 @@ class Arena:
             start=self.pack.tell()
             self.pack.write(data)
             self.by_digest[sha]=start
-        rec.update(start=start,sha256=sha,transfer=chunks[0][1],chunks=[receipt for _,receipt in chunks])
+        rec.update(start=start,sha256=sha,transfer=chunks[0],chunks=chunks)
         return rec
 
 
@@ -149,6 +122,7 @@ class Graph:
 class StockObserver:
     def __init__(self,torch,model,model_dir,out):
         self.model=model
+        self.progress=out/"progress"
         self.sites=resolve(model_dir,type(model).__module__.rsplit(".",1)[0])
         self.gen=next(c for c in self.sites if c.co_qualname==GEN)
         self.arena=Arena(torch,out)
@@ -156,6 +130,9 @@ class StockObserver:
         self.ledger=CaptureAdapter(self.gen,self.arena.scores,"native")
         self.monitor=InstructionMonitor(self.sites,self.visit)
         self.active=None
+        self.early_producer=None
+        self.last_copy=None
+        self.last_tensor=None
         self.record_number=0
         self.receiver=model.model.layers[11]
         self.identities={c:code_identity(c) for c in self.sites}
@@ -180,6 +157,7 @@ class StockObserver:
         dash=sys.modules[type(self.model).__module__.rsplit(".",1)[0]+".modeling_deepseekv2"]
         for i,layer in enumerate(model.layers):
             att=layer.self_attn
+            attrs[i]["indexer"]=attributes(att.indexer,("_page_rope_meta","_rope_pos_2d","rope_mode"))
             attrs[i]["buffers"]={k:v for k,v in att.named_buffers() if "rotary" in k}
         streamer=g.get("streamer")
         return {"cache":cache,"generator_cache":g.get("cache"),"prompt":g["prompt_ids"],
@@ -196,6 +174,25 @@ class StockObserver:
         if frame.f_code is self.gen:
             if local["self"] is not self.model:
                 raise RuntimeError("wrong generator receiver")
+            if tag in ("prefill_producer","model_producer","head_producer","rep_producer","page_producer","choice_consumer"):
+                stream=self.arena.transport.stream_record()
+                origin={**stream,"site":tag,"instruction":frame.f_lasti,"frame":id(frame),"receiver":id(local["self"]),
+                        "ordinal":local.get("step",-1),"code_sha256":self.identities[frame.f_code]["code_sha256"]}
+                if tag in ("prefill_producer","model_producer"):
+                    if tag=="model_producer" and len(local["gen"])-619 in range(5):
+                        self.write(tag,len(local["gen"])-619,frame,origin)
+                    self.early_producer=origin
+                    self.arena.transport.origin_event=origin
+                row=local.get("step",-1)-619
+                if row in range(5) and tag in ("head_producer","rep_producer","page_producer","choice_consumer"):
+                    previous=self.last_copy if tag!="head_producer" else None
+                    if previous:
+                        if self.last_tensor is not local["logits"] or not self.arena.transport.done.query():
+                            raise RuntimeError("next writer source or prior transfer completion changed")
+                        origin.update(previous_copy=previous,previous_source=id(local["logits"]),preceding_copy_complete=True)
+                    self.write(tag,row,frame,origin)
+                    self.arena.transport.origin_event=origin
+                return
             if tag in ("terminal_eos","cleanup"):
                 self.write(tag,None,frame,{"nxt":local.get("nxt"),"finish":local.get("finish"),
                     "ids":list(local["gen"]),"length":int(local["cache"].key_cache[0].shape[-2]),
@@ -207,12 +204,16 @@ class StockObserver:
                     "sliding":getattr(self.model.config,"sliding_window",None)})
                 return
             if tag=="D":
+                if len(local["gen"])%16==0:
+                    self.progress.write_bytes(str(len(local["gen"])).encode("ascii"))
                 self.write("append",None,frame,{"index":len(local["gen"])-1,"id":local["nxt"],"pos":local["pos"]})
             row=local["step"]-619
             if row not in range(5):
                 return
             if tag in PHASES:
                 item=self.ledger.copy(row,frame,local["logits"])
+                self.last_copy=item["copy"]
+                self.last_tensor=local["logits"]
                 data=item.pop("data")
                 item.update(hex=data.hex(),sha256=digest(data))
                 hidden=Graph(self.arena).snapshot({"final_norm":local["h"]}) if tag==PHASES[0] else None
@@ -224,6 +225,8 @@ class StockObserver:
                 self.write(tag,row,frame,{"y":local["nxt"],"history":list(local["gen"]),"pos":local["pos"],
                      "graph":Graph(self.arena).snapshot(roots),"lengths":[v.shape[-2] for v in local["cache"].key_cache]})
                 self.active=None
+                self.last_tensor=None
+                self.last_copy=None
             return
         if tag in ("page_before","page_after"):
             ancestor=frame.f_back
@@ -251,6 +254,7 @@ class StockObserver:
             if row not in range(5):
                 return
             self.active=row
+            self.arena.transport.origin_event=self.early_producer
             roots=self.roots(ancestor,local["past_key_value"])
             roots["arguments"]={k:v for k,v in local.items() if k!="self"}
             if caller:
@@ -258,6 +262,7 @@ class StockObserver:
             self.write(tag,row,frame,{"graph":Graph(self.arena).snapshot(roots),
                 "history":list(g["gen"]),"pos":g["pos"],"guard":dict(g["guard_st"]),
                 "lower_forwarded":bool(caller and caller.f_locals["layer_outputs"][0] is local["hidden_states"]),
+                "receiver_id":id(local["self"]),"caller_receiver":id(caller.f_locals["self"]) if caller else None,
                 "caller_code":code_identity(caller.f_code) if caller else None,"caller_offset":caller.f_lasti if caller else None,
                 "lengths":[v.shape[-2] for v in local["past_key_value"].key_cache]})
             return
@@ -265,6 +270,8 @@ class StockObserver:
             if tag=="shared_output" and local["self"] is not self.receiver.mlp.shared_experts:
                 return
             values={k:local[k] for k in LOCAL_FIELDS[tag] if k in local}
+            if tag=="attention_exit":
+                values["attention_result"]=local["attn_outputs"][0]
             self.write(tag,self.active,frame,Graph(self.arena).snapshot(values))
 
     def close(self):

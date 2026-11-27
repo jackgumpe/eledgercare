@@ -94,7 +94,7 @@ class Findings:
                 "conflicts":self.conflicts,"missing":self.missing,"rows":per_row}
 
 
-def provenance(rec, phase, row, events, cuts, identity, f, transport):
+def provenance(rec, phase, row, events, cuts, identity, f, transport, expected_bytes):
     event_id = rec.get("copy")
     if not event_id or event_id not in events:
         f.absent(row,phase,"copy_ancestry_missing")
@@ -105,10 +105,19 @@ def provenance(rec, phase, row, events, cuts, identity, f, transport):
             f.absent(row,phase,"copy_ancestry_missing",field=key)
         elif event[key]!=want:
             f.mismatch(row,phase,"phase_cut_binding_mismatch",field=key,expected=want,observed=event[key])
-    fields = ["seq","frame","source","source_storage","dest_storage","bytes","run","transport"]
+    fields = ["seq","frame","receiver","source","source_storage","dest_storage","bytes","run","transport"]
+    domain="cpu" if transport=="cpu-owned" else "native"
     for key in fields:
         if key not in event:
             f.absent(row,phase,"copy_ancestry_missing",field=key)
+        elif key not in {"run","transport"} and (type(event[key])!=int or event[key]<=0):
+            f.mismatch(row,phase,"copy_event_invalid",field=key,observed=event[key])
+    if "run" in event and event["run"]!=domain:
+        f.mismatch(row,phase,"copy_event_invalid",field="run")
+    if "bytes" in event and event["bytes"]!=expected_bytes:
+        f.mismatch(row,phase,"copy_event_invalid",field="bytes",expected=expected_bytes,observed=event["bytes"])
+    if "seq" in event and event["id"]!=f"{domain}/{row}/{event['seq']}":
+        f.mismatch(row,phase,"copy_event_invalid",field="id")
     if event.get("transport") not in (None,transport) or (
             event.get("source_storage") is not None and event["source_storage"]==event.get("dest_storage")):
         f.mismatch(row,phase,"owned_copy_violation")
@@ -158,7 +167,13 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
     count = c["prompt"].count(c["page"])
     events = {}
     used = {}
+    journal_serial=0
     for event in e.get("events",[]):
+        sequence=event.get("seq")
+        if type(sequence) is int:
+            if sequence<=journal_serial:
+                find.mismatch(event.get("row"),PHASES[0],"non_monotonic_capture_seq")
+            journal_serial=sequence
         if event.get("id") in events:
             find.mismatch(event.get("row"),PHASES[0],"duplicate_copy_event_id")
         events[event.get("id")] = event
@@ -173,6 +188,22 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
     for i,history in enumerate(c["histories"]):
         r = rows_by_id.get(i,{})
         entry = f"B{i}_entry_state"
+        if transport=="cpu-owned":
+            from analogue_guards import _uocr_no_repeat_ngram,_uocr_page_count_guard
+            from capture import code_identity
+            calls=r.get("guard_calls")
+            if calls is None:
+                find.absent(i,entry,"guard_calls_missing")
+            else:
+                expected_guards=(_uocr_no_repeat_ngram,_uocr_page_count_guard)
+                if [v.get("kind") for v in calls]!=["rep","page"]:
+                    find.mismatch(i,PHASES[2],"guard_invocation_count")
+                for j,(call,fn) in enumerate(zip(calls,expected_guards)):
+                    at=PHASES[j+1]
+                    find.equal(call,"guard",code_identity(fn.__code__),i,at,"guard_code_mismatch")
+                    if call.get("source")!=call.get("result") or type(call.get("source")) is not int:
+                        find.mismatch(i,at,"guard_source_binding")
+
         find.equal(r,"history",history,i,entry,"generation_history_mismatch")
         for name,want in [("page",c["page"]),("eos",c["eos"]),("cap",c["cap"]),("expected_pages",count)]:
             find.equal(r,name,want,i,entry,"guard_config_mismatch")
@@ -194,7 +225,16 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
             if rec is None:
                 find.absent(i,phase,"phase_missing")
                 continue
-            event = provenance(rec,phase,i,events,cuts,identity,find,transport)
+            event = provenance(rec,phase,i,events,cuts,identity,find,transport,len(vocab)*4)
+            if "fragments" in rec:
+                fragments=rec["fragments"]
+                if len(fragments)!=1:
+                    find.mismatch(i,phase,"fragmented_capture",copies=fragments)
+                for cid in fragments:
+                    if cid not in events:
+                        find.absent(i,phase,"copy_ancestry_missing",copy=cid)
+                    elif cid!=rec.get("copy"):
+                        used[cid]=(i,phase)
             if event:
                 receipts[phase] = event
                 cid = event["id"]
@@ -219,9 +259,14 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
                     find.mismatch(i,phase,"raw_non_finite_pos_inf" if f32(word)==math.inf else "raw_non_finite",
                                   id=token,observed_le=word.hex())
                 source = reference if j==0 else captures.get(PHASES[j-1])
+                if source is None and j==2:
+                    source=captures.get(PHASES[0])
                 if source is None:
                     source = reference
                 expected = source[start:start+4] if source is not None else b""
+                if len(expected)<len(word) and j==2 and token in allowed:
+                    fallback=captures.get(PHASES[0],reference or b"")
+                    expected=fallback[start:start+4]
                 if (j==1 and token in banned) or (j==2 and token not in allowed):
                     expected = NEG_INF
                 if j==2 and token in allowed and len(word)==4 and not math.isfinite(f32(word)):
@@ -232,11 +277,16 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
                 if len(word)==4 and len(expected)==4 and word!=expected and f32(word)==0==f32(expected):
                     key = "signed_zero_winner_corrupted" if token==r.get("y") else "signed_zero_corrupted"
                 find.byte_diff(i,phase,key,slot,token,expected,word)
+        if transport=="cpu-owned" and r.get("guard_calls") and receipts:
+            for call in r["guard_calls"]:
+                for phase,event in receipts.items():
+                    if call.get("source")!=event.get("source"):
+                        find.mismatch(i,phase,"guard_source_binding",field="source")
         pairs = list(receipts.items())
         for (p,a),(q,b) in zip(pairs,pairs[1:]):
             if a["id"]!=b["id"] and isinstance(a.get("seq"),int) and isinstance(b.get("seq"),int) and a["seq"]>=b["seq"]:
                 find.mismatch(i,p,"non_monotonic_capture_seq",also=q)
-            for field in ("source","frame","run","source_storage"):
+            for field in ("source","frame","receiver","run","source_storage"):
                 if field in a and field in b and a[field]!=b[field]:
                     find.mismatch(i,p,"source_binding_mismatch",field=field)
         final = captures.get(PHASES[-1],b"")
@@ -249,6 +299,9 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
         elif allowed and r["y"] not in allowed:
             find.mismatch(i,"D_selection","y_mismatch",observed=r["y"])
         summaries.append({"row":i,"banned":sorted(banned),"support":sorted(allowed),"ties":ties,"y":r.get("y")})
+    for cid,event in events.items():
+        if cid not in used:
+            find.mismatch(event.get("row"),PHASES[0],"orphan_copy_event",copy=cid)
     return summaries
 
 

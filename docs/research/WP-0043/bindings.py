@@ -15,7 +15,7 @@ GEN = "UnlimitedOCRForCausalLM._uocr_generate"
 LAYER = "DeepseekV2DecoderLayer.forward"
 # First instruction on each statement: values assigned on the previous line exist.
 SITES = {
- (OCR,GEN):{1168:PHASES[0],1170:PHASES[1],1173:PHASES[2],1189:"D",
+ (OCR,GEN):{1162:"prefill_producer",1191:"model_producer",1167:"head_producer",1169:"rep_producer",1171:"page_producer",1176:"choice_consumer",1168:PHASES[0],1170:PHASES[1],1173:PHASES[2],1189:"D",
             1180:"terminal_eos",1201:"cleanup"},
  (OCR,"_uocr_dash_decode_allow"):{517:"page_before",528:"page_after"},
  (DASH,"_patched_forward"):{241:"dash_dispatch",243:"generic_dispatch"},
@@ -72,3 +72,13 @@ def resolve(model_dir,package=None):
                 raise ValueError("loaded code differs: "+qual)
         runtime[code] = {line_offset(code,line):tag for line,tag in SITES[(name,qual)].items()}
     return runtime
+
+
+def caller_binding(root):
+    file=Path(root)/BASE
+    raw=file.read_bytes()
+    if digest(raw)!=HASHES[BASE]:
+        raise ValueError("caller source digest")
+    code=next(c for c in recursive_codes(compile(raw,str(file),"exec",dont_inherit=True))
+              if c.co_qualname=="DeepseekV2Model.forward")
+    return code_identity(code)
