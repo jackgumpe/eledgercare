@@ -1,0 +1,1354 @@
+{
+  "rows": [
+    {
+      "interface": "live",
+      "id": "W1.A",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "U"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "unresolved",
+        "unresolved": [
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {
+        "executable_roles": "distinct_approved_launcher_and_interpreter"
+      }
+    },
+    {
+      "interface": "live",
+      "id": "W1.B",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "U"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "unresolved",
+        "unresolved": [
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {
+        "executable_roles": "distinct_approved_launcher_and_interpreter"
+      }
+    },
+    {
+      "interface": "live",
+      "id": "W2.other",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "M",
+        "A": "P",
+        "C": "P",
+        "B": "U"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "unresolved",
+        "unresolved": [
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [
+        {
+          "key": "E.launcher",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "anchor_mismatch",
+          "source": "creation handles, creation FILETIMEs, job query and launcher wait"
+        }
+      ],
+      "missing": [
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "mixed",
+        "phase": "edge",
+        "keys": [
+          "E.launcher",
+          "E.parent"
+        ]
+      },
+      "extras": {
+        "instance_pairs_retained": 2
+      }
+    },
+    {
+      "interface": "live",
+      "id": "W4.denied",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "U"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "unresolved",
+        "unresolved": [
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {
+        "competing_access": {
+          "denied": true,
+          "filesystem_mutation": false
+        }
+      }
+    },
+    {
+      "interface": "live",
+      "id": "B1.original",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "U"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "unresolved",
+        "unresolved": [
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "live",
+      "id": "B2.other",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "M"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "wrong_origin",
+        "unresolved": [
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [
+        {
+          "key": "B.origin",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "other_run",
+          "source": "receipt_mapping"
+        }
+      ],
+      "missing": [
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "live",
+      "id": "B3.copy",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "U"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "unresolved",
+        "unresolved": [
+          "direct_acquisition_unobserved",
+          "origin_unbound",
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "B.direct",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "scorer handle joined to continuously held registered NTFS object"
+        },
+        {
+          "key": "B.origin",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "receipt_mapping"
+        },
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "live",
+      "id": "B4.invalid",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "M"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "integrity",
+        "unresolved": [
+          "direct_acquisition_unobserved",
+          "origin_unbound",
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [
+        {
+          "key": "B.seal",
+          "coordinate": "B",
+          "phase": "seal",
+          "subtype": "seal_invalid",
+          "source": "receipt_authentication"
+        }
+      ],
+      "missing": [
+        {
+          "key": "B.direct",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "scorer handle joined to continuously held registered NTFS object"
+        },
+        {
+          "key": "B.origin",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "receipt_mapping"
+        },
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "live",
+      "id": "B4.unavailable",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "U"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "unresolved",
+        "unresolved": [
+          "direct_acquisition_unobserved",
+          "origin_unbound",
+          "seal_unverified",
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "B.direct",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "scorer handle joined to continuously held registered NTFS object"
+        },
+        {
+          "key": "B.origin",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "receipt_mapping"
+        },
+        {
+          "key": "B.seal",
+          "coordinate": "B",
+          "phase": "seal",
+          "subtype": "unobserved",
+          "source": "receipt_authentication"
+        },
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "live",
+      "id": "B5.reopen",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "U"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "unresolved",
+        "unresolved": [
+          "direct_acquisition_unobserved",
+          "origin_unbound",
+          "protection_gap",
+          "writer_unobserved"
+        ]
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "B.direct",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "scorer handle joined to continuously held registered NTFS object"
+        },
+        {
+          "key": "B.origin",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "receipt_mapping"
+        },
+        {
+          "key": "B.protection",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": "open guard at creation and scorer acquisition"
+        },
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "unobserved",
+          "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+        },
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W2.helper",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "M",
+        "A": "P",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "parent_mismatch",
+          "source": "parent_instance_query"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W3.missing",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "U",
+        "A": "P",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": null
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "edge",
+        "keys": [
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W3.late_missing",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "M",
+        "A": "P",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "E.order",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "order_violation",
+          "source": "ordered_process_events"
+        }
+      ],
+      "missing": [
+        {
+          "key": "E.parent",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "unobserved",
+          "source": null
+        }
+      ],
+      "earliest": {
+        "kind": "mixed",
+        "phase": "edge",
+        "keys": [
+          "E.order",
+          "E.parent"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W3.reuse",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "M",
+        "A": "P",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "E.instance",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "instance_mismatch",
+          "source": "process_instance_key"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "edge",
+        "keys": [
+          "E.instance"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W4.bad_I",
+      "coordinates": {
+        "L": "P",
+        "I": "M",
+        "E": "P",
+        "A": "P",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "I.image",
+          "coordinate": "I",
+          "phase": "image",
+          "subtype": "image_mismatch",
+          "source": "live_image_digest"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "image",
+        "keys": [
+          "I.image"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W4.no_I",
+      "coordinates": {
+        "L": "P",
+        "I": "U",
+        "E": "P",
+        "A": "P",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "U",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "I.image",
+          "coordinate": "I",
+          "phase": "image",
+          "subtype": "unobserved",
+          "source": null
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "image",
+        "keys": [
+          "I.image"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W4.bad_L",
+      "coordinates": {
+        "L": "M",
+        "I": "P",
+        "E": "P",
+        "A": "P",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "L.image",
+          "coordinate": "L",
+          "phase": "image",
+          "subtype": "image_mismatch",
+          "source": "live_image_digest"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "image",
+        "keys": [
+          "L.image"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W5.args",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "P",
+        "A": "M",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "A.args",
+          "coordinate": "A",
+          "phase": "command",
+          "subtype": "command_mismatch",
+          "source": "argv_capture"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "command",
+        "keys": [
+          "A.args"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W5.script",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "P",
+        "A": "M",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "A.script",
+          "coordinate": "A",
+          "phase": "command",
+          "subtype": "command_mismatch",
+          "source": "script_digest"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "command",
+        "keys": [
+          "A.script"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W5.config",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "P",
+        "A": "P",
+        "C": "M",
+        "B": "P"
+      },
+      "custody": "P",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "C.include_system",
+          "coordinate": "C",
+          "phase": "configuration",
+          "subtype": "config_mismatch",
+          "source": "config_probe"
+        },
+        {
+          "key": "C.pyvenv",
+          "coordinate": "C",
+          "phase": "configuration",
+          "subtype": "config_mismatch",
+          "source": "file_digest"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "configuration",
+        "keys": [
+          "C.include_system",
+          "C.pyvenv"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W5.empty",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "P",
+        "A": "P",
+        "C": "M",
+        "B": "P"
+      },
+      "custody": "P",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "C.PYTHONPATH",
+          "coordinate": "C",
+          "phase": "configuration",
+          "subtype": "config_mismatch",
+          "source": "environment_probe"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "configuration",
+        "keys": [
+          "C.PYTHONPATH"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W5.unobserved",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "P",
+        "A": "P",
+        "C": "U",
+        "B": "P"
+      },
+      "custody": "P",
+      "joint": "U",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [],
+      "missing": [
+        {
+          "key": "C.PYTHONSAFEPATH",
+          "coordinate": "C",
+          "phase": "configuration",
+          "subtype": "unobserved",
+          "source": null
+        }
+      ],
+      "earliest": {
+        "kind": "missing",
+        "phase": "configuration",
+        "keys": [
+          "C.PYTHONSAFEPATH"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W6.escape",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "M",
+        "A": "P",
+        "C": "P",
+        "B": "P"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "verified",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "E.job",
+          "coordinate": "E",
+          "phase": "edge",
+          "subtype": "containment_escape",
+          "source": "job_membership_query"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "edge",
+        "keys": [
+          "E.job"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "W6.writer",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "P",
+        "A": "P",
+        "C": "P",
+        "B": "M"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "integrity",
+        "unresolved": []
+      },
+      "conflicts": [
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "writer_conflict",
+          "source": "writer_audit"
+        }
+      ],
+      "missing": [],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "writer",
+        "keys": [
+          "B.writer"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "B5.member_missing",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "P",
+        "A": "P",
+        "C": "P",
+        "B": "M"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "integrity",
+        "unresolved": [
+          "direct_acquisition_unobserved"
+        ]
+      },
+      "conflicts": [
+        {
+          "key": "B.members",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "members_inconsistent",
+          "source": "member_inventory"
+        }
+      ],
+      "missing": [
+        {
+          "key": "B.direct",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": null
+        }
+      ],
+      "earliest": {
+        "kind": "mixed",
+        "phase": "acquisition",
+        "keys": [
+          "B.direct",
+          "B.members"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "constructed",
+      "id": "B5.writer_missing",
+      "coordinates": {
+        "L": "P",
+        "I": "P",
+        "E": "P",
+        "A": "P",
+        "C": "P",
+        "B": "M"
+      },
+      "custody": "M",
+      "joint": "M",
+      "content": "P",
+      "origin": {
+        "class": "integrity",
+        "unresolved": [
+          "direct_acquisition_unobserved"
+        ]
+      },
+      "conflicts": [
+        {
+          "key": "B.writer",
+          "coordinate": "B",
+          "phase": "writer",
+          "subtype": "writer_conflict",
+          "source": "writer_audit"
+        }
+      ],
+      "missing": [
+        {
+          "key": "B.direct",
+          "coordinate": "B",
+          "phase": "acquisition",
+          "subtype": "unobserved",
+          "source": null
+        }
+      ],
+      "earliest": {
+        "kind": "conflict",
+        "phase": "writer",
+        "keys": [
+          "B.writer"
+        ]
+      },
+      "extras": {}
+    },
+    {
+      "interface": "archive",
+      "id": "archive.gaps",
+      "result": {
+        "gaps": [
+          "10.875",
+          "15.1875",
+          "13.5625",
+          "15.375",
+          "13.875"
+        ],
+        "min_gap": "10.875",
+        "min_gap_row": 0,
+        "half_min_gap": "5.4375"
+      }
+    },
+    {
+      "interface": "archive",
+      "id": "archive.support",
+      "result": {
+        "rows": 5,
+        "excluded_ids_per_row": [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ],
+        "only_eos_excluded_all_rows": true,
+        "support_size": 129279,
+        "vocabulary": 129280
+      }
+    },
+    {
+      "interface": "archive",
+      "id": "archive.verdict",
+      "result": {
+        "verdict": "M",
+        "argv_conflicts": 2,
+        "row_verdicts": [
+          "U",
+          "U",
+          "U",
+          "U",
+          "U"
+        ],
+        "scheduled_rows": 5,
+        "complete_rows": 0,
+        "qualified_rows": "0/5",
+        "qualified_pairs": "0/1",
+        "F07_target_pairs_matched": "1/1"
+      }
+    },
+    {
+      "interface": "mathematical",
+      "id": "math.shift",
+      "result": [
+        {
+          "winner_before": 0,
+          "winner_after": 0,
+          "winner_changed": false,
+          "omega": "0",
+          "linf": "10",
+          "gap": "10.875"
+        }
+      ]
+    },
+    {
+      "interface": "mathematical",
+      "id": "math.tie",
+      "result": [
+        {
+          "winner_before": 0,
+          "winner_after": 0,
+          "unique_after": false,
+          "gap": "10.875"
+        },
+        {
+          "winner_before": 1,
+          "winner_after": 0,
+          "unique_after": false,
+          "gap": "10.875"
+        }
+      ]
+    },
+    {
+      "interface": "mathematical",
+      "id": "math.signed_zero",
+      "result": [
+        {
+          "values": [
+            "0.0",
+            "-0.0"
+          ],
+          "sign_bits": [
+            0,
+            1
+          ],
+          "numerically_equal": true,
+          "bytes_equal": false
+        }
+      ]
+    },
+    {
+      "interface": "mathematical",
+      "id": "math.linked",
+      "result": {
+        "stock_tokens": [
+          0,
+          0
+        ],
+        "reset_tokens": [
+          0,
+          0
+        ],
+        "linked_tokens": [
+          0,
+          1
+        ],
+        "reset_pass": true,
+        "linked_pass": false,
+        "first_linked_divergence_step": 1,
+        "linked_scores": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "2"
+          ]
+        ]
+      }
+    }
+  ]
+}
