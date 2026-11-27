@@ -21,7 +21,7 @@ def process_list(handle):
     return list(ids.ids[:ids.listed])
 
 
-def main(src, interpreter):
+def main(src, interpreter, suspended):
     sys.path.insert(0,str(src))
     import limits
     handles=[]
@@ -41,15 +41,19 @@ def main(src, interpreter):
     code="import os,sys,time; print(os.getpid(),flush=True); time.sleep(2.5)"
     # Schedule a live descendant before job assignment in the original Popen-then-job
     # design. The timer always exits the harmless process even if job assignment fails.
+    flags=subprocess.CREATE_NO_WINDOW | (4 if suspended else 0)
     proc=subprocess.Popen([str(interpreter),"-B","-u","-c",code],stdout=subprocess.PIPE,
-                          stderr=subprocess.PIPE,creationflags=subprocess.CREATE_NO_WINDOW)
+                          stderr=subprocess.PIPE,creationflags=flags)
     try:
-        child_pid=int(proc.stdout.readline().strip())
+        child_pid=None if suspended else int(proc.stdout.readline().strip())
         with limits.job(proc,256<<20):
+            if suspended:
+                child_pid=int(proc.stdout.readline().strip())
             membership=process_list(handles[-1])
             report={"launcher_pid":proc.pid,"executing_interpreter_pid":child_pid,"observed_job_members":membership,
                     "launcher_in_test_job":proc.pid in membership,"interpreter_in_test_job":child_pid in membership,
-                    "schedule":"interpreter reached stdout before launcher was assigned"}
+                    "schedule":"suspended launcher assigned before resume" if suspended else
+                               "interpreter reached stdout before launcher was assigned"}
             out,err=proc.communicate(timeout=10)
             assert proc.returncode==0 and not out and not err
     finally:
@@ -60,4 +64,4 @@ def main(src, interpreter):
 
 
 if __name__=="__main__":
-    main(Path(sys.argv[1]),Path(sys.argv[2]))
+    main(Path(sys.argv[1]),Path(sys.argv[2]),"--suspended" in sys.argv[3:])

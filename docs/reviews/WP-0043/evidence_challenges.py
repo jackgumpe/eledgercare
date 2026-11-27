@@ -52,8 +52,8 @@ def main(src, work):
     from native_score import Snapshot
     from scorer import Findings
     f=Findings()
-    graph={"root":{"ref":0},"nodes":[{"entries":[["value",{"ref":1}]]},
-           {"type":"Tensor","dtype":"torch.float32","shape":[2]}]}
+    graph={"root":{"ref":0},"nodes":[{"type":"dict","oid":100,"entries":[["value",{"ref":1}]]},
+           {"type":"Tensor","oid":101,"dtype":"torch.float32","shape":[2]}]}
     try:
         Snapshot(graph).check(None,0,"B",f)
         out.append({"test":"native tensor shape but no byte extent, backing or artifact",
