@@ -1,0 +1,54 @@
+{
+ "version": "wp0045.a2-regression.r1",
+ "note": "Post-opening distinguishing regression for the A2 page-phase comparison. Hand-written expectations frozen before execution. Not a blind trial and not part of any scheduled denominator.",
+ "cases": [
+  {
+   "name": "G1.restore_after_defect",
+   "why": "Predecessor masked cell is not -inf; page (own block empty) rewrites it to -inf. Own-mask reading: page changed a word outside its own block.",
+   "input": {"clause": "A2", "raw": ["3f800000", "40000000", "3f000000"], "repeat": ["3f800000", "ff7fffff", "3f000000"], "page": ["3f800000", "ff800000", "3f000000"], "repeat_block": [1], "page_block": []},
+   "expected_r1": {"status": "M", "first": ["repeat", 1], "conflicts": [["repeat", 1], ["page", 1]], "allowed": [0, 2], "winner": null},
+   "expected_v1_conflicts": [["repeat", 1]],
+   "v1_differs": true
+  },
+  {
+   "name": "G2.carry_defect",
+   "why": "Predecessor masked cell is not -inf; page preserves it bit-for-bit. Own-mask reading: only the repeat defect.",
+   "input": {"clause": "A2", "raw": ["3f800000", "40000000", "3f000000"], "repeat": ["3f800000", "ff7fffff", "3f000000"], "page": ["3f800000", "ff7fffff", "3f000000"], "repeat_block": [1], "page_block": []},
+   "expected_r1": {"status": "M", "first": ["repeat", 1], "conflicts": [["repeat", 1]], "allowed": [0, 2], "winner": null},
+   "expected_v1_conflicts": [["repeat", 1], ["page", 1]],
+   "v1_differs": true
+  },
+  {
+   "name": "G3.clean_control",
+   "why": "Correct masking at both phases; readings agree.",
+   "input": {"clause": "A2", "raw": ["3f800000", "40000000", "3f000000"], "repeat": ["3f800000", "ff800000", "3f000000"], "page": ["3f800000", "ff800000", "3f000000"], "repeat_block": [1], "page_block": []},
+   "expected_r1": {"status": "P", "first": null, "conflicts": [], "allowed": [0, 2], "winner": 0},
+   "expected_v1_conflicts": [],
+   "v1_differs": false
+  },
+  {
+   "name": "G4.overlap_control",
+   "why": "page_block repeats an ID already blocked at repeat; -inf preserved; readings agree.",
+   "input": {"clause": "A2", "raw": ["3f800000", "40000000", "3f000000"], "repeat": ["3f800000", "ff800000", "3f000000"], "page": ["3f800000", "ff800000", "3f000000"], "repeat_block": [1], "page_block": [1]},
+   "expected_r1": {"status": "P", "first": null, "conflicts": [], "allowed": [0, 2], "winner": 0},
+   "expected_v1_conflicts": [],
+   "v1_differs": false
+  },
+  {
+   "name": "G5.unmask_control",
+   "why": "Page restores the raw value at a previously masked cell. Both readings report [page,1].",
+   "input": {"clause": "A2", "raw": ["3f800000", "40000000", "3f000000"], "repeat": ["3f800000", "ff800000", "3f000000"], "page": ["3f800000", "40000000", "3f000000"], "repeat_block": [1], "page_block": []},
+   "expected_r1": {"status": "M", "first": ["page", 1], "conflicts": [["page", 1]], "allowed": [0, 2], "winner": null},
+   "expected_v1_conflicts": [["page", 1]],
+   "v1_differs": false
+  },
+  {
+   "name": "G6.own_block_elsewhere",
+   "why": "Page blocks a different ID and carries the repeat defect unchanged. Own-mask reading: page is consistent with its predecessor and own block.",
+   "input": {"clause": "A2", "raw": ["3f800000", "40000000", "3f000000"], "repeat": ["3f800000", "ff7fffff", "3f000000"], "page": ["3f800000", "ff7fffff", "ff800000"], "repeat_block": [1], "page_block": [2]},
+   "expected_r1": {"status": "M", "first": ["repeat", 1], "conflicts": [["repeat", 1]], "allowed": [0], "winner": null},
+   "expected_v1_conflicts": [["repeat", 1], ["page", 1]],
+   "v1_differs": true
+  }
+ ]
+}
