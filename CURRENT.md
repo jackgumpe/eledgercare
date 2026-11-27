@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex sess
 
 ## WP-0043 stock observer closed
 
-Two cold processes returned all eight calls. One F07 target pair matched through EOS. The independent reviewer verified all 15 score vectors at five positions. The frozen runtime identity check yielded M in the joint verdict and withheld the five full capture rows. The lease is returned. eld-owner-probe owns any subsequent proposal for dual launcher/interpreter identity, pending independent review and a new release. WP-0037 remains parked. [Disposition](docs/coordination/WP-0043/disposition.json) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0043/003_2026-11-27_review_eld-rd-reviewer.md) · [Native evidence](docs/coordination/WP-0043/native-evidence.json) · [CPU evidence](docs/coordination/WP-0043/cpu-results.json)
+Two cold processes returned all eight calls. One F07 target pair matched through EOS. The independent reviewer verified all 15 score vectors at five positions. The frozen runtime identity check yielded M in the joint verdict and withheld the five full capture rows. The lease is returned. eld-owner-probe owns any subsequent proposal for dual launcher/interpreter identity, pending independent review and a new release. WP-0037 remains parked. [Disposition](docs/coordination/WP-0043/disposition.json) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0043/003_2026-11-27_review_eld-rd-reviewer.md) · [Native evidence](docs/coordination/WP-0043/native-evidence.json) · [CPU evidence](docs/coordination/WP-0043/cpu-results.json) · [Publication receipt](docs/coordination/WP-0043/publication-receipt.json)
 
 ## WP-0042 F07 observer and private replay design closed
 

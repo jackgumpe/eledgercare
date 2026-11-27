@@ -1583,3 +1583,13 @@ The device release ended after two loads and eight returns. The original CLI rai
 | 005 | eld-owner-probe | research/wp-0043-stock / w043-author | docs/agent-reports/eld-owner-probe/WP-0043/005_2026-11-27_research_eld-owner-probe.md |
 
 WP-0043 is closed. All eight calls reached EOS, the matched target document agreed through stop, and five score triples were byte-verified. Literal worker argv identity failed in both arms, yielding joint M, five custody U rows, and zero fully qualified pairs or rows. The GPU lease has been returned. [Disposition](docs/coordination/WP-0043/disposition.json) · [Native record](docs/coordination/WP-0043/native-evidence.json) · [CPU comparisons](docs/coordination/WP-0043/cpu-results.json)
+
+| Report | Verified original publication |
+| --- | --- |
+| [001](https://github.com/jackgumpe/eledgercare/blob/f52d6ffe227dcb165299578bf2ad01978e63cb48/docs/agent-reports/eld-fixture-claude/WP-0043/001_2026-11-27_research_eld-fixture-claude.md) | `f52d6ffe227dcb165299578bf2ad01978e63cb48` |
+| [002](https://github.com/jackgumpe/eledgercare/blob/4e699157a0bd62f60dd145c09394438aa84fe1d5/docs/agent-reports/eld-owner-probe/WP-0043/002_2026-11-27_research_eld-owner-probe.md) | `4e699157a0bd62f60dd145c09394438aa84fe1d5` |
+| [003](https://github.com/jackgumpe/eledgercare/blob/49c69a9de4fcb4fdad6159846c090beb0dfe377e/docs/agent-reports/eld-rd-reviewer/WP-0043/003_2026-11-27_review_eld-rd-reviewer.md) | `49c69a9de4fcb4fdad6159846c090beb0dfe377e` |
+| [004](https://github.com/jackgumpe/eledgercare/blob/82952ad1f75509131228ef19d8d4fcd771ef4c8e/docs/agent-reports/eld-coordinator/WP-0043/004_2026-11-27_verification_eld-coordinator.md) | `82952ad1f75509131228ef19d8d4fcd771ef4c8e` |
+| [005](https://github.com/jackgumpe/eledgercare/blob/e637ff593933ee01b1b0462114b3d2ad94fecf83/docs/agent-reports/eld-owner-probe/WP-0043/005_2026-11-27_research_eld-owner-probe.md) | `e637ff593933ee01b1b0462114b3d2ad94fecf83` |
+
+The [public download receipt](docs/coordination/WP-0043/publication-receipt.json) records byte equality for all 329 changed files at the coordinator report commit.
