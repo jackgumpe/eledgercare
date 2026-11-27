@@ -1,0 +1,818 @@
+[
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": null,
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "P",
+  "case_id": "F1.pristine",
+  "first_relation": "n/a",
+  "ground_pair_check": null,
+  "oracle_verdict": "P",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "phase_cut_binding_mismatch",
+   "raw_non_finite",
+   "raw_word_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 6,
+   "id": null,
+   "key": "phase_cut_binding_mismatch",
+   "observed": 42,
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 10,
+   "dense_offset": 30,
+   "expected_le": "00001041",
+   "id": 7,
+   "key": "raw_word_mismatch",
+   "lane": 2,
+   "observed_le": "000080ff",
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F1.late_raw",
+  "first_relation": "exact",
+  "ground_pair_check": {
+   "compact_offset": true,
+   "dense_offset": true,
+   "expected_le": true,
+   "key": "raw_word_mismatch",
+   "lane": true,
+   "observed_le": true,
+   "phase": "C0_raw",
+   "slot_id": 7,
+   "status": "checked"
+  },
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "phase_cut_binding_mismatch",
+   "post_rep_word_mismatch",
+   "raw_non_finite",
+   "raw_word_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 6,
+   "id": null,
+   "key": "phase_cut_binding_mismatch",
+   "observed": 42,
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 10,
+   "dense_offset": 30,
+   "expected_le": "00001041",
+   "id": 7,
+   "key": "raw_word_mismatch",
+   "lane": 2,
+   "observed_le": "000080ff",
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F1.all_late",
+  "first_relation": "exact",
+  "ground_pair_check": {
+   "compact_offset": true,
+   "dense_offset": true,
+   "expected_le": true,
+   "key": "raw_word_mismatch",
+   "lane": true,
+   "observed_le": true,
+   "phase": "C0_raw",
+   "slot_id": 7,
+   "status": "checked"
+  },
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "empty_support"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": null,
+   "key": "empty_support",
+   "observed": null,
+   "phase": "C2_post_page",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F2.forced_banned",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": false
+ },
+ {
+  "candidate_conflict_keys": [
+   "firstmax_tie_violation",
+   "public_id_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 6,
+   "id": null,
+   "key": "firstmax_tie_violation",
+   "observed": 8,
+   "phase": "D_selection",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F3.tie_last",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "signed_zero_corrupted"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": 7,
+   "key": "signed_zero_corrupted",
+   "observed": null,
+   "phase": "C2_post_page",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 15,
+   "dense_offset": 31,
+   "expected_le": "00000000",
+   "id": 7,
+   "key": "signed_zero_corrupted",
+   "lane": 3,
+   "observed_le": "00000080",
+   "phase": "C2_post_page",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F3.zero_flip",
+  "first_relation": "exact",
+  "ground_pair_check": {
+   "compact_offset": true,
+   "dense_offset": true,
+   "expected_le": true,
+   "key": "signed_zero_corrupted",
+   "lane": true,
+   "observed_le": true,
+   "phase": "C2_post_page",
+   "slot_id": 7,
+   "status": "checked"
+  },
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "non_monotonic_capture_seq",
+   "phase_cut_binding_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 6,
+   "id": null,
+   "key": "phase_cut_binding_mismatch",
+   "observed": 42,
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F4.a_inverted_ancestry",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "duplicate_copy_event_id",
+   "phase_cut_binding_mismatch"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": null,
+   "key": "duplicate_copy_event_id",
+   "observed": null,
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F4.b_duplicate_copy",
+  "first_relation": "within_interval",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": false
+ },
+ {
+  "candidate_conflict_keys": [
+   "phase_cut_binding_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 6,
+   "id": null,
+   "key": "phase_cut_binding_mismatch",
+   "observed": 42,
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F4.c_late_hook_inactive",
+  "first_relation": "candidate_only",
+  "ground_pair_check": null,
+  "oracle_verdict": "P",
+  "semantic_agree_v2_1": false
+ },
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": {
+   "expected": null,
+   "id": null,
+   "key": "phase_missing",
+   "observed": null,
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [
+   "phase_missing"
+  ],
+  "candidate_verdict": "U",
+  "case_id": "F4.e_drop_zN",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "U",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "complete_length_mismatch"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": null,
+   "key": "complete_length_mismatch",
+   "observed": 12,
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [
+   "vector_bytes_missing"
+  ],
+  "candidate_verdict": "M",
+  "case_id": "F4.h_false_complete",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "complete_length_mismatch"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": null,
+   "key": "complete_length_mismatch",
+   "observed": 16,
+   "phase": "C2_post_page",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [
+   "phase_missing",
+   "vector_bytes_missing"
+  ],
+  "candidate_verdict": "M",
+  "case_id": "F4.i_missing_and_short",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "public_id_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 2010,
+   "id": null,
+   "key": "public_id_mismatch",
+   "observed": 2003,
+   "phase": "public_document",
+   "row": null
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F5.later_id",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "terminal_mismatch"
+  ],
+  "candidate_first": {
+   "expected": "stop",
+   "id": null,
+   "key": "terminal_mismatch",
+   "observed": "length",
+   "phase": "terminal",
+   "row": null
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F5.terminal_reason",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": {
+   "expected": null,
+   "id": null,
+   "key": "public_ids_missing",
+   "observed": null,
+   "phase": "public_document",
+   "row": null
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [
+   "public_ids_missing",
+   "terminal_missing"
+  ],
+  "candidate_verdict": "U",
+  "case_id": "F5.interrupt_after_field",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "U",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": null,
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "P",
+  "case_id": "F6.owned",
+  "first_relation": "n/a",
+  "ground_pair_check": null,
+  "oracle_verdict": "P",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "phase_cut_binding_mismatch",
+   "raw_non_finite",
+   "raw_word_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 6,
+   "id": null,
+   "key": "phase_cut_binding_mismatch",
+   "observed": 76,
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 6,
+   "dense_offset": 6,
+   "expected_le": "00000041",
+   "id": 1,
+   "key": "raw_word_mismatch",
+   "lane": 2,
+   "observed_le": "000080ff",
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F6.alias_end",
+  "first_relation": "exact",
+  "ground_pair_check": {
+   "compact_offset": true,
+   "dense_offset": true,
+   "expected_le": true,
+   "key": "raw_word_mismatch",
+   "lane": true,
+   "observed_le": true,
+   "phase": "C0_raw",
+   "slot_id": 1,
+   "status": "checked"
+  },
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "phase_cut_binding_mismatch",
+   "post_rep_word_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 42,
+   "id": null,
+   "key": "phase_cut_binding_mismatch",
+   "observed": 76,
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 6,
+   "dense_offset": 6,
+   "expected_le": "00000041",
+   "id": 1,
+   "key": "post_rep_word_mismatch",
+   "lane": 2,
+   "observed_le": "000080ff",
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F6.zN_alias_late",
+  "first_relation": "exact",
+  "ground_pair_check": {
+   "compact_offset": true,
+   "dense_offset": true,
+   "expected_le": true,
+   "key": "post_rep_word_mismatch",
+   "lane": true,
+   "observed_le": true,
+   "phase": "C1_post_rep",
+   "slot_id": 1,
+   "status": "checked"
+  },
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": null,
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "P",
+  "case_id": "F7a.valid",
+  "first_relation": "n/a",
+  "ground_pair_check": null,
+  "oracle_verdict": "P",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "allowed_non_finite",
+   "page_state_mismatch",
+   "post_page_word_mismatch",
+   "public_length_mismatch",
+   "saved_cursor_mismatch",
+   "y_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 4,
+   "id": null,
+   "key": "saved_cursor_mismatch",
+   "observed": 0,
+   "phase": "B1_entry_state",
+   "row": 1
+  },
+  "candidate_first_byte": {
+   "compact_offset": 2,
+   "dense_offset": 6,
+   "expected_le": "000080ff",
+   "id": 1,
+   "key": "post_page_word_mismatch",
+   "lane": 2,
+   "observed_le": "00001041",
+   "phase": "C2_post_page",
+   "row": 1
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F7a.reset_recorded",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "allowed_non_finite",
+   "page_state_mismatch",
+   "post_page_word_mismatch",
+   "public_length_mismatch",
+   "y_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 1,
+   "id": null,
+   "key": "page_state_mismatch",
+   "observed": 2,
+   "phase": "C2_post_page",
+   "row": 1
+  },
+  "candidate_first_byte": {
+   "compact_offset": 2,
+   "dense_offset": 6,
+   "expected_le": "000080ff",
+   "id": 1,
+   "key": "post_page_word_mismatch",
+   "lane": 2,
+   "observed_le": "00001041",
+   "phase": "C2_post_page",
+   "row": 1
+  },
+  "candidate_missing_keys": [
+   "saved_cursor_mismatch_missing"
+  ],
+  "candidate_verdict": "M",
+  "case_id": "F7a.reset_unrecorded",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "guard_invocation_count"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": null,
+   "key": "guard_invocation_count",
+   "observed": null,
+   "phase": "C2_post_page",
+   "row": 1
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F7a.reinvoke_idempotent",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": null,
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "P",
+  "case_id": "F7b.out",
+  "first_relation": "n/a",
+  "ground_pair_check": null,
+  "oracle_verdict": "P",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": null,
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "P",
+  "case_id": "F7b.in",
+  "first_relation": "n/a",
+  "ground_pair_check": null,
+  "oracle_verdict": "P",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": null,
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "P",
+  "case_id": "F7b.prompt",
+  "first_relation": "n/a",
+  "ground_pair_check": null,
+  "oracle_verdict": "P",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "allowed_non_finite",
+   "post_rep_word_mismatch",
+   "public_id_mismatch"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": 7,
+   "key": "post_rep_word_mismatch",
+   "observed": null,
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 10,
+   "dense_offset": 30,
+   "expected_le": "00001041",
+   "id": 7,
+   "key": "post_rep_word_mismatch",
+   "lane": 2,
+   "observed_le": "000080ff",
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F7b.out_window_minus1",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": false
+ },
+ {
+  "candidate_conflict_keys": [
+   "post_page_word_mismatch",
+   "post_rep_word_mismatch",
+   "public_id_mismatch",
+   "y_mismatch"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": 7,
+   "key": "post_rep_word_mismatch",
+   "observed": null,
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 10,
+   "dense_offset": 30,
+   "expected_le": "000080ff",
+   "id": 7,
+   "key": "post_rep_word_mismatch",
+   "lane": 2,
+   "observed_le": "00001041",
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F7b.in_window_plus1",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "allowed_non_finite",
+   "post_rep_word_mismatch",
+   "public_id_mismatch"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": 7,
+   "key": "post_rep_word_mismatch",
+   "observed": null,
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 10,
+   "dense_offset": 30,
+   "expected_le": "00001041",
+   "id": 7,
+   "key": "post_rep_word_mismatch",
+   "lane": 2,
+   "observed_le": "000080ff",
+   "phase": "C1_post_rep",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F7b.prompt_included",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": false
+ },
+ {
+  "candidate_conflict_keys": [
+   "allowed_non_finite",
+   "raw_non_finite_pos_inf"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": 0,
+   "key": "raw_non_finite_pos_inf",
+   "observed": null,
+   "phase": "C0_raw",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F7c.pos_inf_raw",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [],
+  "candidate_first": null,
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "P",
+  "case_id": "F7c.neg_zero_pass",
+  "first_relation": "n/a",
+  "ground_pair_check": null,
+  "oracle_verdict": "P",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "signed_zero_winner_corrupted"
+  ],
+  "candidate_first": {
+   "expected": null,
+   "id": 0,
+   "key": "signed_zero_winner_corrupted",
+   "observed": null,
+   "phase": "C2_post_page",
+   "row": 0
+  },
+  "candidate_first_byte": {
+   "compact_offset": 3,
+   "dense_offset": 3,
+   "expected_le": "00000080",
+   "id": 0,
+   "key": "signed_zero_winner_corrupted",
+   "lane": 3,
+   "observed_le": "00000000",
+   "phase": "C2_post_page",
+   "row": 0
+  },
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F7c.neg_zero_canonicalised",
+  "first_relation": "exact",
+  "ground_pair_check": {
+   "compact_offset": true,
+   "dense_offset": true,
+   "expected_le": true,
+   "key": "signed_zero_winner_corrupted",
+   "lane": true,
+   "observed_le": true,
+   "phase": "C2_post_page",
+   "slot_id": 0,
+   "status": "checked"
+  },
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ },
+ {
+  "candidate_conflict_keys": [
+   "firstmax_tie_violation",
+   "public_id_mismatch"
+  ],
+  "candidate_first": {
+   "expected": 0,
+   "id": null,
+   "key": "firstmax_tie_violation",
+   "observed": 2,
+   "phase": "D_selection",
+   "row": 0
+  },
+  "candidate_first_byte": null,
+  "candidate_missing_keys": [],
+  "candidate_verdict": "M",
+  "case_id": "F7c.neg_zero_pick_last",
+  "first_relation": "exact",
+  "ground_pair_check": null,
+  "oracle_verdict": "M",
+  "semantic_agree_v2_1": true
+ }
+]

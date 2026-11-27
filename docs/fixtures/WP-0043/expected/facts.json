@@ -1,0 +1,183 @@
+{
+ "first_differing_lane_from_word_pairs": [
+  {
+   "a": "9.0",
+   "a_le": "00001041",
+   "b": "-inf",
+   "b_le": "000080ff",
+   "lane": 2
+  },
+  {
+   "a": "8.0",
+   "a_le": "00000041",
+   "b": "-inf",
+   "b_le": "000080ff",
+   "lane": 2
+  },
+  {
+   "a": "4.0",
+   "a_le": "00008040",
+   "b": "-inf",
+   "b_le": "000080ff",
+   "lane": 3
+  },
+  {
+   "a": "+0.0",
+   "a_le": "00000000",
+   "b": "-inf",
+   "b_le": "000080ff",
+   "lane": 2
+  },
+  {
+   "a": "-0.0",
+   "a_le": "00000080",
+   "b": "+0.0",
+   "b_le": "00000000",
+   "lane": 3
+  },
+  {
+   "a": "+inf",
+   "a_le": "0000807f",
+   "b": "-inf",
+   "b_le": "000080ff",
+   "lane": 3
+  },
+  {
+   "a": "5.0",
+   "a_le": "0000a040",
+   "b": "5.5",
+   "b_le": "0000b040",
+   "lane": 2
+  }
+ ],
+ "five_row_lattice": {
+  "counts": {
+   "M": 211,
+   "P": 1,
+   "U": 31
+  },
+  "holds": true
+ },
+ "lanes_guaranteed_vs_any_finite": {
+  "+inf": [
+   2,
+   3
+  ],
+  "-inf": [
+   2,
+   3
+  ],
+  "nan": [
+   2,
+   3
+  ],
+  "statement": "A finite word must differ from a non-finite word in lane 2 (bit 23) or lane 3 (bits 24-30); either alone can coincide; lanes 0-1 can coincide or differ. Exact first lane requires the actual word."
+ },
+ "native_source": {
+  "bytes": 55724,
+  "matches_pin": true,
+  "method": "bytes read and hashed only; module not imported or executed",
+  "path_basename": "modeling_unlimitedocr.py",
+  "pinned_sha256": "f6df813cef23cc28b1daca40fd8cb20740d05a238e7b9dfa2334531fdcf39f1f",
+  "segments_sha256": {
+   "1166-1182 decode step": "1bd252fe0fd42d60d400d7765ff0bc7c7d25f7fc86d5adae67285a4cb19dea2c",
+   "583-605 _uocr_page_count_guard": "51831ce27446ce6dce8683b4dc1f011be95b1690e91a0760cbe3c3e9f541082d",
+   "608-623 _uocr_no_repeat_ngram": "c5d546822dad26424aa37e32c361a77d9ebd7786ca903c44da8b5e22b8c14a22"
+  },
+  "sha256": "f6df813cef23cc28b1daca40fd8cb20740d05a238e7b9dfa2334531fdcf39f1f"
+ },
+ "page_len_additive_without_marker": {
+  "holds": true,
+  "state_after": {
+   "marker_cum": 1,
+   "page_len": 5,
+   "scanned": 6
+  }
+ },
+ "page_len_suffix_semantics": {
+  "additive_alternative_page_len": 6,
+  "history": [
+   128827,
+   10,
+   11,
+   12,
+   13,
+   128827,
+   14
+  ],
+  "holds": true,
+  "new_tail": [
+   13,
+   128827,
+   14
+  ],
+  "state_after": {
+   "marker_cum": 2,
+   "page_len": 1,
+   "scanned": 7
+  },
+  "state_before": {
+   "marker_cum": 1,
+   "page_len": 3,
+   "scanned": 4
+  },
+  "statement": "When the new tail contains PAGE, page_len becomes the number of tail tokens after the last PAGE (here 1), not the old value plus the tail length (6). Without a PAGE in the tail, the tail length is added."
+ },
+ "page_scan_idempotent_when_cursor_current": {
+  "holds": true,
+  "rescanned": {
+   "marker_cum": 2,
+   "page_len": 1,
+   "scanned": 7
+  },
+  "state": {
+   "marker_cum": 2,
+   "page_len": 1,
+   "scanned": 7
+  }
+ },
+ "page_scan_not_idempotent_after_cursor_reset": {
+  "holds": true,
+  "native_state_after": {
+   "marker_cum": 1,
+   "page_len": 4,
+   "scanned": 5
+  },
+  "state_after_reset_scan": {
+   "marker_cum": 2,
+   "page_len": 4,
+   "scanned": 5
+  }
+ },
+ "summary": {
+  "cases": 50,
+  "claims": {
+   "held": 43,
+   "not_held": [
+    {
+     "case_id": "F4.b_duplicate_copy",
+     "claim": "M, first_divergent_phase C0_raw, conflicts exactly {duplicate_copy_event_id, phase_cut_binding_mismatch}, missing []",
+     "note": "Oracle: verdict M and missing [] agree.  The C0 record alone is self-consistent; the duplicate is first witnessed at C1, so the first discrepancy is the interval C0_raw..C1_post_rep.  event_seq(C0)=event_seq(C1)=1 also violates the memo's own strict order rule, adding capture_seq_order."
+    },
+    {
+     "case_id": "F7a.reset_unrecorded",
+     "claim": "M with first_divergent_phase B1_entry_state",
+     "note": "When the record omits the cursor, B1 is missing (U) rather than conflicting; the first witnessed conflict is at C2 row 1."
+    }
+   ]
+  },
+  "classification": {
+   "blind_spot_false_pass": 3,
+   "control_pass": 13,
+   "faithful_record_invalid": 3,
+   "fault_detected": 25,
+   "fault_unmeasured": 6
+  },
+  "consistency_failures": [],
+  "verdicts": {
+   "M": 28,
+   "P": 16,
+   "U": 6
+  }
+ }
+}
