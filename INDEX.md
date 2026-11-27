@@ -1573,3 +1573,11 @@ CPU work released at e7c7c63fa8db0328881ec6aeb50cf5ecaff08f23. [Assignment](docs
 The [one-pair device release](docs/coordination/WP-0043/device-release.json) binds the two cold stock arms to reviewed executable ef2b44240730fd12e7cdd268d97811176ab23176 and independent qualification 0a00fa0016eb49e375633aaf0fe4af068eac805b.
 
 The initial pre-lock plan digest stopped admission at zero loads and zero calls. The separately issued corrected lease binds the original typed-plan bytes. [Admission record](docs/coordination/WP-0043/admission-01.json)
+
+## WP-0043 offline scorer correction
+
+The device release ended after two loads and eight returns. The original CLI raised UnboundLocalError on completed evidence. Under the existing packet, the same eld-owner-probe owns a read-only scorer correction at base 4e699157a0bd62f60dd145c09394438aa84fe1d5 on research/wp-0043-stock in w043-author, confined to the existing WP-0043 scorer namespace and the reserved report below. Preserve /002 and device evidence. Freeze and verify the source correction before reading results. The original numerical and evidence obligations remain frozen. eld-rd-reviewer independently executes it for /003 and the coordinator publishes /004. No new device execution.
+
+| Slot | Owner | Branch / worktree | Report |
+| --- | --- | --- | --- |
+| 005 | eld-owner-probe | research/wp-0043-stock / w043-author | docs/agent-reports/eld-owner-probe/WP-0043/005_2026-11-27_research_eld-owner-probe.md |
