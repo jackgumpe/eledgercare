@@ -769,8 +769,9 @@ class RefScorer:
     def order_key(x):
         st = x["step"] if x["step"] is not None else -2
         sf = x["step_from"] if x["step_from"] is not None else -2
+        # base-contract atoms before the composition extension (companion Eq. 4.2) at equal position
         return (st, RANK[x["phase"]], sf, RANK[x["phase_from"]], x["slot_id"] if x["slot_id"] is not None else -1,
-                x["object"], x["check"])
+                1 if x["check"] == "composed_mask" else 0, x["object"], x["check"])
 
     def result(self):
         conf = sorted(self.conf, key=self.order_key)
@@ -917,8 +918,10 @@ def ground(sc, unt, obs, rows, tags, inj):
         exec_div = {"step": None, "fields": ["public_projection"],
                     "untouched": {"len": len(unt["tokens"]), "finish": unt["finish"], "terminal": unt["terminal"]},
                     "observed": {"len": len(obs["tokens"]), "finish": obs["finish"], "terminal": obs["terminal"]}}
+    effective = [op for op in inj if not (op["op"] == "copy_schedule" and list(op["events"]) == list(DEFAULT_EVENTS))]
     return {
-        "fault_injected": bool(inj),
+        "fault_injected": bool(effective),
+        "injected_ops": [op["op"] for op in effective],
         "first_record_divergence": ({"step": record_faults[0][0], "phase": record_faults[0][1],
                                      "kinds": record_faults[0][2], "byte": record_faults[0][3]} if record_faults else None),
         "first_execution_divergence": exec_div,
