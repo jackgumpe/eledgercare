@@ -1,0 +1,3050 @@
+{
+  "counts_vs_oracle": {
+    "author": {
+      "live": {
+        "complete": 0,
+        "coordinates_content_verdicts": 0,
+        "atom_key_sets": 0,
+        "core": 0,
+        "scheduled": 10
+      },
+      "constructed": {
+        "complete": 13,
+        "coordinates_content_verdicts": 16,
+        "atom_key_sets": 16,
+        "core": 16,
+        "scheduled": 16
+      },
+      "archive": {
+        "complete": 0,
+        "coordinates_content_verdicts": null,
+        "atom_key_sets": null,
+        "core": null,
+        "scheduled": 3
+      },
+      "mathematical": {
+        "complete": 1,
+        "coordinates_content_verdicts": null,
+        "atom_key_sets": null,
+        "core": null,
+        "scheduled": 4
+      }
+    },
+    "reviewer": {
+      "live": {
+        "complete": 0,
+        "coordinates_content_verdicts": 1,
+        "atom_key_sets": 0,
+        "core": 0,
+        "scheduled": 10
+      },
+      "constructed": {
+        "complete": 13,
+        "coordinates_content_verdicts": 16,
+        "atom_key_sets": 16,
+        "core": 16,
+        "scheduled": 16
+      },
+      "archive": {
+        "complete": 0,
+        "coordinates_content_verdicts": null,
+        "atom_key_sets": null,
+        "core": null,
+        "scheduled": 3
+      },
+      "mathematical": {
+        "complete": 0,
+        "coordinates_content_verdicts": null,
+        "atom_key_sets": null,
+        "core": null,
+        "scheduled": 4
+      }
+    }
+  },
+  "agreement_between_routes": {
+    "live": {
+      "coordinates_content_verdicts": 5,
+      "atom_key_sets": 0,
+      "core": 0
+    },
+    "constructed": {
+      "coordinates_content_verdicts": 16,
+      "atom_key_sets": 16,
+      "core": 16
+    }
+  },
+  "cases": {
+    "W1.A": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/B",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/custody",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/joint",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/class",
+            "expected": "verified",
+            "returned": "unresolved"
+          },
+          {
+            "path": "/origin/unresolved/0",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest",
+            "expected": null,
+            "returned": {
+              "kind": "missing",
+              "phase": "edge",
+              "keys": [
+                "E.parent"
+              ]
+            }
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/custody",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/joint",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest",
+            "expected": null,
+            "returned": {
+              "kind": "missing",
+              "phase": "edge",
+              "keys": [
+                "E.parent"
+              ]
+            }
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "W1.B": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/B",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/custody",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/joint",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/class",
+            "expected": "verified",
+            "returned": "unresolved"
+          },
+          {
+            "path": "/origin/unresolved/0",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest",
+            "expected": null,
+            "returned": {
+              "kind": "missing",
+              "phase": "edge",
+              "keys": [
+                "E.parent"
+              ]
+            }
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/custody",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/joint",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest",
+            "expected": null,
+            "returned": {
+              "kind": "missing",
+              "phase": "edge",
+              "keys": [
+                "E.parent"
+              ]
+            }
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "W2.other": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/B",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/class",
+            "expected": "verified",
+            "returned": "unresolved"
+          },
+          {
+            "path": "/origin/unresolved/0",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/conflicts/E.launcher/phase",
+            "expected": "launch",
+            "returned": "edge"
+          },
+          {
+            "path": "/conflicts/E.launcher/source",
+            "expected": "process_instance_key",
+            "returned": "creation handles, creation FILETIMEs, job query and launcher wait"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest/keys/1",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/kind",
+            "expected": "conflict",
+            "returned": "mixed"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "launch",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/conflicts/E.job",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.job",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "different_selected_job",
+              "source": "IsProcessInJob during create events; job flags and admission before initial continuation"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          }
+        ],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "W4.denied": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/B",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/custody",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/joint",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/class",
+            "expected": "verified",
+            "returned": "unresolved"
+          },
+          {
+            "path": "/origin/unresolved/0",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest",
+            "expected": null,
+            "returned": {
+              "kind": "missing",
+              "phase": "edge",
+              "keys": [
+                "E.parent"
+              ]
+            }
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/custody",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/joint",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest",
+            "expected": null,
+            "returned": {
+              "kind": "missing",
+              "phase": "edge",
+              "keys": [
+                "E.parent"
+              ]
+            }
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "B1.original": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/B",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/custody",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/joint",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/class",
+            "expected": "verified",
+            "returned": "unresolved"
+          },
+          {
+            "path": "/origin/unresolved/0",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest",
+            "expected": null,
+            "returned": {
+              "kind": "missing",
+              "phase": "edge",
+              "keys": [
+                "E.parent"
+              ]
+            }
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/custody",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/joint",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest",
+            "expected": null,
+            "returned": {
+              "kind": "missing",
+              "phase": "edge",
+              "keys": [
+                "E.parent"
+              ]
+            }
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "B2.other": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/unresolved/0",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/conflicts/B.direct",
+            "expected": {
+              "key": "B.direct",
+              "coordinate": "B",
+              "phase": "acquisition",
+              "subtype": "other_original",
+              "source": "scorer_handle_identity"
+            },
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.direct",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/kind",
+            "expected": "conflict",
+            "returned": "missing"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "acquisition",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/conflicts/B.direct",
+            "expected": {
+              "key": "B.direct",
+              "coordinate": "B",
+              "phase": "acquisition",
+              "subtype": "other_original",
+              "source": "scorer_handle_identity"
+            },
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.direct",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/kind",
+            "expected": "conflict",
+            "returned": "missing"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "acquisition",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "B3.copy": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/unresolved/2",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/missing/B.direct/source",
+            "expected": null,
+            "returned": "scorer handle joined to continuously held registered NTFS object"
+          },
+          {
+            "path": "/missing/B.origin/source",
+            "expected": null,
+            "returned": "receipt_mapping"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.direct",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/keys/1",
+            "expected": "B.origin",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "acquisition",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/missing/B.direct/source",
+            "expected": null,
+            "returned": "scorer_handle_identity"
+          },
+          {
+            "path": "/missing/B.origin/source",
+            "expected": null,
+            "returned": "receipt_mapping"
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.direct",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/keys/1",
+            "expected": "B.origin",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "acquisition",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "B4.invalid": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/unresolved/2",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/missing/B.direct/source",
+            "expected": null,
+            "returned": "scorer handle joined to continuously held registered NTFS object"
+          },
+          {
+            "path": "/missing/B.origin/source",
+            "expected": null,
+            "returned": "receipt_mapping"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.seal",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/kind",
+            "expected": "conflict",
+            "returned": "missing"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "seal",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/missing/B.direct/source",
+            "expected": null,
+            "returned": "scorer_handle_identity"
+          },
+          {
+            "path": "/missing/B.origin/source",
+            "expected": null,
+            "returned": "receipt_mapping"
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.seal",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/kind",
+            "expected": "conflict",
+            "returned": "missing"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "seal",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "B4.unavailable": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/unresolved/3",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/missing/B.direct/source",
+            "expected": null,
+            "returned": "scorer handle joined to continuously held registered NTFS object"
+          },
+          {
+            "path": "/missing/B.origin/source",
+            "expected": null,
+            "returned": "receipt_mapping"
+          },
+          {
+            "path": "/missing/B.seal/source",
+            "expected": null,
+            "returned": "receipt_authentication"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.seal",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "seal",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/missing/B.direct/source",
+            "expected": null,
+            "returned": "scorer_handle_identity"
+          },
+          {
+            "path": "/missing/B.origin/source",
+            "expected": null,
+            "returned": "receipt_mapping"
+          },
+          {
+            "path": "/missing/B.seal/source",
+            "expected": null,
+            "returned": "receipt_authentication"
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.seal",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "seal",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "B5.reopen": {
+      "interface": "live",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/unresolved/0",
+            "expected": "protection_gap",
+            "returned": "direct_acquisition_unobserved"
+          },
+          {
+            "path": "/origin/unresolved/1",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "origin_unbound"
+          },
+          {
+            "path": "/origin/unresolved/2",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "protection_gap"
+          },
+          {
+            "path": "/origin/unresolved/3",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "writer_unobserved"
+          },
+          {
+            "path": "/missing/B.direct",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.direct",
+              "coordinate": "B",
+              "phase": "acquisition",
+              "subtype": "unobserved",
+              "source": "scorer handle joined to continuously held registered NTFS object"
+            }
+          },
+          {
+            "path": "/missing/B.origin",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.origin",
+              "coordinate": "B",
+              "phase": "acquisition",
+              "subtype": "unobserved",
+              "source": "receipt_mapping"
+            }
+          },
+          {
+            "path": "/missing/B.protection/source",
+            "expected": null,
+            "returned": "open guard at creation and scorer acquisition"
+          },
+          {
+            "path": "/missing/B.writer",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.writer",
+              "coordinate": "B",
+              "phase": "writer",
+              "subtype": "unobserved",
+              "source": "launcher, interpreter and supervisor shared writable endpoint; issuing writer unmeasured"
+            }
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker inherited-parent PID and creation event; actual caller unavailable"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.protection",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "acquisition",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/coordinates/E",
+            "expected": "P",
+            "returned": "U"
+          },
+          {
+            "path": "/origin/unresolved/0",
+            "expected": "protection_gap",
+            "returned": "direct_acquisition_unobserved"
+          },
+          {
+            "path": "/origin/unresolved/1",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "origin_unbound"
+          },
+          {
+            "path": "/origin/unresolved/2",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "protection_gap"
+          },
+          {
+            "path": "/missing/B.direct",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.direct",
+              "coordinate": "B",
+              "phase": "acquisition",
+              "subtype": "unobserved",
+              "source": "scorer_handle_identity"
+            }
+          },
+          {
+            "path": "/missing/B.origin",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "B.origin",
+              "coordinate": "B",
+              "phase": "acquisition",
+              "subtype": "unobserved",
+              "source": "receipt_mapping"
+            }
+          },
+          {
+            "path": "/missing/B.protection/source",
+            "expected": null,
+            "returned": "originating kernel file object held via read-view across writer close; sharing violation before/after"
+          },
+          {
+            "path": "/missing/E.parent",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "key": "E.parent",
+              "coordinate": "E",
+              "phase": "edge",
+              "subtype": "unobserved",
+              "source": "worker getppid has inherited parent PID; create-event source lacks creating caller"
+            }
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.protection",
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "acquisition",
+            "returned": "edge"
+          }
+        ],
+        "coordinates_content_verdicts": false,
+        "atom_key_sets": false,
+        "core": false
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": false,
+        "core": false
+      }
+    },
+    "W2.helper": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W3.missing": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W3.late_missing": {
+      "interface": "constructed",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/earliest/keys/1",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/kind",
+            "expected": "conflict",
+            "returned": "mixed"
+          }
+        ],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/earliest/keys/1",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "E.parent"
+          },
+          {
+            "path": "/earliest/kind",
+            "expected": "conflict",
+            "returned": "mixed"
+          }
+        ],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W3.reuse": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W4.bad_I": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W4.no_I": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W4.bad_L": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/conflicts/L.image/phase",
+            "expected": "image",
+            "returned": "launch"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "image",
+            "returned": "launch"
+          }
+        ],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W5.args": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W5.script": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W5.config": {
+      "interface": "constructed",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/earliest/keys/0",
+            "expected": "C.pyvenv",
+            "returned": "C.include_system"
+          },
+          {
+            "path": "/earliest/keys/1",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "C.pyvenv"
+          }
+        ],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/earliest/keys/0",
+            "expected": "C.pyvenv",
+            "returned": "C.include_system"
+          },
+          {
+            "path": "/earliest/keys/1",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "C.pyvenv"
+          }
+        ],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W5.empty": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W5.unobserved": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W6.escape": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "W6.writer": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "B5.member_missing": {
+      "interface": "constructed",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/conflicts/B.members/phase",
+            "expected": "seal",
+            "returned": "acquisition"
+          },
+          {
+            "path": "/earliest/keys/0",
+            "expected": "B.members",
+            "returned": "B.direct"
+          },
+          {
+            "path": "/earliest/keys/1",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": "B.members"
+          },
+          {
+            "path": "/earliest/kind",
+            "expected": "conflict",
+            "returned": "mixed"
+          },
+          {
+            "path": "/earliest/phase",
+            "expected": "seal",
+            "returned": "acquisition"
+          }
+        ],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "B5.writer_missing": {
+      "interface": "constructed",
+      "author": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "reviewer": {
+        "complete": true,
+        "differing_fields": [],
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      },
+      "routes": {
+        "coordinates_content_verdicts": true,
+        "atom_key_sets": true,
+        "core": true
+      }
+    },
+    "archive.gaps": {
+      "interface": "archive",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/positions",
+            "expected": [
+              1445,
+              1446,
+              1447,
+              1448,
+              1449
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/raw_equals_final_top_two",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/recomputed_equals_recorded",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/row0_bf16_spacing",
+            "expected": "0.125",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/row0_gap_in_spacing_units",
+            "expected": "87",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/runner_ups",
+            "expected": [
+              1449,
+              223,
+              14,
+              1892,
+              223
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/winners",
+            "expected": [
+              6,
+              1449,
+              16,
+              1328,
+              128822
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/positions",
+            "expected": [
+              1445,
+              1446,
+              1447,
+              1448,
+              1449
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/raw_equals_final_top_two",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/recomputed_equals_recorded",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/row0_bf16_spacing",
+            "expected": "0.125",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/row0_gap_in_spacing_units",
+            "expected": "87",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/runner_ups",
+            "expected": [
+              1449,
+              223,
+              14,
+              1892,
+              223
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/winners",
+            "expected": [
+              6,
+              1449,
+              16,
+              1328,
+              128822
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      }
+    },
+    "archive.support": {
+      "interface": "archive",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/c0_all_finite_all_rows",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/c0_identical_c1_all_rows",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/emission_equals_final_winner_all_rows",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/excluded_value",
+            "expected": "-inf",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/excluded_word_le",
+            "expected": "000080ff",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/historical_support_sizes",
+            "expected": [
+              129279,
+              129279,
+              129279,
+              129279,
+              129279
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/emission_equals_final_winner_all_rows",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/historical_support_sizes",
+            "expected": [
+              129279,
+              129279,
+              129279,
+              129279,
+              129279
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      }
+    },
+    "archive.verdict": {
+      "interface": "archive",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/argv_conflict_fields",
+            "expected": [
+              "argv"
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/argv_differs_only_at_index",
+            "expected": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/argv_tails_equal",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/argv_workers",
+            "expected": [
+              "untouched",
+              "observed"
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/complete_copy_triples",
+            "expected": "5/5",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/conflict_keys",
+            "expected": [
+              "runtime_contract"
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/expected_argv0_is_venv_scripts",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/first_divergent_phase",
+            "expected": "public_document",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/missing_keys",
+            "expected": [
+              "native_custody_unqualified"
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/missing_phase",
+            "expected": [
+              "B"
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/missing_rows",
+            "expected": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/observed_argv0_is_base_python312",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/public_verdict",
+            "expected": "M",
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/F07_target_pairs_matched",
+            "expected": "1/1",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/complete_copy_triples",
+            "expected": "5/5",
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      }
+    },
+    "math.shift": {
+      "interface": "mathematical",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/0/after",
+            "expected": [
+              [
+                6,
+                "38"
+              ],
+              [
+                1449,
+                "27.125"
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/exact_unique_criterion",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/first_index_criterion",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/linf_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/oscillation_certificate",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/unique_after",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_after",
+            "expected": 6,
+            "returned": 0
+          },
+          {
+            "path": "/result/0/winner_before",
+            "expected": 6,
+            "returned": 0
+          },
+          {
+            "path": "/result/0/winner_minus_runner_change",
+            "expected": "0",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1",
+            "expected": {
+              "winner_before": 6,
+              "winner_after": 6,
+              "winner_changed": false,
+              "unique_after": true,
+              "gap": "10.875",
+              "omega": "10",
+              "linf": "5",
+              "oscillation_certificate": true,
+              "linf_certificate": true,
+              "exact_unique_criterion": true,
+              "first_index_criterion": true,
+              "after": [
+                [
+                  6,
+                  "23"
+                ],
+                [
+                  1449,
+                  "22.125"
+                ]
+              ],
+              "winner_minus_runner_change": "-10"
+            },
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/0/after",
+            "expected": [
+              [
+                6,
+                "38"
+              ],
+              [
+                1449,
+                "27.125"
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/exact_unique_criterion",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/first_index_criterion",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/linf_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/oscillation_certificate",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/unique_after",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_after",
+            "expected": 6,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_before",
+            "expected": 6,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_minus_runner_change",
+            "expected": "0",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/after",
+            "expected": [
+              [
+                6,
+                "23"
+              ],
+              [
+                1449,
+                "22.125"
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/exact_unique_criterion",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/first_index_criterion",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/gap",
+            "expected": "10.875",
+            "returned": "15.1875"
+          },
+          {
+            "path": "/result/1/linf",
+            "expected": "5",
+            "returned": "10"
+          },
+          {
+            "path": "/result/1/linf_certificate",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/omega",
+            "expected": "10",
+            "returned": "0"
+          },
+          {
+            "path": "/result/1/oscillation_certificate",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/unique_after",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/winner_after",
+            "expected": 6,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/winner_before",
+            "expected": 6,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/winner_minus_runner_change",
+            "expected": "-10",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/2",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "winner_changed": false,
+              "omega": "0",
+              "linf": "10",
+              "gap": "13.5625"
+            }
+          },
+          {
+            "path": "/result/3",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "winner_changed": false,
+              "omega": "0",
+              "linf": "10",
+              "gap": "15.375"
+            }
+          },
+          {
+            "path": "/result/4",
+            "expected": {
+              "field_absent": true
+            },
+            "returned": {
+              "winner_changed": false,
+              "omega": "0",
+              "linf": "10",
+              "gap": "13.875"
+            }
+          }
+        ]
+      }
+    },
+    "math.tie": {
+      "interface": "mathematical",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/0/after",
+            "expected": [
+              [
+                6,
+                "28"
+              ],
+              [
+                1449,
+                "28"
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/exact_unique_criterion",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/first_index_criterion",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/linf",
+            "expected": "10.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/linf_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/omega",
+            "expected": "10.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/oscillation_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_after",
+            "expected": 6,
+            "returned": 0
+          },
+          {
+            "path": "/result/0/winner_before",
+            "expected": 6,
+            "returned": 0
+          },
+          {
+            "path": "/result/0/winner_changed",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_minus_runner_change",
+            "expected": "-10.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/after",
+            "expected": [
+              [
+                223,
+                "25"
+              ],
+              [
+                128822,
+                "25"
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/exact_unique_criterion",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/first_index_criterion",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/gap",
+            "expected": "13.875",
+            "returned": "10.875"
+          },
+          {
+            "path": "/result/1/linf",
+            "expected": "13.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/linf_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/omega",
+            "expected": "13.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/oscillation_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/winner_after",
+            "expected": 223,
+            "returned": 0
+          },
+          {
+            "path": "/result/1/winner_before",
+            "expected": 128822,
+            "returned": 1
+          },
+          {
+            "path": "/result/1/winner_changed",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/winner_minus_runner_change",
+            "expected": "-13.875",
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/0/after",
+            "expected": [
+              [
+                6,
+                "28"
+              ],
+              [
+                1449,
+                "28"
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/exact_unique_criterion",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/first_index_criterion",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/linf",
+            "expected": "10.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/linf_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/omega",
+            "expected": "10.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/oscillation_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_before",
+            "expected": 6,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_changed",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_minus_runner_change",
+            "expected": "-10.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/after",
+            "expected": [
+              [
+                223,
+                "25"
+              ],
+              [
+                128822,
+                "25"
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/exact_unique_criterion",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/first_index_criterion",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/gap",
+            "expected": "13.875",
+            "returned": "10.875"
+          },
+          {
+            "path": "/result/1/linf",
+            "expected": "13.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/linf_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/omega",
+            "expected": "13.875",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/oscillation_certificate",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/winner_after",
+            "expected": 223,
+            "returned": 6
+          },
+          {
+            "path": "/result/1/winner_before",
+            "expected": 128822,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/winner_changed",
+            "expected": true,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1/winner_minus_runner_change",
+            "expected": "-13.875",
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      }
+    },
+    "math.signed_zero": {
+      "interface": "mathematical",
+      "author": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/0/first_index_argmax",
+            "expected": 0,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/unique_max",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_word_le",
+            "expected": "00000000",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1",
+            "expected": {
+              "values": [
+                "-0.0",
+                "0.0"
+              ],
+              "sign_bits": [
+                1,
+                0
+              ],
+              "numerically_equal": true,
+              "bytes_equal": false,
+              "first_index_argmax": 0,
+              "winner_word_le": "00000080",
+              "unique_max": false
+            },
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/0/first_index_argmax",
+            "expected": 0,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/unique_max",
+            "expected": false,
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/0/winner_word_le",
+            "expected": "00000000",
+            "returned": {
+              "field_absent": true
+            }
+          },
+          {
+            "path": "/result/1",
+            "expected": {
+              "values": [
+                "-0.0",
+                "0.0"
+              ],
+              "sign_bits": [
+                1,
+                0
+              ],
+              "numerically_equal": true,
+              "bytes_equal": false,
+              "first_index_argmax": 0,
+              "winner_word_le": "00000080",
+              "unique_max": false
+            },
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      }
+    },
+    "math.linked": {
+      "interface": "mathematical",
+      "author": {
+        "complete": true,
+        "differing_fields": []
+      },
+      "reviewer": {
+        "complete": false,
+        "differing_fields": [
+          {
+            "path": "/result/linked_scores",
+            "expected": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "-1",
+                "2"
+              ]
+            ],
+            "returned": {
+              "field_absent": true
+            }
+          }
+        ]
+      }
+    }
+  }
+}
