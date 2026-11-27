@@ -1,0 +1,1363 @@
+{
+ "schema": "wp0044.expected.v1",
+ "owner": "eld-fixture-claude",
+ "packet": "WP-0044",
+ "commitment_nonce": "e46648dc590b6ba7692efa0e06692323950a0b663e1971ad64a915cf72a8edd1",
+ "fixture_manifest_sha256": "1ebfc264433eac127434589acb8a1cd92bd357286b2a8803a7e7d3a5199b212c",
+ "phase_order": [
+  "launch",
+  "image",
+  "edge",
+  "command",
+  "configuration",
+  "writer",
+  "seal",
+  "acquisition",
+  "score"
+ ],
+ "rows": [
+  {
+   "id": "W1.A",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "P",
+   "joint": "P",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [],
+   "missing": [],
+   "earliest": null,
+   "extras": {
+    "executable_roles": "distinct_approved_launcher_and_interpreter"
+   }
+  },
+  {
+   "id": "W1.B",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "P",
+   "joint": "P",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [],
+   "missing": [],
+   "earliest": null,
+   "extras": {
+    "executable_roles": "distinct_approved_launcher_and_interpreter"
+   }
+  },
+  {
+   "id": "W2.other",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "M",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "E.launcher",
+     "coordinate": "E",
+     "phase": "launch",
+     "subtype": "anchor_mismatch",
+     "source": "process_instance_key"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "launch",
+    "keys": [
+     "E.launcher"
+    ]
+   },
+   "extras": {
+    "instance_pairs_retained": 2
+   }
+  },
+  {
+   "id": "W4.denied",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "P",
+   "joint": "P",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [],
+   "missing": [],
+   "earliest": null,
+   "extras": {
+    "competing_access": {
+     "denied": true,
+     "filesystem_mutation": false
+    }
+   }
+  },
+  {
+   "id": "B1.original",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "P",
+   "joint": "P",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [],
+   "missing": [],
+   "earliest": null,
+   "extras": {}
+  },
+  {
+   "id": "B2.other",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "M"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "wrong_origin",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "B.direct",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "other_original",
+     "source": "scorer_handle_identity"
+    },
+    {
+     "key": "B.origin",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "other_run",
+     "source": "receipt_mapping"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "acquisition",
+    "keys": [
+     "B.direct"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "B3.copy",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "U"
+   },
+   "custody": "U",
+   "joint": "U",
+   "content": "P",
+   "origin": {
+    "class": "unresolved",
+    "unresolved": [
+     "direct_acquisition_unobserved",
+     "origin_unbound"
+    ]
+   },
+   "conflicts": [],
+   "missing": [
+    {
+     "key": "B.direct",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    },
+    {
+     "key": "B.origin",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "missing",
+    "phase": "acquisition",
+    "keys": [
+     "B.direct",
+     "B.origin"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "B4.invalid",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "M"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "integrity",
+    "unresolved": [
+     "direct_acquisition_unobserved",
+     "origin_unbound"
+    ]
+   },
+   "conflicts": [
+    {
+     "key": "B.seal",
+     "coordinate": "B",
+     "phase": "seal",
+     "subtype": "seal_invalid",
+     "source": "receipt_authentication"
+    }
+   ],
+   "missing": [
+    {
+     "key": "B.direct",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    },
+    {
+     "key": "B.origin",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "seal",
+    "keys": [
+     "B.seal"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "B4.unavailable",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "U"
+   },
+   "custody": "U",
+   "joint": "U",
+   "content": "P",
+   "origin": {
+    "class": "unresolved",
+    "unresolved": [
+     "direct_acquisition_unobserved",
+     "origin_unbound",
+     "seal_unverified"
+    ]
+   },
+   "conflicts": [],
+   "missing": [
+    {
+     "key": "B.direct",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    },
+    {
+     "key": "B.origin",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    },
+    {
+     "key": "B.seal",
+     "coordinate": "B",
+     "phase": "seal",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "missing",
+    "phase": "seal",
+    "keys": [
+     "B.seal"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "B5.reopen",
+   "interface": "live",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "U"
+   },
+   "custody": "U",
+   "joint": "U",
+   "content": "P",
+   "origin": {
+    "class": "unresolved",
+    "unresolved": [
+     "protection_gap"
+    ]
+   },
+   "conflicts": [],
+   "missing": [
+    {
+     "key": "B.protection",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "missing",
+    "phase": "acquisition",
+    "keys": [
+     "B.protection"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W2.helper",
+   "interface": "constructed",
+   "input_sha256": "0d5de45cac5122ec8aaeff91b494aef5716e8ac2eb8af1e0ba8e38e281f4db6b",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "M",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "E.parent",
+     "coordinate": "E",
+     "phase": "edge",
+     "subtype": "parent_mismatch",
+     "source": "parent_instance_query"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "edge",
+    "keys": [
+     "E.parent"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W3.missing",
+   "interface": "constructed",
+   "input_sha256": "4410fd570608505387d6fe02bf9b6b45b98cc9ed9f3bea7316df1a5c7eaba6f6",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "U",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "U",
+   "joint": "U",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [],
+   "missing": [
+    {
+     "key": "E.parent",
+     "coordinate": "E",
+     "phase": "edge",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "missing",
+    "phase": "edge",
+    "keys": [
+     "E.parent"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W3.late_missing",
+   "interface": "constructed",
+   "input_sha256": "bedbd9e729c63ad9e33991600eac091f9d44415a895a72ad81549ca2bd60e1df",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "M",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "E.order",
+     "coordinate": "E",
+     "phase": "edge",
+     "subtype": "order_violation",
+     "source": "ordered_process_events"
+    }
+   ],
+   "missing": [
+    {
+     "key": "E.parent",
+     "coordinate": "E",
+     "phase": "edge",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "edge",
+    "keys": [
+     "E.order"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W3.reuse",
+   "interface": "constructed",
+   "input_sha256": "73420b129fba072d670335fc05f51543591dc053ef1def55c88ca1e73b82f14f",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "M",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "E.instance",
+     "coordinate": "E",
+     "phase": "edge",
+     "subtype": "instance_mismatch",
+     "source": "process_instance_key"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "edge",
+    "keys": [
+     "E.instance"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W4.bad_I",
+   "interface": "constructed",
+   "input_sha256": "142d7da4e28cccf193d828d5bc620d4aea283ff991653b66ef7b4ca772b02daa",
+   "coordinates": {
+    "L": "P",
+    "I": "M",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "I.image",
+     "coordinate": "I",
+     "phase": "image",
+     "subtype": "image_mismatch",
+     "source": "live_image_digest"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "image",
+    "keys": [
+     "I.image"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W4.no_I",
+   "interface": "constructed",
+   "input_sha256": "fbdfa71ad545bb992803d7dd31fb675848bb755b49c6918cc9994ea09e52ce41",
+   "coordinates": {
+    "L": "P",
+    "I": "U",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "U",
+   "joint": "U",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [],
+   "missing": [
+    {
+     "key": "I.image",
+     "coordinate": "I",
+     "phase": "image",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "missing",
+    "phase": "image",
+    "keys": [
+     "I.image"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W4.bad_L",
+   "interface": "constructed",
+   "input_sha256": "463cb88c66484504f0d23456be3362349d5934c3215ed95e22204d669d123f0e",
+   "coordinates": {
+    "L": "M",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "L.image",
+     "coordinate": "L",
+     "phase": "image",
+     "subtype": "image_mismatch",
+     "source": "live_image_digest"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "image",
+    "keys": [
+     "L.image"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W5.args",
+   "interface": "constructed",
+   "input_sha256": "e7d0b42a3bb0e3e60fa36dce8383bc7e19adb0928b663b4f3322c692773ed06f",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "M",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "A.args",
+     "coordinate": "A",
+     "phase": "command",
+     "subtype": "command_mismatch",
+     "source": "argv_capture"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "command",
+    "keys": [
+     "A.args"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W5.script",
+   "interface": "constructed",
+   "input_sha256": "dcccd3d63114b57ea238b5f864f91b0392e32152b9e58a4798315f14f3d77f0a",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "M",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "A.script",
+     "coordinate": "A",
+     "phase": "command",
+     "subtype": "command_mismatch",
+     "source": "script_digest"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "command",
+    "keys": [
+     "A.script"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W5.config",
+   "interface": "constructed",
+   "input_sha256": "5878db2597c1e986667273b8ea71cb2e1ca8d3702a8763c08cce6a59710957ce",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "M",
+    "B": "P"
+   },
+   "custody": "P",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "C.include_system",
+     "coordinate": "C",
+     "phase": "configuration",
+     "subtype": "config_mismatch",
+     "source": "config_probe"
+    },
+    {
+     "key": "C.pyvenv",
+     "coordinate": "C",
+     "phase": "configuration",
+     "subtype": "config_mismatch",
+     "source": "file_digest"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "configuration",
+    "keys": [
+     "C.pyvenv"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W5.empty",
+   "interface": "constructed",
+   "input_sha256": "090b5df1c668b6148217236f07e54147c8306516865faf03dbe667c07f77ab50",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "M",
+    "B": "P"
+   },
+   "custody": "P",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "C.PYTHONPATH",
+     "coordinate": "C",
+     "phase": "configuration",
+     "subtype": "config_mismatch",
+     "source": "environment_probe"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "configuration",
+    "keys": [
+     "C.PYTHONPATH"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W5.unobserved",
+   "interface": "constructed",
+   "input_sha256": "fc5de1935e22707caf7b2addf19fcedbdd95c99334f926ad942361698e6bf8ca",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "U",
+    "B": "P"
+   },
+   "custody": "P",
+   "joint": "U",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [],
+   "missing": [
+    {
+     "key": "C.PYTHONSAFEPATH",
+     "coordinate": "C",
+     "phase": "configuration",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "missing",
+    "phase": "configuration",
+    "keys": [
+     "C.PYTHONSAFEPATH"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W6.escape",
+   "interface": "constructed",
+   "input_sha256": "aa8ebb22c2b61e1f52b2b49661e2d1ccdaa46e65f1664f821fc197bb09261e6c",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "M",
+    "A": "P",
+    "C": "P",
+    "B": "P"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "verified",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "E.job",
+     "coordinate": "E",
+     "phase": "edge",
+     "subtype": "containment_escape",
+     "source": "job_membership_query"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "edge",
+    "keys": [
+     "E.job"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "W6.writer",
+   "interface": "constructed",
+   "input_sha256": "117f9df778636eebc069fd62b5eb839e04e1fc0f2c204b6c673cce6deb899e0c",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "M"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "integrity",
+    "unresolved": []
+   },
+   "conflicts": [
+    {
+     "key": "B.writer",
+     "coordinate": "B",
+     "phase": "writer",
+     "subtype": "writer_conflict",
+     "source": "writer_audit"
+    }
+   ],
+   "missing": [],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "writer",
+    "keys": [
+     "B.writer"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "B5.member_missing",
+   "interface": "constructed",
+   "input_sha256": "e85f49c64184de1182c73da5f72ff9ece5a8e5e22856412a015bebf5727460b8",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "M"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "integrity",
+    "unresolved": [
+     "direct_acquisition_unobserved"
+    ]
+   },
+   "conflicts": [
+    {
+     "key": "B.members",
+     "coordinate": "B",
+     "phase": "seal",
+     "subtype": "members_inconsistent",
+     "source": "member_inventory"
+    }
+   ],
+   "missing": [
+    {
+     "key": "B.direct",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "seal",
+    "keys": [
+     "B.members"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "B5.writer_missing",
+   "interface": "constructed",
+   "input_sha256": "d0abc9b5e015d44649cc3b8c89e5ccd2a69bf293765f500fd4598fdafc2d593d",
+   "coordinates": {
+    "L": "P",
+    "I": "P",
+    "E": "P",
+    "A": "P",
+    "C": "P",
+    "B": "M"
+   },
+   "custody": "M",
+   "joint": "M",
+   "content": "P",
+   "origin": {
+    "class": "integrity",
+    "unresolved": [
+     "direct_acquisition_unobserved"
+    ]
+   },
+   "conflicts": [
+    {
+     "key": "B.writer",
+     "coordinate": "B",
+     "phase": "writer",
+     "subtype": "writer_conflict",
+     "source": "writer_audit"
+    }
+   ],
+   "missing": [
+    {
+     "key": "B.direct",
+     "coordinate": "B",
+     "phase": "acquisition",
+     "subtype": "unobserved",
+     "source": null
+    }
+   ],
+   "earliest": {
+    "kind": "conflict",
+    "phase": "writer",
+    "keys": [
+     "B.writer"
+    ]
+   },
+   "extras": {}
+  },
+  {
+   "id": "archive.gaps",
+   "interface": "archive",
+   "input_sha256": "66eb8bd4a1d51b813f7de7a846ce841238614017cb9c5970ebd82595a42218bb",
+   "result": {
+    "positions": [
+     1445,
+     1446,
+     1447,
+     1448,
+     1449
+    ],
+    "winners": [
+     6,
+     1449,
+     16,
+     1328,
+     128822
+    ],
+    "runner_ups": [
+     1449,
+     223,
+     14,
+     1892,
+     223
+    ],
+    "gaps": [
+     "10.875",
+     "15.1875",
+     "13.5625",
+     "15.375",
+     "13.875"
+    ],
+    "recomputed_equals_recorded": true,
+    "raw_equals_final_top_two": true,
+    "min_gap": "10.875",
+    "min_gap_row": 0,
+    "half_min_gap": "5.4375",
+    "row0_bf16_spacing": "0.125",
+    "row0_gap_in_spacing_units": "87"
+   }
+  },
+  {
+   "id": "archive.support",
+   "interface": "archive",
+   "input_sha256": "66eb8bd4a1d51b813f7de7a846ce841238614017cb9c5970ebd82595a42218bb",
+   "result": {
+    "rows": 5,
+    "vocabulary": 129280,
+    "support_size": 129279,
+    "excluded_ids_per_row": [
+     [
+      1
+     ],
+     [
+      1
+     ],
+     [
+      1
+     ],
+     [
+      1
+     ],
+     [
+      1
+     ]
+    ],
+    "excluded_word_le": "000080ff",
+    "excluded_value": "-inf",
+    "only_eos_excluded_all_rows": true,
+    "c0_all_finite_all_rows": true,
+    "c0_identical_c1_all_rows": true,
+    "emission_equals_final_winner_all_rows": true,
+    "historical_support_sizes": [
+     129279,
+     129279,
+     129279,
+     129279,
+     129279
+    ]
+   }
+  },
+  {
+   "id": "archive.verdict",
+   "interface": "archive",
+   "input_sha256": "66eb8bd4a1d51b813f7de7a846ce841238614017cb9c5970ebd82595a42218bb",
+   "result": {
+    "verdict": "M",
+    "first_divergent_phase": "public_document",
+    "conflict_keys": [
+     "runtime_contract"
+    ],
+    "missing_keys": [
+     "native_custody_unqualified"
+    ],
+    "argv_conflicts": 2,
+    "argv_conflict_fields": [
+     "argv"
+    ],
+    "argv_differs_only_at_index": [
+     [
+      0
+     ],
+     [
+      0
+     ]
+    ],
+    "argv_tails_equal": true,
+    "argv_workers": [
+     "untouched",
+     "observed"
+    ],
+    "expected_argv0_is_venv_scripts": true,
+    "observed_argv0_is_base_python312": true,
+    "missing_rows": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "missing_phase": [
+     "B"
+    ],
+    "row_verdicts": [
+     "U",
+     "U",
+     "U",
+     "U",
+     "U"
+    ],
+    "scheduled_rows": 5,
+    "complete_rows": 0,
+    "qualified_rows": "0/5",
+    "qualified_pairs": "0/1",
+    "public_verdict": "M",
+    "F07_target_pairs_matched": "1/1",
+    "complete_copy_triples": "5/5"
+   }
+  },
+  {
+   "id": "math.shift",
+   "interface": "mathematical",
+   "input_sha256": "a7a14e1cdd0249df5c7206aa284ec7da67f1d1eaff9c936ff7b9ed102923e4fe",
+   "result": [
+    {
+     "winner_before": 6,
+     "winner_after": 6,
+     "winner_changed": false,
+     "unique_after": true,
+     "gap": "10.875",
+     "omega": "0",
+     "linf": "10",
+     "oscillation_certificate": true,
+     "linf_certificate": false,
+     "exact_unique_criterion": true,
+     "first_index_criterion": true,
+     "after": [
+      [
+       6,
+       "38"
+      ],
+      [
+       1449,
+       "27.125"
+      ]
+     ],
+     "winner_minus_runner_change": "0"
+    },
+    {
+     "winner_before": 6,
+     "winner_after": 6,
+     "winner_changed": false,
+     "unique_after": true,
+     "gap": "10.875",
+     "omega": "10",
+     "linf": "5",
+     "oscillation_certificate": true,
+     "linf_certificate": true,
+     "exact_unique_criterion": true,
+     "first_index_criterion": true,
+     "after": [
+      [
+       6,
+       "23"
+      ],
+      [
+       1449,
+       "22.125"
+      ]
+     ],
+     "winner_minus_runner_change": "-10"
+    }
+   ]
+  },
+  {
+   "id": "math.tie",
+   "interface": "mathematical",
+   "input_sha256": "2f54fe65a4aedc0ef9a3cbb6b7e43bf40c89922d7211691cb8ed52c24f80527f",
+   "result": [
+    {
+     "winner_before": 6,
+     "winner_after": 6,
+     "winner_changed": false,
+     "unique_after": false,
+     "gap": "10.875",
+     "omega": "10.875",
+     "linf": "10.875",
+     "oscillation_certificate": false,
+     "linf_certificate": false,
+     "exact_unique_criterion": false,
+     "first_index_criterion": true,
+     "after": [
+      [
+       6,
+       "28"
+      ],
+      [
+       1449,
+       "28"
+      ]
+     ],
+     "winner_minus_runner_change": "-10.875"
+    },
+    {
+     "winner_before": 128822,
+     "winner_after": 223,
+     "winner_changed": true,
+     "unique_after": false,
+     "gap": "13.875",
+     "omega": "13.875",
+     "linf": "13.875",
+     "oscillation_certificate": false,
+     "linf_certificate": false,
+     "exact_unique_criterion": false,
+     "first_index_criterion": false,
+     "after": [
+      [
+       223,
+       "25"
+      ],
+      [
+       128822,
+       "25"
+      ]
+     ],
+     "winner_minus_runner_change": "-13.875"
+    }
+   ]
+  },
+  {
+   "id": "math.signed_zero",
+   "interface": "mathematical",
+   "input_sha256": "4fc4c58b7ec24aa69db61c8a03b0aad6b8991b88b6b9d43269d139c3ab596d4e",
+   "result": [
+    {
+     "values": [
+      "0.0",
+      "-0.0"
+     ],
+     "sign_bits": [
+      0,
+      1
+     ],
+     "numerically_equal": true,
+     "bytes_equal": false,
+     "first_index_argmax": 0,
+     "winner_word_le": "00000000",
+     "unique_max": false
+    },
+    {
+     "values": [
+      "-0.0",
+      "0.0"
+     ],
+     "sign_bits": [
+      1,
+      0
+     ],
+     "numerically_equal": true,
+     "bytes_equal": false,
+     "first_index_argmax": 0,
+     "winner_word_le": "00000080",
+     "unique_max": false
+    }
+   ]
+  },
+  {
+   "id": "math.linked",
+   "interface": "mathematical",
+   "input_sha256": "066c49ed1bc2a9418e91320aca3ab70b182c853340736f567e9d4a1dc30430e4",
+   "result": {
+    "stock_tokens": [
+     0,
+     0
+    ],
+    "reset_tokens": [
+     0,
+     0
+    ],
+    "linked_tokens": [
+     0,
+     1
+    ],
+    "linked_scores": [
+     [
+      "1",
+      "0"
+     ],
+     [
+      "-1",
+      "2"
+     ]
+    ],
+    "reset_pass": true,
+    "linked_pass": false,
+    "first_linked_divergence_step": 1
+   }
+  }
+ ]
+}
