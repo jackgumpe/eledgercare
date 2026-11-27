@@ -58,9 +58,18 @@ def main():
         writer = PdfWriter(clone_from=old)
         for i,page in enumerate(document.pages):
             writer.insert_page(page,i)
-        first = writer.root_object["/Outlines"].raw_get("/First")
-        writer.add_outline_item("Edition 02.1 - operative amendment", 0, before=first)
-        writer.add_outline_item("Edition 02 - historical text", len(document.pages), before=first)
+        bookmarks = writer.root_object["/Outlines"]
+        first, last = bookmarks.raw_get("/First"), bookmarks.raw_get("/Last")
+        operative = writer.add_outline_item("Edition 02.1 - operative amendment", 0)
+        historical = writer.add_outline_item("Edition 02 - historical text", len(document.pages))
+        # Move the two newly appended siblings as one list prefix. Original
+        # siblings, descendants, destination objects and open counts stay intact.
+        bookmarks[NameObject("/First")] = operative
+        bookmarks[NameObject("/Last")] = last
+        operative.get_object().pop("/Prev")
+        historical.get_object()[NameObject("/Next")] = first
+        first.get_object()[NameObject("/Prev")] = historical
+        last.get_object().pop("/Next")
         writer.open_destination = writer.pages[0]
         writer.add_metadata({"/Title":f"Targeted recurrent depth {key} - complete research Edition 02.1",
                              "/Author":"Original team (Edition 02); eld-depth-author (02.1 amendment)"})

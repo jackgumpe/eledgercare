@@ -105,7 +105,10 @@ def main():
             extra.update({k:[v] for k,v in companions.items()})
             encoded = (json.dumps(companions,sort_keys=True,indent=2)+"\n").encode()
             extra["companions-02.1.json"] = [digest(encoded)]
-        valid = {"same_named_destinations":named_ok,"original_bookmark_tree_equal":prior_tree == new_tree,
+        introduction = [(e.title,new.get_destination_page_number(e)) for e in new.outline[:2] if not isinstance(e,list)]
+        valid = {"introductory_bookmarks":introduction == [("Edition 02.1 - operative amendment",0),
+                                                            ("Edition 02 - historical text",delta)],
+                 "same_named_destinations":named_ok,"original_bookmark_tree_equal":prior_tree == new_tree,
                  "total_pages":len(new.pages) == len(old.pages)+delta,
                  "complete_registry_equal":{**old_attachments,**extra} == attachments,
                  "public_pages_equal":all(streams(p) == streams(new.pages[k]) for k,p in enumerate(note.pages)),
