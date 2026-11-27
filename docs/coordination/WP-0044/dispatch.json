@@ -1,0 +1,35 @@
+{
+  "reservation": "eb2b09c176cf3793ea9e9f930b913b9769d516e8",
+  "coordinator_thread": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "roles": [
+    {
+      "role": "eld-owner-probe",
+      "thread": "01a21d7c-eca3-7131-86e7-9612211371c8",
+      "transport": "fresh native Codex subagent, no inherited conversation",
+      "model_requested": "gpt-6.2-astra",
+      "effort_requested": "xhigh",
+      "separately_reported_runtime_model_effort": null,
+      "worktree": "w044-author"
+    },
+    {
+      "role": "eld-fixture-claude",
+      "session": "e5b57315-3ecb-4f65-ada4-ca6637521f2f",
+      "transport": "fresh local Claude Code",
+      "cli_version": "2.1.329",
+      "model_initialized": "claude-opus-5-5",
+      "effort_option": "--effort high",
+      "evidence": "local stream-json system.init and scoped launcher argv",
+      "worktree": "w044-fixtures"
+    },
+    {
+      "role": "eld-rd-reviewer",
+      "thread": "01a21d7d-1b68-7ef3-a0ec-b12b54969b06",
+      "transport": "fresh native Codex subagent, no inherited conversation",
+      "model_requested": "gpt-6.2-astra",
+      "effort_requested": "xhigh",
+      "separately_reported_runtime_model_effort": null,
+      "worktree": "w044-review"
+    }
+  ],
+  "isolation": "Each role writes only its own worktree and private scratch. Fixture and oracle author is separate from both Windows routes; research author and reviewer derive independently before exposure. Coordinator alone owns integration and the serialized decisive lane."
+}
