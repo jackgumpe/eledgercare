@@ -1,0 +1,170 @@
+{
+  "status": "Closed after independent review. Return prospective CPU contract to eld-owner-probe.",
+  "qualification": "withheld",
+  "base": "13753c13893232a58bc38e5f0ebc5a476fc746bb",
+  "reservation": "eb2b09c176cf3793ea9e9f930b913b9769d516e8",
+  "role_publications": {
+    "eld-fixture-claude": {
+      "branch": "research/wp-0044-fixtures",
+      "publication": "27c7f6e7b58b092c13d9ecd5e00bfb51a8d5f8cb",
+      "report_path": "docs/agent-reports/eld-fixture-claude/WP-0044/001_2026-11-27_research_eld-fixture-claude.md"
+    },
+    "eld-owner-probe": {
+      "branch": "research/wp-0044-provenance",
+      "publication": "f4d3bd49e7c106c22547aa6f75ca136f0426f6d7",
+      "report_path": "docs/agent-reports/eld-owner-probe/WP-0044/002_2026-11-27_research_eld-owner-probe.md"
+    },
+    "eld-rd-reviewer": {
+      "branch": "review/wp-0044-provenance",
+      "publication": "57389b07bc9332f0a6c683b5263a4f6622488f73",
+      "report_path": "docs/agent-reports/eld-rd-reviewer/WP-0044/003_2026-11-27_review_eld-rd-reviewer.md"
+    }
+  },
+  "freeze": {
+    "reservation": "eb2b09c176cf3793ea9e9f930b913b9769d516e8",
+    "fixtures": "40eb491db2330a70fb2203f721ce921f79fa03a9",
+    "fixture_manifest_sha256": "1ebfc264433eac127434589acb8a1cd92bd357286b2a8803a7e7d3a5199b212c",
+    "oracle_commitment": "75d1beb4514c7982a4c7b77107d1eedb7365d24d",
+    "expected_sha256": "42db1f24c102a9c83f2b215bf261fac44c10dd4b1dc2f671b1c18933d421eff8",
+    "order": [
+      "eld-owner-probe",
+      "eld-rd-reviewer"
+    ],
+    "input_sha256": {
+      "W2.helper": "0d5de45cac5122ec8aaeff91b494aef5716e8ac2eb8af1e0ba8e38e281f4db6b",
+      "W3.missing": "4410fd570608505387d6fe02bf9b6b45b98cc9ed9f3bea7316df1a5c7eaba6f6",
+      "W3.late_missing": "bedbd9e729c63ad9e33991600eac091f9d44415a895a72ad81549ca2bd60e1df",
+      "W3.reuse": "73420b129fba072d670335fc05f51543591dc053ef1def55c88ca1e73b82f14f",
+      "W4.bad_I": "142d7da4e28cccf193d828d5bc620d4aea283ff991653b66ef7b4ca772b02daa",
+      "W4.no_I": "fbdfa71ad545bb992803d7dd31fb675848bb755b49c6918cc9994ea09e52ce41",
+      "W4.bad_L": "463cb88c66484504f0d23456be3362349d5934c3215ed95e22204d669d123f0e",
+      "W5.args": "e7d0b42a3bb0e3e60fa36dce8383bc7e19adb0928b663b4f3322c692773ed06f",
+      "W5.script": "dcccd3d63114b57ea238b5f864f91b0392e32152b9e58a4798315f14f3d77f0a",
+      "W5.config": "5878db2597c1e986667273b8ea71cb2e1ca8d3702a8763c08cce6a59710957ce",
+      "W5.empty": "090b5df1c668b6148217236f07e54147c8306516865faf03dbe667c07f77ab50",
+      "W5.unobserved": "fc5de1935e22707caf7b2addf19fcedbdd95c99334f926ad942361698e6bf8ca",
+      "W6.escape": "aa8ebb22c2b61e1f52b2b49661e2d1ccdaa46e65f1664f821fc197bb09261e6c",
+      "W6.writer": "117f9df778636eebc069fd62b5eb839e04e1fc0f2c204b6c673cce6deb899e0c",
+      "B5.member_missing": "e85f49c64184de1182c73da5f72ff9ece5a8e5e22856412a015bebf5727460b8",
+      "B5.writer_missing": "d0abc9b5e015d44649cc3b8c89e5ccd2a69bf293765f500fd4598fdafc2d593d"
+    },
+    "routes": {
+      "eld-owner-probe": {
+        "candidate": "8e78cc23abbc796b846ce59284ff46f66fde866b",
+        "worktree": "w044-author",
+        "manifest_sha256": "87a4ded6ceac20c88bd5108b0b912c844c23c690996f9d64ba50fc02dddde7c1",
+        "expectations_sha256": "2ed04310a2f8a4d6f6c61878638927ddb7b220a4b0519fdf3eed06cac85b13cd",
+        "command": "py -3.12 -B docs/research/WP-0044/probe.py run",
+        "private_review": "eLedgerCare-Speed/WP-0044/eld-rd-reviewer under the current Windows user profile"
+      },
+      "eld-rd-reviewer": {
+        "candidate": "5ddc7324c5570d33b96089c5f908b54d536592a6",
+        "worktree": "w044-review",
+        "manifest_sha256": "3ca9f68d4aea2575ae3e4333cc60d11efdbe935f8700107d342ed1c63d5996d5",
+        "expectations_sha256": "e3591e053a7abfa415143dd13bcad8c93ce6d10606bfe0e32e6c77a1b4cfb868",
+        "command": "py -3.12 -B docs/reviews/WP-0044/route.py run --out <private-review>/decisive01 --manifest docs/reviews/WP-0044/manifest.json --inputs <private-review>/blind-digests.json",
+        "private_review": "eLedgerCare-Speed/WP-0044/eld-rd-reviewer under the current Windows user profile"
+      }
+    }
+  },
+  "full_oracle": {
+    "author": {
+      "source_crosswalk": "f5c4168e9d8cfb8bd4b4fac41b24098b708b6f4c",
+      "comparator_fixture": "40eb491db2330a70fb2203f721ce921f79fa03a9",
+      "comparator_exit": 1,
+      "comparison_sha256": "0b5024ff568b33d391e4835a09c2f91a98a5cee4b1c5c09a51ea50206cf9ac89",
+      "q_numerator": 14,
+      "q_denominator": 33,
+      "by_interface": {
+        "live": "0/10",
+        "constructed": "13/16",
+        "archive": "0/3",
+        "mathematical": "1/4"
+      },
+      "all_33_returned": true
+    },
+    "reviewer": {
+      "source_crosswalk": "f5c4168e9d8cfb8bd4b4fac41b24098b708b6f4c",
+      "comparator_fixture": "40eb491db2330a70fb2203f721ce921f79fa03a9",
+      "comparator_exit": 1,
+      "comparison_sha256": "9790e479bf898bc0843619536bbe7b19aae083ab40271f7e54e7591e97803d8c",
+      "q_numerator": 13,
+      "q_denominator": 33,
+      "by_interface": {
+        "live": "0/10",
+        "constructed": "13/16",
+        "archive": "0/3",
+        "mathematical": "0/4"
+      },
+      "all_33_returned": true
+    }
+  },
+  "full_public_comparison": [
+    "docs/reviews/WP-0044/comparison/author-comparison.json",
+    "docs/reviews/WP-0044/comparison/reviewer-comparison.json"
+  ],
+  "core_counts": {
+    "live": 10,
+    "live_author_oracle": 0,
+    "live_reviewer_oracle": 0,
+    "live_author_reviewer": 0,
+    "constructed": 16,
+    "constructed_author_oracle": 16,
+    "constructed_reviewer_oracle": 16,
+    "constructed_author_reviewer": 16
+  },
+  "genuine_all_P": {
+    "author": 0,
+    "reviewer": 0,
+    "scheduled_per_route": 2
+  },
+  "smallest_shared_unmet_obligation": "E.parent. A creation-scoped independently attributable caller for the interpreter start, joined to the selected launcher and the actual child. The observed parent PID and live image events do not identify this caller.",
+  "writer_scope": {
+    "author": "B.writer unavailable; writable aliases in supervisor/launcher/interpreter.",
+    "reviewer": "Worker opens after launch and exports only READ. P conditional on measured cooperative code, trusted sidecars and no external same-user handle manipulation. No independent kernel writer attribution."
+  },
+  "configuration_scope": {
+    "author_loaded_modules": 70,
+    "reviewer_selected_modules": [
+      "ctypes",
+      "os",
+      "sys"
+    ],
+    "status": "C met its declared projection on each run."
+  },
+  "cpu": {
+    "author": {
+      "returned": 33,
+      "seconds": 0.485,
+      "bytes": 851528
+    },
+    "reviewer": {
+      "returned": 33,
+      "seconds": 7.969,
+      "bytes_before_final_resource_index": 326093
+    },
+    "serialized": true,
+    "genuine_arms": 4,
+    "fixture_processes_each_route": 6
+  },
+  "coverage_per_route": {
+    "live_submissions": 10,
+    "constructed_provenance": 16,
+    "archived_rows": 3,
+    "mathematical_controls": 4,
+    "repetitions": 1
+  },
+  "original_schema": {
+    "scorer": "ce72ff81bf7069ccc174b1780dc3a61f88143344",
+    "joint": "M",
+    "pairs_qualified": "0/1",
+    "rows_qualified": "0/5",
+    "matching_target_content": "1/1",
+    "score_vectors_verified": "15/15",
+    "unchanged_old_scorer_regressions": "Previous 49 plus one retained, no change triggering a rerun.",
+    "prospective_numerical_projection": "Separate from historical verdict."
+  },
+  "next_owner": "eld-owner-probe",
+  "followup_status": "proposal only; prospective creator witness and bounded author-side writer accounting",
+  "device_decision": "No device release. WP-0037 remains parked."
+}

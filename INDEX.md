@@ -1604,3 +1604,11 @@ Admitted on 2026-11-27 by the bound coordinator. Parent 13753c13893232a58bc38e5f
 | eld-owner-probe | research/wp-0044-provenance / w044-author | fresh Codex gpt-6.2-astra / xhigh | docs/agent-reports/eld-owner-probe/WP-0044/002_2026-11-27_research_eld-owner-probe.md |
 | eld-rd-reviewer | review/wp-0044-provenance / w044-review | fresh independent Codex gpt-6.2-astra / xhigh | docs/agent-reports/eld-rd-reviewer/WP-0044/003_2026-11-27_review_eld-rd-reviewer.md |
 | eld-coordinator | coordination/bootstrap / primary | bound local Codex / xhigh | docs/agent-reports/eld-coordinator/WP-0044/004_2026-11-27_verification_eld-coordinator.md |
+
+WP-0044 closed after independent Windows reproduction. Both routes returned all 33 scheduled rows. None of four genuine arms established the creating caller. Full-field matches were 14/33 and 13/33. [Coordinator disposition](docs/coordination/WP-0044/disposition.json) and [complete per-row comparison](docs/reviews/WP-0044/comparison/). WP-0037 remains parked.
+
+| Original report | Verified role publication |
+| --- | --- |
+| [eld-fixture-claude](https://github.com/jackgumpe/eledgercare/blob/27c7f6e7b58b092c13d9ecd5e00bfb51a8d5f8cb/docs/agent-reports/eld-fixture-claude/WP-0044/001_2026-11-27_research_eld-fixture-claude.md) | 27c7f6e7b58b092c13d9ecd5e00bfb51a8d5f8cb |
+| [eld-owner-probe](https://github.com/jackgumpe/eledgercare/blob/f4d3bd49e7c106c22547aa6f75ca136f0426f6d7/docs/agent-reports/eld-owner-probe/WP-0044/002_2026-11-27_research_eld-owner-probe.md) | f4d3bd49e7c106c22547aa6f75ca136f0426f6d7 |
+| [eld-rd-reviewer](https://github.com/jackgumpe/eledgercare/blob/57389b07bc9332f0a6c683b5263a4f6622488f73/docs/agent-reports/eld-rd-reviewer/WP-0044/003_2026-11-27_review_eld-rd-reviewer.md) | 57389b07bc9332f0a6c683b5263a4f6622488f73 |
