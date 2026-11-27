@@ -1,0 +1,601 @@
+{
+  "base": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+  "roles": {
+    "supervisor0": {
+      "command": {
+        "argv": [
+          "@source/stage.py",
+          "supervisor",
+          "0"
+        ],
+        "cwd": "@arm",
+        "orig_argv": [
+          "@base/python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "@source/stage.py",
+          "supervisor",
+          "0"
+        ],
+        "script": {
+          "path": "@source/stage.py",
+          "sha256": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8"
+        }
+      },
+      "runtime": {
+        "base_exe": "@base/python.exe",
+        "base_prefix": "@base",
+        "effective_pth": [],
+        "environment": {
+          "CUBLAS_WORKSPACE_CONFIG": null,
+          "CUDA_VISIBLE_DEVICES": null,
+          "MKL_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "PATH": null,
+          "PYTHONDONTWRITEBYTECODE": null,
+          "PYTHONHASHSEED": null,
+          "PYTHONHOME": null,
+          "PYTHONNOUSERSITE": null,
+          "PYTHONPATH": null,
+          "PYTHONSAFEPATH": null,
+          "PYTHONUSERBASE": null,
+          "PYTHONUTF8": null,
+          "SystemRoot": "C:\\WINDOWS",
+          "VIRTUAL_ENV": null
+        },
+        "environment_names": [
+          "MKL_NUM_THREADS",
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "SYSTEMROOT"
+        ],
+        "exe": "@base/python.exe",
+        "flags": {
+          "bytes_warning": 0,
+          "debug": 0,
+          "dev_mode": false,
+          "dont_write_bytecode": 1,
+          "hash_randomization": 1,
+          "ignore_environment": 1,
+          "inspect": 0,
+          "int_max_str_digits": 4300,
+          "interactive": 0,
+          "isolated": 1,
+          "no_site": 1,
+          "no_user_site": 1,
+          "optimize": 0,
+          "quiet": 0,
+          "safe_path": true,
+          "utf8_mode": 0,
+          "verbose": 0,
+          "warn_default_encoding": 0
+        },
+        "image_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "modules": {
+          "__main__": {
+            "path": "@source/stage.py",
+            "sha256": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8"
+          },
+          "_ctypes": {
+            "path": "@base/DLLs/_ctypes.pyd",
+            "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+          },
+          "_hashlib": {
+            "path": "@base/DLLs/_hashlib.pyd",
+            "sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+          },
+          "_winapi": {
+            "kind": "built-in"
+          },
+          "ctypes": {
+            "path": "@base/Lib/ctypes/__init__.py",
+            "sha256": "8fc533f8ae18a7ca06dce88fc8dca5eae61f2a4198ceb9d4b4b5a69862aa42ee"
+          },
+          "hashlib": {
+            "path": "@base/Lib/hashlib.py",
+            "sha256": "f0c8900585062c567a283cb782c3c867f86c38516e30f1f98a04ffa775b9a013"
+          },
+          "json": {
+            "path": "@base/Lib/json/__init__.py",
+            "sha256": "feb17670e443e5db2723f217727dcc5d5e155c40e4e6935b16061c88542f24e7"
+          },
+          "os": {
+            "kind": "frozen"
+          },
+          "pathlib": {
+            "path": "@base/Lib/pathlib.py",
+            "sha256": "cd1557dedcaa1be0459cd59760c5ebac83a3e412e0e1b5bc0b1a82a19563a090"
+          },
+          "sitecustomize": {
+            "loaded": false
+          },
+          "state": {
+            "path": "@source/state.py",
+            "sha256": "b23b44db45ded09dbe4580bb95bf7ab2d0433eb915217f8e461e94042ca5c374"
+          },
+          "subprocess": {
+            "path": "@base/Lib/subprocess.py",
+            "sha256": "e9886605ccac88bcfe2330a1b4cd8f132cbaf97ebb6834b1dcb5a69b127b8d5b"
+          },
+          "sys": {
+            "kind": "built-in"
+          },
+          "usercustomize": {
+            "loaded": false
+          },
+          "win": {
+            "path": "@source/win.py",
+            "sha256": "f633ac879e0e4336a603408a8e03d563c5bba0eb4c23a997ea9a9bf8b316dc1e"
+          }
+        },
+        "prefix": "@base",
+        "pyvenv_cfg": {
+          "@base-parent/pyvenv.cfg": null,
+          "@base/pyvenv.cfg": null
+        },
+        "site_loaded": false,
+        "sitecustomize": [],
+        "sys_path": [
+          "@source",
+          "@base/python312.zip",
+          "@base/DLLs",
+          "@base/Lib",
+          "@base"
+        ],
+        "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+      }
+    },
+    "supervisor1": {
+      "command": {
+        "argv": [
+          "@source/stage.py",
+          "supervisor",
+          "1"
+        ],
+        "cwd": "@arm",
+        "orig_argv": [
+          "@base/python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "@source/stage.py",
+          "supervisor",
+          "1"
+        ],
+        "script": {
+          "path": "@source/stage.py",
+          "sha256": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8"
+        }
+      },
+      "runtime": {
+        "base_exe": "@base/python.exe",
+        "base_prefix": "@base",
+        "effective_pth": [],
+        "environment": {
+          "CUBLAS_WORKSPACE_CONFIG": null,
+          "CUDA_VISIBLE_DEVICES": null,
+          "MKL_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "PATH": null,
+          "PYTHONDONTWRITEBYTECODE": null,
+          "PYTHONHASHSEED": null,
+          "PYTHONHOME": null,
+          "PYTHONNOUSERSITE": null,
+          "PYTHONPATH": null,
+          "PYTHONSAFEPATH": null,
+          "PYTHONUSERBASE": null,
+          "PYTHONUTF8": null,
+          "SystemRoot": "C:\\WINDOWS",
+          "VIRTUAL_ENV": null
+        },
+        "environment_names": [
+          "MKL_NUM_THREADS",
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "SYSTEMROOT"
+        ],
+        "exe": "@base/python.exe",
+        "flags": {
+          "bytes_warning": 0,
+          "debug": 0,
+          "dev_mode": false,
+          "dont_write_bytecode": 1,
+          "hash_randomization": 1,
+          "ignore_environment": 1,
+          "inspect": 0,
+          "int_max_str_digits": 4300,
+          "interactive": 0,
+          "isolated": 1,
+          "no_site": 1,
+          "no_user_site": 1,
+          "optimize": 0,
+          "quiet": 0,
+          "safe_path": true,
+          "utf8_mode": 0,
+          "verbose": 0,
+          "warn_default_encoding": 0
+        },
+        "image_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "modules": {
+          "__main__": {
+            "path": "@source/stage.py",
+            "sha256": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8"
+          },
+          "_ctypes": {
+            "path": "@base/DLLs/_ctypes.pyd",
+            "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+          },
+          "_hashlib": {
+            "path": "@base/DLLs/_hashlib.pyd",
+            "sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+          },
+          "_winapi": {
+            "kind": "built-in"
+          },
+          "ctypes": {
+            "path": "@base/Lib/ctypes/__init__.py",
+            "sha256": "8fc533f8ae18a7ca06dce88fc8dca5eae61f2a4198ceb9d4b4b5a69862aa42ee"
+          },
+          "hashlib": {
+            "path": "@base/Lib/hashlib.py",
+            "sha256": "f0c8900585062c567a283cb782c3c867f86c38516e30f1f98a04ffa775b9a013"
+          },
+          "json": {
+            "path": "@base/Lib/json/__init__.py",
+            "sha256": "feb17670e443e5db2723f217727dcc5d5e155c40e4e6935b16061c88542f24e7"
+          },
+          "os": {
+            "kind": "frozen"
+          },
+          "pathlib": {
+            "path": "@base/Lib/pathlib.py",
+            "sha256": "cd1557dedcaa1be0459cd59760c5ebac83a3e412e0e1b5bc0b1a82a19563a090"
+          },
+          "sitecustomize": {
+            "loaded": false
+          },
+          "state": {
+            "path": "@source/state.py",
+            "sha256": "b23b44db45ded09dbe4580bb95bf7ab2d0433eb915217f8e461e94042ca5c374"
+          },
+          "subprocess": {
+            "path": "@base/Lib/subprocess.py",
+            "sha256": "e9886605ccac88bcfe2330a1b4cd8f132cbaf97ebb6834b1dcb5a69b127b8d5b"
+          },
+          "sys": {
+            "kind": "built-in"
+          },
+          "usercustomize": {
+            "loaded": false
+          },
+          "win": {
+            "path": "@source/win.py",
+            "sha256": "f633ac879e0e4336a603408a8e03d563c5bba0eb4c23a997ea9a9bf8b316dc1e"
+          }
+        },
+        "prefix": "@base",
+        "pyvenv_cfg": {
+          "@base-parent/pyvenv.cfg": null,
+          "@base/pyvenv.cfg": null
+        },
+        "site_loaded": false,
+        "sitecustomize": [],
+        "sys_path": [
+          "@source",
+          "@base/python312.zip",
+          "@base/DLLs",
+          "@base/Lib",
+          "@base"
+        ],
+        "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+      }
+    },
+    "worker0": {
+      "command": {
+        "argv": [
+          "@source/stage.py",
+          "worker",
+          "0"
+        ],
+        "cwd": "@arm",
+        "orig_argv": [
+          "@base/python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "@source/stage.py",
+          "worker",
+          "0"
+        ],
+        "script": {
+          "path": "@source/stage.py",
+          "sha256": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8"
+        }
+      },
+      "runtime": {
+        "base_exe": "@base/python.exe",
+        "base_prefix": "@base",
+        "effective_pth": [],
+        "environment": {
+          "CUBLAS_WORKSPACE_CONFIG": null,
+          "CUDA_VISIBLE_DEVICES": null,
+          "MKL_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "PATH": null,
+          "PYTHONDONTWRITEBYTECODE": null,
+          "PYTHONHASHSEED": null,
+          "PYTHONHOME": null,
+          "PYTHONNOUSERSITE": null,
+          "PYTHONPATH": null,
+          "PYTHONSAFEPATH": null,
+          "PYTHONUSERBASE": null,
+          "PYTHONUTF8": null,
+          "SystemRoot": "C:\\WINDOWS",
+          "VIRTUAL_ENV": null
+        },
+        "environment_names": [
+          "MKL_NUM_THREADS",
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "SYSTEMROOT"
+        ],
+        "exe": "@base/python.exe",
+        "flags": {
+          "bytes_warning": 0,
+          "debug": 0,
+          "dev_mode": false,
+          "dont_write_bytecode": 1,
+          "hash_randomization": 1,
+          "ignore_environment": 1,
+          "inspect": 0,
+          "int_max_str_digits": 4300,
+          "interactive": 0,
+          "isolated": 1,
+          "no_site": 1,
+          "no_user_site": 1,
+          "optimize": 0,
+          "quiet": 0,
+          "safe_path": true,
+          "utf8_mode": 0,
+          "verbose": 0,
+          "warn_default_encoding": 0
+        },
+        "image_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "modules": {
+          "__main__": {
+            "path": "@source/stage.py",
+            "sha256": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8"
+          },
+          "_ctypes": {
+            "path": "@base/DLLs/_ctypes.pyd",
+            "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+          },
+          "_hashlib": {
+            "path": "@base/DLLs/_hashlib.pyd",
+            "sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+          },
+          "_winapi": {
+            "kind": "built-in"
+          },
+          "ctypes": {
+            "path": "@base/Lib/ctypes/__init__.py",
+            "sha256": "8fc533f8ae18a7ca06dce88fc8dca5eae61f2a4198ceb9d4b4b5a69862aa42ee"
+          },
+          "hashlib": {
+            "path": "@base/Lib/hashlib.py",
+            "sha256": "f0c8900585062c567a283cb782c3c867f86c38516e30f1f98a04ffa775b9a013"
+          },
+          "json": {
+            "path": "@base/Lib/json/__init__.py",
+            "sha256": "feb17670e443e5db2723f217727dcc5d5e155c40e4e6935b16061c88542f24e7"
+          },
+          "os": {
+            "kind": "frozen"
+          },
+          "pathlib": {
+            "path": "@base/Lib/pathlib.py",
+            "sha256": "cd1557dedcaa1be0459cd59760c5ebac83a3e412e0e1b5bc0b1a82a19563a090"
+          },
+          "sitecustomize": {
+            "loaded": false
+          },
+          "state": {
+            "path": "@source/state.py",
+            "sha256": "b23b44db45ded09dbe4580bb95bf7ab2d0433eb915217f8e461e94042ca5c374"
+          },
+          "subprocess": {
+            "path": "@base/Lib/subprocess.py",
+            "sha256": "e9886605ccac88bcfe2330a1b4cd8f132cbaf97ebb6834b1dcb5a69b127b8d5b"
+          },
+          "sys": {
+            "kind": "built-in"
+          },
+          "usercustomize": {
+            "loaded": false
+          },
+          "win": {
+            "path": "@source/win.py",
+            "sha256": "f633ac879e0e4336a603408a8e03d563c5bba0eb4c23a997ea9a9bf8b316dc1e"
+          }
+        },
+        "prefix": "@base",
+        "pyvenv_cfg": {
+          "@base-parent/pyvenv.cfg": null,
+          "@base/pyvenv.cfg": null
+        },
+        "site_loaded": false,
+        "sitecustomize": [],
+        "sys_path": [
+          "@source",
+          "@base/python312.zip",
+          "@base/DLLs",
+          "@base/Lib",
+          "@base"
+        ],
+        "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+      }
+    },
+    "worker1": {
+      "command": {
+        "argv": [
+          "@source/stage.py",
+          "worker",
+          "1"
+        ],
+        "cwd": "@arm",
+        "orig_argv": [
+          "@base/python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "@source/stage.py",
+          "worker",
+          "1"
+        ],
+        "script": {
+          "path": "@source/stage.py",
+          "sha256": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8"
+        }
+      },
+      "runtime": {
+        "base_exe": "@base/python.exe",
+        "base_prefix": "@base",
+        "effective_pth": [],
+        "environment": {
+          "CUBLAS_WORKSPACE_CONFIG": null,
+          "CUDA_VISIBLE_DEVICES": null,
+          "MKL_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "PATH": null,
+          "PYTHONDONTWRITEBYTECODE": null,
+          "PYTHONHASHSEED": null,
+          "PYTHONHOME": null,
+          "PYTHONNOUSERSITE": null,
+          "PYTHONPATH": null,
+          "PYTHONSAFEPATH": null,
+          "PYTHONUSERBASE": null,
+          "PYTHONUTF8": null,
+          "SystemRoot": "C:\\WINDOWS",
+          "VIRTUAL_ENV": null
+        },
+        "environment_names": [
+          "MKL_NUM_THREADS",
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "SYSTEMROOT"
+        ],
+        "exe": "@base/python.exe",
+        "flags": {
+          "bytes_warning": 0,
+          "debug": 0,
+          "dev_mode": false,
+          "dont_write_bytecode": 1,
+          "hash_randomization": 1,
+          "ignore_environment": 1,
+          "inspect": 0,
+          "int_max_str_digits": 4300,
+          "interactive": 0,
+          "isolated": 1,
+          "no_site": 1,
+          "no_user_site": 1,
+          "optimize": 0,
+          "quiet": 0,
+          "safe_path": true,
+          "utf8_mode": 0,
+          "verbose": 0,
+          "warn_default_encoding": 0
+        },
+        "image_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "modules": {
+          "__main__": {
+            "path": "@source/stage.py",
+            "sha256": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8"
+          },
+          "_ctypes": {
+            "path": "@base/DLLs/_ctypes.pyd",
+            "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+          },
+          "_hashlib": {
+            "path": "@base/DLLs/_hashlib.pyd",
+            "sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+          },
+          "_winapi": {
+            "kind": "built-in"
+          },
+          "ctypes": {
+            "path": "@base/Lib/ctypes/__init__.py",
+            "sha256": "8fc533f8ae18a7ca06dce88fc8dca5eae61f2a4198ceb9d4b4b5a69862aa42ee"
+          },
+          "hashlib": {
+            "path": "@base/Lib/hashlib.py",
+            "sha256": "f0c8900585062c567a283cb782c3c867f86c38516e30f1f98a04ffa775b9a013"
+          },
+          "json": {
+            "path": "@base/Lib/json/__init__.py",
+            "sha256": "feb17670e443e5db2723f217727dcc5d5e155c40e4e6935b16061c88542f24e7"
+          },
+          "os": {
+            "kind": "frozen"
+          },
+          "pathlib": {
+            "path": "@base/Lib/pathlib.py",
+            "sha256": "cd1557dedcaa1be0459cd59760c5ebac83a3e412e0e1b5bc0b1a82a19563a090"
+          },
+          "sitecustomize": {
+            "loaded": false
+          },
+          "state": {
+            "path": "@source/state.py",
+            "sha256": "b23b44db45ded09dbe4580bb95bf7ab2d0433eb915217f8e461e94042ca5c374"
+          },
+          "subprocess": {
+            "path": "@base/Lib/subprocess.py",
+            "sha256": "e9886605ccac88bcfe2330a1b4cd8f132cbaf97ebb6834b1dcb5a69b127b8d5b"
+          },
+          "sys": {
+            "kind": "built-in"
+          },
+          "usercustomize": {
+            "loaded": false
+          },
+          "win": {
+            "path": "@source/win.py",
+            "sha256": "f633ac879e0e4336a603408a8e03d563c5bba0eb4c23a997ea9a9bf8b316dc1e"
+          }
+        },
+        "prefix": "@base",
+        "pyvenv_cfg": {
+          "@base-parent/pyvenv.cfg": null,
+          "@base/pyvenv.cfg": null
+        },
+        "site_loaded": false,
+        "sitecustomize": [],
+        "sys_path": [
+          "@source",
+          "@base/python312.zip",
+          "@base/DLLs",
+          "@base/Lib",
+          "@base"
+        ],
+        "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+      }
+    }
+  },
+  "source": {
+    "baseline.py": "5fabdde03db4a0298ad7ff236c9ab9ebfd5a93aa696762e7a7757a6938d1e382",
+    "calibrate.py": "7243c0cebfad44db0d72e08b936cf46f9a0ef22ee67364a17b0e06c36d322bfe",
+    "native.py": "690bcea35a2dbe403af4ca775309e7a9473513fe9e73855ff084e6df2a13bac3",
+    "run.py": "06794d29038373ab2438cb932971c0ef5ed65d1b828dff72aa3c643a78f9f7b5",
+    "score.py": "fd06b1d060184f99ecfd674c098bf98787af420c0ac43fa319a574e84debcbc6",
+    "stage.py": "c6907df4af49a3e56e358ba04c4b83be6796ccd339745a52d1d2f777fe62fdb8",
+    "state.py": "b23b44db45ded09dbe4580bb95bf7ab2d0433eb915217f8e461e94042ca5c374",
+    "win.py": "f633ac879e0e4336a603408a8e03d563c5bba0eb4c23a997ea9a9bf8b316dc1e",
+    "witness.py": "c746972e784a86886371dbbd5289ae9f9a4a2c83cf333b175de576b78c90afb4"
+  },
+  "version": 1
+}

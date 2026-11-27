@@ -1,0 +1,666 @@
+{
+  "N.A": {
+    "status": "P",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "P",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "P",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "P",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "P",
+    "content": "P",
+    "conflicts": [],
+    "missing": [],
+    "reason": {},
+    "first": null,
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "N.B": {
+    "status": "P",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "P",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "P",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "P",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "P",
+    "content": "P",
+    "conflicts": [],
+    "missing": [],
+    "reason": {},
+    "first": null,
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.other_caller": {
+    "status": "M",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "M",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "P",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "P",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "M",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "M",
+    "content": "P",
+    "conflicts": [
+      "E.caller"
+    ],
+    "missing": [],
+    "reason": {
+      "E.caller": "wrong_origin"
+    },
+    "first": {
+      "at": 3,
+      "keys": [
+        "E.caller"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.no_caller": {
+    "status": "U",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "U",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "P",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "P",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "U",
+      "A": "P",
+      "C": "P",
+      "B": "P"
+    },
+    "custody": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "E.caller"
+    ],
+    "reason": {
+      "E.caller": "unresolved"
+    },
+    "first": {
+      "at": 3,
+      "keys": [
+        "E.caller"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.other_writer": {
+    "status": "M",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "P",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "M",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "P",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "content": "P",
+    "conflicts": [
+      "B.writer"
+    ],
+    "missing": [],
+    "reason": {
+      "B.writer": "unauthorized_writer"
+    },
+    "first": {
+      "at": 6,
+      "keys": [
+        "B.writer"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.no_writer": {
+    "status": "U",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "P",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "U",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "P",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "U"
+    },
+    "custody": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "B.writer"
+    ],
+    "reason": {
+      "B.writer": "unresolved"
+    },
+    "first": {
+      "at": 6,
+      "keys": [
+        "B.writer"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.mixed": {
+    "status": "M",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "M",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "U",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "P",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "M",
+      "A": "P",
+      "C": "P",
+      "B": "U"
+    },
+    "custody": "M",
+    "content": "P",
+    "conflicts": [
+      "E.caller"
+    ],
+    "missing": [
+      "B.writer"
+    ],
+    "reason": {
+      "E.caller": "wrong_origin",
+      "B.writer": "unresolved"
+    },
+    "first": {
+      "at": 3,
+      "keys": [
+        "E.caller"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.other_original": {
+    "status": "M",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "P",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "P",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "M",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "content": "P",
+    "conflicts": [
+      "B.origin"
+    ],
+    "missing": [],
+    "reason": {
+      "B.origin": "wrong_origin"
+    },
+    "first": {
+      "at": 8,
+      "keys": [
+        "B.origin"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.detached": {
+    "status": "U",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "P",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "P",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "U",
+      "B.origin": "U",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "U"
+    },
+    "custody": "U",
+    "content": "P",
+    "conflicts": [],
+    "missing": [
+      "B.direct",
+      "B.origin"
+    ],
+    "reason": {
+      "B.direct": "unresolved",
+      "B.origin": "unresolved"
+    },
+    "first": {
+      "at": 8,
+      "keys": [
+        "B.direct",
+        "B.origin"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.bad_seal": {
+    "status": "M",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "P",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "P",
+      "B.seal": "M",
+      "B.protection": "P",
+      "B.direct": "U",
+      "B.origin": "U",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "P",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "content": "P",
+    "conflicts": [
+      "B.seal"
+    ],
+    "missing": [
+      "B.direct",
+      "B.origin"
+    ],
+    "reason": {
+      "B.seal": "integrity",
+      "B.direct": "unresolved",
+      "B.origin": "unresolved"
+    },
+    "first": {
+      "at": 7,
+      "keys": [
+        "B.seal"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "call_return_join",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "Q.unordered": {
+    "status": "M",
+    "values": {
+      "L.image": "P",
+      "I.image": "P",
+      "E.caller": "U",
+      "E.child": "P",
+      "E.order": "P",
+      "E.job": "P",
+      "A.command": "P",
+      "C.runtime": "P",
+      "B.writer": "M",
+      "B.seal": "P",
+      "B.protection": "P",
+      "B.direct": "P",
+      "B.origin": "P",
+      "B.members": "P",
+      "content.bytes": "P"
+    },
+    "coordinates": {
+      "L": "P",
+      "I": "P",
+      "E": "U",
+      "A": "P",
+      "C": "P",
+      "B": "M"
+    },
+    "custody": "M",
+    "content": "P",
+    "conflicts": [
+      "B.writer"
+    ],
+    "missing": [
+      "E.caller"
+    ],
+    "reason": {
+      "E.caller": "unresolved",
+      "B.writer": "unauthorized_writer"
+    },
+    "first": {
+      "at": null,
+      "keys": [
+        "B.writer",
+        "E.caller"
+      ]
+    },
+    "source": {
+      "L.image": "supervisor_image",
+      "I.image": "child_image",
+      "E.caller": "unobserved",
+      "E.child": "creation_instance",
+      "E.order": "creation_order",
+      "E.job": "job_membership",
+      "A.command": "command_manifest",
+      "C.runtime": "runtime_manifest",
+      "B.writer": "writer_account",
+      "B.seal": "authenticated_seal",
+      "B.protection": "protected_lifetime",
+      "B.direct": "direct_handle",
+      "B.origin": "authenticated_origin",
+      "B.members": "member_inventory",
+      "content.bytes": "scorer_read"
+    }
+  },
+  "H.old": {
+    "old_joint": "U",
+    "author_genuine_P": 0,
+    "reviewer_genuine_P": 0,
+    "genuine_per_route": 2,
+    "direct_edge": "unobserved"
+  }
+}
