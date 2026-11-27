@@ -1,0 +1,220 @@
+{
+  "phase": "After opening, original candidates untouched",
+  "original_expected_files_reproduced": 33,
+  "r1_files_reproduced_including_regression": 35,
+  "current_candidate_matches_r1_both_routes": {
+    "N.A": true,
+    "N.B": true,
+    "Q.other_caller": true,
+    "Q.no_caller": true,
+    "Q.other_writer": true,
+    "Q.no_writer": true,
+    "Q.mixed": true,
+    "Q.other_original": true,
+    "Q.detached": true,
+    "Q.bad_seal": true,
+    "Q.unordered": true,
+    "H.old": true,
+    "A1.stock": true,
+    "A1.duplicate_first": true,
+    "A1.duplicate_second_private": true,
+    "A1.duplicate_second_commit": true,
+    "A1.literal": true,
+    "A1.invalid": true,
+    "A2.clean": true,
+    "A2.masked_nan": true,
+    "A2.raw_inf": true,
+    "A2.illegal_repeat": true,
+    "A2.signed_zero": true,
+    "A2.empty": true,
+    "C1.exact": true,
+    "C1.uninformative": true,
+    "C1.informative": true,
+    "C1.duplicate": true,
+    "C1.impossible": true,
+    "C1.budget": true,
+    "C1.threshold": true,
+    "C1.tie": true
+  },
+  "reconciliation": {
+    "version": "wp0045.expected.r1",
+    "rows": 32,
+    "v1_reproduced": 32,
+    "intent_mismatches": [],
+    "differences": [
+      {
+        "id": "A2.illegal_repeat",
+        "fields": [
+          "conflicts"
+        ],
+        "v1": {
+          "conflicts": [
+            [
+              "repeat",
+              1
+            ],
+            [
+              "repeat",
+              2
+            ],
+            [
+              "page",
+              4
+            ]
+          ]
+        },
+        "r1": {
+          "conflicts": [
+            [
+              "repeat",
+              1
+            ],
+            [
+              "repeat",
+              2
+            ],
+            [
+              "page",
+              2
+            ],
+            [
+              "page",
+              4
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "additional_regressions": {
+    "version": "wp0045.a2-regression.r1",
+    "cases": 6,
+    "failed": 0,
+    "results": [
+      {
+        "name": "G1.restore_after_defect",
+        "pass": true,
+        "r1_conflicts": [
+          [
+            "repeat",
+            1
+          ],
+          [
+            "page",
+            1
+          ]
+        ],
+        "v1_conflicts": [
+          [
+            "repeat",
+            1
+          ]
+        ],
+        "checks": {
+          "r1_fields": true,
+          "echo": true,
+          "v1_conflicts": true,
+          "differs_as_predicted": true
+        }
+      },
+      {
+        "name": "G2.carry_defect",
+        "pass": true,
+        "r1_conflicts": [
+          [
+            "repeat",
+            1
+          ]
+        ],
+        "v1_conflicts": [
+          [
+            "repeat",
+            1
+          ],
+          [
+            "page",
+            1
+          ]
+        ],
+        "checks": {
+          "r1_fields": true,
+          "echo": true,
+          "v1_conflicts": true,
+          "differs_as_predicted": true
+        }
+      },
+      {
+        "name": "G3.clean_control",
+        "pass": true,
+        "r1_conflicts": [],
+        "v1_conflicts": [],
+        "checks": {
+          "r1_fields": true,
+          "echo": true,
+          "v1_conflicts": true,
+          "differs_as_predicted": true
+        }
+      },
+      {
+        "name": "G4.overlap_control",
+        "pass": true,
+        "r1_conflicts": [],
+        "v1_conflicts": [],
+        "checks": {
+          "r1_fields": true,
+          "echo": true,
+          "v1_conflicts": true,
+          "differs_as_predicted": true
+        }
+      },
+      {
+        "name": "G5.unmask_control",
+        "pass": true,
+        "r1_conflicts": [
+          [
+            "page",
+            1
+          ]
+        ],
+        "v1_conflicts": [
+          [
+            "page",
+            1
+          ]
+        ],
+        "checks": {
+          "r1_fields": true,
+          "echo": true,
+          "v1_conflicts": true,
+          "differs_as_predicted": true
+        }
+      },
+      {
+        "name": "G6.own_block_elsewhere",
+        "pass": true,
+        "r1_conflicts": [
+          [
+            "repeat",
+            1
+          ]
+        ],
+        "v1_conflicts": [
+          [
+            "repeat",
+            1
+          ],
+          [
+            "page",
+            1
+          ]
+        ],
+        "checks": {
+          "r1_fields": true,
+          "echo": true,
+          "v1_conflicts": true,
+          "differs_as_predicted": true
+        }
+      }
+    ]
+  }
+}
