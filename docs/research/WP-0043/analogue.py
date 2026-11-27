@@ -222,5 +222,14 @@ def capture_analogue(scenario):
         rows.append({"index":row,"history":history,"before":before,"after":after,"guard_calls":guard_calls,
                      "phases":records,"y":y,"page":c["page"],"eos":c["eos"],
                      "cap":c["cap"],"expected_pages":expected_pages})
-    return {"schema":"wp43-cpu/1","events":[e for e in ledger.events if e["id"] not in lost_receipts],"rows":rows,
-            "document":scenario.get("document",{}),"prompt":c["prompt"],"vocab":vocab}
+    evidence={"schema":"wp43-cpu/1","events":[e for e in ledger.events if e["id"] not in lost_receipts],
+              "rows":rows,"prompt":c["prompt"],"vocab":vocab}
+    if "continuation" in scenario:
+        from continuation import execute
+        evidence["public_source"]="executed_continuation"
+        evidence["continuation"]={arm:execute(scenario["continuation"][arm],c["eos"],c["page"])
+                                  for arm in ("untouched","observed")}
+        evidence["document"]=evidence["continuation"]["observed"]["document"]
+    else:
+        evidence.update(public_source="supplied_projection",document=scenario.get("document",{}))
+    return evidence

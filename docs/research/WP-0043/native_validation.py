@@ -113,11 +113,14 @@ def score_events(row,records,lookups,f):
         f.equal(rec,"bytes",4*129280,row,p,"score_extent")
         f.equal(rec,"run","native",row,p,"score_run")
         f.equal(rec,"seq",3*row+j+1,row,p,"score_serial")
-        f.equal(rec,"producer",prev,row,p,"score_producer_ancestry")
-        f.equal(rec,"frame",wrapper.get("frame"),row,p,"frame_binding")
-        f.equal(rec,"receiver",prev.get("receiver"),row,p,"receiver_binding")
-        f.equal(after,"previous_copy",rec.get("id"),row,p,"next_writer_binding")
-        f.equal(after,"previous_source",rec.get("source"),row,p,"next_writer_binding")
+        if prev:
+            f.equal(rec,"producer",prev,row,p,"score_producer_ancestry")
+        else:
+            f.absent(row,p,"score_producer_missing")
+        f.link(rec,"frame",wrapper,"frame",row,p,"frame_binding")
+        f.link(rec,"receiver",prev,"receiver",row,p,"receiver_binding")
+        f.link(after,"previous_copy",rec,"id",row,p,"next_writer_binding")
+        f.link(after,"previous_source",rec,"source",row,p,"next_writer_binding")
         f.equal(after,"preceding_copy_complete",True,row,p,"next_writer_order")
         for stamp,site in ((prev,PRE[j]),(after,POST[j])):
             f.equal(stamp,"site",site,row,p,"producer_site")

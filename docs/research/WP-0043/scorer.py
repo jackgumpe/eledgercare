@@ -59,10 +59,19 @@ class Findings:
         self.add(True,row,phase,key,**details)
 
     def equal(self, got, name, expected, row,phase,key):
-        if name not in got:
+        if not isinstance(got,dict):
+            self.mismatch(row,phase,"invalid_object_type",field=name)
+            self.absent(row,phase,key+"_missing",field=name)
+        elif name not in got:
             self.absent(row,phase,key+"_missing",field=name)
         elif type(got[name]) is not type(expected) or got[name] != expected:
             self.mismatch(row,phase,key,field=name,expected=expected,observed=got[name])
+
+    def link(self,left,name,right,reference,row,phase,key):
+        if not isinstance(right,dict) or reference not in right:
+            self.absent(row,phase,key+"_reference_missing",field=reference)
+        else:
+            self.equal(left,name,right[reference],row,phase,key)
 
     def byte_diff(self,row,phase,key,slot,token,expected,observed):
         if expected[:len(observed)] == observed:
@@ -78,7 +87,8 @@ class Findings:
                       "expert_dispatch","expert_return","expert_total","shared_output","shared_sum","mixture","block_exit"]
         priority={p:i for i,p in enumerate(order_before+list(PHASES)+["D_selection","D","public_document","terminal"])}
         def order(item):
-            return item["row"] if item["row"] is not None else 10**8, priority.get(item["phase"],0)
+            row=item.get("row")
+            return row if type(row)==int else 10**8, priority.get(str(item.get("phase")),0)
         self.conflicts.sort(key=order)
         self.missing.sort(key=order)
         entries = self.conflicts or self.missing
@@ -96,7 +106,7 @@ class Findings:
 
 def provenance(rec, phase, row, events, cuts, identity, f, transport, expected_bytes):
     event_id = rec.get("copy")
-    if not event_id or event_id not in events:
+    if not isinstance(event_id,str) or event_id not in events:
         f.absent(row,phase,"copy_ancestry_missing")
         return None
     event = events[event_id]
@@ -168,7 +178,17 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
     events = {}
     used = {}
     journal_serial=0
-    for event in e.get("events",[]):
+    def items(name):
+        value=e.get(name,[])
+        if not isinstance(value,list):
+            find.mismatch(None,"public_document","record_list_invalid",field=name)
+            find.absent(None,"public_document","record_list_missing",field=name)
+            return []
+        return value
+    for event in items("events"):
+        if not isinstance(event,dict) or not isinstance(event.get("id"),str):
+            find.mismatch(None,"public_document","copy_receipt_invalid")
+            continue
         sequence=event.get("seq")
         if type(sequence) is int:
             if sequence<=journal_serial:
@@ -178,7 +198,10 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
             find.mismatch(event.get("row"),PHASES[0],"duplicate_copy_event_id")
         events[event.get("id")] = event
     rows_by_id = {}
-    for r in e.get("rows",[]):
+    for r in items("rows"):
+        if not isinstance(r,dict) or type(r.get("index"))!=int:
+            find.mismatch(None,"public_document","invalid_row_index")
+            continue
         key = r.get("index")
         if key in rows_by_id or key not in range(len(c["histories"])):
             find.mismatch(None,"public_document","invalid_row_index",observed=key)
@@ -193,6 +216,9 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
             from capture import code_identity
             calls=r.get("guard_calls")
             if calls is None:
+                find.absent(i,entry,"guard_calls_missing")
+            elif not isinstance(calls,list) or not all(isinstance(v,dict) for v in calls):
+                find.mismatch(i,entry,"guard_calls_invalid")
                 find.absent(i,entry,"guard_calls_missing")
             else:
                 expected_guards=(_uocr_no_repeat_ngram,_uocr_page_count_guard)
@@ -221,13 +247,21 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
         captures = {}
         receipts = {}
         for j,phase in enumerate(PHASES):
-            rec = r.get("phases",{}).get(phase)
+            table=r.get("phases",{})
+            if not isinstance(table,dict):
+                find.mismatch(i,phase,"phase_table_invalid")
+                table={}
+            rec=table.get(phase)
+            if rec is not None and not isinstance(rec,dict):
+                find.mismatch(i,phase,"phase_record_invalid")
+                rec=None
             if rec is None:
                 find.absent(i,phase,"phase_missing")
                 continue
             event = provenance(rec,phase,i,events,cuts,identity,find,transport,len(vocab)*4)
             if "fragments" in rec:
-                fragments=rec["fragments"]
+                fragments=rec["fragments"] if isinstance(rec["fragments"],list) else []
+                fragments=[cid for cid in fragments if isinstance(cid,str)]
                 if len(fragments)!=1:
                     find.mismatch(i,phase,"fragmented_capture",copies=fragments)
                 for cid in fragments:
@@ -277,8 +311,10 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
                 if len(word)==4 and len(expected)==4 and word!=expected and f32(word)==0==f32(expected):
                     key = "signed_zero_winner_corrupted" if token==r.get("y") else "signed_zero_corrupted"
                 find.byte_diff(i,phase,key,slot,token,expected,word)
-        if transport=="cpu-owned" and r.get("guard_calls") and receipts:
+        if transport=="cpu-owned" and isinstance(r.get("guard_calls"),list) and receipts:
             for call in r["guard_calls"]:
+                if not isinstance(call,dict):
+                    continue
                 for phase,event in receipts.items():
                     if call.get("source")!=event.get("source"):
                         find.mismatch(i,phase,"guard_source_binding",field="source")
@@ -306,12 +342,27 @@ def score_rows(e,c,identity,cuts,find,transport,raw_reference=True):
 
 
 def public_document(doc,expected,f):
+    if not isinstance(doc,dict):
+        f.mismatch(None,"public_document","public_record_invalid")
+        doc={}
+    partial=("terminal" not in doc and isinstance(doc.get("ids"),list) and
+             isinstance(expected.get("ids"),list) and len(doc["ids"])<len(expected["ids"]))
     for k,want in expected.items():
+        if partial and k=="output_tokens" and doc.get(k)==len(doc["ids"]):
+            f.absent(None,"public_document","public_count_incomplete",available=doc[k])
+            continue
+        if partial and k=="markers" and doc.get(k)==[v for v in want if v<len(doc["ids"])]:
+            f.absent(None,"public_document","public_markers_incomplete",available=doc[k])
+            continue
         if k=="ids":
             if k not in doc:
                 f.absent(None,"public_document","public_ids_missing")
                 continue
             ids = doc[k]
+            if not isinstance(ids,list):
+                f.mismatch(None,"public_document","public_ids_invalid")
+                f.absent(None,"public_document","public_ids_missing")
+                continue
             for i,(x,y) in enumerate(zip(want,ids)):
                 if x!=y:
                     f.mismatch(None,"public_document","public_id_mismatch",index=i,expected=x,observed=y)
@@ -321,7 +372,9 @@ def public_document(doc,expected,f):
                 f.mismatch(None,"public_document","public_length_mismatch",expected=len(want),observed=len(ids))
         elif k in ("text","prompt") and isinstance(want,str) and isinstance(doc.get(k),str):
             a,b=want.encode("utf8"),doc[k].encode("utf8")
-            if a!=b:
+            if k=="text" and partial and a.startswith(b) and len(b)<len(a):
+                f.absent(None,"public_document","public_text_incomplete",available=len(b))
+            elif a!=b:
                 offset=next((i for i,(x,y) in enumerate(zip(a,b)) if x!=y),min(len(a),len(b)))
                 f.mismatch(None,"public_document","public_utf8_mismatch",field=k,utf8_offset=offset,
                            expected_hex=a[offset:offset+1].hex(),observed_hex=b[offset:offset+1].hex())
@@ -334,16 +387,89 @@ def public_document(doc,expected,f):
             f.equal(doc,k,want,None,"public_document","public_projection_mismatch")
 
 
+def executed_document(artifact,contract,arm,f):
+    doc=artifact.get("document",{})
+    if not isinstance(doc,dict):
+        f.mismatch(None,"public_document","public_record_invalid",arm=arm)
+        doc={}
+    try:
+        history=list(artifact["prefix"])
+        events=artifact["events"]
+        limit=artifact["limit"]
+        if not isinstance(events,list) or type(limit)!=int or limit<0 or contract["eos"] in history:
+            raise ValueError("invalid initial continuation state")
+    except (ValueError,TypeError,KeyError) as exc:
+        f.absent(None,"public_document","continuation_receipt_missing",arm=arm,reason=str(exc))
+        return doc
+    stopped=False
+    for i,rec in enumerate(events):
+        try:
+            choices=rec["domain"]
+            data=bytes.fromhex(rec["f32le"])
+            if (not choices or sorted(set(choices))!=choices or len(data)!=4*len(choices)
+                or not all(math.isfinite(v) for v, in struct.iter_unpack("<f",data))):
+                raise ValueError("invalid score vector")
+            if stopped or i>=limit:
+                f.mismatch(None,"terminal","continued_after_stop_or_limit",step=i,arm=arm)
+            wanted=firstmax(data,choices)[0]
+            for k,v in (("step",i),("previous",history[-1] if history else None),("before",len(history)),("selected",wanted)):
+                f.equal(rec,k,v,None,"public_document","continuation_transition")
+            stopped=rec.get("selected")==contract["eos"]
+            if not stopped:
+                history.append(rec["selected"])
+            f.equal(rec,"action","stop" if stopped else "append",None,"public_document","continuation_transition")
+            f.equal(rec,"after",len(history),None,"public_document","continuation_transition")
+        except (ValueError,TypeError,KeyError,IndexError) as exc:
+            f.mismatch(None,"public_document","continuation_event_invalid",arm=arm,step=i,reason=str(exc))
+            f.absent(None,"public_document","continuation_transition_missing",arm=arm,step=i)
+    check={"ids":history,"output_tokens":len(history),"markers":[i for i,t in enumerate(history) if t==contract["page"]]}
+    if stopped:
+        check["terminal"]="stop"
+    elif len(events)==limit:
+        check["terminal"]="length"
+    elif "terminal" in doc:
+        f.mismatch(None,"terminal","unwitnessed_terminal",arm=arm)
+    else:
+        f.absent(None,"terminal","terminal_missing",arm=arm)
+    if "pieces" in artifact:
+        try:
+            check["text"]="".join(artifact["pieces"][str(t)] for t in history)
+        except (ValueError,TypeError,KeyError):
+            f.absent(None,"public_document","decoded_pieces_missing",arm=arm)
+    public_document(doc,check,f)
+    return doc
+
+
 def score(evidence,contract):
     from analogue import predict, bindings
     from capture import code_identity
     f = Findings()
+    if not isinstance(evidence,dict):
+        f.mismatch(None,"public_document","invalid_evidence_object")
+        evidence={}
     f.equal(evidence,"schema","wp43-cpu/1",None,"public_document","evidence_domain_mismatch")
     f.equal(evidence,"vocab",contract["vocab"],None,"public_document","vocabulary_mismatch")
     f.equal(evidence,"prompt",contract["prompt"],None,"public_document","prompt_mismatch")
     rows = score_rows(evidence,contract,code_identity(predict.__code__),bindings(),f,"cpu-owned")
-    public_document(evidence.get("document",{}),contract["document"],f)
+    if evidence.get("public_source")=="executed_continuation":
+        arms=evidence.get("continuation",{})
+        if not isinstance(arms,dict):
+            f.mismatch(None,"public_document","continuation_arms_invalid")
+            arms={}
+        got={}
+        for arm in ("untouched","observed"):
+            payload=arms.get(arm,{})
+            if not isinstance(payload,dict):
+                f.mismatch(None,"public_document","continuation_arm_invalid",arm=arm)
+                payload={}
+            got[arm]=executed_document(payload,contract,arm,f)
+            public_document(got[arm],contract["document"],f)
+        public_document(got["observed"],got["untouched"],f)
+        public_document(evidence.get("document",{}),got["observed"],f)
+    else:
+        public_document(evidence.get("document",{}),contract["document"],f)
     result = f.result(rows)
     result["domain"]="cpu_analogue"
+    result["public_source"]=evidence.get("public_source","unspecified")
     result["native_rows_completed"]=0
     return result

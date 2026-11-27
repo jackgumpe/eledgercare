@@ -15,10 +15,12 @@ GEN = "UnlimitedOCRForCausalLM._uocr_generate"
 LAYER = "DeepseekV2DecoderLayer.forward"
 # First instruction on each statement: values assigned on the previous line exist.
 SITES = {
+ (OCR,"_uocr_no_repeat_ngram"):{610:"rep_entry"},
+ (OCR,"_uocr_page_count_guard"):{585:"page_entry"},
  (OCR,GEN):{1162:"prefill_producer",1191:"model_producer",1167:"head_producer",1169:"rep_producer",1171:"page_producer",1176:"choice_consumer",1168:PHASES[0],1170:PHASES[1],1173:PHASES[2],1189:"D",
             1180:"terminal_eos",1201:"cleanup"},
  (OCR,"_uocr_dash_decode_allow"):{517:"page_before",528:"page_after"},
- (DASH,"_patched_forward"):{241:"dash_dispatch",243:"generic_dispatch"},
+ (DASH,"_patched_forward"):{237:"prefill_dispatch",241:"dash_dispatch",243:"generic_dispatch"},
  (DASH,"_dash_indexer_rope"):{134:"idx_2d",142:"idx_1d",143:"idx_main"},
  (BASE,"DeepseekV2MLP.forward"):{519:"shared_output"},
  (BASE,LAYER):{3693:"B",3707:"attention_exit",3713:"residual",3715:"post_rms",

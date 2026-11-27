@@ -1,5 +1,6 @@
 """Serial untouched/observed supervisor. No torch import until an admitted child."""
 import contextlib
+import dis
 import datetime as dt
 import hashlib
 import json
@@ -54,9 +55,17 @@ def protocol():
     return json.loads(blob(Q0,"qualification/q0/harness/protocol.json"))
 
 
-def hash_file(path):
+def hash_file(path,check=None):
     with path.open("rb") as f:
-        return hashlib.file_digest(f,"sha256").hexdigest()
+        if check is None:
+            return hashlib.file_digest(f,"sha256").hexdigest()
+        sha=hashlib.sha256()
+        while True:
+            check()
+            chunk=f.read(8*MIB)
+            if not chunk:
+                return sha.hexdigest()
+            sha.update(chunk)
 
 
 def bytes_json(obj):
@@ -79,7 +88,10 @@ def plan():
             "uuid":UUID,"q0":Q0,"model_revision":"0480966938291445591f69f08a13b041c073a96a",
             "model":str(MODEL),"python":str(PYTHON),"limits":LIMITS,"arms":list(ARM),
             "prehistory":list(LABELS),"fixtures":protocol()["fixtures"],"input_options":protocol()["call"],
-            "cuts":{c.co_qualname:o for c,o in sites.items()}}
+            "cuts":{c.co_qualname:o for c,o in sites.items()},
+            "guard_returns":{c.co_qualname:[i.offset for i in dis.get_instructions(c)
+            if i.opname in ("RETURN_VALUE","RETURN_CONST")] for c in sites
+            if c.co_name in ("_uocr_no_repeat_ngram","_uocr_page_count_guard")}}
 
 
 def admission():
@@ -108,7 +120,7 @@ def admission():
     return release
 
 
-def validate_files():
+def validate_files(check):
     if hash_file(PYTHON)!="0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14":
         raise RuntimeError("venv executable")
     source=json.loads(blob(BASE,"docs/research/WP-0041/source.json"))
@@ -116,10 +128,10 @@ def validate_files():
         raise RuntimeError("base Python")
     wheels=json.loads(blob(BASE,WHEELS))["wheels"]
     for item in wheels:
-        if hash_file(ROOT/"wheelhouse"/item["wheel"])!=item["sha256"]:
+        if hash_file(ROOT/"wheelhouse"/item["wheel"],check)!=item["sha256"]:
             raise RuntimeError("wheel: "+item["wheel"])
     for name,item in source["files"].items():
-        if hash_file(MODEL/name)!=item["sha256"]:
+        if hash_file(MODEL/name,check)!=item["sha256"]:
             raise RuntimeError("model object: "+name)
     return {"n_model":len(source["files"]),"wheels":len(wheels),"source":source}
 
@@ -155,7 +167,7 @@ def final_limits(start,release):
         shutil.disk_usage(OUT).free-MIB<LIMITS["disk_free_during"] or time.monotonic()-start>LIMITS["wall_s"]
         or dt.datetime.now(dt.timezone.utc)>=dt.datetime.fromisoformat(release["end_utc"])):
         raise RuntimeError("final resource/lease check")
-    return {"files":n,"bytes":size,"logs":logs,"elapsed_s":time.monotonic()-start}
+    return {"files":n,"bytes":size,"logs":logs,"elapsed_s":time.monotonic()-start,"device":device_check(release)}
 
 
 def partial_inventory():
@@ -249,7 +261,12 @@ def run():
         initial=device_check(release,initial=True)
         OUT.mkdir()
         try:
-            receipt=validate_files()
+            def preflight_guard():
+                if (time.monotonic()-start>LIMITS["load_s"] or dt.datetime.now(dt.timezone.utc)>=dt.datetime.fromisoformat(release["end_utc"])
+                    or shutil.disk_usage(OUT).free<LIMITS["disk_free_during"]):
+                    raise RuntimeError("parent preflight deadline/lease/disk")
+            receipt=validate_files(preflight_guard)
+            preflight_guard()
             write_new(OUT/"admission.json",{"release":release,"plan":plan(),"initial_device":initial,"n_model":receipt["n_model"],"wheels":receipt["wheels"]})
             for arm,argv in zip(ARM,plan()["worker_argv"],strict=True):
                 supervise(arm,argv,release,start)

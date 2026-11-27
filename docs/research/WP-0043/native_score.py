@@ -1,6 +1,7 @@
 """Offline native admission and pair verifier. Opens all run and tensor files read-only."""
 import json
 import math
+import dis
 import struct
 from pathlib import Path
 from capture import PHASES, code_identity, digest
@@ -47,7 +48,11 @@ def verify_docs(find):
     runtime={}
     for arm in ARM:
         runtime[arm]=read(OUT/arm/"runtime.json",find,arm+"_runtime")
-        runtime_receipt(runtime[arm],arm,find)
+        try:
+            runtime_receipt(runtime[arm],arm,find)
+        except (KeyError,ValueError,TypeError,AttributeError) as exc:
+            find.mismatch(None,"public_document","runtime_body_invalid",arm=arm,detail=str(exc))
+            find.absent(None,"public_document","runtime_verification_incomplete",arm=arm)
         for j,label in enumerate(LABELS):
             item=read(OUT/arm/(label+".json"),find,arm+"_"+label)
             expected,plen=archived(label)
@@ -55,11 +60,14 @@ def verify_docs(find):
             mark=(len(find.missing),len(find.conflicts))
             public_document(item.get("document",{}),expected,find)
             doc=item.get("document",{})
+            if not isinstance(doc,dict):
+                find.mismatch(None,"public_document","public_record_invalid",arm=arm)
+                doc={}
             if "prompt_token_ids" not in doc:
                 find.absent(None,"public_document","prompt_ids_missing",arm=arm,call=label)
             else:
                 ids=doc["prompt_token_ids"]
-                if len(ids)!=plen or ids.count(128827)!=expected["expected_pages"]:
+                if not isinstance(ids,list) or len(ids)!=plen or ids.count(128827)!=expected["expected_pages"]:
                     find.mismatch(None,"public_document","prompt_receipt_mismatch",arm=arm,call=label)
             if item:
                 find.equal(item,"call",j,None,"public_document","schedule_mismatch")
@@ -69,7 +77,7 @@ def verify_docs(find):
                 for key in ("peak_allocated","peak_reserved"):
                     if key not in item:
                         find.absent(None,"public_document","device_peak_missing",field=key)
-                    elif item[key]>LIMITS["allocator_bytes"]:
+                    elif type(item[key])!=int or not 0<=item[key]<=LIMITS["allocator_bytes"]:
                         find.mismatch(None,"public_document","device_peak_overrun",field=key)
             for finding in find.missing[mark[0]:]+find.conflicts[mark[1]:]:
                 finding.update(arm=arm,call=label,comparator="archive")
@@ -167,6 +175,13 @@ class Snapshot:
         if self.root["cache"]!=self.root["generator_cache"] or cache["type"]!="DynamicCache":
             f.mismatch(row,tag,"cache_identity")
         fields=self.as_dict(cache["fields"])
+        if list(fields)!=cache["actual_keys"]:
+            f.mismatch(row,tag,"cache_instance_key_inventory")
+        for name in sorted(set(fields)-set(CACHE_FIELDS)):
+            if name in {"_ring_pos","_prefill_length","_idx_keys"}:
+                f.mismatch(row,tag,"unadmitted_cache_path",field=name)
+            else:
+                f.absent(row,tag,"unknown_cache_field_semantics",field=name)
         # These are Python container/object slots, including the underlying tensor physical ranges.
         for name in CACHE_FIELDS:
             if name not in fields or name not in cache["actual_keys"]:
@@ -269,7 +284,19 @@ def native_records(find):
         for serial,line in enumerate(src,1):
             try:
                 rec=json.loads(line)
+                if not isinstance(rec,dict) or not isinstance(rec.get("tag"),str):
+                    raise ValueError("invalid native record")
+                if not isinstance(rec.get("data"),dict):
+                    find.mismatch(None,"public_document","invalid_native_payload")
+                    find.absent(None,"public_document","native_payload_missing")
+                    rec["data"]={}
                 key=rec["row"],rec["tag"]
+                if key[0] is not None and (type(key[0])!=int or not 0<=key[0]<5):
+                    raise ValueError("invalid native row")
+                if rec["tag"]=="append" and type(rec["data"].get("index"))!=int:
+                    raise ValueError("append ordinal")
+                if rec["tag"]=="layer_path":
+                    key=rec["row"],("path",rec["data"]["layer"])
                 if rec["tag"]=="append":
                     key=None,("append",rec["data"]["index"])
                 if rec.get("journal_seq")!=serial:
@@ -285,6 +312,43 @@ def native_records(find):
     return records
 
 
+def check_guard_calls(records,row,h,c,f):
+    from scorer import canonical_state,support
+    for label,phase,caller,return_offset in (("rep",PHASES[1],1228,402),("page",PHASES[2],1272,520)):
+        entry=records.get((row,label+"_entry"),{})
+        exit=records.get((row,label+"_return"),{})
+        pre=entry.get("data",{})
+        post=exit.get("data",{})
+        capture=records.get((row,phase),{}).get("data",{}).get("event",{})
+        for stamp in (pre,post):
+            for key,val in (("source",capture.get("source")),("history",h),("generator_frame",capture.get("frame")),
+                            ("generator_receiver",capture.get("receiver")),("history_object",stamp.get("generator_history")),
+                            ("generator_logits",capture.get("source"))):
+                if val is None and key!="history":
+                    f.absent(row,phase,"guard_call_binding_reference_missing",field=key)
+                else:
+                    f.equal(stamp,key,val,row,phase,"guard_call_binding")
+            if stamp.get("caller_offset") not in (caller,caller+2,caller+4,caller+6):
+                if "caller_offset" in stamp:
+                    f.mismatch(row,phase,"guard_caller_instruction")
+                else:
+                    f.absent(row,phase,"guard_caller_instruction_missing")
+        f.equal(exit,"instruction",return_offset,row,phase,"active_guard_return")
+        f.link(exit,"frame",entry,"frame",row,phase,"guard_frame_pair")
+        f.link(post,"returned_object",capture,"source",row,phase,"guard_return_identity")
+        if label=="rep":
+            for k,v in (("order",35),("window",1024),("whitelist",[])):
+                f.equal(pre,k,v,row,phase,"guard_arguments")
+            f.equal(post,"banned",sorted(support(h,c)),row,phase,"actual_ban_set")
+        else:
+            for stamp in (pre,post):
+                for k,v in (("page",c["page"]),("eos",c["eos"]),("cap",c["cap"]),("expected_pages",3),
+                            ("guard_object",stamp.get("generator_guard"))):
+                    f.equal(stamp,k,v,row,phase,"guard_arguments")
+            f.equal(pre,"cursor",canonical_state(h[:-1],c["page"],True),row,phase,"guard_entry_cursor")
+            f.equal(post,"cursor",canonical_state(h,c["page"],True),row,phase,"guard_exit_cursor")
+
+
 def score_native():
     from contextlib import nullcontext
     f=Findings()
@@ -294,14 +358,14 @@ def score_native():
             require(admission,k,None,"public_document",f)
         f.equal(admission,"n_model",18,None,"public_document","model_count")
         f.equal(admission,"wheels",32,None,"public_document","wheel_count")
-        if (admission.get("plan")!=json.loads(bytes_json(plan())) or
+        if (admission.get("plan")!=json.loads(bytes_json(plan())) or not isinstance(admission.get("release"),dict) or
             admission.get("release",{}).get("plan_sha256")!=digest(bytes_json(plan()))):
             f.mismatch(None,"public_document","plan_mismatch")
     done=read(OUT/"outcome.json",f,"supervisor_outcome")
     if done.get("status")=="finished":
         for key in ("files","bytes","elapsed_s","logs"):
             require(done.get("final_resources",{}),key,None,"public_document",f)
-        if len(done.get("files",{}))!=done.get("final_resources",{}).get("files"):
+        if not isinstance(done.get("files"),dict) or not isinstance(done.get("final_resources"),dict) or len(done["files"])!=done["final_resources"].get("files"):
             f.mismatch(None,"public_document","final_inventory_cardinality")
     if done.get("status")!="finished":
         f.absent(None,"public_document","paired_execution_incomplete")
@@ -312,6 +376,9 @@ def score_native():
         except Exception:
             f.absent(None,"public_document","coordinator_release_unavailable")
     files=done.get("files",{})
+    if not isinstance(files,dict):
+        f.mismatch(None,"public_document","invalid_file_inventory")
+        files={}
     mandatory={"admission.json","observed/tensors.bin","observed/observations.jsonl"}
     mandatory.update(f"{a}/{k}" for a in ARM for k in ("runtime.json","phase","stdout.log","stderr.log",*(v+".json" for v in LABELS)))
     for rel in sorted(mandatory-set(files)):
@@ -349,8 +416,17 @@ def score_native():
     old_cache=None
     with tensors.open("rb") if tensors.exists() else nullcontext(None) as pack:
         for (row,tag),rec in records.items():
-            if isinstance(tag,tuple) and tag[0]=="append":
-                tag="D"
+            if isinstance(tag,tuple):
+                tag="D" if tag[0]=="append" else rec["data"].get("site","unbound")
+                if not isinstance(tag,str):
+                    f.mismatch(row,"B","unbound_site")
+                    continue
+            if tag in ("rep_return","page_return"):
+                code=lookup["rep_entry" if tag=="rep_return" else "page_entry"][0]
+                admissible={i.offset for i in dis.get_instructions(code) if i.opname in ("RETURN_VALUE","RETURN_CONST")}
+                if rec.get("identity")!=code_identity(code) or rec.get("instruction") not in admissible:
+                    f.mismatch(row,tag,"guard_return_instruction")
+                continue
             if tag not in lookup:
                 f.mismatch(row,tag,"unbound_site")
                 continue
@@ -362,7 +438,16 @@ def score_native():
         for i,h in enumerate(contract["histories"]):
             r={"index":i,"phases":{}}
             score_e["rows"].append(r)
-            expected_tags=core|{"B","D","model_producer",*PHASES}
+            expected_tags=core|{"B","D","model_producer","rep_entry","rep_return","page_entry","page_return",*PHASES}
+            for depth in range(12):
+                for index,site,size in ((None,"prefill_dispatch",827),(i,"dash_dispatch",1)):
+                    record=records.get((index,("path",depth)),{}).get("data",{})
+                    for key,val in (("layer",depth),("q_len",size),("site",site)):
+                        f.equal(record,key,val,i,"B","dispatch_path")
+            try:
+                check_guard_calls(records,i,h,contract,f)
+            except (KeyError,TypeError,ValueError) as exc:
+                f.absent(i,PHASES[1],"guard_callee_incomplete",detail=str(exc))
             try:
                 score_events(i,records,lookup,f)
             except (ValueError,TypeError,KeyError,IndexError) as exc:
@@ -381,7 +466,7 @@ def score_native():
                 data=records[i,tag]["data"]
                 try:
                     if tag in PHASES:
-                        f.equal(data["event"],"receiver",runtimes["observed"].get("receivers",{}).get("generator"),
+                        f.link(data["event"],"receiver",runtimes["observed"].get("receivers",{}),"generator",
                                 i,tag,"generator_receiver")
                         r["phases"][tag]=data["record"]
                         score_e["events"].append(data["event"])
@@ -397,8 +482,8 @@ def score_native():
                     elif tag in ("B","D"):
                         if tag=="B":
                             receivers=runtimes["observed"].get("receivers",{})
-                            f.equal(data,"receiver_id",receivers.get("layer11"),i,tag,"layer_receiver")
-                            f.equal(data,"caller_receiver",receivers.get("decoder"),i,tag,"decoder_receiver")
+                            f.link(data,"receiver_id",receivers,"layer11",i,tag,"layer_receiver")
+                            f.link(data,"caller_receiver",receivers,"decoder",i,tag,"decoder_receiver")
                         snap=Snapshot(data["graph"])
                         snap.check(pack,i,tag,f)
                         try:
@@ -438,18 +523,48 @@ def score_native():
                 except (ValueError,TypeError,KeyError,IndexError,struct.error) as exc:
                     f.mismatch(i,tag,"malformed_native_record",detail=str(exc))
                     f.absent(i,tag,"projection_incomplete")
-    appends=sorted((tag[1],rec) for (row,tag),rec in records.items() if isinstance(tag,tuple))
+    appends=[(tag[1],rec) for (row,tag),rec in records.items() if isinstance(tag,tuple) and tag[0]=="append"]
     for index,rec in appends:
         data=rec["data"]
-        if index not in range(len(archive["ids"])) or archive["ids"][index]!=data["id"] or data["pos"]!=827+index:
+        if index not in range(len(archive["ids"])) or archive["ids"][index]!=data.get("id") or data.get("pos")!=827+index:
             f.mismatch(None,"public_document","public_append_mismatch",index=index,observed=data)
     if [i for i,_ in appends]!=list(range(len(archive["ids"]))):
         f.absent(None,"public_document","public_append_receipts_missing",measured=len(appends))
+    timeline=[]
+    for j in range(len(archive["ids"])):
+        timeline.append((None,("append",j)))
+        if 619<=j<=623:
+            timeline.append((j-619,"D"))
+        if 618<=j<=622:
+            timeline.extend((j-618,tag) for tag in ("model_producer","page_before","page_after","B","block_exit","head_producer",
+                PHASES[0],"rep_producer","rep_entry","rep_return",PHASES[1],"page_producer","page_entry","page_return",PHASES[2],"choice_consumer"))
+    timeline.extend([(None,"terminal_eos"),(None,"cleanup")])
+    previous=None
+    for key in timeline:
+        if key not in records:
+            continue
+        seq=records[key].get("journal_seq")
+        if type(seq)!=int:
+            f.mismatch(key[0],"terminal" if key[0] is None else "B","journal_sequence_invalid")
+        elif previous is not None and seq<=previous:
+            f.mismatch(key[0],"terminal" if key[0] is None else "B","continuation_event_order",site=str(key[1]))
+        previous=seq if type(seq)==int else previous
     for i in range(5):
         required=["page_before","page_after","B","block_exit",*PHASES,"D"]
         serials=[records[i,tag]["journal_seq"] for tag in required if (i,tag) in records]
-        if serials!=sorted(serials):
+        if any(type(v)!=int for v in serials) or serials!=sorted(serials):
             f.mismatch(i,"B","non_monotonic_native_transition")
+    params_at_field=None
+    if (4,"D") in records:
+        try:
+            graph=Snapshot(records[4,"D"]["data"]["graph"])
+            params_at_field=[]
+            for router in graph.items(graph.root["routers"]):
+                values=graph.as_dict(graph.as_dict(router)["_infer_params"])
+                params_at_field.append({k:float.fromhex(v["float_hex"]) if isinstance(v,dict) and "float_hex" in v else v
+                                        for k,v in values.items()})
+        except (KeyError,ValueError,TypeError,IndexError):
+            f.absent(4,"D","retained_parameter_reference_missing")
     for tag in ("terminal_eos","cleanup"):
         if (None,tag) not in records:
             f.absent(None,"terminal","terminal_receipt_missing",field=tag)
@@ -459,11 +574,36 @@ def score_native():
                 require(data,key,None,"terminal",f)
             for key,want in (("ids",archive["ids"]),("nxt",1),("length",3385)):
                 f.equal(data,key,want,None,"terminal","terminal_branch_mismatch")
+            if params_at_field is None:
+                f.absent(None,"terminal","retained_parameter_reference_missing")
+            else:
+                f.equal(data,"retained_params",params_at_field,None,"terminal","retained_parameters_changed")
+            if tag=="terminal_eos":
+                for key,want in (("finish","length"),("dash_on",True),("page_scope",True)):
+                    f.equal(data,key,want,None,"terminal","pre_cleanup_state")
             if tag=="cleanup":
-                for key,want in (("finish","stop"),("dash_on",False),("router_stage0",data.get("saved_stage0")),
-                                 ("ring",(data.get("saved_cfg") or [None,None])[0]),("sliding",(data.get("saved_cfg") or [None,None])[-1])):
+                before=records.get((None,"terminal_eos"),{}).get("data",{})
+                for saved in ("saved_cfg","saved_stage0","saved_page_scope","retained_params"):
+                    if saved in before:
+                        f.equal(data,saved,before[saved],None,"terminal","saved_state_changed")
+                    else:
+                        f.absent(None,"terminal","pre_cleanup_state_missing",field=saved)
+                f.link(data,"page_scope",before,"saved_page_scope",None,"terminal","page_scope_restore")
+                f.link(data,"router_stage0",before,"saved_stage0",None,"terminal","router_stage0_restore")
+                streamer=data.get("streamer_state",{})
+                f.equal(streamer,"token_cache",[],None,"terminal","streamer_flush")
+                f.equal(streamer,"next_tokens_are_prompt",True,None,"terminal","streamer_reset")
+                for key,want in (("finish","stop"),("dash_on",False)):
                     f.equal(data,key,want,None,"terminal","cleanup_mismatch")
-                if len(data.get("retained_params",[]))!=12:
+                saved=before.get("saved_cfg")
+                if isinstance(saved,list) and len(saved)==2:
+                    f.equal(data,"ring",saved[0],None,"terminal","ring_restore")
+                    f.equal(data,"sliding",saved[1],None,"terminal","sliding_restore")
+                else:
+                    f.absent(None,"terminal","saved_decoder_configuration_missing")
+                if not isinstance(before.get("saved_stage0"),list) or len(before["saved_stage0"])!=12:
+                    f.absent(None,"terminal","saved_router_modes_missing")
+                if not isinstance(data.get("retained_params"),list) or len(data["retained_params"])!=12:
                     f.absent(None,"terminal","retained_router_params_missing")
     if any(x["row"] is None and x["phase"]=="public_document" and
            ("runtime" in x["key"] or "admission" in x["key"] or "inventory" in x["key"] or

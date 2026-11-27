@@ -108,7 +108,7 @@ class Graph:
         elif type(x).__module__.startswith("numpy") and hasattr(x,"tolist"):
             node.update(dtype=str(x.dtype),shape=list(x.shape),items=self.encode(x.tolist()))
         elif type(x).__name__=="DynamicCache":
-            node["fields"]=self.encode(attributes(x,CACHE_FIELDS))
+            node["fields"]=self.encode(dict(vars(x)))
             node["actual_keys"]=list(vars(x))
         else:
             node["unobserved"]="unsupported active object"
@@ -128,7 +128,9 @@ class StockObserver:
         self.arena=Arena(torch,out)
         self.log=(out/"observations.jsonl").open("x",encoding="utf-8")
         self.ledger=CaptureAdapter(self.gen,self.arena.scores,"native")
-        self.monitor=InstructionMonitor(self.sites,self.visit)
+        returns={c:{"_uocr_no_repeat_ngram":"rep_return","_uocr_page_count_guard":"page_return"}[c.co_name]
+                 for c in self.sites if c.co_name in ("_uocr_no_repeat_ngram","_uocr_page_count_guard")}
+        self.monitor=InstructionMonitor(self.sites,self.visit,returns)
         self.active=None
         self.early_producer=None
         self.last_copy=None
@@ -169,8 +171,45 @@ class StockObserver:
                 "page_scope":dash._base._PAGE_SCOPE_PREFILL,"config_sparse":self.model.config.sparse_attention_config,
                 "ckpt_sparse":dash._CKPT_SP.get(id(self.model.config.sparse_attention_config)),"saved_cfg":g["saved_cfg"]}
 
-    def visit(self,tag,frame):
+    def visit(self,tag,frame,returned=None):
         local=frame.f_locals
+        if tag in ("rep_entry","rep_return","page_entry","page_return"):
+            caller=frame.f_back
+            if caller is None or caller.f_code is not self.gen:
+                raise RuntimeError("unexpected real stock guard caller")
+            g=caller.f_locals
+            row=g["step"]-619
+            if row not in range(5):
+                return
+            record={"source":id(local["logits"]),"history":list(local["gen_ids"]),
+                    "history_object":id(local["gen_ids"]),"generator_history":id(g["gen"]),
+                    "generator_logits":id(g["logits"]),"generator_frame":id(caller),
+                    "caller_offset":caller.f_lasti,"generator_receiver":id(g["self"]),
+                    "stream":self.arena.transport.stream_record()}
+            if tag.startswith("rep"):
+                record.update(order=local["ngram_size"],window=local["window_size"],whitelist=sorted(local["whitelist"]))
+                if tag.endswith("return"):
+                    record["banned"]=sorted(local["banned"]) if "banned" in local else None
+            else:
+                record.update(cursor=dict(local["st"]),guard_object=id(local["st"]),generator_guard=id(g["guard_st"]),
+                              expected_pages=local["expected_pages"],cap=local["max_page_tokens"],
+                              page=local["page_id"],eos=local["eos_id"])
+            if tag.endswith("return"):
+                record["returned_object"]=id(returned)
+            self.write(tag,row,frame,record)
+            return
+        if tag in ("prefill_dispatch","dash_dispatch","generic_dispatch"):
+            parent=frame.f_back
+            while parent and parent.f_code is not self.gen:
+                parent=parent.f_back
+            if parent and "cache" in parent.f_locals:
+                row=len(parent.f_locals["gen"])-619
+                if tag=="prefill_dispatch" or row in range(5):
+                    layer=local["self"].layer_idx
+                    self.write("layer_path",None if tag=="prefill_dispatch" else row,frame,
+                               {"site":tag,"layer":layer,"q_len":local["q_len"],"receiver":id(local["self"])})
+            if tag=="prefill_dispatch":
+                return
         if frame.f_code is self.gen:
             if local["self"] is not self.model:
                 raise RuntimeError("wrong generator receiver")
@@ -194,7 +233,11 @@ class StockObserver:
                     self.arena.transport.origin_event=origin
                 return
             if tag in ("terminal_eos","cleanup"):
-                self.write(tag,None,frame,{"nxt":local.get("nxt"),"finish":local.get("finish"),
+                dash=sys.modules[type(self.model).__module__.rsplit(".",1)[0]+".modeling_deepseekv2"]
+                self.write(tag,None,frame,{"page_scope":dash._base._PAGE_SCOPE_PREFILL,
+                    "saved_page_scope":local["dash_state"]["page_scope_prefill"],
+                    "streamer_state":attributes(local["streamer"],("token_cache","print_len","next_tokens_are_prompt")),
+                    "nxt":local.get("nxt"),"finish":local.get("finish"),
                     "ids":list(local["gen"]),"length":int(local["cache"].key_cache[0].shape[-2]),
                     "router_stage0":[x.self_attn.dash_router.stage0 for x in self.model.model.layers],
                     "saved_stage0":[v for _,v in local["dash_state"]["stage0"]],

@@ -44,10 +44,11 @@ def line_offset(code, line):
 
 class InstructionMonitor:
     """Observe a live executing frame; event arguments alone cannot identify its receiver."""
-    def __init__(self, bindings, visit):
+    def __init__(self, bindings, visit, returns=None):
         self.bindings = bindings
         self.visit = visit
         self.tool = 4
+        self.returns=returns or {}
 
     def _instruction(self, code, offset):
         tag = self.bindings[code].get(offset)
@@ -58,13 +59,22 @@ class InstructionMonitor:
             raise RuntimeError("ambiguous executing frame or instruction")
         self.visit(tag, frame)
 
+    def _return(self,code,offset,result):
+        frame=sys._getframe(1)
+        if frame.f_code is not code or frame.f_lasti!=offset:
+            raise RuntimeError("ambiguous actual return frame")
+        self.visit(self.returns[code],frame,result)
+
     def __enter__(self):
         mon = sys.monitoring
         mon.use_tool_id(self.tool, "eld-stock-43")
         try:
             mon.register_callback(self.tool, mon.events.INSTRUCTION, self._instruction)
+            if self.returns:
+                mon.register_callback(self.tool,mon.events.PY_RETURN,self._return)
             for code in self.bindings:
-                mon.set_local_events(self.tool, code, mon.events.INSTRUCTION)
+                mask=mon.events.INSTRUCTION | (mon.events.PY_RETURN if code in self.returns else 0)
+                mon.set_local_events(self.tool,code,mask)
         except BaseException:
             self.__exit__(None, None, None)
             raise
@@ -75,6 +85,8 @@ class InstructionMonitor:
         for code in self.bindings:
             mon.set_local_events(self.tool, code, 0)
         mon.register_callback(self.tool, mon.events.INSTRUCTION, None)
+        if self.returns:
+            mon.register_callback(self.tool,mon.events.PY_RETURN,None)
         mon.free_tool_id(self.tool)
 
 
