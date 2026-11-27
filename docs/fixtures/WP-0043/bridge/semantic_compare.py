@@ -27,6 +27,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+VERSION = "2"
 PHASE_ORDER = {"B": 0, "C0_raw": 1, "C1_post_rep": 2, "C2_post_page": 3, "D_selection": 4,
                "public_document": 5, "terminal": 6}
 
@@ -104,7 +105,8 @@ def compare_case(e, res, tr, fid, cw):
     used = set()
     atoms = []
     for x in ex["conflicts"]:
-        pos = [p for p in {map_pos(cw, x["row_from"], x["phase_from"]), map_pos(cw, x["row"], x["phase"])} if p]
+        pos = sorted({p for p in (map_pos(cw, x["row_from"], x["phase_from"]), map_pos(cw, x["row"], x["phase"])) if p},
+                     key=lambda p: cpos(*p))  # deterministic order (post-run serialisation fix)
         keys = ckeys(cw, "conflict_keys", key_of(x))
         at_pos = [i for i, c in enumerate(cconf) if (c.get("row"), c["phase"]) in pos]
         with_key = [i for i in at_pos if keys and cconf[i]["key"] in keys]
@@ -125,12 +127,21 @@ def compare_case(e, res, tr, fid, cw):
         # word / lane / offset detail
         d = (x.get("detail") or {}).get("first") if isinstance((x.get("detail") or {}).get("first"), dict) else None
         if x["slot_id"] is not None and with_key:
-            hit = next((cconf[i] for i in with_key if cconf[i].get("id") == x["slot_id"]), None)
+            def slot_of(c):
+                # v2.1 (post-run, disclosed): candidate D_selection entries name the selected ID `observed`
+                if VERSION == "2.1" and c["phase"] == "D_selection" and "id" not in c:
+                    return c.get("observed")
+                return c.get("id")
+            hit = next((cconf[i] for i in with_key if slot_of(cconf[i]) == x["slot_id"]), None)
             det = {}
             if hit is None:
                 det["slot"] = "candidate_reports_other_slot:" + ",".join(str(cconf[i].get("id")) for i in with_key)
             else:
                 det["slot"] = "equal"
+                if VERSION == "2.1" and hit["phase"] == "D_selection":
+                    want = (x.get("detail") or {}).get("first_max")
+                    if want is not None:
+                        det["first_max"] = "equal" if hit.get("expected") == want else "differ:%s/%s" % (want, hit.get("expected"))
                 if d and d.get("lane") is not None:
                     for k_o, k_c in (("lane", "lane"), ("dense_token_offset", "dense_offset"), ("compact_offset", "compact_offset"),
                                      ("observed_le", "observed_le"), ("reference_le", "expected_le")):
@@ -232,6 +243,12 @@ def compare_case(e, res, tr, fid, cw):
     for x in mextras:
         diffs.append({"what": "candidate_extra_missing", "item": x, "class": x["class"]})
     unchecked = [a for a in atoms if a["status"].startswith("unchecked")] + [m for m in matoms if m["status"].startswith("unchecked")]
+    if VERSION == "2.1":
+        for a in atoms:
+            for k, v in (a.get("detail") or {}).items():
+                if str(v).startswith("unchecked") or v == "oracle_reference_unknown":
+                    unchecked.append({"row": a["row"], "phase": a["phase"], "check": a["check"], "slot_id": a["slot_id"],
+                                      "field": k, "status": v})
     out["differences"] = diffs
     out["unchecked_observables"] = unchecked
     return out
@@ -248,14 +265,18 @@ def main(argv=None):
     ap.add_argument("--crosswalk", default=os.path.join(HERE, "crosswalk-v1.json"))
     ap.add_argument("--out", required=True)
     ap.add_argument("--summary", required=True)
+    ap.add_argument("--version", choices=("2", "2.1"), default="2",
+                    help="2 = frozen at 772e3d95; 2.1 = post-run disclosed correction: D_selection slot field and unchecked-detail census")
     a = ap.parse_args(argv)
+    global VERSION
+    VERSION = a.version
     cw = json.load(open(a.crosswalk, "rb"))
     trs = {t["case_id"]: t for t in jl(os.path.join(a.plan, "transport.jsonl"))}
     runs = {r["case_id"]: r for r in jl(os.path.join(a.plan, "run.jsonl"))}
     fids = {f["case_id"]: f for f in jl(os.path.join(a.plan, "fidelity.jsonl"))} \
         if os.path.exists(os.path.join(a.plan, "fidelity.jsonl")) else {}
     lines = []
-    S = {"schema": "wp0043.semantic-summary.v2", "cases": 0, "scored": 0, "rejected_unsupported": [], "failed": [],
+    S = {"schema": "wp0043.semantic-summary.v" + VERSION, "comparer_version": VERSION, "cases": 0, "scored": 0, "rejected_unsupported": [], "failed": [],
          "verdict_equal": 0, "semantic_agree": 0, "first_relation": {}, "verdict_pairs": {},
          "difference_classes": {}, "cases_with_differences": [], "unchecked_observable_count": 0}
     for e in jl(a.expected):
