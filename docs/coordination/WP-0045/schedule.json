@@ -1,0 +1,122 @@
+{
+  "repetitions": 1,
+  "atoms": {
+    "L.image": {
+      "source": "supervisor_image",
+      "at": 1
+    },
+    "I.image": {
+      "source": "child_image",
+      "at": 3
+    },
+    "E.caller": {
+      "source": "call_return_join",
+      "at": 3
+    },
+    "E.child": {
+      "source": "creation_instance",
+      "at": 3
+    },
+    "E.order": {
+      "source": "creation_order",
+      "at": 3
+    },
+    "E.job": {
+      "source": "job_membership",
+      "at": 3
+    },
+    "A.command": {
+      "source": "command_manifest",
+      "at": 4
+    },
+    "C.runtime": {
+      "source": "runtime_manifest",
+      "at": 5
+    },
+    "B.writer": {
+      "source": "writer_account",
+      "at": 6
+    },
+    "B.seal": {
+      "source": "authenticated_seal",
+      "at": 7
+    },
+    "B.protection": {
+      "source": "protected_lifetime",
+      "at": 8
+    },
+    "B.direct": {
+      "source": "direct_handle",
+      "at": 8
+    },
+    "B.origin": {
+      "source": "authenticated_origin",
+      "at": 8
+    },
+    "B.members": {
+      "source": "member_inventory",
+      "at": 8
+    },
+    "content.bytes": {
+      "source": "scorer_read",
+      "at": 8
+    }
+  },
+  "rows": {
+    "live": [
+      "N.A",
+      "N.B"
+    ],
+    "constructed": [
+      "Q.other_caller",
+      "Q.no_caller",
+      "Q.other_writer",
+      "Q.no_writer",
+      "Q.mixed",
+      "Q.other_original",
+      "Q.detached",
+      "Q.bad_seal",
+      "Q.unordered"
+    ],
+    "archive": [
+      "H.old"
+    ],
+    "A1": [
+      "A1.stock",
+      "A1.duplicate_first",
+      "A1.duplicate_second_private",
+      "A1.duplicate_second_commit",
+      "A1.literal",
+      "A1.invalid"
+    ],
+    "A2": [
+      "A2.clean",
+      "A2.masked_nan",
+      "A2.raw_inf",
+      "A2.illegal_repeat",
+      "A2.signed_zero",
+      "A2.empty"
+    ],
+    "C1": [
+      "C1.exact",
+      "C1.uninformative",
+      "C1.informative",
+      "C1.duplicate",
+      "C1.impossible",
+      "C1.budget",
+      "C1.threshold",
+      "C1.tie"
+    ]
+  },
+  "constructed_variations": {
+    "Q.other_caller": "E.caller differs",
+    "Q.no_caller": "E.caller omitted",
+    "Q.other_writer": "B.writer differs",
+    "Q.no_writer": "B.writer omitted",
+    "Q.mixed": "E.caller differs + B.writer omitted",
+    "Q.other_original": "B.origin differs, all bytes equal",
+    "Q.detached": "B.direct and B.origin omitted, valid referenced seal, equal bytes",
+    "Q.bad_seal": "B.seal differs; B.direct and B.origin omitted; equal bytes",
+    "Q.unordered": "E.caller omitted with unobserved source and null ordinal; B.writer differs with witnessed ordinal"
+  }
+}

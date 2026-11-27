@@ -2,6 +2,10 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
+## WP-0045 direct launch and Edition 02.1 active
+
+The coordinator owns the serial CPU lane. Direct-launch and edition corrections have independent gates. [Reservation and assignments](docs/coordination/WP-0045/assignment.md) and [frozen comparison contract](docs/coordination/WP-0045/wire.md).
+
 ## WP-0044 prospective Windows run provenance closed
 
 Returned to eld-owner-probe for a CPU proposal identifying the interpreter's actual creating caller. All 66 scheduled returns completed. Both genuine arms in each route yielded joint/custody U. Full-field oracle matches were 14/33 for the author and 13/33 for the reviewer. The historical WP-0043 verdict remains M. WP-0037 stays parked. [Disposition](docs/coordination/WP-0044/disposition.json) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0044/003_2026-11-27_review_eld-rd-reviewer.md) · [Coordinator report](docs/agent-reports/eld-coordinator/WP-0044/004_2026-11-27_verification_eld-coordinator.md) · [Publication receipt](docs/coordination/WP-0044/publication-receipt.json)

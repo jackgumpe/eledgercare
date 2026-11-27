@@ -1615,3 +1615,15 @@ WP-0044 closed after independent Windows reproduction. Both routes returned all 
 | [eld-coordinator](https://github.com/jackgumpe/eledgercare/blob/bf43b51d7610df8edaa7f68aba1eb3ef319a6320/docs/agent-reports/eld-coordinator/WP-0044/004_2026-11-27_verification_eld-coordinator.md) | bf43b51d7610df8edaa7f68aba1eb3ef319a6320 |
 
 The [public byte receipt](docs/coordination/WP-0044/publication-receipt.json) records equality for all 84 changed files at the report commit.
+
+## WP-0045 direct-launch witness and targeted-depth Edition 02.1
+
+Admitted 2026-11-27 by the bound coordinator after Jack’s approval. Parent 7f9281bd247e312bbce89af9a3021832fca965da. Separate Q1, A1, A2 and C1 dispositions. Workers branch from this reservation commit. [Bound assignment](docs/coordination/WP-0045/assignment.md) · [Comparison contract](docs/coordination/WP-0045/wire.md) · [Schedule](docs/coordination/WP-0045/schedule.json).
+
+| Owner | Branch / worktree | Owned area | Requested provider | Reserved report |
+| --- | --- | --- | --- | --- |
+| eld-fixture-claude | research/wp-0045-fixtures / w045-fixtures | docs/fixtures/WP-0045 | Claude Code claude-opus-5-5 / high | docs/agent-reports/eld-fixture-claude/WP-0045/001_2026-11-27_research_eld-fixture-claude.md |
+| eld-owner-probe | research/wp-0045-direct / w045-author | docs/research/WP-0045 | fresh Codex gpt-6.2-astra / xhigh | docs/agent-reports/eld-owner-probe/WP-0045/002_2026-11-27_research_eld-owner-probe.md |
+| eld-depth-author | research/wp-0045-edition / w045-edition | docs/editions/WP-0045 | fresh Codex gpt-6.2-astra / xhigh | docs/agent-reports/eld-depth-author/WP-0045/003_2026-11-27_research_eld-depth-author.md |
+| eld-rd-reviewer | review/wp-0045-bounded / w045-review | docs/reviews/WP-0045 | fresh Codex gpt-6.2-astra / xhigh | docs/agent-reports/eld-rd-reviewer/WP-0045/004_2026-11-27_review_eld-rd-reviewer.md |
+| eld-coordinator | coordination/bootstrap / primary | docs/coordination/WP-0045 | bound Codex gpt-6.2-astra / xhigh | docs/agent-reports/eld-coordinator/WP-0045/005_2026-11-27_verification_eld-coordinator.md |
