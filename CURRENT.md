@@ -4,7 +4,7 @@ Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex sess
 
 ## WP-0043 stock observer and CPU challenge suite released
 
-Claude Code owns the fixture suite and independent oracle. eld-owner-probe owns the stock-only recorder and offline scorer. eld-rd-reviewer independently verifies the pair. Device admission awaits review and a separate sole-coordinator resource decision. [Assignment](docs/coordination/WP-0043/assignment.md)
+Claude Code owns the fixture suite and independent oracle. eld-owner-probe owns the stock-only recorder and offline scorer. eld-rd-reviewer independently verifies the pair. Following independent CPU qualification the sole coordinator has issued the [one-pair device lease](docs/coordination/WP-0043/device-release.json). The two serial stock arms are limited to eight scheduled calls in total. [Assignment](docs/coordination/WP-0043/assignment.md)
 
 ## WP-0042 F07 observer and private replay design closed
 

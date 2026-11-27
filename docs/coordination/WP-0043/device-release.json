@@ -1,0 +1,426 @@
+{
+  "owner": "eld-coordinator",
+  "thread_id": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "packet": "WP-0043",
+  "lease_id": "wp0043-f07-stock-pair-01",
+  "candidate": "257bbdacf214285de03089b82a16c31bb27ad106",
+  "reviewed_executable_commit": "ef2b44240730fd12e7cdd268d97811176ab23176",
+  "checked_out_role_tip": "4e699157a0bd62f60dd145c09394438aa84fe1d5",
+  "research_tree": "2c04c150be5863b34fa0c6732dc8b272b93a7eab",
+  "review_commit": "0a00fa0016eb49e375633aaf0fe4af068eac805b",
+  "review_accepted": true,
+  "plan_sha256": "e10c57de22b1e56a872ffbe560256fe4ab2aff836197ca0451078d7073fd2d4e",
+  "plan": {
+    "argv": [
+      "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+      "-B",
+      "-u",
+      "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author\\docs\\research\\WP-0043\\stock.py",
+      "run"
+    ],
+    "arms": [
+      "untouched",
+      "observed"
+    ],
+    "cuts": {
+      "DeepseekV2DecoderLayer.forward": {
+        "140": "attention_exit",
+        "222": "residual",
+        "260": "post_rms",
+        "294": "mixture",
+        "304": "block_exit",
+        "52": "B"
+      },
+      "DeepseekV2MLP.forward": {
+        "132": "shared_output"
+      },
+      "DeepseekV2MoE.forward": {
+        "708": "expert_total",
+        "792": "shared_sum"
+      },
+      "DeepseekV2MoE.moe_infer": {
+        "2116": "expert_dispatch",
+        "2422": "expert_return"
+      },
+      "MoEGate.forward": {
+        "2172": "expert_route"
+      },
+      "UnlimitedOCRForCausalLM._uocr_generate": {
+        "1106": "head_producer",
+        "1174": "C0_raw",
+        "1184": "rep_producer",
+        "1238": "C1_post_rep",
+        "1248": "page_producer",
+        "1282": "C2_post_page",
+        "1408": "choice_consumer",
+        "1516": "terminal_eos",
+        "1854": "D",
+        "1874": "model_producer",
+        "2180": "cleanup",
+        "914": "prefill_producer"
+      },
+      "_dash_decode_forward": {
+        "1158": "router_qk",
+        "1336": "index_after",
+        "1844": "routing_exit",
+        "910": "kv_before",
+        "974": "kv_after"
+      },
+      "_dash_indexer_rope": {
+        "254": "idx_1d",
+        "290": "idx_main",
+        "82": "idx_2d"
+      },
+      "_decode_attend": {
+        "748": "token_mask"
+      },
+      "_infer_route_select": {
+        "1042": "route_final",
+        "224": "scores_pre_clean",
+        "540": "top_m"
+      },
+      "_patched_forward": {
+        "338": "prefill_dispatch",
+        "440": "dash_dispatch",
+        "468": "generic_dispatch"
+      },
+      "_uocr_dash_decode_allow": {
+        "1144": "page_before",
+        "1736": "page_after"
+      },
+      "_uocr_no_repeat_ngram": {
+        "2": "rep_entry"
+      },
+      "_uocr_page_count_guard": {
+        "2": "page_entry"
+      }
+    },
+    "cwd": "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author",
+    "fixtures": [
+      {
+        "family_id": "F01",
+        "fixture_id": "SYN-WO-01-v0-clean",
+        "git_blob_oid": "ec3dd81ac80ed0a27f846868884822e1de77ee6d",
+        "max_new_tokens": 8000,
+        "ngram_window": 128,
+        "page_count": 1,
+        "path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v0-clean.pdf",
+        "raster": [
+          {
+            "height": 3301,
+            "page": 1,
+            "rgb_sha256": "80742a5bd557d6e375cb9bf923bba74e74d25cfbf032898acc58e30e97c81d44",
+            "width": 2550
+          }
+        ],
+        "raster_derivation": {
+          "provenance": "corpus-derived prediction: inflated FlateDecode RGB XObjects of the committed dev v1-raster300 child, which generate_corpus.py produced from these exact v0-clean bytes with the same render call; must be confirmed by an actual render in the released stage",
+          "v1_raster300_path": "evaluation/synthetic/pdfs/F01/SYN-WO-01-v1-raster300.pdf",
+          "v1_raster300_sha256": "47b2df6a33309bdc056c852f7f20c6c5824c4adb5a8b785fda05ed81e34489cd"
+        },
+        "sha256": "893d08ddfc87ef6a18f846d9119d9ba68566d7914aef4bcdc47de0f991c7026f",
+        "size_bytes": 3482,
+        "split": "dev",
+        "variant_kind": "v0_clean"
+      },
+      {
+        "family_id": "F07",
+        "fixture_id": "SYN-MP-01-v0-clean",
+        "git_blob_oid": "63469e783b65f27893c9bfff94728a8feb44f12f",
+        "max_new_tokens": 24000,
+        "ngram_window": 1024,
+        "page_count": 3,
+        "path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v0-clean.pdf",
+        "raster": [
+          {
+            "height": 3301,
+            "page": 1,
+            "rgb_sha256": "6d49398a6e94f1ed8d9ee0e7b68678e69dd03d690f955c01edb94c458e29711c",
+            "width": 2550
+          },
+          {
+            "height": 3301,
+            "page": 2,
+            "rgb_sha256": "df8a12ad0ccf3b6aa1b9724c469d00a00600f192334a05d6d1073cd2cedc70f7",
+            "width": 2550
+          },
+          {
+            "height": 3301,
+            "page": 3,
+            "rgb_sha256": "6b17c074e893f5152852c8119798a5f3edc1d6e1a40f36c0347e69be14f24ac8",
+            "width": 2550
+          }
+        ],
+        "raster_derivation": {
+          "provenance": "corpus-derived prediction: inflated FlateDecode RGB XObjects of the committed dev v1-raster300 child, which generate_corpus.py produced from these exact v0-clean bytes with the same render call; must be confirmed by an actual render in the released stage",
+          "v1_raster300_path": "evaluation/synthetic/pdfs/F07/SYN-MP-01-v1-raster300.pdf",
+          "v1_raster300_sha256": "1cb5ed05bbf389b75a524bd14a41cf47d56aa46e4a8b8b6cadb09ab17bfde400"
+        },
+        "sha256": "15e39351f1bcd571815e642ac066d36b12096d732b34f8742155224c8dffc7f3",
+        "size_bytes": 8422,
+        "split": "dev",
+        "variant_kind": "v0_clean"
+      }
+    ],
+    "guard_returns": {
+      "_uocr_no_repeat_ngram": [
+        42,
+        402
+      ],
+      "_uocr_page_count_guard": [
+        14,
+        342,
+        476,
+        520
+      ]
+    },
+    "input_options": {
+      "entry": "infer_multi",
+      "fixed_kwargs": {
+        "base_size": 1024,
+        "crop_mode": false,
+        "dash_topm": 16,
+        "eval_mode": false,
+        "image_size": 640,
+        "max_crops": 16,
+        "max_length": 131072,
+        "max_page_tokens": 20000,
+        "ngram_whitelist_token_ids": null,
+        "no_repeat_ngram_size": 35,
+        "output_path": "",
+        "page_count_guard": true,
+        "save_results": false,
+        "temperature": 0.0,
+        "test_compress": false,
+        "tps_interval": 0
+      },
+      "page_token_id": 128827,
+      "per_fixture_kwargs": [
+        "max_new_tokens",
+        "ngram_window"
+      ],
+      "prompt": "Multi page parsing.",
+      "prompt_expansion": "native infer(): '<PAGE><image>' * n_pages + prompt (no <image> placeholder in PROMPT)",
+      "rules": {
+        "eval_mode": "explicit native default False: native TextStreamer stays on (stdout captured, bounded); unrelated to the eval() save path",
+        "max_new_tokens": "8000 * page_count (upstream tokens_per_page); the accepted min(8000 * page_count, max_length - prompt_len) equals this whenever prompt_len + 8000 * page_count <= max_length, which is verified from native prompt_token_ids after every call; otherwise CONTEXT_BUDGET_EXCEEDED (failed, never truncated)",
+        "ngram_window": "1024 if page_count > 1 else 128 (upstream README evaluation setup), no whitelist",
+        "stop": "native only: EOS -> finish_reason 'stop'; max_new_tokens or max_length -> 'length' (TRUNCATION failure); native PageCountGuard forces <PAGE>/EOS"
+      },
+      "signature_used": "model.infer_multi(tokenizer, prompt=PROMPT, image_files=[PIL RGB pages in order], **fixed_kwargs, max_new_tokens=..., ngram_window=...)",
+      "tokens_per_page": 8000
+    },
+    "limits": {
+      "allocator_bytes": 10737418240,
+      "call_s": 1200,
+      "device_free_during": 2147483648,
+      "device_free_initial": 11811160064,
+      "disk_free_during": 1073741824,
+      "disk_free_initial": 4294967296,
+      "files": 512,
+      "host_job_commit": 16106127360,
+      "load_s": 900,
+      "log_bytes": 33554432,
+      "output_bytes": 2684354560,
+      "pinned_host_pool": 16777216,
+      "poll_s": 1,
+      "stall_s": 360,
+      "wall_s": 7200
+    },
+    "model": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\models\\Unlimited_OCR_2_04809669",
+    "model_revision": "0480966938291445591f69f08a13b041c073a96a",
+    "output": "C:\\Users\\jackg\\eLedgerCare-Speed\\WP-0043\\author\\stock-run-01",
+    "prehistory": [
+      "F01.warmup",
+      "F07.warmup",
+      "F01.warm1",
+      "F07.warm1"
+    ],
+    "python": "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+    "q0": "9e73ef86600b5e16f74b056676a6d3a4f1474058",
+    "schema": "wp43-native/1",
+    "uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+    "worker_argv": [
+      [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author\\docs\\research\\WP-0043\\native.py",
+        "_worker",
+        "untouched"
+      ],
+      [
+        "C:\\Users\\jackg\\eLedgerCare-Q0\\WP-0005\\venv\\Scripts\\python.exe",
+        "-B",
+        "-u",
+        "C:\\Users\\jackg\\Asp.net Projects\\eledgercare-worktrees\\w043-author\\docs\\research\\WP-0043\\native.py",
+        "_worker",
+        "observed"
+      ]
+    ]
+  },
+  "worktree_executables": {
+    "analogue.py": {
+      "git_source_sha256": "39c5ebe8408ab8cd45c8ea5bf40b300cf7b145c17d6e350b702fa032299dd709",
+      "worktree_sha256": "39c5ebe8408ab8cd45c8ea5bf40b300cf7b145c17d6e350b702fa032299dd709",
+      "same_cpython_compilation": true
+    },
+    "analogue_guards.py": {
+      "git_source_sha256": "3efb22ae8979375b2e3b9aa422ebd02f86a4671f171e34241aabe98628b91fd5",
+      "worktree_sha256": "3efb22ae8979375b2e3b9aa422ebd02f86a4671f171e34241aabe98628b91fd5",
+      "same_cpython_compilation": true
+    },
+    "archive.py": {
+      "git_source_sha256": "b07417dbe133b4bd1ffc9737a87818ae2506fdd7e6d0d496790092748097cb9b",
+      "worktree_sha256": "b07417dbe133b4bd1ffc9737a87818ae2506fdd7e6d0d496790092748097cb9b",
+      "same_cpython_compilation": true
+    },
+    "bindings.py": {
+      "git_source_sha256": "cccece981b8cdf9f9c1a67d34d5a5bfed55c1856cfd61840a27cf566a8f9eeee",
+      "worktree_sha256": "cccece981b8cdf9f9c1a67d34d5a5bfed55c1856cfd61840a27cf566a8f9eeee",
+      "same_cpython_compilation": true
+    },
+    "capture.py": {
+      "git_source_sha256": "632331894d3ad671f652d09cf9307d03e9d9b93373bbc34983d577c3cea2084f",
+      "worktree_sha256": "632331894d3ad671f652d09cf9307d03e9d9b93373bbc34983d577c3cea2084f",
+      "same_cpython_compilation": true
+    },
+    "check_deadline.py": {
+      "git_source_sha256": "aeafb1015d93823d5c19e9a7e65a44c06d47710d3285a5d353805e9c5bad1857",
+      "worktree_sha256": "aeafb1015d93823d5c19e9a7e65a44c06d47710d3285a5d353805e9c5bad1857",
+      "same_cpython_compilation": true
+    },
+    "check_resources.py": {
+      "git_source_sha256": "578e2e58514aa50da51f60b7b845e589dc3ba2bae164e856a9dfbdb156009635",
+      "worktree_sha256": "578e2e58514aa50da51f60b7b845e589dc3ba2bae164e856a9dfbdb156009635",
+      "same_cpython_compilation": true
+    },
+    "continuation.py": {
+      "git_source_sha256": "f12582f1c7b7822ee33c7574133ebf62932d95f4e309ce7171720743b6480f8f",
+      "worktree_sha256": "f12582f1c7b7822ee33c7574133ebf62932d95f4e309ce7171720743b6480f8f",
+      "same_cpython_compilation": true
+    },
+    "limits.py": {
+      "git_source_sha256": "88c4fce3baf0a21cbaf75b0062611b722d148a6e8f419e22acf80f44a961a216",
+      "worktree_sha256": "88c4fce3baf0a21cbaf75b0062611b722d148a6e8f419e22acf80f44a961a216",
+      "same_cpython_compilation": true
+    },
+    "native.py": {
+      "git_source_sha256": "8245640f9c6a3dccdcc4a4662595ac532c2f45029894a0e8db7d8c2c7969b175",
+      "worktree_sha256": "afe28fee567b9ab42780ce83ec36cdb1a8c9dce7408e36c3979fd70410941bec",
+      "same_cpython_compilation": true
+    },
+    "native_observer.py": {
+      "git_source_sha256": "cafd45a14f9861b987d716a291bfdce6a9279fb5b432e93c68da9ed05637b161",
+      "worktree_sha256": "6fcefb6e3148436b42a02067bea676f3424123e3c681ecc380ac3159598b9733",
+      "same_cpython_compilation": true
+    },
+    "native_score.py": {
+      "git_source_sha256": "24239054b71c67af4f8393f168ceb0cac0a23506e9fd3bf370ee98345153b3cc",
+      "worktree_sha256": "24239054b71c67af4f8393f168ceb0cac0a23506e9fd3bf370ee98345153b3cc",
+      "same_cpython_compilation": true
+    },
+    "native_validation.py": {
+      "git_source_sha256": "21ae14710b1ae07e90b1c39782ae0fdbd2c1297f52fb48d173698ae557fc37b9",
+      "worktree_sha256": "21ae14710b1ae07e90b1c39782ae0fdbd2c1297f52fb48d173698ae557fc37b9",
+      "same_cpython_compilation": true
+    },
+    "scorer.py": {
+      "git_source_sha256": "383f24713ac5d0bebc11f14fbaf9ce7aa9a1f26437316df0b65005dcd4bb455b",
+      "worktree_sha256": "383f24713ac5d0bebc11f14fbaf9ce7aa9a1f26437316df0b65005dcd4bb455b",
+      "same_cpython_compilation": true
+    },
+    "stock.py": {
+      "git_source_sha256": "30dd32a0089926578ac5034ba52c74741a72c750cd4ae888d5a7ed243a91d06e",
+      "worktree_sha256": "30dd32a0089926578ac5034ba52c74741a72c750cd4ae888d5a7ed243a91d06e",
+      "same_cpython_compilation": true
+    },
+    "timing.py": {
+      "git_source_sha256": "0685b5037289dd17db90c52490f6ed2e5f84d865f35fe67fd909827c1649a53a",
+      "worktree_sha256": "0685b5037289dd17db90c52490f6ed2e5f84d865f35fe67fd909827c1649a53a",
+      "same_cpython_compilation": true
+    },
+    "transfer.py": {
+      "git_source_sha256": "cb691a3ee5de4a993ad6fdc878d096c7798194bb3c13bfe43a15e4fe45b2dd79",
+      "worktree_sha256": "cb691a3ee5de4a993ad6fdc878d096c7798194bb3c13bfe43a15e4fe45b2dd79",
+      "same_cpython_compilation": true
+    }
+  },
+  "uuid": "GPU-9d2642d1-db40-49ad-1a0e-0fb10f9c857d",
+  "driver_version": "621.01",
+  "allowed_resident_pids": [
+    1608,
+    5688,
+    5820,
+    5872,
+    6748,
+    7396,
+    7508,
+    7900,
+    8188,
+    8284,
+    8996,
+    9020,
+    9180,
+    9436,
+    9728,
+    10040,
+    13372,
+    13696,
+    14376,
+    15408,
+    19276,
+    26544
+  ],
+  "observed_ownership": {
+    "checked_utc": "2026-11-27T02:01:02.750943+00:00",
+    "sole_research_job": "eld-owner-probe owned checkout, supervised by the designated coordinator; exclusive product device lock is required by runner",
+    "wddm_contexts": 22,
+    "prior_and_current_pid_type_executable_inventories_equal": true,
+    "all_resident_contexts": "Previously matched interactive desktop, editor, browser and Windows components with C+G classification. No registered competing product lease or separate model worker observed. NVIDIA does not expose per-process VRAM on this WDDM sample. The runner repeats the live PID and free-memory checks.",
+    "device_free_bytes": 14920187904,
+    "volume_free_bytes": 9311539200,
+    "available_commit_bytes": 22078328832,
+    "existing_lock_file_readable": true
+  },
+  "start_utc": "2026-11-27T02:01:02.750943+00:00",
+  "end_utc": "2026-11-27T04:03:02.750943+00:00",
+  "authorized_effect": "One private two-cold-load, eight-call stock-only development pair. Four calls per arm. No retries or substitutions. Earliest guard or resource failure ends the attempt. Other work remains parked.",
+  "inputs": "native-inputs.json; 18 model files and 32 wheel files statically reverified with the pinned venv before issue; 2 development PDFs and 4 RGB raster identities; live rendering is checked before either model load.",
+  "independent_cpu": {
+    "candidate": "ef2b44240730fd12e7cdd268d97811176ab23176",
+    "fixture": "f52d6ffe227dcb165299578bf2ad01978e63cb48",
+    "independent_methods": "ba0bf6a44af7308a071ca005029ece154f6a6aec",
+    "frozen_cases": 50,
+    "source_cases": 49,
+    "source_verdicts": {
+      "P": 14,
+      "M": 29,
+      "U": 6
+    },
+    "source_only_oracle_disagreements": {
+      "F4.c_late_hook_inactive": [
+        "P",
+        "M"
+      ]
+    },
+    "without_alternative_producer": [
+      "F1.recompute_forged"
+    ],
+    "artifact_pairs": {
+      "F1.recompute_forged": [
+        "P",
+        "P"
+      ],
+      "F4.c_late_hook_inactive": [
+        "P",
+        "P"
+      ],
+      "F4.c_swap_labels_stay": [
+        "P",
+        "P"
+      ]
+    },
+    "public_document_scope": "F5 runs two constructed greedy programs. Native F07 is a separate measurement."
+  }
+}

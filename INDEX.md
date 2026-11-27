@@ -1569,3 +1569,5 @@ CPU work released at e7c7c63fa8db0328881ec6aeb50cf5ecaff08f23. [Assignment](docs
 | 002 | eld-owner-probe | research/wp-0043-stock / w043-author | docs/agent-reports/eld-owner-probe/WP-0043/002_2026-11-27_research_eld-owner-probe.md |
 | 003 | eld-rd-reviewer | review/wp-0043-stock / w043-review | docs/agent-reports/eld-rd-reviewer/WP-0043/003_2026-11-27_review_eld-rd-reviewer.md |
 | 004 | eld-coordinator | coordination/bootstrap / eledgercare | docs/agent-reports/eld-coordinator/WP-0043/004_2026-11-27_verification_eld-coordinator.md |
+
+The [one-pair device release](docs/coordination/WP-0043/device-release.json) binds the two cold stock arms to reviewed executable ef2b44240730fd12e7cdd268d97811176ab23176 and independent qualification 0a00fa0016eb49e375633aaf0fe4af068eac805b.
