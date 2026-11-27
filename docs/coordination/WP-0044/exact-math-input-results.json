@@ -1,0 +1,121 @@
+{
+  "fixture_commit": "40eb491db2330a70fb2203f721ce921f79fa03a9",
+  "rows": {
+    "math.shift": {
+      "input_sha256": "a7a14e1cdd0249df5c7206aa284ec7da67f1d1eaff9c936ff7b9ed102923e4fe",
+      "observed": [
+        {
+          "original_winner": 6,
+          "winner": 6,
+          "tied_maxima": [
+            6
+          ],
+          "gap_before": "87/8",
+          "old_winner_margin_after": "87/8",
+          "score_changes": {
+            "6": "10",
+            "1449": "10"
+          },
+          "oscillation": "0"
+        },
+        {
+          "original_winner": 6,
+          "winner": 6,
+          "tied_maxima": [
+            6
+          ],
+          "gap_before": "87/8",
+          "old_winner_margin_after": "7/8",
+          "score_changes": {
+            "6": "-5",
+            "1449": "5"
+          },
+          "oscillation": "10"
+        }
+      ]
+    },
+    "math.tie": {
+      "input_sha256": "2f54fe65a4aedc0ef9a3cbb6b7e43bf40c89922d7211691cb8ed52c24f80527f",
+      "observed": [
+        {
+          "original_winner": 6,
+          "winner": 6,
+          "tied_maxima": [
+            6,
+            1449
+          ],
+          "gap_before": "87/8",
+          "old_winner_margin_after": "0",
+          "score_changes": {
+            "6": "0",
+            "1449": "87/8"
+          },
+          "oscillation": "87/8"
+        },
+        {
+          "original_winner": 128822,
+          "winner": 223,
+          "tied_maxima": [
+            223,
+            128822
+          ],
+          "gap_before": "111/8",
+          "old_winner_margin_after": "0",
+          "score_changes": {
+            "223": "111/8",
+            "128822": "0"
+          },
+          "oscillation": "111/8"
+        }
+      ]
+    },
+    "math.signed_zero": {
+      "input_sha256": "4fc4c58b7ec24aa69db61c8a03b0aad6b8991b88b6b9d43269d139c3ab596d4e",
+      "observed": [
+        {
+          "byte_equal": false,
+          "numeric_equal": true,
+          "words_le": [
+            "00000000",
+            "00000080"
+          ],
+          "tie_winner": 0,
+          "tied_maxima": [
+            0,
+            1
+          ]
+        },
+        {
+          "byte_equal": false,
+          "numeric_equal": true,
+          "words_le": [
+            "00000080",
+            "00000000"
+          ],
+          "tie_winner": 0,
+          "tied_maxima": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "math.linked": {
+      "input_sha256": "066c49ed1bc2a9418e91320aca3ab70b182c853340736f567e9d4a1dc30430e4",
+      "observed": {
+        "stock": [
+          0,
+          0
+        ],
+        "reset": [
+          0,
+          0
+        ],
+        "linked": [
+          0,
+          1
+        ]
+      }
+    }
+  }
+}
