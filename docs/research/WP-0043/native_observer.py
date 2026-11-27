@@ -1,4 +1,5 @@
 """Stock instruction callbacks. Import torch only in an admitted worker process."""
+from timing import mark
 import json
 import sys
 from pathlib import Path
@@ -122,7 +123,7 @@ class Graph:
 class StockObserver:
     def __init__(self,torch,model,model_dir,out):
         self.model=model
-        self.progress=out/"progress"
+        self.out=out
         self.sites=resolve(model_dir,type(model).__module__.rsplit(".",1)[0])
         self.gen=next(c for c in self.sites if c.co_qualname==GEN)
         self.arena=Arena(torch,out)
@@ -248,7 +249,7 @@ class StockObserver:
                 return
             if tag=="D":
                 if len(local["gen"])%16==0:
-                    self.progress.write_bytes(str(len(local["gen"])).encode("ascii"))
+                    mark(self.out,"F07.warm1",len(local["gen"]))
                 self.write("append",None,frame,{"index":len(local["gen"])-1,"id":local["nxt"],"pos":local["pos"]})
             row=local["step"]-619
             if row not in range(5):

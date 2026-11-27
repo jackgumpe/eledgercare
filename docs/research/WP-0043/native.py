@@ -11,6 +11,7 @@ import subprocess
 import sys
 import time
 
+from timing import NS, mark, read_timing, timeline
 from bindings import resolve
 from capture import digest
 from native_observer import PINNED_BYTES
@@ -163,11 +164,12 @@ def inventory():
 def final_limits(start,release):
     n,size=inventory()
     logs=sum(p.stat().st_size for p in OUT.rglob("*.log"))
+    device=device_check(release)
     if (n+1>LIMITS["files"] or size+MIB>LIMITS["output_bytes"] or logs>LIMITS["log_bytes"] or
         shutil.disk_usage(OUT).free-MIB<LIMITS["disk_free_during"] or time.monotonic()-start>LIMITS["wall_s"]
         or dt.datetime.now(dt.timezone.utc)>=dt.datetime.fromisoformat(release["end_utc"])):
         raise RuntimeError("final resource/lease check")
-    return {"files":n,"bytes":size,"logs":logs,"elapsed_s":time.monotonic()-start,"device":device_check(release)}
+    return {"files":n,"bytes":size,"logs":logs,"elapsed_s":time.monotonic()-start,"device":device}
 
 
 def partial_inventory():
@@ -207,44 +209,48 @@ def supervise(arm,argv,release,start):
     folder.mkdir()
     device_check(release,initial=True)
     with (folder/"stdout.log").open("xb") as stdout,(folder/"stderr.log").open("xb") as stderr:
+        origin=time.monotonic_ns()
         proc=subprocess.Popen(argv,cwd=REPO,env=env_for(folder),stdin=subprocess.PIPE,stdout=stdout,stderr=stderr,
                               creationflags=subprocess.CREATE_NO_WINDOW|4)
         try:
             with job(proc,LIMITS["host_job_commit"]) as job_handle:
                 proc.stdin.write(bytes_json({"parent":os.getpid(),"lease":release["lease_id"]})+b"\n")
                 proc.stdin.close()
-                progress=None
-                stamp=phase_time=time.monotonic()
-                last_phase=None
+                def deadline():
+                    data=read_timing(folder)
+                    return timeline(data,arm,LABELS,LIMITS,origin,time.monotonic_ns())
+
                 while proc.poll() is None:
-                    now=time.monotonic()
-                    phase=(folder/"phase").read_text() if (folder/"phase").exists() else "preflight"
-                    if phase!=last_phase:
-                        phase_time=stamp=now
-                        last_phase=phase
+                    deadline()
                     count,used=inventory()
                     logsize=(folder/"stdout.log").stat().st_size+(folder/"stderr.log").stat().st_size
-                    # Only actual retained stock append receipts certify observed decode progress.
-                    # Untouched calls have no token probe; apply the conservative 360 s bound
-                    # from call entry. Native stderr/diagnostic traffic never resets the clock.
-                    marker=(phase,(folder/"progress").read_bytes() if (folder/"progress").exists() else b"")
-                    if marker!=progress:
-                        stamp=now
-                        progress=marker
-                    owned={proc.pid,*[p.pid for p in psutil.Process(proc.pid).children(recursive=True)]}
-                    if not all(job_member(pid,job_handle) for pid in owned):
-                        raise RuntimeError("worker escaped bound Windows Job")
+                    try:
+                        owned={proc.pid,*[p.pid for p in psutil.Process(proc.pid).children(recursive=True)]}
+                        if not all(job_member(pid,job_handle) for pid in owned):
+                            raise RuntimeError("worker escaped bound Windows Job")
+                    except (OSError,psutil.NoSuchProcess):
+                        if proc.poll() is not None:
+                            break
+                        raise
                     device_check(release,owned)
-                    if (now-start>LIMITS["wall_s"] or now-phase_time>LIMITS["call_s" if phase in LABELS else "load_s"]
-                        or phase in LABELS and now-stamp>LIMITS["stall_s"] or used+MIB>LIMITS["output_bytes"]
-                        or count+1>LIMITS["files"] or logsize>LIMITS["log_bytes"]
-                        or shutil.disk_usage(OUT).free<LIMITS["disk_free_during"]
-                        or dt.datetime.now(dt.timezone.utc)>=dt.datetime.fromisoformat(release["end_utc"])):
-                        raise RuntimeError("supervisor ceiling: "+phase)
-                    time.sleep(LIMITS["poll_s"])
-                final_limits(start,release)
+                    if (used+MIB>LIMITS["output_bytes"] or count+1>LIMITS["files"] or
+                        logsize>LIMITS["log_bytes"] or shutil.disk_usage(OUT).free<LIMITS["disk_free_during"]):
+                        raise RuntimeError("supervisor disk/log ceiling")
+                    until=min((deadline()-time.monotonic_ns())/NS,
+                              start+LIMITS["wall_s"]-time.monotonic(),
+                              (dt.datetime.fromisoformat(release["end_utc"])-dt.datetime.now(dt.timezone.utc)).total_seconds())
+                    if until<=0:
+                        raise RuntimeError("supervisor wall/phase/lease deadline")
+                    try:
+                        proc.wait(timeout=min(LIMITS["poll_s"],until))
+                    except subprocess.TimeoutExpired:
+                        pass
+                exited=time.monotonic_ns()
                 if proc.returncode:
                     raise RuntimeError(f"{arm} exit {proc.returncode}")
+                timeline(read_timing(folder),arm,LABELS,LIMITS,origin,exited,finished=True)
+                final_limits(start,release)
+                return {"origin_ns":origin,"exit_check_ns":exited}
         finally:
             if proc.poll() is None:
                 proc.kill()
@@ -268,13 +274,14 @@ def run():
             receipt=validate_files(preflight_guard)
             preflight_guard()
             write_new(OUT/"admission.json",{"release":release,"plan":plan(),"initial_device":initial,"n_model":receipt["n_model"],"wheels":receipt["wheels"]})
+            timing={}
             for arm,argv in zip(ARM,plan()["worker_argv"],strict=True):
-                supervise(arm,argv,release,start)
+                timing[arm]=supervise(arm,argv,release,start)
             files=partial_inventory()
             stats=final_limits(start,release)
             if len(files)!=stats["files"]:
                 raise RuntimeError("incomplete bounded outcome inventory")
-            outcome={"status":"finished","final_resources":stats,"files":files}
+            outcome={"status":"finished","timing":timing,"final_resources":stats,"files":files}
         except BaseException as exc:
             outcome={"status":"partial","reason":str(exc),"files":partial_inventory()}
             write_new(OUT/"outcome.json",outcome)
@@ -336,7 +343,7 @@ def worker(arm):
     torch.cuda.set_per_process_memory_fraction(LIMITS["allocator_bytes"]/torch.cuda.get_device_properties(0).total_memory)
     options=protocol()
     images={f["family_id"]:render(f) for f in options["fixtures"]}
-    (out/"phase").write_text("load")
+    mark(out,"load")
     tok=AutoTokenizer.from_pretrained(str(MODEL),local_files_only=True,trust_remote_code=True)
     model=AutoModel.from_pretrained(str(MODEL),local_files_only=True,trust_remote_code=True,
                                     use_safetensors=True,torch_dtype=torch.bfloat16).eval().cuda()
@@ -365,7 +372,7 @@ def worker(arm):
             pages=images[family]
             kwargs={**options["call"]["fixed_kwargs"],"max_new_tokens":8000*len(pages),
                     "ngram_window":128 if len(pages)==1 else 1024}
-            (out/"phase").write_text(label)
+            mark(out,label)
             with obs.monitor if obs and i==3 else contextlib.nullcontext():
                 result=model.infer(tok,prompt=options["call"]["prompt"],image_file=list(pages),return_dict=True,**kwargs)
             torch.cuda.current_stream().synchronize()
@@ -380,6 +387,7 @@ def worker(arm):
     finally:
         if obs:
             obs.close()
+    mark(out,"finished")
 
 
 if __name__=="__main__":
