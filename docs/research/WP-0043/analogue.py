@@ -83,7 +83,46 @@ def clone_cpu(scores, alias):
 
 
 OPS = {"capture_at","swap","duplicate","unwitness","drop","truncate","alias","write","choose",
-       "cursor","ngram_start","include_prompt","torn","omit_state","reenter_page","recompute","lastmax"}
+       "cursor","ngram_start","include_prompt","torn","omit_state","reenter_page","recompute","lastmax","omit_row"}
+
+
+def fragment_ranges(spec,vocab):
+    size=len(vocab)*4
+    modes=[key for key in ("early_ids","early_ranges","bytes") if key in spec]
+    if len(modes)!=1:
+        raise ValueError("choose one early-byte selection")
+    if modes[0]=="early_ids":
+        ids=spec["early_ids"]
+        if len(set(ids))!=len(ids) or not set(ids).issubset(vocab):
+            raise ValueError("unknown or duplicate early token")
+        taken=set(ids)
+        early=[(4*j,4*j+4) for j,t in enumerate(vocab) if t in taken]
+    elif modes[0]=="early_ranges":
+        early=sorted(tuple(pair) for pair in spec["early_ranges"])
+    else:
+        early=[(0,spec["bytes"])]
+    late=[]
+    last=0
+    for lo,hi in early:
+        if type(lo)!=int or type(hi)!=int or not last<=lo<hi<=size:
+            raise ValueError("invalid or overlapping early-byte ranges")
+        if last<lo:
+            late.append((last,lo))
+        last=hi
+    if last<size:
+        late.append((last,size))
+    if not early or not late:
+        raise ValueError("each cut needs at least one byte")
+    return early,late
+
+
+def scatter(data,ranges,destination):
+    pos=0
+    for lo,hi in ranges:
+        destination[lo:hi]=data[pos:pos+hi-lo]
+        pos+=hi-lo
+    if pos!=len(data):
+        raise ValueError("incomplete read fragment")
 
 
 def capture_analogue(scenario):
@@ -93,34 +132,43 @@ def capture_analogue(scenario):
         raise ValueError("invalid compact vocabulary")
     histories = c["histories"]
     schedule = defaultdict(list)
+    omitted=set()
     for instruction in scenario.get("injections", []):
         if instruction["op"] not in OPS or instruction.get("row", 0) not in range(len(histories)):
             raise ValueError("unsupported injection")
-        schedule[instruction.get("row", 0)].append(instruction)
+        index=instruction.get("row",0)
+        if instruction["op"]=="omit_row":
+            omitted.update(range(index,len(histories)) if instruction.get("through_end") is True else [index])
+        else:
+            schedule[index].append(instruction)
     cuts = bindings()
     read_span=None
     def read_cpu(source,alias):
         if read_span is None:
             return clone_cpu(source,alias)
-        start,end=read_span
-        data=bytes(memoryview(source.data)[start:end])
+        data=b"".join(bytes(memoryview(source.data)[start:end]) for start,end in read_span)
         return data,{"transport":"cpu-owned","source_storage":id(source.data),"dest_storage":id(data),
-                     "bytes":len(data),"source_byte_start":start,"source_byte_end":end}
+                     "bytes":len(data),"source_byte_ranges":read_span}
     ledger = CaptureAdapter(predict.__code__, read_cpu, "cpu")
     rows = []
     lost_receipts=set()
+    previous_executed=None
     for row, (history, words) in enumerate(zip(histories, c["raw_words"], strict=True)):
+        if row in omitted:
+            previous_executed=None
+            continue
         actions = schedule[row]
         if len(history) == 0:
             previous = []
         else:
             previous = history[:-1]
         expected_pages = c["prompt"].count(c["page"])
-        if not row or histories[row-1] != previous:
+        if previous_executed != previous:
             # Prime the same state using the stock guard on an unobserved prefix.
             st = {"scanned": 0, "page_len": 0, "marker_cum": 0}
             _uocr_page_count_guard(Scores(vocab,words), previous, expected_pages,
                                    c["page"], c["eos"], c["cap"], st)
+        previous_executed=history
         offsets = {p:p for p in PHASES}
         ngram_history = history
         window = c["window"]
@@ -140,6 +188,7 @@ def capture_analogue(scenario):
         skipped={a["to"] for a in actions if a["op"]=="duplicate"} | {a["phase"] for a in actions if a["op"]=="drop"}
         records = {}
         fragments={}
+        selections={}
         def visit(at, frame):
             nonlocal read_span
             source = frame.f_locals["logits"]
@@ -150,9 +199,10 @@ def capture_analogue(scenario):
                 if site == at and label not in skipped:
                     torn=next((a for a in actions if a["op"]=="torn" and a["phase"]==label),None)
                     if torn:
-                        if torn["at"] not in PHASES[PHASES.index(at)+1:] or not 0<torn["bytes"]<len(source.data):
+                        if torn["at"] not in PHASES[PHASES.index(at)+1:]:
                             raise ValueError("invalid two-cut fragment schedule")
-                        read_span=(0,torn["bytes"])
+                        selections[label]=fragment_ranges(torn,vocab)
+                        read_span=selections[label][0]
                     records[label] = ledger.copy(row, frame, source, label in aliases)
                     read_span=None
                     if torn:
@@ -160,11 +210,15 @@ def capture_analogue(scenario):
             for a in actions:
                 if a["op"]=="torn" and a["at"]==at:
                     label=a["phase"]
-                    read_span=(a["bytes"],len(source.data))
+                    early,late=selections[label]
+                    read_span=late
                     tail=ledger.copy(row,frame,source)
                     read_span=None
                     fragments[label].append(tail["copy"])
-                    records[label]["data"]+=tail["data"]
+                    assembled=bytearray(len(source.data))
+                    scatter(records[label]["data"],early,assembled)
+                    scatter(tail["data"],late,assembled)
+                    records[label]["data"]=bytes(assembled)
                     records[label]["fragments"]=fragments[label]
         inverse = {offset:phase for phase,offset in cuts.items()}
         guard_calls=[]
