@@ -1,0 +1,191 @@
+{
+  "additional_cases": {
+    "cases": 6,
+    "failed": 0,
+    "results": [
+      {
+        "checks": {
+          "differs_as_predicted": true,
+          "echo": true,
+          "r1_fields": true,
+          "v1_conflicts": true
+        },
+        "name": "G1.restore_after_defect",
+        "pass": true,
+        "r1_conflicts": [
+          [
+            "repeat",
+            1
+          ],
+          [
+            "page",
+            1
+          ]
+        ],
+        "v1_conflicts": [
+          [
+            "repeat",
+            1
+          ]
+        ]
+      },
+      {
+        "checks": {
+          "differs_as_predicted": true,
+          "echo": true,
+          "r1_fields": true,
+          "v1_conflicts": true
+        },
+        "name": "G2.carry_defect",
+        "pass": true,
+        "r1_conflicts": [
+          [
+            "repeat",
+            1
+          ]
+        ],
+        "v1_conflicts": [
+          [
+            "repeat",
+            1
+          ],
+          [
+            "page",
+            1
+          ]
+        ]
+      },
+      {
+        "checks": {
+          "differs_as_predicted": true,
+          "echo": true,
+          "r1_fields": true,
+          "v1_conflicts": true
+        },
+        "name": "G3.clean_control",
+        "pass": true,
+        "r1_conflicts": [],
+        "v1_conflicts": []
+      },
+      {
+        "checks": {
+          "differs_as_predicted": true,
+          "echo": true,
+          "r1_fields": true,
+          "v1_conflicts": true
+        },
+        "name": "G4.overlap_control",
+        "pass": true,
+        "r1_conflicts": [],
+        "v1_conflicts": []
+      },
+      {
+        "checks": {
+          "differs_as_predicted": true,
+          "echo": true,
+          "r1_fields": true,
+          "v1_conflicts": true
+        },
+        "name": "G5.unmask_control",
+        "pass": true,
+        "r1_conflicts": [
+          [
+            "page",
+            1
+          ]
+        ],
+        "v1_conflicts": [
+          [
+            "page",
+            1
+          ]
+        ]
+      },
+      {
+        "checks": {
+          "differs_as_predicted": true,
+          "echo": true,
+          "r1_fields": true,
+          "v1_conflicts": true
+        },
+        "name": "G6.own_block_elsewhere",
+        "pass": true,
+        "r1_conflicts": [
+          [
+            "repeat",
+            1
+          ]
+        ],
+        "v1_conflicts": [
+          [
+            "repeat",
+            1
+          ],
+          [
+            "page",
+            1
+          ]
+        ]
+      }
+    ],
+    "version": "wp0045.a2-regression.r1"
+  },
+  "original_blind_counts_unchanged": true,
+  "r1_expected_sha256": "d6cc5404c377bb71493985d0d5bb6871ab0492e88c23eb4a49c9ea8be420310d",
+  "r1_full_agreement_offline": {
+    "combined_disjoint_authors": 32,
+    "reviewer": 32
+  },
+  "recompute": {
+    "differences": [
+      {
+        "fields": [
+          "conflicts"
+        ],
+        "id": "A2.illegal_repeat",
+        "r1": {
+          "conflicts": [
+            [
+              "repeat",
+              1
+            ],
+            [
+              "repeat",
+              2
+            ],
+            [
+              "page",
+              2
+            ],
+            [
+              "page",
+              4
+            ]
+          ]
+        },
+        "v1": {
+          "conflicts": [
+            [
+              "repeat",
+              1
+            ],
+            [
+              "repeat",
+              2
+            ],
+            [
+              "page",
+              4
+            ]
+          ]
+        }
+      }
+    ],
+    "intent_mismatches": [],
+    "rows": 32,
+    "v1_reproduced": 32,
+    "version": "wp0045.expected.r1"
+  },
+  "results": "fc46492bd115a8547b155b0e71c919ff375c7edc",
+  "source": "cd8e4796ff89da361e89aed8d96267f213bdcc96"
+}
