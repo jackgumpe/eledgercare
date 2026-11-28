@@ -2,9 +2,9 @@
 
 Sole coordinator and shared-ledger writer: **eld-coordinator**, local Codex session `01a20a53-eec1-72c1-864c-9f8be8f4aff5`. The receiver launched with `gpt-6.2-astra` and `xhigh` reasoning effort. Repository [jackgumpe/eledgercare](https://github.com/jackgumpe/eledgercare) is public; default/integration branch is `coordination/bootstrap`. Normal owned commits and pushes are authorized. [INDEX.md](INDEX.md) and immutable canonical reports retain the full history and reservations.
 
-## WP-0046 stock OCR Stage 0 active
+## WP-0046 stock OCR Stage 0 closed
 
-Gemini owns the direct-stock proposal. Claude owns independent review and finite fixture verification. Stock qualification awaits a separate decision. [Reservation](docs/coordination/WP-0046/assignment.md)
+Gemini and Claude completed their separate reviews and reciprocal replies. The core mathematics stands with targeted amendments. The proposed direct-stock register preserves 118 original keys and adds 52 obligations. Stage 1a remains held: 4 bindings are hard-unbound, 5 more are pending and the final bridge controls exposed a false pass. Zero target runs. eld-owner-probe owns proposal-only follow-up. [Disposition](docs/coordination/WP-0046/disposition.json) · [Independent review](docs/agent-reports/eld-rd-reviewer/WP-0046/002_2026-11-28_review_eld-rd-reviewer.md) · [Coordinator report](docs/agent-reports/eld-coordinator/WP-0046/003_2026-11-28_verification_eld-coordinator.md) · [Public receipt](docs/coordination/WP-0046/publication-receipt.json)
 
 ## WP-0045 direct launch and Edition 02.1 closed
 

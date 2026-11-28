@@ -1,0 +1,375 @@
+{
+  "packet": "WP-0046",
+  "authority": "Stage 0",
+  "closed_utc": "2026-11-28T06:48:57.694604+00:00",
+  "coordinator": "01a20a53-eec1-72c1-864c-9f8be8f4aff5",
+  "reference_commit": "e43af2e263f55478d1d551a5a095536b042589c2",
+  "reservation": "281b71d1dbf75b8e121a1ea577c0385ae8683555",
+  "proposal": "wp0046-direct-stock-r2",
+  "proposal_register": "docs/research/WP-0046/register-r2.json",
+  "original_keys_preserved": [
+    118,
+    118
+  ],
+  "additional_obligations": 52,
+  "author_binding_status_counts": {
+    "bound_static_rule": 107,
+    "deferred_stage3": 2,
+    "pending_independent_review_rev0": 1,
+    "pending_stage1a_code_or_review_binding": 4,
+    "pending_stage1b_code_or_review_binding": 1,
+    "pending_stage2_code_or_review_binding": 42,
+    "unbound_pre_stage1a": 4,
+    "unbound_stage1b": 1,
+    "unbound_stage2": 8
+  },
+  "author_observation_status_counts": {
+    "pending_rev0_digest_receipt": 7,
+    "unobserved_prospective_stage1a": 98,
+    "unobserved_prospective_stage1b": 2,
+    "unobserved_prospective_stage2": 61,
+    "unobserved_prospective_stage3": 2
+  },
+  "author_scope_summaries": {
+    "Pi_0": {
+      "total_obligations": 7,
+      "bound_static_rule_count": 6,
+      "all_pending_or_unbound_in_scope": [
+        "limits"
+      ],
+      "hard_unbound_in_scope": [],
+      "deferred_pending_or_unbound_count": 62
+    },
+    "Pi_1a": {
+      "total_obligations": 105,
+      "bound_static_rule_count": 96,
+      "all_pending_or_unbound_in_scope": [
+        "cpu.controls.stage1a_3_live_controls",
+        "cpu.entry.coordinator_roots_manifest",
+        "cpu.entry.stage1a_source_pin",
+        "cpu.import_resolution",
+        "cpu.original_inventory",
+        "cpu.route_rehearsal",
+        "limits",
+        "static.venv.pth_inventory",
+        "static.venv.pyvenv_cfg"
+      ],
+      "hard_unbound_in_scope": [
+        "cpu.entry.coordinator_roots_manifest",
+        "cpu.entry.stage1a_source_pin",
+        "static.venv.pth_inventory",
+        "static.venv.pyvenv_cfg"
+      ],
+      "deferred_pending_or_unbound_count": 54
+    },
+    "Pi_1b": {
+      "total_obligations": 107,
+      "bound_static_rule_count": 96,
+      "all_pending_or_unbound_in_scope": [
+        "cpu.controls.stage1a_3_live_controls",
+        "cpu.entry.coordinator_roots_manifest",
+        "cpu.entry.stage1a_source_pin",
+        "cpu.import_resolution",
+        "cpu.original_inventory",
+        "cpu.route_rehearsal",
+        "cpu.stage1b.entry_source_pin",
+        "cpu.stage1b.torch_import_and_dlls",
+        "limits",
+        "static.venv.pth_inventory",
+        "static.venv.pyvenv_cfg"
+      ],
+      "hard_unbound_in_scope": [
+        "cpu.entry.coordinator_roots_manifest",
+        "cpu.entry.stage1a_source_pin",
+        "cpu.stage1b.entry_source_pin",
+        "static.venv.pth_inventory",
+        "static.venv.pyvenv_cfg"
+      ],
+      "deferred_pending_or_unbound_count": 52
+    },
+    "Pi_2": {
+      "total_obligations": 168,
+      "bound_static_rule_count": 107,
+      "all_pending_or_unbound_in_scope": [
+        "cpu.controls.stage1a_3_live_controls",
+        "cpu.entry.coordinator_roots_manifest",
+        "cpu.entry.stage1a_source_pin",
+        "cpu.import_resolution",
+        "cpu.original_inventory",
+        "cpu.route_rehearsal",
+        "cpu.stage1b.entry_source_pin",
+        "cpu.stage1b.torch_import_and_dlls",
+        "exec.backend",
+        "exec.configuration",
+        "exec.creator",
+        "exec.device",
+        "exec.env.CUDA_VISIBLE_DEVICES",
+        "exec.options.base_size",
+        "exec.options.crop_mode",
+        "exec.options.dash_topm",
+        "exec.options.eval_mode",
+        "exec.options.image_size",
+        "exec.options.max_crops",
+        "exec.options.max_length",
+        "exec.options.max_page_tokens",
+        "exec.options.ngram_whitelist_token_ids",
+        "exec.options.no_repeat_ngram_size",
+        "exec.options.output_path",
+        "exec.options.page_count_guard",
+        "exec.options.save_results",
+        "exec.options.temperature",
+        "exec.options.test_compress",
+        "exec.options.tps_interval",
+        "exec.original",
+        "exec.original_continuity",
+        "gate.stage1_to_stage2_bridge",
+        "limits",
+        "native.1445.C0_raw",
+        "native.1445.C1_post_rep",
+        "native.1445.C2_post_page",
+        "native.1445.support_choice",
+        "native.1446.C0_raw",
+        "native.1446.C1_post_rep",
+        "native.1446.C2_post_page",
+        "native.1446.support_choice",
+        "native.1447.C0_raw",
+        "native.1447.C1_post_rep",
+        "native.1447.C2_post_page",
+        "native.1447.support_choice",
+        "native.1448.C0_raw",
+        "native.1448.C1_post_rep",
+        "native.1448.C2_post_page",
+        "native.1448.support_choice",
+        "native.1449.C0_raw",
+        "native.1449.C1_post_rep",
+        "native.1449.C2_post_page",
+        "native.1449.support_choice",
+        "native.snapshot",
+        "native.storage",
+        "native.support_choice",
+        "stage2.binding.infer_entry_resolution",
+        "stage2.binding.scorer_finiteness_fix",
+        "stage2.binding.scorer_phase_local_fix",
+        "static.venv.pth_inventory",
+        "static.venv.pyvenv_cfg"
+      ],
+      "hard_unbound_in_scope": [
+        "cpu.entry.coordinator_roots_manifest",
+        "cpu.entry.stage1a_source_pin",
+        "cpu.stage1b.entry_source_pin",
+        "exec.backend",
+        "exec.configuration",
+        "exec.creator",
+        "exec.device",
+        "exec.env.CUDA_VISIBLE_DEVICES",
+        "stage2.binding.infer_entry_resolution",
+        "stage2.binding.scorer_finiteness_fix",
+        "stage2.binding.scorer_phase_local_fix",
+        "static.venv.pth_inventory",
+        "static.venv.pyvenv_cfg"
+      ],
+      "deferred_pending_or_unbound_count": 2
+    },
+    "Pi_3": {
+      "total_obligations": 170,
+      "bound_static_rule_count": 107,
+      "all_pending_or_unbound_in_scope": [
+        "cpu.controls.stage1a_3_live_controls",
+        "cpu.entry.coordinator_roots_manifest",
+        "cpu.entry.stage1a_source_pin",
+        "cpu.import_resolution",
+        "cpu.original_inventory",
+        "cpu.route_rehearsal",
+        "cpu.stage1b.entry_source_pin",
+        "cpu.stage1b.torch_import_and_dlls",
+        "exec.backend",
+        "exec.configuration",
+        "exec.creator",
+        "exec.device",
+        "exec.env.CUDA_VISIBLE_DEVICES",
+        "exec.options.base_size",
+        "exec.options.crop_mode",
+        "exec.options.dash_topm",
+        "exec.options.eval_mode",
+        "exec.options.image_size",
+        "exec.options.max_crops",
+        "exec.options.max_length",
+        "exec.options.max_page_tokens",
+        "exec.options.ngram_whitelist_token_ids",
+        "exec.options.no_repeat_ngram_size",
+        "exec.options.output_path",
+        "exec.options.page_count_guard",
+        "exec.options.save_results",
+        "exec.options.temperature",
+        "exec.options.test_compress",
+        "exec.options.tps_interval",
+        "exec.original",
+        "exec.original_continuity",
+        "gate.stage1_to_stage2_bridge",
+        "limits",
+        "native.1445.C0_raw",
+        "native.1445.C1_post_rep",
+        "native.1445.C2_post_page",
+        "native.1445.support_choice",
+        "native.1446.C0_raw",
+        "native.1446.C1_post_rep",
+        "native.1446.C2_post_page",
+        "native.1446.support_choice",
+        "native.1447.C0_raw",
+        "native.1447.C1_post_rep",
+        "native.1447.C2_post_page",
+        "native.1447.support_choice",
+        "native.1448.C0_raw",
+        "native.1448.C1_post_rep",
+        "native.1448.C2_post_page",
+        "native.1448.support_choice",
+        "native.1449.C0_raw",
+        "native.1449.C1_post_rep",
+        "native.1449.C2_post_page",
+        "native.1449.support_choice",
+        "native.snapshot",
+        "native.storage",
+        "native.support_choice",
+        "private.parity",
+        "private.plan",
+        "stage2.binding.infer_entry_resolution",
+        "stage2.binding.scorer_finiteness_fix",
+        "stage2.binding.scorer_phase_local_fix",
+        "static.venv.pth_inventory",
+        "static.venv.pyvenv_cfg"
+      ],
+      "hard_unbound_in_scope": [
+        "cpu.entry.coordinator_roots_manifest",
+        "cpu.entry.stage1a_source_pin",
+        "cpu.stage1b.entry_source_pin",
+        "exec.backend",
+        "exec.configuration",
+        "exec.creator",
+        "exec.device",
+        "exec.env.CUDA_VISIBLE_DEVICES",
+        "private.parity",
+        "private.plan",
+        "stage2.binding.infer_entry_resolution",
+        "stage2.binding.scorer_finiteness_fix",
+        "stage2.binding.scorer_phase_local_fix",
+        "static.venv.pth_inventory",
+        "static.venv.pyvenv_cfg"
+      ],
+      "deferred_pending_or_unbound_count": 0
+    }
+  },
+  "decision_and_limits": {
+    "mathematics": "Accept the core conditional theorems under the stated premises. Adopt the targeted local corrigenda as the Stage 0 proposal for future review. Scope by stage, score each custody conjunct three-valuedly, declare the determinism assumption, keep missing and conflicting diagnostics, and bind preflight to the intended later run. Neither provider certified jointly influenced formulations as independent.",
+    "instructions": "Amend the handoff before freezing any Stage 1a implementation. The proposed wp0046-direct-stock-r2 is a reviewed design with open findings. Accept the completed Stage 0 return and keep all runtime work held.",
+    "profile": "Direct base CPython 3.12.10; proposed -s -P -B -u with closed creation environment and measured effective state. A separate prospective stdlib observer would stop before importing torch. The unchanged historical worker cannot supply that CPU cut under its existing admission and device path.",
+    "decision_evidence": {
+      "required_bridge_cases": {
+        "matched": 3,
+        "total": 4,
+        "predicted_actual": 4,
+        "decisive_case": "XB1",
+        "expected": "M",
+        "observed": "P",
+        "cause": "Declaring a field as a permitted delta bypassed the field's separately frozen value predicate."
+      },
+      "owner_controls": [
+        16,
+        16
+      ],
+      "reviewer_peer_schema_r0": [
+        23,
+        27
+      ],
+      "reviewer_peer_schema_r2": [
+        27,
+        27
+      ],
+      "reviewer_strict": [
+        49,
+        49
+      ],
+      "reviewer_amended_against_original_expectations": [
+        47,
+        49
+      ],
+      "r1_cases": [
+        3,
+        3
+      ],
+      "checker_independent_denominators": [
+        72,
+        256,
+        81
+      ],
+      "identification_additional": 2048,
+      "erasure_enumeration": 23520,
+      "phase_enumeration": 160000
+    },
+    "hold": {
+      "hard_unbound_keys": [
+        "cpu.entry.stage1a_source_pin",
+        "cpu.entry.coordinator_roots_manifest",
+        "static.venv.pyvenv_cfg",
+        "static.venv.pth_inventory"
+      ],
+      "stage1a_pending_keys": [
+        "cpu.controls.stage1a_3_live_controls",
+        "cpu.import_resolution",
+        "cpu.original_inventory",
+        "cpu.route_rehearsal",
+        "limits"
+      ],
+      "further_evidence": "The device-delta value predicate, resolved PATH treatment, classifications of seven supervisor-relative values, and per-origin module/DLL evidence require resolution. Policy conventions P3, L3 and order-integrity diagnostics remain explicit.",
+      "scope": "No prospective stock launch or stock import rehearsal, device capture, private replay, model or harness change. Existing stock historical M and prior direct fixture verdicts retained."
+    },
+    "register_findings_source": "docs/reviews/WP-0046/final/verification.json",
+    "next_owner": "eld-owner-probe for a separate source-only proposal/implementation decision; independent eld-rd-reviewer for an exact candidate before any CPU qualification decision. WP-0037 remains parked.",
+    "closing_reconciliation": {
+      "agreed": [
+        "R-F1",
+        "R-F2",
+        "R-F3",
+        "R-F4",
+        "R-F5",
+        "R-F6"
+      ],
+      "defended_with_wording_concession": [
+        "R-F7"
+      ],
+      "unresolved": [
+        "R-F8",
+        "R-F9"
+      ],
+      "evidence": "docs/research/WP-0046/closing-response.md",
+      "disposition": "Carry R-F1 as a demonstrated false pass against the bridge relation; the complete route is held. Claude lists it among the release concerns, whereas Gemini locates the code repair at the eventual Stage-2 bridge freeze. Stage-1a has independent outstanding gates. The Stage-3 summary labels 15 rows hard-unbound when 13 carry the unbound label and two are deferred. Arithmetic on archive offsets is consistent when last-consumed index g and history length n=g+1 are distinguished. Scorer conventions and empirical runtime hypotheses remain open."
+    }
+  },
+  "substantive_report_publications": {
+    "gemini": {
+      "branch": "research/wp-0046-direct-stock",
+      "head": "655c17500e077b0f3ff34ed93b3de02979b67510",
+      "report_commit": "dd7982dc7d8a1c468bf90704d8fb01c60e91c7b5",
+      "report_path": "docs/agent-reports/eld-owner-probe/WP-0046/001_2026-11-28_design_eld-owner-probe.md",
+      "report_blob": "cb16e229142e427eaf61615a99f0050d3deaff94",
+      "files": 25
+    },
+    "claude": {
+      "branch": "review/wp-0046-direct-stock",
+      "head": "c9bc4015877224d2d5fe2dfb3cd39bb0dc600b80",
+      "report_commit": "c9bc4015877224d2d5fe2dfb3cd39bb0dc600b80",
+      "report_path": "docs/agent-reports/eld-rd-reviewer/WP-0046/002_2026-11-28_review_eld-rd-reviewer.md",
+      "report_blob": "8b147b14736f458f014ec62c90418b6d09ef85f7",
+      "files": 53
+    },
+    "gemini_closing": {
+      "report_path": "docs/agent-reports/eld-owner-probe/WP-0046/004_2026-11-28_research_eld-owner-probe.md",
+      "report_commit": "655c17500e077b0f3ff34ed93b3de02979b67510",
+      "response_commit": "376fae7e82f18d64860af6f8b5a7fb85a8c85b2d",
+      "altered_technical_candidate": false
+    }
+  },
+  "provider_and_exchange_receipts": "provider-receipts.json",
+  "preservation": "integrity.json",
+  "prospective_target_runs": 0,
+  "later_stages_released": 0
+}

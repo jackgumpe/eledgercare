@@ -1660,3 +1660,7 @@ Pinned parent e43af2e263f55478d1d551a5a095536b042589c2. [Assignment](docs/coordi
 ### WP-0046 closing evidence reconciliation
 
 The independent final audit found an additional bridge false pass (XB1) and returned findings R-F1 through R-F9 on the exact r2 candidate. Reserve /004 for the same Gemini eld-owner-probe session on research/wp-0046-direct-stock, w046-gemini, continuing from dd7982dc7d8a1c468bf90704d8fb01c60e91c7b5. [Reserved supplemental return](docs/agent-reports/eld-owner-probe/WP-0046/004_2026-11-28_research_eld-owner-probe.md). Scope is an attributable closing response to the final independent evidence, verification of the supplied finite returns and disposition of disagreements. The coordinator transports the unchanged response. No new normative text, algorithm, runtime, corpus or experiment. The last independently reviewed candidate stays pinned. Unresolved findings return to the coordinator for disposition.
+
+### WP-0046 disposition
+
+Stage 0 is complete. Both providers returned two independent first positions, exchanged arguments and reconciled the final finite evidence. The coordinator holds Stage 1a and all later runs. [Separate verdicts and exact missing bindings](docs/coordination/WP-0046/disposition.json) and [provider receipts](docs/coordination/WP-0046/provider-receipts.json).
