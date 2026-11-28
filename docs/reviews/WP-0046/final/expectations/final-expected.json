@@ -1,0 +1,32 @@
+{
+  "schema": "wp46-claude-final-expected/1",
+  "author": "eld-rd-reviewer",
+  "frozen_before_execution": true,
+  "status": "Final non-author verification of peer candidate dd7982dc7d8a1c468bf90704d8fb01c60e91c7b5. Written after inspecting controls_r2.py, register-r2.json and the reconciliation documents, and before executing any of them. Post-opening; not blind. My earlier normative answers (challenges/, expectations/, exchange/expectations/) are reused unchanged.",
+  "fields": {"required": "reviewer position (same relation semantics as exchange/expectations/peer-schema-expected.json)", "predicted_peer": "inspection-only prediction of controls_r2.py output"},
+  "cases": {
+    "XB1": {"relation": "projection", "basis": "Request 3 / E-M09: each declared delta needs its own predicate. register-r2 itself states stage1 CUDA_VISIBLE_DEVICES must be present(''); a declared delta with stage1 'GPU-X' violates it", "required": {"verdict": "M", "must_include_conflicts": ["bridge.CUDA_VISIBLE_DEVICES"]}, "predicted_peer": {"verdict": "P", "conflict_keys": [], "missing_keys": [], "details.joined": true}},
+    "XB2": {"relation": "full", "required": {"verdict": "M", "conflict_keys": ["bridge.PYTHONUTF8"], "missing_keys": []}, "predicted_peer": {"verdict": "M", "conflict_keys": ["bridge.PYTHONUTF8"], "missing_keys": []}},
+    "XB3": {"relation": "full", "required": {"verdict": "U", "conflict_keys": [], "missing_keys": ["bridge.debugger_attachment"]}, "predicted_peer": {"verdict": "U", "conflict_keys": [], "missing_keys": ["bridge.debugger_attachment"]}},
+    "XB4": {"relation": "full", "required": {"verdict": "P", "conflict_keys": [], "missing_keys": []}, "predicted_peer": {"verdict": "P", "conflict_keys": [], "missing_keys": []}}
+  },
+  "run_predictions": {
+    "controls_r2_own_16": {"exit": 0, "expected_matches": 16, "cases_total": 16},
+    "controls_r2_on_reviewer_27": {"exit": 0, "required_agreement": "27/27", "turn1_prediction_agreement": "23/27 (XC1-XC4 now fixed)"},
+    "controls_r2_on_final_4": {"exit": 0, "required_agreement": "3/4 (XB1 differs)", "prediction_agreement": "4/4"},
+    "controls_r2_claude_r1": {"exit": 0, "agreements_vs_expected_r1": 3},
+    "controls_r2_claude_49": {"exit": 0, "paper-r1-strict": "49/49", "amended-r1": "47/49, differences P3 and L3"},
+    "build_register_r2_verify": {"exit": 0, "verified": true, "total": 170, "sha256": "7e430ecd177253d3f7bada89c00f9a46ddf5832e22cabfa236566add7c682902"},
+    "recount_r2": {"n": [118, 52, 170], "unique_keys": true, "original_keys_equal_bundle_order": true,
+                   "stage_counts_total": {"0": 7, "1a": 98, "1b": 2, "2": 61, "3": 2},
+                   "binding_status_equals_header": true, "observation_status_equals_header": true, "observed_rows": 0,
+                   "scopes_match_claim": "all fields true for Pi_0, Pi_1a, Pi_1b, Pi_2, Pi_3",
+                   "bound_rows_with_placeholder_text": "nonempty; includes cpu.env.cache_and_os_keys_18 (OS pass-through 'exact_supervisor_os_value') and cpu.env.PATH ('%SystemRoot%')",
+                   "allowlist_equals_worker_env_for": true, "allowlist_n": 31, "flags_keys_equal_prior0": true,
+                   "exec_env_stage2": 6, "native_masks_top_level_removed": "15/15", "import_resolution_still_has_aggregate_booleans": true},
+    "d1_check": {"token_files_identical": true, "generated_ids": 2558, "prompt_len_values": [827],
+                 "rows_n": [618, 619, 620, 621, 622], "aligned_emission": "5/5", "starts": [584, 585, 586, 587, 588], "total_starts": 2930,
+                 "ban_1": "empty on 5/5", "scanned_final_minus_n": [1, 1, 1, 1, 1],
+                 "note": "peer reports 2,935 starts (585..589); predicted off-by-one in the start denominator only, not in D1 = empty"}
+  }
+}

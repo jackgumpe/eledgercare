@@ -1,0 +1,19 @@
+{
+  "schema": "wp46-claude-tool-predictions-post/1",
+  "author": "eld-rd-reviewer",
+  "frozen_before_execution": true,
+  "basis": "Inspection of the peer files at 84d6934d and the pinned sources at e43af2e2, before any post-opening execution.",
+  "peer_controls_own_cases": {"command": "python -I -B <peer export>/docs/research/WP-0046/controls.py --cases <peer export>/docs/research/WP-0046/control_cases.json", "exit": 0, "cases_total": 16, "expected_matches": 16},
+  "peer_register_verify": {"command": "python -I -B <peer export>/docs/research/WP-0046/build_register.py --verify", "exit": 0, "verified": true, "entry_count": 118, "unique_keys": 118, "sha256": "827cb81b08b364c0dd0022364094d01261297e37c3bf496f2f5f0eff66cb3a11"},
+  "peer_controls_on_reviewer_cases": {"exit": 0, "cases_total": 27, "required_agreement": 23, "prediction_agreement": 27, "required_disagreements_predicted": ["XC1", "XC2", "XC3", "XC4"]},
+  "reviewer_r1": {"cases": 3, "agreement": 3},
+  "audit_peer": {
+    "keys": {"n": 118, "same_order_as_bundle": true, "earliest_stage_preserved": 118, "header_counts_match": true},
+    "literals": {"dist": [32, 32], "model": [18, 18], "options": [16, 16], "inputs": [2, 2], "native": [15, 15], "runtime_file_digests": "all true", "dynamic": true, "route_image": true, "device_uuid": true},
+    "env_rows": "all six e_child values equal the worker literals",
+    "register_rows_with_machine_closed_env_rule": 0,
+    "stage1_cuda_visible_devices_row": false,
+    "references": "historical references resolve; prospective locators about 110; unresolved list may be nonempty (no firm prediction)",
+    "closure_module_scope_effects": "no call-valued module-scope statement in any of the 7 files"
+  }
+}

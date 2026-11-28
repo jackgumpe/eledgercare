@@ -1,0 +1,1092 @@
+{
+ "schema": "wp46-claude-peer-schema-cases/1",
+ "author": "eld-rd-reviewer",
+ "status": "post-opening constructed cases in the peer controls.py batch schema; label-free (no expected_return); answers in ../expectations/peer-schema-expected.json",
+ "cases": [
+  {
+   "case_id": "XS1",
+   "kind": "startup",
+   "projection_of": "S1",
+   "stage": 1,
+   "input": {
+    "expected": {
+     "e_launch": {},
+     "e_child": {
+      "PYTHONHASHSEED": {
+       "state": "present",
+       "value": "0"
+      }
+     },
+     "flags": {
+      "ignore_environment": 0,
+      "hash_randomization": 0
+     },
+     "resolution": {}
+    },
+    "observed": {
+     "e_launch": {},
+     "e_child": {
+      "PYTHONHASHSEED": {
+       "state": "present",
+       "value": "0"
+      }
+     },
+     "flags": {
+      "ignore_environment": {
+       "state": "present",
+       "value": 1
+      },
+      "hash_randomization": {
+       "state": "present",
+       "value": 1
+      }
+     },
+     "resolution": {}
+    }
+   }
+  },
+  {
+   "case_id": "XS3",
+   "kind": "startup",
+   "projection_of": "S3",
+   "stage": 1,
+   "input": {
+    "expected": {
+     "e_launch": {},
+     "e_child": {
+      "PYTHONHASHSEED": {
+       "state": "present",
+       "value": "0"
+      }
+     },
+     "flags": {
+      "ignore_environment": 0,
+      "hash_randomization": 0
+     },
+     "resolution": {}
+    },
+    "observed": {
+     "e_launch": {},
+     "e_child": {
+      "PYTHONHASHSEED": {
+       "state": "present",
+       "value": "0"
+      }
+     },
+     "flags": {
+      "ignore_environment": {
+       "state": "unobserved"
+      },
+      "hash_randomization": {
+       "state": "unobserved"
+      }
+     },
+     "resolution": {}
+    }
+   }
+  },
+  {
+   "case_id": "XS6",
+   "kind": "startup",
+   "projection_of": "S6",
+   "stage": 1,
+   "input": {
+    "expected": {
+     "e_launch": {},
+     "e_child": {
+      "PYTHONPATH": {
+       "state": "absent"
+      },
+      "PYTHONCASEOK": {
+       "state": "absent"
+      }
+     },
+     "flags": {},
+     "resolution": {}
+    },
+    "observed": {
+     "e_launch": {},
+     "e_child": {
+      "PYTHONPATH": {
+       "state": "present",
+       "value": ""
+      },
+      "PYTHONCASEOK": {
+       "state": "unobserved"
+      }
+     },
+     "flags": {},
+     "resolution": {}
+    }
+   }
+  },
+  {
+   "case_id": "XC1",
+   "kind": "startup",
+   "projection_of": "new",
+   "stage": 1,
+   "input": {
+    "expected": {
+     "e_launch": {},
+     "e_child": {
+      "PYTHONHASHSEED": {
+       "state": "present",
+       "value": "0"
+      }
+     },
+     "flags": {},
+     "resolution": {}
+    },
+    "observed": {
+     "e_launch": {},
+     "e_child": {
+      "PYTHONHASHSEED": {
+       "state": "present",
+       "value": "0"
+      },
+      "PYTHONCASEOK": {
+       "state": "present",
+       "value": "1"
+      }
+     },
+     "flags": {},
+     "resolution": {}
+    }
+   }
+  },
+  {
+   "case_id": "XI1",
+   "kind": "inventory",
+   "projection_of": "I1",
+   "stage": 1,
+   "input": {
+    "qr_authenticated": true,
+    "inventory_custody": true,
+    "expected_keys": [
+     "a",
+     "b"
+    ],
+    "sealed_keys": [
+     "a"
+    ],
+    "read_keys": [
+     "a"
+    ],
+    "members": {
+     "a": {
+      "writer_ok": true,
+      "bound_write": true,
+      "seal_ok": true,
+      "handle_covers_interval": true,
+      "share_excludes_write_delete": true,
+      "scorer_share_read_only": true,
+      "object_id_match": true,
+      "digest_match": true,
+      "physical_object_id": [
+       1,
+       1
+      ]
+     }
+    }
+   }
+  },
+  {
+   "case_id": "XI3",
+   "kind": "inventory",
+   "projection_of": "I3",
+   "stage": 1,
+   "input": {
+    "qr_authenticated": true,
+    "inventory_custody": true,
+    "expected_keys": null,
+    "sealed_keys": [
+     "a",
+     "b"
+    ],
+    "read_keys": [
+     "a"
+    ],
+    "members": {
+     "a": {
+      "writer_ok": true,
+      "bound_write": true,
+      "seal_ok": true,
+      "handle_covers_interval": true,
+      "share_excludes_write_delete": true,
+      "scorer_share_read_only": true,
+      "object_id_match": true,
+      "digest_match": true,
+      "physical_object_id": [
+       1,
+       1
+      ]
+     },
+     "b": {
+      "writer_ok": true,
+      "bound_write": true,
+      "seal_ok": true,
+      "handle_covers_interval": true,
+      "share_excludes_write_delete": true,
+      "scorer_share_read_only": true,
+      "object_id_match": true,
+      "digest_match": true,
+      "physical_object_id": [
+       1,
+       2
+      ]
+     }
+    }
+   }
+  },
+  {
+   "case_id": "XI5",
+   "kind": "inventory",
+   "projection_of": "I5",
+   "stage": 1,
+   "input": {
+    "qr_authenticated": true,
+    "inventory_custody": true,
+    "expected_keys": [
+     "a",
+     "b"
+    ],
+    "sealed_keys": [
+     "a",
+     "b"
+    ],
+    "read_keys": [
+     "a",
+     "b"
+    ],
+    "members": {
+     "a": {
+      "writer_ok": true,
+      "bound_write": true,
+      "seal_ok": true,
+      "handle_covers_interval": true,
+      "share_excludes_write_delete": true,
+      "scorer_share_read_only": true,
+      "object_id_match": true,
+      "digest_match": true,
+      "physical_object_id": [
+       1,
+       1
+      ]
+     },
+     "b": {
+      "writer_ok": true,
+      "bound_write": true,
+      "seal_ok": true,
+      "handle_covers_interval": true,
+      "share_excludes_write_delete": true,
+      "scorer_share_read_only": true,
+      "object_id_match": true,
+      "digest_match": true,
+      "physical_object_id": [
+       1,
+       1
+      ]
+     }
+    }
+   }
+  },
+  {
+   "case_id": "XC2",
+   "kind": "inventory",
+   "projection_of": "new",
+   "stage": 1,
+   "input": {
+    "qr_authenticated": true,
+    "inventory_custody": true,
+    "expected_keys": null,
+    "sealed_keys": [
+     "a"
+    ],
+    "read_keys": [
+     "a"
+    ],
+    "members": {
+     "a": {
+      "writer_ok": false,
+      "bound_write": true,
+      "seal_ok": true,
+      "handle_covers_interval": true,
+      "share_excludes_write_delete": true,
+      "scorer_share_read_only": true,
+      "object_id_match": true,
+      "digest_match": true,
+      "physical_object_id": [
+       1,
+       1
+      ]
+     }
+    }
+   }
+  },
+  {
+   "case_id": "XC4",
+   "kind": "inventory",
+   "projection_of": "I6a",
+   "stage": 1,
+   "input": {
+    "qr_authenticated": true,
+    "inventory_custody": true,
+    "expected_keys": [
+     "a",
+     "b"
+    ],
+    "sealed_keys": [
+     "a",
+     "b"
+    ],
+    "read_keys": [
+     "b",
+     "a"
+    ],
+    "members": {
+     "a": {
+      "writer_ok": true,
+      "bound_write": true,
+      "seal_ok": true,
+      "handle_covers_interval": true,
+      "share_excludes_write_delete": true,
+      "scorer_share_read_only": true,
+      "object_id_match": true,
+      "digest_match": true,
+      "physical_object_id": [
+       1,
+       1
+      ]
+     },
+     "b": {
+      "writer_ok": true,
+      "bound_write": true,
+      "seal_ok": true,
+      "handle_covers_interval": true,
+      "share_excludes_write_delete": true,
+      "scorer_share_read_only": true,
+      "object_id_match": true,
+      "digest_match": true,
+      "physical_object_id": [
+       1,
+       2
+      ]
+     }
+    },
+    "ordered": true
+   }
+  },
+  {
+   "case_id": "XP1",
+   "kind": "score_phase",
+   "projection_of": "P1",
+   "stage": 2,
+   "input": {
+    "vocab_size": 3,
+    "raw": [
+     1065353216,
+     1065353216,
+     1065353216
+    ],
+    "rep": [
+     1065353216,
+     1065353216,
+     4286578687
+    ],
+    "page": [
+     4286578688,
+     1065353216,
+     4286578688
+    ],
+    "mask1": [
+     2
+    ],
+    "mask2": [
+     0
+    ],
+    "emitted": {
+     "state": "present",
+     "value": 1
+    }
+   }
+  },
+  {
+   "case_id": "XP2",
+   "kind": "score_phase",
+   "projection_of": "P2",
+   "stage": 2,
+   "input": {
+    "vocab_size": 3,
+    "raw": [
+     1084227584,
+     2143289344,
+     1073741824
+    ],
+    "rep": [
+     1084227584,
+     2143289344,
+     1073741824
+    ],
+    "page": [
+     1084227584,
+     4286578688,
+     1073741824
+    ],
+    "mask1": [],
+    "mask2": [
+     1
+    ],
+    "emitted": {
+     "state": "present",
+     "value": 0
+    }
+   }
+  },
+  {
+   "case_id": "XP3",
+   "kind": "score_phase",
+   "projection_of": "P3",
+   "stage": 2,
+   "input": {
+    "vocab_size": 2,
+    "raw": [
+     1065353216,
+     1065353216
+    ],
+    "rep": [
+     4286578688,
+     1065353216
+    ],
+    "page": [
+     4286578688,
+     4286578688
+    ],
+    "mask1": [
+     0
+    ],
+    "mask2": [
+     1
+    ],
+    "emitted": {
+     "state": "present",
+     "value": 0
+    }
+   }
+  },
+  {
+   "case_id": "XP4",
+   "kind": "score_phase",
+   "projection_of": "P4",
+   "stage": 2,
+   "input": {
+    "vocab_size": 2,
+    "raw": [
+     1073741824,
+     1065353216
+    ],
+    "rep": [
+     1073741824,
+     1065353216
+    ],
+    "page": [
+     1073741824,
+     1065353216
+    ],
+    "mask1": [],
+    "mask2": [],
+    "emitted": {
+     "state": "present",
+     "value": 1
+    }
+   }
+  },
+  {
+   "case_id": "XP5",
+   "kind": "score_phase",
+   "projection_of": "P5a",
+   "stage": 2,
+   "input": {
+    "vocab_size": 2,
+    "raw": [
+     2147483648,
+     0
+    ],
+    "rep": [
+     2147483648,
+     0
+    ],
+    "page": [
+     2147483648,
+     0
+    ],
+    "mask1": [],
+    "mask2": [],
+    "emitted": {
+     "state": "present",
+     "value": 0
+    }
+   }
+  },
+  {
+   "case_id": "XP7",
+   "kind": "score_phase",
+   "projection_of": "P7",
+   "stage": 2,
+   "input": {
+    "vocab_size": 2,
+    "raw": [
+     1065353216,
+     2143289344
+    ],
+    "rep": [
+     1065353216,
+     2143289344
+    ],
+    "page": [
+     1065353216,
+     2143289344
+    ],
+    "mask1": [],
+    "mask2": [],
+    "emitted": {
+     "state": "unobserved"
+    }
+   }
+  },
+  {
+   "case_id": "XJ1",
+   "kind": "replay_gate",
+   "projection_of": "J1",
+   "stage": 2,
+   "input": {
+    "run_id": "r1",
+    "stock_verdicts": {
+     "r1": "P",
+     "r2": "P"
+    },
+    "P3_complete_and_consistent": true,
+    "Rev3_independently_reviewed": true,
+    "candidate_rows": [
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1445,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1446,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1447,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1448,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r2",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1449,
+      "original_bound": true,
+      "restorable": true
+     }
+    ]
+   }
+  },
+  {
+   "case_id": "XJ3",
+   "kind": "replay_gate",
+   "projection_of": "J3",
+   "stage": 2,
+   "input": {
+    "run_id": "r1",
+    "stock_verdicts": {
+     "r1": "P",
+     "r2": "P"
+    },
+    "P3_complete_and_consistent": true,
+    "Rev3_independently_reviewed": true,
+    "candidate_rows": [
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1445,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1446,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1447,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1448,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warmup",
+      "position": 1449,
+      "original_bound": true,
+      "restorable": true
+     }
+    ]
+   }
+  },
+  {
+   "case_id": "XJ4",
+   "kind": "replay_gate",
+   "projection_of": "J4",
+   "stage": 2,
+   "input": {
+    "run_id": "r1",
+    "stock_verdicts": {
+     "r1": "P",
+     "r2": "P"
+    },
+    "P3_complete_and_consistent": true,
+    "Rev3_independently_reviewed": true,
+    "candidate_rows": [
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1445,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1446,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1447,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1448,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "untouched",
+      "call": "F07.warm1",
+      "position": 1449,
+      "original_bound": true,
+      "restorable": true
+     }
+    ]
+   }
+  },
+  {
+   "case_id": "XJ5",
+   "kind": "replay_gate",
+   "projection_of": "J5",
+   "stage": 2,
+   "input": {
+    "run_id": "r1",
+    "stock_verdicts": {
+     "r1": "P",
+     "r2": "P"
+    },
+    "P3_complete_and_consistent": true,
+    "Rev3_independently_reviewed": true,
+    "candidate_rows": [
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1445,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1446,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1447,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1448,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1449,
+      "original_bound": true,
+      "restorable": true
+     }
+    ]
+   }
+  },
+  {
+   "case_id": "XJ6",
+   "kind": "replay_gate",
+   "projection_of": "J6",
+   "stage": 2,
+   "input": {
+    "run_id": "r1",
+    "stock_verdicts": {
+     "r1": "P",
+     "r2": "P"
+    },
+    "P3_complete_and_consistent": false,
+    "Rev3_independently_reviewed": true,
+    "candidate_rows": [
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1445,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1446,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1447,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1448,
+      "original_bound": true,
+      "restorable": true
+     },
+     {
+      "run": "r1",
+      "arm": "observed",
+      "call": "F07.warm1",
+      "position": 1449,
+      "original_bound": true,
+      "restorable": true
+     }
+    ]
+   }
+  },
+  {
+   "case_id": "XA1",
+   "kind": "assess",
+   "projection_of": "A1",
+   "stage": 0,
+   "input": {
+    "stage": 0,
+    "atoms": [
+     {
+      "key": "backend.tf32",
+      "due_stage": 2,
+      "observed": {
+       "state": "unobserved"
+      },
+      "prescriptions": [
+       {
+        "state": "present",
+        "values": [
+         {
+          "state": "present",
+          "value": true
+         }
+        ]
+       },
+       {
+        "state": "present",
+        "values": [
+         {
+          "state": "present",
+          "value": false
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "required_binding_stages": [
+     0
+    ]
+   }
+  },
+  {
+   "case_id": "XA2a",
+   "kind": "assess",
+   "projection_of": "A2a",
+   "stage": 1,
+   "input": {
+    "stage": 1,
+    "atoms": [
+     {
+      "key": "cpu.hash.hash_randomization",
+      "due_stage": 1,
+      "observed": {
+       "state": "present",
+       "value": 0
+      },
+      "prescriptions": [
+       {
+        "state": "present",
+        "values": [
+         {
+          "state": "present",
+          "value": 0
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "key": "private.parity",
+      "due_stage": 3,
+      "observed": {
+       "state": "unobserved"
+      },
+      "prescriptions": [
+       {
+        "state": "unobserved"
+       }
+      ]
+     }
+    ],
+    "required_binding_stages": [
+     0,
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "case_id": "XA2b",
+   "kind": "assess",
+   "projection_of": "A2b",
+   "stage": 1,
+   "input": {
+    "stage": 1,
+    "atoms": [
+     {
+      "key": "cpu.hash.hash_randomization",
+      "due_stage": 1,
+      "observed": {
+       "state": "present",
+       "value": 0
+      },
+      "prescriptions": [
+       {
+        "state": "present",
+        "values": [
+         {
+          "state": "present",
+          "value": 0
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "key": "private.parity",
+      "due_stage": 3,
+      "observed": {
+       "state": "unobserved"
+      },
+      "prescriptions": [
+       {
+        "state": "unobserved"
+       }
+      ]
+     }
+    ],
+    "required_binding_stages": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "case_id": "XC3",
+   "kind": "assess",
+   "projection_of": "new",
+   "stage": 2,
+   "input": {
+    "stage": 2,
+    "atoms": [
+     {
+      "key": "cpu.import.dll_origins",
+      "due_stage": 1,
+      "observed": {
+       "state": "present",
+       "value": "pinned-set"
+      },
+      "prescriptions": [
+       {
+        "state": "unobserved"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "case_id": "XD1",
+   "kind": "crosswalk_diagnostics",
+   "projection_of": "D1",
+   "stage": 0,
+   "input": {
+    "comparisons": [
+     {
+      "key": "d1",
+      "J_k": 0,
+      "left": {
+       "state": "unobserved"
+      },
+      "right": {
+       "state": "unobserved"
+      },
+      "mandatory": true
+     }
+    ],
+    "order_edges": []
+   }
+  },
+  {
+   "case_id": "XD4",
+   "kind": "crosswalk_diagnostics",
+   "projection_of": "D4",
+   "stage": 0,
+   "input": {
+    "comparisons": [
+     {
+      "key": "d4",
+      "J_k": 1,
+      "left": {
+       "state": "absent"
+      },
+      "right": {
+       "state": "present",
+       "value": ""
+      },
+      "mandatory": true
+     }
+    ],
+    "order_edges": []
+   }
+  },
+  {
+   "case_id": "XD6",
+   "kind": "crosswalk_diagnostics",
+   "projection_of": "D6",
+   "stage": 0,
+   "input": {
+    "comparisons": [
+     {
+      "key": "a",
+      "J_k": 1,
+      "left": {
+       "state": "present",
+       "value": 1
+      },
+      "right": {
+       "state": "present",
+       "value": 2
+      },
+      "mandatory": true
+     },
+     {
+      "key": "c",
+      "J_k": 1,
+      "left": {
+       "state": "present",
+       "value": 3
+      },
+      "right": {
+       "state": "present",
+       "value": 4
+      },
+      "mandatory": true
+     }
+    ],
+    "order_edges": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,171 @@
+{
+  "cases_total": 4,
+  "expected_matches": 0,
+  "expected_mismatches": 0,
+  "mismatch_ids": [],
+  "results": [
+    {
+      "case_id": "XB1",
+      "kind": "bridge_delta",
+      "matched_expected": null,
+      "result": {
+        "arm": "bridge",
+        "case_id": "XB1",
+        "clause": "T8a Eq. (12) M2 Delta(e1, e2)",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage2.pre_admission_bridge",
+        "deferred": [],
+        "details": {
+          "declared_deltas": [
+            "CUDA_VISIBLE_DEVICES"
+          ],
+          "joined": true
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-1 to Stage-2 Delta(e1, e2) bridge",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    },
+    {
+      "case_id": "XB2",
+      "kind": "bridge_delta",
+      "matched_expected": null,
+      "result": {
+        "arm": "bridge",
+        "case_id": "XB2",
+        "clause": "T8a Eq. (12) M2 Delta(e1, e2)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "bridge.PYTHONUTF8"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "bridge.PYTHONUTF8",
+            "reason": "undeclared_stage1_to_stage2_delta",
+            "stage1": {
+              "state": "present",
+              "value": "1"
+            },
+            "stage2": {
+              "state": "absent"
+            }
+          }
+        ],
+        "cut": "stage2.pre_admission_bridge",
+        "deferred": [],
+        "details": {
+          "declared_deltas": [
+            "CUDA_VISIBLE_DEVICES"
+          ],
+          "joined": false
+        },
+        "first_conflict": [
+          "bridge.PYTHONUTF8"
+        ],
+        "first_finding": [
+          "bridge.PYTHONUTF8"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-1 to Stage-2 Delta(e1, e2) bridge",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XB3",
+      "kind": "bridge_delta",
+      "matched_expected": null,
+      "result": {
+        "arm": "bridge",
+        "case_id": "XB3",
+        "clause": "T8a Eq. (12) M2 Delta(e1, e2)",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage2.pre_admission_bridge",
+        "deferred": [],
+        "details": {
+          "declared_deltas": [],
+          "joined": false
+        },
+        "first_conflict": [],
+        "first_finding": [
+          "bridge.debugger_attachment"
+        ],
+        "missing": [
+          {
+            "key": "bridge.debugger_attachment",
+            "reason": "projection_field_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "bridge.debugger_attachment"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-1 to Stage-2 Delta(e1, e2) bridge",
+        "verdict": "U"
+      },
+      "verdict": "U"
+    },
+    {
+      "case_id": "XB4",
+      "kind": "bridge_delta",
+      "matched_expected": null,
+      "result": {
+        "arm": "bridge",
+        "case_id": "XB4",
+        "clause": "T8a Eq. (12) M2 Delta(e1, e2)",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage2.pre_admission_bridge",
+        "deferred": [],
+        "details": {
+          "declared_deltas": [
+            "CUDA_VISIBLE_DEVICES"
+          ],
+          "joined": true
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-1 to Stage-2 Delta(e1, e2) bridge",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    }
+  ],
+  "schema": "wp0046-control-r2-results/1",
+  "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+  "verdict_counts": {
+    "M": 1,
+    "P": 2,
+    "U": 1
+  }
+}

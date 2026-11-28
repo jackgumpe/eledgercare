@@ -1,0 +1,352 @@
+{
+ "n_original": 118,
+ "n_extended": 52,
+ "n_total": 170,
+ "unique_keys": true,
+ "original_keys_equal_bundle_order": true,
+ "stage_counts": {
+  "original": {
+   "0": 7,
+   "1a": 57,
+   "2": 52,
+   "3": 2
+  },
+  "extended": {
+   "1a": 41,
+   "1b": 2,
+   "2": 9
+  },
+  "total": {
+   "0": 7,
+   "1a": 98,
+   "1b": 2,
+   "2": 61,
+   "3": 2
+  }
+ },
+ "binding_status": {
+  "bound_static_rule": 107,
+  "deferred_stage3": 2,
+  "pending_independent_review_rev0": 1,
+  "pending_stage1a_code_or_review_binding": 4,
+  "pending_stage1b_code_or_review_binding": 1,
+  "pending_stage2_code_or_review_binding": 42,
+  "unbound_pre_stage1a": 4,
+  "unbound_stage1b": 1,
+  "unbound_stage2": 8
+ },
+ "observation_status": {
+  "pending_rev0_digest_receipt": 7,
+  "unobserved_prospective_stage1a": 98,
+  "unobserved_prospective_stage1b": 2,
+  "unobserved_prospective_stage2": 61,
+  "unobserved_prospective_stage3": 2
+ },
+ "observed_rows": 0,
+ "scopes": {
+  "Pi_0": {
+   "recomputed": {
+    "total": 7,
+    "bound_static_rule": 6,
+    "pending_or_unbound": [
+     "limits"
+    ],
+    "hard_unbound": [],
+    "deferred_non_bound_outside": 62
+   },
+   "matches_claim": {
+    "total": true,
+    "bound_static_rule": true,
+    "pending_or_unbound": true,
+    "hard_unbound": true,
+    "deferred_non_bound_outside": true
+   }
+  },
+  "Pi_1a": {
+   "recomputed": {
+    "total": 105,
+    "bound_static_rule": 96,
+    "pending_or_unbound": [
+     "cpu.controls.stage1a_3_live_controls",
+     "cpu.entry.coordinator_roots_manifest",
+     "cpu.entry.stage1a_source_pin",
+     "cpu.import_resolution",
+     "cpu.original_inventory",
+     "cpu.route_rehearsal",
+     "limits",
+     "static.venv.pth_inventory",
+     "static.venv.pyvenv_cfg"
+    ],
+    "hard_unbound": [
+     "cpu.entry.coordinator_roots_manifest",
+     "cpu.entry.stage1a_source_pin",
+     "static.venv.pth_inventory",
+     "static.venv.pyvenv_cfg"
+    ],
+    "deferred_non_bound_outside": 54
+   },
+   "matches_claim": {
+    "total": true,
+    "bound_static_rule": true,
+    "pending_or_unbound": true,
+    "hard_unbound": true,
+    "deferred_non_bound_outside": true
+   }
+  },
+  "Pi_1b": {
+   "recomputed": {
+    "total": 107,
+    "bound_static_rule": 96,
+    "pending_or_unbound": [
+     "cpu.controls.stage1a_3_live_controls",
+     "cpu.entry.coordinator_roots_manifest",
+     "cpu.entry.stage1a_source_pin",
+     "cpu.import_resolution",
+     "cpu.original_inventory",
+     "cpu.route_rehearsal",
+     "cpu.stage1b.entry_source_pin",
+     "cpu.stage1b.torch_import_and_dlls",
+     "limits",
+     "static.venv.pth_inventory",
+     "static.venv.pyvenv_cfg"
+    ],
+    "hard_unbound": [
+     "cpu.entry.coordinator_roots_manifest",
+     "cpu.entry.stage1a_source_pin",
+     "cpu.stage1b.entry_source_pin",
+     "static.venv.pth_inventory",
+     "static.venv.pyvenv_cfg"
+    ],
+    "deferred_non_bound_outside": 52
+   },
+   "matches_claim": {
+    "total": true,
+    "bound_static_rule": true,
+    "pending_or_unbound": true,
+    "hard_unbound": true,
+    "deferred_non_bound_outside": true
+   }
+  },
+  "Pi_2": {
+   "recomputed": {
+    "total": 168,
+    "bound_static_rule": 107,
+    "pending_or_unbound": [
+     "cpu.controls.stage1a_3_live_controls",
+     "cpu.entry.coordinator_roots_manifest",
+     "cpu.entry.stage1a_source_pin",
+     "cpu.import_resolution",
+     "cpu.original_inventory",
+     "cpu.route_rehearsal",
+     "cpu.stage1b.entry_source_pin",
+     "cpu.stage1b.torch_import_and_dlls",
+     "exec.backend",
+     "exec.configuration",
+     "exec.creator",
+     "exec.device",
+     "exec.env.CUDA_VISIBLE_DEVICES",
+     "exec.options.base_size",
+     "exec.options.crop_mode",
+     "exec.options.dash_topm",
+     "exec.options.eval_mode",
+     "exec.options.image_size",
+     "exec.options.max_crops",
+     "exec.options.max_length",
+     "exec.options.max_page_tokens",
+     "exec.options.ngram_whitelist_token_ids",
+     "exec.options.no_repeat_ngram_size",
+     "exec.options.output_path",
+     "exec.options.page_count_guard",
+     "exec.options.save_results",
+     "exec.options.temperature",
+     "exec.options.test_compress",
+     "exec.options.tps_interval",
+     "exec.original",
+     "exec.original_continuity",
+     "gate.stage1_to_stage2_bridge",
+     "limits",
+     "native.1445.C0_raw",
+     "native.1445.C1_post_rep",
+     "native.1445.C2_post_page",
+     "native.1445.support_choice",
+     "native.1446.C0_raw",
+     "native.1446.C1_post_rep",
+     "native.1446.C2_post_page",
+     "native.1446.support_choice",
+     "native.1447.C0_raw",
+     "native.1447.C1_post_rep",
+     "native.1447.C2_post_page",
+     "native.1447.support_choice",
+     "native.1448.C0_raw",
+     "native.1448.C1_post_rep",
+     "native.1448.C2_post_page",
+     "native.1448.support_choice",
+     "native.1449.C0_raw",
+     "native.1449.C1_post_rep",
+     "native.1449.C2_post_page",
+     "native.1449.support_choice",
+     "native.snapshot",
+     "native.storage",
+     "native.support_choice",
+     "stage2.binding.infer_entry_resolution",
+     "stage2.binding.scorer_finiteness_fix",
+     "stage2.binding.scorer_phase_local_fix",
+     "static.venv.pth_inventory",
+     "static.venv.pyvenv_cfg"
+    ],
+    "hard_unbound": [
+     "cpu.entry.coordinator_roots_manifest",
+     "cpu.entry.stage1a_source_pin",
+     "cpu.stage1b.entry_source_pin",
+     "exec.backend",
+     "exec.configuration",
+     "exec.creator",
+     "exec.device",
+     "exec.env.CUDA_VISIBLE_DEVICES",
+     "stage2.binding.infer_entry_resolution",
+     "stage2.binding.scorer_finiteness_fix",
+     "stage2.binding.scorer_phase_local_fix",
+     "static.venv.pth_inventory",
+     "static.venv.pyvenv_cfg"
+    ],
+    "deferred_non_bound_outside": 2
+   },
+   "matches_claim": {
+    "total": true,
+    "bound_static_rule": true,
+    "pending_or_unbound": true,
+    "hard_unbound": true,
+    "deferred_non_bound_outside": true
+   }
+  },
+  "Pi_3": {
+   "recomputed": {
+    "total": 170,
+    "bound_static_rule": 107,
+    "pending_or_unbound": [
+     "cpu.controls.stage1a_3_live_controls",
+     "cpu.entry.coordinator_roots_manifest",
+     "cpu.entry.stage1a_source_pin",
+     "cpu.import_resolution",
+     "cpu.original_inventory",
+     "cpu.route_rehearsal",
+     "cpu.stage1b.entry_source_pin",
+     "cpu.stage1b.torch_import_and_dlls",
+     "exec.backend",
+     "exec.configuration",
+     "exec.creator",
+     "exec.device",
+     "exec.env.CUDA_VISIBLE_DEVICES",
+     "exec.options.base_size",
+     "exec.options.crop_mode",
+     "exec.options.dash_topm",
+     "exec.options.eval_mode",
+     "exec.options.image_size",
+     "exec.options.max_crops",
+     "exec.options.max_length",
+     "exec.options.max_page_tokens",
+     "exec.options.ngram_whitelist_token_ids",
+     "exec.options.no_repeat_ngram_size",
+     "exec.options.output_path",
+     "exec.options.page_count_guard",
+     "exec.options.save_results",
+     "exec.options.temperature",
+     "exec.options.test_compress",
+     "exec.options.tps_interval",
+     "exec.original",
+     "exec.original_continuity",
+     "gate.stage1_to_stage2_bridge",
+     "limits",
+     "native.1445.C0_raw",
+     "native.1445.C1_post_rep",
+     "native.1445.C2_post_page",
+     "native.1445.support_choice",
+     "native.1446.C0_raw",
+     "native.1446.C1_post_rep",
+     "native.1446.C2_post_page",
+     "native.1446.support_choice",
+     "native.1447.C0_raw",
+     "native.1447.C1_post_rep",
+     "native.1447.C2_post_page",
+     "native.1447.support_choice",
+     "native.1448.C0_raw",
+     "native.1448.C1_post_rep",
+     "native.1448.C2_post_page",
+     "native.1448.support_choice",
+     "native.1449.C0_raw",
+     "native.1449.C1_post_rep",
+     "native.1449.C2_post_page",
+     "native.1449.support_choice",
+     "native.snapshot",
+     "native.storage",
+     "native.support_choice",
+     "private.parity",
+     "private.plan",
+     "stage2.binding.infer_entry_resolution",
+     "stage2.binding.scorer_finiteness_fix",
+     "stage2.binding.scorer_phase_local_fix",
+     "static.venv.pth_inventory",
+     "static.venv.pyvenv_cfg"
+    ],
+    "hard_unbound": [
+     "cpu.entry.coordinator_roots_manifest",
+     "cpu.entry.stage1a_source_pin",
+     "cpu.stage1b.entry_source_pin",
+     "exec.backend",
+     "exec.configuration",
+     "exec.creator",
+     "exec.device",
+     "exec.env.CUDA_VISIBLE_DEVICES",
+     "stage2.binding.infer_entry_resolution",
+     "stage2.binding.scorer_finiteness_fix",
+     "stage2.binding.scorer_phase_local_fix",
+     "static.venv.pth_inventory",
+     "static.venv.pyvenv_cfg"
+    ],
+    "deferred_non_bound_outside": 0
+   },
+   "matches_claim": {
+    "total": true,
+    "bound_static_rule": true,
+    "pending_or_unbound": true,
+    "hard_unbound": false,
+    "deferred_non_bound_outside": true
+   }
+  }
+ },
+ "bound_rows_with_placeholder_text": [
+  "cpu.env.PATH",
+  "cpu.env.cache_and_os_keys_18",
+  "exec.inputs",
+  "route.design"
+ ],
+ "allowlist_equals_worker_env_for": true,
+ "allowlist_n": 31,
+ "flags_keys_equal_prior0": true,
+ "flags_types": {
+  "dev_mode": "bool",
+  "safe_path": "bool"
+ },
+ "exec_env_stage2": 6,
+ "cpu_env_rows": [
+  "cpu.env.CUDA_DEVICE_ORDER",
+  "cpu.env.CUDA_VISIBLE_DEVICES",
+  "cpu.env.HF_HOME",
+  "cpu.env.HF_HUB_OFFLINE",
+  "cpu.env.HF_MODULES_CACHE",
+  "cpu.env.PATH",
+  "cpu.env.PYTHONDONTWRITEBYTECODE",
+  "cpu.env.PYTHONHASHSEED",
+  "cpu.env.PYTHONIOENCODING",
+  "cpu.env.PYTHONNOUSERSITE",
+  "cpu.env.PYTHONUNBUFFERED",
+  "cpu.env.PYTHONUTF8",
+  "cpu.env.TRANSFORMERS_OFFLINE",
+  "cpu.env.cache_and_os_keys_18",
+  "cpu.env.closed_allowlist_31",
+  "cpu.env.forbidden_absent_sentinels"
+ ],
+ "native_masks_top_level_removed": 15,
+ "native_rows": 15,
+ "import_resolution_still_has_aggregate_booleans": true
+}

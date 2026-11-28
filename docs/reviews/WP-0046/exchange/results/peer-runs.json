@@ -1,0 +1,130 @@
+{
+ "peer_controls_own_cases": {
+  "exit": 0,
+  "cases_total": 16,
+  "verdict_counts": {
+   "M": 12,
+   "P": 3,
+   "U": 1
+  },
+  "expected_matches": 16,
+  "expected_mismatches": 0,
+  "output_sha256": "90f4486e5c6ad37ba9815017cd16558dca2ccf8a4c2f2c359eccaa9fd6ad150d",
+  "per_case": [
+   [
+    "ctrl_01_startup_pass_direct_stock",
+    "P",
+    true
+   ],
+   [
+    "ctrl_02_startup_isolated_flag_mismatch",
+    "M",
+    true
+   ],
+   [
+    "ctrl_03_startup_bare_site_leak",
+    "M",
+    true
+   ],
+   [
+    "ctrl_04_startup_unobserved_flag_and_type_check",
+    "U",
+    true
+   ],
+   [
+    "ctrl_05_inventory_joint_omission",
+    "M",
+    true
+   ],
+   [
+    "ctrl_06_inventory_omission_with_missing_read_M_dominates_U",
+    "M",
+    true
+   ],
+   [
+    "ctrl_07_inventory_continuity_share_write_violation",
+    "M",
+    true
+   ],
+   [
+    "ctrl_08_phase_disputed_j2_both_faults",
+    "M",
+    true
+   ],
+   [
+    "ctrl_09_phase_empty_support_with_emitted_id",
+    "M",
+    true
+   ],
+   [
+    "ctrl_10_phase_partial_missing_with_rep_fault",
+    "M",
+    true
+   ],
+   [
+    "ctrl_11_phase_signed_zero_tie_pass",
+    "P",
+    true
+   ],
+   [
+    "ctrl_12_mixed_run_replay_gate_fail",
+    "M",
+    true
+   ],
+   [
+    "ctrl_13_duplicate_row_and_historical_M_gate_fail",
+    "M",
+    true
+   ],
+   [
+    "ctrl_14_replay_gate_pass_same_run_five_rows",
+    "P",
+    true
+   ],
+   [
+    "ctrl_15_assess_static_conflict_before_deferral_and_dual_minima",
+    "M",
+    true
+   ],
+   [
+    "ctrl_16_crosswalk_precedence_typed_absent_null_and_cycle_integrity",
+    "M",
+    true
+   ]
+  ]
+ },
+ "peer_register_verify": {
+  "exit": 0,
+  "stdout": {
+   "entry_count": 118,
+   "sha256": "827cb81b08b364c0dd0022364094d01261297e37c3bf496f2f5f0eff66cb3a11",
+   "stage_counts_direct_stock": {
+    "0": 7,
+    "1": 61,
+    "2": 48,
+    "3": 2
+   },
+   "stage_counts_original": {
+    "0": 8,
+    "1": 57,
+    "2": 52,
+    "3": 1
+   },
+   "status_counts": {
+    "bound_stage0": 7,
+    "prospective_stage1_bound": 61,
+    "prospective_stage2_bound": 44,
+    "prospective_stage2_requires_decision": 4,
+    "prospective_stage3_deferred": 2
+   },
+   "unique_keys": 118,
+   "verified": true
+  }
+ },
+ "peer_tree": {
+  "revision": "84d6934d96c69fd37d6fe2afde2d24dd1c431a24",
+  "export": "git archive into a fresh private directory",
+  "transported_files_equal_manifest": "8/8",
+  "transported_files_equal_git_blobs": "8/8"
+ }
+}
