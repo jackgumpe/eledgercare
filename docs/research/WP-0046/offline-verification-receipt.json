@@ -1,0 +1,70 @@
+{
+  "branch": "research/wp-0046-direct-stock",
+  "checks": {
+    "build_register_verify": {
+      "command": "python -I -B docs/research/WP-0046/build_register.py --verify",
+      "exit_code": 0,
+      "result": {
+        "entry_count": 118,
+        "sha256": "827cb81b08b364c0dd0022364094d01261297e37c3bf496f2f5f0eff66cb3a11",
+        "stage_counts_direct_stock": {
+          "0": 7,
+          "1": 61,
+          "2": 48,
+          "3": 2
+        },
+        "stage_counts_original": {
+          "0": 8,
+          "1": 57,
+          "2": 52,
+          "3": 1
+        },
+        "status_counts": {
+          "bound_stage0": 7,
+          "prospective_stage1_bound": 61,
+          "prospective_stage2_bound": 44,
+          "prospective_stage2_requires_decision": 4,
+          "prospective_stage3_deferred": 2
+        },
+        "unique_keys": 118,
+        "verified": true
+      }
+    },
+    "bundle_check_py": {
+      "command": "python -I check.py (from extracted stock-transfer-source.zip root)",
+      "exit_code": 0,
+      "expected_txt_bytes": 616,
+      "expected_txt_sha256": "35adef646987b6a6a9a68680732e5809176e3855c62fb6330337bce70d7296cf",
+      "lf_normalized_equal": true,
+      "raw_bytes_equal": false,
+      "stdout_bytes_raw": 622
+    },
+    "controls_batch": {
+      "cases_total": 16,
+      "command": "python -I -B docs/research/WP-0046/controls.py --cases docs/research/WP-0046/control_cases.json --out docs/research/WP-0046/offline-evidence.json",
+      "exit_code": 0,
+      "expected_matches": 16,
+      "expected_mismatches": 0,
+      "offline_evidence_sha256": "90f4486e5c6ad37ba9815017cd16558dca2ccf8a4c2f2c359eccaa9fd6ad150d",
+      "verdict_counts": {
+        "M": 12,
+        "P": 3,
+        "U": 1
+      }
+    }
+  },
+  "frozen_deliverable_commit": "6fa242950ffd4dfd1d19accc9271e88aada2d552",
+  "frozen_deliverables_sha256": {
+    "docs/research/WP-0046/build_register.py": "7621ecc1e7433a86f2af45ef2258de8b35cc8857b79102407561a25227dfac2e",
+    "docs/research/WP-0046/control_cases.json": "205a6c0e47636b8dfd7562c960e20261069c100f398ae6b22ca589e09e75ea6c",
+    "docs/research/WP-0046/controls.py": "cbf724a8aa78ec8f9ae51419fd95a453445253c2e77fe8ddc28813f93d92c461",
+    "docs/research/WP-0046/first.md": "850dd740eb9d73f0435e7af135191dc1afa60d361238579420eea49d8825c388",
+    "docs/research/WP-0046/proposal.md": "ffb4b43def84e5cbfce62866076755c4bb1d687fd396562d392f1602df7b1c24",
+    "docs/research/WP-0046/register.json": "827cb81b08b364c0dd0022364094d01261297e37c3bf496f2f5f0eff66cb3a11"
+  },
+  "intake_reference_commit": "e43af2e263f55478d1d551a5a095536b042589c2",
+  "prospective_target_executions": 0,
+  "reservation_base_commit": "281b71d1dbf75b8e121a1ea577c0385ae8683555",
+  "role": "eld-owner-probe",
+  "schema": "wp0046-stage0-offline-evidence-receipt/1"
+}

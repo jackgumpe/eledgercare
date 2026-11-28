@@ -1,0 +1,887 @@
+{
+  "cases_total": 16,
+  "expected_matches": 16,
+  "expected_mismatches": 0,
+  "results": [
+    {
+      "case_id": "ctrl_01_startup_pass_direct_stock",
+      "kind": "startup",
+      "matched_expected": true,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "ctrl_01_startup_pass_direct_stock",
+        "clause": "T2a",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage1.cut1a_startup",
+        "deferred": [
+          "exec.backend",
+          "exec.device"
+        ],
+        "details": {
+          "checked_groups": [
+            "e_launch",
+            "e_child",
+            "flags",
+            "resolution"
+          ]
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-s1-pass",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "direct-stock CPU rehearsal child (-s -P -B -u + __PYVENV_LAUNCHER__)",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    },
+    {
+      "case_id": "ctrl_02_startup_isolated_flag_mismatch",
+      "kind": "startup",
+      "matched_expected": true,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "ctrl_02_startup_isolated_flag_mismatch",
+        "clause": "T2a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "flags.hash_randomization",
+          "flags.ignore_environment",
+          "flags.isolated",
+          "flags.utf8_mode"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected": 0,
+            "key": "flags.hash_randomization",
+            "observed": 1,
+            "reason": "flag_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected": 0,
+            "key": "flags.ignore_environment",
+            "observed": 1,
+            "reason": "flag_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected": 0,
+            "key": "flags.isolated",
+            "observed": 1,
+            "reason": "flag_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected": 1,
+            "key": "flags.utf8_mode",
+            "observed": 0,
+            "reason": "flag_mismatch"
+          }
+        ],
+        "cut": "stage1.cut1a_startup",
+        "deferred": [],
+        "details": {
+          "checked_groups": [
+            "e_launch",
+            "e_child",
+            "flags",
+            "resolution"
+          ]
+        },
+        "first_conflict": [
+          "flags.isolated"
+        ],
+        "first_finding": [
+          "flags.isolated"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-s1-isolated",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "direct-stock CPU child launched erroneously with -I despite PYTHONHASHSEED=0",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_03_startup_bare_site_leak",
+      "kind": "startup",
+      "matched_expected": true,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "ctrl_03_startup_bare_site_leak",
+        "clause": "T2a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "e_launch.__PYVENV_LAUNCHER__",
+          "resolution.base_site_packages_in_sys_path",
+          "resolution.sys_prefix",
+          "resolution.venv_site_packages_in_sys_path"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected": {
+              "state": "present",
+              "value": "@venv/Scripts/python.exe"
+            },
+            "key": "e_launch.__PYVENV_LAUNCHER__",
+            "observed": {
+              "state": "absent"
+            },
+            "reason": "env_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected": false,
+            "key": "resolution.base_site_packages_in_sys_path",
+            "observed": true,
+            "reason": "resolution_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected": "@venv",
+            "key": "resolution.sys_prefix",
+            "observed": "@base",
+            "reason": "resolution_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected": true,
+            "key": "resolution.venv_site_packages_in_sys_path",
+            "observed": false,
+            "reason": "resolution_mismatch"
+          }
+        ],
+        "cut": "stage1.cut1a_startup",
+        "deferred": [],
+        "details": {
+          "checked_groups": [
+            "e_launch",
+            "e_child",
+            "flags",
+            "resolution"
+          ]
+        },
+        "first_conflict": [
+          "e_launch.__PYVENV_LAUNCHER__"
+        ],
+        "first_finding": [
+          "e_launch.__PYVENV_LAUNCHER__"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-s1-bare",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "bare -s -P -B -u without __PYVENV_LAUNCHER__ leaks base site-packages",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_04_startup_unobserved_flag_and_type_check",
+      "kind": "startup",
+      "matched_expected": true,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "ctrl_04_startup_unobserved_flag_and_type_check",
+        "clause": "T2a",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage1.cut1a_startup",
+        "deferred": [],
+        "details": {
+          "checked_groups": [
+            "e_launch",
+            "e_child",
+            "flags",
+            "resolution"
+          ]
+        },
+        "first_conflict": [],
+        "first_finding": [
+          "flags.hash_randomization"
+        ],
+        "missing": [
+          {
+            "key": "flags.hash_randomization",
+            "reason": "flag_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "flags.hash_randomization"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-s1-unobs",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "unobserved hash_randomization flag leaves U when no conflict exists",
+        "verdict": "U"
+      },
+      "verdict": "U"
+    },
+    {
+      "case_id": "ctrl_05_inventory_joint_omission",
+      "kind": "inventory",
+      "matched_expected": true,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "ctrl_05_inventory_joint_omission",
+        "clause": "T3a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "inventory.read_vs_expected",
+          "inventory.sealed_membership"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "inventory.read_vs_expected",
+            "reason": "read_multiset_differs_from_expected"
+          },
+          {
+            "class": "M_field",
+            "extra_in_sealed": [],
+            "key": "inventory.sealed_membership",
+            "missing_from_sealed": [
+              "cut1b-imports.json"
+            ],
+            "reason": "sealed_inventory_mismatch_against_expected"
+          }
+        ],
+        "cut": "stage1.seal_through_scorer_read",
+        "deferred": [],
+        "details": {
+          "expected_count": 2
+        },
+        "first_conflict": [
+          "inventory.sealed_membership"
+        ],
+        "first_finding": [
+          "inventory.sealed_membership"
+        ],
+        "missing": [
+          {
+            "key": "member.cut1b-imports.json.record",
+            "reason": "member_custody_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "member.cut1b-imports.json.record"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-inv-omit",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "omitted member from both sealed inventory and scorer read detected by E_r",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_06_inventory_omission_with_missing_read_M_dominates_U",
+      "kind": "inventory",
+      "matched_expected": true,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "ctrl_06_inventory_omission_with_missing_read_M_dominates_U",
+        "clause": "T3a/T4 Eq. (7)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "inventory.sealed_membership"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "extra_in_sealed": [],
+            "key": "inventory.sealed_membership",
+            "missing_from_sealed": [
+              "b"
+            ],
+            "reason": "sealed_inventory_mismatch_against_expected"
+          }
+        ],
+        "cut": "stage1.seal_through_scorer_read",
+        "deferred": [],
+        "details": {
+          "expected_count": 2
+        },
+        "first_conflict": [
+          "inventory.sealed_membership"
+        ],
+        "first_finding": [
+          "inventory.sealed_membership",
+          "member.b.record"
+        ],
+        "missing": [
+          {
+            "key": "inventory.read_keys",
+            "reason": "scorer_read_sequence_unobserved"
+          },
+          {
+            "key": "member.b.record",
+            "reason": "member_custody_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "inventory.read_keys",
+          "member.b.record"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-inv-m-over-u",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "witness exposing amendments.py bug: missing read must NOT hide omitted sealed member",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_07_inventory_continuity_share_write_violation",
+      "kind": "inventory",
+      "matched_expected": true,
+      "result": {
+        "arm": "observed",
+        "case_id": "ctrl_07_inventory_continuity_share_write_violation",
+        "clause": "T3a continuous(m)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "member.F07.warm1.json.handle_covers_interval",
+          "member.F07.warm1.json.scorer_share_read_only"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "member.F07.warm1.json.handle_covers_interval",
+            "reason": "custody_failed:handle_covers_interval"
+          },
+          {
+            "class": "M_field",
+            "key": "member.F07.warm1.json.scorer_share_read_only",
+            "reason": "custody_failed:scorer_share_read_only"
+          }
+        ],
+        "cut": "stage2.seal_through_scorer_read",
+        "deferred": [],
+        "details": {
+          "expected_count": 1
+        },
+        "first_conflict": [
+          "member.F07.warm1.json.handle_covers_interval"
+        ],
+        "first_finding": [
+          "member.F07.warm1.json.handle_covers_interval"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-inv-cont",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "endpoint hashes match but scorer open allowed FILE_SHARE_WRITE and handle gap occurred",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_08_phase_disputed_j2_both_faults",
+      "kind": "score_phase",
+      "matched_expected": true,
+      "result": {
+        "arm": "observed",
+        "case_id": "ctrl_08_phase_disputed_j2_both_faults",
+        "clause": "T5 Eq. (8) Theorem 3",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "page.2",
+          "rep.2"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected_hex": "ff7fffff",
+            "key": "page.2",
+            "observed_hex": "ff800000",
+            "reason": "phase_local_page_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected_hex": "ff800000",
+            "key": "rep.2",
+            "observed_hex": "ff7fffff",
+            "reason": "phase_local_rep_mismatch"
+          }
+        ],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [
+            1
+          ],
+          "qualified_winner": null
+        },
+        "first_conflict": [
+          "rep.2"
+        ],
+        "first_finding": [
+          "rep.2"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-t5-j2",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "WP-0045 disputed coordinate j=2 in D1\\D2 with z1[2]=ff7fffff, z2[2]=ff800000",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_09_phase_empty_support_with_emitted_id",
+      "kind": "score_phase",
+      "matched_expected": true,
+      "result": {
+        "arm": "observed",
+        "case_id": "ctrl_09_phase_empty_support_with_emitted_id",
+        "clause": "T5 Eq. (8) + X_oob",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "score.oob",
+          "score.support"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "score.oob",
+            "observed": 0,
+            "reason": "emitted_outside_support"
+          },
+          {
+            "class": "M_field",
+            "key": "score.support",
+            "reason": "empty_support"
+          }
+        ],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [],
+          "qualified_winner": null
+        },
+        "first_conflict": [
+          "score.support"
+        ],
+        "first_finding": [
+          "score.support"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-t5-empty",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "empty support A=empty with native emitted integer records both empty_support and emitted_outside_support",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_10_phase_partial_missing_with_rep_fault",
+      "kind": "score_phase",
+      "matched_expected": true,
+      "result": {
+        "arm": "observed",
+        "case_id": "ctrl_10_phase_partial_missing_with_rep_fault",
+        "clause": "T5 Eq. (8) partial-phase",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "rep.1"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected_hex": "40000000",
+            "key": "rep.1",
+            "observed_hex": "3f800000",
+            "reason": "phase_local_rep_mismatch"
+          }
+        ],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [
+            1
+          ],
+          "qualified_winner": null
+        },
+        "first_conflict": [
+          "rep.1"
+        ],
+        "first_finding": [
+          "rep.1"
+        ],
+        "missing": [
+          {
+            "key": "score.emission",
+            "reason": "emission_unobserved"
+          },
+          {
+            "key": "score.page",
+            "reason": "phase_vector_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "score.emission",
+          "score.page"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-t5-partial",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "missing page vector retains detectable repetition fault alongside missing phase",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_11_phase_signed_zero_tie_pass",
+      "kind": "score_phase",
+      "matched_expected": true,
+      "result": {
+        "arm": "observed",
+        "case_id": "ctrl_11_phase_signed_zero_tie_pass",
+        "clause": "T5 Eq. (8) signed zero",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [
+            0,
+            1
+          ],
+          "qualified_winner": 0
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-t5-sz",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "signed zero -0.0 at ID 0 ties numerically with +0.0 at ID 1, selecting smallest ID 0 while preserving exact bits",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    },
+    {
+      "case_id": "ctrl_12_mixed_run_replay_gate_fail",
+      "kind": "replay_gate",
+      "matched_expected": true,
+      "result": {
+        "arm": "observed",
+        "case_id": "ctrl_12_mixed_run_replay_gate_fail",
+        "clause": "T8a Eq. (12) J5",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "row.1449.run_join"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "row.1449.run_join",
+            "reason": "cross_run_row:r_other!=r_pass"
+          }
+        ],
+        "cut": "stage2.post_stock_qualification_gate",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "consider_private_replay": false,
+          "execute_stage3": false
+        },
+        "first_conflict": [
+          "row.1449.run_join"
+        ],
+        "first_finding": [
+          "row.1449.run_join"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "r_pass",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "four rows from passing run r_pass plus one borrowed row from r_other fail J5",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_13_duplicate_row_and_historical_M_gate_fail",
+      "kind": "replay_gate",
+      "matched_expected": true,
+      "result": {
+        "arm": "observed",
+        "case_id": "ctrl_13_duplicate_row_and_historical_M_gate_fail",
+        "clause": "T8a Eq. (12) J5",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "gate.J5_multiplicity",
+          "gate.V_stock"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "gate.J5_multiplicity",
+            "observed_count": 5,
+            "reason": "row_key_multiset_not_bijection_with_K",
+            "unique_observed_count": 4
+          },
+          {
+            "class": "M_field",
+            "key": "gate.V_stock",
+            "reason": "stock_run_not_passing:M"
+          }
+        ],
+        "cut": "stage2.post_stock_qualification_gate",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "consider_private_replay": false,
+          "execute_stage3": false
+        },
+        "first_conflict": [
+          "gate.V_stock"
+        ],
+        "first_finding": [
+          "gate.V_stock"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "wp0043_hist",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "historical WP-0043 M run with duplicated position 1448 fails both V_stock and multiplicity",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_14_replay_gate_pass_same_run_five_rows",
+      "kind": "replay_gate",
+      "matched_expected": true,
+      "result": {
+        "arm": "observed",
+        "case_id": "ctrl_14_replay_gate_pass_same_run_five_rows",
+        "clause": "T8a Eq. (12) J5",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage2.post_stock_qualification_gate",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "consider_private_replay": true,
+          "execute_stage3": false
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "r_pass",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "five unique observed F07.warm1 rows from one passing run yield considerPrivateReplay=true while execute_stage3 stays false",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    },
+    {
+      "case_id": "ctrl_15_assess_static_conflict_before_deferral_and_dual_minima",
+      "kind": "assess",
+      "matched_expected": true,
+      "result": {
+        "arm": "plan",
+        "case_id": "ctrl_15_assess_static_conflict_before_deferral_and_dual_minima",
+        "clause": "T8 Eq. (11) amended + T4 dual minima",
+        "conflict_classes": [
+          "M_static_plan"
+        ],
+        "conflict_keys": [
+          "exec.backend.tf32"
+        ],
+        "conflicts": [
+          {
+            "class": "M_static_plan",
+            "key": "exec.backend.tf32",
+            "reason": "incompatible_static_prescriptions"
+          }
+        ],
+        "cut": "stage0.assess",
+        "deferred": [
+          "exec.backend.tf32",
+          "private.plan"
+        ],
+        "details": {
+          "scope_stages": [
+            0,
+            1
+          ]
+        },
+        "first_conflict": [
+          "exec.backend.tf32"
+        ],
+        "first_finding": [
+          "route.design"
+        ],
+        "missing": [
+          {
+            "key": "route.design",
+            "reason": "missing_due_receipt"
+          }
+        ],
+        "missing_keys": [
+          "route.design"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-t8-assess",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 0,
+        "subject": "stage-0 assessment detects stage-2 TF32 static conflict before deferral and returns distinct first_conflict vs first_finding",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "ctrl_16_crosswalk_precedence_typed_absent_null_and_cycle_integrity",
+      "kind": "crosswalk_diagnostics",
+      "matched_expected": true,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "ctrl_16_crosswalk_precedence_typed_absent_null_and_cycle_integrity",
+        "clause": "T4 Eqs. (6)-(7) + T1 M_integrity",
+        "conflict_classes": [
+          "M_field",
+          "M_integrity"
+        ],
+        "conflict_keys": [
+          "absent_vs_json_null",
+          "int_zero_vs_bool_false",
+          "order.integrity"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "absent_vs_json_null",
+            "left": {
+              "state": "absent"
+            },
+            "reason": "value_or_type_difference",
+            "right": {
+              "state": "present",
+              "value": null
+            }
+          },
+          {
+            "class": "M_field",
+            "key": "int_zero_vs_bool_false",
+            "left": {
+              "state": "present",
+              "value": 0
+            },
+            "reason": "value_or_type_difference",
+            "right": {
+              "state": "present",
+              "value": false
+            }
+          },
+          {
+            "class": "M_integrity",
+            "key": "order.integrity",
+            "reason": "cyclic_order_relation"
+          }
+        ],
+        "cut": "stage0.crosswalk_and_scorer",
+        "deferred": [],
+        "details": {
+          "crosswalk": {
+            "absent_vs_json_null": "different",
+            "device_uuid_cpu_vs_gpu": "incomparable",
+            "int_zero_vs_bool_false": "different",
+            "missing_right_obs": "unobserved"
+          }
+        },
+        "first_conflict": [
+          "order.integrity"
+        ],
+        "first_finding": [
+          "order.integrity"
+        ],
+        "missing": [
+          {
+            "key": "missing_right_obs",
+            "reason": "unobserved_comparison"
+          }
+        ],
+        "missing_keys": [
+          "missing_right_obs"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed-t4-crosswalk",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 0,
+        "subject": "Eq. 6 J_k=0 before ?, ABSENT != null, 0 != false, and cyclic order yields M_integrity",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    }
+  ],
+  "schema": "wp0046-control-results/1",
+  "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+  "verdict_counts": {
+    "M": 12,
+    "P": 3,
+    "U": 1
+  }
+}

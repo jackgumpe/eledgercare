@@ -1,0 +1,284 @@
+{
+  "author": "eld-owner-probe",
+  "executed_checks_post_freeze_7131e240": {
+    "bridge_delta_4_constructed_controls": {
+      "command": "python -I -B docs/research/WP-0046/controls_r2.py --cases <constructed_bridge_delta_4.json>",
+      "exit_code": 0,
+      "results": {
+        "BD_EI5_undeclared_debugger_detach": {
+          "conflict_keys": [
+            "bridge.debugger_attached"
+          ],
+          "joined": false,
+          "verdict": "M"
+        },
+        "BD_G1_undeclared_env": {
+          "conflict_keys": [
+            "bridge.env_schema"
+          ],
+          "joined": false,
+          "verdict": "M"
+        },
+        "BD_G2_undeclared_route": {
+          "conflict_keys": [
+            "bridge.route"
+          ],
+          "joined": false,
+          "verdict": "M"
+        },
+        "BD_PASS_declared_deltas_only": {
+          "conflict_keys": [],
+          "joined": true,
+          "verdict": "P"
+        }
+      }
+    },
+    "controls_r2_on_owner_16": {
+      "cases_total": 16,
+      "command": "python -I -B docs/research/WP-0046/controls_r2.py --cases docs/research/WP-0046/control_cases.json",
+      "exit_code": 0,
+      "expected_matches": 16,
+      "expected_mismatches": 0,
+      "verdict_counts": {
+        "M": 12,
+        "P": 3,
+        "U": 1
+      }
+    },
+    "controls_r2_on_peer_27_schema_cases": {
+      "command": "python -I -B docs/research/WP-0046/controls_r2.py --cases @peer_verify/exchange/challenges/peer-schema-cases.json -> compared via @peer_verify/exchange/tools/compare_peer.py",
+      "compare_peer_summary": "required agreement 27/27; prediction agreement 23/27; returned 27",
+      "discriminator_diagnostics": {
+        "XC1": {
+          "conflict_keys": [
+            "e_child.PYTHONCASEOK"
+          ],
+          "first_conflict": [
+            "e_child.PYTHONCASEOK"
+          ],
+          "first_finding": [
+            "e_child.PYTHONCASEOK"
+          ],
+          "missing_keys": [],
+          "verdict": "M"
+        },
+        "XC2": {
+          "conflict_keys": [
+            "member.a.writer_ok"
+          ],
+          "first_conflict": [
+            "member.a.writer_ok"
+          ],
+          "first_finding": [
+            "inventory.expected_keys",
+            "member.a.writer_ok"
+          ],
+          "missing_keys": [
+            "inventory.expected_keys"
+          ],
+          "verdict": "M"
+        },
+        "XC3": {
+          "conflict_keys": [],
+          "first_conflict": [],
+          "first_finding": [
+            "cpu.import.dll_origins"
+          ],
+          "missing_keys": [
+            "cpu.import.dll_origins"
+          ],
+          "verdict": "U"
+        },
+        "XC4": {
+          "conflict_keys": [
+            "inventory.read_order"
+          ],
+          "first_conflict": [
+            "inventory.read_order"
+          ],
+          "first_finding": [
+            "inventory.read_order"
+          ],
+          "missing_keys": [],
+          "verdict": "M"
+        },
+        "XD6": {
+          "conflict_keys": [
+            "a",
+            "c"
+          ],
+          "first_conflict": [
+            "a"
+          ],
+          "first_finding": [
+            "a"
+          ],
+          "missing_keys": [],
+          "verdict": "M"
+        },
+        "XP3": {
+          "conflict_keys": [
+            "score.oob",
+            "score.support"
+          ],
+          "first_conflict": [
+            "score.oob",
+            "score.support"
+          ],
+          "first_finding": [
+            "score.oob",
+            "score.support"
+          ],
+          "missing_keys": [],
+          "verdict": "M"
+        },
+        "XP7": {
+          "conflict_keys": [
+            "raw.1"
+          ],
+          "first_conflict": [
+            "raw.1"
+          ],
+          "first_finding": [
+            "raw.1",
+            "score.emission"
+          ],
+          "missing_keys": [
+            "score.emission"
+          ],
+          "verdict": "M"
+        }
+      },
+      "exit_code": 0
+    },
+    "controls_r2_on_peer_49_turn1_cases": {
+      "amended_r1_agreements": 47,
+      "amended_r1_diff_ids": [
+        "P3",
+        "L3"
+      ],
+      "cases_total": 49,
+      "command": "python -I -B docs/research/WP-0046/controls_r2.py --claude-cases @peer_verify/challenges/cases.json --claude-expected @peer_verify/expectations/expected.json",
+      "exit_code": 0,
+      "note": "Peer accepted P3->XP3 (X_oob) and L3 (empty-view bound) post-opening in ee07ca66.",
+      "paper_r1_strict_agreements": 49
+    },
+    "controls_r2_on_peer_r1_3_order_cases": {
+      "agreements_vs_expected_r1": 3,
+      "cases": {
+        "D6r1": {
+          "minimal": [
+            "a"
+          ],
+          "order_integrity": null
+        },
+        "D7": {
+          "minimal": null,
+          "order_integrity": "cyclic"
+        },
+        "D8": {
+          "minimal": null,
+          "order_integrity": "reflexive"
+        }
+      },
+      "cases_total": 3,
+      "command": "python -I -B docs/research/WP-0046/controls_r2.py --claude-r1-cases @peer_verify/exchange/corrections/cases-r1.json --claude-expected @peer_verify/exchange/corrections/expected-r1.json",
+      "exit_code": 0
+    },
+    "independent_reexecution_of_peer_evaluate_r1": {
+      "cases": {
+        "D6r1": {
+          "minimal": [
+            "a"
+          ],
+          "order_integrity": null
+        },
+        "D7": {
+          "minimal": null,
+          "order_integrity": "cyclic"
+        },
+        "D8": {
+          "minimal": null,
+          "order_integrity": "reflexive"
+        }
+      },
+      "command": "python -I -B @peer_verify/exchange/tools/evaluate_r1.py @peer_verify/exchange/corrections/cases-r1.json <temp_out>",
+      "exit_code": 0,
+      "matches_expected_r1": true,
+      "matches_saved_results": true
+    },
+    "register_r2_verify": {
+      "command": "python -I -B docs/research/WP-0046/build_register_r2.py --verify",
+      "exit_code": 0,
+      "result": {
+        "Pi_1a_all_pending_or_unbound": [
+          "cpu.controls.stage1a_3_live_controls",
+          "cpu.entry.coordinator_roots_manifest",
+          "cpu.entry.stage1a_source_pin",
+          "cpu.import_resolution",
+          "cpu.original_inventory",
+          "cpu.route_rehearsal",
+          "limits",
+          "static.venv.pth_inventory",
+          "static.venv.pyvenv_cfg"
+        ],
+        "Pi_1a_hard_unbound": [
+          "cpu.entry.coordinator_roots_manifest",
+          "cpu.entry.stage1a_source_pin",
+          "static.venv.pth_inventory",
+          "static.venv.pyvenv_cfg"
+        ],
+        "binding_status_counts_total_170": {
+          "bound_static_rule": 107,
+          "deferred_stage3": 2,
+          "pending_independent_review_rev0": 1,
+          "pending_stage1a_code_or_review_binding": 4,
+          "pending_stage1b_code_or_review_binding": 1,
+          "pending_stage2_code_or_review_binding": 42,
+          "unbound_pre_stage1a": 4,
+          "unbound_stage1b": 1,
+          "unbound_stage2": 8
+        },
+        "extended_obligations_count": 52,
+        "original_118_count": 118,
+        "sha256": "7e430ecd177253d3f7bada89c00f9a46ddf5832e22cabfa236566add7c682902",
+        "stage_counts_r2_total_170": {
+          "0": 7,
+          "1a": 98,
+          "1b": 2,
+          "2": 61,
+          "3": 2
+        },
+        "total_obligations_count": 170,
+        "verified": true
+      }
+    }
+  },
+  "frozen_r2_deliverable_commit": "7131e240f45d551535bab35fa3d3a8260bc7554f",
+  "frozen_r2_file_sha256": {
+    "build_register_r2.py": "32d3d44e08fda6657b49511944a6adfd595f6935575a7fc599285a06780b00c9",
+    "controls_r2.py": "0303ad2079e1daaca24bd7d520c264c6b36636f08fcacd02ebf16c522502dc7e",
+    "final-reconciliation.md": "605e20f640a1ab1e3036b6c2952513d543b14058aac571a69c790ca6c50ca7f4",
+    "register-r2.json": "7e430ecd177253d3f7bada89c00f9a46ddf5832e22cabfa236566add7c682902"
+  },
+  "host_profile_probes_in_turns_2_and_3": 0,
+  "hygiene_leaks": 0,
+  "model": "Gemini 4 Neon (XHigh) via local agy CLI (xhigh requested)",
+  "peer_verified_commit": {
+    "branch": "review/wp-0046-direct-stock",
+    "manifest_files_verified": "34/34 (15 unchanged Turn-1 + 19 new exchange/)",
+    "post_opening_freeze": "e47e0a2b2a4dfad69fb033059a924872857e52c5",
+    "role": "eld-rd-reviewer",
+    "tip": "ee07ca660286927ba5017a5592d2f8bed3a8d702",
+    "turn1_freeze": "1c9690b9eab22dfdf0c943815f5440e6563f2350"
+  },
+  "prior_frozen_owner_commits": {
+    "turn1_deliverables": "6fa242950ffd4dfd1d19accc9271e88aada2d552",
+    "turn1_evidence": "84d6934d96c69fd37d6fe2afde2d24dd1c431a24",
+    "turn2_r1_deliverables": "7ededc5344d896ba82d7a8fa57e58eb7d1bd8652",
+    "turn2_r1_evidence": "aca4b43de322532b5d12134cca4d7f3d56522332"
+  },
+  "prospective_target_runs": 0,
+  "schema": "wp0046-final-verification-evidence/1",
+  "status": "disclosed_post_opening_final_verification"
+}
