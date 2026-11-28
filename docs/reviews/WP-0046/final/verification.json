@@ -1,0 +1,75 @@
+{
+  "schema": "wp46-claude-final-verification/1",
+  "author": "eld-rd-reviewer (local Claude Code claude-opus-5-5, effort high as launched; backend identity not independently exposed)",
+  "role": "non-author verifier of eld-owner-probe's final candidate; does not sign for eld-owner-probe or eld-coordinator",
+  "pins": {
+    "reference": "e43af2e263f55478d1d551a5a095536b042589c2",
+    "reviewer_first_freeze": "1c9690b9eab22dfdf0c943815f5440e6563f2350",
+    "reviewer_exchange": "ee07ca660286927ba5017a5592d2f8bed3a8d702",
+    "reviewer_final_freeze": "9a9f24f0ab4592eaa6599c695a6a5c92866c4749",
+    "peer_verified_candidates": ["aca4b43de322532b5d12134cca4d7f3d56522332", "7131e240f45d551535bab35fa3d3a8260bc7554f", "8f5760c9fb2cc7fa815bb15007861b8004360eeb"],
+    "peer_final_candidate": "dd7982dc7d8a1c468bf90704d8fb01c60e91c7b5",
+    "peer_bytes": {"dd7982dc_manifest_equal": "23/23", "dd7982dc_git_blob_equal": "23/23", "aca4b43d_manifest_equal": "17/17", "aca4b43d_git_blob_equal": "17/17"}
+  },
+  "evidence_classes": {"finite_constructed": "reviewer cases: 49 first + 3 r1 + 27 peer-schema + 4 final bridge", "archive": "e43af2e2 bytes: register literals, 3 identical F07.warm1 token files, native43 rows, worker43/prior0 AST and JSON", "prospective_target_executions": 0, "released_stages_beyond_stage0": 0},
+  "executions_after_final_freeze": [
+    {"cmd": "controls_r2.py --cases control_cases.json", "result": "exit 0; 16/16 expected matches", "predicted": "held"},
+    {"cmd": "controls_r2.py --cases exchange/challenges/peer-schema-cases.json", "result": "required 27/27 (XC1-XC4 now pass); Turn-1 prediction agreement 23/27", "predicted": "held"},
+    {"cmd": "controls_r2.py --cases final/challenges/final-cases.json", "result": "required 3/4 (XB1 differs); prediction 4/4", "predicted": "held"},
+    {"cmd": "controls_r2.py --claude-r1-cases ... --claude-expected expected-r1.json", "result": "3/3", "predicted": "held"},
+    {"cmd": "controls_r2.py --claude-cases challenges/cases.json --claude-expected expectations/expected.json", "result": "paper-r1-strict 49/49; amended-r1 47/49 (P3, L3)", "predicted": "held"},
+    {"cmd": "build_register_r2.py --verify", "result": "verified; 170; sha256 7e430ecd177253d3f7bada89c00f9a46ddf5832e22cabfa236566add7c682902", "predicted": "held"},
+    {"cmd": "final/tools/recount_r2.py", "result": "all header counts and Pi_0..Pi_2 summaries reproduce; Pi_3 hard_unbound differs (13 by binding_status label vs 15 claimed)", "predicted": "FAILED for Pi_3 hard_unbound only"},
+    {"cmd": "final/tools/d1_check.py", "result": "token files identical 3/3; prompt_len 827; Ban_1 empty 5/5 under frozen n=position-827 but aligned_emission 0/5", "predicted": "FAILED: frozen alignment wrong (starts 2930 predicted vs peer 2935)"},
+    {"cmd": "post-hoc offset search (results/d1-check-posthoc.json)", "result": "offset +1 aligns 5/5; n=619..623; starts 585..589 = 2935; longest matches [2,0,0,1,2]; Ban_1 empty 5/5; final_page_guard.scanned == n 5/5", "predicted": "post-hoc, not frozen"}
+  ],
+  "register_r2_recount": {
+    "obligations": {"original": 118, "extended": 52, "total": 170, "unique_keys": true, "original_keys_equal_bundle_order": true},
+    "stage_counts": {"original": {"0": 7, "1a": 57, "2": 52, "3": 2}, "extended": {"1a": 41, "1b": 2, "2": 9}, "total": {"0": 7, "1a": 98, "1b": 2, "2": 61, "3": 2}},
+    "binding_status": {"bound_static_rule": 107, "pending_independent_review_rev0": 1, "pending_stage1a_code_or_review_binding": 4, "unbound_pre_stage1a": 4, "pending_stage1b_code_or_review_binding": 1, "unbound_stage1b": 1, "pending_stage2_code_or_review_binding": 42, "unbound_stage2": 8, "deferred_stage3": 2},
+    "observation_status": {"pending_rev0_digest_receipt": 7, "unobserved_prospective_stage1a": 98, "unobserved_prospective_stage1b": 2, "unobserved_prospective_stage2": 61, "unobserved_prospective_stage3": 2, "observed": 0},
+    "scopes": {
+      "Pi_0": {"total": 7, "bound": 6, "pending_or_unbound": 1, "hard_unbound": 0, "non_bound_outside": 62},
+      "Pi_1a": {"total": 105, "bound": 96, "pending_or_unbound": 9, "hard_unbound": 4, "non_bound_outside": 54},
+      "Pi_1b": {"total": 107, "bound": 96, "pending_or_unbound": 11, "hard_unbound": 5, "non_bound_outside": 52},
+      "Pi_2": {"total": 168, "bound": 107, "pending_or_unbound": 61, "hard_unbound": 13, "non_bound_outside": 2},
+      "Pi_3": {"total": 170, "bound": 107, "pending_or_unbound": 63, "hard_unbound_by_label": 13, "hard_unbound_claimed": 15, "difference": ["private.parity", "private.plan"]}
+    },
+    "denominator_note": "bound means a frozen static rule; 0 of 170 rows are observed. 'bound_static_rule' includes relational or template values (see open R-F3, R-F4).",
+    "Pi_1a_hard_unbound": ["cpu.entry.coordinator_roots_manifest", "cpu.entry.stage1a_source_pin", "static.venv.pth_inventory", "static.venv.pyvenv_cfg"],
+    "Pi_1a_pending_or_unbound": ["cpu.controls.stage1a_3_live_controls", "cpu.entry.coordinator_roots_manifest", "cpu.entry.stage1a_source_pin", "cpu.import_resolution", "cpu.original_inventory", "cpu.route_rehearsal", "limits", "static.venv.pth_inventory", "static.venv.pyvenv_cfg"],
+    "checks": {"allowlist_31_equals_worker43_env_for_ast": true, "sys_flags_18_keys_equal_prior0": true, "exec_env_rows_at_stage2": 6, "cpu_env_rows": 16, "native_rows_with_archive_masks_moved_to_reference": "15/15"}
+  },
+  "verified_now_pass": [
+    "XC1 env closure (e_launch and e_child) in controls_r2 eval_startup_r2",
+    "XC2 custody evaluated over sealed keys when schema missing",
+    "XC3 assess default scope range(0, s+1)",
+    "XC4 ordered read projection (read vs sealed)",
+    "Request 2 subject split: 6 exec.env rows at stage 2; separate cpu.env rows at 1a",
+    "Request 6: native masks carried as archive reference; live derivation rule stated",
+    "Request 7: review43 L62 inference retracted; base site-packages inventory row added",
+    "Request 8: 18 sys.flags bound, typed, labelled derived-not-observed",
+    "Request 10: binding_status separated from observation_status on 170 rows",
+    "Request 11: new entry files named; ordered sys.path relation stated",
+    "Ban_1 = empty on the 5 archived rows, reproduced from e43af2e2 token history (post-hoc alignment)",
+    "corrigenda C1-C9 restate the convergent and accepted amendments; no theorem refuted"
+  ],
+  "open_findings": [
+    {"id": "R-F1", "class": "checker/code", "item": "controls_r2.eval_bridge_delta exempts declared deltas from any value predicate; register gate.stage1_to_stage2_bridge states predicates that the code never evaluates", "discriminator": "XB1: declared CUDA_VISIBLE_DEVICES stage1 'GPU-X' (must be '') -> required M; observed P, joined true", "owner": "eld-owner-probe", "decision": "Stage-2 bridge freeze (Rev_2)"},
+    {"id": "R-F2", "class": "register/code consistency", "item": "corrigenda C3 normative custody scope M_chk = I with E filter; controls_r2 iterates E when schema present (extra member.b.record U on omission)", "discriminator": "XI1 / ctrl_06: E=(a,b), I=R=(a)", "owner": "eld-owner-probe", "decision": "Stage-1a scorer freeze; author lists as retained disagreement 2"},
+    {"id": "R-F3", "class": "register placeholder", "item": "cpu.env.PATH (and route.design text) freeze the unexpanded template '%SystemRoot%/System32;%SystemRoot%' as a literal present value under strict equality", "discriminator": "observed expanded PATH string vs template -> strict M though intended equal", "owner": "eld-owner-probe", "decision": "Stage-1a plan freeze: bind literal or explicit expansion rule"},
+    {"id": "R-F4", "class": "register placeholder", "item": "cpu.env.cache_and_os_keys_18 os_passthrough_7 bound as 'exact_supervisor_os_value_if_present_else_absent' (relational, not frozen) while labelled bound_static_rule", "discriminator": "supervisor env differs between Stage-1a and Stage-2 hosts/sessions -> both pass yet child envs differ", "owner": "eld-owner-probe", "decision": "Stage-1a plan freeze: freeze values or add supervisor-env receipt to the bridge"},
+    {"id": "R-F5", "class": "register denominator", "item": "Pi_3 hard_unbound claimed 15 includes 2 rows whose binding_status is deferred_stage3", "discriminator": "recount by binding_status prefix 'unbound' -> 13", "owner": "eld-owner-probe", "decision": "nomenclature; no Stage-1a effect"},
+    {"id": "R-F6", "class": "register aggregation", "item": "cpu.import_resolution keeps aggregate booleans (base_site_packages_excluded, venv_site_packages_included, closed_33_distributions_verified) beside a textual per-origin atom rule", "discriminator": "one stray module -> single boolean false; firstConflict lacks module identity unless the rule is implemented", "owner": "eld-owner-probe", "decision": "Stage-1a observer freeze"},
+    {"id": "R-F7", "class": "wording", "item": "corrigenda C5.4 labels rows g=618..622 while counting 585..589 starts; archive alignment gives history length 619..623", "discriminator": "H[position-826] == emission 5/5", "owner": "eld-owner-probe", "decision": "successor edition wording"},
+    {"id": "R-F8", "class": "math convention (preserved)", "item": "P3 X_oob vs rev.-1 literal; L3 empty-view bound vs outside_domain; order-integrity return schema", "discriminator": "P3, L3, D7/D8 vs ctrl_16", "owner": "eld-coordinator decision at Stage-2 scorer / Stage-1a scorer freeze", "decision": "pick one convention; both modes reproduced"},
+    {"id": "R-F9", "class": "prospective hypotheses", "item": "real Q0 venv selection under __PYVENV_LAUNCHER__, torch 2.13 DLL loading, debugger attach vs detach, historical tf32/cudnn/deterministic/autocast", "discriminator": "Stage 1a/1b/2 observations only", "owner": "future staged packets", "decision": "separate coordinator releases"}
+  ],
+  "joint_or_co_influenced_not_certified": ["corrigenda-r1.md C1-C9 text (formulated by eld-owner-probe from convergent and peer findings)", "register-r1/r2 bindings derived from reviewer requests", "controls_r2 fixes of reviewer discriminators XC1-XC4"],
+  "verdicts": {
+    "mathematics": "Sound core; accept with amendments. Theorems 1-5, corollary and erasure bound stand. Convergent amendments are correctly restated in corrigenda C1-C9 (non-author checked, not independently certified as joint text). Open: R-F8 conventions, R-F7 wording.",
+    "implementation_register_operations": "Not ready for Stage-1a release. Register-r2 and controls_r2 resolve XC1-XC4 and 10 of 12 requests as verified; Stage 1a remains held by 4 hard-unbound Pi_1a bindings, 5 further pending Pi_1a rows, the unauthored Stage-1a source, R-F1/R-F3/R-F4/R-F6, Rev_1a and a separate coordinator release."
+  },
+  "next_owner": "eld-coordinator (Stage-0 disposition); eld-owner-probe for R-F1..R-F7 if a Stage-1a packet is opened",
+  "another_non_author_check_needed": "Yes, for any correction of R-F1, R-F3, R-F4 or R-F6 and for the Stage-1a source when authored; not for the counts verified here."
+}

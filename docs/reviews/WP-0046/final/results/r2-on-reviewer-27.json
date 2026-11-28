@@ -1,0 +1,1329 @@
+{
+  "cases_total": 27,
+  "expected_matches": 0,
+  "expected_mismatches": 0,
+  "mismatch_ids": [],
+  "results": [
+    {
+      "case_id": "XS1",
+      "kind": "startup",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XS1",
+        "clause": "T2a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "flags.hash_randomization",
+          "flags.ignore_environment"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected": 0,
+            "key": "flags.hash_randomization",
+            "observed": 1,
+            "reason": "flag_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected": 0,
+            "key": "flags.ignore_environment",
+            "observed": 1,
+            "reason": "flag_mismatch"
+          }
+        ],
+        "cut": "stage1.cut1a_startup",
+        "deferred": [],
+        "details": {
+          "checked_groups": [
+            "e_launch",
+            "e_child",
+            "flags",
+            "resolution"
+          ]
+        },
+        "first_conflict": [
+          "flags.hash_randomization",
+          "flags.ignore_environment"
+        ],
+        "first_finding": [
+          "flags.hash_randomization",
+          "flags.ignore_environment"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "direct-stock CPU rehearsal child",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XS3",
+      "kind": "startup",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XS3",
+        "clause": "T2a",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage1.cut1a_startup",
+        "deferred": [],
+        "details": {
+          "checked_groups": [
+            "e_launch",
+            "e_child",
+            "flags",
+            "resolution"
+          ]
+        },
+        "first_conflict": [],
+        "first_finding": [
+          "flags.hash_randomization",
+          "flags.ignore_environment"
+        ],
+        "missing": [
+          {
+            "key": "flags.hash_randomization",
+            "reason": "flag_unobserved"
+          },
+          {
+            "key": "flags.ignore_environment",
+            "reason": "flag_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "flags.hash_randomization",
+          "flags.ignore_environment"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "direct-stock CPU rehearsal child",
+        "verdict": "U"
+      },
+      "verdict": "U"
+    },
+    {
+      "case_id": "XS6",
+      "kind": "startup",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XS6",
+        "clause": "T2a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "e_child.PYTHONPATH"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected": {
+              "state": "absent"
+            },
+            "key": "e_child.PYTHONPATH",
+            "observed": {
+              "state": "present",
+              "value": ""
+            },
+            "reason": "env_mismatch"
+          }
+        ],
+        "cut": "stage1.cut1a_startup",
+        "deferred": [],
+        "details": {
+          "checked_groups": [
+            "e_launch",
+            "e_child",
+            "flags",
+            "resolution"
+          ]
+        },
+        "first_conflict": [
+          "e_child.PYTHONPATH"
+        ],
+        "first_finding": [
+          "e_child.PYTHONCASEOK",
+          "e_child.PYTHONPATH"
+        ],
+        "missing": [
+          {
+            "key": "e_child.PYTHONCASEOK",
+            "reason": "env_key_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "e_child.PYTHONCASEOK"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "direct-stock CPU rehearsal child",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XC1",
+      "kind": "startup",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XC1",
+        "clause": "T2a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "e_child.PYTHONCASEOK"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected": {
+              "state": "absent"
+            },
+            "key": "e_child.PYTHONCASEOK",
+            "observed": {
+              "state": "present",
+              "value": "1"
+            },
+            "reason": "unlisted_env_key_present_violates_closure"
+          }
+        ],
+        "cut": "stage1.cut1a_startup",
+        "deferred": [],
+        "details": {
+          "checked_groups": [
+            "e_launch",
+            "e_child",
+            "flags",
+            "resolution"
+          ]
+        },
+        "first_conflict": [
+          "e_child.PYTHONCASEOK"
+        ],
+        "first_finding": [
+          "e_child.PYTHONCASEOK"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "direct-stock CPU rehearsal child",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XI1",
+      "kind": "inventory",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XI1",
+        "clause": "T3/T3a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "inventory.read_vs_expected",
+          "inventory.sealed_membership"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "inventory.read_vs_expected",
+            "reason": "read_multiset_differs_from_expected"
+          },
+          {
+            "class": "M_field",
+            "extra_in_sealed": [],
+            "key": "inventory.sealed_membership",
+            "missing_from_sealed": [
+              "b"
+            ],
+            "reason": "sealed_inventory_mismatch_against_expected"
+          }
+        ],
+        "cut": "stage1.seal_through_scorer_read",
+        "deferred": [],
+        "details": {
+          "expected_count": 2
+        },
+        "first_conflict": [
+          "inventory.read_vs_expected",
+          "inventory.sealed_membership"
+        ],
+        "first_finding": [
+          "inventory.read_vs_expected",
+          "inventory.sealed_membership",
+          "member.b.record"
+        ],
+        "missing": [
+          {
+            "key": "member.b.record",
+            "reason": "member_custody_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "member.b.record"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "arm member inventory",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XI3",
+      "kind": "inventory",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XI3",
+        "clause": "T3/T3a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "inventory.read_vs_sealed"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "inventory.read_vs_sealed",
+            "reason": "read_multiset_differs_from_sealed"
+          }
+        ],
+        "cut": "stage1.seal_through_scorer_read",
+        "deferred": [],
+        "details": {
+          "expected_count": null
+        },
+        "first_conflict": [
+          "inventory.read_vs_sealed"
+        ],
+        "first_finding": [
+          "inventory.expected_keys",
+          "inventory.read_vs_sealed"
+        ],
+        "missing": [
+          {
+            "key": "inventory.expected_keys",
+            "reason": "expected_schema_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "inventory.expected_keys"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "arm member inventory",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XI5",
+      "kind": "inventory",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XI5",
+        "clause": "T3/T3a",
+        "conflict_classes": [
+          "M_integrity"
+        ],
+        "conflict_keys": [
+          "member.b.physical_uniqueness"
+        ],
+        "conflicts": [
+          {
+            "class": "M_integrity",
+            "key": "member.b.physical_uniqueness",
+            "reason": "shared_physical_object_with:a"
+          }
+        ],
+        "cut": "stage1.seal_through_scorer_read",
+        "deferred": [],
+        "details": {
+          "expected_count": 2
+        },
+        "first_conflict": [
+          "member.b.physical_uniqueness"
+        ],
+        "first_finding": [
+          "member.b.physical_uniqueness"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "arm member inventory",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XC2",
+      "kind": "inventory",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XC2",
+        "clause": "T3/T3a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "member.a.writer_ok"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "member.a.writer_ok",
+            "reason": "custody_failed:writer_ok"
+          }
+        ],
+        "cut": "stage1.seal_through_scorer_read",
+        "deferred": [],
+        "details": {
+          "expected_count": null
+        },
+        "first_conflict": [
+          "member.a.writer_ok"
+        ],
+        "first_finding": [
+          "inventory.expected_keys",
+          "member.a.writer_ok"
+        ],
+        "missing": [
+          {
+            "key": "inventory.expected_keys",
+            "reason": "expected_schema_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "inventory.expected_keys"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "arm member inventory",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XC4",
+      "kind": "inventory",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XC4",
+        "clause": "T3/T3a",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "inventory.read_order"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "inventory.read_order",
+            "reason": "ordered_read_sequence_differs_from_sealed"
+          }
+        ],
+        "cut": "stage1.seal_through_scorer_read",
+        "deferred": [],
+        "details": {
+          "expected_count": 2
+        },
+        "first_conflict": [
+          "inventory.read_order"
+        ],
+        "first_finding": [
+          "inventory.read_order"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "arm member inventory",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XP1",
+      "kind": "score_phase",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XP1",
+        "clause": "T5 Eq. (8)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "page.2",
+          "rep.2"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected_hex": "ff7fffff",
+            "key": "page.2",
+            "observed_hex": "ff800000",
+            "reason": "phase_local_page_mismatch"
+          },
+          {
+            "class": "M_field",
+            "expected_hex": "ff800000",
+            "key": "rep.2",
+            "observed_hex": "ff7fffff",
+            "reason": "phase_local_rep_mismatch"
+          }
+        ],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [
+            1
+          ],
+          "qualified_winner": null
+        },
+        "first_conflict": [
+          "page.2",
+          "rep.2"
+        ],
+        "first_finding": [
+          "page.2",
+          "rep.2"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "F07.warm1 observed score row",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XP2",
+      "kind": "score_phase",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XP2",
+        "clause": "T5 Eq. (8)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "raw.1"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "raw.1",
+            "reason": "raw_nonfinite",
+            "word_hex": "7fc00000"
+          }
+        ],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [
+            0,
+            2
+          ],
+          "qualified_winner": null
+        },
+        "first_conflict": [
+          "raw.1"
+        ],
+        "first_finding": [
+          "raw.1"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "F07.warm1 observed score row",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XP3",
+      "kind": "score_phase",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XP3",
+        "clause": "T5 Eq. (8)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "score.oob",
+          "score.support"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "score.oob",
+            "observed": 0,
+            "reason": "emitted_outside_support"
+          },
+          {
+            "class": "M_field",
+            "key": "score.support",
+            "reason": "empty_support"
+          }
+        ],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [],
+          "qualified_winner": null
+        },
+        "first_conflict": [
+          "score.oob",
+          "score.support"
+        ],
+        "first_finding": [
+          "score.oob",
+          "score.support"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "F07.warm1 observed score row",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XP4",
+      "kind": "score_phase",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XP4",
+        "clause": "T5 Eq. (8)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "score.winner"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "expected": 0,
+            "key": "score.winner",
+            "observed": 1,
+            "reason": "winner_mismatch"
+          }
+        ],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [
+            0,
+            1
+          ],
+          "qualified_winner": null
+        },
+        "first_conflict": [
+          "score.winner"
+        ],
+        "first_finding": [
+          "score.winner"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "F07.warm1 observed score row",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XP5",
+      "kind": "score_phase",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XP5",
+        "clause": "T5 Eq. (8)",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [
+            0,
+            1
+          ],
+          "qualified_winner": 0
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "F07.warm1 observed score row",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    },
+    {
+      "case_id": "XP7",
+      "kind": "score_phase",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XP7",
+        "clause": "T5 Eq. (8)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "raw.1"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "raw.1",
+            "reason": "raw_nonfinite",
+            "word_hex": "7fc00000"
+          }
+        ],
+        "cut": "stage2.decoded_score_row",
+        "deferred": [],
+        "details": {
+          "allowed": [
+            0,
+            1
+          ],
+          "qualified_winner": null
+        },
+        "first_conflict": [
+          "raw.1"
+        ],
+        "first_finding": [
+          "raw.1",
+          "score.emission"
+        ],
+        "missing": [
+          {
+            "key": "score.emission",
+            "reason": "emission_unobserved"
+          }
+        ],
+        "missing_keys": [
+          "score.emission"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "F07.warm1 observed score row",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XJ1",
+      "kind": "replay_gate",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XJ1",
+        "clause": "T8a Eq. (12)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "row.1449.run_join"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "row.1449.run_join",
+            "reason": "cross_run_row:r2!=r1"
+          }
+        ],
+        "cut": "stage2.post_stock_qualification_gate",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "consider_private_replay": false,
+          "execute_stage3": false
+        },
+        "first_conflict": [
+          "row.1449.run_join"
+        ],
+        "first_finding": [
+          "row.1449.run_join"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "r1",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-2 to Stage-3 private replay eligibility gate",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XJ3",
+      "kind": "replay_gate",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XJ3",
+        "clause": "T8a Eq. (12)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "gate.J5_multiplicity"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "gate.J5_multiplicity",
+            "observed_count": 5,
+            "reason": "row_key_multiset_not_bijection_with_K",
+            "unique_observed_count": 5
+          }
+        ],
+        "cut": "stage2.post_stock_qualification_gate",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "consider_private_replay": false,
+          "execute_stage3": false
+        },
+        "first_conflict": [
+          "gate.J5_multiplicity"
+        ],
+        "first_finding": [
+          "gate.J5_multiplicity"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "r1",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-2 to Stage-3 private replay eligibility gate",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XJ4",
+      "kind": "replay_gate",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XJ4",
+        "clause": "T8a Eq. (12)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "gate.J5_multiplicity"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "gate.J5_multiplicity",
+            "observed_count": 5,
+            "reason": "row_key_multiset_not_bijection_with_K",
+            "unique_observed_count": 5
+          }
+        ],
+        "cut": "stage2.post_stock_qualification_gate",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "consider_private_replay": false,
+          "execute_stage3": false
+        },
+        "first_conflict": [
+          "gate.J5_multiplicity"
+        ],
+        "first_finding": [
+          "gate.J5_multiplicity"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "r1",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-2 to Stage-3 private replay eligibility gate",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XJ5",
+      "kind": "replay_gate",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XJ5",
+        "clause": "T8a Eq. (12)",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage2.post_stock_qualification_gate",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "consider_private_replay": true,
+          "execute_stage3": false
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "r1",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-2 to Stage-3 private replay eligibility gate",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    },
+    {
+      "case_id": "XJ6",
+      "kind": "replay_gate",
+      "matched_expected": null,
+      "result": {
+        "arm": "observed",
+        "case_id": "XJ6",
+        "clause": "T8a Eq. (12)",
+        "conflict_classes": [
+          "M_static_plan"
+        ],
+        "conflict_keys": [
+          "gate.P3"
+        ],
+        "conflicts": [
+          {
+            "class": "M_static_plan",
+            "key": "gate.P3",
+            "reason": "stage3_plan_incomplete_or_inconsistent"
+          }
+        ],
+        "cut": "stage2.post_stock_qualification_gate",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "consider_private_replay": false,
+          "execute_stage3": false
+        },
+        "first_conflict": [
+          "gate.P3"
+        ],
+        "first_finding": [
+          "gate.P3"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "r1",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "Stage-2 to Stage-3 private replay eligibility gate",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XA1",
+      "kind": "assess",
+      "matched_expected": null,
+      "result": {
+        "arm": "plan",
+        "case_id": "XA1",
+        "clause": "T8 Eq. (11) amended",
+        "conflict_classes": [
+          "M_static_plan"
+        ],
+        "conflict_keys": [
+          "backend.tf32"
+        ],
+        "conflicts": [
+          {
+            "class": "M_static_plan",
+            "key": "backend.tf32",
+            "reason": "incompatible_static_prescriptions"
+          }
+        ],
+        "cut": "stage0.assess",
+        "deferred": [
+          "backend.tf32"
+        ],
+        "details": {
+          "scope_stages": [
+            0
+          ]
+        },
+        "first_conflict": [
+          "backend.tf32"
+        ],
+        "first_finding": [
+          "backend.tf32"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 0,
+        "subject": "scoped plan assessment",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XA2a",
+      "kind": "assess",
+      "matched_expected": null,
+      "result": {
+        "arm": "plan",
+        "case_id": "XA2a",
+        "clause": "T8 Eq. (11) amended",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage1.assess",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "scope_stages": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "first_conflict": [],
+        "first_finding": [
+          "private.parity"
+        ],
+        "missing": [
+          {
+            "key": "private.parity",
+            "reason": "missing_static_binding"
+          }
+        ],
+        "missing_keys": [
+          "private.parity"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "scoped plan assessment",
+        "verdict": "U"
+      },
+      "verdict": "U"
+    },
+    {
+      "case_id": "XA2b",
+      "kind": "assess",
+      "matched_expected": null,
+      "result": {
+        "arm": "plan",
+        "case_id": "XA2b",
+        "clause": "T8 Eq. (11) amended",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage1.assess",
+        "deferred": [
+          "private.parity"
+        ],
+        "details": {
+          "scope_stages": [
+            0,
+            1
+          ]
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 1,
+        "subject": "scoped plan assessment",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    },
+    {
+      "case_id": "XC3",
+      "kind": "assess",
+      "matched_expected": null,
+      "result": {
+        "arm": "plan",
+        "case_id": "XC3",
+        "clause": "T8 Eq. (11) amended",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage2.assess",
+        "deferred": [],
+        "details": {
+          "scope_stages": [
+            0,
+            1,
+            2
+          ]
+        },
+        "first_conflict": [],
+        "first_finding": [
+          "cpu.import.dll_origins"
+        ],
+        "missing": [
+          {
+            "key": "cpu.import.dll_origins",
+            "reason": "missing_static_binding"
+          }
+        ],
+        "missing_keys": [
+          "cpu.import.dll_origins"
+        ],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 2,
+        "subject": "scoped plan assessment",
+        "verdict": "U"
+      },
+      "verdict": "U"
+    },
+    {
+      "case_id": "XD1",
+      "kind": "crosswalk_diagnostics",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XD1",
+        "clause": "T4 Eqs. (6)-(7)",
+        "conflict_classes": [],
+        "conflict_keys": [],
+        "conflicts": [],
+        "cut": "stage0.crosswalk_and_scorer",
+        "deferred": [],
+        "details": {
+          "crosswalk": {
+            "d1": "incomparable"
+          }
+        },
+        "first_conflict": [],
+        "first_finding": [],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 0,
+        "subject": "crosswalk and diagnostics",
+        "verdict": "P"
+      },
+      "verdict": "P"
+    },
+    {
+      "case_id": "XD4",
+      "kind": "crosswalk_diagnostics",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XD4",
+        "clause": "T4 Eqs. (6)-(7)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "d4"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "d4",
+            "left": {
+              "state": "absent"
+            },
+            "reason": "value_or_type_difference",
+            "right": {
+              "state": "present",
+              "value": ""
+            }
+          }
+        ],
+        "cut": "stage0.crosswalk_and_scorer",
+        "deferred": [],
+        "details": {
+          "crosswalk": {
+            "d4": "different"
+          }
+        },
+        "first_conflict": [
+          "d4"
+        ],
+        "first_finding": [
+          "d4"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 0,
+        "subject": "crosswalk and diagnostics",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    },
+    {
+      "case_id": "XD6",
+      "kind": "crosswalk_diagnostics",
+      "matched_expected": null,
+      "result": {
+        "arm": "arm-0",
+        "case_id": "XD6",
+        "clause": "T4 Eqs. (6)-(7)",
+        "conflict_classes": [
+          "M_field"
+        ],
+        "conflict_keys": [
+          "a",
+          "c"
+        ],
+        "conflicts": [
+          {
+            "class": "M_field",
+            "key": "a",
+            "left": {
+              "state": "present",
+              "value": 1
+            },
+            "reason": "value_or_type_difference",
+            "right": {
+              "state": "present",
+              "value": 2
+            }
+          },
+          {
+            "class": "M_field",
+            "key": "c",
+            "left": {
+              "state": "present",
+              "value": 3
+            },
+            "reason": "value_or_type_difference",
+            "right": {
+              "state": "present",
+              "value": 4
+            }
+          }
+        ],
+        "cut": "stage0.crosswalk_and_scorer",
+        "deferred": [],
+        "details": {
+          "crosswalk": {
+            "a": "different",
+            "c": "different"
+          }
+        },
+        "first_conflict": [
+          "a"
+        ],
+        "first_finding": [
+          "a"
+        ],
+        "missing": [],
+        "missing_keys": [],
+        "prospective_status": "constructed_offline_control_only",
+        "run": "constructed",
+        "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+        "stage": 0,
+        "subject": "crosswalk and diagnostics",
+        "verdict": "M"
+      },
+      "verdict": "M"
+    }
+  ],
+  "schema": "wp0046-control-r2-results/1",
+  "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2",
+  "verdict_counts": {
+    "M": 20,
+    "P": 4,
+    "U": 3
+  }
+}
