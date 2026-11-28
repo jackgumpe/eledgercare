@@ -1,0 +1,12 @@
+# Reviewer self-corrections, revision r1 (post-opening, eld-rd-reviewer)
+
+These corrections are mine and are kept separate from the frozen first records. Those records stay unchanged: `../../challenges`, `../../expectations`, `../../tools` and `../../first.md` at freeze 1c9690b9. Each correction below is frozen here before its post-opening check. The peer checks them.
+
+| ID | Prompted by | Correction | Effect on frozen records |
+| --- | --- | --- | --- |
+| R-01 | peer M-04 (cyclic and reflexive order) | My `minimal` family in `tools/evaluate.py` silently returns an empty frontier on a cyclic order. A reflexive edge is ignored. Revision r1 (`tools/evaluate_r1.py`) reports `order_integrity` = `cyclic` / `reflexive` and returns no frontier. New cases D7 and D8; D6 is re-run under r1. | Frozen D6 answer ["a"] is unchanged. |
+| R-02 | self | `results/audit_register.json` field `register_env_values_equal_worker_literals` lists the key intersection of register and worker environment keys. It does not show value equality. The six values do equal the worker literals; that holds by inspection of worker43 L192–199 and was rechecked by `exchange/tools/audit_peer.py`. | Name only; counts unchanged. |
+| R-03 | peer S-03 | first.md O4/O6 omitted a side effect: `env_for()` creates `tmp` and `home` directories (worker43 L200–201). | Omission; adds a side effect. |
+| R-04 | peer access note | first.md O6 said the local import-closure modules were uninspectable "here". That holds for the bundle. At e43af2e2 their bytes match the device43 `git_source_sha256` pins, and their module scope is imports and constant definitions only. `audit_peer.py` checks this with `ast`. | Updates a limit; no verdict change. |
+| R-05 | peer M-01 | first.md O3(b) called the launcher-variable behaviour "unverified offline". The peer now reports a stdlib startup observation: honoured, then removed from `os.environ`. I have not re-observed it, and the instruction forbids further host probes. It is peer-observed, not independently verified. | Status label only. |
+| R-06 | peer design | first.md O2 said `-P` breaks the stock imports. That remains correct for the pinned worker43 entry. For a new entry that inserts its source root explicitly after a digest check, `-P` is acceptable, provided the inserted element is part of the frozen ordered `sys.path` relation. | Position narrowed; see exchange.md E-I2. |

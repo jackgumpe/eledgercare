@@ -1,0 +1,10 @@
+{
+  "schema": "wp46-claude-challenges-r1/1",
+  "author": "eld-rd-reviewer",
+  "status": "post-opening correction cases (R-01); label-free; answers in expected-r1.json",
+  "cases": [
+    {"id": "D6r1", "family": "minimal", "clause": "T4 minima", "title": "frozen D6 input under r1", "input": {"events": ["a", "c"], "precedes": [["a", "b"], ["b", "c"]]}},
+    {"id": "D7", "family": "minimal", "clause": "T4 minima; T1 M_integrity", "title": "two events in a precedence cycle", "input": {"events": ["a", "b"], "precedes": [["a", "b"], ["b", "a"]]}},
+    {"id": "D8", "family": "minimal", "clause": "T4 minima; T1 M_integrity", "title": "reflexive precedence edge", "input": {"events": ["a"], "precedes": [["a", "a"]]}}
+  ]
+}
