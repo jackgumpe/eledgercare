@@ -1646,3 +1646,13 @@ Four cooperative direct launches qualified. Full blind clause returns per implem
 | [eld-coordinator](https://github.com/jackgumpe/eledgercare/blob/1d2d197177c8d5d053066e6cfbac30fa5e0b77df/docs/agent-reports/eld-coordinator/WP-0045/005_2026-11-27_verification_eld-coordinator.md) | 1d2d197177c8d5d053066e6cfbac30fa5e0b77df |
 
 The [public byte receipt](docs/coordination/WP-0045/publication-receipt.json) records equality for all 228 changed files at the report commit.
+
+## WP-0046 stock OCR direct-route Stage 0
+
+Pinned parent e43af2e263f55478d1d551a5a095536b042589c2. [Assignment](docs/coordination/WP-0046/assignment.md) · [Supplied artifact pins](docs/coordination/WP-0046/source-pins.json). Worker worktrees are under the existing eledgercare-worktrees directory.
+
+| Owner | Branch and worktree | Assigned paths | Provider | Report |
+| --- | --- | --- | --- | --- |
+| eld-owner-probe | research/wp-0046-direct-stock / w046-gemini | docs/research/WP-0046 | local agy gemini-4-neon-xhigh / xhigh | docs/agent-reports/eld-owner-probe/WP-0046/001_2026-11-28_design_eld-owner-probe.md |
+| eld-rd-reviewer | review/wp-0046-direct-stock / w046-claude | docs/reviews/WP-0046 | local Claude Code claude-opus-5-5 / high | docs/agent-reports/eld-rd-reviewer/WP-0046/002_2026-11-28_review_eld-rd-reviewer.md |
+| eld-coordinator | coordination/bootstrap / primary | docs/coordination/WP-0046 | existing sole coordinator | docs/agent-reports/eld-coordinator/WP-0046/003_2026-11-28_verification_eld-coordinator.md |
