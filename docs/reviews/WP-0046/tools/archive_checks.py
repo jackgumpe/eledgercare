@@ -78,7 +78,7 @@ def main(bundle):
 
     # Part B: archived page masks derived from guard state (A2 page rule).
     s41 = load("source41.json")
-    eos = s41["generation_config"]["eos_token_id"]
+    eos = s41["configuration"]["generation_config"]["eos_token_id"]  # post-freeze path correction
     page_id = s41["configuration"]["sparse_config"]["page_token_id"]
     vocab = s41["configuration"]["vocabulary_logits"]
     f07 = next(f for f in p43["fixtures"] if f["family_id"] == "F07")
