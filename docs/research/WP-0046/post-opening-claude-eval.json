@@ -1,0 +1,1277 @@
+{
+  "cases_total": 49,
+  "modes": {
+    "amended-r1": {
+      "cases": {
+        "A1": {
+          "U": [],
+          "X": [
+            "backend.tf32"
+          ],
+          "atoms": {
+            "backend.tf32": [
+              "deferred",
+              "static_conflict"
+            ]
+          },
+          "deferred": [
+            "backend.tf32"
+          ],
+          "deferred_unbound": [],
+          "minX": [
+            "backend.tf32"
+          ],
+          "minXU": [
+            "backend.tf32"
+          ],
+          "verdict": "M"
+        },
+        "A2a": {
+          "U": [
+            "private.parity"
+          ],
+          "X": [],
+          "atoms": {
+            "cpu.hash.hash_randomization": [
+              "pass"
+            ],
+            "private.parity": [
+              "deferred",
+              "unbound"
+            ]
+          },
+          "deferred": [
+            "private.parity"
+          ],
+          "deferred_unbound": [
+            "private.parity"
+          ],
+          "minX": [],
+          "minXU": [
+            "private.parity"
+          ],
+          "verdict": "U"
+        },
+        "A2b": {
+          "U": [],
+          "X": [],
+          "atoms": {
+            "cpu.hash.hash_randomization": [
+              "pass"
+            ],
+            "private.parity": [
+              "deferred",
+              "unbound_deferred"
+            ]
+          },
+          "deferred": [
+            "private.parity"
+          ],
+          "deferred_unbound": [
+            "private.parity"
+          ],
+          "minX": [],
+          "minXU": [],
+          "verdict": "P"
+        },
+        "D1": {
+          "result": "incomparable"
+        },
+        "D2": {
+          "result": "unobserved"
+        },
+        "D3": {
+          "result": "same"
+        },
+        "D4": {
+          "result": "different"
+        },
+        "D5": {
+          "U": [
+            "exec.original.writer"
+          ],
+          "X": [
+            "exec.device"
+          ],
+          "atoms": {
+            "exec.device": [
+              "conflict"
+            ],
+            "exec.original.writer": [
+              "missing"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "exec.device"
+          ],
+          "minXU": [
+            "exec.original.writer"
+          ],
+          "verdict": "M"
+        },
+        "D6": {
+          "minimal": [
+            "a"
+          ]
+        },
+        "G1": {
+          "X": [
+            "env_schema"
+          ],
+          "joined": false,
+          "literal_eq12": true
+        },
+        "G2": {
+          "X": [
+            "route"
+          ],
+          "joined": false,
+          "literal_eq12": true
+        },
+        "I1": {
+          "U": [],
+          "X": [
+            "omit:b"
+          ],
+          "verdict": "M"
+        },
+        "I2": {
+          "U": [
+            "schema"
+          ],
+          "X": [],
+          "verdict": "U"
+        },
+        "I3": {
+          "U": [
+            "schema"
+          ],
+          "X": [
+            "read.missing:b"
+          ],
+          "verdict": "M"
+        },
+        "I4": {
+          "U": [],
+          "X": [
+            "read.extra:a",
+            "read.missing:b"
+          ],
+          "verdict": "M"
+        },
+        "I5": {
+          "U": [],
+          "X": [
+            "object.shared:a+b"
+          ],
+          "verdict": "M"
+        },
+        "I6a": {
+          "U": [],
+          "X": [
+            "order"
+          ],
+          "verdict": "M"
+        },
+        "I6b": {
+          "U": [],
+          "X": [],
+          "verdict": "P"
+        },
+        "J1": {
+          "J5": false,
+          "X": [
+            "run:F07.warm1/observed/1449"
+          ],
+          "considerPrivateReplay": false
+        },
+        "J2": {
+          "J5": false,
+          "X": [
+            "keys:extra:F07.warm1/observed/1448",
+            "keys:missing:F07.warm1/observed/1449"
+          ],
+          "considerPrivateReplay": false
+        },
+        "J3": {
+          "J5": false,
+          "X": [
+            "keys:extra:F07.warmup/observed/1449",
+            "keys:missing:F07.warm1/observed/1449"
+          ],
+          "considerPrivateReplay": false
+        },
+        "J4": {
+          "J5": false,
+          "X": [
+            "keys:extra:F07.warm1/untouched/1449",
+            "keys:missing:F07.warm1/observed/1449"
+          ],
+          "considerPrivateReplay": false
+        },
+        "J5": {
+          "J5": true,
+          "X": [],
+          "considerPrivateReplay": true
+        },
+        "J6": {
+          "J5": true,
+          "X": [],
+          "considerPrivateReplay": false
+        },
+        "K1": {
+          "argmin": [
+            [
+              0,
+              2
+            ]
+          ],
+          "infeasible": false,
+          "min_cost": 4
+        },
+        "K2": {
+          "argmin": [
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "infeasible": false,
+          "min_cost": 7
+        },
+        "K3": {
+          "argmin": [],
+          "infeasible": true,
+          "min_cost": null
+        },
+        "L1": {
+          "result": true
+        },
+        "L2": {
+          "result": false
+        },
+        "L3": {
+          "result": true
+        },
+        "MIX": {
+          "U": [
+            "cpu.import.dll_origins",
+            "private.parity"
+          ],
+          "X": [
+            "cpu.hash.hash_randomization",
+            "cpu.hash.ignore_environment",
+            "cpu.import.timing",
+            "cpu.inventory.members",
+            "plan.static.sys_executable"
+          ],
+          "atoms": {
+            "cpu.hash.hash_randomization": [
+              "conflict"
+            ],
+            "cpu.hash.ignore_environment": [
+              "conflict"
+            ],
+            "cpu.import.dll_origins": [
+              "missing"
+            ],
+            "cpu.import.timing": [
+              "failed"
+            ],
+            "cpu.inventory.members": [
+              "conflict"
+            ],
+            "exec.device": [
+              "deferred"
+            ],
+            "plan.static.sys_executable": [
+              "conflict",
+              "static_conflict"
+            ],
+            "private.parity": [
+              "deferred",
+              "unbound"
+            ]
+          },
+          "deferred": [
+            "exec.device",
+            "private.parity"
+          ],
+          "deferred_unbound": [
+            "private.parity"
+          ],
+          "minX": [
+            "plan.static.sys_executable"
+          ],
+          "minXU": [
+            "plan.static.sys_executable",
+            "private.parity"
+          ],
+          "verdict": "M"
+        },
+        "N1": {
+          "compared_y1": 1,
+          "native_y1": 0,
+          "private_y1": 1,
+          "verdict": "M"
+        },
+        "N2": {
+          "compared_y1": 0,
+          "native_y1": 0,
+          "private_y1": 1,
+          "verdict": "P"
+        },
+        "P1": {
+          "U": [],
+          "X": [
+            "1/2",
+            "2/2"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P2": {
+          "U": [],
+          "X": [
+            "0/1"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P3": {
+          "U": [],
+          "X": [
+            "oob",
+            "supp"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P4": {
+          "U": [],
+          "X": [
+            "choice"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P5a": {
+          "U": [],
+          "X": [],
+          "verdict": "P",
+          "winner": 0
+        },
+        "P5b": {
+          "U": [],
+          "X": [
+            "choice"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P6": {
+          "U": [
+            "emission"
+          ],
+          "X": [],
+          "verdict": "U",
+          "winner": null
+        },
+        "P7": {
+          "U": [
+            "emission"
+          ],
+          "X": [
+            "0/1"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "S1": {
+          "U": [],
+          "X": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "atoms": {
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "flags.hash_randomization": [
+              "conflict"
+            ],
+            "flags.ignore_environment": [
+              "conflict"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "minXU": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "verdict": "M"
+        },
+        "S2": {
+          "U": [],
+          "X": [],
+          "atoms": {
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "flags.hash_randomization": [
+              "pass"
+            ],
+            "flags.ignore_environment": [
+              "pass"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [],
+          "minXU": [],
+          "verdict": "P"
+        },
+        "S3": {
+          "U": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "X": [],
+          "atoms": {
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "flags.hash_randomization": [
+              "missing"
+            ],
+            "flags.ignore_environment": [
+              "missing"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [],
+          "minXU": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "verdict": "U"
+        },
+        "S4a": {
+          "U": [],
+          "X": [],
+          "atoms": {
+            "env.CUDA_DEVICE_ORDER": [
+              "pass"
+            ],
+            "env.CUDA_VISIBLE_DEVICES": [
+              "pass"
+            ],
+            "env.HF_HUB_OFFLINE": [
+              "pass"
+            ],
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "env.PYTHONNOUSERSITE": [
+              "pass"
+            ],
+            "env.TRANSFORMERS_OFFLINE": [
+              "pass"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [],
+          "minXU": [],
+          "verdict": "P"
+        },
+        "S4b": {
+          "U": [],
+          "X": [
+            "env.PYTHONUTF8",
+            "flags.utf8_mode"
+          ],
+          "atoms": {
+            "env.CUDA_DEVICE_ORDER": [
+              "pass"
+            ],
+            "env.CUDA_VISIBLE_DEVICES": [
+              "pass"
+            ],
+            "env.HF_HUB_OFFLINE": [
+              "pass"
+            ],
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "env.PYTHONNOUSERSITE": [
+              "pass"
+            ],
+            "env.PYTHONUTF8": [
+              "conflict"
+            ],
+            "env.TRANSFORMERS_OFFLINE": [
+              "pass"
+            ],
+            "flags.utf8_mode": [
+              "conflict"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "env.PYTHONUTF8"
+          ],
+          "minXU": [
+            "env.PYTHONUTF8"
+          ],
+          "verdict": "M"
+        },
+        "S5": {
+          "U": [
+            "loaded.torch.origin"
+          ],
+          "X": [
+            "import.sibling.timing"
+          ],
+          "atoms": {
+            "import.sibling.timing": [
+              "failed"
+            ],
+            "loaded.torch.origin": [
+              "missing"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "import.sibling.timing"
+          ],
+          "minXU": [
+            "import.sibling.timing"
+          ],
+          "verdict": "M"
+        },
+        "S6": {
+          "U": [
+            "env.PYTHONCASEOK"
+          ],
+          "X": [
+            "env.PYTHONPATH"
+          ],
+          "atoms": {
+            "dist.triton": [
+              "pass"
+            ],
+            "env.PYTHONCASEOK": [
+              "missing"
+            ],
+            "env.PYTHONPATH": [
+              "conflict"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "env.PYTHONPATH"
+          ],
+          "minXU": [
+            "env.PYTHONCASEOK",
+            "env.PYTHONPATH"
+          ],
+          "verdict": "M"
+        },
+        "S7": {
+          "U": [],
+          "X": [
+            "exec.sys_executable"
+          ],
+          "atoms": {
+            "exec.sys_executable": [
+              "deferred",
+              "static_conflict"
+            ]
+          },
+          "deferred": [
+            "exec.sys_executable"
+          ],
+          "deferred_unbound": [],
+          "minX": [
+            "exec.sys_executable"
+          ],
+          "minXU": [
+            "exec.sys_executable"
+          ],
+          "verdict": "M"
+        }
+      },
+      "cases_evaluated": 49,
+      "differences_vs_peer_expected": [
+        {
+          "diff_keys": [
+            "X"
+          ],
+          "expected": {
+            "U": [],
+            "X": [
+              "supp"
+            ],
+            "verdict": "M",
+            "winner": null
+          },
+          "got": {
+            "U": [],
+            "X": [
+              "oob",
+              "supp"
+            ],
+            "verdict": "M",
+            "winner": null
+          },
+          "id": "P3"
+        },
+        {
+          "diff_keys": [
+            "result"
+          ],
+          "expected": {
+            "result": "outside_domain"
+          },
+          "got": {
+            "result": true
+          },
+          "id": "L3"
+        }
+      ],
+      "full_record_agreements_vs_peer_expected": 47
+    },
+    "paper-r1-strict": {
+      "cases": {
+        "A1": {
+          "U": [],
+          "X": [
+            "backend.tf32"
+          ],
+          "atoms": {
+            "backend.tf32": [
+              "deferred",
+              "static_conflict"
+            ]
+          },
+          "deferred": [
+            "backend.tf32"
+          ],
+          "deferred_unbound": [],
+          "minX": [
+            "backend.tf32"
+          ],
+          "minXU": [
+            "backend.tf32"
+          ],
+          "verdict": "M"
+        },
+        "A2a": {
+          "U": [
+            "private.parity"
+          ],
+          "X": [],
+          "atoms": {
+            "cpu.hash.hash_randomization": [
+              "pass"
+            ],
+            "private.parity": [
+              "deferred",
+              "unbound"
+            ]
+          },
+          "deferred": [
+            "private.parity"
+          ],
+          "deferred_unbound": [
+            "private.parity"
+          ],
+          "minX": [],
+          "minXU": [
+            "private.parity"
+          ],
+          "verdict": "U"
+        },
+        "A2b": {
+          "U": [],
+          "X": [],
+          "atoms": {
+            "cpu.hash.hash_randomization": [
+              "pass"
+            ],
+            "private.parity": [
+              "deferred",
+              "unbound_deferred"
+            ]
+          },
+          "deferred": [
+            "private.parity"
+          ],
+          "deferred_unbound": [
+            "private.parity"
+          ],
+          "minX": [],
+          "minXU": [],
+          "verdict": "P"
+        },
+        "D1": {
+          "result": "incomparable"
+        },
+        "D2": {
+          "result": "unobserved"
+        },
+        "D3": {
+          "result": "same"
+        },
+        "D4": {
+          "result": "different"
+        },
+        "D5": {
+          "U": [
+            "exec.original.writer"
+          ],
+          "X": [
+            "exec.device"
+          ],
+          "atoms": {
+            "exec.device": [
+              "conflict"
+            ],
+            "exec.original.writer": [
+              "missing"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "exec.device"
+          ],
+          "minXU": [
+            "exec.original.writer"
+          ],
+          "verdict": "M"
+        },
+        "D6": {
+          "minimal": [
+            "a"
+          ]
+        },
+        "G1": {
+          "X": [
+            "env_schema"
+          ],
+          "joined": false,
+          "literal_eq12": true
+        },
+        "G2": {
+          "X": [
+            "route"
+          ],
+          "joined": false,
+          "literal_eq12": true
+        },
+        "I1": {
+          "U": [],
+          "X": [
+            "omit:b"
+          ],
+          "verdict": "M"
+        },
+        "I2": {
+          "U": [
+            "schema"
+          ],
+          "X": [],
+          "verdict": "U"
+        },
+        "I3": {
+          "U": [
+            "schema"
+          ],
+          "X": [
+            "read.missing:b"
+          ],
+          "verdict": "M"
+        },
+        "I4": {
+          "U": [],
+          "X": [
+            "read.extra:a",
+            "read.missing:b"
+          ],
+          "verdict": "M"
+        },
+        "I5": {
+          "U": [],
+          "X": [
+            "object.shared:a+b"
+          ],
+          "verdict": "M"
+        },
+        "I6a": {
+          "U": [],
+          "X": [
+            "order"
+          ],
+          "verdict": "M"
+        },
+        "I6b": {
+          "U": [],
+          "X": [],
+          "verdict": "P"
+        },
+        "J1": {
+          "J5": false,
+          "X": [
+            "run:F07.warm1/observed/1449"
+          ],
+          "considerPrivateReplay": false
+        },
+        "J2": {
+          "J5": false,
+          "X": [
+            "keys:extra:F07.warm1/observed/1448",
+            "keys:missing:F07.warm1/observed/1449"
+          ],
+          "considerPrivateReplay": false
+        },
+        "J3": {
+          "J5": false,
+          "X": [
+            "keys:extra:F07.warmup/observed/1449",
+            "keys:missing:F07.warm1/observed/1449"
+          ],
+          "considerPrivateReplay": false
+        },
+        "J4": {
+          "J5": false,
+          "X": [
+            "keys:extra:F07.warm1/untouched/1449",
+            "keys:missing:F07.warm1/observed/1449"
+          ],
+          "considerPrivateReplay": false
+        },
+        "J5": {
+          "J5": true,
+          "X": [],
+          "considerPrivateReplay": true
+        },
+        "J6": {
+          "J5": true,
+          "X": [],
+          "considerPrivateReplay": false
+        },
+        "K1": {
+          "argmin": [
+            [
+              0,
+              2
+            ]
+          ],
+          "infeasible": false,
+          "min_cost": 4
+        },
+        "K2": {
+          "argmin": [
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "infeasible": false,
+          "min_cost": 7
+        },
+        "K3": {
+          "argmin": [],
+          "infeasible": true,
+          "min_cost": null
+        },
+        "L1": {
+          "result": true
+        },
+        "L2": {
+          "result": false
+        },
+        "L3": {
+          "result": "outside_domain"
+        },
+        "MIX": {
+          "U": [
+            "cpu.import.dll_origins",
+            "private.parity"
+          ],
+          "X": [
+            "cpu.hash.hash_randomization",
+            "cpu.hash.ignore_environment",
+            "cpu.import.timing",
+            "cpu.inventory.members",
+            "plan.static.sys_executable"
+          ],
+          "atoms": {
+            "cpu.hash.hash_randomization": [
+              "conflict"
+            ],
+            "cpu.hash.ignore_environment": [
+              "conflict"
+            ],
+            "cpu.import.dll_origins": [
+              "missing"
+            ],
+            "cpu.import.timing": [
+              "failed"
+            ],
+            "cpu.inventory.members": [
+              "conflict"
+            ],
+            "exec.device": [
+              "deferred"
+            ],
+            "plan.static.sys_executable": [
+              "conflict",
+              "static_conflict"
+            ],
+            "private.parity": [
+              "deferred",
+              "unbound"
+            ]
+          },
+          "deferred": [
+            "exec.device",
+            "private.parity"
+          ],
+          "deferred_unbound": [
+            "private.parity"
+          ],
+          "minX": [
+            "plan.static.sys_executable"
+          ],
+          "minXU": [
+            "plan.static.sys_executable",
+            "private.parity"
+          ],
+          "verdict": "M"
+        },
+        "N1": {
+          "compared_y1": 1,
+          "native_y1": 0,
+          "private_y1": 1,
+          "verdict": "M"
+        },
+        "N2": {
+          "compared_y1": 0,
+          "native_y1": 0,
+          "private_y1": 1,
+          "verdict": "P"
+        },
+        "P1": {
+          "U": [],
+          "X": [
+            "1/2",
+            "2/2"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P2": {
+          "U": [],
+          "X": [
+            "0/1"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P3": {
+          "U": [],
+          "X": [
+            "supp"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P4": {
+          "U": [],
+          "X": [
+            "choice"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P5a": {
+          "U": [],
+          "X": [],
+          "verdict": "P",
+          "winner": 0
+        },
+        "P5b": {
+          "U": [],
+          "X": [
+            "choice"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "P6": {
+          "U": [
+            "emission"
+          ],
+          "X": [],
+          "verdict": "U",
+          "winner": null
+        },
+        "P7": {
+          "U": [
+            "emission"
+          ],
+          "X": [
+            "0/1"
+          ],
+          "verdict": "M",
+          "winner": null
+        },
+        "S1": {
+          "U": [],
+          "X": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "atoms": {
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "flags.hash_randomization": [
+              "conflict"
+            ],
+            "flags.ignore_environment": [
+              "conflict"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "minXU": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "verdict": "M"
+        },
+        "S2": {
+          "U": [],
+          "X": [],
+          "atoms": {
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "flags.hash_randomization": [
+              "pass"
+            ],
+            "flags.ignore_environment": [
+              "pass"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [],
+          "minXU": [],
+          "verdict": "P"
+        },
+        "S3": {
+          "U": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "X": [],
+          "atoms": {
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "flags.hash_randomization": [
+              "missing"
+            ],
+            "flags.ignore_environment": [
+              "missing"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [],
+          "minXU": [
+            "flags.hash_randomization",
+            "flags.ignore_environment"
+          ],
+          "verdict": "U"
+        },
+        "S4a": {
+          "U": [],
+          "X": [],
+          "atoms": {
+            "env.CUDA_DEVICE_ORDER": [
+              "pass"
+            ],
+            "env.CUDA_VISIBLE_DEVICES": [
+              "pass"
+            ],
+            "env.HF_HUB_OFFLINE": [
+              "pass"
+            ],
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "env.PYTHONNOUSERSITE": [
+              "pass"
+            ],
+            "env.TRANSFORMERS_OFFLINE": [
+              "pass"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [],
+          "minXU": [],
+          "verdict": "P"
+        },
+        "S4b": {
+          "U": [],
+          "X": [
+            "env.PYTHONUTF8",
+            "flags.utf8_mode"
+          ],
+          "atoms": {
+            "env.CUDA_DEVICE_ORDER": [
+              "pass"
+            ],
+            "env.CUDA_VISIBLE_DEVICES": [
+              "pass"
+            ],
+            "env.HF_HUB_OFFLINE": [
+              "pass"
+            ],
+            "env.PYTHONHASHSEED": [
+              "pass"
+            ],
+            "env.PYTHONNOUSERSITE": [
+              "pass"
+            ],
+            "env.PYTHONUTF8": [
+              "conflict"
+            ],
+            "env.TRANSFORMERS_OFFLINE": [
+              "pass"
+            ],
+            "flags.utf8_mode": [
+              "conflict"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "env.PYTHONUTF8"
+          ],
+          "minXU": [
+            "env.PYTHONUTF8"
+          ],
+          "verdict": "M"
+        },
+        "S5": {
+          "U": [
+            "loaded.torch.origin"
+          ],
+          "X": [
+            "import.sibling.timing"
+          ],
+          "atoms": {
+            "import.sibling.timing": [
+              "failed"
+            ],
+            "loaded.torch.origin": [
+              "missing"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "import.sibling.timing"
+          ],
+          "minXU": [
+            "import.sibling.timing"
+          ],
+          "verdict": "M"
+        },
+        "S6": {
+          "U": [
+            "env.PYTHONCASEOK"
+          ],
+          "X": [
+            "env.PYTHONPATH"
+          ],
+          "atoms": {
+            "dist.triton": [
+              "pass"
+            ],
+            "env.PYTHONCASEOK": [
+              "missing"
+            ],
+            "env.PYTHONPATH": [
+              "conflict"
+            ]
+          },
+          "deferred": [],
+          "deferred_unbound": [],
+          "minX": [
+            "env.PYTHONPATH"
+          ],
+          "minXU": [
+            "env.PYTHONCASEOK",
+            "env.PYTHONPATH"
+          ],
+          "verdict": "M"
+        },
+        "S7": {
+          "U": [],
+          "X": [
+            "exec.sys_executable"
+          ],
+          "atoms": {
+            "exec.sys_executable": [
+              "deferred",
+              "static_conflict"
+            ]
+          },
+          "deferred": [
+            "exec.sys_executable"
+          ],
+          "deferred_unbound": [],
+          "minX": [
+            "exec.sys_executable"
+          ],
+          "minXU": [
+            "exec.sys_executable"
+          ],
+          "verdict": "M"
+        }
+      },
+      "cases_evaluated": 49,
+      "differences_vs_peer_expected": [],
+      "full_record_agreements_vs_peer_expected": 49
+    }
+  },
+  "peer_schema": "wp46-claude-challenges/1",
+  "schema": "wp0046-control-r1-peer-eval/1",
+  "source_revision": "e43af2e263f55478d1d551a5a095536b042589c2"
+}

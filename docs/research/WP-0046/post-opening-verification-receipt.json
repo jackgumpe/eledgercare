@@ -1,0 +1,117 @@
+{
+  "author": "eld-owner-probe",
+  "executed_post_freeze_checks": [
+    {
+      "command": "python -I -B docs/research/WP-0046/build_register_r1.py --verify",
+      "exit_code": 0,
+      "result": {
+        "Pi_1a_unbound_in_scope": [
+          "cpu.entry.coordinator_roots_manifest",
+          "cpu.entry.stage1a_source_pin",
+          "static.venv.pth_inventory",
+          "static.venv.pyvenv_cfg"
+        ],
+        "extended_obligations_count": 44,
+        "original_118_count": 118,
+        "total_obligations_count": 162,
+        "verified": true
+      }
+    },
+    {
+      "command": "python -I -B docs/research/WP-0046/controls_r1.py --cases docs/research/WP-0046/control_cases.json --out docs/research/WP-0046/post-opening-self-controls.json",
+      "exit_code": 0,
+      "result": {
+        "cases_total": 16,
+        "expected_matches": 16,
+        "expected_mismatches": 0,
+        "verdict_counts": {
+          "M": 12,
+          "P": 3,
+          "U": 1
+        }
+      }
+    },
+    {
+      "command": "python -I -B docs/research/WP-0046/controls_r1.py --claude-cases @peer_exchange/docs/reviews/WP-0046/challenges/cases.json --claude-expected @peer_exchange/docs/reviews/WP-0046/expectations/expected.json --out docs/research/WP-0046/post-opening-claude-eval.json",
+      "exit_code": 0,
+      "result": {
+        "amended_r1_agreements": 47,
+        "amended_r1_diff_ids": [
+          "P3",
+          "L3"
+        ],
+        "amended_r1_principled_diffs": [
+          {
+            "amended_r1_got": {
+              "U": [],
+              "X": [
+                "oob",
+                "supp"
+              ],
+              "verdict": "M",
+              "winner": null
+            },
+            "diff_keys": [
+              "X"
+            ],
+            "id": "P3",
+            "peer_expected": {
+              "U": [],
+              "X": [
+                "supp"
+              ],
+              "verdict": "M",
+              "winner": null
+            }
+          },
+          {
+            "amended_r1_got": {
+              "result": true
+            },
+            "diff_keys": [
+              "result"
+            ],
+            "id": "L3",
+            "peer_expected": {
+              "result": "outside_domain"
+            }
+          }
+        ],
+        "cases_total": 49,
+        "paper_r1_strict_agreements": 49,
+        "paper_r1_strict_diff_ids": []
+      }
+    }
+  ],
+  "frozen_r1_deliverable_commit": "7ededc5344d896ba82d7a8fa57e58eb7d1bd8652",
+  "frozen_r1_file_sha256": {
+    "build_register_r1.py": "a92362d7e11c09569bfd36f8f128211b883c206d6cbe01300a175600193ef3db",
+    "controls_r1.py": "82314760f72bc5d2856b07938202bbe5c03613c122a845201e1ef798a7395547",
+    "corrigenda-r1.md": "ca2028453fad500890ccf7c42c27af2ce5973a6365c01da1e01c97816f6964e4",
+    "exchange.md": "98aef3ffea1f7b5eaa8f92362e17c4b78c501b3d92edf17cca358e8f9112eb5c",
+    "proposal-r1.md": "9bc873e88ff8dae5400453052bda515f33e1d0d93ff9e93ade8b4442c71fb317",
+    "register-r1.json": "1876767176589dd076151810f3905f2a08a6638823d7aebd4d5565fc2c995c26"
+  },
+  "host_profile_probes_in_exchange_turn": 0,
+  "hygiene_leaks": 0,
+  "immutable_turn1_commits": {
+    "deliverable_freeze": "6fa242950ffd4dfd1d19accc9271e88aada2d552",
+    "offline_evidence": "84d6934d96c69fd37d6fe2afde2d24dd1c431a24"
+  },
+  "model": "Gemini 4 Neon (XHigh) via local agy CLI (xhigh requested)",
+  "peer_exchange_source": {
+    "manifest_files_verified": "15/15",
+    "peer_branch": "review/wp-0046-direct-stock",
+    "peer_expectation_freeze": "cffc9101e769bc6f7ab11fdb4137401f8f228490",
+    "peer_role": "eld-rd-reviewer",
+    "peer_tip": "1c9690b9eab22dfdf0c943815f5440e6563f2350"
+  },
+  "post_opening_evidence_file_sha256": {
+    "post-opening-claude-eval.json": "9d35828f44010bd0444cbaea5a5a80d0b741d885af73631ab26551f0ec213de9",
+    "post-opening-self-controls.json": "9213cd5e89d22770c4e7667949c90e8b132b1a4f584f99adff73caf2892848a5"
+  },
+  "prospective_target_runs": 0,
+  "reference_commit": "e43af2e263f55478d1d551a5a095536b042589c2",
+  "schema": "wp0046-post-opening-verification-receipt/1",
+  "status": "disclosed_post_opening_offline_evidence"
+}
