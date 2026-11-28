@@ -1,0 +1,16 @@
+{
+  "schema": "wp46-claude-reference-predictions/1",
+  "author": "eld-rd-reviewer",
+  "status": "Inspection-only predictions of what the bundle's amendments.py reference functions would return if called on these challenges. Not executed: this assignment restricts bundle execution to python -I check.py. Any later role may call the functions on ../challenges/cases.json and compare.",
+  "bundle_file": "amendments.py, SHA-256 f9fbc7407ecd017cf38da32f5809226d676c53dab606b37d8b66e9a50d540268",
+  "predictions": {
+    "I3": {"call": "inventory(MISSING, ['a','b'], ['a'], [True, True])", "predicted": "U", "paper_required": "M", "reason": "the first branch returns U whenever the schema is MISSING, before the decidable read-versus-inventory conjunct is evaluated"},
+    "I5": {"call": "inventory(['a','b'], ['a','b'], ['a','b'], [True, True])", "predicted": "P", "paper_required": "M", "reason": "no physical-object input; T3a requires unique physical object bindings"},
+    "I6a": {"call": "inventory(['a','b'], ['a','b'], ['b','a'], [True, True])", "predicted": "P", "paper_required": "M only when ordering affects the computation", "reason": "multiset comparison only; the ordered projection is not modelled"},
+    "D6": {"call": "minimal({'a','c'}, {('a','b'),('b','c')})", "predicted": ["a", "c"], "paper_required": ["a"], "reason": "minimality uses the supplied pairs without transitive closure"},
+    "J3": {"call": "eligible('r1', {'r1':'P'}, rows with positions 1445..1449, range(1445,1450), True, True)", "predicted": true, "paper_required": false, "reason": "row key is the position only; label and arm of K are not compared"},
+    "J4": {"call": "same as J3 with the untouched-arm row", "predicted": true, "paper_required": false, "reason": "row key is the position only"},
+    "P7": {"call": "score([one, nan], [one, nan], [one, nan], set(), set(), MISSING)", "predicted": [[["raw", 1]], ["emission"]], "paper_required": "reading B; see expected.json reading_notes.P7", "reason": "emission missing is added regardless of faults"},
+    "A2a": {"call": "assessment(1, [('h',1,[{0}],0), ('private.parity',3,[MISSING],MISSING)])", "predicted": ["U", [], ["private.parity"], ["private.parity"]], "paper_required": "open (scoped-plan reading)", "reason": "a missing prescription enters missing before deferral, i.e. the whole_plan reading"}
+  }
+}
