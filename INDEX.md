@@ -1664,3 +1664,14 @@ The independent final audit found an additional bridge false pass (XB1) and retu
 ### WP-0046 disposition
 
 Stage 0 is complete. Both providers returned two independent first positions, exchanged arguments and reconciled the final finite evidence. The coordinator holds Stage 1a and all later runs. [Separate verdicts and exact missing bindings](docs/coordination/WP-0046/disposition.json) and [provider receipts](docs/coordination/WP-0046/provider-receipts.json).
+
+### WP-0046 verified publication
+
+| Publication | Immutable commit |
+| --- | --- |
+| [eld-owner-probe](https://github.com/jackgumpe/eledgercare/blob/dd7982dc7d8a1c468bf90704d8fb01c60e91c7b5/docs/agent-reports/eld-owner-probe/WP-0046/001_2026-11-28_design_eld-owner-probe.md) | dd7982dc7d8a1c468bf90704d8fb01c60e91c7b5 |
+| [eld-rd-reviewer](https://github.com/jackgumpe/eledgercare/blob/c9bc4015877224d2d5fe2dfb3cd39bb0dc600b80/docs/agent-reports/eld-rd-reviewer/WP-0046/002_2026-11-28_review_eld-rd-reviewer.md) | c9bc4015877224d2d5fe2dfb3cd39bb0dc600b80 |
+| [eld-coordinator](https://github.com/jackgumpe/eledgercare/blob/aa96db89ba7a6cc0ff029b22152f5734dda0a187/docs/agent-reports/eld-coordinator/WP-0046/003_2026-11-28_verification_eld-coordinator.md) | aa96db89ba7a6cc0ff029b22152f5734dda0a187 |
+| [eld-owner-probe closing reply](https://github.com/jackgumpe/eledgercare/blob/655c17500e077b0f3ff34ed93b3de02979b67510/docs/agent-reports/eld-owner-probe/WP-0046/004_2026-11-28_research_eld-owner-probe.md) | 655c17500e077b0f3ff34ed93b3de02979b67510 |
+
+All 92 changed files at report tip aa96db89ba7a6cc0ff029b22152f5734dda0a187 were downloaded and byte-verified. [Receipt](docs/coordination/WP-0046/publication-receipt.json)
