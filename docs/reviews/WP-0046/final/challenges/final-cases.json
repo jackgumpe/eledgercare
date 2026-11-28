@@ -1,0 +1,19 @@
+{
+  "schema": "wp46-claude-final-cases/1",
+  "author": "eld-rd-reviewer",
+  "status": "post-opening, label-free bridge cases in the peer controls_r2.py batch schema (kind bridge_delta); answers in ../expectations/final-expected.json. Not blind.",
+  "cases": [
+    {"case_id": "XB1", "kind": "bridge_delta", "input": {"Plan_2": true, "Rev_2": true, "declared_deltas": ["CUDA_VISIBLE_DEVICES"],
+      "preflight": {"verdict": "P", "projection": {"route": {"state": "present", "value": "direct-stock"}, "CUDA_VISIBLE_DEVICES": {"state": "present", "value": "GPU-X"}}},
+      "stage2": {"projection": {"route": {"state": "present", "value": "direct-stock"}, "CUDA_VISIBLE_DEVICES": {"state": "present", "value": "GPU-Y"}}}}},
+    {"case_id": "XB2", "kind": "bridge_delta", "input": {"Plan_2": true, "Rev_2": true, "declared_deltas": ["CUDA_VISIBLE_DEVICES"],
+      "preflight": {"verdict": "P", "projection": {"route": {"state": "present", "value": "direct-stock"}, "PYTHONUTF8": {"state": "present", "value": "1"}}},
+      "stage2": {"projection": {"route": {"state": "present", "value": "direct-stock"}, "PYTHONUTF8": {"state": "absent"}}}}},
+    {"case_id": "XB3", "kind": "bridge_delta", "input": {"Plan_2": true, "Rev_2": true, "declared_deltas": [],
+      "preflight": {"verdict": "P", "projection": {"route": {"state": "present", "value": "direct-stock"}, "debugger_attachment": {"state": "present", "value": "DEBUG_ONLY_THIS_PROCESS"}}},
+      "stage2": {"projection": {"route": {"state": "present", "value": "direct-stock"}}}}},
+    {"case_id": "XB4", "kind": "bridge_delta", "input": {"Plan_2": true, "Rev_2": true, "declared_deltas": ["CUDA_VISIBLE_DEVICES"],
+      "preflight": {"verdict": "P", "projection": {"route": {"state": "present", "value": "direct-stock"}, "CUDA_VISIBLE_DEVICES": {"state": "present", "value": ""}}},
+      "stage2": {"projection": {"route": {"state": "present", "value": "direct-stock"}, "CUDA_VISIBLE_DEVICES": {"state": "present", "value": "GPU-Y"}}}}}
+  ]
+}
